@@ -14,8 +14,8 @@
 
     <meta property="og:title" content="BlinkTrade - Open source bitcoin exchange">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://blinktrade.com/">
-    <meta property="og:image" content="https://blinktrade.com/images/blinktrade-demo.png">
+    <meta property="og:url" content="https://blinktrade.com/demo/">
+    <meta property="og:image" content="https://blinktrade.com/demo/images/blinktrade-demo.png">
     <meta property="og:description" content="Trade Bitcoins safely with a BlinkTrade Demo Bitcoin broker.
   The BlinkTrade Demo community allows anyone to start their own brokerage in their home country and enforces
   transparency and security among all of it's members.">
@@ -57,7 +57,7 @@
 <div id="id_toolbar" class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-inner">
         <div class="container">
-            <a class="brand" href="/start"><img src="/images/blinktrade-demo.png" style="
+            <a class="brand" href="/start"><img src="./images/blinktrade-demo.png" style="
             height: 55px;
             margin-top: -10px;
             margin-bottom: -41px;
@@ -87,7 +87,7 @@
 <!-- landing page-->
 <div id="start" class="page  row-fluid bitex-view">
     <header class="jumbotron">
-        <img src="/images/blinktrade-demo.png" style="">
+        <img src="./images/blinktrade-demo.png" style="">
 
         <p class="lead bitex-view-title bitex-view-title">See our open source Bitcoin exchange in action</p>
 
@@ -695,7 +695,7 @@
 
 <script>
     var app = new BlinkTradeApp('US', 5);
-    app.run();
+    app.run('wss://demo.blinktrade.com/trade/');
 </script>
 
 </div>
