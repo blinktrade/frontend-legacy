@@ -9369,7 +9369,7 @@ $bitex$ui$MarketViewTable$$.prototype.$onTableClick_$ = function $$bitex$ui$Mark
 };
 // Input 163
 function $bitex$ui$SimpleChart$templates$SimpleChart$$($opt_data$$46$$) {
-  return'<iframe id="HighChartIFrame" allowtransparency="true" src="' + ($opt_data$$46$$.$symbol$ ? "/chart.html?s=" + $soy$$0$0escapeHtml$$($opt_data$$46$$.$symbol$) : "") + '" data-symbol="' + ($opt_data$$46$$.$symbol$ ? "/chart.html?s=" + $soy$$0$0escapeHtml$$($opt_data$$46$$.$symbol$) : "") + '" style="width: 100%; height: ' + ($opt_data$$46$$.height ? $soy$$0$0escapeHtml$$($opt_data$$46$$.height) : "400") + 'px" frameborder="0" scrolling="no"></iframe>'
+  return'<iframe id="HighChartIFrame" allowtransparency="true" src="' + ($opt_data$$46$$.$symbol$ ? "./chart.html?s=" + $soy$$0$0escapeHtml$$($opt_data$$46$$.$symbol$) : "") + '" data-symbol="' + ($opt_data$$46$$.$symbol$ ? "./chart.html?s=" + $soy$$0$0escapeHtml$$($opt_data$$46$$.$symbol$) : "") + '" style="width: 100%; height: ' + ($opt_data$$46$$.height ? $soy$$0$0escapeHtml$$($opt_data$$46$$.height) : "400") + 'px" frameborder="0" scrolling="no"></iframe>'
 }
 ;
 // Input 164
