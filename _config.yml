@@ -3,6 +3,7 @@ title: "Blinktrade"
 email: "contact@blinktrade.com"
 description: "Blinktrade demonstration exchange"
 baseurl: ""
+author: "BlinkTrade"
 keywords: "bitcoin, bitcoin exchange, bitcoin decentralized exchange"
 url: "//demo.blinktrade.com"
 default_country_code: "US"
@@ -14,10 +15,11 @@ zopim_key: "2SSNIzvxy8fBypKoZJ0pI43tUoNCv8os"
 # Build settings
 markdown: kramdown
 
-exclude: ./jsdev
-source: .
+
+exclude:     [ "./jsdev/", "LICENSE", "README.md", "config.rb" ]
+source:      .
 destination: ./_site
-plugins: ./_plugins
-#paginate: 5
-#paginate_path: "blog/page:num"
-#permalink: /blog/:title/
+plugins:     ./_plugins
+paginate:    5
+paginate_path: "blog/page:num"
+permalink:     /blog/:title/
