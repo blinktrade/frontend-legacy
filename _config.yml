@@ -14,6 +14,7 @@ zopim_key: "2SSNIzvxy8fBypKoZJ0pI43tUoNCv8os"
 # Build settings
 markdown: kramdown
 
+exclude: ./jsdev
 source: .
 destination: ./_site
 plugins: ./_plugins
