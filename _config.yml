@@ -1,0 +1,22 @@
+# Site settings
+title: "Blinktrade"
+email: "contact@blinktrade.com"
+description: "Blinktrade demonstration exchange"
+baseurl: ""
+keywords: "bitcoin, bitcoin exchange, bitcoin decentralized exchange"
+url: "//demo.blinktrade.com"
+default_country_code: "US"
+blinktrade_broker_id: 1
+blinktrade_backend_api: "wss://test.api.blinktrade.com/"
+google_analytics_id: "UA-53856711-1"
+zopim_key: "2SSNIzvxy8fBypKoZJ0pI43tUoNCv8os"
+
+# Build settings
+markdown: kramdown
+
+source: .
+destination: ./_site
+plugins: ./_plugins
+#paginate: 5
+#paginate_path: "blog/page:num"
+#permalink: /blog/:title/
