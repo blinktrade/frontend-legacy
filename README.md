@@ -53,23 +53,23 @@ The file structure for the project is organized in the following way:
 `-- index.html
 ```
 
-### [_includes](https://github.com/blinktrade/blinktrade.github.io/_includes)
+### [_includes](https://github.com/blinktrade/demo/_includes)
 
 They're blocks of code used to generate the main page of the site (index.html).
 
-### [_layouts](https://github.com/blinktrade/blinktrade.github.io/_layouts)
+### [_layouts](https://github.com/blinktrade/demo/_layouts)
 
 Here you'll find the default template of the application.
 
-### [_posts](https://github.com/blinktrade/blinktrade.github.io/_posts)
+### [_posts](https://github.com/blinktrade/demo/_posts)
 
 Here you'll find a list of files for each post.
 
-### [_config.yml](https://github.com/blinktrade/blinktrade.github.io/_config.yml)
+### [_config.yml](https://github.com/blinktrade/demo/_config.yml)
 
 It stores most of the settings of the application.
 
-### [index.html](https://github.com/blinktrade/blinktrade.github.io/index.html)
+### [index.html](https://github.com/blinktrade/demo/index.html)
 
 It's the file responsible for all application sections.
 
