@@ -2,7 +2,7 @@
 layout: post
 title:  "Welcome to Blinktrade!"
 date:   2014-09-19 00:37:47
-categories: jekyll update
+categories: blinktrade update
 ---
 
 TODO

@@ -163,7 +163,7 @@ bitex.app.UrlRouter.prototype.setView = function(view_name) {
 
 bitex.app.UrlRouter.prototype.init = function(){
   this.history_ = new goog.history.Html5History();
-  this.history_.setUseFragment(false);
+  this.history_.setUseFragment(true);
 
   this.history_.addEventListener( goog.history.EventType.NAVIGATE, this.onNavigate_, undefined, this);
   this.history_.setEnabled(true);

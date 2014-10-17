@@ -3,16 +3,12 @@ layout:       application
 title:        Blinktrade demo exchange
 body_classes: ws-not-connected bitex-not-logged active-view-start
 ---
-    <!-- .head -->
-    <div class="container">
 
       <!-- landing page-->
       <div id="start" class="page  row-fluid bitex-view">
         <header class="jumbotron">
-          <img src="{{ site.url }}/assets/img/blinktrade-demo-main-logo.png"
-          style="">
-          <p class="lead bitex-view-title bitex-view-title">See our open source
-          Bitcoin exchange in action</p>
+          <img src="{{ site.landing_logo }}" style="">
+          <p class="lead bitex-view-title bitex-view-title">See our open source Bitcoin exchange in action</p>
           <b>Exchange operator Profile:</b>
           <p class="text-center">
             username: exchange<br/>
@@ -27,24 +23,19 @@ body_classes: ws-not-connected bitex-not-logged active-view-start
 
 
         <div class="bitex-view-content">
-          <div class="row bitex-hide-if-logged bitex-view-content"
-          style="text-align: center;">
+          <div class="row bitex-hide-if-logged bitex-view-content" style="text-align: center;">
             <form action="" class="form-inline">
               <div class="row-fluid">
                 <label for="id_landing_username">Username:</label>
-                <input class="focus" id="id_landing_username" placeholder=""
-                size="30" type="text">
+                <input class="focus" id="id_landing_username" placeholder="" size="30" type="text">
                 <label for="id_landing_password">Password:</label>
-                <input id="id_landing_password" placeholder="" size="30"
-                type="password">
-                <button id="id_landing_signin" class="btn
-                btn-primary">Login</button>
+                <input id="id_landing_password" placeholder="" size="30"  type="password">
+                <button id="id_landing_signin" class="btn btn-primary">Login</button>
               </div>
               <div class="clearfix" style="height: 20px"></div>
               <div class="row-fluid">
                               <span class="text-center">
-                                <a href="" class="btn btn-success btn-large"
-                                data-switch-view="signup">Signup</a>
+                                <a href="" class="btn btn-success btn-large" data-switch-view="signup">Signup</a>
                               </span>
               </div>
             </form>
@@ -58,21 +49,16 @@ body_classes: ws-not-connected bitex-not-logged active-view-start
         <div class="page-header">
           <h1 class="bitex-view-title">Signup</h1>
         </div>
-        <p>Already registered? <a href="#"
-        data-switch-view="signin">Login</a>.</p>
+        <p>Already registered? <a href="#" data-switch-view="signin">Login</a>.</p>
 
         <div class="bitex-view-content">
-          <form accept-charset="UTF-8" class="form-horizontal" id="new_user"
-          method="post">
+          <form action="" accept-charset="UTF-8" class="form-horizontal" id="new_user" method="post">
             <div class="control-group">
               <label class="control-label">Username</label>
 
               <div class="controls">
-                <input id="id_signup_username" name="Username" size="30"
-                type="text" placeholder="">
-
-                <p class="help-block">Your username will be public available to
-                everybody.</p>
+                <input id="id_signup_username" name="Username" size="30" type="text" placeholder="">
+                <p class="help-block">Your username will be public available to everybody.</p>
               </div>
             </div>
 
@@ -80,8 +66,7 @@ body_classes: ws-not-connected bitex-not-logged active-view-start
               <label class="control-label">Email address</label>
 
               <div class="controls">
-                <input id="id_signup_email" name="Email" size="30" type="text"
-                placeholder="eg.: joe@doe.com">
+                <input id="id_signup_email" name="Email" size="30" type="text" placeholder="eg.: joe@doe.com">
               </div>
             </div>
 
@@ -89,34 +74,27 @@ body_classes: ws-not-connected bitex-not-logged active-view-start
               <label class="control-label">Password</label>
 
               <div class="controls">
-                <input id="id_signup_password" name="Password" size="30"
-                type="password">
-
+                <input id="id_signup_password" name="Password" size="30" type="password">
                 <p class="help-block">At least 8 characters</p>
               </div>
             </div>
 
             <div class="control-group">
               <label class="control-label">Confirm your password</label>
-
               <div class="controls">
-                <input id="id_signup_password2" name="Password2" size="30"
-                type="password">
+                <input id="id_signup_password2" name="Password2" size="30" type="password">
               </div>
             </div>
 
             <div class="control-group" style="">
               <label class="control-label">Country</label>
-
               <div class="controls">
                 <select id="id_signup_country" name="country"></select>
               </div>
             </div>
 
-            <div id="id_signup_state_group" class="control-group"
-            style="display: none">
+            <div id="id_signup_state_group" class="control-group" style="display: none">
               <label class="control-label">State or Province</label>
-
               <div class="controls">
                 <select id="id_signup_state" name="state"></select>
               </div>
@@ -124,14 +102,12 @@ body_classes: ws-not-connected bitex-not-logged active-view-start
 
             <div class="control-group" style="display: none;">
               <label class="control-label">Broker</label>
-
               <div class="controls">
                 <select id="id_signup_broker" name="broker"></select>
               </div>
             </div>
             <div class="control-group">
               <label class="control-label"></label>
-
               <div class="controls">
                 <div id="signup_broker_details"></div>
               </div>
@@ -139,12 +115,10 @@ body_classes: ws-not-connected bitex-not-logged active-view-start
 
             <div class="control-group">
               <label class="control-label">Terms of service</label>
-
               <div class="controls">
                 <label class="checkbox">
                   <input id="user_agreed_tos" name="" type="checkbox" checked>
-                  I agree with <a href="#" data-switch-view="tos">terms terms of
-                  service</a>.
+                  I agree with <a href="#" data-switch-view="tos">terms terms of service</a>.
                 </label>
               </div>
             </div>
@@ -164,30 +138,26 @@ body_classes: ws-not-connected bitex-not-logged active-view-start
         <div class="page-header">
           <h1 class="bitex-view-title">Login</h1>
         </div>
-        <p>Don't have an account? <a href="#"
-        data-switch-view="signup">Register</a></p>
+        <p>Don't have an account? <a href="#" data-switch-view="signup">Register</a></p>
 
         <div class="bitex-view-content">
           <form accept-charset="UTF-8" action="" method="post">
             <div class="clearfix">
               <label for="id_username">Username</label>
 
-              <div class="input"><input autocapitalize="off" autocorrect="off"
-              id="id_username" name="username"
-                                        type="text" placeholder=""></div>
+              <div class="input">
+                <input autocapitalize="off" autocorrect="off" id="id_username" name="username" type="text" placeholder=""></div>
             </div>
             <div class="clearfix">
               <label for="id_password">Password</label>
-
-              <div class="input"><input id="id_password" placeholder=""
-              name="password" type="password"></div>
+              <div class="input">
+                <input id="id_password" placeholder="" name="password" type="password">
+              </div>
             </div>
-            <p><a href="#" data-switch-view="forgot_password">Forgot your
-            password?</a></p>
+            <p><a href="#" data-switch-view="forgot_password">Forgot your password?</a></p>
 
             <div class="actions">
-              <input id="id_btn_login" class="btn btn-primary" name="commit"
-              type="submit" value="Login">
+              <input id="id_btn_login" class="btn btn-primary" name="commit" type="submit" value="Login">
             </div>
           </form>
         </div>
@@ -202,15 +172,12 @@ body_classes: ws-not-connected bitex-not-logged active-view-start
             <div class="clearfix">
               <label for="id_forgot_password_email">e-mail</label>
 
-              <div class="input"><input autocapitalize="off" autocorrect="off"
-              id="id_forgot_password_email"
-                                        name="email" type="text"
-                                        placeholder=""></div>
+              <div class="input">
+                <input autocapitalize="off" autocorrect="off" id="id_forgot_password_email" name="email" type="text" placeholder="">
+              </div>
             </div>
             <div class="actions">
-              <input id="id_btn_forgot_password" class="btn btn-primary"
-              name="commit" type="submit"
-                     value="Recover password">
+              <input id="id_btn_forgot_password" class="btn btn-primary" name="commit" type="submit" value="Recover password">
             </div>
           </form>
         </div>
@@ -582,5 +549,5 @@ body_classes: ws-not-connected bitex-not-logged active-view-start
         </div>
         <div class="bitex-view-content well"></div>
       </div>
-    </div>
+
 

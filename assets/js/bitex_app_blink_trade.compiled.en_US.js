@@ -7774,7 +7774,7 @@ $bitex$app$UrlRouter$$.prototype.$setView$ = function $$bitex$app$UrlRouter$$$$$
 };
 $bitex$app$UrlRouter$$.prototype.init = function $$bitex$app$UrlRouter$$$$init$() {
   var $JSCompiler_StaticMethods_setUseFragment$self$$inline_764$$ = this.$history_$ = new $goog$history$Html5History$$;
-  $JSCompiler_StaticMethods_setUseFragment$self$$inline_764$$.$useFragment_$ != $JSCompiler_alias_FALSE$$ && ($goog$events$unlisten$$($JSCompiler_StaticMethods_setUseFragment$self$$inline_764$$.$window_$, "hashchange", $JSCompiler_StaticMethods_setUseFragment$self$$inline_764$$.$onHistoryEvent_$, $JSCompiler_alias_FALSE$$, $JSCompiler_StaticMethods_setUseFragment$self$$inline_764$$), $JSCompiler_StaticMethods_setUseFragment$self$$inline_764$$.$useFragment_$ = $JSCompiler_alias_FALSE$$);
+  $JSCompiler_StaticMethods_setUseFragment$self$$inline_764$$.$useFragment_$ != $JSCompiler_alias_TRUE$$ && ($goog$events$listen$$($JSCompiler_StaticMethods_setUseFragment$self$$inline_764$$.$window_$, "hashchange", $JSCompiler_StaticMethods_setUseFragment$self$$inline_764$$.$onHistoryEvent_$, $JSCompiler_alias_FALSE$$, $JSCompiler_StaticMethods_setUseFragment$self$$inline_764$$), $JSCompiler_StaticMethods_setUseFragment$self$$inline_764$$.$useFragment_$ = $JSCompiler_alias_TRUE$$);
   this.$history_$.addEventListener("navigate", this.$onNavigate_$, $JSCompiler_alias_VOID$$, this);
   this.$history_$.$setEnabled$($JSCompiler_alias_TRUE$$)
 };
@@ -9369,7 +9369,7 @@ $bitex$ui$MarketViewTable$$.prototype.$onTableClick_$ = function $$bitex$ui$Mark
 };
 // Input 163
 function $bitex$ui$SimpleChart$templates$SimpleChart$$($opt_data$$46$$) {
-  return'<iframe id="HighChartIFrame" allowtransparency="true" src="' + ($opt_data$$46$$.$symbol$ ? "./chart.html?s=" + $soy$$0$0escapeHtml$$($opt_data$$46$$.$symbol$) : "") + '" data-symbol="' + ($opt_data$$46$$.$symbol$ ? "./chart.html?s=" + $soy$$0$0escapeHtml$$($opt_data$$46$$.$symbol$) : "") + '" style="width: 100%; height: ' + ($opt_data$$46$$.height ? $soy$$0$0escapeHtml$$($opt_data$$46$$.height) : "400") + 'px" frameborder="0" scrolling="no"></iframe>'
+  return'<iframe id="HighChartIFrame" allowtransparency="true" src="' + ($opt_data$$46$$.$symbol$ ? "/chart.html?s=" + $soy$$0$0escapeHtml$$($opt_data$$46$$.$symbol$) : "") + '" data-symbol="' + ($opt_data$$46$$.$symbol$ ? "/chart.html?s=" + $soy$$0$0escapeHtml$$($opt_data$$46$$.$symbol$) : "") + '" style="width: 100%; height: ' + ($opt_data$$46$$.height ? $soy$$0$0escapeHtml$$($opt_data$$46$$.height) : "400") + 'px" frameborder="0" scrolling="no"></iframe>'
 }
 ;
 // Input 164

@@ -1,48 +1,50 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml">
-<head>
-  <meta charset="utf-8">
-  <title>{% if page.title %}{{ page.title }} &mdash; {% endif %} {{ site.title }}</title>
+  <head>
+    <meta charset="utf-8">
+    <title>{% if page.title %}{{ page.title }} &mdash; {% endif %} {{ site.title }}</title>
 
-  <!-- Meta -->
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
-  <meta name="keywords" content="{% if page.keywords %}{{ page.keywords}}{% else %}{{ site.keywords}}{% endif %}">
+    <!-- Meta -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+    <meta name="keywords" content="{% if page.keywords %}{{ page.keywords}}{% else %}{{ site.keywords}}{% endif %}">
 
-  <meta name="author" content="{{ site.author }}">
+    <meta name="author" content="{{ site.author }}">
 
-  <meta property="og:title" content="{% if page.title %}{{ page.title }} &mdash;{% endif %} {{ site.title }}">
-  <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
-  <meta property="og:url" content="{{ site.url }}{% if page.url != '/index.html' %}{{ page.url }}{% endif %}">
-  <meta property="og:image" content="{{ site.url }}/assets/img/fb-share.png">
-  <meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+    <meta property="og:title" content="{% if page.title %}{{ page.title }} &mdash;{% endif %} {{ site.title }}">
+    <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
+    <meta property="og:url" content="{{ site.url }}{% if page.url != '/index.html' %}{{ page.url }}{% endif %}">
+    <meta property="og:image" content="{{ site.social_network_image_share }}">
+    <meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
 
-  <!-- Favicon -->
-  <link rel="shortcut icon" href="{{ site.url }}/assets/img/favicon.png">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{{ site.url }}/assets/img/favicon.png">
 
-  <!-- Feed -->
-  <link rel="alternate" type="application/rss+xml" href="{{ site.url }}/feed.xml">
+    <!-- Feed -->
+    <link rel="alternate" type="application/rss+xml" href="{{ site.url }}/feed.xml">
 
-  <meta charset="utf-8">
+    <meta charset="utf-8">
 
-  <!--Bootstrap-->
-  <link href="{{ site.url }}/assets/css/bootstrap-combined.min.css" rel="stylesheet">
-  <link href="{{ site.url }}/assets/css/font-awesome.min.css" rel="stylesheet">
+    <!--Bootstrap-->
+    <link href="{{ site.url }}/assets/css/bootstrap-combined.min.css" rel="stylesheet">
+    <link href="{{ site.url }}/assets/css/font-awesome.min.css" rel="stylesheet">
 
-  <link href="{{ site.url }}/assets/css/Dialog.css" rel="stylesheet">
-  <link href="{{ site.url }}/assets/css/fuelux.css" rel="stylesheet">
-  <link href="{{ site.url }}/assets/css/style.css" rel="stylesheet">
-  <link href="{{ site.url }}/assets/css/default.uni-form.css" rel="stylesheet">
+    <link href="{{ site.url }}/assets/css/Dialog.css" rel="stylesheet">
+    <link href="{{ site.url }}/assets/css/fuelux.css" rel="stylesheet">
+    <link href="{{ site.url }}/assets/css/style.css" rel="stylesheet">
+    <link href="{{ site.url }}/assets/css/default.uni-form.css" rel="stylesheet">
 
-  <link rel="canonical" href="{{ site.url }}{% if page.url != '/index.html' %}{{ page.url }}{% endif %}"/>
-  <script type="text/javascript" src="//apis.google.com/js/plusone.js"></script>
+    <link rel="canonical" href="{{ site.url }}{% if page.url != '/index.html' %}{{ page.url }}{% endif %}"/>
+    <script type="text/javascript" src="//apis.google.com/js/plusone.js"></script>
 
-  <!-- bitex application -->
-  <script src="{{ site.url }}/assets/js/bitex_app_blink_trade.compiled.en_US.js" type="text/javascript"></script>
+    <!-- bitex application -->
+    <script src="{{ site.url }}/assets/js/bitex_app_blink_trade.compiled.en_US.js" type="text/javascript"></script>
 
-</head>
-<body class="{% if site.body_classes %} {{ site.body_classes }} {% endif %}">
-{% include toolbar.html %}
+  </head>
+  <body class="{% if page.body_classes %} {{ page.body_classes }} {% endif %}">
+    {% include toolbar_application.html %}
+    <!-- div.container -->
+    <div class="container">
 
 
