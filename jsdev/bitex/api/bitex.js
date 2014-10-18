@@ -1,3 +1,9 @@
+// ==ClosureCompiler==
+// @compilation_level ADVANCED_OPTIMIZATIONS
+// @output_file_name default.js
+// @use_closure_library true
+// ==/ClosureCompiler==
+
 goog.provide('bitex.api.BitEx');
 goog.provide('bitex.api.BitEx.EventType');
 goog.provide('bitex.api.BitExEvent');

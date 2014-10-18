@@ -2348,7 +2348,9 @@ bitex.app.BlinkTrade.prototype.onUserLoginOk_ = function(e) {
   goog.dom.classes.remove( document.body, 'bitex-not-logged' );
 
   this.getModel().set('UserID',           msg['UserID'] );
+  this.getModel().set('PseudoName',       bitex.util.getPseudoName(msg['UserID']))
   this.getModel().set('Username',         msg['Username']);
+  this.getModel().set('Email',            msg['Email']);
   this.getModel().set('TwoFactorEnabled', msg['TwoFactorEnabled']);
   this.getModel().set('IsBroker',         msg['IsBroker'] );
   this.getModel().set('IsVerified',       msg['Profile']['Verified'] > 1);
@@ -2396,9 +2398,67 @@ bitex.app.BlinkTrade.prototype.onUserLoginOk_ = function(e) {
     this.getModel().set('SelectedBrokerID', this.getModel().get('Broker')['BrokerID']);
   }
 
-
   this.getModel().set('AllowedMarkets', allowed_markets);
   this.getModel().set('BrokerCurrencies', broker_currencies.getValues() );
+
+  var verification_data = profile['VerificationData'];
+  if (profile['Verified'] >= 1) {
+    try{
+      if (goog.isDefAndNotNull(verification_data)){
+        verification_data = goog.json.parse(verification_data);
+      }
+    }catch(e){}
+  }
+  this.getModel().set('VerificationData', verification_data);
+
+  var verification_name = null;
+  if (goog.isArray(verification_data)) {
+    goog.array.forEach(verification_data, function(data){
+      if (goog.isObject(data)) {
+        if ( 'name' in data ) {
+          verification_name = data['name'];
+        }
+      }
+    });
+  }
+  this.getModel().set('VerificationName', verification_name);
+  this.getModel().set('DisplayName', profile['Username']);
+  if ( goog.isDefAndNotNull(verification_name))  {
+    this.getModel().set('DisplayName', verification_name['first'] + ' ' + verification_name['last']);
+  }
+
+
+  if (goog.isDefAndNotNull($zopim)) {
+    var tags = 'VerificationLevel:';
+    switch(profile['Verified']) {
+      case 0:
+        tags += 'no';
+        break;
+      case 1:
+        tags += 'pending';
+        break;
+      case 2:
+        tags += 'processing';
+        break;
+      default:
+        tags += profile['Verified'] - 2;
+        break;
+    }
+    tags += ', TwoFactorEnabled:' + profile['TwoFactorEnabled'];
+    tags += ', UserID:' + profile['ID'];
+    tags += ', NeedWithdrawEmail:' + profile['NeedWithdrawEmail'];
+    tags += ', TransactionFeeBuy:' + profile['TransactionFeeBuy'];
+    tags += ', TransactionFeeSell:' + profile['TransactionFeeSell'];
+
+    if (  this.getModel().get('DisplayName') != this.getModel().get('Username') )  {
+      tags += ', Username:' + this.getModel().get('Username');
+    }
+
+    $zopim.livechat.setName( this.getModel().get('DisplayName') );
+    $zopim.livechat.setEmail(profile['Email']);
+    $zopim.livechat.addTags(tags);
+  }
+
 
   this.conn_.requestBalances();
   if (msg['IsBroker'] ) {
