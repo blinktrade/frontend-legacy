@@ -1,0 +1,28 @@
+<div id="id_toolbar" class="navbar navbar-inverse navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="/start">
+        <img src="{{ site.toolbar_logo }}" style="
+              height: 55px;
+              margin-top: -10px;
+              margin-bottom: -41px;
+          ">
+      </a>
+
+      <ul class="nav navbar-nav pull-right">
+        <li class="bitex-display-if-logged"><a href="" data-switch-view="offerbook">Trading</a></li>
+        <li><a href="" data-switch-view="market">Market</a></li>
+        <li class="bitex-hide-if-logged"><a href="" data-switch-view="signin">Login</a></li>
+        <li class="bitex-hide-if-logged"><a href="" data-switch-view="signup">Signup</a></li>
+        <li>
+          <button id="id_button_connect_ws" class="bitex-hide-if-ws-connected btn-link"
+                  style="padding: 6px 15px 10px;">connect <i class="icon-white icon-repeat"></i></button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="clearfix" style="padding: 30px;"></div>
+
+<div id="id_notifications" class="notifications top-right" style="z-index: 9000;"></div>

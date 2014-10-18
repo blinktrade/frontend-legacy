@@ -1,0 +1,34 @@
+# Site settings
+title: "Blinktrade"
+email: "contact@blinktrade.com"
+description: "Blinktrade demonstration exchange"
+baseurl: ""
+author: "BlinkTrade"
+keywords: "bitcoin, bitcoin exchange, bitcoin decentralized exchange"
+url: "//blinktrade.com/demo"
+#url: "//localhost:4000"
+
+social_network_image_share: "./assets/img/social_network_share.png"
+logo: "./assets/img/blink_demo_landing_page_logo.png"
+toolbar_logo: "./assets/img/blink_demo_landing_page_logo.png"
+landing_logo: "./assets/img/blink_demo_landing_page_logo.png"
+
+default_country_code: "US"
+blinktrade_broker_id: 1
+#blinktrade_backend_api: "wss://test.api.blinktrade.com/"
+blinktrade_backend_api: "wss://demo.blinktrade.com/trade/"
+google_analytics_id: "UA-53856711-1"
+zopim_key: "2SSNIzvxy8fBypKoZJ0pI43tUoNCv8os"
+
+
+# Build settings
+markdown: kramdown
+
+
+exclude:     [ "jsdev", "LICENSE", "README.md", "config.rb" ]
+source:      .
+destination: ./_site
+plugins:     ./_plugins
+paginate:    5
+paginate_path: "blog/page:num"
+permalink:     /blog/:title/
