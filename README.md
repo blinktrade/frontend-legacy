@@ -70,6 +70,8 @@ The file structure for the project is organized in the following way:
 |-- _layouts
 |-- _posts
 |-- _config.yml
+|-- jsdev
+|-- assets
 |-- index.html
 ```
 
@@ -93,9 +95,13 @@ It stores most of the settings of the application.
 
 The static html page 
 
-### [_jsdev](https://github.com/blinktrade/frontend/tree/master/_jsdev)
+### [jsdev](https://github.com/blinktrade/frontend/tree/master/jsdev)
 
 The google closure javascript application
+
+### [assets](https://github.com/blinktrade/frontend/tree/master/assets)
+
+Images, CSS, Compiled Javascripts, Fonts and all static content.
 
 
 ## License
