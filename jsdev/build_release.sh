@@ -77,15 +77,6 @@ java -jar ./tools/SoyToJsSrcCompiler.jar --bidiGlobalDir 1 --shouldGenerateGoogM
   ./bitex/ui/change_password$THEME.soy
 
 
-# compile all applications
-
-# enable those flags to debug the compiled code.
-#  --compiler_flags="--debug=TRUE" \
-#  --compiler_flags="--formatting=PRETTY_PRINT" \
-#  --compiler_flags="--formatting=PRINT_INPUT_DELIMITER" \
-
-
-
 # BlinkTrade Application - enUS
 python ./closure-library/closure/bin/build/closurebuilder.py  \
   --root=./closure-library/ \
@@ -103,16 +94,17 @@ python ./closure-library/closure/bin/build/closurebuilder.py  \
   --compiler_flags="--externs=./externs/plusone.js" \
   --compiler_flags="--externs=./externs/jquery-1.9.js" \
   --compiler_flags="--externs=./externs/twitter-bootstrap.js" \
+  --compiler_flags="--externs=./externs/google_analytics_api.js" \
   --compiler_flags="--externs=./externs/parsley.js" \
   --compiler_flags="--externs=./externs/jquerymobile-1.4.3.js" \
   --compiler_flags="--externs=./externs/sticky.js" \
   --compiler_flags="--externs=./externs/facebook_javascript_sdk.js" \
   --compiler_flags="--translations_project='bitex'" \
   --compiler_flags="--translations_file=./translations/en.xtb.xml" \
-   > ../assets/js/bitex_app_blink_trade.compiled.en_US.js
+   > ../assets/js/bitex_app_blink_trade.compiled.en_US$THEME.js
 
+# enable those flags to debug the compiled code.
 #  --compiler_flags="--debug=TRUE" \
 #  --compiler_flags="--formatting=PRETTY_PRINT" \
 #  --compiler_flags="--formatting=PRINT_INPUT_DELIMITER" \
-
 
