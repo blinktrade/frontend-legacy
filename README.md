@@ -29,17 +29,12 @@ Blinktrade demo exchange
 $ gem install jekyll
 ```
 
-3 - Now clone the project
+3 - Navigate to the project folder
 ```sh
-$ git clone git@github.com:blinktrade/frontend
+$ cd yourgithubusername.github.io
 ```
 
-4 - Navigate to the project folder
-```sh
-$ cd frontend
-```
-
-5 - And finally run:
+4 - And finally run:
 ```sh
 $ jekyll server --watch
 ```
