@@ -1,4 +1,4 @@
-[blinktrade.com](http://blinktrade.com)
+[front-end-for-your-exchange.com](https://demo.blinktrade.com)
 
 Blinktrade demo exchange
 
@@ -18,12 +18,12 @@ $ gem install jekyll
 
 3 - Now clone the project
 ```sh
-$ git clone git@github.com:blinktrade/blinktrade.github.io.git
+$ git clone git@github.com:blinktrade/frontend
 ```
 
 4 - Navigate to the project folder
 ```sh
-$ cd blinktrade.github.io
+$ cd frontend
 ```
 
 5 - And finally run:
@@ -52,23 +52,23 @@ The file structure for the project is organized in the following way:
 `-- index.html
 ```
 
-### [_includes](https://github.com/blinktrade/demo/_includes)
+### [_includes](https://github.com/blinktrade/frontend/_includes)
 
 They're blocks of code used to generate the main page of the site (index.html).
 
-### [_layouts](https://github.com/blinktrade/demo/_layouts)
+### [_layouts](https://github.com/blinktrade/frontend/_layouts)
 
 Here you'll find the default template of the application.
 
-### [_posts](https://github.com/blinktrade/demo/_posts)
+### [_posts](https://github.com/blinktrade/frontend/_posts)
 
 Here you'll find a list of files for each post.
 
-### [_config.yml](https://github.com/blinktrade/demo/_config.yml)
+### [_config.yml](https://github.com/blinktrade/frontend/_config.yml)
 
 It stores most of the settings of the application.
 
-### [index.html](https://github.com/blinktrade/demo/index.html)
+### [index.html](https://github.com/blinktrade/frontend/index.html)
 
 It's the file responsible for all application sections.
 
@@ -83,4 +83,4 @@ _More information about Jekyll's file structure [here](https://github.com/mojomb
 5. Submit a pull request :D
 
 ## License
-[GNU GENERAL PUBLIC LICENSE](https://github.com/randsonjs/blinktrade.github.io/blob/master/LICENSE) © Blinktrade, Inc.
+[GNU GENERAL PUBLIC LICENSE](https://github.com/blinktrade/frontend/blob/master/LICENSE) © Blinktrade, Inc.
