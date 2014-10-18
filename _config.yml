@@ -5,7 +5,7 @@ description: "Blinktrade demonstration exchange"
 baseurl: ""
 author: "BlinkTrade"
 keywords: "bitcoin, bitcoin exchange, bitcoin decentralized exchange"
-url: "//blinktrade.com/demo"
+url: "//pinhopro.github.io"
 #url: "//localhost:4000"
 
 social_network_image_share: "./assets/img/social_network_share.png"
