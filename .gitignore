@@ -5,6 +5,10 @@ __pycache__/
 # C extensions
 *.so
 
+# soy.js compiled files 
+*.soy.js
+
+
 # Distribution / packaging
 .Python
 env/
