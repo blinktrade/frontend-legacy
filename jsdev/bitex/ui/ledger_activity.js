@@ -57,12 +57,13 @@ var MSG_LEDGER_ACTIVITY_TABLE_COLUMN_PAYEE = goog.getMsg('Payee');
 
 /**
  * @param {*} button_filters
+ * @param {function} pseudoNameFunction
  * @param {boolean} opt_broker_mode
  * @param {goog.dom.DomHelper=} opt_domHelper
  * @constructor
  * @extends {bitex.ui.DataGrid}
  */
-bitex.ui.LedgerActivity = function(button_filters, opt_broker_mode, opt_domHelper) {
+bitex.ui.LedgerActivity = function(button_filters, pseudoNameFunction, opt_broker_mode, opt_domHelper) {
   var broker_mode = false;
   if (opt_broker_mode === true) {
     broker_mode = opt_broker_mode;
@@ -140,9 +141,24 @@ bitex.ui.LedgerActivity = function(button_filters, opt_broker_mode, opt_domHelpe
       },
       'classes': function() { return goog.getCssName(bitex.ui.LedgerActivity.CSS_CLASS, 'description'); }
     },{
-      'property': 'PayeeName',
+      'property': 'PayeeID',
       'label': MSG_LEDGER_ACTIVITY_TABLE_COLUMN_PAYEE,
       'sortable': false,
+      'formatter': function(s, rowSet){
+        if (goog.isDefAndNotNull(rowSet['PayeeName'])) {
+          return rowSet['PayeeName'];
+        } else {
+          switch(rowSet['Description']) {
+            case 'B':
+            case 'DF':
+            case 'WF':
+            case 'TF':
+              return '';
+            default:
+              return pseudoNameFunction( s);
+          }
+        }
+      },
       'classes': function() { return goog.getCssName(bitex.ui.DepositList.CSS_CLASS, 'payee'); }
     },{
       'property': 'Amount',

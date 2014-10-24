@@ -61,13 +61,14 @@ var MSG_DEPOSIT_TABLE_COLUMN_USERNAME = goog.getMsg('Username');
 
 /**
  * @param {Array.<Object>} crypto_currencies_def
- * @param {boolean} opt_broker_mode
- * @param {boolean} opt_show_customers
+ * @param {boolean=} opt_broker_mode. Default to false
+ * @param {boolean=} opt_show_customers. Default to false
+ * @param {string=} opt_rest_url
  * @param {goog.dom.DomHelper=} opt_domHelper
  * @constructor
  * @extends {goog.ui.Component}
  */
-bitex.ui.DepositList = function( crypto_currencies_def, opt_broker_mode, opt_show_customers ,opt_domHelper) {
+bitex.ui.DepositList = function( crypto_currencies_def, opt_broker_mode, opt_show_customers,opt_rest_url ,opt_domHelper) {
   var broker_mode = false;
   if (opt_broker_mode === true) {
     broker_mode = opt_broker_mode;
@@ -249,7 +250,7 @@ bitex.ui.DepositList = function( crypto_currencies_def, opt_broker_mode, opt_sho
 
         var btn_view = goog.dom.createDom( 'a', {
           'class':'btn btn-mini btn-info btn-deposit-view',
-          'href': '/get_deposit?deposit_id=' + rowSet['DepositID'],
+          'href': opt_rest_url + '/get_deposit?deposit_id=' + rowSet['DepositID'],
           'target':'_blank'
         },MSG_DEPOSIT_TABLE_DETAILS_COLUMN_BTN_VIEW,' ' ,goog.dom.createDom( 'i', ['icon-white', 'icon-eye-open']));
 

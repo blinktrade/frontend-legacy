@@ -157,7 +157,15 @@ bitex.app.BlinkTrade.prototype.model_;
  * @type {string}
  * @private
  */
-bitex.app.BlinkTrade.prototype.url_;
+bitex.app.BlinkTrade.prototype.wss_url_;
+
+/**
+ * @type {string}
+ * @private
+ */
+bitex.app.BlinkTrade.prototype.rest_url_;
+
+
 
 /**
  * @type {bitex.api.BitEx}
@@ -247,6 +255,13 @@ bitex.app.BlinkTrade.prototype.getHandler = function() {
 
 };
 
+/**
+ * @return {string}
+ */
+bitex.app.BlinkTrade.prototype.getRestURL = function() {
+  return this.rest_url_;
+};
+
 
 bitex.app.BlinkTrade.validateBitcoinAddress_ = function(el, condition, minLength, caption) {
 
@@ -272,21 +287,13 @@ bitex.app.BlinkTrade.validateBitcoinAddress_ = function(el, condition, minLength
 }
 
 /**
- * @param {string} opt_url
+ * @param {string} host_api
  */
-bitex.app.BlinkTrade.prototype.run = function(opt_url) {
-  var protocol = 'wss:';
-  if (window.location.protocol === 'http:') {
-    protocol = 'ws:';
-  }
-  var url =  protocol + '//' + window.location.hostname + '/trade/';
-  if (goog.isDefAndNotNull(opt_url)) {
-    url = opt_url;
-  }
+bitex.app.BlinkTrade.prototype.run = function(host_api) {
+  this.rest_url_ = 'https://' + host_api;
+  this.wss_url_ = 'wss://' + host_api + '/trade/';
 
   uniform.Validators.getInstance().registerValidatorFn('validateAddress',  bitex.app.BlinkTrade.validateBitcoinAddress_);
-
-  this.url_ = url;
 
 
   // Populate all the views
@@ -549,8 +556,8 @@ bitex.app.BlinkTrade.prototype.onBitexWithdrawResponse_ = function(e) {
  * Connect to the bitex Server
  */
 bitex.app.BlinkTrade.prototype.connectBitEx = function(){
-  try{
-    this.conn_.open(this.url_);
+  try {
+    this.conn_.open(this.wss_url_);
   } catch( e ) {
     /**
      * @desc Connection error message when trying to open websockets connection for the first time
@@ -2206,9 +2213,15 @@ bitex.app.BlinkTrade.prototype.onUserDepositRequest_ = function(e){
           var msg = e.data;
           goog.soy.renderElement(dlg.getContentElement(),
                                  bitex.templates.DepositSlipContentDialog,
-                                 {deposit_id:msg['DepositID'] } );
+                                 {deposit_id:msg['DepositID'], rest_url:this.rest_url_  });
 
-          dlg.setButtonSet(bootstrap.Dialog.ButtonSet.createOk());
+          dlg.setButtonSet(bootstrap.Dialog.ButtonSet.createPrintOk() );
+
+          handler.listen(dlg, goog.ui.Dialog.EventType.SELECT, function(e) {
+            if (e.key == 'print') {
+              window.open( this.rest_url_ + '/get_deposit?deposit_id=' +  msg['DepositID'] );
+            }
+          });
         });
       }
     }

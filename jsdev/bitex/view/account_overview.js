@@ -327,12 +327,16 @@ bitex.view.AccountOverview.prototype.recreateComponents_ = function(customer) {
   }
 
 
-  goog.soy.renderElement(account_overview_header_el,bitex.templates.AccountOverviewHeader, {msg_customer_detail: customer});
+  goog.soy.renderElement(account_overview_header_el,
+                         bitex.templates.AccountOverviewHeader, {msg_customer_detail: customer});
 
   var profile = model.get('Profile');
 
   var broker = model.get('Broker');
-  this.deposit_list_table_ =  new bitex.ui.DepositList(profile['CryptoCurrencies'], true );
+  this.deposit_list_table_ =  new bitex.ui.DepositList(profile['CryptoCurrencies'],
+                                                       true,
+                                                       false,
+                                                       this.getApplication().getRestURL() );
 
   handler.listen(this.deposit_list_table_ ,
                  bitex.ui.DataGrid.EventType.REQUEST_DATA,

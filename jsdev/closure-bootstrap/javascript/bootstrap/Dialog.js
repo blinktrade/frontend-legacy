@@ -105,6 +105,33 @@ bootstrap.Dialog.ButtonSet.prototype.render = function() {
 };
 
 
+/**
+ * @desc Standard caption for the dialog 'Print' button.
+ * @private
+ */
+bootstrap.Dialog.MSG_DIALOG_PRINT_ = goog.getMsg('Print');
+
+
+/**
+ * @desc Standard caption for the dialog 'Download' button.
+ * @private
+ */
+bootstrap.Dialog.MSG_DIALOG_DOWNLOAD_ = goog.getMsg('Download');
+
+/**
+ * The standard buttons (keys associated with captions).
+ * @enum {!{key: string, caption: string}}
+ */
+bootstrap.Dialog.ButtonSet.DefaultButtons = {
+  PRINT: {
+    key: 'print',
+    caption: bootstrap.Dialog.MSG_DIALOG_PRINT_
+  },
+  DOWNLOAD: {
+    key: 'download',
+    caption: bootstrap.Dialog.MSG_DIALOG_DOWNLOAD_
+  }
+};
 
 /**
  * Creates a new ButtonSet with a single 'OK' button, which is also set with
@@ -113,6 +140,25 @@ bootstrap.Dialog.ButtonSet.prototype.render = function() {
  */
 bootstrap.Dialog.ButtonSet.createOk = function() {
   return new bootstrap.Dialog.ButtonSet().
+      addButton(goog.ui.Dialog.ButtonSet.DefaultButtons.OK, true, true);
+};
+
+/**
+ * @return {!bootstrap.Dialog.ButtonSet} The created ButtonSet.
+ */
+bootstrap.Dialog.ButtonSet.createPrintOk = function() {
+  return new bootstrap.Dialog.ButtonSet().
+      addButton(bootstrap.Dialog.ButtonSet.DefaultButtons.PRINT).
+      addButton(goog.ui.Dialog.ButtonSet.DefaultButtons.OK, true, true);
+};
+
+/**
+ * @return {!bootstrap.Dialog.ButtonSet} The created ButtonSet.
+ */
+bootstrap.Dialog.ButtonSet.createDownloadPrintOk = function() {
+  return new bootstrap.Dialog.ButtonSet().
+      addButton(bootstrap.Dialog.ButtonSet.DefaultButtons.DOWNLOAD).
+      addButton(bootstrap.Dialog.ButtonSet.DefaultButtons.PRINT).
       addButton(goog.ui.Dialog.ButtonSet.DefaultButtons.OK, true, true);
 };
 

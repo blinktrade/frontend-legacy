@@ -21,66 +21,77 @@ layout: None
         var crypto_currency = symbol.substr(0, 3);
         var currency = symbol.substr(3);
 
-        $.getJSON('/api/v1/'+ currency +'/trades?crypto_currency=' + crypto_currency, function(data) {
+        var url = '//{{ site.blinktrade_backend_api }}/api/v1/'+ currency +'/trades?crypto_currency=' + crypto_currency;
+        $.ajax({url: url,
+               type: 'GET',
+               dataType: 'jsonp',
+               error: function() { alert('Failed!'); },
+               success: function(data) {
 
-            var prices = [],
-                volume = [];
+                 var prices = [],
+                     volume = [];
 
-            $.each(data, function( index, value ) {
-                var date = value.date*1000;
-                prices.unshift([date, value.price]);
-                volume.unshift([date, value.amount]);
-            });
+                 $.each(data, function( index, value ) {
+                   var date = value.date*1000;
+                   prices.unshift([date, value.price]);
+                   volume.unshift([date, value.amount]);
+                 });
 
-            $('#container').highcharts('StockChart', {
+                 $('#container').highcharts('StockChart', {
 
-                rangeSelector : {
-                    selected : 1,
-                    inputEnabled: true
-                },
+                   rangeSelector : {
+                     selected : 1,
+                     inputEnabled: true
+                   },
 
-                yAxis: [{
-                    labels: {
-                        align: 'right',
-                        x: -3
-                    },
-                    title: {
-                        text: 'Price'
-                    },
-                    height: '60%',
-                    lineWidth: 2
-                }, {
-                    labels: {
-                        align: 'right',
-                        x: -3
-                    },
-                    title: {
-                        text: 'Volume'
-                    },
-                    top: '65%',
-                    height: '35%',
-                    offset: 0,
-                    lineWidth: 2
-                }],
+                   yAxis: [{
+                     labels: {
+                       align: 'right',
+                       x: -3
+                     },
+                     title: {
+                       text: 'Price'
+                     },
+                     height: '60%',
+                     lineWidth: 2
+                   }, {
+                     labels: {
+                       align: 'right',
+                       x: -3
+                     },
+                     title: {
+                       text: 'Volume'
+                     },
+                     top: '65%',
+                     height: '35%',
+                     offset: 0,
+                     lineWidth: 2
+                   }],
 
-                series : [{
-                    name : symbol,
-                    data : prices,
-                    tooltip: {
-                        valueDecimals: 2
-                    }
-                },
-                {
-                    name : 'Volume',
-		            type: 'column',
-                    data : volume,
-		            yAxis: 1
-                }
-                ]
-            });
+                   series : [{
+                     name : symbol,
+                     data : prices,
+                     tooltip: {
+                       valueDecimals: 2
+                     }
+                   },
+                     {
+                       name : 'Volume',
+                       type: 'column',
+                       data : volume,
+                       yAxis: 1
+                     }
+                   ]
+                 });
+
+               }
+             });
+      /*
+        $.getJSON(url, function(data) {
+
 
         });
-
+      */
     });
 
     //]]>
