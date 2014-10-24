@@ -12,7 +12,7 @@
       </div>
     </footer>
     <script>
-      var app = new BlinkTradeApp('{{ site.default_country_code }}', {{ site.blinktrade_broker_id }});
+      var app = new BlinkTradeApp({{ site.blinktrade_broker_id }}, '{{ site.default_country_code }}' );
       app.run('{{ site.blinktrade_backend_api }}');
     </script>
 

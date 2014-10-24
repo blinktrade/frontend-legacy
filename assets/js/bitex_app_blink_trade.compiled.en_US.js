@@ -8706,10 +8706,10 @@ $JSCompiler_prototypeAlias$$.close = function $$JSCompiler_prototypeAlias$$$clos
   this.$ws_$.$dispose$();
   this.$ws_$ = $JSCompiler_alias_NULL$$
 };
-$JSCompiler_prototypeAlias$$.login = function $$JSCompiler_prototypeAlias$$$login$($msg$$30_username$$7$$, $password$$3$$, $opt_second_factor$$, $opt_request_id$$) {
-  $msg$$30_username$$7$$ = {MsgType:"BE", UserReqID:$opt_request_id$$ || parseInt(1E6 * Math.random(), 10), Username:$msg$$30_username$$7$$, Password:$password$$3$$, UserReqTyp:"1"};
-  $opt_second_factor$$ != $JSCompiler_alias_NULL$$ && ($msg$$30_username$$7$$.SecondFactor = $opt_second_factor$$);
-  this.sendMessage($msg$$30_username$$7$$)
+$JSCompiler_prototypeAlias$$.login = function $$JSCompiler_prototypeAlias$$$login$($brokerID_msg$$30$$, $username$$7$$, $password$$3$$, $opt_second_factor$$, $opt_request_id$$) {
+  $brokerID_msg$$30$$ = {MsgType:"BE", UserReqID:$opt_request_id$$ || parseInt(1E6 * Math.random(), 10), BrokerID:$brokerID_msg$$30$$, Username:$username$$7$$, Password:$password$$3$$, UserReqTyp:"1"};
+  $opt_second_factor$$ != $JSCompiler_alias_NULL$$ && ($brokerID_msg$$30$$.SecondFactor = $opt_second_factor$$);
+  this.sendMessage($brokerID_msg$$30$$)
 };
 $JSCompiler_prototypeAlias$$.$enableTwoFactor$ = function $$JSCompiler_prototypeAlias$$$$enableTwoFactor$$($enable$$24_msg$$31$$, $opt_secret$$, $opt_code$$, $opt_clientID$$, $opt_request_id$$1$$) {
   $enable$$24_msg$$31$$ = {MsgType:"U16", EnableTwoFactorReqID:$opt_request_id$$1$$ || parseInt(1E6 * Math.random(), 10), Enable:$enable$$24_msg$$31$$};
@@ -8718,8 +8718,8 @@ $JSCompiler_prototypeAlias$$.$enableTwoFactor$ = function $$JSCompiler_prototype
   $opt_clientID$$ != $JSCompiler_alias_NULL$$ && $goog$isNumber$$($opt_clientID$$) && ($enable$$24_msg$$31$$.ClientID = $opt_clientID$$);
   this.sendMessage($enable$$24_msg$$31$$)
 };
-$JSCompiler_prototypeAlias$$.$forgotPassword$ = function $$JSCompiler_prototypeAlias$$$$forgotPassword$$($email$$2$$, $opt_request_id$$2$$) {
-  this.sendMessage({MsgType:"U10", ForgotPasswordReqID:$opt_request_id$$2$$ || parseInt(1E6 * Math.random(), 10), Email:$email$$2$$})
+$JSCompiler_prototypeAlias$$.$forgotPassword$ = function $$JSCompiler_prototypeAlias$$$$forgotPassword$$($brokerID$$1$$, $email$$2$$, $opt_request_id$$2$$) {
+  this.sendMessage({MsgType:"U10", BrokerID:$brokerID$$1$$, ForgotPasswordReqID:$opt_request_id$$2$$ || parseInt(1E6 * Math.random(), 10), Email:$email$$2$$})
 };
 $JSCompiler_prototypeAlias$$.$requestBalances$ = function $$JSCompiler_prototypeAlias$$$$requestBalances$$($opt_clientID$$1$$, $opt_request_id$$3$$) {
   var $msg$$33$$ = {MsgType:"U2", BalanceReqID:$opt_request_id$$3$$ || parseInt(1E6 * Math.random(), 10)};
@@ -8826,10 +8826,10 @@ $JSCompiler_prototypeAlias$$.$processDeposit$ = function $$JSCompiler_prototypeA
 $JSCompiler_prototypeAlias$$.$resetPassword$ = function $$JSCompiler_prototypeAlias$$$$resetPassword$$($token$$12$$, $new_password$$, $opt_requestId$$13$$) {
   this.sendMessage({MsgType:"U12", ResetPasswordReqID:$opt_requestId$$13$$ || parseInt(1E7 * Math.random(), 10), Token:$token$$12$$, NewPassword:$new_password$$})
 };
-$JSCompiler_prototypeAlias$$.$changePassword$ = function $$JSCompiler_prototypeAlias$$$$changePassword$$($msg$$51_username$$8$$, $password$$4$$, $new_password$$1$$, $opt_second_factor$$1$$, $opt_requestId$$14$$) {
-  $msg$$51_username$$8$$ = {MsgType:"BE", UserReqID:$opt_requestId$$14$$ || parseInt(1E7 * Math.random(), 10), UserReqTyp:"3", Username:$msg$$51_username$$8$$, Password:$password$$4$$, NewPassword:$new_password$$1$$};
-  $opt_second_factor$$1$$ != $JSCompiler_alias_NULL$$ && ($msg$$51_username$$8$$.SecondFactor = $opt_second_factor$$1$$);
-  this.sendMessage($msg$$51_username$$8$$)
+$JSCompiler_prototypeAlias$$.$changePassword$ = function $$JSCompiler_prototypeAlias$$$$changePassword$$($brokerID$$2_msg$$51$$, $username$$8$$, $password$$4$$, $new_password$$1$$, $opt_second_factor$$1$$, $opt_requestId$$14$$) {
+  $brokerID$$2_msg$$51$$ = {MsgType:"BE", UserReqID:$opt_requestId$$14$$ || parseInt(1E7 * Math.random(), 10), UserReqTyp:"3", BrokerID:$brokerID$$2_msg$$51$$, Username:$username$$8$$, Password:$password$$4$$, NewPassword:$new_password$$1$$};
+  $opt_second_factor$$1$$ != $JSCompiler_alias_NULL$$ && ($brokerID$$2_msg$$51$$.SecondFactor = $opt_second_factor$$1$$);
+  this.sendMessage($brokerID$$2_msg$$51$$)
 };
 $JSCompiler_prototypeAlias$$.$subscribeMarketData$ = function $$JSCompiler_prototypeAlias$$$$subscribeMarketData$$($market_depth$$, $symbols$$1$$, $entries$$, $opt_requestId$$15_requestId$$16$$) {
   $opt_requestId$$15_requestId$$16$$ = $opt_requestId$$15_requestId$$16$$ || parseInt(1E7 * Math.random(), 10);
@@ -9245,19 +9245,19 @@ $JSCompiler_prototypeAlias$$.$balanceFormatter_$ = function $$JSCompiler_prototy
 $JSCompiler_prototypeAlias$$.$onLedgerTableRequestData_$ = function $$JSCompiler_prototypeAlias$$$$onLedgerTableRequestData_$$($e$$192_filters_param$$) {
   var $page$$13$$ = $e$$192_filters_param$$.options.Page, $limit$$14$$ = $e$$192_filters_param$$.options.Limit;
   $e$$192_filters_param$$ = $e$$192_filters_param$$.options.Filter;
-  var $currency$$7$$, $filters$$ = [], $userID$$ = this.$app_$.$model_$.get("UserID"), $brokerID$$ = this.$app_$.$model_$.get("Broker").BrokerID;
-  this.$app_$.$model_$.get("IsBroker") && ($brokerID$$ = $userID$$);
+  var $currency$$7$$, $filters$$ = [], $userID$$ = this.$app_$.$model_$.get("UserID"), $brokerID$$3$$ = this.$app_$.$model_$.get("Broker").BrokerID;
+  this.$app_$.$model_$.get("IsBroker") && ($brokerID$$3$$ = $userID$$);
   $goog$isArrayLike$$($e$$192_filters_param$$) && $goog$array$forEach$$($e$$192_filters_param$$, function($filter$$10$$) {
     try {
       var $filter_obj$$ = $goog$json$parse$$($filter$$10$$);
       $filter_obj$$.currency != $JSCompiler_alias_NULL$$ && ($currency$$7$$ = $filter_obj$$.currency);
-      $filter_obj$$.broker_id != $JSCompiler_alias_NULL$$ && ($brokerID$$ = $filter_obj$$.broker_id);
+      $filter_obj$$.broker_id != $JSCompiler_alias_NULL$$ && ($brokerID$$3$$ = $filter_obj$$.broker_id);
       $filter_obj$$.account_id != $JSCompiler_alias_NULL$$ && ($userID$$ = $filter_obj$$.account_id)
     }catch($ex$$11$$) {
       $filters$$.push($filter$$10$$)
     }
   }, this);
-  this.$app_$.$conn_$.$requestLedgerList$(this.$request_id_$, $page$$13$$, $limit$$14$$, $brokerID$$, $userID$$, $currency$$7$$, $filters$$)
+  this.$app_$.$conn_$.$requestLedgerList$(this.$request_id_$, $page$$13$$, $limit$$14$$, $brokerID$$3$$, $userID$$, $currency$$7$$, $filters$$)
 };
 $JSCompiler_prototypeAlias$$.$onLedgerListResponse_$ = function $$JSCompiler_prototypeAlias$$$$onLedgerListResponse_$$($e$$193_msg$$69$$) {
   this.$ledger_table_$ != $JSCompiler_alias_NULL$$ && ($e$$193_msg$$69$$ = $e$$193_msg$$69$$.data, $JSCompiler_StaticMethods_setResultSet$$(this.$ledger_table_$, $e$$193_msg$$69$$.LedgerListGrp, $e$$193_msg$$69$$.Columns))
@@ -9981,7 +9981,7 @@ $JSCompiler_prototypeAlias$$.$onWithdrawRefresh_$ = function $$JSCompiler_protot
   $JSCompiler_StaticMethods_insertOrUpdateRecord$$(this.$withdraw_list_table_$, $e$$235$$.data)
 };
 // Input 171
-function $bitex$app$BlinkTrade$$($opt_default_country$$, $opt_default_broker_id$$, $opt_default_state$$, $opt_test_request_timer_in_ms$$, $opt_maximum_allowed_delay_in_ms$$) {
+function $bitex$app$BlinkTrade$$($broker_id$$6$$, $opt_default_country$$, $opt_default_state$$, $opt_test_request_timer_in_ms$$, $opt_maximum_allowed_delay_in_ms$$) {
   $goog$Disposable$$.call(this);
   $bootstrap$Dropdown$install$$();
   this.$dialog_$ = $JSCompiler_alias_NULL$$;
@@ -9992,7 +9992,8 @@ function $bitex$app$BlinkTrade$$($opt_default_country$$, $opt_default_broker_id$
     this.$showDialog$($error$$6$$)
   }
   $opt_default_country$$ != $JSCompiler_alias_NULL$$ && this.$model_$.set("DefaultCountry", $opt_default_country$$);
-  $opt_default_broker_id$$ != $JSCompiler_alias_NULL$$ && this.$model_$.set("DefaultBrokerID", $opt_default_broker_id$$);
+  this.$model_$.set("DefaultBrokerID", $broker_id$$6$$);
+  this.$model_$.set("SelectedBrokerID", $broker_id$$6$$);
   $opt_default_state$$ != $JSCompiler_alias_NULL$$ && this.$model_$.set("DefaultState", $opt_default_state$$);
   this.$maximum_allowed_delay_in_ms_$ = $opt_maximum_allowed_delay_in_ms$$ || 1E4;
   this.$test_request_delay_$ = $opt_test_request_timer_in_ms$$ || 3E4;
@@ -10190,14 +10191,14 @@ $JSCompiler_prototypeAlias$$.$getPriceCurrencyFromSymbol$ = function $$JSCompile
 $JSCompiler_prototypeAlias$$.$getQtyCurrencyFromSymbol$ = function $$JSCompiler_prototypeAlias$$$$getQtyCurrencyFromSymbol$$($symbol$$15$$) {
   return $symbol$$15$$.substr(0, 3)
 };
-$JSCompiler_prototypeAlias$$.$onUserChangeBroker_$ = function $$JSCompiler_prototypeAlias$$$$onUserChangeBroker_$$($brokerID$$1_e$$246$$) {
-  $brokerID$$1_e$$246$$ = $brokerID$$1_e$$246$$.target.$getBrokerID$();
-  this.$model_$.set("SelectedBrokerID", $brokerID$$1_e$$246$$)
+$JSCompiler_prototypeAlias$$.$onUserChangeBroker_$ = function $$JSCompiler_prototypeAlias$$$$onUserChangeBroker_$$($brokerID$$4_e$$246$$) {
+  $brokerID$$4_e$$246$$ = $brokerID$$4_e$$246$$.target.$getBrokerID$();
+  this.$model_$.set("SelectedBrokerID", $brokerID$$4_e$$246$$)
 };
 $JSCompiler_prototypeAlias$$.$onUserChangePassword_$ = function $$JSCompiler_prototypeAlias$$$$onUserChangePassword_$$($e$$247_new_password$$2$$) {
   var $password$$6$$ = $e$$247_new_password$$2$$.target.$getCurrentPassword$();
   $e$$247_new_password$$2$$ = $e$$247_new_password$$2$$.target.$getNewPassword$();
-  this.$conn_$.$changePassword$(this.$model_$.get("Username"), $password$$6$$, $e$$247_new_password$$2$$)
+  this.$conn_$.$changePassword$(this.$model_$.get("SelectedBrokerID"), this.$model_$.get("Username"), $password$$6$$, $e$$247_new_password$$2$$)
 };
 $JSCompiler_prototypeAlias$$.$onChangePasswordResponse_$ = function $$JSCompiler_prototypeAlias$$$$onChangePasswordResponse_$$($e$$248_msg$$85$$) {
   $e$$248_msg$$85$$ = $e$$248_msg$$85$$.data;
@@ -10214,7 +10215,7 @@ $JSCompiler_prototypeAlias$$.$onChangePasswordResponse_$ = function $$JSCompiler
         }else {
           $e$$249_second_factor$$ = $JSCompiler_StaticMethods_getAsJSON$$($gauth_uniform$$).token;
           var $error_list$$5_password$$7$$ = this.$profileView_$.$getCurrentPassword$(), $new_password$$3$$ = this.$profileView_$.$getNewPassword$();
-          this.$conn_$.$changePassword$(this.$model_$.get("Username"), $error_list$$5_password$$7$$, $new_password$$3$$, $e$$249_second_factor$$);
+          this.$conn_$.$changePassword$(this.$model_$.get("SelectedBrokerID"), this.$model_$.get("Username"), $error_list$$5_password$$7$$, $new_password$$3$$, $e$$249_second_factor$$);
           $dlg_$$.$dispose$()
         }
       }
@@ -10686,7 +10687,7 @@ $JSCompiler_prototypeAlias$$.$onUserDepositRequest_$ = function $$JSCompiler_pro
   }
 };
 $JSCompiler_prototypeAlias$$.$onUserForgotPassword_$ = function $$JSCompiler_prototypeAlias$$$$onUserForgotPassword_$$($e$$294$$) {
-  this.$conn_$.$forgotPassword$($e$$294$$.target.$getEmail$());
+  this.$conn_$.$forgotPassword$(this.$model_$.get("SelectedBrokerID"), $e$$294$$.target.$getEmail$());
   this.$router_$.$setView$("set_new_password")
 };
 $JSCompiler_prototypeAlias$$.$onUserSetNewPassword_$ = function $$JSCompiler_prototypeAlias$$$$onUserSetNewPassword_$$($e$$295$$) {
@@ -10729,7 +10730,7 @@ $JSCompiler_prototypeAlias$$.$onBodyChange_$ = function $$JSCompiler_prototypeAl
 $JSCompiler_prototypeAlias$$.$onUserLoginButtonClick_$ = function $$JSCompiler_prototypeAlias$$$$onUserLoginButtonClick_$$($e$$301$$) {
   var $username$$11$$ = $e$$301$$.target.$getUsername$(), $password$$8$$ = $e$$301$$.target.$getPassword$();
   this.$model_$.set("Password", $e$$301$$.target.$getPassword$());
-  this.$conn_$.login($username$$11$$, $password$$8$$)
+  this.$conn_$.login(this.$model_$.get("SelectedBrokerID"), $username$$11$$, $password$$8$$)
 };
 $JSCompiler_prototypeAlias$$.$onUserLoginOk_$ = function $$JSCompiler_prototypeAlias$$$$onUserLoginOk_$$($e$$302_msg$$100$$) {
   $e$$302_msg$$100$$ = $e$$302_msg$$100$$.data;
@@ -10747,7 +10748,7 @@ $JSCompiler_prototypeAlias$$.$onUserLoginOk_$ = function $$JSCompiler_prototypeA
   $e$$302_msg$$100$$.IsBroker || this.$model_$.set("UserBrokers", $user_brokers$$));
   $broker_info$$7_profile$$3$$ = $e$$302_msg$$100$$.Profile;
   $e$$302_msg$$100$$.IsBroker ? ($goog$dom$classes$add$$(document.body, "bitex-broker"), $broker_info$$7_profile$$3$$ = $JSCompiler_StaticMethods_adjustBrokerData_$$(this, $broker_info$$7_profile$$3$$), $user_brokers$$[$broker_info$$7_profile$$3$$.BrokerID] = $broker_info$$7_profile$$3$$, this.$model_$.set("UserBrokers", $user_brokers$$), $goog$object$extend$$($allowed_markets$$2$$, $broker_info$$7_profile$$3$$.AllowedMarkets), $broker_currencies$$3_tags$$1_verification_data$$3$$.$addAll$($broker_info$$7_profile$$3$$.BrokerCurrencies)) : 
-  ($goog$dom$classes$add$$(document.body, "bitex-non-broker"), 2 == $broker_info$$7_profile$$3$$.Verified && $goog$style$showElement$$($goog$dom$getElement$$("verification_menu_id"), $JSCompiler_alias_FALSE$$));
+  ($goog$dom$classes$add$$(document.body, "bitex-non-broker"), 2 <= $broker_info$$7_profile$$3$$.Verified && $goog$style$showElement$$($goog$dom$getElement$$("verification_menu_id"), $JSCompiler_alias_FALSE$$));
   this.$model_$.set("Profile", $broker_info$$7_profile$$3$$);
   $e$$302_msg$$100$$.IsBroker ? this.$model_$.set("SelectedBrokerID", this.$model_$.get("Profile").BrokerID) : $e$$302_msg$$100$$.Broker != $JSCompiler_alias_NULL$$ && this.$model_$.set("SelectedBrokerID", this.$model_$.get("Broker").BrokerID);
   this.$model_$.set("AllowedMarkets", $allowed_markets$$2$$);
@@ -10815,7 +10816,7 @@ $JSCompiler_prototypeAlias$$.$onUserLoginError_$ = function $$JSCompiler_prototy
         var $error_list$$8$$ = $gauth_uniform$$1$$.$validate$();
         0 < $error_list$$8$$.length ? ($goog$array$forEach$$($error_list$$8$$, function($error_msg$$7$$) {
           this.$showNotification$("error", $error_msg$$7$$)
-        }, this), $e$$305_second_factor$$1$$.stopPropagation(), $e$$305_second_factor$$1$$.preventDefault()) : ($e$$305_second_factor$$1$$ = $JSCompiler_StaticMethods_getAsJSON$$($gauth_uniform$$1$$).token, this.$conn_$.login(this.$loginView_$.$getUsername$(), this.$loginView_$.$getPassword$(), $e$$305_second_factor$$1$$), $dlg_$$1$$.$dispose$())
+        }, this), $e$$305_second_factor$$1$$.stopPropagation(), $e$$305_second_factor$$1$$.preventDefault()) : ($e$$305_second_factor$$1$$ = $JSCompiler_StaticMethods_getAsJSON$$($gauth_uniform$$1$$).token, this.$conn_$.login(this.$model_$.get("SelectedBrokerID"), this.$loginView_$.$getUsername$(), this.$loginView_$.$getPassword$(), $e$$305_second_factor$$1$$), $dlg_$$1$$.$dispose$())
       }
     })
   }else {
@@ -11015,7 +11016,7 @@ $JSCompiler_prototypeAlias$$.$onConnectionOpen_$ = function $$JSCompiler_prototy
   this.$model_$.get("SecurityList") != $JSCompiler_alias_NULL$$ || this.$conn_$.$requestSecurityList$();
   this.$model_$.get("BrokerList") != $JSCompiler_alias_NULL$$ || this.$conn_$.$requestBrokerList$();
   var $username$$12$$ = this.$model_$.get("Username"), $password$$9$$ = this.$model_$.get("Password");
-  $username$$12$$ != $JSCompiler_alias_NULL$$ && $password$$9$$ != $JSCompiler_alias_NULL$$ && !$goog$string$isEmpty$$($username$$12$$) && !$goog$string$isEmpty$$($password$$9$$) && 8 <= $password$$9$$.length && this.$conn_$.login($username$$12$$, $password$$9$$);
+  $username$$12$$ != $JSCompiler_alias_NULL$$ && $password$$9$$ != $JSCompiler_alias_NULL$$ && !$goog$string$isEmpty$$($username$$12$$) && !$goog$string$isEmpty$$($password$$9$$) && 8 <= $password$$9$$.length && this.$conn_$.login(this.$model_$.get("SelectedBrokerID"), $username$$12$$, $password$$9$$);
   this.$conn_$.$testRequest$()
 };
 $JSCompiler_prototypeAlias$$.$onTestRequestTimer_$ = function $$JSCompiler_prototypeAlias$$$$onTestRequestTimer_$$() {

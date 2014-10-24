@@ -155,7 +155,7 @@ bitex.ui.LedgerActivity = function(button_filters, pseudoNameFunction, opt_broke
             case 'TF':
               return '';
             default:
-              return pseudoNameFunction( s);
+              return pseudoNameFunction(s);
           }
         }
       },
