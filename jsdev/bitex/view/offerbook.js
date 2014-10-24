@@ -337,12 +337,25 @@ bitex.view.OfferBookView.prototype.onOBNewOrder_ = function(e){
   if (!goog.isDefAndNotNull(this.order_book_offer_)) {
     return;
   }
+  var model = this.getApplication().getModel();
 
   var msg       = e.data;
   var index     = msg['MDEntryPositionNo'] - 1;
   var price     = msg['MDEntryPx']/1e8;
   var qty       = msg['MDEntrySize']/1e8;
-  var username  = msg['Username'];  // TODO:  Get the PseudoName instead of the username.
+
+
+  var username;
+  if (goog.isDefAndNotNull(msg['Username'])) {
+    username = msg['Username'];
+  } else {
+    username  = bitex.util.getPseudoName(msg['UserID']);
+  }
+
+  if (msg['UserID'] === model.get('UserID') ) {
+    username = model.get('Username');
+  }
+
   var broker    = msg['Broker'];
   var orderId   = msg['OrderID'];
   var side      = msg['MDEntryType'];

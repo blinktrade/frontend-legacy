@@ -3,9 +3,10 @@ goog.require('bitex.view.View');
 goog.require('bitex.ui.TradeHistory');
 goog.require('bitex.ui.MarketViewTable');
 goog.require('bitex.ui.MarketViewTable.EventType');
+goog.require('bitex.util');
 
 goog.require('bitex.templates');
-
+goog.require('bitex.util')
 goog.require('bitex.ui.SimpleChart');
 
 /**
@@ -88,7 +89,7 @@ bitex.view.MarketView.prototype.recreateComponents_ = function() {
 
   handler.listen(this.market_view_table_, bitex.ui.MarketViewTable.EventType.SELECT_SYMBOL, this.onSelectedSymbol_);
 
-  this.last_trades_table_ = new bitex.ui.TradeHistory();
+  this.last_trades_table_ = new bitex.ui.TradeHistory( bitex.util.getPseudoName );
 
   handler.listen(this.last_trades_table_,
                  bitex.ui.DataGrid.EventType.REQUEST_DATA,
@@ -206,8 +207,8 @@ bitex.view.MarketView.prototype.onBitexTrade_ = function(e) {
   record["Size"] = msg['MDEntrySize'];
   record["Price"] = msg['MDEntryPx'];
   record["Side"] = msg['Side'];
-  record["Buyer"] = msg['MDEntryBuyer'];
-  record["Seller"] = msg['MDEntrySeller'];
+  record["Buyer"] = bitex.util.getPseudoName(msg['MDEntryBuyerID']);
+  record["Seller"] = bitex.util.getPseudoName(msg['MDEntrySellerID']);
   record["Created"] = msg['MDEntryDate'] + " " + msg['MDEntryTime'];
 
   this.last_trades_table_.insertOrUpdateRecord(record, 0);
@@ -234,7 +235,6 @@ bitex.view.MarketView.prototype.onBitexOrderBookNewOrder_ = function(e) {
     var index = msg['MDEntryPositionNo'] - 1;
     var price =  msg['MDEntryPx']/1e8;
     var qty = msg['MDEntrySize']/1e8;
-    var username = msg['Username'];
     var broker = msg['Broker'];
     var orderId =  msg['OrderID'];
     var side = msg['MDEntryType'];

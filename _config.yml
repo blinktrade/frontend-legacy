@@ -16,8 +16,9 @@ landing_logo: "./assets/img/blink_demo_landing_page_logo.png"
 default_country_code: "US"
 blinktrade_broker_id: 5  # 5 is the id for the demo backend. Don't change that if you don't understand what you doing.
 
-#blinktrade_backend_api: "wss://test.api.blinktrade.com/"
-blinktrade_backend_api: "wss://demo.blinktrade.com/trade/"
+#blinktrade_backend_api: "api.blinktrade.com"
+#blinktrade_backend_api: "demo.blinktrade.com"
+blinktrade_backend_api: "localhost"
 google_analytics_id: "UA-53856711-1"
 zopim_key: "2SSNIzvxy8fBypKoZJ0pI43tUoNCv8os"
 

@@ -693,16 +693,18 @@ bitex.api.BitEx.prototype.close = function(){
 };
 
 /**
+ * @param {number} brokerID
  * @param {string} username
  * @param {string} password
  * @param {string=} opt_second_factor
  * @param {number=} opt_request_id
  */
-bitex.api.BitEx.prototype.login = function(username, password, opt_second_factor,opt_request_id ){
+bitex.api.BitEx.prototype.login = function(brokerID,username, password, opt_second_factor,opt_request_id ){
   var reqId = opt_request_id || parseInt(Math.random() * 1000000, 10);
   var msg = {
     'MsgType': 'BE',
     'UserReqID': reqId,
+    'BrokerID': brokerID,
     'Username': username,
     'Password': password,
     'UserReqTyp': '1'
@@ -751,10 +753,11 @@ bitex.api.BitEx.prototype.enableTwoFactor = function(enable, opt_secret, opt_cod
  * @param {string} email
  * @param {number} opt_request_id
  */
-bitex.api.BitEx.prototype.forgotPassword = function(email, opt_request_id){
+bitex.api.BitEx.prototype.forgotPassword = function(brokerID, email, opt_request_id){
   var reqId = opt_request_id || parseInt(Math.random() * 1000000, 10);
   var msg = {
     'MsgType': 'U10',
+    'BrokerID': brokerID,
     'ForgotPasswordReqID': reqId,
     'Email': email
   };
@@ -1297,18 +1300,20 @@ bitex.api.BitEx.prototype.resetPassword = function(token, new_password, opt_requ
 
 
 /**
+ * @param {number} brokerID
  * @param {string} username
  * @param {string} password
  * @param {string} new_password
  * @param {number=} opt_requestId. Defaults to random generated number
  */
-bitex.api.BitEx.prototype.changePassword = function(username, password, new_password, opt_second_factor, opt_requestId ){
+bitex.api.BitEx.prototype.changePassword = function(brokerID, username, password, new_password, opt_second_factor, opt_requestId ){
   var requestId = opt_requestId || parseInt( 1e7 * Math.random() , 10 );
 
   var msg = {
     'MsgType': 'BE',
     'UserReqID': requestId,
     'UserReqTyp': '3',
+    'BrokerID': brokerID,
     'Username': username,
     'Password': password,
     'NewPassword': new_password

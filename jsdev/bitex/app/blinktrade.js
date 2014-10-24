@@ -91,15 +91,15 @@ var MSG_BITEX_PASSWORD_CHANGED_OK_TITLE = goog.getMsg('Success');
 
 
 /**
+ * @param {number=} broker_id
  * @param {string=} opt_default_country
- * @param {number=} opt_default_broker_id
  * @param {string=} opt_default_state
  * @param {number=} opt_test_request_timer_in_ms. Defaults to 30 seconds
  * @param {number=} opt_maximum_allowed_delay_in_ms. Defaults to 10 seconds
  * @constructor
  * @extends {goog.events.EventTarget}
  */
-bitex.app.BlinkTrade = function(opt_default_country, opt_default_broker_id, opt_default_state, opt_test_request_timer_in_ms, opt_maximum_allowed_delay_in_ms) {
+bitex.app.BlinkTrade = function(broker_id, opt_default_country, opt_default_state, opt_test_request_timer_in_ms, opt_maximum_allowed_delay_in_ms) {
   goog.events.EventTarget.call(this);
 
   bootstrap.Dropdown.install();
@@ -122,9 +122,8 @@ bitex.app.BlinkTrade = function(opt_default_country, opt_default_broker_id, opt_
     this.model_.set('DefaultCountry', opt_default_country);
   }
 
-  if (goog.isDefAndNotNull(opt_default_broker_id)) {
-    this.model_.set('DefaultBrokerID', opt_default_broker_id);
-  }
+  this.model_.set('DefaultBrokerID', broker_id);
+  this.model_.set('SelectedBrokerID', broker_id);
 
   if (goog.isDefAndNotNull(opt_default_state)) {
     this.model_.set('DefaultState', opt_default_state);
@@ -157,7 +156,15 @@ bitex.app.BlinkTrade.prototype.model_;
  * @type {string}
  * @private
  */
-bitex.app.BlinkTrade.prototype.url_;
+bitex.app.BlinkTrade.prototype.wss_url_;
+
+/**
+ * @type {string}
+ * @private
+ */
+bitex.app.BlinkTrade.prototype.rest_url_;
+
+
 
 /**
  * @type {bitex.api.BitEx}
@@ -247,6 +254,13 @@ bitex.app.BlinkTrade.prototype.getHandler = function() {
 
 };
 
+/**
+ * @return {string}
+ */
+bitex.app.BlinkTrade.prototype.getRestURL = function() {
+  return this.rest_url_;
+};
+
 
 bitex.app.BlinkTrade.validateBitcoinAddress_ = function(el, condition, minLength, caption) {
 
@@ -272,21 +286,13 @@ bitex.app.BlinkTrade.validateBitcoinAddress_ = function(el, condition, minLength
 }
 
 /**
- * @param {string} opt_url
+ * @param {string} host_api
  */
-bitex.app.BlinkTrade.prototype.run = function(opt_url) {
-  var protocol = 'wss:';
-  if (window.location.protocol === 'http:') {
-    protocol = 'ws:';
-  }
-  var url =  protocol + '//' + window.location.hostname + '/trade/';
-  if (goog.isDefAndNotNull(opt_url)) {
-    url = opt_url;
-  }
+bitex.app.BlinkTrade.prototype.run = function(host_api) {
+  this.rest_url_ = 'https://' + host_api;
+  this.wss_url_ = 'wss://' + host_api + '/trade/';
 
   uniform.Validators.getInstance().registerValidatorFn('validateAddress',  bitex.app.BlinkTrade.validateBitcoinAddress_);
-
-  this.url_ = url;
 
 
   // Populate all the views
@@ -549,8 +555,8 @@ bitex.app.BlinkTrade.prototype.onBitexWithdrawResponse_ = function(e) {
  * Connect to the bitex Server
  */
 bitex.app.BlinkTrade.prototype.connectBitEx = function(){
-  try{
-    this.conn_.open(this.url_);
+  try {
+    this.conn_.open(this.wss_url_);
   } catch( e ) {
     /**
      * @desc Connection error message when trying to open websockets connection for the first time
@@ -631,7 +637,10 @@ bitex.app.BlinkTrade.prototype.onUserChangePassword_ = function(e) {
   var new_password = e.target.getNewPassword();
 
 
-  this.getBitexConnection().changePassword(this.getModel().get('Username'), password, new_password);
+  this.getBitexConnection().changePassword(this.getModel().get('SelectedBrokerID'),
+                                           this.getModel().get('Username'),
+                                           password,
+                                           new_password);
 };
 
 /**
@@ -673,7 +682,11 @@ bitex.app.BlinkTrade.prototype.onChangePasswordResponse_ = function(e) {
           var password = this.profileView_.getCurrentPassword();
           var new_password = this.profileView_.getNewPassword();
 
-          this.getBitexConnection().changePassword(this.getModel().get('Username'), password, new_password, second_factor );
+          this.getBitexConnection().changePassword(this.getModel().get('SelectedBrokerID'),
+                                                   this.getModel().get('Username'),
+                                                   password,
+                                                   new_password,
+                                                   second_factor );
           dlg_.dispose();
         }
       }
@@ -2206,9 +2219,15 @@ bitex.app.BlinkTrade.prototype.onUserDepositRequest_ = function(e){
           var msg = e.data;
           goog.soy.renderElement(dlg.getContentElement(),
                                  bitex.templates.DepositSlipContentDialog,
-                                 {deposit_id:msg['DepositID'] } );
+                                 {deposit_id:msg['DepositID'], rest_url:this.rest_url_  });
 
-          dlg.setButtonSet(bootstrap.Dialog.ButtonSet.createOk());
+          dlg.setButtonSet(bootstrap.Dialog.ButtonSet.createPrintOk() );
+
+          handler.listen(dlg, goog.ui.Dialog.EventType.SELECT, function(e) {
+            if (e.key == 'print') {
+              window.open( this.rest_url_ + '/get_deposit?deposit_id=' +  msg['DepositID'] );
+            }
+          });
         });
       }
     }
@@ -2220,7 +2239,7 @@ bitex.app.BlinkTrade.prototype.onUserDepositRequest_ = function(e){
  * @private
  */
 bitex.app.BlinkTrade.prototype.onUserForgotPassword_ = function(e){
-  this.conn_.forgotPassword(e.target.getEmail());
+  this.conn_.forgotPassword( this.getModel().get('SelectedBrokerID'), e.target.getEmail());
   this.router_.setView('set_new_password');
 };
 
@@ -2334,7 +2353,9 @@ bitex.app.BlinkTrade.prototype.onUserLoginButtonClick_ = function(e){
   var password = e.target.getPassword();
   this.model_.set('Password',         e.target.getPassword() );
 
-  this.conn_.login(username, password);
+  this.conn_.login(this.getModel().get('SelectedBrokerID'),
+                   username,
+                   password);
 };
 
 
@@ -2348,7 +2369,7 @@ bitex.app.BlinkTrade.prototype.onUserLoginOk_ = function(e) {
   goog.dom.classes.remove( document.body, 'bitex-not-logged' );
 
   this.getModel().set('UserID',           msg['UserID'] );
-  this.getModel().set('PseudoName',       bitex.util.getPseudoName(msg['UserID']))
+  this.getModel().set('PseudoName',       bitex.util.getPseudoName(msg['UserID']));
   this.getModel().set('Username',         msg['Username']);
   this.getModel().set('Email',            msg['Email']);
   this.getModel().set('TwoFactorEnabled', msg['TwoFactorEnabled']);
@@ -2386,10 +2407,9 @@ bitex.app.BlinkTrade.prototype.onUserLoginOk_ = function(e) {
   } else {
     goog.dom.classes.add( document.body, 'bitex-non-broker');
 
-    if ( profile['Verified'] == 2 ) {
+    if ( profile['Verified'] >= 2 ) {
         goog.style.showElement(goog.dom.$("verification_menu_id"), false);
     }
-
   }
   this.getModel().set('Profile',  profile);
   if (msg['IsBroker'] ) {
@@ -2525,7 +2545,10 @@ bitex.app.BlinkTrade.prototype.onUserLoginError_ = function(e) {
           e.preventDefault();
         } else {
           var second_factor = gauth_uniform.getAsJSON()['token'];
-          this.conn_.login( this.loginView_.getUsername(), this.loginView_.getPassword(), second_factor );
+          this.conn_.login( this.getModel().get('SelectedBrokerID'),
+                            this.loginView_.getUsername(),
+                            this.loginView_.getPassword(),
+                            second_factor );
 
           dlg_.dispose();
         }
@@ -3027,7 +3050,7 @@ bitex.app.BlinkTrade.prototype.onConnectionOpen_ = function(e){
   if (goog.isDefAndNotNull(username) && goog.isDefAndNotNull(password)) {
     if (!goog.string.isEmpty(username) && !goog.string.isEmpty(password) ) {
       if (password.length >= 8 ) {
-        this.conn_.login(username, password);
+        this.conn_.login(this.getModel().get('SelectedBrokerID'),username, password);
       }
     }
   }

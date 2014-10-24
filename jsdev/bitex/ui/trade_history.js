@@ -54,13 +54,14 @@ var MSG_TRADE_HISTORY_COLUMN_SIDE_SELL = goog.getMsg('Sell');
 
 
 /**
- * @param {number} opt_blinkDelay. Defaults to 700 milliseconds
+ * @param {function} pseudoNameFunction
+ * @param {number=} opt_blinkDelay. Defaults to 700 milliseconds
  * @param {goog.dom.DomHelper=} opt_domHelper Optional DOM helper.
  *
  * @extends {goog.ui.Component}
  * @constructor
  */
-bitex.ui.TradeHistory = function (opt_domHelper) {
+bitex.ui.TradeHistory = function( pseudoNameFunction, opt_blinkDelay,opt_domHelper) {
 
   var grid_columns = [
     {
@@ -101,11 +102,25 @@ bitex.ui.TradeHistory = function (opt_domHelper) {
       'property':'Buyer',
       'label': MSG_TRADE_HISTORY_COLUMN_BUYER,
       'sortable': false,
+      'formatter': function(s, rowSet){
+        if (goog.isDefAndNotNull(rowSet['BuyerUsername'])) {
+          return rowSet['BuyerUsername'];
+        } else {
+          return pseudoNameFunction(s);
+        }
+      },
       'classes': function() { return goog.getCssName(bitex.ui.TradeHistory.CSS_CLASS, 'buyer'); }
     },{
       'property': 'Seller',
       'label': MSG_TRADE_HISTORY_COLUMN_SELLER,
       'sortable': false,
+      'formatter': function(s, rowSet){
+        if (goog.isDefAndNotNull(rowSet['SellerUsername'])) {
+          return rowSet['SellerUsername'];
+        } else {
+          return pseudoNameFunction(s);
+        }
+      },
       'classes': function() { return goog.getCssName(bitex.ui.TradeHistory.CSS_CLASS, 'seller');}
     },{
       'property': 'Created',

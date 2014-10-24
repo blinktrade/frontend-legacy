@@ -229,9 +229,15 @@ bitex.view.DepositView.prototype.recreateComponents_ = function() {
   var broker = model.get('Broker');
   if (model.get('IsBroker') && (this.is_requests_from_customers_ ) ) {
     var profile = model.get('Profile');
-    this.deposit_list_table_ =  new bitex.ui.DepositList(profile['CryptoCurrencies'], true, true );
+    this.deposit_list_table_ =  new bitex.ui.DepositList(profile['CryptoCurrencies'],
+                                                         true,
+                                                         true,
+                                                         this.getApplication().getRestURL() );
   } else {
-    this.deposit_list_table_ =  new bitex.ui.DepositList(broker['CryptoCurrencies'], false, false );
+    this.deposit_list_table_ =  new bitex.ui.DepositList(broker['CryptoCurrencies'],
+                                                         false,
+                                                         false,
+                                                         this.getApplication().getRestURL());
   }
 
   handler.listen(this.deposit_list_table_,

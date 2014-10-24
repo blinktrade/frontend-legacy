@@ -608,23 +608,26 @@
 {/template}
 
 /**
+  * @param rest_url
   * @param deposit_id
   */
 {template .DepositSlipContentDialog}
   <div class="row-fluid" data-deposit-status="done">
     <iframe allowtransparency="true"
-      src="/get_deposit?deposit_id={$deposit_id}"
+      src="{$rest_url}/get_deposit?deposit_id={$deposit_id}"
       frameborder="0"
       style="width: 500px; height: 500px; border: none;" scrolling="yes"></iframe>
   </div>
 
+  <!--
   <div class="row-fluid">
     <div class="span12 text-center">
-         <a  target="_blank" href="/get_deposit?deposit_id={$deposit_id}" class="btn btn-primary">
+         <a  target="_blank" href="{$rest_url}/get_deposit?deposit_id={$deposit_id}" class="btn btn-primary">
            {msg desc="Print deposit button in deposit dialog"} Print {/msg}
          </a>
     </div>
   </div>
+  -->
 {/template}
 
 /**
