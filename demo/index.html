@@ -4,7 +4,7 @@ title:                  Blinktrade demo exchange
 body_classes:           ws-not-connected bitex-not-logged active-view-start
 blinktrade_broker_id:   5
 default_country_code:   US
-blinktrade_backend_api: localhost
+blinktrade_backend_api: testnet.blinktrade.com
 application_script:     bitex_app_blink_trade.compiled.en_US.js
 ---
 
@@ -13,6 +13,16 @@ application_script:     bitex_app_blink_trade.compiled.en_US.js
   <header class="jumbotron">
     <img src="{{ site.landing_logo }}" style="">
     <p class="lead bitex-view-title bitex-view-title">See our open source Bitcoin exchange in action</p>
+    <b>Exchange operator Profile:</b>
+    <p class="text-center">
+      username: exchange<br/>
+      password: abc12345<br/>
+    </p>
+    <b>User Profile:</b>
+    <p class="text-center">
+      username: user<br/>
+      password: abc12345<br/>
+    </p>
   </header>
 
 
@@ -36,4 +46,3 @@ application_script:     bitex_app_blink_trade.compiled.en_US.js
     </div>
   </div>
 </div>
-
