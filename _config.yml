@@ -8,10 +8,10 @@ keywords: "bitcoin, bitcoin exchange, bitcoin decentralized exchange"
 #url: "//pinhopro.github.io"
 url: "//localhost:4000"   # activate this to test on your localhost
 
-social_network_image_share: "./assets/img/social_network_share.png"
-logo: "./assets/img/blink_demo_landing_page_logo.png"
-toolbar_logo: "./assets/img/blink_demo_landing_page_logo.png"
-landing_logo: "./assets/img/blink_demo_landing_page_logo.png"
+social_network_image_share: "/assets/img/social_network_share.png"
+logo: "/assets/img/blink_demo_landing_page_logo.png"
+toolbar_logo: "/assets/img/blink_demo_landing_page_logo.png"
+landing_logo: "/assets/img/blink_demo_landing_page_logo.png"
 
 default_country_code: "US"
 blinktrade_broker_id: 5  # 5 is the id for the demo backend. Don't change that if you don't understand what you doing.

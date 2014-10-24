@@ -301,7 +301,6 @@ bitex.app.BlinkTrade.prototype.run = function(host_api) {
   var loginView           = new bitex.view.LoginView(this);
   var signUpView          = new bitex.view.SignupView(this);
   var forgotPasswordView  = new bitex.view.ForgotPasswordView(this);
-  var tosView             = new bitex.view.NullView(this);
   var depositView         = new bitex.view.DepositView(this, false);
   var depositRequestsView = new bitex.view.DepositView(this, true);
   var verificationView    = new bitex.view.VerificationView(this);
@@ -327,7 +326,6 @@ bitex.app.BlinkTrade.prototype.run = function(host_api) {
   this.views_.addChild( loginView           );
   this.views_.addChild( signUpView          );
   this.views_.addChild( forgotPasswordView  );
-  this.views_.addChild( tosView             );
   this.views_.addChild( tradingView         );
   this.views_.addChild( offerBookView       );
   this.views_.addChild( depositView         );
@@ -358,7 +356,6 @@ bitex.app.BlinkTrade.prototype.run = function(host_api) {
   this.router_.addView( '(signin)'                      , loginView           );
   this.router_.addView( '(signup)'                      , signUpView          );
   this.router_.addView( '(forgot_password)'             , forgotPasswordView  );
-  this.router_.addView( '(tos)'                         , tosView             );
   this.router_.addView( '(trading)'                     , tradingView         );
   this.router_.addView( '(offerbook)'                   , offerBookView       );
   this.router_.addView( '(deposit_requests)'            , depositRequestsView );
