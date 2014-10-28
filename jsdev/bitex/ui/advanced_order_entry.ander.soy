@@ -1,0 +1,137 @@
+{namespace bitex.ui.AdvancedOrderEntry.templates}
+
+/**
+  * @param id
+  * @param symbol
+  * @param side
+  * @param type
+  * @param is_broker
+  * @param broker_id
+  * @param amount_currency_symbol
+  * @param price_currency_symbol
+  * @param client_id
+  */
+{template .AdvancedOrderEntry}
+<form id="{$id}" class="layout__item one-whole desk--one-half order-entry" data-uniform-control-holder-class="uniform-control-holder">
+    <input id="{$id}_symbol" type="hidden" name="symbol" value="{$symbol}">
+    <input id="{$id}_side" type="hidden" name="side" value="{$side}">
+    <input id="{$id}_type" type="hidden" name="type" value="{$type}">
+    <input id="{$id}_is_broker" type="hidden" value="{$is_broker}">
+    <input id="{$id}_broker_id" type="hidden" name="broker_id" value="{$broker_id}">
+
+    <!-- .box -->
+    <div class="box box--bid-ask box--push-bottom">
+        <!-- .box__head -->
+        <header class="box__head">
+            {if $side == 1}{msg desc="Buy button in Order Entry"}Buy{/msg}{else}{msg desc="Sell button in Order Entry"}Sell{/msg}{/if} BTC
+        </header>
+        <!-- /.box__head -->
+
+        <!-- .box__body -->
+        <div class="box__body">
+            <!-- .table -->
+            <table class="table table--bordered table--bid-ask">
+                <tbody>
+                    <tr class="uniform-control-holder">
+                        <th class="one-half lap--four-tenths">
+                            <label for="" class="order-entry-label">
+                                <span>{msg desc="Amount label in Advanced Order Entry"}Amount:{/msg} {$amount_currency_symbol}
+                            </label>
+                        </th>
+                        <td class="one-half lap--six-tenths order-entry-data">
+                                  <input id="{$id}_amount"
+                                         name="amount"
+                                         type="text"
+                                         class="input-block-level"
+                                         data-uniform-label="{msg desc="Advanced Order Entry Label"}Amount{/msg}"
+                                         data-uniform-validators="validateNumber; required"
+                                         data-uniform-filters="positive_number"
+                                         value="0.00000000"
+                                         required/>
+                        </td>
+                    </tr>
+
+                    <tr class="uniform-control-holder">
+                        <th class="one-half lap--four-tenths">
+                            <label for=""><strong><span class="add-on advanced-order-entry-price-sign">{$price_currency_symbol}</span></strong></label>
+                        </th>
+
+                        <td class="one-half lap--six-tenths order-entry-data">
+                                  <input id="{$id}_price"
+                                         name="price"
+                                         type="text"
+                                         class="input-block-level"
+                                         data-uniform-label="{msg desc="Advanced Order Entry Label"}Price{/msg}"
+                                         data-uniform-validators="validateNumber; required"
+                                         data-uniform-filters="positive_number"
+                                         value="0.00000000"
+                                         required/>
+                        </td>
+                    </tr>
+
+                    <tr class="uniform-control-holder">
+                        <th class="one-half lap--four-tenths">
+                            <strong>{msg desc="Total label in Order Entry"}Total:{/msg}</strong>
+                        </th>
+
+                        <td class="one-half lap--four-tenths order-entry-data">
+                          <input id="{$id}_total"
+                                           name="total"
+                                           type="text"
+                                           class="input-block-level"
+                                           data-uniform-label="{msg desc="Advanced Order Entry Label"}Total{/msg}"
+                                           data-uniform-validators="validateNumber; required"
+                                           data-uniform-filters="positive_number"
+                                           value="0.00000000"
+                                           required/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- /.box__body -->
+
+        <!-- .box__foot -->
+        <footer class="box__foot uniform-control-holder">
+            <!-- .layout -->
+            <div class="layout layout--half">
+                <!-- .layout__item -->
+                <div class="layout__item two-thirds">
+                    <input id="{$id}_client_id"
+                                  name="client_id"
+                                  type="text"
+                                  value="{if $client_id}{$client_id}{/if}"
+                                  class="input-block-level"
+                                  label="{msg desc="Client ID label in Order Entry"}Client ID{/msg}"
+                                  data-uniform-label="{msg desc="Advanced Order Entry Label"}Client ID{/msg}"
+                                  {if $is_broker}
+                                    data-uniform-validators="required"
+                                  {else}
+                                    style="display:none"
+                                    disabled
+                                  {/if}
+                            />
+                </div>
+                <!-- /.layout__item -->
+
+                <!-- .layout__item -->
+                <div class="layout__item one-third">
+                    <button id="{$id}_action" class="btn btn--mini btn--full {if $side == 1}btn--positive{else}btn--negative{/if} btn-execution">
+                      <i class="icon-shopping-cart"></i>
+                      {if $side == 1}
+                        {msg desc="Buy button in Order Entry"}BUY{/msg}
+                      {else}
+                        {msg desc="Sell button in Order Entry"}SELL{/msg}
+                      {/if}
+                    </button>
+                </div>
+                <!-- /.layout__item -->
+            </div>
+            <!-- /.layout -->
+        </footer>
+        <!-- /.box__foot -->
+    </div>
+    <!-- /.box -->
+</form>
+{/template}
+

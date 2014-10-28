@@ -1,0 +1,35 @@
+.page {
+    @include border-radius(6px);
+
+    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+    -moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+    box-shadow: 0 1px 2px rgba(0,0,0,.15);
+
+    background-color: #fff;
+    margin:$base-spacing 0 $half-spacing;
+}
+
+.page__head {
+    @include border-radius(5px 5px 0 0);
+
+    background-color: #f5f5f5;
+    padding: $base-spacing;
+}
+
+.page__title {
+    margin-bottom:0;
+}
+
+.page__body {
+    padding: $base-spacing;
+}
+
+.page--inner {
+    .page__head {
+        @include border-radius(5px 0 0 0);
+    }
+
+    .page__body {
+        padding: $half-spacing;
+    }
+}

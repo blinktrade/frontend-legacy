@@ -2,7 +2,7 @@
 <!DOCTYPE translationbundle SYSTEM "translationbundle.dtd">
 <translationbundle lang="pt_BR">
     <!-- ../closure-library/closure/goog/date/date.js -->
-    <translation id="9186990843077356651">{$monthname} {$ynum}</translation>
+    <translation id="9186990843077356651"><ph name="monthname"/> <ph name="ynum"/></translation>
     <translation id="5529289046275100369">am</translation>
     <translation id="5059724359049322390">pm</translation>
 
@@ -97,8 +97,8 @@
     <translation id="1585949643466364093">VENDER</translation>
     <translation id="2663523040351663387"><ph name="side"/> <ph name="amount"/> <ph name="symbol"/> @ <ph name="price"/></translation>
     <translation id="3509294057647878073">Cancelando orden...</translation>
-    <translation id="8788714640455990971">Submission {$submissionid}</translation>
-    <translation id="2663307622590695329">Activar {$currency} depósito instantáneo?</translation>
+    <translation id="8788714640455990971">Submission <ph name="submissionid"/></translation>
+    <translation id="2663307622590695329">Activar <ph name="currency"/> depósito instantáneo?</translation>
     <translation id="3160671120235097661"><ph name="currency"/> depositar</translation>
     <translation id="4030996601042264112"><ph name="currency"/> retirar</translation>
     <translation id="1384742915082292408">Cancelar depósito</translation>
@@ -125,7 +125,7 @@
     <translation id="4156107177373728298">Notificame cuando un nuevo corredor llegue a mi region</translation>
     <translation id="1719443865812389312">Señal de confirmación inválida!</translation>
     <translation id="7780475408718386756">Retiro confirmado</translation>
-    <translation id="2490879972594054166">Él paga en {$cryptocurrency}, usted obtiene {$currency}</translation>
+    <translation id="2490879972594054166">Él paga en  <ph name="cryptocurrency"/>, usted obtiene <ph name="currency"/></translation>
     <translation id="1984613840831794126">Error</translation>
     <translation id="5532686595266455930">Monto inválido</translation>
     <translation id="2896955421225501183">Cantidad que falta</translation>
@@ -209,15 +209,15 @@
     <translation id="2552737430266860077">Método</translation>
     <translation id="4179283519212098677">No se aceptan depósitos en este momento. Disculpas por la molestia.</translation>
     <translation id="1965130595547264267">Monto</translation>
-    <translation id="5109746820349075418"> Máximo: {$xxx} por día.</translation>
-    <translation id="2743890661994318321"> Mínimo: {$xxx} por transacción.</translation>
+    <translation id="5109746820349075418"> Máximo: <ph name="xxx"/> por día.</translation>
+    <translation id="2743890661994318321"> Mínimo: <ph name="xxx"/> por transacción.</translation>
     <translation id="6679668639118391823">Comisiones:</translation>
     <translation id="9189368320862307296">Monto neto</translation>
     <translation id="6679668639118391823">Comisiones:</translation>
     <translation id="9189368320862307296">Monto neto</translation>
     <translation id="1965130595547264267">Amount</translation>
-    <translation id="5109746820349075418"> Maximum: {$xxx} per day.</translation>
-    <translation id="2743890661994318321"> Minimum: {$xxx} per transaction.</translation>
+    <translation id="5109746820349075418"> Maximum: <ph name="xxx"/> per day.</translation>
+    <translation id="2743890661994318321"> Minimum: <ph name="xxx"/> per transaction.</translation>
     <translation id="4707897436830248282">Tasa de compra</translation>
     <translation id="6668532937181281406">Tasa de venta</translation>
     <translation id="7723325992076527303">Disponible <ph name="code"/></translation>

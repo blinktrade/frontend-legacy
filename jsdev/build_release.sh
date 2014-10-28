@@ -7,9 +7,15 @@ rm -rf ./bitex/templates/*.soy.js
 rm -rf ./bitex/ui/*.soy.js
 
 if [ $# -eq 0 ]; then
-  THEME=
+  LANG=en_US
 else
-  THEME=.$1
+  LANG=$1
+fi
+
+if [ $# -eq 1 ]; then
+  THEME=default
+else
+  THEME=$2
 fi
 
 
@@ -19,62 +25,57 @@ fi
 java -jar ./tools/SoyToJsSrcCompiler.jar --bidiGlobalDir 1 --shouldGenerateGoogMsgDefs \
   --shouldProvideRequireSoyNamespaces --codeStyle concat --cssHandlingScheme GOOG  \
   --outputPathFormat  './bitex/templates/{INPUT_FILE_NAME_NO_EXT}.soy.js' \
-  ./bitex/templates/templates$THEME.soy
-
-java -jar ./tools/SoyToJsSrcCompiler.jar --bidiGlobalDir 1 --shouldGenerateGoogMsgDefs \
-  --shouldProvideRequireSoyNamespaces --codeStyle concat --cssHandlingScheme GOOG  \
-  --outputPathFormat  './bitex/templates/{INPUT_FILE_NAME_NO_EXT}.soy.js' \
-  ./bitex/templates/merchant$THEME.soy
+  ./bitex/templates/templates.$THEME.soy
 
 java -jar ./tools/SoyToJsSrcCompiler.jar --bidiGlobalDir 1 --shouldGenerateGoogMsgDefs \
   --shouldProvideRequireSoyNamespaces --codeStyle concat --cssHandlingScheme GOOG  \
   --outputPathFormat  './bitex/ui/{INPUT_FILE_NAME_NO_EXT}.soy.js' \
-  ./bitex/ui/bitex_datagrid$THEME.soy
+  ./bitex/ui/bitex_datagrid.$THEME.soy
 
 java -jar ./tools/SoyToJsSrcCompiler.jar --bidiGlobalDir 1 --shouldGenerateGoogMsgDefs \
   --shouldProvideRequireSoyNamespaces --codeStyle concat --cssHandlingScheme GOOG  \
   --outputPathFormat  './bitex/ui/{INPUT_FILE_NAME_NO_EXT}.soy.js' \
-  ./bitex/ui/bitex_listview$THEME.soy
+  ./bitex/ui/bitex_listview.$THEME.soy
 
 java -jar ./tools/SoyToJsSrcCompiler.jar --bidiGlobalDir 1 --shouldGenerateGoogMsgDefs \
   --shouldProvideRequireSoyNamespaces --codeStyle concat --cssHandlingScheme GOOG  \
   --outputPathFormat  './bitex/ui/{INPUT_FILE_NAME_NO_EXT}.soy.js' \
-  ./bitex/ui/order_book$THEME.soy
+  ./bitex/ui/order_book.$THEME.soy
 
 java -jar ./tools/SoyToJsSrcCompiler.jar --bidiGlobalDir 1 --shouldGenerateGoogMsgDefs \
   --shouldProvideRequireSoyNamespaces --codeStyle concat --cssHandlingScheme GOOG  \
   --outputPathFormat  './bitex/ui/{INPUT_FILE_NAME_NO_EXT}.soy.js' \
-  ./bitex/ui/simple_chart$THEME.soy
+  ./bitex/ui/simple_chart.$THEME.soy
 
 java -jar ./tools/SoyToJsSrcCompiler.jar --bidiGlobalDir 1 --shouldGenerateGoogMsgDefs \
   --shouldProvideRequireSoyNamespaces --codeStyle concat --cssHandlingScheme GOOG  \
   --outputPathFormat  './bitex/ui/{INPUT_FILE_NAME_NO_EXT}.soy.js' \
-  ./bitex/ui/withdraw_methods$THEME.soy
+  ./bitex/ui/withdraw_methods.$THEME.soy
 
 java -jar ./tools/SoyToJsSrcCompiler.jar --bidiGlobalDir 1 --shouldGenerateGoogMsgDefs \
   --shouldProvideRequireSoyNamespaces --codeStyle concat --cssHandlingScheme GOOG  \
   --outputPathFormat  './bitex/ui/{INPUT_FILE_NAME_NO_EXT}.soy.js' \
-  ./bitex/ui/withdraw_method_editor$THEME.soy
+  ./bitex/ui/withdraw_method_editor.$THEME.soy
 
 java -jar ./tools/SoyToJsSrcCompiler.jar --bidiGlobalDir 1 --shouldGenerateGoogMsgDefs \
   --shouldProvideRequireSoyNamespaces --codeStyle concat --cssHandlingScheme GOOG  \
   --outputPathFormat  './bitex/ui/{INPUT_FILE_NAME_NO_EXT}.soy.js' \
-  ./bitex/ui/advanced_order_entry$THEME.soy
+  ./bitex/ui/advanced_order_entry.$THEME.soy
 
 java -jar ./tools/SoyToJsSrcCompiler.jar --bidiGlobalDir 1 --shouldGenerateGoogMsgDefs \
   --shouldProvideRequireSoyNamespaces --codeStyle concat --cssHandlingScheme GOOG  \
   --outputPathFormat  './bitex/ui/{INPUT_FILE_NAME_NO_EXT}.soy.js' \
-  ./bitex/ui/simple_order_entry$THEME.soy
+  ./bitex/ui/simple_order_entry.$THEME.soy
 
 java -jar ./tools/SoyToJsSrcCompiler.jar --bidiGlobalDir 1 --shouldGenerateGoogMsgDefs \
   --shouldProvideRequireSoyNamespaces --codeStyle concat --cssHandlingScheme GOOG  \
   --outputPathFormat  './bitex/ui/{INPUT_FILE_NAME_NO_EXT}.soy.js' \
-  ./bitex/ui/market_view_table$THEME.soy
+  ./bitex/ui/market_view_table.$THEME.soy
 
 java -jar ./tools/SoyToJsSrcCompiler.jar --bidiGlobalDir 1 --shouldGenerateGoogMsgDefs \
   --shouldProvideRequireSoyNamespaces --codeStyle concat --cssHandlingScheme GOOG  \
   --outputPathFormat  './bitex/ui/{INPUT_FILE_NAME_NO_EXT}.soy.js' \
-  ./bitex/ui/change_password$THEME.soy
+  ./bitex/ui/change_password.$THEME.soy
 
 
 # BlinkTrade Application - enUS
@@ -89,10 +90,7 @@ python ./closure-library/closure/bin/build/closurebuilder.py  \
   --compiler_jar=./tools/compiler.jar \
   --compiler_flags="--compilation_level=ADVANCED_OPTIMIZATIONS" \
   --compiler_flags="--define=goog.DEBUG=0" \
-  --compiler_flags="--define=goog.LOCALE='en_US'" \
-  --compiler_flags="--debug=TRUE" \
-  --compiler_flags="--formatting=PRETTY_PRINT" \
-  --compiler_flags="--formatting=PRINT_INPUT_DELIMITER" \
+  --compiler_flags="--define=goog.LOCALE='$LANG'" \
   --compiler_flags="--externs=./externs/google.js" \
   --compiler_flags="--externs=./externs/plusone.js" \
   --compiler_flags="--externs=./externs/zopim.js" \
@@ -104,8 +102,8 @@ python ./closure-library/closure/bin/build/closurebuilder.py  \
   --compiler_flags="--externs=./externs/sticky.js" \
   --compiler_flags="--externs=./externs/facebook_javascript_sdk.js" \
   --compiler_flags="--translations_project='bitex'" \
-  --compiler_flags="--translations_file=./translations/en.xtb.xml" \
-   > ../assets/js/bitex_app_blink_trade.compiled.en_US$THEME.js
+  --compiler_flags="--translations_file=./translations/$LANG.xtb.xml" \
+   > ../assets/js/bitex_app_blink_trade.compiled.$LANG.$THEME.js
 
 # enable those flags to debug the compiled code.
 #  --compiler_flags="--debug=TRUE" \

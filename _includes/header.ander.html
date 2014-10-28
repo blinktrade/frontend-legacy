@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml">
+<head>
+  <meta charset="utf-8">
+  <title>{% if page.title %}{{ page.title }} &mdash; {% endif %} {{ site.title }}</title>
+
+  <!-- Meta -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+  <meta name="keywords" content="{% if page.keywords %}{{ page.keywords}}{% else %}{{ site.keywords}}{% endif %}">
+
+  <meta name="author" content="{{ site.author }}">
+
+  <meta property="og:title" content="{% if page.title %}{{ page.title }} &mdash;{% endif %} {{ site.title }}">
+  <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
+  <meta property="og:url" content="{{ site.url }}{% if page.url != '/index.html' %}{{ page.url }}{% endif %}">
+  <meta property="og:image" content="{{ site.social_network_image_share }}">
+  <meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="{{ site.url }}/assets/themes/default/img/favicon.png">
+
+  <!-- Feed -->
+  <link rel="alternate" type="application/rss+xml" href="{{ site.url }}/feed.xml">
+
+  <meta charset="utf-8">
+
+  <link rel="canonical" href="{{ site.url }}{% if page.url != '/index.html' %}{{ page.url }}{% endif %}"/>
+  <script type="text/javascript" src="//apis.google.com/js/plusone.js"></script>
+
+  <link href="{{ site.url }}/assets/themes/default/css/font-awesome.min.css" rel="stylesheet">
+
+  {% if page.application_script %}
+  <link href="{{ site.url }}/assets/themes/default/css/Dialog.css" rel="stylesheet">
+  <link href="{{ site.url }}/assets/themes/default/css/fuelux.css" rel="stylesheet">
+  <link href="{{ site.url }}/assets/themes/default/css/style.css" rel="stylesheet">
+  <link href="{{ site.url }}/assets/themes/ander/css/blinktrade.css" rel="stylesheet">
+  <script src="{{ site.url }}/assets/js/{{ page.application_script }}" type="text/javascript"></script>
+  {% endif %}
+</head>
+<body class="{% if page.body_classes %} {{ page.body_classes }} {% endif %}">
+
+
+<!-- .head -->
+<header id="id_toolbar" class="head">
+  <!-- .wrapper -->
+  <div class="wrapper">
+    <!-- .layout -->
+    <div class="layout layout--full">
+      <div class="layout__item two-tenths portable--one-whole">
+        <!-- .logo -->
+        {% if page.application_script %}
+        <a href="#" class="logo brand-face" data-switch-view="offerbook" style="padding-top: 0px;">
+          <img data-switch-view="offerbook" class="logo__img" src="{{ site.toolbar_logo }}" style="
+                height: 55px;
+                margin-top: 0px;
+                margin-bottom: -41px;
+            ">
+        </a>
+        {% else %}
+          <a class="logo brand-face" href="/" title="BlinkTrade">
+            <img src="{{ site.logo }}" alt="BlinkTrade" class="logo__img" />
+            <span class="logo__text">Blink<span>Trade</span></span>
+          </a>
+        {% endif %}
+        <!-- /.logo -->
+      </div>
+
+      {% if page.application_script %}
+      <div class="layout__item eight-tenths portable--one-whole">
+        <!-- .head__nav -->
+        <div class="head__nav">
+          <!-- .layout -->
+          <div class="layout layout--full">
+            <nav class="layout__item eight-tenths portable--one-whole">
+              <!-- .head__nav-left -->
+              <ul class="head__nav-left">
+                <li class="bitex-display-if-logged">
+                  <!--li-->
+                  <span>
+                      <i class="icon-user"></i> My
+                  </span>
+
+                  <!-- .head-dropdown -->
+                  <ul class="head-dropdown">
+                    <li>
+                      <a href="#profile" title="Profile" data-switch-view="profile">
+                        Profile
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#my_broker" title="Broker info" data-switch-view="my_broker">
+                        Broker info
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#customers" title="Customers" data-switch-view="customers">
+                        Customers
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#deposit" title="Deposit" data-switch-view="deposit">
+                        Deposit
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#withdraw" title="Withdrawals" data-switch-view="withdraw">
+                        Withdrawals
+                      </a>
+                    </li>
+                  </ul>
+                  <!-- /.head-dropdown -->
+                </li>
+                <li class="bitex-display-if-logged">
+                                        <span>
+                                            <i class="icon-edit"></i> Requests
+                                        </span>
+
+                  <!-- .head-dropdown -->
+                  <ul class="head-dropdown">
+                    <li>
+                      <a href="deposit_requests" title="Deposit" data-switch-view="deposit_requests">
+                        Deposit
+                      </a>
+                    </li>
+                    <li>
+                      <a href="withdraw_requests" title="Withdraw" data-switch-view="withdraw_requests">
+                        Withdraw
+                      </a>
+                    </li>
+                  </ul>
+                  <!-- /.head-dropdown -->
+                </li>
+                <li class="bitex-display-if-logged">
+                  <a href="#offerbook" data-switch-view="offerbook">
+                    <i class="icon-book"></i> Order book
+                  </a>
+                </li>
+                <li class="bitex-display-if-logged">
+                  <a href="#trading" title="Buy or Sell" data-switch-view="trading">
+                    <i class="icon-random"></i> Buy or Sell
+                  </a>
+                </li>
+                <li class="bitex-display-if-logged">
+                  <a href="#ledger" title="Ledger" data-switch-view="ledger">
+                    <i class="icon-list"></i> Ledger
+                  </a>
+                </li>
+                <li>
+                  <a data-switch-view="market" href="#market" title="Market">
+                    <i class="icon-bar-chart"></i> Market
+                  </a>
+                </li>
+                <li class="bitex-hide-if-logged">
+                  <a data-switch-view="ranking" href="#ranking" title="Ranking">
+                    <i class="icon-star"></i> Ranking
+                  </a>
+                </li>
+                <li class="bitex-hide-if-logged">
+                  <a data-switch-view="signup" href="#signup" title="Signup">
+                    <i class="icon-signin"></i> Signup
+                  </a>
+                </li>
+              </ul>
+              <!-- /.head__nav-left -->
+            </nav>
+
+            <nav class="layout__item two-tenths portable--one-whole cf">
+              <!-- .head__nav-right -->
+              <ul class="head__nav-right">
+                <li class="bitex-hide-if-logged">
+                  <a data-switch-view="signin" href="#signin" title="Login">
+                    <i class="icon-power-off"></i> Login
+                  </a>
+                  <button id="id_button_connect_ws" class="btn bitex-hide-if-ws-connected btn-link">
+                    Connect <i class="icon-white icon-repeat"></i>
+                  </button>
+                </li>
+                <li class="bitex-display-if-logged">
+                  <a href="javascript:location.reload()">
+                    <i class="icon-power-off"></i> Logout
+                  </a>
+                </li>
+              </ul>
+              <!-- /.head__nav-right -->
+            </nav>
+          </div>
+          <!-- /.layout -->
+        </div>
+        <!-- /.head__nav -->
+      </div>
+      {% endif %}
+    </div>
+    <!-- /.layout -->
+  </div>
+  <!-- /.wrapper -->
+</header>
+<!-- /.head -->
+
+
+
+
+

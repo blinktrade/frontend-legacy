@@ -1,0 +1,31 @@
+.logo {
+    @include inline-block();
+
+    color:#eee;
+    font-family:$brand-face;
+    font-size:24px;
+    font-weight:bold;
+    line-height:1;
+    margin-bottom:$base-spacing;
+
+    &:hover {
+        color:#fff;
+        text-decoration:none;
+    }
+
+    @include media-query(desk) {
+        margin-bottom:0;
+        padding:($half-spacing / 2) 0;
+    }
+}
+
+.logo__img,
+.logo__text {
+    @include inline-block(bottom);
+}
+
+.logo__text {
+    > span {
+        font-weight:normal;
+    }
+}

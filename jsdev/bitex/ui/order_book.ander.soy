@@ -1,0 +1,33 @@
+{namespace bitex.ui.OrderBook.templates}
+
+/**
+  * @param title
+  * @param columns
+  */
+{template .OrderBook}
+<div class="box box--history box--push-bottom">
+    <!-- .box__head -->
+    <header class="box__head">
+        {$title}
+    </header>
+    <!-- /.box__head -->
+
+    <!-- .box__body -->
+    <div class="box__body box__body--slide-x">
+        <!-- .table -->
+        <table class="table table--bordered table--striped">
+            <thead>
+              <tr>
+                {foreach $column in $columns}
+                  <th>{$column}</th>
+                {/foreach}
+              </tr>
+            </thead>
+
+            <tbody></tbody>
+        </table>
+    </div>
+    <!-- /.box__body -->
+</div>
+{/template}
+

@@ -1,0 +1,56 @@
+/*
+* _typography.scss
+**/
+
+// mixin font-size
+@mixin font-size($size) {
+    font-size:$size;
+    line-height:ceil($size / $line-height) * ($line-height / $size);
+}
+
+
+// headings
+h1, .alpha   { @include font-size(48px); }
+
+h2, .beta    { @include font-size(41px); }
+
+h3, .gamma   { @include font-size(29px); }
+
+h4, .delta   { @include font-size(25px); }
+
+h5, .epsilon { @include font-size(18px); }
+
+h6, .zeta    { @include font-size(16px); }
+
+
+h1,h2,h3,h4,h5,h6,hgroup,
+ul,ol,dl,
+blockquote,p,address,
+table,
+fieldset,figure,
+pre {
+    margin-bottom:$base-spacing;
+}
+
+
+table {
+    width:100%;
+}
+
+
+/**
+ * `hr` elements only take up a few pixels, so we need to give them special
+ * treatment regarding vertical rhythm.
+ */
+hr {
+    margin-bottom:$base-spacing;
+}
+
+
+/**
+ * Where `margin-left` is concerned we want to try and indent certain elements
+ * by a consistent amount. Define that amount once, here.
+ */
+ul,ol,dd {
+    margin-left:$base-spacing;
+}
