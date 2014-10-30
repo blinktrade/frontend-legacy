@@ -2,7 +2,7 @@
     <footer class="footer">
       <div class="container">
         <p>
-          {% if page.blinktrade_backend_api %}
+          {% if page.application_script %}
           Latency: <span class="bitex-model" data-model-key="latency">0</span> ms |
           {% endif %}
           <a href="http://blinktrade.com/" target="_blank">© 2014 BlinkTrade Inc</a>
@@ -13,7 +13,7 @@
     </footer>
 
 
-    {% if page.blinktrade_backend_api %}
+    {% if page.application_script %}
     <script>
       var _app;  // global application object
       (function(){
