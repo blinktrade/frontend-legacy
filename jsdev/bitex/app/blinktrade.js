@@ -478,7 +478,7 @@ bitex.app.BlinkTrade.prototype.run = function(host_api) {
   this.profileView_ = profileView;
 
 
-  this.getModel().set('JSVersion', '0.2' );
+  this.getModel().set('JSVersion', '0.3' );
 
   this.connectBitEx();
 };
@@ -2453,7 +2453,7 @@ bitex.app.BlinkTrade.prototype.onUserLoginOk_ = function(e) {
   }
 
 
-  if (goog.isDefAndNotNull($zopim)) {
+  if (goog.isDefAndNotNull($zopim) && goog.isDefAndNotNull($zopim.livechat)) {
     var tags = 'VerificationLevel:';
     switch(profile['Verified']) {
       case 0:
