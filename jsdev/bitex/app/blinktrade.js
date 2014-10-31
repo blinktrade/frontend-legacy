@@ -477,6 +477,9 @@ bitex.app.BlinkTrade.prototype.run = function(host_api) {
   this.loginView_ = loginView;
   this.profileView_ = profileView;
 
+
+  this.getModel().set('JSVersion', '0.2' );
+
   this.connectBitEx();
 };
 
