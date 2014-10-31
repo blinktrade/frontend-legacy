@@ -24,6 +24,7 @@ goog.require('bitex.ui.AccountActivity');
 goog.require('bitex.ui.WithdrawList');
 
 goog.require('bitex.ui.Customers');
+goog.require('goog.Uri');
 
 goog.require('goog.fx');
 goog.require('goog.fx.dom');
@@ -465,8 +466,12 @@ bitex.app.BlinkTrade.prototype.run = function(host_api) {
 
   handler.listen(this.views_, bitex.view.View.EventType.FILE_VIEW, this.onUserFileView_);
 
+  var initial_view = 'start';
+  if (!goog.string.isEmpty(location.hash)){
+    initial_view = location.hash.substr(1);
+  }
 
-  this.router_.setView('start');
+  this.router_.setView(initial_view);
   this.router_.init();
 
   this.loginView_ = loginView;
@@ -3005,12 +3010,6 @@ bitex.app.BlinkTrade.prototype.onBrokerListResponse_ =  function(e){
 
 
   this.model_.set('BrokerList', broker_list);
-
-  var current_view = location.pathname.replace('/', '');
-  if ( current_view && current_view.indexOf('.html') == '-1' ) {
-    this.router_.setView(current_view);
-  }
-
 };
 
 /**

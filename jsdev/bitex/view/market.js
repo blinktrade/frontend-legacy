@@ -51,7 +51,14 @@ bitex.view.MarketView.prototype.simple_chart_;
 
 bitex.view.MarketView.prototype.enterView = function() {
   goog.base(this, 'enterView');
-  this.recreateComponents_();
+  var handler = this.getHandler();
+  var model = this.getApplication().getModel();
+
+  handler.listen( model,  bitex.model.Model.EventType.SET + 'SecurityList', this.recreateComponents_ );
+
+  if (goog.isDefAndNotNull(model.get('SecurityList') )) {
+    this.recreateComponents_();
+  }
 };
 
 bitex.view.MarketView.prototype.exitView = function() {
