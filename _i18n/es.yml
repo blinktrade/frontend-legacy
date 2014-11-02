@@ -1,0 +1,126 @@
+global:
+  portuguese: Português
+  english: English
+  spanish: Español
+  tagline: English
+  about: Sobre
+  twitter: Twitter
+views:
+  toolbar:
+    trading: Negociaciones
+    market: Mercado
+    signin: Ingressar
+    signup: Registrarse
+    connect: Conectar
+
+  start:
+    example_lead: Véase nuestra exchange open source en acción
+    username: "Nombre de usuario:"
+    password: "Contraseña"
+    login: Ingressar
+    signup: Registrarse
+
+  signup:
+    title: Registrarse
+    already_registered:  ¿Ya estás registrado?
+    login: Ingressar
+    username: Nombre de usuario
+    email: Email
+    email_placeholder: "ej.: jose@email.com"
+    password: Contraseña
+    password_help: Por lo menos 8 caracteres
+    confirm_password: Confirme su contraseña
+    country: Pais
+    state: Estado o Provincia
+    broker: Corridor
+    terms_of_service: Terminos del servicio
+    i_agree_with_terms_of_service:  Estoy de acuerdo con Terminos de servicio
+    signup_button_label: Registrarse
+
+  signin:
+    title: Ingresar
+    dont_have_an_account: Si todavía no te has registrado
+    signup: Regístrate ahora
+    username: Nombre de usuario
+    password: Contraseña
+    forgot_your_password: Olvidaste tu contraseña?
+    login_button_label: Ingressar
+
+  forgot_password:
+    title: Recuperar contraseña
+    email: Email
+    recover_password_button_label: Recuperar contraseña
+
+  set_new_password:
+    title: Escriba nueva contraseña
+    security_code: Código de seguridad
+    security_code_help: Un código de seguridad fue enviado a su correo electrónico.
+    new_password: Nueva contraseña
+    new_password_help: Por lo menos 8 caracteres
+    confirm_password: Confirme su contraseña
+    set_new_password_button_label: Restablecer contraseña
+
+  profile:
+    title: Mi Perfil
+    two_factor_auth_section:
+      title: Activar o desactivar verificacion de dos pasos
+      key: Key
+      authentication_code: Código de verificación
+      authentication_code_title: Cógico generado por Google Authenticatior
+      authentication_code_placeholder: Ex. 555555
+      enable: Activar
+      disable: Desactivar
+
+  trading:
+    title: Comprar o Vender
+
+  offerbook:
+    title: Libro de órdenes
+
+  customers:
+    title: Mis clientes
+
+  account_overview:
+    title:  Cuenta Detalle
+    set_user_fees_button_label: Definir tarifas de lo usuario
+
+  withdraw:
+    title: Retiros
+
+  withdraw_requests:
+    title: Solicitudes de retiros
+
+  deposit:
+    title: Depósitos
+
+  deposit_requests:
+    title: Solicitudes de depósitos
+
+  ledger:
+    title: Libro de cuentas
+
+  settings:
+    title: Configuraciones
+
+  verification:
+    title: Verifique su cuenta
+
+  market:
+    title: Mercado
+
+  sidebar:
+    market: "Mercado:"
+    menu: Menu
+    my_profile: Mi perfil
+    my_broker: Sobre el exchange
+    trading: Comprar o Vender
+    offerbook: Libro de órdenes
+    ledger: Livro de cuentas
+    customers: Mis clientes
+    deposit_requests: Depósitos ( clientes )
+    withdraw_requests: Retiros ( clientes )
+    deposit: Depósitos
+    withdraw: Retiros
+    verification: Verifique su cuenta
+    support: Soporte y sugerencias
+    logout: Salir

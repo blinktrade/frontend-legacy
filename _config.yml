@@ -25,6 +25,7 @@ zopim_key: "2SSNIzvxy8fBypKoZJ0pI43tUoNCv8os"
 # Build settings
 markdown: kramdown
 
+languages: ["en_US", "es", "pt_BR"]
 
 exclude:     [ "jsdev", "LICENSE", "README.md", "config.rb" ]
 source:      .
