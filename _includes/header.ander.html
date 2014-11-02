@@ -31,12 +31,12 @@
 
   <link href="/assets/themes/default/css/font-awesome.min.css" rel="stylesheet">
 
-  {% if page.application_script %}
+  {% if page.load_application %}
   <link href="/assets/themes/default/css/Dialog.css" rel="stylesheet">
   <link href="/assets/themes/default/css/fuelux.css" rel="stylesheet">
   <link href="/assets/themes/default/css/style.css" rel="stylesheet">
   <link href="/assets/themes/ander/css/blinktrade.css" rel="stylesheet">
-  <script src="/assets/js/{{ page.application_script }}" type="text/javascript"></script>
+  <script src="/assets/js/bitex_app_blink_trade.compiled.{{site.lang}}.ander.js?v=0.4" type="text/javascript"></script>
   {% endif %}
 </head>
 <body class="{% if page.body_classes %} {{ page.body_classes }} {% endif %}">
@@ -50,7 +50,7 @@
     <div class="layout layout--full">
       <div class="layout__item two-tenths portable--one-whole">
         <!-- .logo -->
-        {% if page.application_script %}
+        {% if page.load_application %}
         <a href="#" class="logo brand-face" data-switch-view="offerbook" style="padding-top: 0px;">
           <img data-switch-view="offerbook" class="logo__img" src="{{ site.toolbar_logo }}" style="
                 height: 55px;
@@ -67,7 +67,7 @@
         <!-- /.logo -->
       </div>
 
-      {% if page.application_script %}
+      {% if page.load_application %}
       <div class="layout__item eight-tenths portable--one-whole">
         <!-- .head__nav -->
         <div class="head__nav">

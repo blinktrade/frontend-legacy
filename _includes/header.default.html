@@ -33,12 +33,12 @@
     <link href="/assets/themes/default/css/bootstrap-combined.min.css" rel="stylesheet">
     <link href="/assets/themes/default/css/font-awesome.min.css" rel="stylesheet">
 
-    {% if page.application_script %}
+    {% if page.load_application %}
     <link href="/assets/themes/default/css/Dialog.css" rel="stylesheet">
     <link href="/assets/themes/default/css/fuelux.css" rel="stylesheet">
     <link href="/assets/themes/default/css/style.css" rel="stylesheet">
     <link href="/assets/themes/default/css/default.uni-form.css" rel="stylesheet">
-    <script src="/assets/js/{{ page.application_script }}" type="text/javascript"></script>
+    <script src="/assets/js/bitex_app_blink_trade.compiled.{{site.lang}}.default.js?v=0.4" type="text/javascript"></script>
     {% endif %}
   </head>
   <body class="{% if page.body_classes %} {{ page.body_classes }} {% endif %}">
@@ -47,7 +47,7 @@
       <div class="navbar-inner">
         <div class="container">
 
-          {% if page.application_script %}
+          {% if page.load_application %}
           <a href="#" class="brand" data-switch-view="offerbook">
             <img data-switch-view="offerbook" src="{{ site.toolbar_logo }}" style="
                 height: 55px;
@@ -65,15 +65,15 @@
           </a>
           {% endif %}
 
-          {% if page.application_script %}
+          {% if page.load_application %}
           <ul class="nav navbar-nav pull-right">
-            <li class="bitex-display-if-logged"><a href="" data-switch-view="offerbook">Trading</a></li>
-            <li><a href="" data-switch-view="market">Market</a></li>
-            <li class="bitex-hide-if-logged"><a href="" data-switch-view="signin">Login</a></li>
-            <li class="bitex-hide-if-logged"><a href="" data-switch-view="signup">Signup</a></li>
+            <li class="bitex-display-if-logged"><a href="" data-switch-view="offerbook">{% t views.toolbar.trading %}</a></li>
+            <li><a href="" data-switch-view="market">{% t views.toolbar.market %}</a></li>
+            <li class="bitex-hide-if-logged"><a href="" data-switch-view="signin">{% t views.toolbar.signin %}</a></li>
+            <li class="bitex-hide-if-logged"><a href="" data-switch-view="signup">{% t views.toolbar.signup %}</a></li>
             <li>
               <button id="id_button_connect_ws" class="bitex-hide-if-ws-connected btn-link"
-                      style="padding: 6px 15px 10px;">connect <i class="icon-white icon-repeat"></i></button>
+                      style="padding: 6px 15px 10px;">{% t views.toolbar.connect %} <i class="icon-white icon-repeat"></i></button>
             </li>
           </ul>
           {% endif %}

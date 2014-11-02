@@ -1,0 +1,126 @@
+global:
+  portuguese: Português
+  english: English
+  spanish: Español
+  tagline: English
+  about: Sobre
+  twitter: Twitter
+views:
+  toolbar:
+    trading: Negociações
+    market: Mercado
+    signin: Login
+    signup: Registrar
+    connect: Conectar
+
+  start:
+    example_lead: Veja a nossa exchange open source em ação
+    username: "Nome de usuário:"
+    password: "Senha:"
+    login: Entrar
+    signup: Registrar
+
+  signup:
+    title: Registrar
+    already_registered:  Já possui registro?
+    login: Entrar
+    username: Nome de usuário
+    email: Email
+    email_placeholder: "ex.: jose@email.com"
+    password: Senha
+    password_help: Pelo menos 8 letras
+    confirm_password: Confirme a sua senha
+    country: País
+    state: Estado ou Província
+    broker: Corretor
+    terms_of_service: Termos de serviço
+    i_agree_with_terms_of_service: Estou de acordo com os termos de serviço
+    signup_button_label: Registrar
+
+  signin:
+    title: Login
+    dont_have_an_account: Não possui uma conta?
+    signup: Registre-se
+    username: Nome de usuário
+    password: Senha
+    forgot_your_password: Esqueceu a sua senha?
+    login_button_label: Entrar
+
+  forgot_password:
+    title: Recuperação da senha
+    email: Email
+    recover_password_button_label: Recuperar senha
+
+  set_new_password:
+    title: Definir nova senha
+    security_code: Código de segurança
+    security_code_help: Nós acabamos de enviar um código de segurança para o seu email.
+    new_password: Nova senha
+    new_password_help: Pelo menos 8 letras
+    confirm_password: Confirme a sua senha
+    set_new_password_button_label: Redefinir senha
+
+  profile:
+    title: Meu Perfil
+    two_factor_auth_section:
+      title: Enable or Disable Two steps authentication
+      key: Chave
+      authentication_code: Código de Autenticação
+      authentication_code_title: Código gerado pelo Google Authenticator
+      authentication_code_placeholder: Ex. 555555
+      enable: Habilitar
+      disable: Desabilitar
+
+  trading:
+    title: Comprar ou Vender
+
+  offerbook:
+    title: Livro de ofertas
+
+  customers:
+    title: Meus clientes
+
+  account_overview:
+    title:  Detalhe da conta
+    set_user_fees_button_label: Definir taxas personalizadas
+
+  withdraw:
+    title: Saques
+
+  withdraw_requests:
+    title: Pedidos de saques
+
+  deposit:
+    title: Depósitos
+
+  deposit_requests:
+    title: Pedidos de depósitos
+
+  ledger:
+    title: Livro contábil
+
+  settings:
+    title: Configurações
+
+  verification:
+    title: Verificar a sua conta
+
+  market:
+    title: Mercado
+
+  sidebar:
+    market: "Mercado:"
+    menu: Menu
+    my_profile: Meu perfil
+    my_broker: Sobre a exchange
+    trading: Comprar ou Vender
+    offerbook: Livro de ofertas
+    ledger: Livro contábil
+    customers: Meus clientes
+    deposit_requests: Depósitos ( clientes )
+    withdraw_requests: Saques ( clientes )
+    deposit: Depósitos
+    withdraw: Saques
+    verification: Verificar a sua conta
+    support: Suporte e Sugestões
+    logout: Sair
