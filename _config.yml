@@ -27,7 +27,7 @@ markdown: kramdown
 
 languages: ["en_US", "es", "pt_BR"]
 
-exclude:     [ "jsdev", "LICENSE", "README.md", "config.rb" ]
+exclude:     [ "jsdev", "LICENSE", "README.md", "config.rb", "deploy.sh", "build_javascript.sh" ]
 source:      .
 destination: ./_site
 plugins:     ./_plugins
