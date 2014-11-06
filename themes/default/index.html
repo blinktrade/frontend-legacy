@@ -36,6 +36,30 @@ load_application:       True
     </div>
   </div>
 
+  <div id="faq" class="page row-fluid bitex-view bitex-view-active">
+    <div class="page-header">
+      <h1 class="bitex-view-title">{% t views.faq.title %}</h1>
+    </div>
+
+    <div class="bitex-view-content">
+      <div class="accordion">
+        {% for post in site.categories['faq'] reversed %}
+        <div class="accordion-group">
+          <div class="accordion-heading">
+            <a class="accordion-toggle collapsed">
+              {{post.title}}
+            </a>
+          </div>
+          <div class="accordion-body collapse ">
+            <div class="accordion-inner">
+              {{post.content}}
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+  </div>
+
   <!-- signup page-->
   <div id="signup" class="page  row-fluid bitex-view">
     <div class="page-header">

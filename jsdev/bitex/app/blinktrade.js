@@ -50,6 +50,7 @@ goog.require('bootstrap.Dialog');
 goog.require('bootstrap.Dialog.ButtonSet');
 goog.require('bootstrap.Alert');
 goog.require('bootstrap.Dropdown');
+goog.require('bootstrap.Accordion');
 
 
 goog.require('goog.debug');
@@ -104,6 +105,7 @@ bitex.app.BlinkTrade = function(broker_id, opt_default_country, opt_default_stat
   goog.events.EventTarget.call(this);
 
   bootstrap.Dropdown.install();
+  bootstrap.Accordion.install();
 
   this.dialog_ = null;
   this.error_message_alert_timeout_ = 5000;
