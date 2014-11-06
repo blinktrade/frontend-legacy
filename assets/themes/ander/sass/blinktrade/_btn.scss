@@ -1,0 +1,52 @@
+.btn {
+    @include border-radius(3px);
+    @include inline-block(middle);
+
+    background-color:#eee;
+    border:none;
+    font-weight:bold;
+    line-height:1.35;
+    outline:none;
+    padding:($half-spacing / 2) $half-spacing;
+
+    &:hover {
+        text-decoration:none;
+    }
+}
+
+.btn--full {
+    display:block;
+    width:100%;
+}
+
+.btn--positive {
+    @include background-image(linear-gradient(top, #62c462, #51a351));
+
+    color:#fff;
+
+    &:hover {
+        @include background-image(linear-gradient(top, #51a351, #62c462));
+
+        color:#fff;
+    }
+
+    &:active {
+        background:#51a351;
+    }
+}
+
+.btn--negative {
+    @include background-image(linear-gradient(top, #ee5f5b, #bd362f));
+
+    color:#fff;
+
+    &:hover {
+        @include background-image(linear-gradient(top, #bd362f, #ee5f5b));
+
+        color:#fff;
+    }
+
+    &:active {
+        background:#bd362f;
+    }
+}

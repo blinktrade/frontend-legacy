@@ -1,0 +1,53 @@
+/*
+* _layout.scss
+**/
+
+// layout object
+.layout {
+    @include cf();
+
+    margin-left:-$base-spacing;
+    list-style:none;
+    margin-bottom:0;
+}
+
+.layout__item {
+    float:left;
+    padding-left:$base-spacing;
+    width:100%;
+}
+
+
+// modifications
+.layout--bottom {
+    > .layout__item {
+        display:inline-block;
+        float:none;
+        margin-right:-0.28em;
+        vertical-align:bottom;
+    }
+}
+
+.layout--half {
+    margin-left:-$half-spacing;
+
+    > .layout__item {
+        padding-left:$half-spacing;
+    }
+}
+
+.layout--quarter {
+    margin-left:-($half-spacing / 2);
+
+    > .layout__item {
+        padding-left:($half-spacing) / 2;
+    }
+}
+
+.layout--full {
+    margin-left:0;
+
+    > .layout__item {
+        padding-left:0;
+    }
+}

@@ -1,0 +1,68 @@
+/*
+* _table.scss
+**/
+
+$color: lighten(gray, 30%);
+
+.table {
+    background-color:#FFF;
+    display:table;
+    font-size:13px;
+    line-height:1;
+    margin-bottom:0;
+    width:100%;
+
+    th {
+        text-align:left;
+    }
+
+    th, td {
+        border:none;
+        display:table-cell;
+        vertical-align:middle;
+        padding:($half-spacing / 3);
+    }
+}
+
+.table--bid-ask {
+    th {
+        text-align:left;
+    }
+
+    td {
+        text-align:right;
+
+        > input {
+            text-align:right;
+        }
+    }
+}
+
+.table--striped {
+    tr {
+        &:nth-child(odd) {
+            td {
+                background-color:lighten($color, 15%);
+            }
+        }
+    }
+}
+
+.table--bordered {
+    th,
+    td {
+        border-width:1px;
+        border-color:#ccc;
+        border-style:solid;
+    }
+
+    thead {
+        > tr {
+            &:first-child {
+                > th {
+                    border-top:none;
+                }
+            }
+        }
+    }
+}

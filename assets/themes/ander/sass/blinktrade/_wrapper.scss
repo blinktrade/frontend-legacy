@@ -1,0 +1,10 @@
+.wrapper {
+    margin: 0 auto;
+    width: 90%;
+
+    @include media-query(desk) {
+        min-width: 980px;
+        max-width: 1200px;
+        width: 80%;
+    }
+}

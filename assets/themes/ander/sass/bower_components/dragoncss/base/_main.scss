@@ -1,0 +1,25 @@
+/*
+* _main.scss
+**/
+
+html{
+    background:#eee;
+    color:#333;
+    font:#{($font-size/16px)*1em}/#{$line-height / $font-size} $sans-serif;
+    overflow-y:scroll;
+    min-height:100%;
+}
+
+a {
+    color:#0088cc;
+    text-decoration:none;
+
+    &:hover {
+        color:#005580;
+        text-decoration:underline;
+    }
+}
+
+img {
+    max-width:100%;
+}

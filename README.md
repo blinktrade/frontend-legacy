@@ -52,7 +52,7 @@ IE 11+ ✔ | Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ |
 ## How build the javascript application
 ```sh
 $ cd jsdev
-$ sh build_release.sh 
+$ sh build_release.sh  en_US default
 ```
 
 ## File Structure

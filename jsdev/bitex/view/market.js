@@ -51,7 +51,14 @@ bitex.view.MarketView.prototype.simple_chart_;
 
 bitex.view.MarketView.prototype.enterView = function() {
   goog.base(this, 'enterView');
-  this.recreateComponents_();
+  var handler = this.getHandler();
+  var model = this.getApplication().getModel();
+
+  handler.listen( model,  bitex.model.Model.EventType.SET + 'SecurityList', this.recreateComponents_ );
+
+  if (goog.isDefAndNotNull(model.get('SecurityList') )) {
+    this.recreateComponents_();
+  }
 };
 
 bitex.view.MarketView.prototype.exitView = function() {
@@ -73,7 +80,7 @@ bitex.view.MarketView.prototype.recreateComponents_ = function() {
   this.market_data_subscription_id_ = parseInt( 1e7 * Math.random() , 10 );
 
   this.market_data_subscription_symbol_ =  [];
-  goog.array.forEach(app.getModel().get('SecurityList')['Instruments'], function(instrument_info) {
+  goog.array.forEach(model.get('SecurityList')['Instruments'], function(instrument_info) {
     this.market_data_subscription_symbol_.push(instrument_info['Symbol'] );
   }, this);
 
@@ -81,7 +88,7 @@ bitex.view.MarketView.prototype.recreateComponents_ = function() {
   this.market_view_table_.setModel({id:'market_view', instruments: model.get('SecurityList')['Instruments']});
   this.addChild(this.market_view_table_, true);
 
-  app.getModel().updateDom();
+  this.getApplication().getModel().updateDom();
 
   this.simple_chart_ = new bitex.ui.SimpleChart();
   this.simple_chart_.setModel({ symbol: model.get('SecurityList')['Instruments'][0]['Symbol'] });

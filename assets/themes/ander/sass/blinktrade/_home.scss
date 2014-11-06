@@ -1,0 +1,47 @@
+.home {
+    text-align:center;
+    margin-bottom:$base-spacing;
+
+    > :last-child {
+        margin-bottom:0;
+    }
+}
+
+.home__img {
+    @include inline-block(middle);
+
+    margin-bottom:$base-spacing;
+}
+
+.home__title {
+    font-size:25px;
+    font-family:$brand-face;
+    line-height:1;
+    margin-bottom:$half-spacing;
+
+    @include media-query(lap) {
+        font-size:29px;
+    }
+
+    @include media-query(desk) {
+        font-size:41px;
+    }
+}
+
+.home-form {
+    margin:0 auto;
+
+    @include media-query(desk) {
+        width:60%;
+    }
+}
+
+.home-form__label {
+    display:block;
+}
+
+.home-form__input {
+    @include media-query(palm) {
+        margin-bottom:$half-spacing;
+    }
+}

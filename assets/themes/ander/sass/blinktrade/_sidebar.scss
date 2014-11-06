@@ -1,0 +1,35 @@
+.sidebar {
+    padding: 24px;
+
+    @include media-query(desk) {
+        border-right: 1px solid #eee;
+    }
+}
+
+.sidebar__title {
+    margin-bottom:$half-spacing;
+}
+
+.sidebar-box {
+}
+
+.sidebar-box__head {
+    > :last-child {
+        margin-bottom:($half-spacing / 2);
+    }
+}
+
+.sidebar-box__body {
+    > ul {
+        list-style:none;
+        margin-left:0;
+    }
+
+    > :last-child {
+        margin-bottom:0;
+    }
+}
+
+.sidebar-box--push--bottom {
+    margin-bottom:$base-spacing;
+}

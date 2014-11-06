@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml">
+  <head>
+    <meta charset="utf-8">
+    <title>{% if page.title %}{{ page.title }} &mdash; {% endif %} {{ site.title }}</title>
+
+    <!-- Meta -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+    <meta name="keywords" content="{% if page.keywords %}{{ page.keywords}}{% else %}{{ site.keywords}}{% endif %}">
+
+    <meta name="author" content="{{ site.author }}">
+
+    <meta property="og:title" content="{% if page.title %}{{ page.title }} &mdash;{% endif %} {{ site.title }}">
+    <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
+    <meta property="og:url" content="{{ site.url }}{% if page.url != '/index.html' %}{{ page.url }}{% endif %}">
+    <meta property="og:image" content="{{ site.social_network_image_share }}">
+    <meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{{ site.url }}/assets/themes/default/img/favicon.png">
+
+    <!-- Feed -->
+    <link rel="alternate" type="application/rss+xml" href="{{ site.url }}/feed.xml">
+
+    <meta charset="utf-8">
+
+    <link rel="canonical" href="{{ site.url }}{% if page.url != '/index.html' %}{{ page.url }}{% endif %}"/>
+    <script type="text/javascript" src="//apis.google.com/js/plusone.js"></script>
+
+    <!--Bootstrap-->
+    <link href="/assets/themes/default/css/bootstrap-combined.min.css" rel="stylesheet">
+    <link href="/assets/themes/default/css/font-awesome.min.css" rel="stylesheet">
+
+    {% if page.load_application %}
+    <link href="/assets/themes/default/css/Dialog.css" rel="stylesheet">
+    <link href="/assets/themes/default/css/fuelux.css" rel="stylesheet">
+    <link href="/assets/themes/default/css/default.uni-form.css" rel="stylesheet">
+    <link href="/assets/themes/default/css/style.css?v={{ site.deploy_version }}" rel="stylesheet">
+    <script data-cfasync="false" src="/assets/js/bitex_app_blink_trade.compiled.{{site.lang}}.default.js?v={{ site.deploy_version }}" type="text/javascript"></script>
+    {% endif %}
+  </head>
+  <body class="{% if page.body_classes %} {{ page.body_classes }} {% endif %}">
+
+    <div id="id_toolbar" class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+
+          {% if page.load_application %}
+          <a href="#" class="brand" data-switch-view="offerbook">
+            <img data-switch-view="offerbook" src="{{ site.toolbar_logo }}" style="
+                height: 55px;
+                margin-top: 10px;
+                margin-bottom: -41px;
+            ">
+          </a>
+          {% else %}
+          <a class="brand" href="/">
+            <img src="{{ site.toolbar_logo }}" style="
+                height: 55px;
+                margin-top: 10px;
+                margin-bottom: -41px;
+            ">
+          </a>
+          {% endif %}
+
+          <ul class="nav navbar-nav pull-right">
+            {% if page.load_application %}
+            <li><a href="" data-switch-view="faq">{% t views.toolbar.faq %}</a></li>
+            <li class="bitex-display-if-logged"><a href="" data-switch-view="offerbook">{% t views.toolbar.trading %}</a></li>
+            <li><a href="" data-switch-view="market">{% t views.toolbar.market %}</a></li>
+            <li class="bitex-hide-if-logged"><a href="" data-switch-view="signin">{% t views.toolbar.signin %}</a></li>
+            <li class="bitex-hide-if-logged"><a href="" data-switch-view="signup">{% t views.toolbar.signup %}</a></li>
+            {% endif %}
+
+            <li class="dropdown">
+              <a id="drop1" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">{{ site.lang|upcase }} <b class="caret"></b></a>
+              <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+              {% for lang in site.languages %}
+                {% if  lang != site.lang  %}
+                  {% if forloop.first %}
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ site.baseurl_root }}/">{{ lang|upcase }}</a></li>
+                  {% else %}
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ site.baseurl_root }}/{{lang}}">{{ lang|upcase }}</a></li>
+                  {% endif %}
+                {% endif %}
+              {% endfor %}
+              </ul>
+            </li>
+
+            {% if page.load_application %}
+            <li>
+              <button id="id_button_connect_ws" class="bitex-hide-if-ws-connected btn-link"
+                      style="padding: 6px 15px 10px;">{% t views.toolbar.connect %} <i class="icon-white icon-repeat"></i></button>
+            </li>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="clearfix" style="padding: 30px;"></div>
+
+    <div id="id_notifications" class="notifications top-right" style="z-index: 9000;"></div>
+
+

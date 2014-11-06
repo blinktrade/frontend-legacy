@@ -24,6 +24,7 @@ goog.require('bitex.ui.AccountActivity');
 goog.require('bitex.ui.WithdrawList');
 
 goog.require('bitex.ui.Customers');
+goog.require('goog.Uri');
 
 goog.require('goog.fx');
 goog.require('goog.fx.dom');
@@ -49,6 +50,7 @@ goog.require('bootstrap.Dialog');
 goog.require('bootstrap.Dialog.ButtonSet');
 goog.require('bootstrap.Alert');
 goog.require('bootstrap.Dropdown');
+goog.require('bootstrap.Accordion');
 
 
 goog.require('goog.debug');
@@ -103,6 +105,7 @@ bitex.app.BlinkTrade = function(broker_id, opt_default_country, opt_default_stat
   goog.events.EventTarget.call(this);
 
   bootstrap.Dropdown.install();
+  bootstrap.Accordion.install();
 
   this.dialog_ = null;
   this.error_message_alert_timeout_ = 5000;
@@ -297,6 +300,7 @@ bitex.app.BlinkTrade.prototype.run = function(host_api) {
 
   // Populate all the views
   var startView           = new bitex.view.NullView(this);
+  var faqView             = new bitex.view.NullView(this);
   var setNewPasswordView  = new bitex.view.SetNewPasswordView(this);
   var loginView           = new bitex.view.LoginView(this);
   var signUpView          = new bitex.view.SignupView(this);
@@ -322,6 +326,7 @@ bitex.app.BlinkTrade.prototype.run = function(host_api) {
   this.views_.addChild( toolBarView         );
   this.views_.addChild( sideBarView         );
   this.views_.addChild( startView           );
+  this.views_.addChild( faqView             );
   this.views_.addChild( setNewPasswordView  );
   this.views_.addChild( loginView           );
   this.views_.addChild( signUpView          );
@@ -343,6 +348,7 @@ bitex.app.BlinkTrade.prototype.run = function(host_api) {
   this.views_.addChild( brokerApplicationView);
 
   startView.decorate(goog.dom.getElement('start'));
+  faqView.decorate(goog.dom.getElement('faq'));
   sideBarView.decorate(goog.dom.getElement('id_sidebar'));
   toolBarView.decorate(goog.dom.getElement('id_toolbar'));
   loginView.decorate(goog.dom.getElement('signin'));
@@ -352,6 +358,8 @@ bitex.app.BlinkTrade.prototype.run = function(host_api) {
 
   this.router_.addView( '(account_overview)/(\\w+)/$'   , accountOverviewView );
   this.router_.addView( '(start)'                       , startView           );
+  this.router_.addView( '(faq)'                         , faqView             );
+  this.router_.addView( '(admin)'                       , startView           );
   this.router_.addView( '(set_new_password)'            , setNewPasswordView  );
   this.router_.addView( '(signin)'                      , loginView           );
   this.router_.addView( '(signup)'                      , signUpView          );
@@ -465,12 +473,19 @@ bitex.app.BlinkTrade.prototype.run = function(host_api) {
 
   handler.listen(this.views_, bitex.view.View.EventType.FILE_VIEW, this.onUserFileView_);
 
+  var initial_view = 'start';
+  if (!goog.string.isEmpty(location.hash)){
+    initial_view = location.hash.substr(1);
+  }
 
-  this.router_.setView('start');
+  this.router_.setView(initial_view);
   this.router_.init();
 
   this.loginView_ = loginView;
   this.profileView_ = profileView;
+
+
+  this.getModel().set('JSVersion', '0.3' );
 
   this.connectBitEx();
 };
@@ -2445,7 +2460,7 @@ bitex.app.BlinkTrade.prototype.onUserLoginOk_ = function(e) {
   }
 
 
-  if (goog.isDefAndNotNull($zopim)) {
+  if (goog.isDefAndNotNull($zopim) && goog.isDefAndNotNull($zopim.livechat)) {
     var tags = 'VerificationLevel:';
     switch(profile['Verified']) {
       case 0:
@@ -2636,17 +2651,22 @@ bitex.app.BlinkTrade.prototype.getHeartBtInt = function() {
 bitex.app.BlinkTrade.prototype.onBeforeSetView_ = function(e){
   var view_id = e.view_id;
   var view = e.view;
+
+  if (view_id == 'admin') {
+    this.getModel().set('SelectedBrokerID', 8999999 );
+  }
+
   if (!view.isInDocument()) {
-    console.log( 'Creating view:' + view_id) ;
     view.decorate(goog.dom.getElement(view_id));
   }
 
   if (! this.conn_.isLogged()) {
     switch(view_id) {
       case 'start':
+      case 'admin':
       case 'signin':
       case 'signup':
-      case 'tos':
+      case 'faq':
       case 'forgot_password':
       case 'set_new_password':
       case 'broker_application':
@@ -3005,12 +3025,6 @@ bitex.app.BlinkTrade.prototype.onBrokerListResponse_ =  function(e){
 
 
   this.model_.set('BrokerList', broker_list);
-
-  var current_view = location.pathname.replace('/', '');
-  if ( current_view && current_view.indexOf('.html') == '-1' ) {
-    this.router_.setView(current_view);
-  }
-
 };
 
 /**

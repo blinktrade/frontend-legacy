@@ -1,0 +1,67 @@
+.box {
+}
+
+.box__head {
+    background-color:lighten(#222, 30%);
+    color:#fff;
+    font-weight:700;
+    padding:($half-spacing / 2) $half-spacing;
+}
+
+.box__body {
+}
+
+.box__body--slide-x {
+    overflow-x:auto;
+}
+
+.box--push-bottom {
+    margin-bottom:$base-spacing;
+}
+
+.box--bid-ask {
+    .box__foot {
+        background-color:#f3f3f3;
+        border-width:0 1px 1px;
+        border-color:#ccc;
+        border-style:solid;
+        font-size:13px;
+        padding:($half-spacing / 2);
+    }
+
+    .table {
+        th, td {
+            padding:($half-spacing / 2);
+        }
+    }
+}
+
+.box--history {
+    .box__body {
+        border-width:0 1px 1px;
+        border-color:#ccc;
+        border-style:solid;
+        overflow-y:auto;
+        height:260px;
+    }
+
+    .table {
+        th, td {
+            &:first-child {
+                border-left:none;
+            }
+
+            &:last-child {
+                border-right:none;
+            }
+        }
+
+        tr {
+            &:last-child {
+                td {
+                    border-bottom:none;
+                }
+            }
+        }
+    }
+}
