@@ -1,9 +1,11 @@
 #!/bin/bash
 
-DEVHASH=`git log --pretty=format:'%h' -n 1`
+DEV_HASH=`git log --format='%H' -n 1`
+DEV_PRETTY_HASH=`git log --pretty=format:'%h' -n 1`
 
-echo $DEVHASH
-
+echo $DEV_HASH
+echo $DEV_PRETTY_HASH 
+ 
 #jekyll build
 #git checkout master
 #cp -r _site/* . && rm -rf _site/ es/_posts pt_BR/_posts deploy.sh  _plugins/ .idea/

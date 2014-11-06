@@ -37,8 +37,8 @@
     <link href="/assets/themes/default/css/Dialog.css" rel="stylesheet">
     <link href="/assets/themes/default/css/fuelux.css" rel="stylesheet">
     <link href="/assets/themes/default/css/default.uni-form.css" rel="stylesheet">
-    <link href="/assets/themes/default/css/style.css?v=0.5" rel="stylesheet">
-    <script data-cfasync="false" src="/assets/js/bitex_app_blink_trade.compiled.{{site.lang}}.default.js?v=0.5" type="text/javascript"></script>
+    <link href="/assets/themes/default/css/style.css?v={{ site.deploy_version }}" rel="stylesheet">
+    <script data-cfasync="false" src="/assets/js/bitex_app_blink_trade.compiled.{{site.lang}}.default.js?v={{ site.deploy_version }}" type="text/javascript"></script>
     {% endif %}
   </head>
   <body class="{% if page.body_classes %} {{ page.body_classes }} {% endif %}">
