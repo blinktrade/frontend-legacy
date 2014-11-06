@@ -7,6 +7,7 @@ global:
   twitter: Twitter
 views:
   toolbar:
+    faq: FAQ
     trading: Trading
     market: Market
     signin: Sigin
@@ -19,6 +20,9 @@ views:
     password: "Password:"
     login: login
     signup: Signup
+
+  faq:
+    title: FAQ - Frequently Asked Questions
 
   signup:
     title: Signup

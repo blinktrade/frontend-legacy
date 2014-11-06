@@ -298,6 +298,7 @@ bitex.app.BlinkTrade.prototype.run = function(host_api) {
 
   // Populate all the views
   var startView           = new bitex.view.NullView(this);
+  var faqView             = new bitex.view.NullView(this);
   var setNewPasswordView  = new bitex.view.SetNewPasswordView(this);
   var loginView           = new bitex.view.LoginView(this);
   var signUpView          = new bitex.view.SignupView(this);
@@ -323,6 +324,7 @@ bitex.app.BlinkTrade.prototype.run = function(host_api) {
   this.views_.addChild( toolBarView         );
   this.views_.addChild( sideBarView         );
   this.views_.addChild( startView           );
+  this.views_.addChild( faqView             );
   this.views_.addChild( setNewPasswordView  );
   this.views_.addChild( loginView           );
   this.views_.addChild( signUpView          );
@@ -344,6 +346,7 @@ bitex.app.BlinkTrade.prototype.run = function(host_api) {
   this.views_.addChild( brokerApplicationView);
 
   startView.decorate(goog.dom.getElement('start'));
+  faqView.decorate(goog.dom.getElement('faq'));
   sideBarView.decorate(goog.dom.getElement('id_sidebar'));
   toolBarView.decorate(goog.dom.getElement('id_toolbar'));
   loginView.decorate(goog.dom.getElement('signin'));
@@ -353,6 +356,8 @@ bitex.app.BlinkTrade.prototype.run = function(host_api) {
 
   this.router_.addView( '(account_overview)/(\\w+)/$'   , accountOverviewView );
   this.router_.addView( '(start)'                       , startView           );
+  this.router_.addView( '(faq)'                         , faqView             );
+  this.router_.addView( '(admin)'                       , startView           );
   this.router_.addView( '(set_new_password)'            , setNewPasswordView  );
   this.router_.addView( '(signin)'                      , loginView           );
   this.router_.addView( '(signup)'                      , signUpView          );
@@ -2644,17 +2649,22 @@ bitex.app.BlinkTrade.prototype.getHeartBtInt = function() {
 bitex.app.BlinkTrade.prototype.onBeforeSetView_ = function(e){
   var view_id = e.view_id;
   var view = e.view;
+
+  if (view_id == 'admin') {
+    this.getModel().set('SelectedBrokerID', 8999999 );
+  }
+
   if (!view.isInDocument()) {
-    console.log( 'Creating view:' + view_id) ;
     view.decorate(goog.dom.getElement(view_id));
   }
 
   if (! this.conn_.isLogged()) {
     switch(view_id) {
       case 'start':
+      case 'admin':
       case 'signin':
       case 'signup':
-      case 'tos':
+      case 'faq':
       case 'forgot_password':
       case 'set_new_password':
       case 'broker_application':

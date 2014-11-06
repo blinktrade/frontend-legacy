@@ -36,9 +36,9 @@
     {% if page.load_application %}
     <link href="/assets/themes/default/css/Dialog.css" rel="stylesheet">
     <link href="/assets/themes/default/css/fuelux.css" rel="stylesheet">
-    <link href="/assets/themes/default/css/style.css" rel="stylesheet">
     <link href="/assets/themes/default/css/default.uni-form.css" rel="stylesheet">
-    <script src="/assets/js/bitex_app_blink_trade.compiled.{{site.lang}}.default.js?v=0.4" type="text/javascript"></script>
+    <link href="/assets/themes/default/css/style.css?v=0.5" rel="stylesheet">
+    <script src="/assets/js/bitex_app_blink_trade.compiled.{{site.lang}}.default.js?v=0.5" type="text/javascript"></script>
     {% endif %}
   </head>
   <body class="{% if page.body_classes %} {{ page.body_classes }} {% endif %}">
@@ -65,18 +65,37 @@
           </a>
           {% endif %}
 
-          {% if page.load_application %}
           <ul class="nav navbar-nav pull-right">
+            {% if page.load_application %}
+            <li><a href="" data-switch-view="faq">{% t views.toolbar.faq %}</a></li>
             <li class="bitex-display-if-logged"><a href="" data-switch-view="offerbook">{% t views.toolbar.trading %}</a></li>
             <li><a href="" data-switch-view="market">{% t views.toolbar.market %}</a></li>
             <li class="bitex-hide-if-logged"><a href="" data-switch-view="signin">{% t views.toolbar.signin %}</a></li>
             <li class="bitex-hide-if-logged"><a href="" data-switch-view="signup">{% t views.toolbar.signup %}</a></li>
+            {% endif %}
+
+            <li class="dropdown">
+              <a id="drop1" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">{{ site.lang|upcase }} <b class="caret"></b></a>
+              <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+              {% for lang in site.languages %}
+                {% if  lang != site.lang  %}
+                  {% if forloop.first %}
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ site.baseurl_root }}/">{{ lang|upcase }}</a></li>
+                  {% else %}
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ site.baseurl_root }}/{{lang}}">{{ lang|upcase }}</a></li>
+                  {% endif %}
+                {% endif %}
+              {% endfor %}
+              </ul>
+            </li>
+
+            {% if page.load_application %}
             <li>
               <button id="id_button_connect_ws" class="bitex-hide-if-ws-connected btn-link"
                       style="padding: 6px 15px 10px;">{% t views.toolbar.connect %} <i class="icon-white icon-repeat"></i></button>
             </li>
+            {% endif %}
           </ul>
-          {% endif %}
         </div>
       </div>
     </div>

@@ -7,6 +7,7 @@ global:
   twitter: Twitter
 views:
   toolbar:
+    faq: Ajuda
     trading: Negociações
     market: Mercado
     signin: Login
@@ -19,6 +20,9 @@ views:
     password: "Senha:"
     login: Entrar
     signup: Registrar
+
+  faq:
+    title: FAQ - Pergunstas Frequentes
 
   signup:
     title: Registrar
