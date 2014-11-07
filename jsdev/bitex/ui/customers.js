@@ -187,12 +187,28 @@ bitex.ui.Customers = function( opt_domHelper) {
    */
   var MSG_CUSTOMERS_TABLE_SEARCH_PLACEHOLDER = goog.getMsg('Username or email...');
 
+
+  /**
+   * @desc Customers filter all select option
+   */
+  var MSG_CUSTOMERS_LIST_BUTTON_FILTER_ALL = goog.getMsg('All');
+
   var options = {
     'title': MSG_CUSTOMERS_TABLE_TITLE,
     'rowClassFn':this.getRowClass,
     'columns': grid_columns,
     'showSearch': true,
-    'searchPlaceholder': MSG_CUSTOMERS_TABLE_SEARCH_PLACEHOLDER
+    'searchPlaceholder': MSG_CUSTOMERS_TABLE_SEARCH_PLACEHOLDER,
+    'wrapperHeight': 600,
+    'buttonFilters': [
+      { 'label': MSG_CUSTOMERS_LIST_BUTTON_FILTER_ALL,          'value': 'all'},
+      { 'label': MSG_CUSTOMER_TABLE_COLUMN_VERIFIED_NO,         'value': 0 },
+      { 'label': MSG_CUSTOMER_TABLE_COLUMN_VERIFIED_PENDING,    'value': 1 },
+      { 'label': MSG_CUSTOMER_TABLE_COLUMN_VERIFIED_PROGRESS,   'value': 2 },
+      { 'label': MSG_CUSTOMER_TABLE_COLUMN_VERIFIED_YES_LI,     'value': 3 },
+      { 'label': MSG_CUSTOMER_TABLE_COLUMN_VERIFIED_YES_LII,    'value': 4 },
+      { 'label': MSG_CUSTOMER_TABLE_COLUMN_VERIFIED_YES_LIII,   'value': 5 }
+    ]
   };
   bitex.ui.DataGrid.call(this,  options , opt_domHelper);
 };

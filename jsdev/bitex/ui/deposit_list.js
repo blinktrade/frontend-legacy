@@ -60,6 +60,31 @@ var MSG_DEPOSIT_TABLE_COLUMN_USERNAME = goog.getMsg('Username');
 
 
 /**
+ * @desc Column Status of the Deposit List
+ */
+var MSG_DEPOSIT_TABLE_COLUMN_STATUS_PENDING = goog.getMsg('Pending');
+
+/**
+ * @desc Column Status of the Deposit List
+ */
+var MSG_DEPOSIT_TABLE_COLUMN_STATUS_UNCONFIRMED = goog.getMsg('Unconfirmed');
+
+/**
+ * @desc Column Status of the Deposit List
+ */
+var MSG_DEPOSIT_TABLE_COLUMN_STATUS_PROGRESS = goog.getMsg('In progress...');
+
+/**
+ * @desc Column Status of the Deposit List
+ */
+var MSG_DEPOSIT_TABLE_COLUMN_STATUS_COMPLETED = goog.getMsg('Completed');
+
+/**
+ * @desc Column Status of the Deposit List
+ */
+var MSG_DEPOSIT_TABLE_COLUMN_STATUS_CANCELLED = goog.getMsg('Cancelled');
+
+/**
  * @param {Array.<Object>} crypto_currencies_def
  * @param {boolean=} opt_broker_mode. Default to false
  * @param {boolean=} opt_show_customers. Default to false
@@ -90,30 +115,6 @@ bitex.ui.DepositList = function( crypto_currencies_def, opt_broker_mode, opt_sho
       'label': MSG_DEPOSIT_TABLE_COLUMN_STATUS,
       'sortable': false,
       'formatter': function(s, rowSet){
-        /**
-         * @desc Column Status of the Deposit List
-         */
-        var MSG_DEPOSIT_TABLE_COLUMN_STATUS_PENDING = goog.getMsg('Pending');
-
-        /**
-         * @desc Column Status of the Deposit List
-         */
-        var MSG_DEPOSIT_TABLE_COLUMN_STATUS_UNCONFIRMED = goog.getMsg('Unconfirmed');
-
-        /**
-         * @desc Column Status of the Deposit List
-         */
-        var MSG_DEPOSIT_TABLE_COLUMN_STATUS_PROGRESS = goog.getMsg('In progress...');
-
-        /**
-         * @desc Column Status of the Deposit List
-         */
-        var MSG_DEPOSIT_TABLE_COLUMN_STATUS_COMPLETED = goog.getMsg('Completed');
-
-        /**
-         * @desc Column Status of the Deposit List
-         */
-        var MSG_DEPOSIT_TABLE_COLUMN_STATUS_CANCELLED = goog.getMsg('Cancelled');
 
         var progress_message = MSG_DEPOSIT_TABLE_COLUMN_STATUS_PROGRESS;
         var number_of_necessary_confirmations = null;
@@ -462,13 +463,27 @@ bitex.ui.DepositList = function( crypto_currencies_def, opt_broker_mode, opt_sho
    */
   var MSG_DEPOSIT_LIST_SEARCH_PLACEHOLDER = goog.getMsg('Search ...');
 
+  /**
+   * @desc All records button filter on deposit list
+   */
+  var MSG_DEPOSIT_LIST_BUTTON_FILTER_ALL = goog.getMsg('All');
+
   var options = {
     'rowIDFn':this.getRowId,
     'rowClassFn':this.getRowClass,
     'columns': grid_columns,
     'title': MSG_DEPOSIT_LIST_TABLE_TITLE,
     'showSearch': true,
-    'searchPlaceholder':  MSG_DEPOSIT_LIST_SEARCH_PLACEHOLDER
+    'searchPlaceholder':  MSG_DEPOSIT_LIST_SEARCH_PLACEHOLDER,
+    'wrapperHeight': 600,
+    'buttonFilters': [
+      { 'label': MSG_DEPOSIT_LIST_BUTTON_FILTER_ALL,          'value': 'all'},
+      { 'label': MSG_DEPOSIT_TABLE_COLUMN_STATUS_UNCONFIRMED, 'value': '0' },
+      { 'label': MSG_DEPOSIT_TABLE_COLUMN_STATUS_PENDING,     'value': '1' },
+      { 'label': MSG_DEPOSIT_TABLE_COLUMN_STATUS_PROGRESS,    'value': '2' },
+      { 'label': MSG_DEPOSIT_TABLE_COLUMN_STATUS_COMPLETED,   'value': '4' },
+      { 'label': MSG_DEPOSIT_TABLE_COLUMN_STATUS_CANCELLED,   'value': '8' }
+    ]
   };
 
   bitex.ui.DataGrid.call(this, options, opt_domHelper);

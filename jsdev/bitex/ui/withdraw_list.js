@@ -130,7 +130,7 @@ bitex.ui.WithdrawList = function( methodDescriptionObj, opt_broker_mode,  opt_sh
           /** @desc reason for cancelling withdraw */
           var MSG_WITHDRAW_REASON_INSUFFICIENT_FUNDS = goog.getMsg('Insufficient funds');
           /** @desc reason for cancelling withdraw */
-          var MSG_WITHDRAW_REASON_ACCOUNT_NOT_VERIFIED = goog.getMsg('Account not verified');
+            var MSG_WITHDRAW_REASON_ACCOUNT_NOT_VERIFIED = goog.getMsg('Account not verified');
           /** @desc reason for cancelling withdraw */
           var MSG_WITHDRAW_REASON_SUSPICION_OF_FRAUD = goog.getMsg('Suspicion of fraud');
           /** @desc reason for cancelling withdraw */
@@ -430,13 +430,26 @@ bitex.ui.WithdrawList = function( methodDescriptionObj, opt_broker_mode,  opt_sh
    */
   var MSG_WITHDRAW_LIST_SEARCH_PLACEHOLDER = goog.getMsg('Search ...');
 
+  /**
+   * @desc All records button filter on withdrawal list
+   */
+  var MSG_WITHDRAW_LIST_BUTTON_FILTER_ALL = goog.getMsg('All');
+
   var options = {
     'rowIDFn':this.getRowId,
     'rowClassFn':this.getRowClass,
     'columns': grid_columns,
     'title': MSG_WITHDRAW_LIST_TABLE_TITLE,
     'showSearch': true,
-    'searchPlaceholder':  MSG_WITHDRAW_LIST_SEARCH_PLACEHOLDER
+    'searchPlaceholder':  MSG_WITHDRAW_LIST_SEARCH_PLACEHOLDER,
+    'wrapperHeight': 600,
+    'buttonFilters': [
+      { 'label': MSG_WITHDRAW_LIST_BUTTON_FILTER_ALL,          'value': 'all'},
+      { 'label': MSG_WITHDRAW_TABLE_COLUMN_STATUS_PENDING,     'value': '1' },
+      { 'label': MSG_WITHDRAW_TABLE_COLUMN_STATUS_PROGRESS,    'value': '2' },
+      { 'label': MSG_WITHDRAW_TABLE_COLUMN_STATUS_COMPLETED,   'value': '4' },
+      { 'label': MSG_WITHDRAW_TABLE_COLUMN_STATUS_CANCELLED,   'value': '8' }
+    ]
   };
   bitex.ui.DataGrid.call(this,  options , opt_domHelper);
 };

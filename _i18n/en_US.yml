@@ -23,6 +23,7 @@ views:
 
   faq:
     title: FAQ - Frequently Asked Questions
+    get_in_touch: Contact us in case you didn't find the answer to your question
 
   signup:
     title: Signup

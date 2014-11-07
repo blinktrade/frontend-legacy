@@ -79,11 +79,11 @@ bitex.view.CustomersView.prototype.destroyComponents_ = function( ) {
 
     handler.unlisten(this.customers_table_,
                      bitex.ui.DataGrid.EventType.REQUEST_DATA,
-                     this.onWithdrawListTableRequestData_);
+                     this.onCustomerListTableRequestData_);
 
     handler.unlisten(this.getApplication().getBitexConnection(),
-                     bitex.api.BitEx.EventType.WITHDRAW_LIST_RESPONSE + '.' + this.request_id_,
-                     this.onWithdrawListReponse_);
+                     bitex.api.BitEx.EventType.CUSTOMER_LIST_RESPONSE + '.' + this.request_id_,
+                     this.onCustomerListReponse_);
   }
   this.removeChildren(true);
   this.customers_table_ = null;
@@ -144,8 +144,25 @@ bitex.view.CustomersView.prototype.onCustomerListTableRequestData_ = function(e)
   var limit = e.options['Limit'];
   var filter = e.options['Filter'];
 
+  var status = [ 0, 1, 2, 3, 4, 5];
+
+  if (goog.isDefAndNotNull(filter)) {
+    goog.array.forEach(filter, function(f, idx_filter){
+      var idx_status = goog.array.indexOf(status, parseInt(f, 10) ) ;
+      if (idx_status >= 0) {
+        status = [ parseInt(f) ] ;
+        goog.array.removeAt(filter, idx_filter);
+        return true;
+      }
+    }, this);
+
+    if ( filter.length == 0 ) {
+      filter = undefined;
+    }
+  }
+
   var conn = this.getApplication().getBitexConnection();
-  conn.requestCustomerList(this.request_id_, undefined, undefined, filter, page, limit, [0,1,2,3,4,5]);
+  conn.requestCustomerList(this.request_id_, undefined, undefined, filter, page, limit, status );
 };
 
 /**

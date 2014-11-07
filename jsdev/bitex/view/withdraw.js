@@ -355,11 +355,22 @@ bitex.view.WithdrawView.prototype.onWithdrawListTableRequestData_ = function(e) 
     clientID = model.get('UserID');
   }
 
+  var status = ['1', '2', '4', '8'];
+  if (goog.isDefAndNotNull(filter)) {
+    goog.array.forEach(filter, function(f, idx_filter){
+      var idx_status = goog.array.indexOf(status, f ) ;
+      if (idx_status >= 0) {
+        status = [ f ] ;
+        goog.array.removeAt(filter, idx_filter);
+        return true;
+      }
+    }, this);
+  }
 
   conn.requestWithdrawList(this.request_id_,
                            page,
                            limit,
-                           ['1', '2', '4', '8'],
+                           status,
                            clientID,
                            filter  );
 };
