@@ -100,6 +100,16 @@
                         {% t views.sidebar.customers %}
                       </a>
                     </li>
+                    <li class="bitex-display-if-broker">
+                      <a href="deposit_requests" title="Deposit" data-switch-view="deposit_requests">
+                        {% t views.sidebar.deposit_requests %}
+                      </a>
+                    </li>
+                    <li class="bitex-display-if-broker">
+                      <a href="withdraw_requests" title="Withdraw" data-switch-view="withdraw_requests">
+                        {% t views.sidebar.withdraw_requests %}
+                      </a>
+                    </li>
                     <li>
                       <a href="#deposit" title="Deposit" data-switch-view="deposit">
                         {% t views.sidebar.deposit %}
@@ -108,26 +118,6 @@
                     <li>
                       <a href="#withdraw" title="Withdrawals" data-switch-view="withdraw">
                         {% t views.sidebar.withdraw %}
-                      </a>
-                    </li>
-                  </ul>
-                  <!-- /.head-dropdown -->
-                </li>
-                <li class="bitex-display-if-logged bitex-display-if-broker">
-                                        <span>
-                                            <i class="icon-edit"></i> Requests
-                                        </span>
-
-                  <!-- .head-dropdown -->
-                  <ul class="head-dropdown">
-                    <li>
-                      <a href="deposit_requests" title="Deposit" data-switch-view="deposit_requests">
-                        {% t views.sidebar.deposit_requests %}
-                      </a>
-                    </li>
-                    <li>
-                      <a href="withdraw_requests" title="Withdraw" data-switch-view="withdraw_requests">
-                        {% t views.sidebar.withdraw_requests %}
                       </a>
                     </li>
                   </ul>
