@@ -64,6 +64,46 @@ load_application:       True
   </div>
   <!-- /#start -->
 
+
+  <!-- #faq -->
+  <div id="faq" class="bitex-view">
+    <!-- .page -->
+    <div class="page">
+      <!-- .page__head -->
+      <header class="page__head">
+        <h2 class="page__title beta bitex-view-title">{% t views.faq.title %}</h2>
+      </header>
+      <!-- /.page__head -->
+
+      <!-- .page__body -->
+      <div class="page__body bitex-view-content">
+        <div class="accordion">
+          {% for post in site.categories['faq'] reversed %}
+          <div class="accordion-group">
+            <div class="accordion-heading">
+              <a class="accordion-toggle collapsed">
+                {{post.title}}
+              </a>
+            </div>
+            <div class="accordion-body collapse ">
+              <div class="accordion-inner">
+                {{post.content}}
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+
+        <a href="" class="bitex-support-link" target="_blank">
+          <i class="icon-envelope"></i> {% t views.faq.get_in_touch %}</a>
+
+      </div>
+      <!-- /.page__body -->
+    </div>
+    <!-- /.page -->
+  </div>
+  <!-- /#faq -->
+
   <!-- #market -->
   <div id="market" class="bitex-view">
     <!-- .page -->
