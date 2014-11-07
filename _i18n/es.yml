@@ -7,7 +7,7 @@ global:
   twitter: Twitter
 views:
   toolbar:
-    faq: Ayuda
+    faq: Preguntas frecuentes
     trading: Negociaciones
     market: Mercado
     signin: Ingressar

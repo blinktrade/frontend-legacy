@@ -8,9 +8,9 @@ load_application:       True
 <!-- .wrapper -->
 <div class="wrapper">
   <!-- #start -->
-  <div id="start">
+  <div id="start"  class="bitex-view">
     <!-- .main -->
-    <div class="main">
+    <div class="main bitex-view-content">
       <!-- .home -->
       <div class="home">
         <!-- .home__img -->
@@ -19,7 +19,7 @@ load_application:       True
 
         <!-- .home__title -->
         <h1 class="home__title">
-          The first decentralized bitcoin exchange
+          {% t views.start.example_lead  %}
         </h1>
         <!-- /.home__title -->
 
@@ -35,14 +35,14 @@ load_application:       True
             <div class="layout layout--quarter">
               <!-- .layout__item -->
               <div class="layout__item one-whole lap--six-tenths desk--six-tenths">
-                <label for="id_landing_username" class="home-form__label">Username:</label>
+                <label for="id_landing_username" class="home-form__label">{% t views.start.username %}</label>
                 <input class="home-form__input input input--large input--full" id="id_landing_username" type="text" size="30">
               </div>
               <!-- /.layout__item -->
 
               <!-- .layout__item -->
               <div class="layout__item one-whole lap--four-tenths desk--four-tenths">
-                <label for="id_landing_password" class="home-form__label">Password:</label>
+                <label for="id_landing_password" class="home-form__label">{% t views.start.password %}</label>
                 <input class="home-form__input input input--large input--full" id="id_landing_password" type="password" size="30">
               </div>
               <!-- /.layout__item -->
@@ -53,7 +53,7 @@ load_application:       True
 
           <!-- .layout__item -->
           <div class="layout__item one-whole lap--two-tenths desk--two-tenths">
-            <button type="button" id="id_landing_signin" class="btn btn--positive btn--full">Login</button>
+            <button type="button" id="id_landing_signin" class="btn btn--positive btn--full">{% t views.start.login %}</button>
           </div>
           <!-- /.layout__item -->
         </div>
@@ -64,13 +64,53 @@ load_application:       True
   </div>
   <!-- /#start -->
 
+
+  <!-- #faq -->
+  <div id="faq" class="bitex-view">
+    <!-- .page -->
+    <div class="page">
+      <!-- .page__head -->
+      <header class="page__head">
+        <h2 class="page__title beta bitex-view-title">{% t views.faq.title %}</h2>
+      </header>
+      <!-- /.page__head -->
+
+      <!-- .page__body -->
+      <div class="page__body bitex-view-content">
+        <div class="accordion">
+          {% for post in site.categories['faq'] reversed %}
+          <div class="accordion-group">
+            <div class="accordion-heading">
+              <a class="accordion-toggle collapsed">
+                {{post.title}}
+              </a>
+            </div>
+            <div class="accordion-body collapse ">
+              <div class="accordion-inner">
+                {{post.content}}
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+
+        <a href="" class="bitex-support-link" target="_blank">
+          <i class="icon-envelope"></i> {% t views.faq.get_in_touch %}</a>
+
+      </div>
+      <!-- /.page__body -->
+    </div>
+    <!-- /.page -->
+  </div>
+  <!-- /#faq -->
+
   <!-- #market -->
   <div id="market" class="bitex-view">
     <!-- .page -->
     <div class="page">
       <!-- .page__head -->
       <header class="page__head">
-        <h2 class="page__title beta bitex-view-title">Market</h2>
+        <h2 class="page__title beta bitex-view-title">{% t views.market.title %}</h2>
       </header>
       <!-- /.page__head -->
 
@@ -87,26 +127,26 @@ load_application:       True
   <div id="signin" class="page bitex-view">
     <!-- .page__head -->
     <header class="page__head">
-      <h1 class="page__title bitex-view-title">Login</h1>
+      <h1 class="page__title bitex-view-title">{% t views.signin.title %}</h1>
     </header>
     <!-- /.page__head -->
 
     <!-- .page__body -->
     <div class="page__body bitex-view-content">
       <p>
-        Don't have an account? <a href="signup" data-switch-view="signup">Register</a>
+        {% t views.signin.dont_have_an_account %} <a href="signup" data-switch-view="signup">{% t views.signin.signup %}</a>
       </p>
 
       <form accept-charset="UTF-8" action="" method="post">
-        <label for="id_username">Username</label>
+        <label for="id_username">{% t views.signin.username %}</label>
         <input autocapitalize="off" autocorrect="off" id="id_username" name="username" type="text" placeholder="">
-        <label for="id_password">Password</label>
+        <label for="id_password">{% t views.signin.password %}</label>
         <input id="id_password"  placeholder="" name="password" type="password">
 
         <p>
-          <a href="forgot_password" data-switch-view="forgot_password">Forgot your password?</a>
+          <a href="forgot_password" data-switch-view="forgot_password">{% t views.signin.forgot_your_password %}?</a>
         </p>
-        <input id="id_btn_login"  class="btn btn-primary" name="commit" type="submit" value="Login">
+        <input id="id_btn_login"  class="btn btn-primary" name="commit" type="submit" value="{% t views.signin.login_button_label %}">
       </form>
     </div>
     <!-- /.page__body -->
@@ -117,64 +157,61 @@ load_application:       True
   <div id="signup" class="page  row-fluid bitex-view">
     <!-- .page__head -->
     <header class="page__head">
-      <h1 class="page__title beta bitex-view-title">Signup</h1>
+      <h1 class="page__title beta bitex-view-title">{% t views.signup.title %}</h1>
     </header>
     <!-- /.page__head -->
 
     <!-- .page__body -->
     <div class="page__body">
-      <p>Already registered? <a href="signin" data-switch-view="signin" >Login</a>.</p>
-
-      <p>Are you looking to be a broker in your state/country ?<a href="broker_application" data-switch-view="broker_application" >Broker application</a>.</p>
+      <p>{% t views.signup.already_registered %} <a href="#" data-switch-view="signin">{% t views.signup.login %}</a>.</p>
 
       <div class="bitex-view-content">
         <form accept-charset="UTF-8" class="form-horizontal" id="new_user" method="post">
           <div class="control-group">
-            <label class="control-label">Username</label>
+            <label class="control-label">{% t views.signup.username %}</label>
             <div class="controls">
               <input id="id_signup_username" name="Username" size="30" type="text" placeholder="">
-              <p class="help-block">Your username will be public available to everybody.</p>
             </div>
           </div>
 
           <div class="control-group">
-            <label class="control-label">Email address</label>
+            <label class="control-label">{% t views.signup.email %}</label>
             <div class="controls">
-              <input id="id_signup_email" name="Email" size="30" type="text" placeholder="eg.: joe@doe.com">
+              <input id="id_signup_email" name="Email" size="30" type="text" placeholder="{% t views.signup.email_placeholder %}">
             </div>
           </div>
 
           <div class="control-group">
-            <label class="control-label">Password</label>
+            <label class="control-label">{% t views.signup.password %}</label>
             <div class="controls">
               <input id="id_signup_password" name="Password" size="30" type="password">
-              <p class="help-block">At least 8 characters</p>
+              <p class="help-block">{% t views.signup.password_help %}</p>
             </div>
           </div>
 
           <div class="control-group">
-            <label class="control-label">Confirm your password</label>
+            <label class="control-label">{% t views.signup.confirm_password %}</label>
             <div class="controls">
               <input id="id_signup_password2" name="Password2" size="30" type="password">
             </div>
           </div>
 
           <div class="control-group" style="">
-            <label class="control-label">Country</label>
+            <label class="control-label">{% t views.signup.country %}</label>
             <div class="controls">
               <select id="id_signup_country" name="country"></select>
             </div>
           </div>
 
           <div id="id_signup_state_group" class="control-group" style="display: none">
-            <label class="control-label">State or Province</label>
+            <label class="control-label">{% t views.signup.state %}</label>
             <div class="controls">
               <select id="id_signup_state" name="state"></select>
             </div>
           </div>
 
-          <div class="control-group" style="">
-            <label class="control-label">Broker</label>
+          <div class="control-group" style="display: none;">
+            <label class="control-label">{% t views.signup.broker %}</label>
             <div class="controls">
               <select id="id_signup_broker" name="broker"></select>
             </div>
@@ -187,11 +224,10 @@ load_application:       True
           </div>
 
           <div class="control-group">
-            <label class="control-label">Terms of service</label>
+            <label class="control-label">{% t views.signup.terms_of_service %}  </label>
             <div class="controls">
               <label class="checkbox">
-                <input id="user_agreed_tos" name="" type="checkbox" checked>
-                I agree with <a href="tos" data-switch-view="tos">terms terms of service</a>.
+                <input id="user_agreed_tos" name="" type="checkbox" checked>{% t views.signup.i_agree_with_terms_of_service %}
               </label>
             </div>
           </div>
@@ -199,7 +235,7 @@ load_application:       True
 
         <div class="control-group">
           <div class="controls">
-            <button id="id_btn_signup" class="btn btn-primary">Register</button>
+            <button id="id_btn_signup" class="btn btn-primary">{% t views.signup.signup_button_label %}</button>
           </div>
         </div>
       </div>
@@ -208,71 +244,11 @@ load_application:       True
   </div>
   <!-- /#signup -->
 
-  <!-- #ranking -->
-  <div id="ranking" class="page bitex-view">
-    <!-- .page__head -->
-    <header class="page__head">
-      <h1 class="page__title beta bitex-view-title">Best Bitcoin Traders</h1>
-    </header>
-    <!-- /.page__head -->
-
-    <!-- .page__body -->
-    <div class="page__body bitex-view-content">
-    </div>
-    <!-- /.page__body -->
-  </div>
-  <!-- /#ranking -->
-
-  <!-- #broker_application -->
-  <div id="broker_application" class="page bitex-view">
-    <!-- .page__head -->
-    <header class="page__head">
-      <h1 class="page__title beta bitex-view-title">Broker Application Form</h1>
-    </header>
-    <!-- /.page__head -->
-
-    <!-- .page__body -->
-    <div class="page__body bitex-view-content">
-      <iframe id="JotFormIFrame2"
-              onload="window.parent.scrollTo(0,0)"
-              allowtransparency="true"
-              src="https://secure.jotform.us/form/41205503470139"
-              frameborder="0"
-              style="width:100%; height:1253px; border:none;"
-              scrolling="no"></iframe>
-      <script type="text/javascript">
-        window.handleIFrameMessage = function(e) {
-          var args = e.data.split(":");
-          var iframe = document.getElementById("JotFormIFrame2");
-          if (!iframe)
-            return;
-          switch (args[0]) {
-            case "scrollIntoView":
-              iframe.scrollIntoView();
-              break;
-            case "setHeight":
-              if (args[1] > 0 ) {
-                iframe.style.height = args[1] + "px";
-              }
-              break;
-          }
-        };
-
-        if (window.addEventListener) {
-          window.addEventListener("message", handleIFrameMessage, false);
-        } else if (window.attachEvent) {
-          window.attachEvent("onmessage", handleIFrameMessage);
-        }</script>
-    </div>
-    <!-- /.page__body -->
-  </div>
-  <!-- /#broker_application -->
-
   <!-- #forgot_password -->
   <div id="forgot_password" class="page row bitex-view">
     <!-- .page__head -->
     <header class="page__head">
-      <h1 class="page__title beta bitex-view-title">Password recovery</h1>
+      <h1 class="page__title beta bitex-view-title">{% t views.forgot_password.title %}</h1>
     </header>
     <!-- /.page__head -->
 
@@ -280,11 +256,11 @@ load_application:       True
     <div class="page__body bitex-view-content">
       <form accept-charset="UTF-8" action="" method="post">
         <div class="clearfix">
-          <label for="id_forgot_password_email">e-mail</label>
+          <label for="id_forgot_password_email">{% t views.forgot_password.email %}</label>
           <div class="input"><input autocapitalize="off" autocorrect="off" id="id_forgot_password_email" name="email" type="text" placeholder=""></div>
         </div>
         <div class="actions">
-          <input id="id_btn_forgot_password"  class="btn btn-primary" name="commit" type="submit" value="Recover password">
+          <input id="id_btn_forgot_password"  class="btn btn-primary" name="commit" type="submit" value="{% t views.forgot_password.recover_password_button_label %}">
         </div>
       </form>
     </div>
@@ -321,7 +297,7 @@ load_application:       True
 
             <div id="account_balance">
               <form class="form-inline">
-                <label class="control-label" for="id_instrument_1">Market:</label>
+                <label class="control-label" for="id_instrument_1">{% t views.sidebar.market %}</label>
                 <select id="id_instrument_1">
                   <option></option>
                 </select>
@@ -354,13 +330,12 @@ load_application:       True
                   <ul>
                     <li id="verification_menu_id">
                       <a href="verification" data-switch-view="verification">
-                        <i class="icon-check"></i> Verify your account
+                        <i class="icon-check"></i> {% t views.sidebar.verification %}
                       </a>
                     </li>
                     <li>
-                      <a href="" class="bitex-support-link" target="_blank" >
-                        <i class="icon-envelope"></i> Suggestions & Support
-                      </a>
+                      <a href="" data-switch-view="faq">
+                        <i data-switch-view="faq" class="icon-question"></i> {% t views.sidebar.support %}</a>
                     </li>
                   </ul>
                 </div>
@@ -378,7 +353,7 @@ load_application:       True
           <div id="offerbook" class="bitex-view">
             <!-- .page__head -->
             <header class="page__head section-title">
-              <h3 class="page__title beta bitex-view-title">Order Book</h3>
+              <h3 class="page__title beta bitex-view-title">{% t views.offerbook.title %}</h3>
             </header>
             <!-- /.page__head -->
 
@@ -408,7 +383,7 @@ load_application:       True
           <div id="profile" class="bitex-view">
             <!-- .page__head -->
             <header class="page__head section-title">
-              <h1 class="page__title beta bitex-view-title">Profile</h1>
+              <h1 class="page__title beta bitex-view-title">{% t views.profile.title %}</h1>
             </header>
             <!-- /.page__head -->
 
@@ -419,7 +394,7 @@ load_application:       True
               </div>
 
               <div class="section-title">
-                <h3 class="bitex-view-title">Enable or Disable Two steps authentication</h3>
+                <h3 class="bitex-view-title">{% t views.profile.two_factor_auth_section.title %}</h3>
               </div>
 
               <div class="content bitex-view-content">
@@ -428,7 +403,7 @@ load_application:       True
                   <div id="id_enable_two_factor_div" class="form-horizontal ">
 
                     <div class="control-group">
-                      <label class="control-label">Key</label>
+                      <label class="control-label">{% t views.profile.two_factor_auth_section.key %}</label>
                       <div class="controls">
                         <span id='secret' class="bitex-model" data-model-key="TwoFactorSecret"></span>
                       </div>
@@ -441,14 +416,16 @@ load_application:       True
                     </div>
 
                     <div class="control-group">
-                      <label class="control-label">Authentication code</label>
+                      <label class="control-label">{% t views.profile.two_factor_auth_section.authentication_code %}</label>
                       <div class="controls">
-                        <input id="id_second_step_verification" type="text" class="input-block-level" pattern="\d+" title="Código gerado pelo Google Authenticatior" placeholder="Ex. 555555" required>
+                        <input id="id_second_step_verification" type="text" class="input-block-level"
+                               pattern="\d+" title="{% t views.profile.two_factor_auth_section.authentication_code_title %}"
+                               placeholder="{% t views.profile.two_factor_auth_section.authentication_code_placeholder %}" required>
                       </div>
                     </div>
                   </div>
-                  <button id="id_btn_enable_two_factor" class="btn btn-primary">Enable</button>
-                  <button id="id_btn_disable_two_factor" class="btn btn-danger">Disable</button>
+                  <button id="id_btn_enable_two_factor" class="btn btn-primary">{% t views.profile.two_factor_auth_section.enable %}</button>
+                  <button id="id_btn_disable_two_factor" class="btn btn-danger">{% t views.profile.two_factor_auth_section.disable %}</button>
                 </div>
               </div>
             </div>
@@ -475,7 +452,7 @@ load_application:       True
           <div id="trading" class="bitex-view">
             <!-- .page__head -->
             <header class="page__head section-title">
-              <h1 class="page__title beta bitex-view-title">Buy or Sell</h1>
+              <h1 class="page__title beta bitex-view-title">{% t views.trading.title %}</h1>
             </header>
             <!-- /.page__head -->
 
@@ -492,7 +469,7 @@ load_application:       True
           <div id="ledger" class="bitex-view">
             <!-- .page__head -->
             <header class="page__head section-title">
-              <h3 class="page__title beta bitex-view-title">Ledger</h3>
+              <h3 class="page__title beta bitex-view-title">{% t views.ledger.title %}</h3>
             </header>
             <!-- /.page__head -->
 
@@ -511,7 +488,7 @@ load_application:       True
           <div id="customers" class="bitex-view">
             <!-- .page__head -->
             <header class="page__head section-title">
-              <h3 class="page__title beta bitex-view-title">Customers</h3>
+              <h3 class="page__title beta bitex-view-title">{% t views.customers.title %}</h3>
             </header>
             <!-- /.page__head -->
 
@@ -524,10 +501,10 @@ load_application:       True
           <!-- /#customers -->
 
           <!-- #deposit_requests -->
-          <div id="deposit_requests">
+          <div id="deposit_requests" class="bitex-view">
             <!-- .page__head -->
             <header class="page__head section-title">
-              <h3 class="page__title beta bitex-view-title">Deposit requests</h3>
+              <h3 class="page__title beta bitex-view-title">{% t views.deposit_requests.title %}</h3>
             </header>
             <!-- /.page__head -->
 
@@ -541,10 +518,10 @@ load_application:       True
 
 
           <!-- #withdraw_requests -->
-          <div id="withdraw_requests">
+          <div id="withdraw_requests" class="bitex-view">
             <!-- .page__head -->
             <header class="page__head section-title">
-              <h3 class="page__title beta bitex-view-title">Withdrawals requests</h3>
+              <h3 class="page__title beta bitex-view-title">{% t views.withdraw_requests.title %}</h3>
             </header>
             <!-- /.page__head -->
 
@@ -558,10 +535,10 @@ load_application:       True
 
 
           <!-- #deposit -->
-          <div id="deposit">
+          <div id="deposit" class="bitex-view">
             <!-- .page__head -->
             <header class="page__head section-title">
-              <h3 class="page__title beta bitex-view-title">Deposits</h3>
+              <h3 class="page__title beta bitex-view-title">{% t views.deposit.title %}</h3>
             </header>
             <!-- /.page__head -->
 
@@ -576,10 +553,10 @@ load_application:       True
           <!-- /#deposit -->
 
           <!-- #withdraw -->
-          <div id="withdraw">
+          <div id="withdraw" class="bitex-view">
             <!-- .page__head -->
             <header class="page__head section-title">
-              <h3 class="page__title beta bitex-view-title">Withdrawals</h3>
+              <h3 class="page__title beta bitex-view-title">{% t views.withdraw.title %}</h3>
             </header>
             <!-- /.page__head -->
 
@@ -597,7 +574,7 @@ load_application:       True
           <div id="account_overview" class="bitex-view">
             <!-- .page__head -->
             <header class="page__head section-title">
-              <h3 class="page__title beta bitex-view-title">Account overview</h3>
+              <h3 class="page__title beta bitex-view-title">{% t views.account_overview.title %}</h3>
             </header>
             <!-- /.page__head -->
 
@@ -613,7 +590,7 @@ load_application:       True
 
                     <div id="account_overview_fees_balances_id"></div>
 
-                    <button id="id_btn_user_fees" class="btn btn-primary">Set user fees</button>
+                    <button id="id_btn_user_fees" class="btn btn-primary">{% t views.account_overview.set_user_fees_button_label %}</button>
 
                   </div>
                 </div>
@@ -628,7 +605,7 @@ load_application:       True
           <div id="set_new_password" class="bitex-view">
             <!-- .page__head -->
             <header class="page__head section-title">
-              <h3 class="page__title beta bitex-view-title">Set new password</h3>
+              <h3 class="page__title beta bitex-view-title">{% t views.set_new_password.title %}</h3>
             </header>
             <!-- /.page__head -->
 
@@ -637,31 +614,31 @@ load_application:       True
               <form accept-charset="UTF-8" class="form-horizontal" id="redefine_new_password_form" method="post">
 
                 <div class="control-group">
-                  <label class="control-label">Security code</label>
+                  <label class="control-label">{% t views.set_new_password.security_code %}</label>
                   <div class="controls">
                     <input id="id_set_new_password_token" name="Email" size="30" type="text" placeholder="">
-                    <p class="help-block">We just sent a security code to your email.</p>
+                    <p class="help-block">{% t views.set_new_password.security_code_help %}</p>
                   </div>
 
                 </div>
 
                 <div class="control-group">
-                  <label class="control-label">New password</label>
+                  <label class="control-label">{% t views.set_new_password.new_password %}</label>
                   <div class="controls">
                     <input id="id_set_new_password_password" name="Password" size="30" type="password">
-                    <p class="help-block">At least 8 characters</p>
+                    <p class="help-block">{% t views.set_new_password.new_password_help %}</p>
                   </div>
                 </div>
 
                 <div class="control-group">
-                  <label class="control-label">Confirm your password</label>
+                  <label class="control-label">{% t views.set_new_password.confirm_password %}</label>
                   <div class="controls">
                     <input id="id_set_new_password_password2" name="Password2" size="30" type="password">
                   </div>
                 </div>
 
                 <div class="actions">
-                  <input id="id_btn_set_new_password"  class="btn btn-primary" name="commit" type="submit" value="Reset password">
+                  <input id="id_btn_set_new_password"  class="btn btn-primary" name="commit" type="submit" value="{% t views.set_new_password.set_new_password_button_label %}">
                 </div>
               </form>
             </div>
@@ -673,7 +650,7 @@ load_application:       True
           <div id="settings" class="bitex-view">
             <!-- .page__head -->
             <header class="page__head section-title">
-              <h3 class="page__title beta bitex-view-title">Settings</h3>
+              <h3 class="page__title beta bitex-view-title">{% t views.settings.title %}</h3>
             </header>
             <!-- /.page__head -->
 
@@ -688,7 +665,7 @@ load_application:       True
           <div id="verification" class="bitex-view">
             <!-- .page__head -->
             <header class="page__head section-title">
-              <h3 class="page__title beta bitex-view-title">Verify your account</h3>
+              <h3 class="page__title beta bitex-view-title">{% t views.verification.title %}</h3>
             </header>
             <!-- /.page__head -->
 
