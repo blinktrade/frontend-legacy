@@ -359,10 +359,22 @@ bitex.view.DepositView.prototype.onDepositListTableRequestData_ = function(e) {
     clientID = model.get('UserID');
   }
 
+  var status = ['0', '1', '2', '4', '8'];
+  if (goog.isDefAndNotNull(filter)) {
+    goog.array.forEach(filter, function(f, idx_filter){
+      var idx_status = goog.array.indexOf(status, f ) ;
+      if (idx_status >= 0) {
+        status = [ f ] ;
+        goog.array.removeAt(filter, idx_filter);
+        return true;
+      }
+    }, this);
+  }
+
   conn.requestDepositList(this.request_id_,              // opt_requestId
                           page,                          // opt_page
                           limit,                         // opt_limit
-                          ['0', '1', '2', '4', '8'] ,    // opt_status,
+                          status ,                       // opt_status,
                           clientID,                      // opt_clientID
                           filter );                      // opt_filter
 };

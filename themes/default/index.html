@@ -58,6 +58,9 @@ load_application:       True
         </div>
         {% endfor %}
       </div>
+
+      <a href="" class="bitex-support-link" target="_blank">
+        <i class="icon-envelope"></i> {% t views.faq.get_in_touch %}</a>
     </div>
   </div>
 
@@ -528,8 +531,8 @@ load_application:       True
           </li>
 
           <li style="">
-            <a href="" class="bitex-support-link" target="_blank">
-              <i class="icon-envelope"></i> {% t views.sidebar.support %}</a>
+            <a href="" data-switch-view="faq">
+              <i data-switch-view="faq" class="icon-question"></i> {% t views.sidebar.support %}</a>
           </li>
 
           <li>

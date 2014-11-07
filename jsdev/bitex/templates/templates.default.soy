@@ -764,9 +764,24 @@
 
     <div class="withdraw-methods">
      {if length($methods) == 0 }
-        <div class="alert alert-danger text-center">
-          {msg desc="Error message when the brokers doesn't have deposit methods"}We are not accepting deposits at this moment. We sorry for the inconvenience.{/msg}
-        </div>
+        {if $verificationLevel <= 2}
+          <div class="alert alert-warning text-left">
+            {msg desc="Error message when the user is not yet verified."}
+              Due to anti-money laundry international laws and government regulations,
+              deposits in the local currency are only available to verified customers.<br/>
+              We are very sorry for the inconvenience.
+            {/msg}
+          </div>
+          {if $verificationLevel == 0}
+            {msg desc="get verified message"}
+              You can verify your account by clicking in <a href="" data-switch-view="verification">Verify your account</a>
+            {/msg}
+          {/if}
+        {else}
+          <div class="alert alert-danger text-center">
+            {msg desc="Error message when the brokers doesn't have deposit methods"}We are not accepting deposits at this moment. We sorry for the inconvenience.{/msg}
+          </div>
+        {/if}
      {/if}
      {foreach $method in $methods }
         {if $force_method}

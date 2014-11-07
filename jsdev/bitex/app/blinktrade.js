@@ -1032,6 +1032,8 @@ bitex.app.BlinkTrade.prototype.onBitexBalanceResponse_ = function(e) {
 bitex.app.BlinkTrade.prototype.onUserWithdrawRequest_ = function(e){
   var currency = e.target.getCurrency();
 
+  this.setView('withdraw');
+
   var withdraw_methods = this.getModel().get('Broker')['WithdrawStructure'][currency];
 
   var method_element_id = goog.string.getRandomString();
@@ -2024,6 +2026,8 @@ bitex.app.BlinkTrade.prototype.onProcessDeposit_ = function(e){
 bitex.app.BlinkTrade.prototype.onUserDepositRequest_ = function(e){
   var currency = e.target.getCurrency();
   var handler = this.getHandler();
+
+  this.setView('deposit');
 
   /**
    * @desc Crypto Currency Withdraw accordion title
