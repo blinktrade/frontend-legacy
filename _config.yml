@@ -5,8 +5,8 @@ description: "Blinktrade demonstration exchange"
 baseurl: ""
 author: "BlinkTrade"
 keywords: "bitcoin, bitcoin exchange, bitcoin decentralized exchange"
-#url: "https://testnet.blinktrade.com"
-url: "//localhost:4000"   # activate this to test on your localhost
+url: "https://testnet.blinktrade.com"
+#url: "//localhost:4000"   # activate this to test on your localhost
 deploy_version: "HEAD"
 
 social_network_image_share: "/assets/themes/default/img/social_network_share.png"
@@ -18,8 +18,8 @@ default_country_code: "US"
 blinktrade_broker_id: 5  # 5 is the id for the demo backend. Don't change that if you don't understand what you doing.
 
 #blinktrade_backend_api: "api.blinktrade.com"
-#blinktrade_backend_api: "api.testnet.blinktrade.com"
-blinktrade_backend_api: "localhost"
+blinktrade_backend_api: "api.testnet.blinktrade.com"
+#blinktrade_backend_api: "localhost"
 google_analytics_id: "UA-53856711-1"
 zopim_key: "2SSNIzvxy8fBypKoZJ0pI43tUoNCv8os"
 
