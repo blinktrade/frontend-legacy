@@ -17,6 +17,6 @@ mv -f _config.yml-pie  _config.yml
 
 git checkout $BRANCH
 cp -r _site/* . && rm -rf _site/ es/_posts pt_BR/_posts deploy.sh  _plugins/ .idea/
-git add --all . && git commit -m "Regenerate files ( $DEVHASH )"
+git add --all . && git commit -m "Regenerate files ( $DEV_HASH )"
 git checkout development && git clean -f -d
 mkdir _site/ && jekyll build
