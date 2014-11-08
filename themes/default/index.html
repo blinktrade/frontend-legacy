@@ -36,7 +36,7 @@ load_application:       True
     </div>
   </div>
 
-  <div id="faq" class="page row-fluid bitex-view bitex-view-active">
+  <div id="faq" class="page row-fluid bitex-view">
     <div class="page-header">
       <h1 class="bitex-view-title">{% t views.faq.title %}</h1>
     </div>
@@ -59,8 +59,10 @@ load_application:       True
         {% endfor %}
       </div>
 
+      <h3>
       <a href="" class="bitex-support-link" target="_blank">
         <i class="icon-envelope"></i> {% t views.faq.get_in_touch %}</a>
+      </h3>
     </div>
   </div>
 
@@ -224,7 +226,7 @@ load_application:       True
         </div>
 
         <div class="control-group">
-          <label for="id_set_new_password_password2" class="control-label">{% t views.set_new_password.confirm_password %}</label>
+              <label for="id_set_new_password_password2" class="control-label">{% t views.set_new_password.confirm_password %}</label>
           <div class="controls">
             <input id="id_set_new_password_password2" name="Password2" size="30" type="password" />
           </div>
