@@ -5,6 +5,7 @@
     <div class="wrapper">
       <p>
         {% if page.load_application %}
+        <a href="" data-switch-view="admin">admin</a> |
         Latency: <span class="bitex-model" data-model-key="latency">0</span> ms |
         Version: {{ site.deploy_version }} |
         {% endif %}
