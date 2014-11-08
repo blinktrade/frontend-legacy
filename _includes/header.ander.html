@@ -73,7 +73,7 @@
         <div class="head__nav">
           <!-- .layout -->
           <div class="layout layout--full">
-            <nav class="layout__item eight-tenths portable--one-whole">
+            <nav class="layout__item seven-tenths portable--one-whole">
               <!-- .head__nav-left -->
               <ul class="head__nav-left">
                 <li class="bitex-display-if-logged">
@@ -152,22 +152,44 @@
               <!-- /.head__nav-left -->
             </nav>
 
-            <nav class="layout__item two-tenths portable--one-whole cf">
+            <nav class="layout__item three-tenths portable--one-whole cf">
               <!-- .head__nav-right -->
               <ul class="head__nav-right">
+                <li >
+                  <span>{{ site.lang|upcase }}</span>
+                  <ul class="head-dropdown" >
+                  {% for lang in site.languages %}
+                    {% if  lang != site.lang  %}
+                      {% if forloop.first %}
+                        <li><a tabindex="-1" href="{{ site.baseurl_root }}/themes/ander/">{{ lang|upcase }}</a></li>
+                      {% else %}
+                        <li><a tabindex="-1" href="{{ site.baseurl_root }}/{{lang}}/themes/ander/">{{ lang|upcase }}</a></li>
+                      {% endif %}
+                    {% endif %}
+                  {% endfor %}
+                  </ul>
+                </li>
+
                 <li class="bitex-hide-if-logged">
                   <a data-switch-view="signin" href="#signin" title="Login">
                     <i class="icon-power-off"></i> {% t views.toolbar.signin %}
                   </a>
-                  <button id="id_button_connect_ws" class="btn bitex-hide-if-ws-connected btn-link">
-                    Connect <i class="icon-white icon-repeat"></i>
-                  </button>
                 </li>
+
+
+                <li class="bitex-hide-if-ws-connected">
+                    <a href="#" id="id_button_connect_ws">
+                        <i class="icon-white icon-repeat"></i> Connect
+                    </a>
+                </li>
+
                 <li class="bitex-display-if-logged">
                   <a href="javascript:location.reload()">
                     <i class="icon-power-off"></i> {% t views.sidebar.logout %}
                   </a>
                 </li>
+
+
               </ul>
               <!-- /.head__nav-right -->
             </nav>
