@@ -9,6 +9,7 @@ url: "https://testnet.blinktrade.com"
 #url: "//localhost:4000"   # activate this to test on your localhost
 deploy_version: "HEAD"
 
+exchange: "demo"
 exchange_logo: "demo"
 
 default_country_code: "US"

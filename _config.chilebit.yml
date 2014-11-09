@@ -9,6 +9,7 @@ url: "https://chilebit.net"
 #url: "//localhost:4000"   # activate this to test on your localhost
 deploy_version: "HEAD"
 
+exchange: "chilebit"
 exchange_logo: "chilebit"
 
 default_country_code: "CL"

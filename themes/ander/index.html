@@ -20,7 +20,14 @@ load_application:       True
 
         <!-- .home__title -->
         <h1 class="home__title">
-          {% t views.start.example_lead  %}
+          {% case site.exchange %}
+            {% when 'chilebit' %}
+              {% t exchanges.chilebit.lead  %}
+            {% when 'surbitcoin' %}
+              {% t exchanges.surbitcoin.lead  %}
+            {% else %}
+              {% t exchanges.demo.lead  %}
+          {% endcase %}
         </h1>
         <!-- /.home__title -->
 

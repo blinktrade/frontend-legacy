@@ -5,6 +5,13 @@ global:
   tagline: English
   about: Sobre
   twitter: Twitter
+exchanges:
+  demo:
+    lead: Véase nuestra exchange open source en acción
+  chilebit:
+    lead: El primer exchange de Bitcoins de Chile
+  surbitcoin:
+    lead: El primer Mercado de Bitcoin de Venezuela
 views:
   toolbar:
     faq: Preguntas frecuentes
@@ -15,7 +22,6 @@ views:
     connect: Conectar
 
   start:
-    example_lead: Véase nuestra exchange open source en acción
     username: "Nombre de usuario:"
     password: "Contraseña"
     login: Ingressar

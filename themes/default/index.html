@@ -11,7 +11,16 @@ load_application:       True
   <div id="start" class="page  row-fluid bitex-view bitex-view-admin">
     <header class="jumbotron">
       <img src="{{ site.baseurl }}/assets/exchange_logos/{{ site.exchange_logo }}_landing_page_logo.png" style="">
-      <p class="lead bitex-view-title bitex-view-title">{% t views.start.example_lead  %}</p>
+      <p class="lead bitex-view-title bitex-view-title">
+        {% case site.exchange %}
+          {% when 'chilebit' %}
+            {% t exchanges.chilebit.lead  %}
+          {% when 'surbitcoin' %}
+            {% t exchanges.surbitcoin.lead  %}
+          {% else %}
+            {% t exchanges.demo.lead  %}
+          {% endcase %}
+      </p>
     </header>
 
     <div class="bitex-view-content">
