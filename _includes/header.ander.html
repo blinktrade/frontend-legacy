@@ -54,14 +54,18 @@
         {% if page.load_application %}
         <a href="#" class="logo brand-face" data-switch-view="offerbook" style="padding-top: 0px;">
           <img data-switch-view="offerbook" class="logo__img" src="{{ site.baseurl }}/assets/exchange_logos/{{ site.exchange_logo }}_toolbar_logo.png" style="
-                height: 55px;
-                margin-top: 0px;
-                margin-bottom: -41px;
+                height: 30px;
+                margin-top: -10px;
+                margin-bottom: -10px;
             ">
         </a>
         {% else %}
-          <a class="logo brand-face" href="/" title="BlinkTrade">
-            <img src="{{ site.baseurl }}/assets/exchange_logos/{{ site.exchange_logo }}_toolbar_logo.png" alt="BlinkTrade" class="logo__img" />
+          <a class="logo brand-face" href="{{ site.baseurl }}/" title="">
+            <img src="{{ site.baseurl }}/assets/exchange_logos/{{ site.exchange_logo }}_toolbar_logo.png" alt="" class="logo__img" style="
+                height: 30px;
+                margin-top: -10px;
+                margin-bottom: -10px;
+            />
           </a>
         {% endif %}
         <!-- /.logo -->
