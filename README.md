@@ -7,6 +7,20 @@ Blinktrade demo exchange
 - [google closure library](https://developers.google.com/closure/library/) for the javascript application 
 - [google closure templates](https://developers.google.com/closure/templates/) for some of the javascript ui views
 
+## Install the pre-requesits 
+1 - Install [Git](http://git-scm.com/downloads), [Ruby](https://www.ruby-lang.org/pt/downloads/) anda [Java](https://java.com/download/index.jsp), in case you don't have them yet.
+
+2 - Once installed these dependecies, open up the terminal and install [Jekyll](http://jekyllrb.com) with the following commands.
+
+```sh
+$ gem install jekyll
+```
+
+2 - Install jekyll multiple languages plugin
+```sh
+$ gem install jekyll-multiple-languages-plugin
+```
+
 ## How to create your own exchange
 1 - Fork the repo
 
@@ -45,13 +59,6 @@ $ git push
 
 ## How to edit the static content. 
 
-1 - Install [Git](http://git-scm.com/downloads) and [Ruby](https://www.ruby-lang.org/pt/downloads/), in case you don't have them yet.
-
-2 - Once installed these dependecies, open up the terminal and install [Jekyll](http://jekyllrb.com) with the following commands.
-
-```sh
-$ gem install jekyll
-```
 
 3 - Navigate to the project folder
 ```sh
