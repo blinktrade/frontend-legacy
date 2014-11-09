@@ -7,10 +7,19 @@ global:
   twitter: Twitter
 exchanges:
   demo:
+    title: BlinDemo - Open Source Bitcoin Exchange demo website
+    description: Open Source Bitcoin Exchange demo website
+    keywords: bitcoin, bitcoin exchange, open source bitcoin exchange, bitcoin trading plataform, open source bitcoin trading plataform
     lead: See our open source Bitcoin exchange in action
   chilebit:
+    title: ChileBit.NET - The first bitcoin exchange in Chile
+    description: The first bitcoin exchange in Chile
+    keywords: Buy and sell bitcoin in Chile, bitcoin exchange in Chile, sell bitcoins in Chile, buy bitcoins in Chile
     lead: The first bitcoin exchange in Chile
   surbitcoin:
+    title: SurBitcoin - The first bitcoin exchange in Venezuela
+    description: The first bitcoin exchange in Venezuela
+    keywords: Buy and sell bitcoin in Venezuela, bitcoin exchange in Venezuela, sell bitcoins in Venezuela, buy bitcoins in Venezuela
     lead: The first bitcoin exchange in Venezuela
 
 views:

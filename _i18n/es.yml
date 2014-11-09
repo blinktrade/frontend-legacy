@@ -7,10 +7,19 @@ global:
   twitter: Twitter
 exchanges:
   demo:
+    title: BlinkDemo - Demostración de la plataforma de negociación de Bitcoins de blinktrade
+    description: Sitio web de demostración de la plataforma de negociación de Bitcoins de blinktrade
+    keywords: bitcoin, exchange de bitcoins, mercado de bitcoins, bolsa de bitcoins, open source
     lead: Véase nuestra exchange open source en acción
   chilebit:
-    lead: El primer exchange de Bitcoins de Chile
+    title: ChileBit.net - El primer mercado de Bitcoins de Chile
+    description: Compre y venda bitcoins de manera segura a través de ChileBit.NET. Con ChileBit.NET puedes comenzar a comprar y vender bitcoins hoy. El proceso de registro toma menos de un minuto.
+    keywords: Compra y venta de bitcoins en Chile, mercado de bitcoins en Chile, venta de bitcoins en Chile, comprar bitcoins en Chile
+    lead: El primer mercado de Bitcoins de Chile
   surbitcoin:
+    title: Surbitcoin - El primer mercado de Bitcoin de Venezuela
+    description: Compre y venta bitcoins de manera segura a través de SurBitcoin. Con SurBitcoin puedes comenzar a comprar y vender bitcoins hoy. El proceso de registro toma menos de un minuto.
+    keywords: Compra y venta de bitcoins en Venezuela, mercado de bitcoins en Venezuela, venta de bitcoins en Venezuela, comprar bitcoins en Venezuela
     lead: El primer Mercado de Bitcoin de Venezuela
 views:
   toolbar:
