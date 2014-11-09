@@ -26,7 +26,7 @@ $ gem install jekyll-multiple-languages-plugin
 
 3 - clone your new repo 
 ```sh
-$ git clone https://github.com/yourgithubusername/exchange
+$ git clone git@github.com:user-name/exchange-name.git
 $ cd exchange
 ```
 
@@ -37,7 +37,7 @@ $ cd exchange
 $ git rm -rf .
 $ touch .nojekyll
 $ git add .nojekyll 
-$ git commit -am "created gh-pages build" 
+$ git commit -m "created gh-pages build" 
 $ git push origin gh-pages
 # After the first push, it can take up to 15 minutes before your GitHub Pages site is available. 
 # You'll receive an email if your build is unsuccessful.
@@ -49,12 +49,10 @@ $ git checkout master
 $ ln -s _config.demo.yml  _config.yml
 $ ./build_javascript.sh # Only needed in case you changed the ./jsdev application
 $ ./deploy.sh gh-pages 
-$ git push
+$ git push origin gh-pages
 ```
 
 8 - Open your browser and point it to [http://yourgithubusername.github.io/exchange/](http://yourgithubusername.github.io/exchange)
-
-
 
 ## How to run the exchange locally 
 1 - Fork the repo
