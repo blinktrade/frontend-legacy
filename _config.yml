@@ -9,10 +9,10 @@ url: "https://testnet.blinktrade.com"
 #url: "//localhost:4000"   # activate this to test on your localhost
 deploy_version: "HEAD"
 
-social_network_image_share: "/assets/themes/default/img/social_network_share.png"
-logo: "/assets/themes/default/img/blink_demo_landing_page_logo.png"
-toolbar_logo: "/assets/themes/default/img/blink_demo_landing_page_logo.png"
-landing_logo: "/assets/themes/default/img/blink_demo_landing_page_logo.png"
+exchange_logo: "demo"
+logo: "/assets/exchange_logos/demo_logo.png"
+toolbar_logo: "/assets/exchange_logos/demo_toolbar_logo.png"
+landing_logo: "/assets/exchange_logos/demo_landing_page_logo.png"
 
 default_country_code: "US"
 blinktrade_broker_id: 5  # 5 is the id for the demo backend. Don't change that if you don't understand what you doing.
