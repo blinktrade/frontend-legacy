@@ -7,11 +7,20 @@ global:
   twitter: Twitter
 exchanges:
   demo:
-    lead: Veja a nossa exchange open source em ação
+    title: BlinkDemo - Demonstração da plataforma open source de negociação de Bitcoins da blinktrade
+    description: Site de demonstração da plataforma de negociação de Bitcoins open source da Blinktrade
+    keywords: bitcoin, exchange de bitcoins, mercado de bitcoins, bolsa de bitcoins, open source
+    lead: Demonstração da exchange de Bitcoins open source da Blinktrade
   chilebit:
+    title: ChileBit.NET - A primeira exchange de Bitcoins do Chile
+    description: Compre e venda bitcoins no Chile de maneira segura através do ChileBit.NET. Com o ChileBit.NET você pode começar a comprar e vender bitcoins hoje. O processo de registro dura menos de um minuto.
+    keywords: Compra e venda de bitcoins no Chile, bolsa de bitcoins no Chile, venda bitcoins no Chile, compre bitcoins no Chile
     lead: A primeira exchange de Bitcoins do Chile
   surbitcoin:
-    lead: A primeira exchenge de Bitcoins da Venezuela
+    title: Surbitcoin - A primeira exchange de Bitcoins da Venezuela
+    description: Compre e venda bitcoins na Venezuela de maneira segura através da SurBitcoin. Com a SurBitcoin você pode começar a comprar e vender bitcoins hoje. O processo de registro dura menos de um minuto.
+    keywords: Compra e venda de bitcoins na Venezuela, bolsa de bitcoins na Venezuela, venda bitcoins na Venezuela, compre bitcoins na Venezuela
+    lead: A primeira exchange de Bitcoins da Venezuela
 views:
   toolbar:
     faq: Ajuda
