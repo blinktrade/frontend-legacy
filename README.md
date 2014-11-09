@@ -10,7 +10,7 @@ Blinktrade demo exchange
 ## How to create your own exchange
 1 - Fork the repo
 
-2 - Rename it to `exchange`
+2 - Rename it to `exchange` or any name you wish.  Let's use exchange for this example
 
 3 - clone your new repo 
 ```sh
