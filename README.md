@@ -7,15 +7,35 @@ Blinktrade demo exchange
 - [google closure library](https://developers.google.com/closure/library/) for the javascript application 
 - [google closure templates](https://developers.google.com/closure/templates/) for some of the javascript ui views
 
-## How to create your own front end
+## How to create your own exchange
 1. Fork the repo 
-2. Rename it to `yourgithubusername.github.io`
-3. clone your new repo `git clone https://github.com/yourgithubusername/yourgithubusername.github.io.git`
-4. Edit the url tag in file [_config.yml](https://github.com/blinktrade/frontend/blob/master/_config.yml) to `//yourgithubusername.github.io`
-5. Commit your changes `git commit -am 'My changes'`
-6. Push to the branch: `git push origin master`
-7. Wait approximately 20 minutes for githubpages 
-8. Open your browser and point it to [http://yourgithubusername.github.io](http://yourgithubusername.github.io)
+2. Rename it to `exchange`
+3. clone your new repo `$ git clone https://github.com/yourgithubusername/exchange`
+`$ cd exchange`
+4. Create a github page for your repo `$ git checkout --orphan gh-pages`
+5. Setup your gh-pages repo 
+```
+$ git rm -rf .
+$ touch .nojekyll
+$ git add .nojekyll 
+$ git commit -am "created gh-pages build" 
+$ git push origin gh-pages
+```
+After the first push, it can take up to 15 minutes before your GitHub Pages site is available. You'll receive an email if your build is unsuccessful.
+
+6. Let's configure the exchange
+```
+$ git checkout master 
+$ ln -s _config.demo.yml  _config.yml
+```
+
+7. Push to the branch: 
+```
+$ ./build_javascript.sh # Only needed in case you changed anything inside ./jsdev directory.
+$ ./deploy.sh gh-pages 
+$ git push origin master
+```
+8. Open your browser and point it to [http://yourgithubusername.github.io/exchange/](http://yourgithubusername.github.io/exchange)
 
 
 
