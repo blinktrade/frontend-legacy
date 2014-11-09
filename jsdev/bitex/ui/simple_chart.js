@@ -57,7 +57,7 @@ bitex.ui.SimpleChart.prototype.getSymbol = function(){
  */
 bitex.ui.SimpleChart.prototype.setSymbol = function(symbol){
   this.getModel().symbol = symbol;
-  this.getElement().src = '/chart.html?s=' + symbol;
+  this.getElement().src = './chart.html?s=' + symbol;
   this.getElement().setAttribute('data-symbol', symbol );
 };
 

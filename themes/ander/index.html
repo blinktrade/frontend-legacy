@@ -14,12 +14,20 @@ load_application:       True
       <!-- .home -->
       <div class="home">
         <!-- .home__img -->
-        <img class="home__img" src="{{ site.landing_logo }}" alt="" />
+        <img class="home__img" src="{{ site.baseurl }}/assets/exchange_logos/{{ site.exchange_logo }}_landing_page_logo.png" alt="" />
+
         <!-- /.home__img -->
 
         <!-- .home__title -->
         <h1 class="home__title">
-          {% t views.start.example_lead  %}
+          {% case site.exchange %}
+            {% when 'chilebit' %}
+              {% t exchanges.chilebit.lead  %}
+            {% when 'surbitcoin' %}
+              {% t exchanges.surbitcoin.lead  %}
+            {% else %}
+              {% t exchanges.demo.lead  %}
+          {% endcase %}
         </h1>
         <!-- /.home__title -->
 
