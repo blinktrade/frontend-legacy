@@ -49,12 +49,10 @@ $ git checkout master
 $ ln -s _config.demo.yml  _config.yml
 $ ./build_javascript.sh # Only needed in case you changed the ./jsdev application
 $ ./deploy.sh gh-pages 
-$ git push
+$ git push origin gh-pages
 ```
 
 8 - Open your browser and point it to [http://yourgithubusername.github.io/exchange/](http://yourgithubusername.github.io/exchange)
-
-
 
 ## How to run the exchange locally 
 1 - Fork the repo
