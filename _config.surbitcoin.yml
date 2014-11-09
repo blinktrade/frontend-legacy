@@ -1,0 +1,37 @@
+# Site settings
+title: "SurBitcoin – El primer mercado de bitcoin de Venezuela."
+email: "contacto@chilebit.net"
+description: "SurBitcoin – El primer mercado de bitcoin de Venezuela."
+baseurl: ""
+author: "BlinkTrade"
+keywords: "bitcoin exchange in Venezuela, exchange de bitcoins en Venezuela, mercado de bitcoin de Venezuela"
+url: "https://surbitcoin.github.io"
+#url: "//localhost:4000"   # activate this to test on your localhost
+deploy_version: "HEAD"
+
+exchange: "surbitcoin"
+exchange_logo: "surbitcoin"
+
+default_country_code: "VE"
+blinktrade_broker_id: 5 # 9 is the id for the demo backend. Don't change that if you don't understand what you doing.
+
+#blinktrade_backend_api: "api.blinktrade.com"
+blinktrade_backend_api: "api.testnet.blinktrade.com"
+#blinktrade_backend_api: "localhost"
+google_analytics_id: "UA-56565606-1"
+zopim_key: "2YMGhOCdrfa6wpaXqhPAMYewR4gUC2Ee"
+
+
+# Build settings
+markdown: kramdown
+
+
+languages: ["es", "en_US", "pt_BR"]
+
+exclude:     [ "jsdev", "LICENSE", "README.md", "config.rb", "deploy.sh", "build_javascript.sh" ]
+source:      .
+destination: ./_site
+plugins:     ./_plugins
+paginate:    5
+paginate_path: "post/page:num"
+permalink:     /post/:title/
