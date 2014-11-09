@@ -13,7 +13,8 @@ Blinktrade demo exchange
 3. clone your new repo `$ git clone https://github.com/yourgithubusername/exchange`
 `$ cd exchange`
 4. Create a github page for your repo `$ git checkout --orphan gh-pages`
-5. Setup your gh-pages repo ```sh
+5. Setup your gh-pages repo 
+```
 $ git rm -rf .
 $ touch .nojekyll
 $ git add .nojekyll 
@@ -21,7 +22,8 @@ $ git commit -am "created gh-pages build"
 $ git push origin gh-pages
 # After the first push, it can take up to 15 minutes before your GitHub Pages site is available. You'll receive an email if your build is unsuccessful.
 ```
-6. Build he exchange. ```sh
+6. Build he exchange. 
+```
 $ git checkout master 
 $ ln -s _config.demo.yml  _config.yml
 $ ./build_javascript.sh # Only needed in case you changed the ./jsdev application
