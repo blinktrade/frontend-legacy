@@ -1,4 +1,4 @@
-### Blinktrade Bitcoin Exchange
+## Blinktrade Bitcoin Exchange
 
 ## Technologies we are using
 - [jekyll](http://jekyllrb.com/), a static generator in Ruby, to create the static html pages
