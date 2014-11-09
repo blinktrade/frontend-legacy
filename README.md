@@ -37,7 +37,7 @@ $ cd exchange
 $ git rm -rf .
 $ touch .nojekyll
 $ git add .nojekyll 
-$ git commit -am "created gh-pages build" 
+$ git commit -m "created gh-pages build" 
 $ git push origin gh-pages
 # After the first push, it can take up to 15 minutes before your GitHub Pages site is available. 
 # You'll receive an email if your build is unsuccessful.
