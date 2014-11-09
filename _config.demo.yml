@@ -1,11 +1,7 @@
 # Site settings
-title: "Blinktrade"
-email: "contact@blinktrade.com"
-description: "Blinktrade demonstration exchange"
-baseurl: ""
-author: "BlinkTrade"
-keywords: "bitcoin, bitcoin exchange, bitcoin decentralized exchange"
 url: "https://testnet.blinktrade.com"
+author: "BlinkTrade"
+baseurl: ""
 #url: "//localhost:4000"   # activate this to test on your localhost
 deploy_version: "HEAD"
 

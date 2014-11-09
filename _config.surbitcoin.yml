@@ -1,11 +1,7 @@
 # Site settings
-title: "SurBitcoin – El primer mercado de bitcoin de Venezuela."
-email: "contacto@chilebit.net"
-description: "SurBitcoin – El primer mercado de bitcoin de Venezuela."
-baseurl: ""
-author: "BlinkTrade"
-keywords: "bitcoin exchange in Venezuela, exchange de bitcoins en Venezuela, mercado de bitcoin de Venezuela"
 url: "https://surbitcoin.github.io"
+author: "BlinkTrade"
+baseurl: ""
 #url: "//localhost:4000"   # activate this to test on your localhost
 deploy_version: "HEAD"
 

@@ -1,11 +1,7 @@
 # Site settings
-title: "ChileBit.NET"
-email: "contacto@chilebit.net"
-description: "El primer exchange de Bitcoins de Chile."
-baseurl: ""
-author: "BlinkTrade"
-keywords: "bitcoin exchange in chile, exchange de bitcoins en chile"
 url: "https://chilebit.net"
+author: "BlinkTrade"
+baseurl: ""
 #url: "//localhost:4000"   # activate this to test on your localhost
 deploy_version: "HEAD"
 
