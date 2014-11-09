@@ -26,7 +26,7 @@ $ gem install jekyll-multiple-languages-plugin
 
 3 - clone your new repo 
 ```sh
-$ git clone https://github.com/yourgithubusername/exchange
+$ git clone git@github.com:user-name/exchange-name.git
 $ cd exchange
 ```
 
