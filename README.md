@@ -20,20 +20,15 @@ $ touch .nojekyll
 $ git add .nojekyll 
 $ git commit -am "created gh-pages build" 
 $ git push origin gh-pages
+# After the first push, it can take up to 15 minutes before your GitHub Pages site is available. You'll receive an email if your build is unsuccessful.
 ```
-After the first push, it can take up to 15 minutes before your GitHub Pages site is available. You'll receive an email if your build is unsuccessful.
-
-6. Let's configure the exchange
+6. Build he exchange.
 ```
 $ git checkout master 
 $ ln -s _config.demo.yml  _config.yml
-```
-
-7. Push to the branch: 
-```
-$ ./build_javascript.sh # Only needed in case you changed anything inside ./jsdev directory.
+$ ./build_javascript.sh # Only needed in case you changed the ./jsdev application
 $ ./deploy.sh gh-pages 
-$ git push origin master
+$ git push
 ```
 8. Open your browser and point it to [http://yourgithubusername.github.io/exchange/](http://yourgithubusername.github.io/exchange)
 
