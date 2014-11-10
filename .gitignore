@@ -44,6 +44,9 @@ htmlcov/
 nosetests.xml
 coverage.xml
 
+# Jekyll 
+_config.yml
+
 # Translations
 *.mo
 *.pot
