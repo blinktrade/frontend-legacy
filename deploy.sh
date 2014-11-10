@@ -3,7 +3,7 @@
 SOURCE_BRANCH=`git rev-parse --abbrev-ref HEAD`
 DEV_HASH=`git log --format='%H' -n 1`
 DEV_PRETTY_HASH=`git log --pretty=format:'%h' -n 1`
-REMOTE_NAME=`git remote -v | head -n1 | awk '{print $2}' | sed -e 's,.*:\(.*/\)\?,,' -e 's/.*\/\(.*\)\.git/\1/'`
+REMOTE_NAME=`git remote -v | head -n1 | awk '{print $2}' | sed -e 's/.*\/\(.*\)\.git/\1/'`
 
 
 if [ $# -eq 0 ]; then
