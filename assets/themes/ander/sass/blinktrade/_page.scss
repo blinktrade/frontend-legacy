@@ -26,7 +26,7 @@
 
 .page--inner {
     .page__head {
-        @include border-radius(5px 0 0 0);
+        @include border-radius(0);
     }
 
     .page__body {
