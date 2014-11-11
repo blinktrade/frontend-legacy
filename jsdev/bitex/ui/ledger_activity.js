@@ -151,6 +151,8 @@ bitex.ui.LedgerActivity = function(button_filters, pseudoNameFunction, opt_broke
           switch(rowSet['Description']) {
             case 'B':
             case 'DF':
+            case 'D':
+            case 'W':
             case 'WF':
             case 'TF':
               return '';
