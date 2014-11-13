@@ -1,8 +1,9 @@
 # Site settings
+#url: "//localhost:4000"   # activate this to test on your localhost
 #url: "https://surbitcoin.com"
+url: "https://surbitcoin.github.io"
 author: "BlinkTrade"
 baseurl: ""
-url: "//localhost:4000"   # activate this to test on your localhost
 deploy_version: "HEAD"
 
 exchange: "surbitcoin"
