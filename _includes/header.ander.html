@@ -49,14 +49,14 @@
   <link rel="canonical" href="{{ site.url }}{{ site.baseurl }}{% if page.url != '/index.html' %}{{ page.url }}{% endif %}"/>
   <script type="text/javascript" src="//apis.google.com/js/plusone.js"></script>
 
-  <link href="{{ site.baseurl }}/assets/themes/default/css/font-awesome.min.css" rel="stylesheet">
+  <link href="{{ site.url }}{{ site.baseurl }}/assets/themes/default/css/font-awesome.min.css" rel="stylesheet">
 
   {% if page.load_application %}
   <!--link href="/assets/themes/default/css/Dialog.css" rel="stylesheet"-->
-  <link href="{{ site.baseurl }}/assets/themes/default/css/fuelux.css" rel="stylesheet">
-  <link href="{{ site.baseurl }}/assets/themes/default/css/style-new.css?v={{ site.deploy_version }}" rel="stylesheet">
-  <link href="{{ site.baseurl }}/assets/themes/ander/css/blinktrade.css?v={{ site.deploy_version }}" rel="stylesheet">
-  <script data-cfasync="false" src="{{ site.baseurl }}/assets/js/bitex_app_blink_trade.compiled.{{site.lang}}.ander.js?v={{ site.deploy_version }}" type="text/javascript"></script>
+  <link href="{{ site.url }}{{ site.baseurl }}/assets/themes/default/css/fuelux.css" rel="stylesheet">
+  <link href="{{ site.url }}{{ site.baseurl }}/assets/themes/default/css/style-new.css?v={{ site.deploy_version }}" rel="stylesheet">
+  <link href="{{ site.url }}{{ site.baseurl }}/assets/themes/ander/css/blinktrade.css?v={{ site.deploy_version }}" rel="stylesheet">
+  <script data-cfasync="false" src="{{ site.url }}{{ site.baseurl }}/assets/js/bitex_app_blink_trade.compiled.{{site.lang}}.ander.js?v={{ site.deploy_version }}" type="text/javascript"></script>
   {% endif %}
 </head>
 <body class="{% if page.body_classes %} {{ page.body_classes }} {% endif %}">
@@ -184,9 +184,9 @@
                   {% for lang in site.languages %}
                     {% if  lang != site.lang  %}
                       {% if forloop.first %}
-                        <li><a tabindex="-1" href="{{ site.baseurl_root }}/themes/ander/">{{ lang|upcase }}</a></li>
+                        <li><a tabindex="-1" href="{{ site.url }}{{ site.baseurl_root }}/themes/ander/">{{ lang|upcase }}</a></li>
                       {% else %}
-                        <li><a tabindex="-1" href="{{ site.baseurl_root }}/{{lang}}/themes/ander/">{{ lang|upcase }}</a></li>
+                        <li><a tabindex="-1" href="{{ site.url }}{{ site.baseurl_root }}/{{lang}}/themes/ander/">{{ lang|upcase }}</a></li>
                       {% endif %}
                     {% endif %}
                   {% endfor %}
