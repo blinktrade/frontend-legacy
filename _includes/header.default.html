@@ -38,8 +38,8 @@
     <meta property="og:image" content="{{ site.url }}{{ site.baseurl }}/assets/exchange_logos/{{ site.exchange_logo }}_social_network_share.png">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="{{ site.baseurl }}/assets/exchange_logos/{{ site.exchange_logo }}_favicon.ico">
-    <link rel="icon" href="{{ site.baseurl }}/assets/exchange_logos/{{ site.exchange_logo }}_favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ site.url }}{{ site.baseurl }}/assets/exchange_logos/{{ site.exchange_logo }}_favicon.ico">
+    <link rel="icon" href="{{ site.url }}{{ site.baseurl }}/assets/exchange_logos/{{ site.exchange_logo }}_favicon.ico" type="image/x-icon">
 
     <!-- Feed -->
     <link rel="alternate" type="application/rss+xml" href="{{ site.url }}{{ site.baseurl }}/feed.xml">
@@ -50,15 +50,15 @@
     <script type="text/javascript" src="//apis.google.com/js/plusone.js"></script>
 
     <!--Bootstrap-->
-    <link href="{{ site.baseurl }}/assets/themes/default/css/bootstrap-combined.min.css" rel="stylesheet">
-    <link href="{{ site.baseurl }}/assets/themes/default/css/font-awesome.min.css" rel="stylesheet">
+    <link href="{{ site.url }}{{ site.baseurl }}/assets/themes/default/css/bootstrap-combined.min.css" rel="stylesheet">
+    <link href="{{ site.url }}{{ site.baseurl }}/assets/themes/default/css/font-awesome.min.css" rel="stylesheet">
 
     {% if page.load_application %}
-    <link href="{{ site.baseurl }}/assets/themes/default/css/Dialog.css" rel="stylesheet">
-    <link href="{{ site.baseurl }}/assets/themes/default/css/fuelux.css" rel="stylesheet">
-    <link href="{{ site.baseurl }}/assets/themes/default/css/default.uni-form.css" rel="stylesheet">
-    <link href="{{ site.baseurl }}/assets/themes/default/css/style.css?v={{ site.deploy_version }}" rel="stylesheet">
-    <script data-cfasync="false" src="{{ site.baseurl }}/assets/js/bitex_app_blink_trade.compiled.{{site.lang}}.default.js?v={{ site.deploy_version }}" type="text/javascript"></script>
+    <link href="{{ site.url }}{{ site.baseurl }}/assets/themes/default/css/Dialog.css" rel="stylesheet">
+    <link href="{{ site.url }}{{ site.baseurl }}/assets/themes/default/css/fuelux.css" rel="stylesheet">
+    <link href="{{ site.url }}{{ site.baseurl }}/assets/themes/default/css/default.uni-form.css" rel="stylesheet">
+    <link href="{{ site.url }}{{ site.baseurl }}/assets/themes/default/css/style.css?v={{ site.deploy_version }}" rel="stylesheet">
+    <script data-cfasync="false" src="{{ site.url }}{{ site.baseurl }}/assets/js/bitex_app_blink_trade.compiled.{{site.lang}}.default.js?v={{ site.deploy_version }}" type="text/javascript"></script>
     {% endif %}
   </head>
   <body class="{% if page.body_classes %} {{ page.body_classes }} {% endif %}">
@@ -69,15 +69,15 @@
 
           {% if page.load_application %}
           <a href="#" class="brand" data-switch-view="offerbook">
-            <img data-switch-view="offerbook" src="{{ site.baseurl }}/assets/exchange_logos/{{ site.exchange_logo }}_toolbar_logo.png" style="
+            <img data-switch-view="offerbook" src="{{ site.url }}{{ site.baseurl }}/assets/exchange_logos/{{ site.exchange_logo }}_toolbar_logo.png" style="
                 height: 30px;
                 margin-top: -10px;
                 margin-bottom: -10px;
             ">
           </a>
           {% else %}
-          <a class="brand" href="{{ site.baseurl }}/">
-            <img src="{{ site.baseurl }}/assets/exchange_logos/{{ site.exchange_logo }}_toolbar_logo.png" style="
+          <a class="brand" href="{{ site.url }}{{ site.baseurl }}/">
+            <img src="{{ site.url }}{{ site.baseurl }}/assets/exchange_logos/{{ site.exchange_logo }}_toolbar_logo.png" style="
                 height: 30px;
                 margin-top: -10px;
                 margin-bottom: -10px;
@@ -100,9 +100,9 @@
               {% for lang in site.languages %}
                 {% if  lang != site.lang  %}
                   {% if forloop.first %}
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ site.baseurl_root }}/">{{ lang|upcase }}</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ site.url }}{{ site.baseurl_root }}/">{{ lang|upcase }}</a></li>
                   {% else %}
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ site.baseurl_root }}/{{lang}}">{{ lang|upcase }}</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ site.url }}{{ site.baseurl_root }}/{{lang}}">{{ lang|upcase }}</a></li>
                   {% endif %}
                 {% endif %}
               {% endfor %}
