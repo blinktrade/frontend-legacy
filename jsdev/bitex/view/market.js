@@ -207,15 +207,21 @@ bitex.view.MarketView.prototype.onBitexTrade_ = function(e) {
     return;
   }
   var msg = e.data;
-  var record = []; 
+  var record = [];
 
   record["TradeID"] = msg["TradeID"];
   record["Market"] = msg["Symbol"];
   record["Size"] = msg['MDEntrySize'];
   record["Price"] = msg['MDEntryPx'];
   record["Side"] = msg['Side'];
-  record["Buyer"] = bitex.util.getPseudoName(msg['MDEntryBuyerID']);
-  record["Seller"] = bitex.util.getPseudoName(msg['MDEntrySellerID']);
+  record["Buyer"] = msg['MDEntryBuyerID'];
+  record["Seller"] = msg['MDEntrySellerID'];
+  if (goog.isDefAndNotNull( msg['MDEntryBuyer'] )) {
+    record["BuyerUsername"] = msg['MDEntryBuyer'];
+  }
+  if (goog.isDefAndNotNull( msg['MDEntrySeller'] )) {
+    record["SellerUsername"] = msg['MDEntrySeller'];
+  }
   record["Created"] = msg['MDEntryDate'] + " " + msg['MDEntryTime'];
 
   this.last_trades_table_.insertOrUpdateRecord(record, 0);
