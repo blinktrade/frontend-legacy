@@ -21,7 +21,10 @@ layout: None
         var crypto_currency = symbol.substr(0, 3);
         var currency = symbol.substr(3);
 
-        var url = '//{{ site.blinktrade_backend_api }}/api/v1/'+ currency +'/trades?crypto_currency=' + crypto_currency;
+        var now = new Date();
+        var one_week_ago = now.getTime()/1000  - (60 * 60 * 24 * 7);
+
+        var url = '//{{ site.blinktrade_backend_api }}/api/v1/' + currency + '/trades?crypto_currency=' + crypto_currency + '&since=' + one_week_ago;
         $.ajax({url: url,
                type: 'GET',
                dataType: 'jsonp',
