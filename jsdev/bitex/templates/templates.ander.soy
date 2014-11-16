@@ -525,6 +525,7 @@
 
 /**
   * @param deposit_message
+  * @param hasInstantDepositsEnabled
   */
 {template .DepositCryptoCurrencyContentDialog}
   <div class="row-fluid" data-deposit-status="prepare">
@@ -534,6 +535,14 @@
     <div class="text-center">
       <img src="https://chart.googleapis.com/chart?cht=qr&chs=200x200&chl={$deposit_message['Data']['InputAddress'] }"/>
     </div>
+    {if $hasInstantDepositsEnabled}
+      <div class="alert alert-block">
+        {msg desc="Instant deposit warning"}
+          Your account has instant deposits enabled. In case you intentionally try to do a "double spending" attack,
+          your account will be frozen, even if your double spending attack is not successful.
+        {/msg}
+      </div>
+    {/if}
   </div>
 {/template}
 
@@ -764,9 +773,24 @@
 
     <div class="withdraw-methods">
      {if length($methods) == 0 }
-        <div class="alert alert-danger text-center">
-          {msg desc="Error message when the brokers doesn't have deposit methods"}We are not accepting deposits at this moment. We sorry for the inconvenience.{/msg}
-        </div>
+        {if $verificationLevel <= 2}
+          <div class="alert alert-warning text-left">
+            {msg desc="Error message when the user is not yet verified."}
+              Due to anti-money laundry international laws and government regulations,
+              deposits/withdrawals in the local currency are only available to verified customers.<br/>
+              We are very sorry for the inconvenience.
+            {/msg}
+          </div>
+          {if $verificationLevel == 0}
+            {msg desc="get verified message"}
+              You can verify your account by clicking in <a href="" data-switch-view="verification">Verify your account</a>
+            {/msg}
+          {/if}
+        {else}
+          <div class="alert alert-danger text-center">
+            {msg desc="Error message when the brokers doesn't have deposit methods"}We are not accepting deposits at this moment. We sorry for the inconvenience.{/msg}
+          </div>
+        {/if}
      {/if}
      {foreach $method in $methods }
         {if $force_method}

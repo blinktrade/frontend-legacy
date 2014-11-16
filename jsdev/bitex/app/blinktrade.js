@@ -1036,6 +1036,30 @@ bitex.app.BlinkTrade.prototype.onUserWithdrawRequest_ = function(e){
 
   var withdraw_methods = this.getModel().get('Broker')['WithdrawStructure'][currency];
 
+  var user_verification_level = this.getModel().get('Profile')['Verified'];
+
+  var user_verified_withdraw_methods = [];
+  goog.array.forEach(withdraw_methods, function(withdrawal_method){
+    var withdrawal_limit;
+    for (var x = user_verification_level; x>=0;x--) {
+      withdrawal_limit = withdrawal_method['limits'][ x ];
+      if (goog.isDefAndNotNull(withdrawal_limit)) {
+        break;
+      }
+    }
+
+    var has_limits_enabled = false;
+    if ( goog.isDefAndNotNull(withdrawal_limit) && goog.isDefAndNotNull(withdrawal_limit['enabled'])) {
+      has_limits_enabled = withdrawal_limit['enabled'];
+    }
+    if (has_limits_enabled) {
+      user_verified_withdraw_methods.push(withdrawal_method);
+    }
+
+  }, this);
+
+
+
   var method_element_id = goog.string.getRandomString();
   var withdraw_amount_element_id = goog.string.getRandomString();
   var fixed_fee_element_id = goog.string.getRandomString();
@@ -1044,13 +1068,15 @@ bitex.app.BlinkTrade.prototype.onUserWithdrawRequest_ = function(e){
   var net_value_element_id = goog.string.getRandomString();
   var fmt = new goog.i18n.NumberFormat( goog.i18n.NumberFormat.Format.DECIMAL);
 
+
+
   var dialogContent = bitex.templates.DepositWithdrawDialogContent({
     fmt:fmt,
     side: 'client',
     currency: currency,
     verificationLevel: this.getModel().get('Profile')['Verified'],
     currencySign: this.getCurrencySign(currency),
-    methods: withdraw_methods,
+    methods: user_verified_withdraw_methods,
     methodID: method_element_id,
     showFeeDataEntry:false,
     amountID: withdraw_amount_element_id,
@@ -2026,6 +2052,7 @@ bitex.app.BlinkTrade.prototype.onProcessDeposit_ = function(e){
 bitex.app.BlinkTrade.prototype.onUserDepositRequest_ = function(e){
   var currency = e.target.getCurrency();
   var handler = this.getHandler();
+  var user_verification_level = this.getModel().get('Profile')['Verified'];
 
   this.setView('deposit');
 
@@ -2066,10 +2093,13 @@ bitex.app.BlinkTrade.prototype.onUserDepositRequest_ = function(e){
 
         handler.listenOnce( this.conn_ , bitex.api.BitEx.EventType.DEPOSIT_RESPONSE + '.' + request_id, function(e){
           var msg = e.data;
+
+          var enabled_instant_deposits = user_verification_level >= 3;
+
           var input_address = msg['Data']['InputAddress'];
           goog.soy.renderElement(goog.dom.getFirstElementChild(dlgConfirm.getContentElement()),
                                  bitex.templates.DepositCryptoCurrencyContentDialog,
-                                 {deposit_message:msg} );
+                                 {deposit_message:msg, hasInstantDepositsEnabled:enabled_instant_deposits } );
 
 
           handler.listen(this.conn_ , bitex.api.BitEx.EventType.DEPOSIT_REFRESH, function(e){
@@ -2091,7 +2121,6 @@ bitex.app.BlinkTrade.prototype.onUserDepositRequest_ = function(e){
   value_fmt.setMaximumFractionDigits(8);
   value_fmt.setMinimumFractionDigits(2);
 
-  var user_verification_level = this.getModel().get('Profile')['Verified'];
 
   var deposit_methods = [];
   goog.array.forEach(this.getModel().get('DepositMethods'), function(deposit_method){
@@ -2099,7 +2128,7 @@ bitex.app.BlinkTrade.prototype.onUserDepositRequest_ = function(e){
 
       var deposit_method_limit;
 
-      for (var x = user_verification_level; x>0;x--) {
+      for (var x = user_verification_level; x>=0;x--) {
         deposit_method_limit = deposit_method.deposit_limits[ x ];
         if (goog.isDefAndNotNull(deposit_method_limit)) {
           break;
