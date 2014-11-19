@@ -49,14 +49,14 @@
   <link rel="canonical" href="{{ site.url }}{{ site.baseurl }}{% if page.url != '/index.html' %}{{ page.url }}{% endif %}"/>
   <script type="text/javascript" src="//apis.google.com/js/plusone.js"></script>
 
-  <link href="{{ site.baseurl }}/assets/themes/default/css/font-awesome.min.css" rel="stylesheet">
+  <link href="{{ site.url }}{{ site.baseurl }}/assets/themes/default/css/font-awesome.min.css" rel="stylesheet">
 
   {% if page.load_application %}
-  <link href="{{ site.baseurl }}/assets/themes/default/css/Dialog.css" rel="stylesheet">
-  <link href="{{ site.baseurl }}/assets/themes/default/css/fuelux.css" rel="stylesheet">
-  <link href="{{ site.baseurl }}/assets/themes/default/css/style.css?v={{ site.deploy_version }}" rel="stylesheet">
-  <link href="{{ site.baseurl }}/assets/themes/ander/css/blinktrade.css?v={{ site.deploy_version }}" rel="stylesheet">
-  <script data-cfasync="false" src="{{ site.baseurl }}/assets/js/bitex_app_blink_trade.compiled.{{site.lang}}.ander.js?v={{ site.deploy_version }}" type="text/javascript"></script>
+  <!--link href="/assets/themes/default/css/Dialog.css" rel="stylesheet"-->
+  <link href="{{ site.url }}{{ site.baseurl }}/assets/themes/default/css/fuelux.css" rel="stylesheet">
+  <link href="{{ site.url }}{{ site.baseurl }}/assets/themes/default/css/style-new.css?v={{ site.deploy_version }}" rel="stylesheet">
+  <link href="{{ site.url }}{{ site.baseurl }}/assets/themes/ander/css/blinktrade.css?v={{ site.deploy_version }}" rel="stylesheet">
+  <script data-cfasync="false" src="{{ site.url }}{{ site.baseurl }}/assets/js/bitex_app_blink_trade.compiled.{{site.lang}}.ander.js?v={{ site.deploy_version }}" type="text/javascript"></script>
   {% endif %}
 </head>
 <body class="{% if page.body_classes %} {{ page.body_classes }} {% endif %}">
@@ -96,14 +96,14 @@
         <div class="head__nav">
           <!-- .layout -->
           <div class="layout layout--full">
-            <nav class="layout__item seven-tenths portable--one-whole">
+            <nav class="layout__item eight-tenths portable--one-whole">
               <!-- .head__nav-left -->
               <ul class="head__nav-left">
                 <li class="bitex-display-if-logged">
                   <!--li-->
                   <span>
 
-                      <i class="icon-user"></i> <span class="bitex-model bitex-view-title" data-model-key="DisplayName">
+                      <i class="icon-user"></i> <span class="bitex-model bitex-view-title" data-model-key="DisplayName"></span>
                   </span>
 
                   <!-- .head-dropdown -->
@@ -175,7 +175,7 @@
               <!-- /.head__nav-left -->
             </nav>
 
-            <nav class="layout__item three-tenths portable--one-whole cf">
+            <nav class="layout__item two-tenths portable--one-whole cf">
               <!-- .head__nav-right -->
               <ul class="head__nav-right">
                 <li >
@@ -184,9 +184,9 @@
                   {% for lang in site.languages %}
                     {% if  lang != site.lang  %}
                       {% if forloop.first %}
-                        <li><a tabindex="-1" href="{{ site.baseurl_root }}/themes/ander/">{{ lang|upcase }}</a></li>
+                        <li><a tabindex="-1" href="{{ site.url }}{{ site.baseurl_root }}/themes/ander/">{{ lang|upcase }}</a></li>
                       {% else %}
-                        <li><a tabindex="-1" href="{{ site.baseurl_root }}/{{lang}}/themes/ander/">{{ lang|upcase }}</a></li>
+                        <li><a tabindex="-1" href="{{ site.url }}{{ site.baseurl_root }}/{{lang}}/themes/ander/">{{ lang|upcase }}</a></li>
                       {% endif %}
                     {% endif %}
                   {% endfor %}

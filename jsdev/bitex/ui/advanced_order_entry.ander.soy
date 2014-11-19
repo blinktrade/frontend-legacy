@@ -42,7 +42,7 @@
                                   <input id="{$id}_amount"
                                          name="amount"
                                          type="text"
-                                         class="input-block-level"
+                                         class="input input--full"
                                          data-uniform-label="{msg desc="Advanced Order Entry Label"}Amount{/msg}"
                                          data-uniform-validators="validateNumber; required"
                                          data-uniform-filters="positive_number"
@@ -60,7 +60,7 @@
                                   <input id="{$id}_price"
                                          name="price"
                                          type="text"
-                                         class="input-block-level"
+                                         class="input input--full"
                                          data-uniform-label="{msg desc="Advanced Order Entry Label"}Price{/msg}"
                                          data-uniform-validators="validateNumber; required"
                                          data-uniform-filters="positive_number"
@@ -78,7 +78,7 @@
                           <input id="{$id}_total"
                                            name="total"
                                            type="text"
-                                           class="input-block-level"
+                                         class="input input--full"
                                            data-uniform-label="{msg desc="Advanced Order Entry Label"}Total{/msg}"
                                            data-uniform-validators="validateNumber; required"
                                            data-uniform-filters="positive_number"
@@ -96,12 +96,12 @@
             <!-- .layout -->
             <div class="layout layout--half">
                 <!-- .layout__item -->
-                <div class="layout__item two-thirds">
+                <div class="layout__item six-tenths">
                     <input id="{$id}_client_id"
                                   name="client_id"
                                   type="text"
                                   value="{if $client_id}{$client_id}{/if}"
-                                  class="input-block-level"
+                                  class="input input--full"
                                   label="{msg desc="Client ID label in Order Entry"}Client ID{/msg}"
                                   data-uniform-label="{msg desc="Advanced Order Entry Label"}Client ID{/msg}"
                                   {if $is_broker}
@@ -115,9 +115,10 @@
                 <!-- /.layout__item -->
 
                 <!-- .layout__item -->
-                <div class="layout__item one-third">
+                <div class="layout__item four-tenths">
                     <button id="{$id}_action" class="btn btn--mini btn--full {if $side == 1}btn--positive{else}btn--negative{/if} btn-execution">
                       <i class="icon-shopping-cart"></i>
+                      &nbsp;
                       {if $side == 1}
                         {msg desc="Buy button in Order Entry"}BUY{/msg}
                       {else}
