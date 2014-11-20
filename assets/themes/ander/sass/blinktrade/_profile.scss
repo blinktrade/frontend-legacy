@@ -1,0 +1,109 @@
+.profile-table {
+    line-height: 1.5;
+
+    td {
+        border-top: 1px solid #ccc;
+    }
+
+    tr {
+        &:nth-child(odd) {
+            td {
+                background: #f9f9f9;
+            }
+        }
+    }
+}
+
+
+.profile-change-password {
+    margin-bottom: 24px;
+}
+
+.profile-change-password__title {
+    line-height: 1.4;
+    margin-bottom: 12px;
+}
+
+.profile-change-password__form {
+    list-style: none;
+    margin: 0;
+
+    > li {
+        margin-bottom: 12px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    @include media-query(desk) {
+        width: 30%;
+    }
+}
+
+.profile-change-password__label {
+    display: block;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 3px;
+}
+
+.profile-change-password__btn {
+    display: block;
+    width: 100%;
+
+    @include media-query(desk) {
+        display: inline-block;
+        width: auto;
+    }
+}
+
+
+.profile-two-factor {
+    @include media-query(desk) {
+        margin-bottom: 12px;
+    }
+}
+
+.profile-two-factor__title {
+    line-height: 1.4;
+    margin-bottom: 12px;
+}
+
+.profile-two-factor__body {
+    margin-bottom: 12px;
+}
+
+.profile-two-factor__form {
+    list-style: none;
+    margin: 0;
+
+    > li {
+        margin-bottom: 12px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    @include media-query(desk) {
+        width: 30%;
+    }
+}
+
+.profile-two-factor__label {
+    display: block;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 3px;
+}
+
+.profile-two-factor__btn {
+    display: block;
+    width: 100%;
+
+    @include media-query(desk) {
+        display: inline-block;
+        width: auto;
+    }
+}
