@@ -79,6 +79,10 @@
     overflow-y:auto;
     max-height:400px;
     padding:12px;
+
+    & > :last-child {
+        margin-bottom: 0;
+    }
 }
 
 .modal-form{
@@ -295,4 +299,15 @@
     .carousel-caption{
         position:static;
     }
+}
+
+
+.modal-form {
+}
+
+.modal-form__label {
+    display: block;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 3px;
 }

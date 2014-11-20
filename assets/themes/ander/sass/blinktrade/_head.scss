@@ -4,7 +4,7 @@
 
     color:#fff;
     font-size:14px;
-    padding:$base-spacing 0 ;
+    padding:18px 0 ;
     position:relative;
     z-index:222;
 
@@ -14,14 +14,43 @@
 }
 
 .head__nav {
-    @include border-radius(3px);
-
     background-color:#eee;
+    height: 100%;
     padding:$half-spacing;
+
+    @include media-query(portable) {
+        @include border-radius(4px);
+
+        margin-top: 18px;
+        display: none;
+    }
 
     @include media-query(desk) {
         background-color:transparent;
         padding:0;
+    }
+}
+
+.head__nav--open {
+    @include media-query(portable) {
+        display: block;
+    }
+}
+
+.head__btn {
+    border-radius: 4px;
+    background-color: #FFF;
+    color: #333;
+    cursor: pointer;
+    float: right;
+    padding: 6px;
+
+    > img {
+        display: block;
+    }
+
+    @include media-query(desk) {
+        display: none;
     }
 }
 
@@ -34,13 +63,17 @@
     > li {
         position:relative;
 
-        a {
+        > a {
+            color: #323232;
+
             &:hover {
                 text-decoration:none;
             }
         }
 
-        span {
+        > span {
+            background-color: #565656;
+
             &:hover {
                 cursor:default;
             }
@@ -65,6 +98,7 @@
 
             > a,
             > span {
+                background-color: transparent;
                 color:#d7d7d7;
                 display:block;
                 padding:12px 18px;
@@ -79,23 +113,18 @@
     top: 38px;
     list-style:none;
     margin:0;
-    padding:$half-spacing;
     z-index: 333;
 
     > li {
-        padding:($half-spacing / 3) 0;
+        border-bottom: 1px solid #eee;
 
-        &:first-child {
-            padding-top:0;
+        > a {
+            display:block;
+            padding: 12px;
         }
 
         &:last-child {
-            padding-bottom:0;
-        }
-
-        > a,
-        > span {
-            display:block;
+            border-bottom: none;
         }
     }
 
@@ -105,9 +134,21 @@
         box-shadow: 1px 0 6px rgba(0,0,0,.3);
 
         display:none;
+        padding:4px;
         position: absolute;
-        width: 150px;
+        width: 180px;
+
+        > li {
+            > a {
+                padding: 8px;
+            }
+        }
     }
+}
+
+.head-dropdown--right {
+    left: auto;
+    right: 0;
 }
 
 .head__nav-left {
@@ -150,7 +191,7 @@
             padding:$half-spacing;
         }
 
-        &:last-child {
+        &.head__nav-last-item {
             border-bottom:none;
         }
     }
