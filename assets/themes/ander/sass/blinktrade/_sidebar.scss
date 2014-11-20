@@ -23,6 +23,12 @@
     }
 }
 
+.sidebar__body--open {
+    @include media-query(portable) {
+        display: block;
+    }
+}
+
 .sidebar-title {
     cursor: pointer;
     font-size: 20px;
