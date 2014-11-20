@@ -1,0 +1,84 @@
+.broker-address {
+    margin-bottom: 24px;
+}
+
+.broker-address__title {
+    line-height: 1.4;
+    margin-bottom: 12px;
+}
+
+.broker-market {
+    margin-bottom: 24px;
+}
+
+.broker-market__title {
+    line-height: 1.4;
+    margin-bottom: 12px;
+}
+
+.broker-fee {
+    margin-bottom: 24px;
+    overflow-x:auto;
+}
+
+.broker-fee__table {
+    line-height: 1.5;
+    margin-bottom: 0;
+
+    td {
+        border-top: 1px solid #ccc;
+    }
+
+    tr {
+        &:nth-child(odd) {
+            td {
+                background: #f9f9f9;
+            }
+        }
+    }
+}
+
+.broker-fee__title {
+    line-height: 1.4;
+    margin-bottom: 12px;
+}
+
+.broker-wallet {
+    margin-bottom: 24px;
+    overflow-x:auto;
+}
+
+.broker-wallet__title {
+    line-height: 1.4;
+    margin-bottom: 12px;
+}
+
+.broker-wallet__table {
+    line-height: 1.5;
+    margin-bottom: 0;
+
+    td {
+        border-top: 1px solid #ccc;
+    }
+
+    tr {
+        &:nth-child(odd) {
+            td {
+                background: #f9f9f9;
+            }
+        }
+    }
+}
+
+.broker-terms {
+}
+
+.broker-terms__title {
+    line-height: 1.4;
+    margin-bottom: 12px;
+}
+
+.broker-terms__iframe {
+    height: 400px;
+    width: 100%;
+}

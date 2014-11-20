@@ -1,0 +1,12 @@
+select {
+    @include border-radius(4px);
+
+    background-color: #FFF;
+    border:1px solid #ccc;
+    padding: 5px;
+}
+
+.select--full {
+    display: block;
+    width: 100%;
+}
