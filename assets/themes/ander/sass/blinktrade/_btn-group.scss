@@ -1,0 +1,17 @@
+.btn-group {
+    > .btn {
+        @include border-radius(0);
+
+        border-right: none;
+
+        &:first-child {
+            @include border-radius(4px 0 0 4px);
+        }
+
+        &:last-child {
+            @include border-radius(0 4px 4px 0);
+
+            border-right: 1px solid #ccc;
+        }
+    }
+}

@@ -1,0 +1,27 @@
+.market-table-wrap {
+    overflow-x:auto;
+    margin-bottom: 24px;
+}
+
+.market-table {
+    line-height: 1.5;
+    margin-bottom: 0;
+
+    td {
+        border-top: 1px solid #ccc;
+    }
+
+    tr {
+        cursor: pointer;
+
+        &:nth-child(odd) {
+            td {
+                background: #f9f9f9;
+            }
+        }
+    }
+}
+
+.market-chart {
+    margin-bottom: 24px;
+}
