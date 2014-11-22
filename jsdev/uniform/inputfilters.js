@@ -186,7 +186,7 @@ uniform.InputFilters.prototype.filterPositiveNumber_ = function(e) {
       (e.keyCode >= goog.events.KeyCodes.NUM_ZERO && e.keyCode <= goog.events.KeyCodes.NUM_NINE)) {
     return;  // allowed
   }
-
+  console.log('keyCode:' + e.keyCode);
   switch(e.keyCode) {
     case goog.events.KeyCodes.NUM_PERIOD:
     case goog.events.KeyCodes.PERIOD:
@@ -214,6 +214,7 @@ uniform.InputFilters.prototype.filterPositiveNumber_ = function(e) {
     default:
       break;
   }
+  console.log('goog.i18n.NumberFormatSymbols.DECIMAL_SEP:' + goog.i18n.NumberFormatSymbols.DECIMAL_SEP);
   console.log('blocked keyCode:' + e.keyCode);
   e.preventDefault();
 };
