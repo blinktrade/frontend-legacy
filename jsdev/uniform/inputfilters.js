@@ -166,8 +166,7 @@ uniform.InputFilters.prototype.filterNumber_ = function(e) {
     default:
       break;
   }
-
-
+  console.log('blocked keyCode:' + e.keyCode);
   e.preventDefault();
 };
 
@@ -213,7 +212,7 @@ uniform.InputFilters.prototype.filterPositiveNumber_ = function(e) {
     default:
       break;
   }
-
+  console.log('blocked keyCode:' + e.keyCode);
   e.preventDefault();
 };
 
@@ -241,7 +240,7 @@ uniform.InputFilters.prototype.filterInteger_ = function(e) {
     return;  // allowed
   }
 
-
+  console.log('blocked keyCode:' + e.keyCode);
   e.preventDefault();
 };
 
