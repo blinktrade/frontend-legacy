@@ -151,6 +151,7 @@ uniform.InputFilters.prototype.filterNumber_ = function(e) {
       break;
 
     case goog.events.KeyCodes.COMMA:
+    case 108: // NUM_COMA
       if (goog.i18n.NumberFormatSymbols.DECIMAL_SEP == ',') {
         if (inputValue.indexOf(',') < 0) {
           return;
@@ -197,6 +198,7 @@ uniform.InputFilters.prototype.filterPositiveNumber_ = function(e) {
       break;
 
     case goog.events.KeyCodes.COMMA:
+    case 108: // NUM_COMA
       if (goog.i18n.NumberFormatSymbols.DECIMAL_SEP == ',') {
         if (inputValue.indexOf(',') < 0) {
           return;
