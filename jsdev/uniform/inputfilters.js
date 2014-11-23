@@ -186,7 +186,7 @@ uniform.InputFilters.prototype.filterPositiveNumber_ = function(e) {
       (e.keyCode >= goog.events.KeyCodes.NUM_ZERO && e.keyCode <= goog.events.KeyCodes.NUM_NINE)) {
     return;  // allowed
   }
-  console.log('keyCode:' + e.keyCode);
+  console.log('keyCode:' + e.keyCode + ', inputValue:"' + inputValue  + '"');
   switch(e.keyCode) {
     case goog.events.KeyCodes.NUM_PERIOD:
     case goog.events.KeyCodes.PERIOD:
@@ -201,7 +201,10 @@ uniform.InputFilters.prototype.filterPositiveNumber_ = function(e) {
     case 108: // NUM_COMA
       if (goog.i18n.NumberFormatSymbols.DECIMAL_SEP == ',') {
         if (inputValue.indexOf(',') < 0) {
+          console.log('comma allowed');
           return;
+        } else {
+          console.log('comma blocked');
         }
       }
       break;
@@ -214,7 +217,7 @@ uniform.InputFilters.prototype.filterPositiveNumber_ = function(e) {
     default:
       break;
   }
-  console.log('goog.i18n.NumberFormatSymbols.DECIMAL_SEP:' + goog.i18n.NumberFormatSymbols.DECIMAL_SEP);
+
   console.log('blocked keyCode:' + e.keyCode);
   e.preventDefault();
 };
