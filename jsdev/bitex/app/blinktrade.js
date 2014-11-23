@@ -3238,6 +3238,9 @@ bitex.app.BlinkTrade.prototype.showDialog = function(content, opt_title, opt_but
  */
 bitex.app.BlinkTrade.prototype.showNotification = function(type , title, content,  opt_display_time) {
   var display_time = 3000;
+  if (type == 'error') {
+    display_time *= 3;
+  }
   if ( goog.isNumber(opt_display_time) ) {
     display_time = opt_display_time;
   }
