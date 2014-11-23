@@ -816,7 +816,6 @@
                     <label class="modal-form__label">{msg desc="amount"}Amount{/msg} {$currencySign}:</label>
                     <input id="{$method['method']}_{$amountID}"
                     data-uniform-validators="required; validateNumber {if $method['limits'][$verificationLevel]['enabled']} {if $method['limits'][$verificationLevel]['min']}; validateMin {$method['limits'][$verificationLevel]['formatted_min_value'] }{/if}{if $method['limits'][$verificationLevel]['max']}; validateMax {$method['limits'][$verificationLevel]['formatted_max_value'] } {/if} {/if}"
-                    data-uniform-filters="positive_number"
                     type="text"
                     class="withdraw-field input input--full"
                     size="16"
@@ -886,7 +885,6 @@
 
                     <input id="{$method['method']}_{$amountID}"
                         data-uniform-validators="required; validateNumber {if $method['limits'][$verificationLevel]['enabled']} {if $method['limits'][$verificationLevel]['min']}; validateMin {$method['limits'][$verificationLevel]['formatted_min_value'] }{/if}{if $method['limits'][$verificationLevel]['max']}; validateMax {$method['limits'][$verificationLevel]['formatted_max_value'] } {/if} {/if}"
-                        data-uniform-filters="positive_number"
                         type="text"
                         class="withdraw-field input input--full"
                         size="16"
