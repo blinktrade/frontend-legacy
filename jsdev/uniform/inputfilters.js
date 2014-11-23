@@ -116,6 +116,10 @@ uniform.InputFilters.prototype.filter = function(e) {
  */
 uniform.InputFilters.prototype.filterNumber_ = function(e) {
   var inputEl = e.target;
+  if (e.keyCode < 0){
+    console.log('invalid keyCode:' + e.keyCode);
+    return;
+  }
 
   var inputValue = goog.dom.forms.getValue(inputEl);
 
@@ -177,6 +181,11 @@ uniform.InputFilters.prototype.filterNumber_ = function(e) {
  * @param {goog.events.KeyEvent} e
  */
 uniform.InputFilters.prototype.filterPositiveNumber_ = function(e) {
+  if (e.keyCode < 0){
+    console.log('invalid keyCode:' + e.keyCode);
+    return;
+  }
+
   var inputEl = e.target;
 
   var inputValue = goog.dom.forms.getValue(inputEl);
