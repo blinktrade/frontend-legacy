@@ -1,8 +1,8 @@
 # Site settings
 url: "https://testnet.blinktrade.com"
+#url: "//localhost:4000"   # activate this to test on your localhost
 author: "BlinkTrade"
 baseurl: ""
-#url: "//localhost:4000"   # activate this to test on your localhost
 deploy_version: "HEAD"
 
 exchange: "demo"

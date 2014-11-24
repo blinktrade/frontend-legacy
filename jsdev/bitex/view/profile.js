@@ -203,10 +203,10 @@ bitex.view.ProfileView.prototype.onModelSetTwoFactorSecret_ = function(e) {
   var has_secret = goog.isDefAndNotNull(secret) && !goog.string.isEmpty(secret);
 
   if (has_secret) {
-    var issuer = 'BlinkTrade - ' + model.get('Broker')['ShortName'];
+    var issuer = model.get('Broker')['ShortName'];
 
     var qr_code = 'https://chart.googleapis.com/chart?chs=200x200&chld=M%7C0&cht=qr&chl=' +
-        encodeURIComponent('otpauth://totp/' + model.get('Username') + ' ' + model.get('Profile')['Email'] + '?secret=')  + secret +
+        encodeURIComponent('otpauth://totp/' + model.get('Profile')['Email'] + '?secret=')  + secret +
         encodeURIComponent('&issuer=' + issuer);
 
     goog.dom.getElement('id_secret_qr').setAttribute('src', qr_code);

@@ -38,18 +38,18 @@ load_application:       True
       <form class="home-form" action="">
         <div class="layout layout--half layout--bottom">
           <!-- .layout__item -->
-          <div class="layout__item one-whole lap--eight-tenths desk--eight-tenths">
+          <div class="layout__item one-whole desk--eight-tenths">
             <!-- .layout -->
             <div class="layout layout--quarter">
               <!-- .layout__item -->
-              <div class="layout__item one-whole lap--six-tenths desk--six-tenths">
+              <div class="layout__item one-whole desk--six-tenths">
                 <label for="id_landing_username" class="home-form__label">{% t views.start.username %}</label>
                 <input class="home-form__input input input--large input--full" id="id_landing_username" type="text" size="30">
               </div>
               <!-- /.layout__item -->
 
               <!-- .layout__item -->
-              <div class="layout__item one-whole lap--four-tenths desk--four-tenths">
+              <div class="layout__item one-whole desk--four-tenths">
                 <label for="id_landing_password" class="home-form__label">{% t views.start.password %}</label>
                 <input class="home-form__input input input--large input--full" id="id_landing_password" type="password" size="30">
               </div>
@@ -60,8 +60,8 @@ load_application:       True
           <!-- /.layout__item -->
 
           <!-- .layout__item -->
-          <div class="layout__item one-whole lap--two-tenths desk--two-tenths">
-            <button type="button" id="id_landing_signin" class="btn btn--positive btn--full">{% t views.start.login %}</button>
+          <div class="layout__item one-whole desk--two-tenths">
+            <button type="submit" id="id_landing_signin" class="btn btn--positive btn--full">{% t views.start.login %}</button>
           </div>
           <!-- /.layout__item -->
         </div>
@@ -135,7 +135,7 @@ load_application:       True
   <div id="signin" class="page bitex-view">
     <!-- .page__head -->
     <header class="page__head">
-      <h1 class="page__title bitex-view-title">{% t views.signin.title %}</h1>
+      <h1 class="page__title beta bitex-view-title">{% t views.signin.title %}</h1>
     </header>
     <!-- /.page__head -->
 
@@ -146,15 +146,22 @@ load_application:       True
       </p>
 
       <form accept-charset="UTF-8" action="" method="post">
-        <label for="id_username">{% t views.signin.username %}</label>
-        <input autocapitalize="off" autocorrect="off" id="id_username" name="username" type="text" placeholder="">
-        <label for="id_password">{% t views.signin.password %}</label>
-        <input id="id_password"  placeholder="" name="password" type="password">
+        <ul class="login">
+          <li>
+            <label class="login__label" for="id_username">{% t views.signin.username %}:</label>
+            <input class="input input--full" autocapitalize="off" autocorrect="off" id="id_username" name="username" type="text" placeholder="">
+          </li>
 
-        <p>
-          <a href="forgot_password" data-switch-view="forgot_password">{% t views.signin.forgot_your_password %}?</a>
-        </p>
-        <input id="id_btn_login"  class="btn btn-primary" name="commit" type="submit" value="{% t views.signin.login_button_label %}">
+          <li>
+            <label class="login__label" for="id_password">{% t views.signin.password %}:</label>
+            <input class="input input--full" id="id_password"  placeholder="" name="password" type="password">
+            <a class="login__remember" href="forgot_password" data-switch-view="forgot_password">{% t views.signin.forgot_your_password %}</a>
+          </li>
+
+          <li>
+            <input id="id_btn_login"  class="login__btn btn btn--primary" name="commit" type="submit" value="{% t views.signin.login_button_label %}">
+          </li>
+        </ul>
       </form>
     </div>
     <!-- /.page__body -->
@@ -170,85 +177,71 @@ load_application:       True
     <!-- /.page__head -->
 
     <!-- .page__body -->
-    <div class="page__body">
+    <div class="page__body bitex-view-content">
       <p>{% t views.signup.already_registered %} <a href="#" data-switch-view="signin">{% t views.signup.login %}</a>.</p>
 
-      <div class="bitex-view-content">
         <form accept-charset="UTF-8" class="form-horizontal" id="new_user" method="post">
-          <div class="control-group">
-            <label class="control-label">{% t views.signup.username %}</label>
-            <div class="controls">
-              <input id="id_signup_username" name="Username" size="30" type="text" placeholder="">
-            </div>
-          </div>
+            <!-- .register -->
+            <div class="register">
+                <!-- .register-form -->
+                <ul class="register-form">
+                    <li>
+                        <label class="register__label">{% t views.signup.username %}:</label>
+                        <input id="id_signup_username" class="input input--full" name="Username" size="30" type="text" placeholder="">
+                    </li>
 
-          <div class="control-group">
-            <label class="control-label">{% t views.signup.email %}</label>
-            <div class="controls">
-              <input id="id_signup_email" name="Email" size="30" type="text" placeholder="{% t views.signup.email_placeholder %}">
-            </div>
-          </div>
+                    <li>
+                        <label class="register__label">{% t views.signup.email %}:</label>
+                        <input id="id_signup_email" class="input input--full" name="Email" size="30" type="text" placeholder="{% t views.signup.email_placeholder %}">
+                    </li>
 
-          <div class="control-group">
-            <label class="control-label">{% t views.signup.password %}</label>
-            <div class="controls">
-              <input id="id_signup_password" name="Password" size="30" type="password">
-              <p class="help-block">{% t views.signup.password_help %}</p>
-            </div>
-          </div>
+                    <li>
+                        <label class="register__label">{% t views.signup.password %}:</label>
+                        <input id="id_signup_password" class="input input--full" name="Password" size="30" type="password">
+                        <div class="register__small">{% t views.signup.password_help %}</div>
+                    </li>
 
-          <div class="control-group">
-            <label class="control-label">{% t views.signup.confirm_password %}</label>
-            <div class="controls">
-              <input id="id_signup_password2" name="Password2" size="30" type="password">
-            </div>
-          </div>
+                    <li>
+                        <label class="register__label">{% t views.signup.confirm_password %}:</label>
+                        <input id="id_signup_password2" class="input input--full" name="Password2" size="30" type="password">
+                    </li>
 
-          <div class="control-group" style="">
-            <label class="control-label">{% t views.signup.country %}</label>
-            <div class="controls">
-              <select id="id_signup_country" name="country"></select>
-            </div>
-          </div>
+                    <li>
+                        <label class="register__label">{% t views.signup.country %}:</label>
+                        <select id="id_signup_country" class="select--full" name="country"></select>
+                    </li>
 
-          <div id="id_signup_state_group" class="control-group" style="display: none">
-            <label class="control-label">{% t views.signup.state %}</label>
-            <div class="controls">
-              <select id="id_signup_state" name="state"></select>
-            </div>
-          </div>
+                    <li id="id_signup_state_group" style="display: none">
+                        <label class="register__label">{% t views.signup.state %}:</label>
+                        <select id="id_signup_state" class="select--full" name="state"></select>
+                    </li>
 
-          <div class="control-group" style="display: none;">
-            <label class="control-label">{% t views.signup.broker %}</label>
-            <div class="controls">
-              <select id="id_signup_broker" name="broker"></select>
-            </div>
-          </div>
-          <div class="control-group">
-            <label class="control-label"></label>
-            <div class="controls">
-              <div id="signup_broker_details"></div>
-            </div>
-          </div>
+                    <li style="display: none;">
+                        <label class="register__label">{% t views.signup.broker %}</label>
+                        <select id="id_signup_broker" name="broker"></select>
+                    </li>
 
-          <div class="control-group">
-            <label class="control-label">{% t views.signup.terms_of_service %}  </label>
-            <div class="controls">
-              <label class="checkbox">
-                <input id="user_agreed_tos" name="" type="checkbox" checked>{% t views.signup.i_agree_with_terms_of_service %}
-              </label>
+                    <li id="signup_broker_details"></li>
+
+                    <li>
+                        <label class="register__label">{% t views.signup.terms_of_service %}:</label>
+                        <div>
+                            <input id="user_agreed_tos" name="" type="checkbox" checked> {% t views.signup.i_agree_with_terms_of_service %}
+                        </div>
+                    </li>
+                </ul>
+                <!-- /.register-form -->
+
+                <!-- .register__action -->
+                <div class="register__action">
+                    <button id="id_btn_signup" class="register__btn btn btn--primary">{% t views.signup.signup_button_label %}</button>
+                </div>
+                <!-- /.register__action -->
             </div>
-          </div>
+            <!-- /.register -->
         </form>
-
-        <div class="control-group">
-          <div class="controls">
-            <button id="id_btn_signup" class="btn btn-primary">{% t views.signup.signup_button_label %}</button>
-          </div>
-        </div>
       </div>
       <!-- /.page__body -->
-    </div>
   </div>
   <!-- /#signup -->
 
@@ -263,13 +256,18 @@ load_application:       True
     <!-- .page__body -->
     <div class="page__body bitex-view-content">
       <form accept-charset="UTF-8" action="" method="post">
-        <div class="clearfix">
-          <label for="id_forgot_password_email">{% t views.forgot_password.email %}</label>
-          <div class="input"><input autocapitalize="off" autocorrect="off" id="id_forgot_password_email" name="email" type="text" placeholder=""></div>
-        </div>
-        <div class="actions">
-          <input id="id_btn_forgot_password"  class="btn btn-primary" name="commit" type="submit" value="{% t views.forgot_password.recover_password_button_label %}">
-        </div>
+          <!-- .forgot-password -->
+          <ul class="forgot-password">
+              <li>
+                  <label class="forgot-password__label" for="id_forgot_password_email">{% t views.forgot_password.email %}:</label>
+                  <input autocapitalize="off" autocorrect="off" id="id_forgot_password_email" class="input input--full" name="email" type="text" placeholder="">
+              </li>
+
+              <li>
+                  <input id="id_btn_forgot_password" class="forgot-password__btn btn btn--primary" name="commit" type="submit" value="{% t views.forgot_password.recover_password_button_label %}">
+              </li>
+          </ul>
+          <!-- /.forgot-password -->
       </form>
     </div>
     <!-- /.page__body -->
@@ -284,6 +282,7 @@ load_application:       True
       <div class="layout layout--full">
         <!-- .layout__item -->
         <div class="layout__item one-whole desk--three-tenths">
+          <!-- .sidebar -->
           <div id="id_sidebar" class="sidebar bitex-view
                                               bitex-view-profile
                                               bitex-view-trading
@@ -298,60 +297,71 @@ load_application:       True
                                               bitex-view-settings
                                               bitex-view-my_broker
                                               bitex-view-verification">
-            <h3 class="sidebar__title">
-              Hi, <span class="bitex-model bitex-view-title" data-model-key="DisplayName"></span>
-              <small> (<span class="bitex-model bitex-view-title" data-model-key="PseudoName"></span>)</small>
-            </h3>
+                <!-- .sidebar__head -->
+                <div class="sidebar__head">
+                    <h3 class="sidebar-title">
+                        <div class="sidebar-title__info">
+                          Hi, <span class="bitex-model bitex-view-title" data-model-key="DisplayName"></span>
+                          <small> (<span class="bitex-model bitex-view-title" data-model-key="PseudoName"></span>)</small>
+                        </div>
 
-            <div id="account_balance">
-              <form class="form-inline">
-                <label class="control-label" for="id_instrument_1">{% t views.sidebar.market %}</label>
-                <select id="id_instrument_1">
-                  <option></option>
-                </select>
-              </form>
-            </div>
-
-            <div class="bitex-view-content">
-
-              <!-- .sidebar-box -->
-              <div class="sidebar-box sidebar-box--push--bottom">
-                <!-- .sidebar-box__body -->
-                <div class="sidebar-box__body">
-                  <div id="id_account_summary_content"></div>
+                        <div class="sidebar-title__icon">
+                            <i class="icon-chevron-down"></i>
+                        </div>
+                    </h3>
                 </div>
-                <!-- /.sidebar-box__body -->
-              </div>
-              <!-- /.sidebar-box -->
+                <!-- /.sidebar__head -->
+
+                <!-- .sidebar__body -->
+                <div class="sidebar__body">
+                    <!-- .sidebar-market -->
+                    <div id="account_balance" class="sidebar-market">
+                        <label for="id_instrument_1" class="sidebar-market__label">{% t views.sidebar.market %}</label>
+
+                        <select id="id_instrument_1" class="sidebar-market__select">
+                            <option></option>
+                        </select>
+                    </div>
+                    <!-- /.sidebar-market -->
+
+                    <div class="bitex-view-content">
+                      <!-- .sidebar-box -->
+                      <div class="sidebar-box sidebar-box--push--bottom">
+                          <div id="id_account_summary_content"></div>
+                      </div>
+                      <!-- /.sidebar-box -->
 
 
-              <!-- .sidebar-box -->
-              <div class="sidebar-box sidebar-box--push--bottom">
-                <!-- .sidebar-box__head -->
-                <header class="sidebar-box__head">
-                  <h6>Other links</h6>
-                </header>
-                <!-- /.sidebar-box__head -->
+                      <!-- .sidebar-box -->
+                      <div class="sidebar-box sidebar-box--links">
+                        <!-- .sidebar-box__head -->
+                        <header class="sidebar-box__head">
+                          <h6>Other links:</h6>
+                        </header>
+                        <!-- /.sidebar-box__head -->
 
-                <!-- .sidebar-box__body -->
-                <div class="sidebar-box__body">
-                  <ul>
-                    <li id="verification_menu_id">
-                      <a href="verification" data-switch-view="verification">
-                        <i class="icon-check"></i> {% t views.sidebar.verification %}
-                      </a>
-                    </li>
-                    <li>
-                      <a href="" data-switch-view="faq">
-                        <i data-switch-view="faq" class="icon-question"></i> {% t views.sidebar.support %}</a>
-                    </li>
-                  </ul>
+                        <!-- .sidebar-box__body -->
+                        <div class="sidebar-box__body">
+                          <ul>
+                            <li id="verification_menu_id">
+                              <a href="verification" data-switch-view="verification">
+                                <i class="icon-check"></i> {% t views.sidebar.verification %}
+                              </a>
+                            </li>
+                            <li>
+                              <a href="" data-switch-view="faq">
+                                <i data-switch-view="faq" class="icon-question"></i> {% t views.sidebar.support %}</a>
+                            </li>
+                          </ul>
+                        </div>
+                        <!-- /.sidebar-box__body -->
+                      </div>
+                      <!-- /.sidebar-box -->
+                    </div>
                 </div>
-                <!-- /.sidebar-box__body -->
-              </div>
-              <!-- /.sidebar-box -->
-            </div>
+                <!-- /.sidebar__body -->
           </div>
+          <!-- /.sidebar -->
         </div>
         <!-- /.layout__item -->
 
@@ -401,41 +411,43 @@ load_application:       True
                 <div id="account_overview_user_id"></div>
               </div>
 
-              <div class="section-title">
-                <h3 class="bitex-view-title">{% t views.profile.two_factor_auth_section.title %}</h3>
-              </div>
 
-              <div class="content bitex-view-content">
+              <!-- .profile-two-factor -->
+              <div class="profile-two-factor">
+                  <!-- .profile-two-factor__title -->
+                  <h4 class="profile-two-factor__title">{% t views.profile.two_factor_auth_section.title %}</h4>
+                  <!-- /.profile-two-factor__title -->
 
-                <div class="well span6">
-                  <div id="id_enable_two_factor_div" class="form-horizontal ">
+                  <!-- .profile-two-factor__body -->
+                  <div class="profile-two-factor__body bitex-view-content">
+                      <!-- .profile-two-factor__form -->
+                      <ul id="id_enable_two_factor_div" class="profile-two-factor__form">
+                          <li>
+                              <label class="profile-two-factor__label">{% t views.profile.two_factor_auth_section.key %}:</label>
+                              <div id='secret' class="bitex-model" data-model-key="TwoFactorSecret"></div>
 
-                    <div class="control-group">
-                      <label class="control-label">{% t views.profile.two_factor_auth_section.key %}</label>
-                      <div class="controls">
-                        <span id='secret' class="bitex-model" data-model-key="TwoFactorSecret"></span>
-                      </div>
-                    </div>
+                              <img id="id_secret_qr" src="" />
+                          </li>
 
-                    <div class="control-group">
-                      <div class="controls">
-                        <img id="id_secret_qr" style="width: 100%; margin-top: -30px" src="">
-                      </div>
-                    </div>
-
-                    <div class="control-group">
-                      <label class="control-label">{% t views.profile.two_factor_auth_section.authentication_code %}</label>
-                      <div class="controls">
-                        <input id="id_second_step_verification" type="text" class="input-block-level"
-                               pattern="\d+" title="{% t views.profile.two_factor_auth_section.authentication_code_title %}"
-                               placeholder="{% t views.profile.two_factor_auth_section.authentication_code_placeholder %}" required>
-                      </div>
-                    </div>
+                          <li>
+                              <label class="profile-two-factor__label">{% t views.profile.two_factor_auth_section.authentication_code %}:</label>
+                              <input id="id_second_step_verification" type="text" class="input input--full"
+                                   pattern="\d+" title="{% t views.profile.two_factor_auth_section.authentication_code_title %}"
+                                   placeholder="{% t views.profile.two_factor_auth_section.authentication_code_placeholder %}" required />
+                          </li>
+                      </ul>
+                      <!-- /.profile-two-factor__form -->
                   </div>
-                  <button id="id_btn_enable_two_factor" class="btn btn-primary">{% t views.profile.two_factor_auth_section.enable %}</button>
-                  <button id="id_btn_disable_two_factor" class="btn btn-danger">{% t views.profile.two_factor_auth_section.disable %}</button>
-                </div>
+                  <!-- /.profile-two-factor__body -->
+
+                  <!-- .profile-two-factor__foot -->
+                  <div class="profile-two-factor__foot">
+                      <button id="id_btn_enable_two_factor" class="btn btn--primary profile-two-factor__btn">{% t views.profile.two_factor_auth_section.enable %}</button>
+                      <button id="id_btn_disable_two_factor" class="btn btn--negative profile-two-factor__btn">{% t views.profile.two_factor_auth_section.disable %}</button>
+                  </div>
+                  <!-- /.profile-two-factor__foot -->
               </div>
+              <!-- /.profile-two-factor -->
             </div>
             <!-- /.page__body -->
           </div>

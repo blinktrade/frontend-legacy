@@ -88,12 +88,31 @@
           </a>
         {% endif %}
         <!-- /.logo -->
+
+        <div id="js--head-btn" class="head__btn">
+            <img src="/assets/themes/default/img/head-btn.png" />
+        </div>
       </div>
+
+      <script type="text/javascript">
+          var headBtn = document.getElementById('js--head-btn');
+
+          headBtn.onclick = function() {
+              var menu = document.getElementById('menu'),
+                  menuClass = menu.getAttribute("class");
+
+            if (menuClass !== "head__nav") {
+                menu.className = "head__nav";
+            } else {
+                menu.className = "head__nav head__nav--open";
+            }
+          }
+      </script>
 
       {% if page.load_application %}
       <div class="layout__item eight-tenths portable--one-whole">
         <!-- .head__nav -->
-        <div class="head__nav">
+        <div id="menu" class="head__nav">
           <!-- .layout -->
           <div class="layout layout--full">
             <nav class="layout__item eight-tenths portable--one-whole">
@@ -180,7 +199,7 @@
               <ul class="head__nav-right">
                 <li >
                   <span>{{ site.lang|upcase }}</span>
-                  <ul class="head-dropdown" >
+                  <ul class="head-dropdown head-dropdown--right">
                   {% for lang in site.languages %}
                     {% if  lang != site.lang  %}
                       {% if forloop.first %}
@@ -193,26 +212,23 @@
                   </ul>
                 </li>
 
-                <li class="bitex-hide-if-logged">
-                  <a data-switch-view="signin" href="#signin" title="Login">
-                    <i class="icon-power-off"></i> {% t views.toolbar.signin %}
-                  </a>
-                </li>
-
-
                 <li class="bitex-hide-if-ws-connected">
                     <a href="#" id="id_button_connect_ws">
                         <i class="icon-white icon-repeat"></i> Connect
                     </a>
                 </li>
 
-                <li class="bitex-display-if-logged">
+                <li class="head__nav-last-item bitex-hide-if-logged">
+                  <a data-switch-view="signin" href="#signin" title="Login">
+                    <i class="icon-power-off"></i> {% t views.toolbar.signin %}
+                  </a>
+                </li>
+
+                <li class="head__nav-last-item bitex-display-if-logged">
                   <a href="javascript:location.reload()">
                     <i class="icon-power-off"></i> {% t views.sidebar.logout %}
                   </a>
                 </li>
-
-
               </ul>
               <!-- /.head__nav-right -->
             </nav>

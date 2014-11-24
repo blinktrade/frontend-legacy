@@ -1,16 +1,24 @@
 .btn {
-    @include border-radius(3px);
     @include inline-block(middle);
+    @include border-radius(4px);
+    @include background-image(linear-gradient(top, #fff, #e6e6e6));
+    @include box-shadow(inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05));
 
     background-color:#eee;
-    border:none;
-    font-weight:bold;
+    border:1px solid #ccc;
     line-height:1.35;
     outline:none;
     padding:($half-spacing / 2) $half-spacing;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
 
     &:hover {
+        @include background-image(linear-gradient(top, #e6e6e6, #fff));
+
         text-decoration:none;
+    }
+
+    &:active {
+        @include box-shadow(inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05));
     }
 }
 
@@ -24,6 +32,7 @@
 .btn--positive {
     @include background-image(linear-gradient(top, #62c462, #51a351));
 
+    border-color: #51a351;
     color:#fff;
 
     &:hover {
@@ -40,6 +49,7 @@
 .btn--negative {
     @include background-image(linear-gradient(top, #ee5f5b, #bd362f));
 
+    border-color: #bd362f;
     color:#fff;
 
     &:hover {
@@ -50,5 +60,22 @@
 
     &:active {
         background:#bd362f;
+    }
+}
+
+.btn--primary {
+    @include background-image(linear-gradient(top, #0088cc, #0044cc));
+
+    border-color: #0044cc;
+    color:#fff;
+
+    &:hover {
+        @include background-image(linear-gradient(top, #0044cc, #0088cc));
+
+        color:#fff;
+    }
+
+    &:active {
+        background:#0044cc;
     }
 }

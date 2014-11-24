@@ -99,6 +99,7 @@
       <label class="control-label">{msg desc="Net amount"}Net amount{/msg}</label>
       <div class="controls">
         <label id="{$netValueID}" class="control-label broker-confirm-deposit-net-amount" style="text-align: left;"></label>
+        <input id="{$netValueID}_value" type="hidden" value="">
       </div>
     </div>
 
@@ -112,15 +113,19 @@
   */
 {template .BrokerView}
   {if $show_title}
-  <div class="section-title">
-    <h3>{msg desc="Title for the Broker view"}My broker{/msg}</h3>
-  </div>
+  <header class="page__head section-title">
+    <h1 class="page__title beta">{msg desc="Title for the Broker view"}My broker{/msg}</h1>
+  </header>
   {/if}
 
-  <div class="content">
+  <div class="page__body content">
     {if $msg_broker['BrokerID'] == -1 }
     {else}
-      <address>
+      <div class="broker-address">
+        <h4 class="broker-address__title">
+            Address
+        </h4>
+
         <strong>{$msg_broker['BusinessName']}</strong><br/>
         {$msg_broker['Address']}<br/>
         {$msg_broker['City']}, {$msg_broker['State']} {$msg_broker['ZipCode']} - {$msg_broker['Country']}<br/>
@@ -131,32 +136,31 @@
           Skype: {$msg_broker['Skype']}<br/>
         {/if}
         <a href="mailto:{$msg_broker['Email']}" target="_blank">{$msg_broker['Email']}</a>
-      </address>
+      </div>
 
       {if $msg_broker['BrokerID'] > 0 }
-        <div class="row-fluid">
-          <div class="span3">
-            <h4>
-              {msg desc="Allowed markets section subtitle on broker view"}Markets{/msg}
-            </h4>
-            {foreach $allowed_market in keys($msg_broker['AllowedMarkets'])}
-              <div class="row-fluid">
-                <div class="span12">
-                  { $msg_broker['AllowedMarkets'][$allowed_market]['description']}
-                </div>
-              </div>
-            {/foreach}
+        <div class="broker-market">
+          <h4 class="broker-market__title">
+            {msg desc="Allowed markets section subtitle on broker view"}Markets{/msg}
+          </h4>
+
+          <div class="broker-market__markets">
+          {foreach $allowed_market in keys($msg_broker['AllowedMarkets'])}
+            { $msg_broker['AllowedMarkets'][$allowed_market]['description']}
+          {/foreach}
           </div>
         </div>
       {/if}
 
       {if $msg_broker['BrokerID'] >= 0 }
         {if length($msg_broker['FeeStructure']) > 0 }
-          <h4>
+        <!-- .broker-fee -->
+        <div class="broker-fee">
+          <h4 class="broker-fee__title">
             {msg desc="Fee section subtitle on Broker view"}Fees{/msg}
           </h4>
 
-          <table class="table table-bordered">
+          <table class="broker-fee__table table">
             <thead>
               <tr>
                 <th>{msg desc="Operation column on Broker fees table"}Operation{/msg}</th>
@@ -194,14 +198,19 @@
               {/foreach}
             </tbody>
           </table>
+        </div>
+        <!-- /.broker-fee -->
         {/if}
       {/if}
 
       {if not $msg_broker['IsBrokerHub'] }
-        <h4>
+      <!-- .broker-wallet -->
+      <div class="broker-wallet">
+        <h4 class="broker-wallet__title">
           {msg desc="Wallet section subtitle on Broker view"}Wallets{/msg}
         </h4>
-        <table class="table table-bordered">
+
+        <table class="broker-wallet__table table">
           <thead>
             <tr>
               <th>{msg desc="Coin  column on Broker wallet table"}Coin{/msg}</th>
@@ -242,12 +251,18 @@
             {/foreach}
           </tbody>
         </table>
+      </div>
+      <!-- /.broker-wallet -->
       {/if}
 
-      <h4>
-        {msg desc="Terms of service section subtitle on Broker view"}Terms of service{/msg}
-      </h4>
-      <iframe style="width:100%;height:400px;" src="{$msg_broker['TosUrl']}"></iframe>
+      <!-- .broker-terms -->
+      <div class="broker-terms">
+        <h4 class="broker-terms__title">
+          {msg desc="Terms of service section subtitle on Broker view"}Terms of service{/msg}
+        </h4>
+        <iframe class="broker-terms__iframe" src="{$msg_broker['TosUrl']}"></iframe>
+      </div>
+      <!-- /.broker-terms -->
     {/if}
   </div>
 
@@ -399,67 +414,71 @@
   * @param accounts
   */
 {template .YourAccountSummary}
-  <h6>{msg desc="Your account label in the right side bar"}Your account{/msg}</h6>
+  <div class="sidebar-box__head">
+    <h6>{msg desc="Your account label in the right side bar"}Your account{/msg}:</h6>
+  </div>
+
+  <div class="sidebar-box__body">
     {foreach $account in $accounts}
-      <table class="table table-bordered account-summary-table" >
+      <table class="sidebar-box__table">
+        <thead>
+          <tr id="id_account_summary_{$account['brokerID']}"
+              class='account-summary-broker model-action-set'
+              data-key="SelectedBrokerID"
+              data-value="{$account['brokerID']}"
+              {if length($accounts) <= 1 or length($account['currencies']) == 0 }style="display:none;"{/if}>
+            <th colspan="3"><strong>{$account['brokerName']}</strong></th>
+          </tr>
+        </thead>
+
         <tbody>
+          {foreach $currency_info in $account['currencies']}
+          <tr>
+            <td>
+              <strong>{$currency_info['currency']}</strong>
+            </td>
 
-      <tr id="id_account_summary_{$account['brokerID']}"
-          class='account-summary-broker model-action-set'
-          data-key="SelectedBrokerID"
-          data-value="{$account['brokerID']}"
-          {if length($accounts) <= 1 or length($account['currencies']) == 0 }style="display:none;"{/if}>
-            <td colspan="3"><strong>{$account['brokerName']}</strong></td>
-      </tr>
+            <td>
+              <span class="bitex-model"
+                 data-model-key="formatted_balance_{$account['brokerID']}:{$account['clientID']}_{$currency_info['currency']}"
+                 data-blink-class="balance-info-blink">{$currency_info['formattedBalance']}
+              </span>
 
-      {foreach $currency_info in $account['currencies']}
-        <tr>
+              <abbr title="{msg desc="Unconfirmed deposits"}Unconfirmed deposits from your confirmed addresses{/msg}">
+                <em>
+                   <span class="bitex-model"
+                      data-model-key="formatted_position_{$account['brokerID']}:{$account['clientID']}_{$currency_info['currency']}"
+                      data-blink-class="balance-info-blink"></span>
+                 </em>
+              </abbr>
+           </td>
 
-          <td style="padding: 4px;{if not isFirst($currency_info) }border-top: 0;{/if}">
-            <strong>{$currency_info['currency']}</strong>
-          </td>
+           <td>
+              {if $currency_info['showDeposit'] and  $currency_info['showWithdraw']}
+                <div class="btn-group">
+              {/if}
 
-          <td style="padding: 4px;{if not isFirst($currency_info) }border-top: 0;{/if}">
-            <span class="bitex-model"
-               data-model-key="formatted_balance_{$account['brokerID']}:{$account['clientID']}_{$currency_info['currency']}"
-               data-blink-class="balance-info-blink">{$currency_info['formattedBalance']}
-            </span>
-            <abbr title="{msg desc="Unconfirmed deposits"}Unconfirmed deposits from your confirmed addresses{/msg}">
-              <em>
-                 <span class="bitex-model"
-                    data-model-key="formatted_position_{$account['brokerID']}:{$account['clientID']}_{$currency_info['currency']}"
-                    data-blink-class="balance-info-blink"></span>
-               </em>
-            </abbr>
+              {if $currency_info['showDeposit'] }
+                <button class="btn" data-action="deposit" data-currency="{$currency_info['currency']}">
+                  <i data-action="deposit" data-currency="{$currency_info['currency']}" class="icon-download-alt"></i>
+                </button>
+              {/if}
+              {if $currency_info['showWithdraw'] }
+                <button class="btn" data-action="withdraw" data-currency="{$currency_info['currency']}">
+                  <i data-action="withdraw" data-currency="{$currency_info['currency']}" class="icon-upload-alt"></i>
+                </button>
+              {/if}
 
-         </td>
-          <td style="padding: 4px;border-left:0;{if not isFirst($currency_info) }border-top: 0;{/if}">
-            {if $currency_info['showDeposit'] and  $currency_info['showWithdraw']}
-              <div class="btn-group">
-            {/if}
-
-            {if $currency_info['showDeposit'] }
-              <button class="btn btn-mini" data-action="deposit" data-currency="{$currency_info['currency']}">
-                <i data-action="deposit" data-currency="{$currency_info['currency']}" class="icon-download-alt"></i>
-              </button>
-            {/if}
-            {if $currency_info['showWithdraw'] }
-              <button class="btn btn-mini" data-action="withdraw" data-currency="{$currency_info['currency']}">
-                <i data-action="withdraw" data-currency="{$currency_info['currency']}" class="icon-upload-alt"></i>
-              </button>
-            {/if}
-
-            {if $currency_info['showDeposit'] and  $currency_info['showWithdraw']}
-              </div>
-            {/if}
-
-          </td>
-        </tr>
-      {/foreach}
-
+              {if $currency_info['showDeposit'] and  $currency_info['showWithdraw']}
+                </div>
+              {/if}
+            </td>
+          </tr>
+          {/foreach}
         </tbody>
       </table>
     {/foreach}
+  </div>
 {/template}
 
 /**
@@ -525,6 +544,7 @@
 
 /**
   * @param deposit_message
+  * @param hasInstantDepositsEnabled
   */
 {template .DepositCryptoCurrencyContentDialog}
   <div class="row-fluid" data-deposit-status="prepare">
@@ -534,6 +554,14 @@
     <div class="text-center">
       <img src="https://chart.googleapis.com/chart?cht=qr&chs=200x200&chl={$deposit_message['Data']['InputAddress'] }"/>
     </div>
+    {if $hasInstantDepositsEnabled}
+      <div class="alert alert-block">
+        {msg desc="Instant deposit warning"}
+          Your account has instant deposits enabled. In case you intentionally try to do a "double spending" attack,
+          your account will be frozen, even if your double spending attack is not successful.
+        {/msg}
+      </div>
+    {/if}
   </div>
 {/template}
 
@@ -592,18 +620,16 @@
   * @param currencydescription
   */
 {template .ConfirmDepositCryptoCurrencyContentDialog}
-  <div class="row-fluid" data-deposit-status="confirm">
-    <h3 class="text-center">
+  <div data-deposit-status="confirm">
+    <h5 style="margin-bottom:0;">
       {msg desc="deposit done dialog msg"} IMPORTANT! {/msg}
-    </h3>
-    <h4 class="text-center">
-      {msg desc="deposit done dialog msg"} We will generate a unique {$currencydescription} address that will be valid only for this transaction.{/msg}
-    </h4>
-    <h3 class="text-center">
+      <br /><br />
+
+      <div style="font-weight:400;">{msg desc="deposit done dialog msg"} We will generate a unique {$currencydescription} address that will be valid only for this transaction.{/msg}</div>
+      <br />
+
       {msg desc="deposit done dialog msg"} Did you understand? {/msg}
-    </h3>
-    <br/>
-    <br/>
+    </h5>
   </div>
 {/template}
 
@@ -628,6 +654,7 @@
   * @param percentFee
   * @param fixedFee
   * @param netValueID
+  * @param? hideNetValueID
   */
 {template .FeesFormControls}
 <div class="control-group">
@@ -662,10 +689,11 @@
   </div>
 </div>
 
-<div class="control-group">
+<div class="control-group" style="{if $hideNetValueID}display:none{/if}">
   <label class="control-label">{msg desc="Net amount"}Net amount{/msg}</label>
   <div class="controls">
     <label id="{$netValueID}" class="control-label" style="text-align: left;"></label>
+    <input id="{$netValueID}_value" type="hidden" value="">
   </div>
 </div>
 {/template}
@@ -703,6 +731,7 @@
     {param fixedFee: $fixedFee /}
     {param totalFeesID: $totalFeesID /}
     {param netValueID: $netValueID /}
+    {param hideNetValueID: true /}
   {/call}
   </form>
 {/template}
@@ -726,8 +755,7 @@
   * @param? verificationLevel
   */
 {template .DepositWithdrawDialogContent}
-  <form class="form-horizontal" data-deposit-status="prepare" data-uniform-control-holder-class="control-group">
-  <fieldset>
+<form class="modal-form" data-deposit-status="prepare" data-uniform-control-holder-class="control-group">
 
     <input type="hidden" name="Currency" value="{$currency}">
 
@@ -739,218 +767,184 @@
 
     {if not $force_method}
       {if length($methods) > 1}
-        <div class="control-group">
-          <label class="control-label">{msg desc="method"}Method{/msg}</label>
-          <div class="controls">
-            <select id="{$methodID}" name="Method" class="withdraw-method-selector">
-              {foreach $method in $methods }
-               <option {if isFirst($method)}selected{/if} value="{$method['method']}"
-                    data-net-value="{$method['method']}_{$netValueID}"
-                    data-percent-fee="{$method['method']}_{$percentFeeID}"
-                    data-fixed-fee="{$method['method']}_{$fixedFeeID}">{$method['description']}</option>
-              {/foreach}
-            </select>
-          </div>
-        </div>
+
+        <label class="modal-form__label">{msg desc="method"}Method{/msg}:</label>
+        <select id="{$methodID}" name="Method" class="withdraw-method-selector">
+          {foreach $method in $methods }
+           <option {if isFirst($method)}selected{/if} value="{$method['method']}"
+                data-net-value="{$method['method']}_{$netValueID}"
+                data-percent-fee="{$method['method']}_{$percentFeeID}"
+                data-fixed-fee="{$method['method']}_{$fixedFeeID}">{$method['description']}</option>
+          {/foreach}
+        </select>
+
       {else}
+
         {foreach $method in $methods }
           <input  id="{$methodID}" type="hidden" name="Method"  value="{$method['method']}"
                 data-net-value="{$method['method']}_{$netValueID}"
                 data-percent-fee="{$method['method']}_{$percentFeeID}"
                 data-fixed-fee="{$method['method']}_{$fixedFeeID}">
         {/foreach}
+
       {/if}
     {/if}
 
     <div class="withdraw-methods">
      {if length($methods) == 0 }
-        <div class="alert alert-danger text-center">
-          {msg desc="Error message when the brokers doesn't have deposit methods"}We are not accepting deposits at this moment. We sorry for the inconvenience.{/msg}
-        </div>
-     {/if}
-     {foreach $method in $methods }
-        {if $force_method}
-          {if $method['method'] == $force_method}
-
-            {if $side == 'client'}
-              <div class="control-group">
-                <label class="control-label">{msg desc="amount"}Amount{/msg}</label>
-                <div class="controls">
-                  <div class="input-prepend">
-                    <span class="add-on">{$currencySign}</span>
-                    <input id="{$method['method']}_{$amountID}"
-                        data-uniform-validators="required; validateNumber {if $method['limits'][$verificationLevel]['enabled']} {if $method['limits'][$verificationLevel]['min']}; validateMin {$method['limits'][$verificationLevel]['formatted_min_value'] }{/if}{if $method['limits'][$verificationLevel]['max']}; validateMax {$method['limits'][$verificationLevel]['formatted_max_value'] } {/if} {/if}"
-                        data-uniform-filters="positive_number"
-                        type="text"
-                        class="withdraw-field input-small"
-                        size="16"
-                        name="Amount">
-                  </div>
-                  {if $method['limits'][$verificationLevel]['enabled']}
-                    <div>
-                      <em>
-                        <small>
-                          {if $method['limits'][$verificationLevel]['min']}
-                            {msg desc="amount help block"} Maximum: {$method['limits'][$verificationLevel]['formatted_max'] } per day.  {/msg}
-                            <br>
-                          {/if}
-                          {if $method['limits'][$verificationLevel]['max']}
-                            {msg desc="amount help block"} Minimum: {$method['limits'][$verificationLevel]['formatted_min'] } per transaction.  {/msg}
-                          {/if}
-                        </small>
-                      </em>
-                    </div>
-                  {/if}
-                </div>
-              </div>
-            {/if}
-
-
-            {foreach $field in $method['fields'] }
-              {if $field['side'] == $side}
-                <div class="control-group">
-                  <label class="control-label">{$field['label']}</label>
-                  <div class="controls">
-                    <input class="withdraw-field"
-                            data-uniform-validators="{$field['validator']}" type="{$field['type']}"
-                            name="{$field['name']}"
-                            label="{$field['placeholder']}"
-                            value="{$field['value']}"/>
-                  </div>
-                </div>
-              {/if}
-            {/foreach}
-            {if $side == 'client'}
-              <div class="control-group" style="margin-bottom: 5px;">
-                <div class="controls">
-                  <label>{$method['disclaimer']}</label>
-                  <input id="{$method['method']}_{$percentFeeID}" type="hidden" value="{$method['percent_fee']}">
-                  <input id="{$method['method']}_{$fixedFeeID}" type="hidden" value="{$method['fixed_fee']}">
-                </div>
-              </div>
-
-              <div class="control-group">
-                <label class="control-label">{msg desc="Fee percentage label"}Fees:{/msg}</label>
-                <div class="controls">
-                  <label id="{$method['method']}_{$totalFeesID}" class="control-label" style="text-align: left;"></label>
-                </div>
-              </div>
-
-              <div class="control-group" {if $hideNetAmount} style="display:none;" {/if} >
-                <label class="control-label">{msg desc="Net amount"}Net amount{/msg}</label>
-                <div class="controls">
-                  <label id="{$method['method']}_{$netValueID}" class="control-label" style="text-align: left;"></label>
-                </div>
-              </div>
-
-            {else}
-              {if $side == 'broker'}
-                <div class="control-group" style="margin-bottom: 5px;">
-                  <div class="controls">
-                    <label>{$method['disclaimer']}</label>
-                  </div>
-                </div>
-                {if $showFeeDataEntry}
-                  {call .FeesFormControls}
-                    {param currencySign: $currencySign /}
-                    {param percentFeeID: $method['method'] + '_' + $percentFeeID /}
-                    {param percentFee: $method['percent_fee']  /}
-                    {param fixedFeeID: $method['method']  + '_' +  $fixedFeeID /}
-                    {param fixedFee: $method['fixed_fee'] /}
-                    {param totalFeesID: $method['method']  + '_' +  $totalFeesID /}
-                    {param netValueID: $method['method']  + '_' +  $netValueID /}
-                  {/call}
-                 {/if}
-              {/if}
-            {/if}
+        {if $verificationLevel <= 2}
+          <div class="alert alert-warning text-left">
+            {msg desc="Error message when the user is not yet verified."}
+              Due to anti-money laundry international laws and government regulations,
+              deposits/withdrawals in the local currency are only available to verified customers.<br/>
+              We are very sorry for the inconvenience.
+            {/msg}
+          </div>
+          {if $verificationLevel == 0}
+            {msg desc="get verified message"}
+              You can verify your account by clicking in <a href="" data-switch-view="verification">Verify your account</a>
+            {/msg}
           {/if}
         {else}
-          <div class="withdraw-method" data-withdraw-method="{$method['method']}" style="{if not isFirst($method)}display:none;{/if}" >
-
-            {if $side == 'client'}
-              <div class="control-group">
-                <label class="control-label">{msg desc="amount"}Amount{/msg}</label>
-                <div class="controls">
-                  <div class="input-prepend">
-                    <span class="add-on">{$currencySign}</span>
-                    <input id="{$method['method']}_{$amountID}"
-                        data-uniform-validators="required; validateNumber {if $method['limits'][$verificationLevel]['enabled']} {if $method['limits'][$verificationLevel]['min']}; validateMin {$method['limits'][$verificationLevel]['formatted_min_value'] }{/if}{if $method['limits'][$verificationLevel]['max']}; validateMax {$method['limits'][$verificationLevel]['formatted_max_value'] } {/if} {/if}"
-                        data-uniform-filters="positive_number"
-                        type="text"
-                        class="withdraw-field input-small"
-                        size="16"
-                        name="Amount" {if not isFirst($method)}disabled{/if}>
-                  </div>
-                  {if $method['limits'][$verificationLevel]['enabled']}
-                    <div>
-                      <em>
-                        <small>
-                          {if $method['limits'][$verificationLevel]['min']}
-                            {msg desc="amount help block"} Maximum: {$method['limits'][$verificationLevel]['formatted_max'] } per day.  {/msg}
-                            <br>
-                          {/if}
-                          {if $method['limits'][$verificationLevel]['max']}
-                            {msg desc="amount help block"} Minimum: {$method['limits'][$verificationLevel]['formatted_min'] } per transaction.  {/msg}
-                          {/if}
-                        </small>
-                      </em>
-                    </div>
-                  {/if}
-                </div>
-              </div>
-            {/if}
-
-            <div class="control-group" style="margin-bottom: 5px;">
-              <div class="controls">
-                <label>{$method['disclaimer']}</label>
-                <input id="{$method['method']}_{$percentFeeID}" type="hidden" value="{$method['percent_fee']}">
-                <input id="{$method['method']}_{$fixedFeeID}" type="hidden" value="{$method['fixed_fee']}">
-              </div>
-            </div>
-            <div class="control-group">
-              <label class="control-label">{msg desc="Fee percentage label"}Fees:{/msg}</label>
-              <div class="controls">
-                <label id="{$method['method']}_{$totalFeesID}" class="control-label" style="text-align: left;"></label>
-              </div>
-            </div>
-
-            <div class="control-group" {if $hideNetAmount} style="display:none;" {/if}>
-              <label class="control-label">{msg desc="Net amount"}Net amount{/msg}</label>
-              <div class="controls">
-                <label id="{$method['method']}_{$netValueID}" class="control-label broker-confirm-deposit-net-amount" style="text-align: left;"></label>
-              </div>
-            </div>
-
-            {foreach $field in $method['fields'] }
-              {if $field['side'] == $side}
-                <div class="control-group">
-                  <label class="control-label">{$field['label']}</label>
-                  <div class="controls">
-                    <input class="withdraw-field"
-                           data-uniform-validators="{$field['validator']}"
-                           type="{$field['type']}"
-                           name="{$field['name']}"
-                           label="{$field['placeholder']}"
-                           value="{$field['value']}"
-                           {if not isFirst($method)}disabled{/if} />
-                  </div>
-                </div>
-              {/if}
-            {/foreach}
+          <div class="alert alert-danger text-center">
+            {msg desc="Error message when the brokers doesn't have deposit methods"}We are not accepting deposits at this moment. We sorry for the inconvenience.{/msg}
           </div>
         {/if}
-     {/foreach}
-    </div>
+     {/if}
 
+     {foreach $method in $methods }
+        {if $force_method}
+            {if $method['method'] == $force_method}
+
+                {if $side == 'client'}
+                    <label class="modal-form__label">{msg desc="amount"}Amount{/msg} {$currencySign}:</label>
+                    <input id="{$method['method']}_{$amountID}"
+                    data-uniform-validators="required; validateNumber {if $method['limits'][$verificationLevel]['enabled']} {if $method['limits'][$verificationLevel]['min']}; validateMin {$method['limits'][$verificationLevel]['formatted_min_value'] }{/if}{if $method['limits'][$verificationLevel]['max']}; validateMax {$method['limits'][$verificationLevel]['formatted_max_value'] } {/if} {/if}"
+                    type="text"
+                    class="withdraw-field input input--full"
+                    size="16"
+                    name="Amount">
+
+                    {if $method['limits'][$verificationLevel]['enabled']}
+                        <small>
+                            {if $method['limits'][$verificationLevel]['min']}
+                                {msg desc="amount help block"} Maximum: {$method['limits'][$verificationLevel]['formatted_max'] } per day.  {/msg}
+                                <br>
+                            {/if}
+
+                            {if $method['limits'][$verificationLevel]['max']}
+                                {msg desc="amount help block"} Minimum: {$method['limits'][$verificationLevel]['formatted_min'] } per transaction.  {/msg}
+                            {/if}
+                        </small>
+                    {/if}
+                {/if}
+
+                {foreach $field in $method['fields'] }
+                    {if $field['side'] == $side}
+                        <label class="modal-form__label">{$field['label']}:</label>
+
+                        <input class="withdraw-field input input--full"
+                        data-uniform-validators="{$field['validator']}" type="{$field['type']}"
+                        name="{$field['name']}"
+                        label="{$field['placeholder']}"
+                        value="{$field['value']}"/>
+                    {/if}
+                {/foreach}
+
+                {if $side == 'client'}
+                    <label class="modal-form__label">{$method['disclaimer']}:</label>
+                    <input id="{$method['method']}_{$percentFeeID}" type="hidden" value="{$method['percent_fee']}">
+                    <input id="{$method['method']}_{$fixedFeeID}" type="hidden" value="{$method['fixed_fee']}">
+
+                    <label class="modal-form__label">{msg desc="Fee percentage label"}Fees{/msg}:</label>
+                    <label id="{$method['method']}_{$totalFeesID}" class="control-label" style="text-align: left;"></label>
+
+                    <div {if $hideNetAmount} style="display:none;"{/if}>
+                        <label class="modal-form__label">{msg desc="Net amount"}Net amount{/msg}:</label>
+                        <label id="{$method['method']}_{$netValueID}" class="control-label" style="text-align: left;"></label>
+                        <input id="{$method['method']}_{$netValueID}_value" type="hidden" value="">
+                    </div>
+                {else}
+                    {if $side == 'broker'}
+                        <label class="modal-form__label">{$method['disclaimer']}:</label>
+                        {if $showFeeDataEntry}
+                            {call .FeesFormControls}
+                            {param currencySign: $currencySign /}
+                            {param percentFeeID: $method['method'] + '_' + $percentFeeID /}
+                            {param percentFee: $method['percent_fee']  /}
+                            {param fixedFeeID: $method['method']  + '_' +  $fixedFeeID /}
+                            {param fixedFee: $method['fixed_fee'] /}
+                            {param totalFeesID: $method['method']  + '_' +  $totalFeesID /}
+                            {param netValueID: $method['method']  + '_' +  $netValueID /}
+                            {/call}
+                        {/if}
+                    {/if}
+                {/if}
+            {/if}
+
+        {else}
+
+            <div class="withdraw-method" data-withdraw-method="{$method['method']}" style="{if not isFirst($method)}display:none;{/if}">
+                {if $side == 'client'}
+                    <label class="modal-form__label">{msg desc="amount"}Amount{/msg} {$currencySign}:</label>
+
+                    <input id="{$method['method']}_{$amountID}"
+                        data-uniform-validators="required; validateNumber {if $method['limits'][$verificationLevel]['enabled']} {if $method['limits'][$verificationLevel]['min']}; validateMin {$method['limits'][$verificationLevel]['formatted_min_value'] }{/if}{if $method['limits'][$verificationLevel]['max']}; validateMax {$method['limits'][$verificationLevel]['formatted_max_value'] } {/if} {/if}"
+                        type="text"
+                        class="withdraw-field input input--full"
+                        size="16"
+                        name="Amount" {if not isFirst($method)}disabled{/if}>
+
+                    {if $method['limits'][$verificationLevel]['enabled']}
+                        <small>
+                            {if $method['limits'][$verificationLevel]['min']}
+                                {msg desc="amount help block"} Maximum: {$method['limits'][$verificationLevel]['formatted_max'] } per day.  {/msg}
+                                <br>
+                            {/if}
+
+                            {if $method['limits'][$verificationLevel]['max']}
+                                {msg desc="amount help block"} Minimum: {$method['limits'][$verificationLevel]['formatted_min'] } per transaction.  {/msg}
+                            {/if}
+                        </small>
+                    {/if}
+                {/if}
+
+                <label class="modal-form__label">{$method['disclaimer']}</label>
+
+                <input id="{$method['method']}_{$percentFeeID}" type="hidden" value="{$method['percent_fee']}">
+                <input id="{$method['method']}_{$fixedFeeID}" type="hidden" value="{$method['fixed_fee']}">
+
+                <label class="modal-form__label">{msg desc="Fee percentage label"}Fees:{/msg}</label>
+                <label id="{$method['method']}_{$totalFeesID}" class="control-label" style="text-align: left;"></label>
+
+                <div {if $hideNetAmount} style="display:none;" {/if}>
+                    <label class="modal-form__label">{msg desc="Net amount"}Net amount{/msg}:</label>
+                    <label id="{$method['method']}_{$netValueID}" class="control-label broker-confirm-deposit-net-amount" style="text-align: left;"></label>
+                    <input id="{$method['method']}_{$netValueID}_value" type="hidden" value="">
+                </div>
+
+                {foreach $field in $method['fields'] }
+                    {if $field['side'] == $side}
+                        <label class="modal-form__label">{$field['label']}:</label>
+                        <input class="withdraw-field input input--full"
+                            data-uniform-validators="{$field['validator']}"
+                            type="{$field['type']}"
+                            name="{$field['name']}"
+                            label="{$field['placeholder']}"
+                            value="{$field['value']}"
+                            {if not isFirst($method)}disabled{/if} />
+                    {/if}
+                {/foreach}
+            </div>
+
+        {/if}
+    {/foreach}
 
     <div class="control-group dlg-response-group">
       <label class="control-label dlg-response-group-label"></label>
-      <div class="controls" class="dlg-response-group-value" >
-      </div>
+      <div class="controls" class="dlg-response-group-value" ></div>
     </div>
-    </fieldset>
-
-  </form>
+</form>
 {/template}
 
 
@@ -1132,7 +1126,7 @@
   * @param msg_customer_detail
   */
 {template .AccountOverviewUser}
-  <table class="table table--bordered">
+  <table class="profile-table table">
     <tbody>
       <tr>
         <td><strong>{msg desc="label on overview header"}ID{/msg}</strong></td>

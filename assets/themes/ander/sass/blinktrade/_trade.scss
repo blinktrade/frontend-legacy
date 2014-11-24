@@ -1,3 +1,26 @@
 .trade {
     margin-bottom: 24px;
 }
+
+.trade__label {
+    display: block;
+    font-weight: 700;
+}
+
+.trade__body {
+    @include media-query(palm) {
+        > .layout {
+            > .layout__item {
+                margin-bottom: 12px;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+}
+
+.trade__foot {
+    font-size: 12px;
+}
