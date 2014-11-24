@@ -228,7 +228,7 @@ bitex.ui.WithdrawList = function( methodDescriptionObj, opt_broker_mode,  opt_sh
         var MSG_WITHDRAW_TABLE_DETAILS_COLUMN_TRANSACTION_ID  = goog.getMsg('Transaction ID');
 
         goog.object.forEach(data, function(value, key) {
-          if (key != 'Link' && key != 'Currency' ) {
+          if (key != 'Link' && key != 'Currency' && key != 'Fees' && key != 'TransactionID') {
             if (goog.isDefAndNotNull(value) && !goog.string.isEmpty(value) )  {
               if (key == 'Wallet') {
                 /**
@@ -252,34 +252,6 @@ bitex.ui.WithdrawList = function( methodDescriptionObj, opt_broker_mode,  opt_sh
                 goog.dom.appendChild(element, goog.dom.createDom('tr', goog.getCssName(bitex.ui.WithdrawList.CSS_CLASS, 'details-tr'),
                     goog.dom.createDom('td', goog.getCssName(bitex.ui.WithdrawList.CSS_CLASS, 'details-td-key'), MSG_WITHDRAW_TABLE_WALLET_KEY ),
                     goog.dom.createDom('td', goog.getCssName(bitex.ui.WithdrawList.CSS_CLASS, 'details-td-value'), btn_qr)));
-              } else if ( key == 'TransactionID' && data['Currency'] == 'BTC' ) {
-
-                /**
-                 * @desc Withdraw qr button label in the  broker's withdraw list
-                 */
-                var MSG_WITHDRAW_TABLE_DETAILS_COLUMN_BTN_BLOCKCHAIN  = goog.getMsg('blockchain');
-
-
-                var block_explorer = 'https://blockchain.info';
-                switch (rowSet['Data']['Wallet'][0]) {
-                  case 'm':
-                  case 'n':
-                  case '2':
-                  case '9':
-                  case 'c':
-                    block_explorer = 'https://test-insight.bitpay.com';
-                }
-
-                var btn_blockchain = goog.dom.createDom( 'a', {
-                  'class':'btn btn-mini btn-info btn-btc-blockchain',
-                  'href': block_explorer + '/tx/' + value,
-                  'target':'_blank'
-                },MSG_WITHDRAW_TABLE_DETAILS_COLUMN_BTN_BLOCKCHAIN,' ' ,goog.dom.createDom( 'i', ['icon-white', 'icon-share-alt']));
-
-                goog.dom.appendChild(element, goog.dom.createDom('tr', goog.getCssName(bitex.ui.WithdrawList.CSS_CLASS, 'details-tr'),
-                   goog.dom.createDom('td', goog.getCssName(bitex.ui.WithdrawList.CSS_CLASS, 'details-td-key'), MSG_WITHDRAW_TABLE_DETAILS_COLUMN_TRANSACTION_ID ),
-                   goog.dom.createDom('td', goog.getCssName(bitex.ui.WithdrawList.CSS_CLASS, 'details-td-value'), btn_blockchain)));
-
               } else {
                 /**  @desc Withdraw column label in the  broker's withdraw list detail table */
                 var MSG_WITHDRAW_TABLE_DETAILS_COLUMN_ACCT_NUMBER  = goog.getMsg('Account number');
@@ -307,6 +279,8 @@ bitex.ui.WithdrawList = function( methodDescriptionObj, opt_broker_mode,  opt_sh
 
                 /**  @desc Withdraw column label in the  broker's withdraw list detail table */
                 var MSG_WITHDRAW_TABLE_DETAILS_COLUMN_EMAIL = goog.getMsg('Email');
+
+
 
                 var key_description = key;
 
@@ -338,9 +312,6 @@ bitex.ui.WithdrawList = function( methodDescriptionObj, opt_broker_mode,  opt_sh
                   case 'Email':
                     key_description = MSG_WITHDRAW_TABLE_DETAILS_COLUMN_EMAIL;
                     break;
-                  case 'TransactionID':
-                    key_description = MSG_WITHDRAW_TABLE_DETAILS_COLUMN_TRANSACTION_ID;
-                    break;
                 }
 
                 goog.dom.appendChild(element,
@@ -352,6 +323,64 @@ bitex.ui.WithdrawList = function( methodDescriptionObj, opt_broker_mode,  opt_sh
             }
           }
         }, this);
+
+        if ( goog.isDefAndNotNull(data['Fees'])) {
+          /**  @desc Withdraw column label in the  broker's withdraw list detail table */
+          var MSG_WITHDRAW_TABLE_DETAILS_COLUMN_FEES = goog.getMsg('Fees');
+          if ( goog.string.countOf(data['Fees'], '|') == 0 ) {
+            goog.dom.appendChild(element,
+               goog.dom.createDom('tr', goog.getCssName(bitex.ui.WithdrawList.CSS_CLASS, 'details-tr'),
+                  goog.dom.createDom('td', goog.getCssName(bitex.ui.WithdrawList.CSS_CLASS, 'details-td-key'), MSG_WITHDRAW_TABLE_DETAILS_COLUMN_FEES ),
+                  goog.dom.createDom('td', goog.getCssName(bitex.ui.WithdrawList.CSS_CLASS, 'details-td-value'), data['Fees'] )));
+          } else {
+            var original_fee = data['Fees'].split('|')[0];
+            var effective_fee = data['Fees'].split('|')[1];
+
+            var original_fee_element = goog.dom.createDom('s', {'style':'color: gray; padding-right: 10px;' } , original_fee);
+            var effective_fee_element = goog.dom.createDom('b', undefined,  effective_fee);
+
+            goog.dom.appendChild(element,
+               goog.dom.createDom('tr', goog.getCssName(bitex.ui.WithdrawList.CSS_CLASS, 'details-tr'),
+                  goog.dom.createDom('td', goog.getCssName(bitex.ui.WithdrawList.CSS_CLASS, 'details-td-key'), MSG_WITHDRAW_TABLE_DETAILS_COLUMN_FEES ),
+                  goog.dom.createDom('td', goog.getCssName(bitex.ui.WithdrawList.CSS_CLASS, 'details-td-value'), original_fee_element, effective_fee_element  )));
+          }
+        }
+
+        if (goog.isDefAndNotNull(data['TransactionID'])) {
+          if (data['Currency'] == 'BTC' ) {
+             /**
+              * @desc Withdraw qr button label in the  broker's withdraw list
+              */
+             var MSG_WITHDRAW_TABLE_DETAILS_COLUMN_BTN_BLOCKCHAIN  = goog.getMsg('blockchain');
+
+             var block_explorer = 'https://blockchain.info';
+             switch (rowSet['Data']['Wallet'][0]) {
+               case 'm':
+               case 'n':
+               case '2':
+               case '9':
+               case 'c':
+                 block_explorer = 'https://test-insight.bitpay.com';
+             }
+
+             var btn_blockchain = goog.dom.createDom( 'a', {
+               'class':'btn btn-mini btn-info btn-btc-blockchain',
+               'href': block_explorer + '/tx/' + data['TransactionID'],
+               'target':'_blank'
+             },MSG_WITHDRAW_TABLE_DETAILS_COLUMN_BTN_BLOCKCHAIN,' ' ,goog.dom.createDom( 'i', ['icon-white', 'icon-share-alt']));
+
+             goog.dom.appendChild(element, goog.dom.createDom('tr', goog.getCssName(bitex.ui.WithdrawList.CSS_CLASS, 'details-tr'),
+                                                              goog.dom.createDom('td', goog.getCssName(bitex.ui.WithdrawList.CSS_CLASS, 'details-td-key'), MSG_WITHDRAW_TABLE_DETAILS_COLUMN_TRANSACTION_ID ),
+                                                              goog.dom.createDom('td', goog.getCssName(bitex.ui.WithdrawList.CSS_CLASS, 'details-td-value'), btn_blockchain)));
+
+          }  else {
+            goog.dom.appendChild(element,
+               goog.dom.createDom('tr', goog.getCssName(bitex.ui.WithdrawList.CSS_CLASS, 'details-tr'),
+                  goog.dom.createDom('td', goog.getCssName(bitex.ui.WithdrawList.CSS_CLASS, 'details-td-key'), MSG_WITHDRAW_TABLE_DETAILS_COLUMN_TRANSACTION_ID ),
+                  goog.dom.createDom('td', goog.getCssName(bitex.ui.WithdrawList.CSS_CLASS, 'details-td-value'), data['TransactionID'] ))
+            );
+          }
+        }
 
         return element;
 

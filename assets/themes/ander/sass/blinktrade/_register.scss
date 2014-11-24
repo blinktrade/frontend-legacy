@@ -1,0 +1,54 @@
+.register {
+}
+
+.register-form {
+    list-style: none;
+    margin: 0 0 12px;
+
+    > li {
+        margin-bottom: 12px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    .page__body {
+        padding: 0;
+    }
+
+    @include media-query(desk) {
+        > li {
+            > input[type="text"],
+            > input[type="password"],
+            select {
+                width: 30%;
+            }
+        }
+    }
+}
+
+.register__label {
+    display: block;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 3px;
+
+    @include media-query(desk) {
+        width: 30%;
+    }
+}
+
+.register__small {
+    font-size: 12px;
+}
+
+.register__btn {
+    display: block;
+    width: 100%;
+
+    @include media-query(desk) {
+        display: inline-block;
+        width: auto;
+    }
+}

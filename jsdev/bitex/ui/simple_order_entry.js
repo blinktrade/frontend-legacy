@@ -140,14 +140,6 @@ bitex.ui.SimpleOrderEntry.prototype.enterDocument = function() {
 
   this.qty_element_ = goog.dom.getElement( this.makeId('order_entry_qty') );
   this.total_element_ = goog.dom.getElement( this.makeId('order_entry_total') );
-  /*
-  handler.listen(new goog.events.KeyHandler( this.total_element_ ),
-                 goog.events.KeyHandler.EventType.KEY,
-                 this.onBlockNonNumberKeys_);
-  handler.listen(new goog.events.KeyHandler( this.qty_element_ ),
-                 goog.events.KeyHandler.EventType.KEY,
-                 this.onBlockNonNumberKeys_);
-  */
 
   handler.listen( new goog.events.InputHandler( this.total_element_ ),
                   goog.events.InputHandler.EventType.INPUT,
@@ -160,103 +152,6 @@ bitex.ui.SimpleOrderEntry.prototype.enterDocument = function() {
   handler.listen( goog.dom.getElement( this.makeId('order_entry_action_simple') ),
                   goog.events.EventType.CLICK,
                   this.onActionSimple_ );
-};
-
-/**
- * @param {goog.events.Event} e
- * @private
- */
-bitex.ui.SimpleOrderEntry.prototype.onBlockNonNumberKeys_ = function(e) {
-  var inputEl = e.target;
-  var inputValue = goog.dom.forms.getValue(inputEl);
-
-  if (!goog.events.KeyCodes.isTextModifyingKeyEvent(e)) {
-    if (e.keyCode == goog.events.KeyCodes.UP  || e.keyCode == goog.events.KeyCodes.DOWN ) {
-      var value_to_change;
-      var startPos = inputEl.selectionStart;
-      var endPos = inputEl.selectionEnd;
-      if (startPos === endPos && startPos === 0) {
-        value_to_change = inputValue;
-        endPos = inputValue.length;
-      } else {
-        if (inputValue.substr(startPos-1,1) === '.') {
-          --endPos;
-        }
-        startPos = 0;
-        value_to_change = inputValue.substr(0,endPos);
-      }
-      var number_of_decimal_places = bitex.util.decimalPlaces(value_to_change);
-      var value_to_add = 1 / Math.pow(10,number_of_decimal_places);
-      value_to_change = goog.string.toNumber(value_to_change);
-      if (isNaN(value_to_change)) {
-        return;
-      }
-
-      var new_value;
-      if  (e.keyCode == goog.events.KeyCodes.UP) {
-        new_value = (value_to_change + value_to_add);
-      } else {
-        new_value = (value_to_change - value_to_add);
-      }
-      new_value = (Math.round(new_value * Math.pow(10,number_of_decimal_places)) / Math.pow(10,number_of_decimal_places)).toFixed(number_of_decimal_places);
-      new_value = '' +  new_value + inputValue.substr(endPos);
-
-      if (goog.string.toNumber(new_value) < 0 ) {
-        new_value = 0;
-        new_value = new_value.toFixed(number_of_decimal_places)
-      }
-
-      var originalStartPos = inputEl.selectionStart;
-      var originalEndPos = inputEl.selectionEnd;
-      goog.dom.forms.setValue(inputEl, new_value);
-
-      if (inputValue.length == new_value.length ) {
-        inputEl.selectionStart = originalStartPos;
-        inputEl.selectionEnd = originalEndPos;
-      } else if (inputValue.length > new_value.length ) {
-        inputEl.selectionStart = originalStartPos-1;
-        inputEl.selectionEnd = originalEndPos-1;
-      } else {
-        inputEl.selectionStart = originalStartPos+1;
-        inputEl.selectionEnd = originalEndPos+1;
-      }
-
-      if (e.target == this.qty_element_) {
-        this.onChangeQty_(e);
-      } else if (e.target == this.total_element_ ) {
-        this.onChangeTotal_(e);
-      }
-      e.preventDefault();
-    }
-  }
-
-  if (e.ctrlKey ||
-      !e.shiftKey && (
-          (e.keyCode >= goog.events.KeyCodes.ZERO && e.keyCode <= goog.events.KeyCodes.NINE) ||
-              (e.keyCode >= goog.events.KeyCodes.NUM_ZERO && e.keyCode <= goog.events.KeyCodes.NUM_NINE ) ) ||
-      !goog.events.KeyCodes.isTextModifyingKeyEvent(e)) {
-    return;
-  }
-
-  switch (e.keyCode) {
-    // Allow these
-    case goog.events.KeyCodes.DELETE:
-    case goog.events.KeyCodes.BACKSPACE:
-    case goog.events.KeyCodes.TAB:
-      return;
-
-    case goog.events.KeyCodes.NUM_PERIOD:
-    case goog.events.KeyCodes.PERIOD: {
-      inputEl = e.target;
-      inputValue = goog.dom.forms.getValue(inputEl);
-      if (inputValue.indexOf('.') < 0) {
-        return;
-      }
-    }
-  }
-
-  // prevent default for the rest
-  e.preventDefault();
 };
 
 /**
@@ -354,7 +249,7 @@ bitex.ui.SimpleOrderEntry.prototype.onChangeQty_ = function(e) {
   crypto_currency_formatter.setMaximumFractionDigits(8);
   crypto_currency_formatter.setMinimumFractionDigits(2);
 
-  goog.dom.forms.setValue( this.total_element_, currency_formatter.format(price_amount_fee[1]/1e8) );
+  goog.dom.forms.setValue( this.total_element_, value_fmt.format(price_amount_fee[1]/1e8) );
 
 
   var formatted_fee = crypto_currency_formatter.format(order_fee/1e8);

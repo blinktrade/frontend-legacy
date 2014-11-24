@@ -6,7 +6,7 @@
     font-size:24px;
     font-weight:bold;
     line-height:1;
-    margin-bottom:$base-spacing;
+    padding: 4px 0;
 
     &:hover {
         color:#fff;
@@ -14,7 +14,6 @@
     }
 
     @include media-query(desk) {
-        margin-bottom:0;
         padding:($half-spacing / 2) 0;
     }
 }

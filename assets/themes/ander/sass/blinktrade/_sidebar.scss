@@ -1,16 +1,70 @@
 .sidebar {
-    padding: 24px;
+    font-size: 12px;
+    padding: 12px;
 
     @include media-query(desk) {
         border-right: 1px solid #eee;
     }
 }
 
-.sidebar__title {
-    margin-bottom:$half-spacing;
+.sidebar__head {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    background: #f7f7f7;
+}
+
+.sidebar__body {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    background: #f7f7f7;
+    padding: 12px;
+    display: none;
+
+    @include media-query(desk) {
+        display: block;
+    }
+}
+
+.sidebar__body--open {
+    @include media-query(portable) {
+        display: block;
+    }
+}
+
+.sidebar-title {
+    cursor: pointer;
+    font-size: 20px;
+    line-height: 1.2;
+    overflow: hidden;
+    margin-bottom: 0;
+    padding: 12px;
+
+    @include media-query(palm) {
+        font-size: 18px;
+    }
+
+    @include media-query(desk) {
+        cursor: default;
+    }
+}
+
+.sidebar-title__info {
+    float: left;
+}
+
+.sidebar-title__icon {
+    float: right;
+
+    @include media-query(desk) {
+        display: none;
+    }
 }
 
 .sidebar-box {
+}
+
+.sidebar-box--links {
+    .sidebar-box__body {
+        padding: 3px;
+    }
 }
 
 .sidebar-box__head {
@@ -31,5 +85,36 @@
 }
 
 .sidebar-box--push--bottom {
-    margin-bottom:$base-spacing;
+    margin-bottom:$half-spacing;
+}
+
+.sidebar-market {
+    margin-bottom: 12px;
+}
+
+.sidebar-market__label {
+    display: block;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.5;
+    margin-bottom: 3px;
+}
+
+.sidebar-market__select {
+    font-size: 14px;
+    display: block;
+    width: 100%;
+}
+
+.sidebar-box__table {
+    margin-bottom: 6px;
+
+    th {
+        text-transform: capitalize;
+        text-align: left;
+    }
+
+    td {
+        padding: 3px;
+    }
 }

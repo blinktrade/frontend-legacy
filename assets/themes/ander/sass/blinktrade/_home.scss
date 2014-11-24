@@ -38,10 +38,15 @@
 
 .home-form__label {
     display:block;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 3px;
 }
 
 .home-form__input {
-    @include media-query(palm) {
-        margin-bottom:$half-spacing;
+    margin-bottom:$half-spacing;
+
+    @include media-query(desk) {
+        margin-bottom: 0;
     }
 }
