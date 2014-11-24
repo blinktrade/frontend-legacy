@@ -347,7 +347,7 @@ bitex.ui.WithdrawList = function( methodDescriptionObj, opt_broker_mode,  opt_sh
         }
 
         if (goog.isDefAndNotNull(data['TransactionID'])) {
-          if ( key == 'TransactionID' && data['Currency'] == 'BTC' ) {
+          if (data['Currency'] == 'BTC' ) {
              /**
               * @desc Withdraw qr button label in the  broker's withdraw list
               */
