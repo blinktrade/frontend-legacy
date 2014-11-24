@@ -99,6 +99,7 @@
       <label class="control-label">{msg desc="Net amount"}Net amount{/msg}</label>
       <div class="controls">
         <label id="{$netValueID}" class="control-label broker-confirm-deposit-net-amount" style="text-align: left;"></label>
+        <input id="{$netValueID}_value" type="hidden" value="">
       </div>
     </div>
 
@@ -653,6 +654,7 @@
   * @param percentFee
   * @param fixedFee
   * @param netValueID
+  * @param? hideNetValueID
   */
 {template .FeesFormControls}
 <div class="control-group">
@@ -687,10 +689,11 @@
   </div>
 </div>
 
-<div class="control-group">
+<div class="control-group" style="{if $hideNetValueID}display:none{/if}">
   <label class="control-label">{msg desc="Net amount"}Net amount{/msg}</label>
   <div class="controls">
     <label id="{$netValueID}" class="control-label" style="text-align: left;"></label>
+    <input id="{$netValueID}_value" type="hidden" value="">
   </div>
 </div>
 {/template}
@@ -728,6 +731,7 @@
     {param fixedFee: $fixedFee /}
     {param totalFeesID: $totalFeesID /}
     {param netValueID: $netValueID /}
+    {param hideNetValueID: true /}
   {/call}
   </form>
 {/template}
@@ -858,6 +862,7 @@
                     <div {if $hideNetAmount} style="display:none;"{/if}>
                         <label class="modal-form__label">{msg desc="Net amount"}Net amount{/msg}:</label>
                         <label id="{$method['method']}_{$netValueID}" class="control-label" style="text-align: left;"></label>
+                        <input id="{$method['method']}_{$netValueID}_value" type="hidden" value="">
                     </div>
                 {else}
                     {if $side == 'broker'}
@@ -915,6 +920,7 @@
                 <div {if $hideNetAmount} style="display:none;" {/if}>
                     <label class="modal-form__label">{msg desc="Net amount"}Net amount{/msg}:</label>
                     <label id="{$method['method']}_{$netValueID}" class="control-label broker-confirm-deposit-net-amount" style="text-align: left;"></label>
+                    <input id="{$method['method']}_{$netValueID}_value" type="hidden" value="">
                 </div>
 
                 {foreach $field in $method['fields'] }
