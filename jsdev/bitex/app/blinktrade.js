@@ -507,7 +507,7 @@ bitex.app.BlinkTrade.prototype.onBitexRawMessageLogger_ = function(action, e) {
 bitex.app.BlinkTrade.prototype.onBitexWithdrawConfirmationResponse_ = function(e) {
   var msg = e.data;
 
-  if (!goog.isDefAndNotNull(msg['ConfirmationToken'])) {
+  if (!goog.isDefAndNotNull(msg['Status']) || msg['Status'] != '1' ) {
 
       /** @desc invalid confirmation toker */
       var MSG_INVALID_CONFIRMATION_TOKEN = goog.getMsg("Invalid confirmation token!");
@@ -523,8 +523,16 @@ bitex.app.BlinkTrade.prototype.onBitexWithdrawConfirmationResponse_ = function(e
  * @private
  */
 bitex.app.BlinkTrade.prototype.onBitexWithdrawResponse_ = function(e) {
+  var msg = e.data;
+
   if ( this.getModel().get('Profile')['NeedWithdrawEmail'] ) {
-      var dlg_content = bitex.templates.WithdrawConfirmationDialogContent();
+
+      var dlg_content;
+      if (this.getModel().get('TwoFactorEnabled')) {
+        dlg_content = bitex.templates.GoogleAuthenticationCodeDialogContent();
+      } else {
+        dlg_content = bitex.templates.WithdrawConfirmationDialogContent();
+      }
 
       /**
        * @desc withdraw confirmation dialog title
@@ -553,8 +561,15 @@ bitex.app.BlinkTrade.prototype.onBitexWithdrawResponse_ = function(e) {
             e.preventDefault();
           } else {
             var withdraw_confirmation_data = withdraw_confirmation_uniform.getAsJSON();
-            var confirmation_code = withdraw_confirmation_data['confirmation_code'];
-            this.conn_.confirmWithdraw( confirmation_code );
+
+            if (this.getModel().get('TwoFactorEnabled')) {
+              var token = withdraw_confirmation_data['token'];
+              var withdraw_id = msg['WithdrawID'];
+              this.conn_.confirmWithdraw( undefined, withdraw_id, token);
+            } else {
+              var confirmation_code = withdraw_confirmation_data['confirmation_code'];
+              this.conn_.confirmWithdraw( confirmation_code );
+            }
           }
         }
       }, this);

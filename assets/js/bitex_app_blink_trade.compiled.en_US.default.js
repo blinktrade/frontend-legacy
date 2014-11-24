@@ -8764,8 +8764,12 @@ $JSCompiler_prototypeAlias$$.$requestWithdraw$ = function $$JSCompiler_prototype
   this.sendMessage($amount$$4_msg$$35$$);
   return $opt_request_id$$5_reqId$$5$$
 };
-$JSCompiler_prototypeAlias$$.$confirmWithdraw$ = function $$JSCompiler_prototypeAlias$$$$confirmWithdraw$$($confirmation_token$$) {
-  this.sendMessage({MsgType:"U24", WithdrawReqID:parseInt(1E6 * Math.random(), 10), ConfirmationToken:$confirmation_token$$})
+$JSCompiler_prototypeAlias$$.$confirmWithdraw$ = function $$JSCompiler_prototypeAlias$$$$confirmWithdraw$$($opt_confirmation_token$$, $opt_withdrawId$$, $opt_secondFactor$$) {
+  var $msg$$36$$ = {MsgType:"U24", WithdrawReqID:parseInt(1E6 * Math.random(), 10)};
+  $opt_confirmation_token$$ != $JSCompiler_alias_NULL$$ && ($msg$$36$$.ConfirmationToken = $opt_confirmation_token$$);
+  $opt_withdrawId$$ != $JSCompiler_alias_NULL$$ && ($msg$$36$$.WithdrawID = $opt_withdrawId$$);
+  $opt_secondFactor$$ != $JSCompiler_alias_NULL$$ && ($msg$$36$$.SecondFactor = $opt_secondFactor$$);
+  this.sendMessage($msg$$36$$)
 };
 $JSCompiler_prototypeAlias$$.$requestWithdrawList$ = function $$JSCompiler_prototypeAlias$$$$requestWithdrawList$$($opt_requestId_requestId$$1$$, $msg$$37_opt_page$$, $opt_limit$$1$$, $opt_status$$, $opt_clientID$$3$$, $opt_filter$$) {
   $opt_requestId_requestId$$1$$ = $opt_requestId_requestId$$1$$ || parseInt(1E7 * Math.random(), 10);
@@ -10218,18 +10222,24 @@ $JSCompiler_prototypeAlias$$.$onBitexRawMessageLogger_$ = function $$JSCompiler_
   }
 };
 $JSCompiler_prototypeAlias$$.$onBitexWithdrawConfirmationResponse_$ = function $$JSCompiler_prototypeAlias$$$$onBitexWithdrawConfirmationResponse_$$($e$$238$$) {
-  $e$$238$$.data.ConfirmationToken == $JSCompiler_alias_NULL$$ && (this.$showNotification$("error", "Invalid confirmation token!"), this.$onBitexWithdrawResponse_$())
+  var $msg$$84$$ = $e$$238$$.data;
+  if($msg$$84$$.Status == $JSCompiler_alias_NULL$$ || "1" != $msg$$84$$.Status) {
+    this.$showNotification$("error", "Invalid confirmation token!"), this.$onBitexWithdrawResponse_$($e$$238$$)
+  }
 };
-$JSCompiler_prototypeAlias$$.$onBitexWithdrawResponse_$ = function $$JSCompiler_prototypeAlias$$$$onBitexWithdrawResponse_$$() {
+$JSCompiler_prototypeAlias$$.$onBitexWithdrawResponse_$ = function $$JSCompiler_prototypeAlias$$$$onBitexWithdrawResponse_$$($dlg_content$$2_e$$239_withdrawConfirmationDialog$$) {
+  var $msg$$85$$ = $dlg_content$$2_e$$239_withdrawConfirmationDialog$$.data;
   if(this.$model_$.get("Profile").NeedWithdrawEmail) {
-    var $withdrawConfirmationDialog$$ = this.$showDialog$($bitex$templates$WithdrawConfirmationDialogContent$$(), "Confirm", $bootstrap$Dialog$ButtonSet$createOkCancel$$()), $form_element$$ = $goog$dom$getFirstElementChild$$($withdrawConfirmationDialog$$.$getContentElement$()), $withdraw_confirmation_uniform$$ = new $uniform$Uniform$$;
+    $dlg_content$$2_e$$239_withdrawConfirmationDialog$$ = this.$model_$.get("TwoFactorEnabled") ? $bitex$templates$GoogleAuthenticationCodeDialogContent$$() : $bitex$templates$WithdrawConfirmationDialogContent$$();
+    $dlg_content$$2_e$$239_withdrawConfirmationDialog$$ = this.$showDialog$($dlg_content$$2_e$$239_withdrawConfirmationDialog$$, "Confirm", $bootstrap$Dialog$ButtonSet$createOkCancel$$());
+    var $form_element$$ = $goog$dom$getFirstElementChild$$($dlg_content$$2_e$$239_withdrawConfirmationDialog$$.$getContentElement$()), $withdraw_confirmation_uniform$$ = new $uniform$Uniform$$;
     $withdraw_confirmation_uniform$$.$decorate$($form_element$$);
-    $JSCompiler_StaticMethods_listen$$(this.$getHandler$(), $withdrawConfirmationDialog$$, $goog$ui$Dialog$EventType$SELECT$$, function($confirmation_code_e$$240$$) {
-      if("ok" == $confirmation_code_e$$240$$.key) {
+    $JSCompiler_StaticMethods_listen$$(this.$getHandler$(), $dlg_content$$2_e$$239_withdrawConfirmationDialog$$, $goog$ui$Dialog$EventType$SELECT$$, function($e$$240_withdraw_confirmation_data$$) {
+      if("ok" == $e$$240_withdraw_confirmation_data$$.key) {
         var $error_list$$4$$ = $withdraw_confirmation_uniform$$.$validate$();
         0 < $error_list$$4$$.length ? ($goog$array$forEach$$($error_list$$4$$, function($error_msg$$3$$) {
           this.$showNotification$("error", $error_msg$$3$$)
-        }, this), $confirmation_code_e$$240$$.stopPropagation(), $confirmation_code_e$$240$$.preventDefault()) : ($confirmation_code_e$$240$$ = $JSCompiler_StaticMethods_getAsJSON$$($withdraw_confirmation_uniform$$).confirmation_code, this.$conn_$.$confirmWithdraw$($confirmation_code_e$$240$$))
+        }, this), $e$$240_withdraw_confirmation_data$$.stopPropagation(), $e$$240_withdraw_confirmation_data$$.preventDefault()) : ($e$$240_withdraw_confirmation_data$$ = $JSCompiler_StaticMethods_getAsJSON$$($withdraw_confirmation_uniform$$), this.$model_$.get("TwoFactorEnabled") ? this.$conn_$.$confirmWithdraw$($JSCompiler_alias_VOID$$, $msg$$85$$.WithdrawID, $e$$240_withdraw_confirmation_data$$.token) : this.$conn_$.$confirmWithdraw$($e$$240_withdraw_confirmation_data$$.confirmation_code))
       }
     }, this)
   }
@@ -10273,9 +10283,9 @@ $JSCompiler_prototypeAlias$$.$onUserChangePassword_$ = function $$JSCompiler_pro
   $e$$247_new_password$$2$$ = $e$$247_new_password$$2$$.target.$getNewPassword$();
   this.$conn_$.$changePassword$(this.$model_$.get("SelectedBrokerID"), this.$model_$.get("Username"), $password$$6$$, $e$$247_new_password$$2$$)
 };
-$JSCompiler_prototypeAlias$$.$onChangePasswordResponse_$ = function $$JSCompiler_prototypeAlias$$$$onChangePasswordResponse_$$($e$$248_msg$$85$$) {
-  $e$$248_msg$$85$$ = $e$$248_msg$$85$$.data;
-  if($e$$248_msg$$85$$.NeedSecondFactor) {
+$JSCompiler_prototypeAlias$$.$onChangePasswordResponse_$ = function $$JSCompiler_prototypeAlias$$$$onChangePasswordResponse_$$($e$$248_msg$$86$$) {
+  $e$$248_msg$$86$$ = $e$$248_msg$$86$$.data;
+  if($e$$248_msg$$86$$.NeedSecondFactor) {
     var $dlg_$$ = this.$showDialog$($bitex$templates$GoogleAuthenticationCodeDialogContent$$(), "2 steps authentication", $bootstrap$Dialog$ButtonSet$createOkCancel$$()), $gauth_uniform$$ = new $uniform$Uniform$$;
     $gauth_uniform$$.$decorate$($goog$dom$getFirstElementChild$$($dlg_$$.$getContentElement$()));
     $JSCompiler_StaticMethods_listen$$(this.$getHandler$(), $dlg_$$, $goog$ui$Dialog$EventType$SELECT$$, function($e$$249_second_factor$$) {
@@ -10294,7 +10304,7 @@ $JSCompiler_prototypeAlias$$.$onChangePasswordResponse_$ = function $$JSCompiler
       }
     })
   }else {
-    "MSG_SUCCESS_PASSWORD_CHANGE" == $e$$248_msg$$85$$.UserStatusText ? this.$showDialog$("Password changed!", "Success") : this.$showDialog$($e$$248_msg$$85$$.UserStatusText)
+    "MSG_SUCCESS_PASSWORD_CHANGE" == $e$$248_msg$$86$$.UserStatusText ? this.$showDialog$("Password changed!", "Success") : this.$showDialog$($e$$248_msg$$86$$.UserStatusText)
   }
 };
 $JSCompiler_prototypeAlias$$.$onUserChangeMarket_$ = function $$JSCompiler_prototypeAlias$$$$onUserChangeMarket_$$($e$$250_symbol$$16$$) {
@@ -10308,19 +10318,19 @@ $JSCompiler_prototypeAlias$$.$onBitexDepositMethodsResponse_$ = function $$JSCom
   });
   this.$model_$.set("DepositMethods", $deposit_methods$$)
 };
-$JSCompiler_prototypeAlias$$.$onBitexPasswordChangedOk_$ = function $$JSCompiler_prototypeAlias$$$$onBitexPasswordChangedOk_$$($e$$252_msg$$87$$) {
-  $e$$252_msg$$87$$ = $e$$252_msg$$87$$.data;
-  "MSG_SUCCESS_PASSWORD_CHANGE" == $e$$252_msg$$87$$.UserStatusText ? this.$showDialog$("Password changed!", "Success") : this.$showDialog$($e$$252_msg$$87$$.UserStatusText, "Success");
+$JSCompiler_prototypeAlias$$.$onBitexPasswordChangedOk_$ = function $$JSCompiler_prototypeAlias$$$$onBitexPasswordChangedOk_$$($e$$252_msg$$88$$) {
+  $e$$252_msg$$88$$ = $e$$252_msg$$88$$.data;
+  "MSG_SUCCESS_PASSWORD_CHANGE" == $e$$252_msg$$88$$.UserStatusText ? this.$showDialog$("Password changed!", "Success") : this.$showDialog$($e$$252_msg$$88$$.UserStatusText, "Success");
   this.$router_$.$setView$("signin")
 };
 $JSCompiler_prototypeAlias$$.$onBitexPasswordChangedError_$ = function $$JSCompiler_prototypeAlias$$$$onBitexPasswordChangedError_$$($e$$253$$) {
   "MSG_CHANGE_PASSWORD_INVALID_SECURITY_CODE" == $e$$253$$.data.UserStatusText ? this.$showDialog$("Invalid security code.", "Error") : this.$showDialog$("There was an error changing the password", "Error")
 };
-$JSCompiler_prototypeAlias$$.$onBitexWithdrawIncrementalUpdate_$ = function $$JSCompiler_prototypeAlias$$$$onBitexWithdrawIncrementalUpdate_$$($e$$254_msg$$89$$) {
-  $e$$254_msg$$89$$ = $e$$254_msg$$89$$.data;
-  var $MSG_WITHDRAW_NOTIFICATION_USER_UNCONFIRMED_TITLE$$ = "Created withdraw [" + ($e$$254_msg$$89$$.WithdrawID + "] "), $MSG_WITHDRAW_NOTIFICATION_USER_CONFIRMED_TITLE$$ = "Withdraw [" + ($e$$254_msg$$89$$.WithdrawID + "] confirmed"), $MSG_WITHDRAW_NOTIFICATION_USER_PROGRESS_TITLE$$ = "Withdraw [" + ($e$$254_msg$$89$$.WithdrawID + "] in progress"), $MSG_WITHDRAW_NOTIFICATION_USER_COMPLETE_TITLE$$ = "Withdraw [" + ($e$$254_msg$$89$$.WithdrawID + "] completed"), $MSG_WITHDRAW_NOTIFICATION_USER_CANCEL_TITLE$$ = 
-  "withdraw [" + ($e$$254_msg$$89$$.WithdrawID + "] cancelled"), $formatted_value$$2$$ = this.$formatCurrency$($e$$254_msg$$89$$.Amount / 1E8, $e$$254_msg$$89$$.Currency), $notification_type_title$$;
-  switch($e$$254_msg$$89$$.Status) {
+$JSCompiler_prototypeAlias$$.$onBitexWithdrawIncrementalUpdate_$ = function $$JSCompiler_prototypeAlias$$$$onBitexWithdrawIncrementalUpdate_$$($e$$254_msg$$90$$) {
+  $e$$254_msg$$90$$ = $e$$254_msg$$90$$.data;
+  var $MSG_WITHDRAW_NOTIFICATION_USER_UNCONFIRMED_TITLE$$ = "Created withdraw [" + ($e$$254_msg$$90$$.WithdrawID + "] "), $MSG_WITHDRAW_NOTIFICATION_USER_CONFIRMED_TITLE$$ = "Withdraw [" + ($e$$254_msg$$90$$.WithdrawID + "] confirmed"), $MSG_WITHDRAW_NOTIFICATION_USER_PROGRESS_TITLE$$ = "Withdraw [" + ($e$$254_msg$$90$$.WithdrawID + "] in progress"), $MSG_WITHDRAW_NOTIFICATION_USER_COMPLETE_TITLE$$ = "Withdraw [" + ($e$$254_msg$$90$$.WithdrawID + "] completed"), $MSG_WITHDRAW_NOTIFICATION_USER_CANCEL_TITLE$$ = 
+  "withdraw [" + ($e$$254_msg$$90$$.WithdrawID + "] cancelled"), $formatted_value$$2$$ = this.$formatCurrency$($e$$254_msg$$90$$.Amount / 1E8, $e$$254_msg$$90$$.Currency), $notification_type_title$$;
+  switch($e$$254_msg$$90$$.Status) {
     case "0":
       $notification_type_title$$ = ["warning", $MSG_WITHDRAW_NOTIFICATION_USER_UNCONFIRMED_TITLE$$];
       break;
@@ -10339,20 +10349,20 @@ $JSCompiler_prototypeAlias$$.$onBitexWithdrawIncrementalUpdate_$ = function $$JS
   $notification_type_title$$ != $JSCompiler_alias_NULL$$ && this.$showNotification$($notification_type_title$$[0], $notification_type_title$$[1], $formatted_value$$2$$)
 };
 $JSCompiler_prototypeAlias$$.$onBitexVerifyCustomerUpdate_$ = function $$JSCompiler_prototypeAlias$$$$onBitexVerifyCustomerUpdate_$$($e$$255_profile$$2$$) {
-  var $MSG_ACCOUNT_VERIFIED_CONTENT_msg$$90$$ = $e$$255_profile$$2$$.data;
+  var $MSG_ACCOUNT_VERIFIED_CONTENT_msg$$91$$ = $e$$255_profile$$2$$.data;
   $e$$255_profile$$2$$ = this.$model_$.get("Profile");
   var $old_verified$$ = $e$$255_profile$$2$$.Verified;
-  $e$$255_profile$$2$$.Verified = $MSG_ACCOUNT_VERIFIED_CONTENT_msg$$90$$.Verified;
-  $e$$255_profile$$2$$.VerificationData = $MSG_ACCOUNT_VERIFIED_CONTENT_msg$$90$$.VerificationData;
+  $e$$255_profile$$2$$.Verified = $MSG_ACCOUNT_VERIFIED_CONTENT_msg$$91$$.Verified;
+  $e$$255_profile$$2$$.VerificationData = $MSG_ACCOUNT_VERIFIED_CONTENT_msg$$91$$.VerificationData;
   this.$model_$.set("Profile", $e$$255_profile$$2$$);
   this.$model_$.set("IsVerified", 1 < $e$$255_profile$$2$$.Verified);
-  $MSG_ACCOUNT_VERIFIED_CONTENT_msg$$90$$ = "You account has been verified. level - " + ($e$$255_profile$$2$$.Verified - 2);
-  0 == $old_verified$$ && 1 == $e$$255_profile$$2$$.Verified ? (this.$router_$.$setView$("offerbook"), this.$showNotification$("success", "Verification:", "Sent to the broker.")) : 2 == $e$$255_profile$$2$$.Verified ? this.$showNotification$("success", "Verification:", "In progress.") : 3 <= $e$$255_profile$$2$$.Verified && this.$showNotification$("success", "Verification:", $MSG_ACCOUNT_VERIFIED_CONTENT_msg$$90$$)
+  $MSG_ACCOUNT_VERIFIED_CONTENT_msg$$91$$ = "You account has been verified. level - " + ($e$$255_profile$$2$$.Verified - 2);
+  0 == $old_verified$$ && 1 == $e$$255_profile$$2$$.Verified ? (this.$router_$.$setView$("offerbook"), this.$showNotification$("success", "Verification:", "Sent to the broker.")) : 2 == $e$$255_profile$$2$$.Verified ? this.$showNotification$("success", "Verification:", "In progress.") : 3 <= $e$$255_profile$$2$$.Verified && this.$showNotification$("success", "Verification:", $MSG_ACCOUNT_VERIFIED_CONTENT_msg$$91$$)
 };
-$JSCompiler_prototypeAlias$$.$onBitexExecutionReport_$ = function $$JSCompiler_prototypeAlias$$$$onBitexExecutionReport_$$($e$$256_msg$$91$$) {
-  $e$$256_msg$$91$$ = $e$$256_msg$$91$$.data;
-  var $MSG_ORDER_EXECUTION_TITLE_NOTIFICATION$$ = "Order " + ($e$$256_msg$$91$$.OrderID + " ");
-  switch($e$$256_msg$$91$$.ExecType) {
+$JSCompiler_prototypeAlias$$.$onBitexExecutionReport_$ = function $$JSCompiler_prototypeAlias$$$$onBitexExecutionReport_$$($e$$256_msg$$92$$) {
+  $e$$256_msg$$92$$ = $e$$256_msg$$92$$.data;
+  var $MSG_ORDER_EXECUTION_TITLE_NOTIFICATION$$ = "Order " + ($e$$256_msg$$92$$.OrderID + " ");
+  switch($e$$256_msg$$92$$.ExecType) {
     case "1":
       this.$showNotification$("success", $MSG_ORDER_EXECUTION_TITLE_NOTIFICATION$$, "partially filled");
       break;
@@ -10363,17 +10373,17 @@ $JSCompiler_prototypeAlias$$.$onBitexExecutionReport_$ = function $$JSCompiler_p
       this.$showNotification$("success", $MSG_ORDER_EXECUTION_TITLE_NOTIFICATION$$, "cancelled")
   }
 };
-$JSCompiler_prototypeAlias$$.$onBitexTwoFactorSecretResponse_$ = function $$JSCompiler_prototypeAlias$$$$onBitexTwoFactorSecretResponse_$$($e$$257_msg$$92$$) {
-  $e$$257_msg$$92$$ = $e$$257_msg$$92$$.data;
-  this.$model_$.set("TwoFactorSecret", $e$$257_msg$$92$$.TwoFactorSecret);
-  this.$model_$.set("TwoFactorEnabled", $e$$257_msg$$92$$.TwoFactorEnabled)
+$JSCompiler_prototypeAlias$$.$onBitexTwoFactorSecretResponse_$ = function $$JSCompiler_prototypeAlias$$$$onBitexTwoFactorSecretResponse_$$($e$$257_msg$$93$$) {
+  $e$$257_msg$$93$$ = $e$$257_msg$$93$$.data;
+  this.$model_$.set("TwoFactorSecret", $e$$257_msg$$93$$.TwoFactorSecret);
+  this.$model_$.set("TwoFactorEnabled", $e$$257_msg$$93$$.TwoFactorEnabled)
 };
-$JSCompiler_prototypeAlias$$.$onBitexPositionResponse_$ = function $$JSCompiler_prototypeAlias$$$$onBitexPositionResponse_$$($e$$258_msg$$93$$) {
-  $e$$258_msg$$93$$ = $e$$258_msg$$93$$.data;
-  delete $e$$258_msg$$93$$.MsgType;
-  delete $e$$258_msg$$93$$.PositionReqID;
-  var $clientID$$2$$ = $e$$258_msg$$93$$.ClientID;
-  $goog$object$forEach$$($e$$258_msg$$93$$, function($positions$$, $broker$$13$$) {
+$JSCompiler_prototypeAlias$$.$onBitexPositionResponse_$ = function $$JSCompiler_prototypeAlias$$$$onBitexPositionResponse_$$($e$$258_msg$$94$$) {
+  $e$$258_msg$$94$$ = $e$$258_msg$$94$$.data;
+  delete $e$$258_msg$$94$$.MsgType;
+  delete $e$$258_msg$$94$$.PositionReqID;
+  var $clientID$$2$$ = $e$$258_msg$$94$$.ClientID;
+  $goog$object$forEach$$($e$$258_msg$$94$$, function($positions$$, $broker$$13$$) {
     $goog$object$forEach$$($positions$$, function($position$$3$$, $currency$$17$$) {
       $position$$3$$ /= 1E8;
       var $position_key$$ = "position_" + $broker$$13$$ + ":" + $clientID$$2$$ + "_" + $currency$$17$$;
@@ -10382,14 +10392,14 @@ $JSCompiler_prototypeAlias$$.$onBitexPositionResponse_$ = function $$JSCompiler_
     }, this)
   }, this)
 };
-$JSCompiler_prototypeAlias$$.$onBitexBalanceResponse_$ = function $$JSCompiler_prototypeAlias$$$$onBitexBalanceResponse_$$($e$$259_msg$$94$$) {
-  $e$$259_msg$$94$$ = $e$$259_msg$$94$$.data;
-  delete $e$$259_msg$$94$$.MsgType;
-  delete $e$$259_msg$$94$$.BalanceReqID;
-  var $clientID$$3$$ = $e$$259_msg$$94$$.ClientID, $value_fmt$$5$$ = new $goog$i18n$NumberFormat$$(1);
+$JSCompiler_prototypeAlias$$.$onBitexBalanceResponse_$ = function $$JSCompiler_prototypeAlias$$$$onBitexBalanceResponse_$$($e$$259_msg$$95$$) {
+  $e$$259_msg$$95$$ = $e$$259_msg$$95$$.data;
+  delete $e$$259_msg$$95$$.MsgType;
+  delete $e$$259_msg$$95$$.BalanceReqID;
+  var $clientID$$3$$ = $e$$259_msg$$95$$.ClientID, $value_fmt$$5$$ = new $goog$i18n$NumberFormat$$(1);
   $JSCompiler_StaticMethods_setMaximumFractionDigits$$($value_fmt$$5$$, 8);
   $JSCompiler_StaticMethods_setMinimumFractionDigits$$($value_fmt$$5$$);
-  $goog$object$forEach$$($e$$259_msg$$94$$, function($balances$$, $broker$$14$$) {
+  $goog$object$forEach$$($e$$259_msg$$95$$, function($balances$$, $broker$$14$$) {
     $goog$object$forEach$$($balances$$, function($balance$$1$$, $currency$$18$$) {
       $balance$$1$$ /= 1E8;
       var $balance_key$$1$$ = "balance_" + $broker$$14$$ + ":" + $clientID$$3$$ + "_" + $currency$$18$$;
@@ -10560,10 +10570,10 @@ $JSCompiler_prototypeAlias$$.$onUpdateProfileResponse_$ = function $$JSCompiler_
   this.$model_$.set("SelectedCustomer", $e$$275$$.data.Profile)
 };
 $JSCompiler_prototypeAlias$$.$onSuggestTrustedAddress_$ = function $$JSCompiler_prototypeAlias$$$$onSuggestTrustedAddress_$$($MSG_ENABLE_INSTANT_DEPOSIT_DIALOG_TITLE_e$$276$$) {
-  var $msg$$96$$ = $MSG_ENABLE_INSTANT_DEPOSIT_DIALOG_TITLE_e$$276$$.data;
+  var $msg$$97$$ = $MSG_ENABLE_INSTANT_DEPOSIT_DIALOG_TITLE_e$$276$$.data;
   if(this.$model_$.get("IsVerified")) {
-    $MSG_ENABLE_INSTANT_DEPOSIT_DIALOG_TITLE_e$$276$$ = "Enable " + (this.$getCurrencyDescription$($msg$$96$$.Currency) + " instant deposit?");
-    var $dlg$$5$$ = this.$showDialog$($bitex$templates$ConfirmTrustedAddressContentDialog$$({data:$msg$$96$$}), $MSG_ENABLE_INSTANT_DEPOSIT_DIALOG_TITLE_e$$276$$, $bootstrap$Dialog$ButtonSet$createYesNoCancel$$());
+    $MSG_ENABLE_INSTANT_DEPOSIT_DIALOG_TITLE_e$$276$$ = "Enable " + (this.$getCurrencyDescription$($msg$$97$$.Currency) + " instant deposit?");
+    var $dlg$$5$$ = this.$showDialog$($bitex$templates$ConfirmTrustedAddressContentDialog$$({data:$msg$$97$$}), $MSG_ENABLE_INSTANT_DEPOSIT_DIALOG_TITLE_e$$276$$, $bootstrap$Dialog$ButtonSet$createYesNoCancel$$());
     $JSCompiler_StaticMethods_listen$$(this.$getHandler$(), $dlg$$5$$, $goog$ui$Dialog$EventType$SELECT$$, function($address_label_el_e$$277$$) {
       if("yes" == $address_label_el_e$$277$$.key) {
         $address_label_el_e$$277$$.preventDefault();
@@ -10571,7 +10581,7 @@ $JSCompiler_prototypeAlias$$.$onSuggestTrustedAddress_$ = function $$JSCompiler_
         $address_label_el_e$$277$$ = $goog$dom$getElementByClass$$("confirm-trusted-address-label", $dlg$$5$$.$getContentElement$());
         var $label$$7$$;
         $address_label_el_e$$277$$ != $JSCompiler_alias_NULL$$ && ($label$$7$$ = $goog$dom$forms$getValue$$($address_label_el_e$$277$$));
-        this.$conn_$.sendMessage({MsgType:"U44", ConfirmTrustedAddressReqID:parseInt(1E7 * Math.random(), 10), Address:$msg$$96$$.Address, Currency:$msg$$96$$.Currency, Label:$label$$7$$})
+        this.$conn_$.sendMessage({MsgType:"U44", ConfirmTrustedAddressReqID:parseInt(1E7 * Math.random(), 10), Address:$msg$$97$$.Address, Currency:$msg$$97$$.Currency, Label:$label$$7$$})
       }
       $dlg$$5$$.$dispose$()
     }, this)
@@ -10715,10 +10725,10 @@ $JSCompiler_prototypeAlias$$.$onUserDepositRequest_$ = function $$JSCompiler_pro
       "yes" == $e$$286_request_id$$3$$.key && ($e$$286_request_id$$3$$.preventDefault(), $e$$286_request_id$$3$$.stopPropagation(), $e$$286_request_id$$3$$ = parseInt(1E7 * Math.random(), 10), this.$conn_$.$requestDeposit$($e$$286_request_id$$3$$, $JSCompiler_alias_VOID$$, $JSCompiler_alias_VOID$$, $JSCompiler_alias_VOID$$, $currency$$22$$), $goog$soy$renderElement$$($goog$dom$getFirstElementChild$$($dlgConfirm$$.$getContentElement$()), $bitex$templates$WaitingForDepositResponseDialogContent$$), 
       $JSCompiler_StaticMethods_setButtonSet$$($dlgConfirm$$, $JSCompiler_StaticMethods_addButton$$(new $bootstrap$Dialog$ButtonSet$$, $goog$ui$Dialog$ButtonSet$DefaultButtons$CANCEL$$, $JSCompiler_alias_FALSE$$, $JSCompiler_alias_TRUE$$)), $JSCompiler_StaticMethods_listenOnce$$($handler$$107$$, this.$conn_$, "error_message." + $e$$286_request_id$$3$$, function() {
         $dlgConfirm$$.$dispose$()
-      }), $JSCompiler_StaticMethods_listenOnce$$($handler$$107$$, this.$conn_$, "deposit_response." + $e$$286_request_id$$3$$, function($e$$288_msg$$97$$) {
-        $e$$288_msg$$97$$ = $e$$288_msg$$97$$.data;
-        var $enabled_instant_deposits$$ = 3 <= $user_verification_level$$1$$, $input_address$$1$$ = $e$$288_msg$$97$$.Data.InputAddress;
-        $goog$soy$renderElement$$($goog$dom$getFirstElementChild$$($dlgConfirm$$.$getContentElement$()), $bitex$templates$DepositCryptoCurrencyContentDialog$$, {$deposit_message$:$e$$288_msg$$97$$, $hasInstantDepositsEnabled$:$enabled_instant_deposits$$});
+      }), $JSCompiler_StaticMethods_listenOnce$$($handler$$107$$, this.$conn_$, "deposit_response." + $e$$286_request_id$$3$$, function($e$$288_msg$$98$$) {
+        $e$$288_msg$$98$$ = $e$$288_msg$$98$$.data;
+        var $enabled_instant_deposits$$ = 3 <= $user_verification_level$$1$$, $input_address$$1$$ = $e$$288_msg$$98$$.Data.InputAddress;
+        $goog$soy$renderElement$$($goog$dom$getFirstElementChild$$($dlgConfirm$$.$getContentElement$()), $bitex$templates$DepositCryptoCurrencyContentDialog$$, {$deposit_message$:$e$$288_msg$$98$$, $hasInstantDepositsEnabled$:$enabled_instant_deposits$$});
         $JSCompiler_StaticMethods_listen$$($handler$$107$$, this.$conn_$, $bitex$api$BitEx$EventType$DEPOSIT_REFRESH$$, function($e$$289_refresh_msg$$1$$) {
           $e$$289_refresh_msg$$1$$ = $e$$289_refresh_msg$$1$$.data;
           $e$$289_refresh_msg$$1$$.Data.InputAddress === $input_address$$1$$ && $e$$289_refresh_msg$$1$$.Data.Confirmations != $JSCompiler_alias_NULL$$ && "0" == $e$$289_refresh_msg$$1$$.Data.Confirmations && $dlgConfirm$$.$dispose$()
@@ -10773,11 +10783,11 @@ $JSCompiler_prototypeAlias$$.$onUserDepositRequest_$ = function $$JSCompiler_pro
             this.$conn_$.$requestDeposit$($pos$$29_request_id$$4$$, $goog$string$toNumber$$($deposit_data$$2_e$$291$$.Method), 1E8 * $amount$$7_error_list$$7$$);
             $goog$soy$renderElement$$($dlg$$7$$.$getContentElement$(), $bitex$templates$WaitingForDepositResponseDialogContent$$);
             $JSCompiler_StaticMethods_listenOnce$$($handler$$107$$, this.$conn_$, "deposit_response." + $pos$$29_request_id$$4$$, function($e$$292$$) {
-              var $msg$$98$$ = $e$$292$$.data;
-              $goog$soy$renderElement$$($dlg$$7$$.$getContentElement$(), $bitex$templates$DepositSlipContentDialog$$, {$deposit_id$:$msg$$98$$.DepositID, $rest_url$:this.$rest_url_$});
+              var $msg$$99$$ = $e$$292$$.data;
+              $goog$soy$renderElement$$($dlg$$7$$.$getContentElement$(), $bitex$templates$DepositSlipContentDialog$$, {$deposit_id$:$msg$$99$$.DepositID, $rest_url$:this.$rest_url_$});
               $JSCompiler_StaticMethods_setButtonSet$$($dlg$$7$$, $JSCompiler_StaticMethods_addButton$$($JSCompiler_StaticMethods_addButton$$(new $bootstrap$Dialog$ButtonSet$$, $bootstrap$Dialog$ButtonSet$DefaultButtons$PRINT$$), $goog$ui$Dialog$ButtonSet$DefaultButtons$OK$$, $JSCompiler_alias_TRUE$$, $JSCompiler_alias_TRUE$$));
               $JSCompiler_StaticMethods_listen$$($handler$$107$$, $dlg$$7$$, $goog$ui$Dialog$EventType$SELECT$$, function($e$$293$$) {
-                "print" == $e$$293$$.key && window.open(this.$rest_url_$ + "/get_deposit?deposit_id=" + $msg$$98$$.DepositID)
+                "print" == $e$$293$$.key && window.open(this.$rest_url_$ + "/get_deposit?deposit_id=" + $msg$$99$$.DepositID)
               })
             })
           }
@@ -10798,9 +10808,9 @@ $JSCompiler_prototypeAlias$$.$onUserEnableTwoFactor_$ = function $$JSCompiler_pr
   $has_code$$ && ($secret$$3$$ = this.$model_$.get("TwoFactorSecret"));
   var $req_id$$ = parseInt(1E6 * Math.random(), 10);
   this.$conn_$.$enableTwoFactor$($JSCompiler_alias_TRUE$$, $secret$$3$$, $code$$5$$, $JSCompiler_alias_VOID$$, $req_id$$);
-  $JSCompiler_StaticMethods_listenOnce$$(this.$getHandler$(), this.$conn_$, "two_factor_secret." + $req_id$$, function($e$$297_msg$$99$$) {
-    $e$$297_msg$$99$$ = $e$$297_msg$$99$$.data;
-    $has_code$$ && !$e$$297_msg$$99$$.TwoFactorEnabled && this.$showDialog$("Wrong authentication code. Please, make sure that you are using Google Authenticator and your cellphone time is exact synched with google servers.")
+  $JSCompiler_StaticMethods_listenOnce$$(this.$getHandler$(), this.$conn_$, "two_factor_secret." + $req_id$$, function($e$$297_msg$$100$$) {
+    $e$$297_msg$$100$$ = $e$$297_msg$$100$$.data;
+    $has_code$$ && !$e$$297_msg$$100$$.TwoFactorEnabled && this.$showDialog$("Wrong authentication code. Please, make sure that you are using Google Authenticator and your cellphone time is exact synched with google servers.")
   }, this)
 };
 $JSCompiler_prototypeAlias$$.$onUserDisableTwoFactor_$ = function $$JSCompiler_prototypeAlias$$$$onUserDisableTwoFactor_$$() {
@@ -10832,25 +10842,25 @@ $JSCompiler_prototypeAlias$$.$onUserLoginButtonClick_$ = function $$JSCompiler_p
   this.$model_$.set("Password", $e$$301$$.target.$getPassword$());
   this.$conn_$.login(this.$model_$.get("SelectedBrokerID"), $username$$11$$, $password$$8$$)
 };
-$JSCompiler_prototypeAlias$$.$onUserLoginOk_$ = function $$JSCompiler_prototypeAlias$$$$onUserLoginOk_$$($e$$302_msg$$100$$) {
-  $e$$302_msg$$100$$ = $e$$302_msg$$100$$.data;
+$JSCompiler_prototypeAlias$$.$onUserLoginOk_$ = function $$JSCompiler_prototypeAlias$$$$onUserLoginOk_$$($e$$302_msg$$101$$) {
+  $e$$302_msg$$101$$ = $e$$302_msg$$101$$.data;
   $goog$dom$classes$add$$(document.body, "bitex-logged");
   $goog$dom$classes$remove$$(document.body, "bitex-not-logged");
-  this.$model_$.set("UserID", $e$$302_msg$$100$$.UserID);
-  this.$model_$.set("PseudoName", $bitex$util$getPseudoName$$($e$$302_msg$$100$$.UserID));
-  this.$model_$.set("Username", $e$$302_msg$$100$$.Username);
-  this.$model_$.set("Email", $e$$302_msg$$100$$.Email);
-  this.$model_$.set("TwoFactorEnabled", $e$$302_msg$$100$$.TwoFactorEnabled);
-  this.$model_$.set("IsBroker", $e$$302_msg$$100$$.IsBroker);
-  this.$model_$.set("IsVerified", 1 < $e$$302_msg$$100$$.Profile.Verified);
+  this.$model_$.set("UserID", $e$$302_msg$$101$$.UserID);
+  this.$model_$.set("PseudoName", $bitex$util$getPseudoName$$($e$$302_msg$$101$$.UserID));
+  this.$model_$.set("Username", $e$$302_msg$$101$$.Username);
+  this.$model_$.set("Email", $e$$302_msg$$101$$.Email);
+  this.$model_$.set("TwoFactorEnabled", $e$$302_msg$$101$$.TwoFactorEnabled);
+  this.$model_$.set("IsBroker", $e$$302_msg$$101$$.IsBroker);
+  this.$model_$.set("IsVerified", 1 < $e$$302_msg$$101$$.Profile.Verified);
   var $broker_currencies$$3_tags$$1_verification_data$$3$$ = new $goog$structs$Set$$, $allowed_markets$$2$$ = {}, $user_brokers$$ = {}, $broker_info$$7_profile$$3$$;
-  $e$$302_msg$$100$$.Broker != $JSCompiler_alias_NULL$$ && ($broker_info$$7_profile$$3$$ = $JSCompiler_StaticMethods_adjustBrokerData_$$(this, $e$$302_msg$$100$$.Broker), $goog$object$extend$$($allowed_markets$$2$$, $broker_info$$7_profile$$3$$.AllowedMarkets), $broker_currencies$$3_tags$$1_verification_data$$3$$.$addAll$($broker_info$$7_profile$$3$$.BrokerCurrencies), this.$model_$.set("Broker", $broker_info$$7_profile$$3$$), $user_brokers$$[$broker_info$$7_profile$$3$$.BrokerID] = $broker_info$$7_profile$$3$$, 
-  $e$$302_msg$$100$$.IsBroker || this.$model_$.set("UserBrokers", $user_brokers$$));
-  $broker_info$$7_profile$$3$$ = $e$$302_msg$$100$$.Profile;
-  $e$$302_msg$$100$$.IsBroker ? ($goog$dom$classes$add$$(document.body, "bitex-broker"), $broker_info$$7_profile$$3$$ = $JSCompiler_StaticMethods_adjustBrokerData_$$(this, $broker_info$$7_profile$$3$$), $user_brokers$$[$broker_info$$7_profile$$3$$.BrokerID] = $broker_info$$7_profile$$3$$, this.$model_$.set("UserBrokers", $user_brokers$$), $goog$object$extend$$($allowed_markets$$2$$, $broker_info$$7_profile$$3$$.AllowedMarkets), $broker_currencies$$3_tags$$1_verification_data$$3$$.$addAll$($broker_info$$7_profile$$3$$.BrokerCurrencies)) : 
+  $e$$302_msg$$101$$.Broker != $JSCompiler_alias_NULL$$ && ($broker_info$$7_profile$$3$$ = $JSCompiler_StaticMethods_adjustBrokerData_$$(this, $e$$302_msg$$101$$.Broker), $goog$object$extend$$($allowed_markets$$2$$, $broker_info$$7_profile$$3$$.AllowedMarkets), $broker_currencies$$3_tags$$1_verification_data$$3$$.$addAll$($broker_info$$7_profile$$3$$.BrokerCurrencies), this.$model_$.set("Broker", $broker_info$$7_profile$$3$$), $user_brokers$$[$broker_info$$7_profile$$3$$.BrokerID] = $broker_info$$7_profile$$3$$, 
+  $e$$302_msg$$101$$.IsBroker || this.$model_$.set("UserBrokers", $user_brokers$$));
+  $broker_info$$7_profile$$3$$ = $e$$302_msg$$101$$.Profile;
+  $e$$302_msg$$101$$.IsBroker ? ($goog$dom$classes$add$$(document.body, "bitex-broker"), $broker_info$$7_profile$$3$$ = $JSCompiler_StaticMethods_adjustBrokerData_$$(this, $broker_info$$7_profile$$3$$), $user_brokers$$[$broker_info$$7_profile$$3$$.BrokerID] = $broker_info$$7_profile$$3$$, this.$model_$.set("UserBrokers", $user_brokers$$), $goog$object$extend$$($allowed_markets$$2$$, $broker_info$$7_profile$$3$$.AllowedMarkets), $broker_currencies$$3_tags$$1_verification_data$$3$$.$addAll$($broker_info$$7_profile$$3$$.BrokerCurrencies)) : 
   ($goog$dom$classes$add$$(document.body, "bitex-non-broker"), 2 <= $broker_info$$7_profile$$3$$.Verified && $goog$style$showElement$$($goog$dom$getElement$$("verification_menu_id"), $JSCompiler_alias_FALSE$$));
   this.$model_$.set("Profile", $broker_info$$7_profile$$3$$);
-  $e$$302_msg$$100$$.IsBroker ? this.$model_$.set("SelectedBrokerID", this.$model_$.get("Profile").BrokerID) : $e$$302_msg$$100$$.Broker != $JSCompiler_alias_NULL$$ && this.$model_$.set("SelectedBrokerID", this.$model_$.get("Broker").BrokerID);
+  $e$$302_msg$$101$$.IsBroker ? this.$model_$.set("SelectedBrokerID", this.$model_$.get("Profile").BrokerID) : $e$$302_msg$$101$$.Broker != $JSCompiler_alias_NULL$$ && this.$model_$.set("SelectedBrokerID", this.$model_$.get("Broker").BrokerID);
   this.$model_$.set("AllowedMarkets", $allowed_markets$$2$$);
   this.$model_$.set("BrokerCurrencies", $broker_currencies$$3_tags$$1_verification_data$$3$$.$getValues$());
   $broker_currencies$$3_tags$$1_verification_data$$3$$ = $broker_info$$7_profile$$3$$.VerificationData;
@@ -10894,21 +10904,21 @@ $JSCompiler_prototypeAlias$$.$onUserLoginOk_$ = function $$JSCompiler_prototypeA
     $zopim.livechat.addTags($broker_currencies$$3_tags$$1_verification_data$$3$$)
   }
   this.$conn_$.$requestBalances$();
-  $e$$302_msg$$100$$.IsBroker && $goog$isDefAndNotNull$$(this.$model_$.get("Profile").Accounts) && $goog$object$forEach$$(this.$model_$.get("Profile").Accounts, function($account_data$$2$$) {
+  $e$$302_msg$$101$$.IsBroker && $goog$isDefAndNotNull$$(this.$model_$.get("Profile").Accounts) && $goog$object$forEach$$(this.$model_$.get("Profile").Accounts, function($account_data$$2$$) {
     this.$conn_$.$requestBalances$($account_data$$2$$[0])
   }, this);
   this.$conn_$.$requestDepositMethods$();
   this.$model_$.get("IsVerified") ? this.$router_$.$setView$("offerbook") : 0 == this.$model_$.get("Profile").Verified ? this.$router_$.$setView$("verification") : this.$router_$.$setView$("offerbook")
 };
-$JSCompiler_prototypeAlias$$.$onUserLoginError_$ = function $$JSCompiler_prototypeAlias$$$$onUserLoginError_$$($e$$304_msg$$101$$) {
+$JSCompiler_prototypeAlias$$.$onUserLoginError_$ = function $$JSCompiler_prototypeAlias$$$$onUserLoginError_$$($e$$304_msg$$102$$) {
   $goog$dom$classes$add$$(document.body, "bitex-not-logged");
   $goog$dom$classes$remove$$(document.body, "bitex-logged");
   $goog$dom$classes$remove$$(document.body, "bitex-broker");
   $goog$dom$classes$remove$$(document.body, "bitex-non-broker");
-  $e$$304_msg$$101$$ = $e$$304_msg$$101$$.data;
+  $e$$304_msg$$102$$ = $e$$304_msg$$102$$.data;
   this.$model_$.set("UserID", "");
   this.$model_$.set("Username", "");
-  if($e$$304_msg$$101$$.NeedSecondFactor) {
+  if($e$$304_msg$$102$$.NeedSecondFactor) {
     var $dlg_$$1$$ = this.$showDialog$($bitex$templates$GoogleAuthenticationCodeDialogContent$$(), "2 steps authentication", $bootstrap$Dialog$ButtonSet$createOkCancel$$()), $gauth_uniform$$1$$ = new $uniform$Uniform$$;
     $gauth_uniform$$1$$.$decorate$($goog$dom$getFirstElementChild$$($dlg_$$1$$.$getContentElement$()));
     $JSCompiler_StaticMethods_listen$$(this.$getHandler$(), $dlg_$$1$$, $goog$ui$Dialog$EventType$SELECT$$, function($e$$305_second_factor$$1$$) {
@@ -10920,8 +10930,8 @@ $JSCompiler_prototypeAlias$$.$onUserLoginError_$ = function $$JSCompiler_prototy
       }
     })
   }else {
-    var $user_status_text$$ = $e$$304_msg$$101$$.UserStatusText;
-    switch($e$$304_msg$$101$$.UserStatusText) {
+    var $user_status_text$$ = $e$$304_msg$$102$$.UserStatusText;
+    switch($e$$304_msg$$102$$.UserStatusText) {
       case "MSG_LOGIN_ERROR_INVALID_PASSWORD":
         $user_status_text$$ = "Invalid password";
         break;
@@ -11025,13 +11035,13 @@ $JSCompiler_prototypeAlias$$.$getCurrencyHumanFormat$ = function $$JSCompiler_pr
 $JSCompiler_prototypeAlias$$.$getCurrencyDescription$ = function $$JSCompiler_prototypeAlias$$$$getCurrencyDescription$$($currency_code$$15$$) {
   return this.$currency_info_$[$currency_code$$15$$].description
 };
-$JSCompiler_prototypeAlias$$.$onSecurityList_$ = function $$JSCompiler_prototypeAlias$$$$onSecurityList_$$($e$$308_msg$$102$$) {
-  $e$$308_msg$$102$$ = $e$$308_msg$$102$$.data;
-  $goog$array$forEach$$($e$$308_msg$$102$$.Currencies, function($currency$$23$$) {
+$JSCompiler_prototypeAlias$$.$onSecurityList_$ = function $$JSCompiler_prototypeAlias$$$$onSecurityList_$$($e$$308_msg$$103$$) {
+  $e$$308_msg$$103$$ = $e$$308_msg$$103$$.data;
+  $goog$array$forEach$$($e$$308_msg$$103$$.Currencies, function($currency$$23$$) {
     this.$currency_info_$[$currency$$23$$.Code] = {code:$currency$$23$$.Code, $format$:$currency$$23$$.FormatJS, $human_format$:$currency$$23$$.HumanFormatJS, description:$currency$$23$$.Description, $sign$:$currency$$23$$.Sign, $pip$:$currency$$23$$.Pip, $is_crypto$:$currency$$23$$.IsCrypto}
   }, this);
   var $symbols$$3$$ = [];
-  $goog$array$forEach$$($e$$308_msg$$102$$.Instruments, function($instrument$$2$$) {
+  $goog$array$forEach$$($e$$308_msg$$103$$.Instruments, function($instrument$$2$$) {
     var $symbol$$17$$ = $instrument$$2$$.Symbol;
     this.$all_markets_$[$symbol$$17$$] = {symbol:$symbol$$17$$, description:$instrument$$2$$.Description};
     $symbols$$3$$.push($symbol$$17$$);
@@ -11045,7 +11055,7 @@ $JSCompiler_prototypeAlias$$.$onSecurityList_$ = function $$JSCompiler_prototype
     this.$model_$.set("formatted_" + $offer_key$$1$$, this.$formatCurrency$(0, $instrument$$2$$.Currency, $JSCompiler_alias_TRUE$$), $JSCompiler_alias_TRUE$$);
     this.$model_$.set("formatted_" + $last_price$$, this.$formatCurrency$(0, $instrument$$2$$.Currency, $JSCompiler_alias_TRUE$$), $JSCompiler_alias_TRUE$$)
   }, this);
-  this.$model_$.set("SecurityList", $e$$308_msg$$102$$)
+  this.$model_$.set("SecurityList", $e$$308_msg$$103$$)
 };
 function $JSCompiler_StaticMethods_adjustBrokerData_$$($JSCompiler_StaticMethods_adjustBrokerData_$self$$, $broker_info$$8$$) {
   var $percent_fmt$$ = new $goog$i18n$NumberFormat$$(3);
@@ -11089,10 +11099,10 @@ function $JSCompiler_StaticMethods_adjustBrokerData_$$($JSCompiler_StaticMethods
   return $broker_info$$8$$
 }
 $JSCompiler_prototypeAlias$$.$onBrokerListResponse_$ = function $$JSCompiler_prototypeAlias$$$$onBrokerListResponse_$$($e$$309$$) {
-  var $msg$$103$$ = $e$$309$$.data, $broker_list$$3$$ = [];
-  $goog$array$forEach$$($msg$$103$$.BrokerListGrp, function($broker_array$$) {
+  var $msg$$104$$ = $e$$309$$.data, $broker_list$$3$$ = [];
+  $goog$array$forEach$$($msg$$104$$.BrokerListGrp, function($broker_array$$) {
     var $broker_info$$9$$ = {};
-    $goog$array$forEach$$($msg$$103$$.Columns, function($column$$4$$, $index$$90$$) {
+    $goog$array$forEach$$($msg$$104$$.Columns, function($column$$4$$, $index$$90$$) {
       $broker_info$$9$$[$column$$4$$] = $broker_array$$[$index$$90$$]
     }, this);
     switch($broker_info$$9$$.SignupLabel) {
@@ -11129,10 +11139,10 @@ $JSCompiler_prototypeAlias$$.$onTestRequestTimer_$ = function $$JSCompiler_proto
     location.reload()
   })
 };
-$JSCompiler_prototypeAlias$$.$onHearbeat_$ = function $$JSCompiler_prototypeAlias$$$$onHearbeat_$$($e$$314_msg$$104$$) {
-  $e$$314_msg$$104$$ = $e$$314_msg$$104$$.data;
+$JSCompiler_prototypeAlias$$.$onHearbeat_$ = function $$JSCompiler_prototypeAlias$$$$onHearbeat_$$($e$$314_msg$$105$$) {
+  $e$$314_msg$$105$$ = $e$$314_msg$$105$$.data;
   this.$test_request_deadline_timer_$ != $JSCompiler_alias_NULL$$ && (this.$test_request_deadline_timer_$.stop(), this.$test_request_deadline_timer_$ = $JSCompiler_alias_NULL$$);
-  $e$$314_msg$$104$$.SendTime != $JSCompiler_alias_NULL$$ && this.$model_$.set("latency", new Date(Date.now()) - new Date($e$$314_msg$$104$$.SendTime))
+  $e$$314_msg$$105$$.SendTime != $JSCompiler_alias_NULL$$ && this.$model_$.set("latency", new Date(Date.now()) - new Date($e$$314_msg$$105$$.SendTime))
 };
 $JSCompiler_prototypeAlias$$.$onConnectionClose_$ = function $$JSCompiler_prototypeAlias$$$$onConnectionClose_$$() {
   $goog$dom$classes$add$$(document.body, "ws-not-connected", "bitex-not-logged");
@@ -11149,9 +11159,9 @@ $JSCompiler_prototypeAlias$$.$onConnectionError_$ = function $$JSCompiler_protot
   this.$showNotification$("error", "Error", "detected with the connection.");
   this.$router_$.$setView$("start")
 };
-$JSCompiler_prototypeAlias$$.$onConnectionErrorMessage_$ = function $$JSCompiler_prototypeAlias$$$$onConnectionErrorMessage_$$($e$$317_msg$$105$$) {
-  $e$$317_msg$$105$$ = $e$$317_msg$$105$$.data;
-  this.$showNotification$("error", "Message from server:", $e$$317_msg$$105$$.Description + " - " + $e$$317_msg$$105$$.Detail, this.$error_message_alert_timeout_$)
+$JSCompiler_prototypeAlias$$.$onConnectionErrorMessage_$ = function $$JSCompiler_prototypeAlias$$$$onConnectionErrorMessage_$$($e$$317_msg$$106$$) {
+  $e$$317_msg$$106$$ = $e$$317_msg$$106$$.data;
+  this.$showNotification$("error", "Message from server:", $e$$317_msg$$106$$.Description + " - " + $e$$317_msg$$106$$.Detail, this.$error_message_alert_timeout_$)
 };
 $JSCompiler_prototypeAlias$$.$showDialog$ = function $$JSCompiler_prototypeAlias$$$$showDialog$$($content$$20$$, $opt_title$$3_title$$11$$, $buttonSet$$3_opt_button_set$$) {
   $opt_title$$3_title$$11$$ = $opt_title$$3_title$$11$$ || "Error";
