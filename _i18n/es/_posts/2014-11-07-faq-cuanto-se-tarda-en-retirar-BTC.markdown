@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "¿Cuanto se tarda en retirar BTC?"
-date:       2014-11-07 00:22:00
+date:       2014-11-08 00:22:00
 categories: es_ESP faq
 ---
 
