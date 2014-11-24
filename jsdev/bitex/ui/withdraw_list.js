@@ -365,7 +365,7 @@ bitex.ui.WithdrawList = function( methodDescriptionObj, opt_broker_mode,  opt_sh
 
              var btn_blockchain = goog.dom.createDom( 'a', {
                'class':'btn btn-mini btn-info btn-btc-blockchain',
-               'href': block_explorer + '/tx/' + value,
+               'href': block_explorer + '/tx/' + data['TransactionID'],
                'target':'_blank'
              },MSG_WITHDRAW_TABLE_DETAILS_COLUMN_BTN_BLOCKCHAIN,' ' ,goog.dom.createDom( 'i', ['icon-white', 'icon-share-alt']));
 
