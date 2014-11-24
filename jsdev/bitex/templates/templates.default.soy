@@ -99,6 +99,7 @@
       <label class="control-label">{msg desc="Net amount"}Net amount{/msg}</label>
       <div class="controls">
         <label id="{$netValueID}" class="control-label broker-confirm-deposit-net-amount" style="text-align: left;"></label>
+        <input id="{$netValueID}_value" type="hidden" value="">
       </div>
     </div>
 
@@ -521,10 +522,9 @@
 {/template}
 
 
-
-
 /**
   * @param deposit_message
+  * @param hasInstantDepositsEnabled
   */
 {template .DepositCryptoCurrencyContentDialog}
   <div class="row-fluid" data-deposit-status="prepare">
@@ -534,8 +534,17 @@
     <div class="text-center">
       <img src="https://chart.googleapis.com/chart?cht=qr&chs=200x200&chl={$deposit_message['Data']['InputAddress'] }"/>
     </div>
+    {if $hasInstantDepositsEnabled}
+      <div class="alert alert-block">
+        {msg desc="Instant deposit warning"}
+          Your account has instant deposits enabled. In case you intentionally try to do a "double spending" attack,
+          your account will be frozen, even if your double spending attack is not successful.
+        {/msg}
+      </div>
+    {/if}
   </div>
 {/template}
+
 
 /**
   * @param data
@@ -628,6 +637,7 @@
   * @param percentFee
   * @param fixedFee
   * @param netValueID
+  * @param? hideNetValueID
   */
 {template .FeesFormControls}
 <div class="control-group">
@@ -662,10 +672,11 @@
   </div>
 </div>
 
-<div class="control-group">
+<div class="control-group" style="{if $hideNetValueID}display:none{/if}">
   <label class="control-label">{msg desc="Net amount"}Net amount{/msg}</label>
   <div class="controls">
     <label id="{$netValueID}" class="control-label" style="text-align: left;"></label>
+    <input id="{$netValueID}_value" type="hidden" value="">
   </div>
 </div>
 {/template}
@@ -703,6 +714,7 @@
     {param fixedFee: $fixedFee /}
     {param totalFeesID: $totalFeesID /}
     {param netValueID: $netValueID /}
+    {param hideNetValueID: true /}
   {/call}
   </form>
 {/template}
@@ -768,7 +780,7 @@
           <div class="alert alert-warning text-left">
             {msg desc="Error message when the user is not yet verified."}
               Due to anti-money laundry international laws and government regulations,
-              deposits in the local currency are only available to verified customers.<br/>
+              deposits/withdrawals in the local currency are only available to verified customers.<br/>
               We are very sorry for the inconvenience.
             {/msg}
           </div>
@@ -795,7 +807,6 @@
                     <span class="add-on">{$currencySign}</span>
                     <input id="{$method['method']}_{$amountID}"
                         data-uniform-validators="required; validateNumber {if $method['limits'][$verificationLevel]['enabled']} {if $method['limits'][$verificationLevel]['min']}; validateMin {$method['limits'][$verificationLevel]['formatted_min_value'] }{/if}{if $method['limits'][$verificationLevel]['max']}; validateMax {$method['limits'][$verificationLevel]['formatted_max_value'] } {/if} {/if}"
-                        data-uniform-filters="positive_number"
                         type="text"
                         class="withdraw-field input-small"
                         size="16"
@@ -855,6 +866,7 @@
                 <label class="control-label">{msg desc="Net amount"}Net amount{/msg}</label>
                 <div class="controls">
                   <label id="{$method['method']}_{$netValueID}" class="control-label" style="text-align: left;"></label>
+                  <input id="{$method['method']}_{$netValueID}_value" type="hidden" value="">
                 </div>
               </div>
 
@@ -890,7 +902,6 @@
                     <span class="add-on">{$currencySign}</span>
                     <input id="{$method['method']}_{$amountID}"
                         data-uniform-validators="required; validateNumber {if $method['limits'][$verificationLevel]['enabled']} {if $method['limits'][$verificationLevel]['min']}; validateMin {$method['limits'][$verificationLevel]['formatted_min_value'] }{/if}{if $method['limits'][$verificationLevel]['max']}; validateMax {$method['limits'][$verificationLevel]['formatted_max_value'] } {/if} {/if}"
-                        data-uniform-filters="positive_number"
                         type="text"
                         class="withdraw-field input-small"
                         size="16"
@@ -933,6 +944,7 @@
               <label class="control-label">{msg desc="Net amount"}Net amount{/msg}</label>
               <div class="controls">
                 <label id="{$method['method']}_{$netValueID}" class="control-label broker-confirm-deposit-net-amount" style="text-align: left;"></label>
+                <input id="{$method['method']}_{$netValueID}_value" type="hidden" value="">
               </div>
             </div>
 

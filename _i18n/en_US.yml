@@ -109,7 +109,7 @@ views:
     title: My Withdrawals
 
   withdraw_requests:
-    title: Withdrawals requests
+    title: Withdrawal requests
 
   deposit:
     title: My Deposits
@@ -139,7 +139,7 @@ views:
     ledger: Ledger
     customers: My customers
     deposit_requests: Deposit requests
-    withdraw_requests: Withdraw requests
+    withdraw_requests: Withdrawal requests
     deposit: My Deposits
     withdraw: My Withdrawals
     verification: Verify your account

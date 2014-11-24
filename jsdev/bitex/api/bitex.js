@@ -833,15 +833,29 @@ bitex.api.BitEx.prototype.requestWithdraw = function( opt_request_id, amount, me
 
 
 /**
- * @param {string} confirmation_token
+ * @param {string=} opt_confirmation_token
+ * @param {string=} opt_withdrawId
+ * @param {string=} opt_secondFactor
  */
-bitex.api.BitEx.prototype.confirmWithdraw = function( confirmation_token  ) {
+bitex.api.BitEx.prototype.confirmWithdraw = function( opt_confirmation_token, opt_withdrawId, opt_secondFactor  ) {
   var reqId = parseInt(Math.random() * 1000000, 10);
   var msg = {
     'MsgType': 'U24',
-    'WithdrawReqID': reqId,
-    'ConfirmationToken': confirmation_token
+    'WithdrawReqID': reqId
   };
+
+  if (goog.isDefAndNotNull(opt_confirmation_token)) {
+    msg['ConfirmationToken'] = opt_confirmation_token;
+  }
+
+  if (goog.isDefAndNotNull(opt_withdrawId)) {
+    msg['WithdrawID'] = opt_withdrawId;
+  }
+
+  if (goog.isDefAndNotNull(opt_secondFactor)) {
+    msg['SecondFactor'] = opt_secondFactor;
+  }
+
   this.sendMessage(msg);
 };
 

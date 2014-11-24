@@ -507,7 +507,7 @@ bitex.app.BlinkTrade.prototype.onBitexRawMessageLogger_ = function(action, e) {
 bitex.app.BlinkTrade.prototype.onBitexWithdrawConfirmationResponse_ = function(e) {
   var msg = e.data;
 
-  if (!goog.isDefAndNotNull(msg['ConfirmationToken'])) {
+  if (!goog.isDefAndNotNull(msg['Status']) || msg['Status'] != '1' ) {
 
       /** @desc invalid confirmation toker */
       var MSG_INVALID_CONFIRMATION_TOKEN = goog.getMsg("Invalid confirmation token!");
@@ -523,8 +523,16 @@ bitex.app.BlinkTrade.prototype.onBitexWithdrawConfirmationResponse_ = function(e
  * @private
  */
 bitex.app.BlinkTrade.prototype.onBitexWithdrawResponse_ = function(e) {
+  var msg = e.data;
+
   if ( this.getModel().get('Profile')['NeedWithdrawEmail'] ) {
-      var dlg_content = bitex.templates.WithdrawConfirmationDialogContent();
+
+      var dlg_content;
+      if (this.getModel().get('TwoFactorEnabled')) {
+        dlg_content = bitex.templates.GoogleAuthenticationCodeDialogContent();
+      } else {
+        dlg_content = bitex.templates.WithdrawConfirmationDialogContent();
+      }
 
       /**
        * @desc withdraw confirmation dialog title
@@ -537,7 +545,7 @@ bitex.app.BlinkTrade.prototype.onBitexWithdrawResponse_ = function(e) {
 
       var form_element = goog.dom.getFirstElementChild(withdrawConfirmationDialog.getContentElement());
       var withdraw_confirmation_uniform = new uniform.Uniform();
-      withdraw_confirmation_uniform.decorate(  form_element ) ;
+      withdraw_confirmation_uniform.decorate(  form_element );
 
       var handler = this.getHandler();
       handler.listen(withdrawConfirmationDialog, goog.ui.Dialog.EventType.SELECT, function(e) {
@@ -553,8 +561,15 @@ bitex.app.BlinkTrade.prototype.onBitexWithdrawResponse_ = function(e) {
             e.preventDefault();
           } else {
             var withdraw_confirmation_data = withdraw_confirmation_uniform.getAsJSON();
-            var confirmation_code = withdraw_confirmation_data['confirmation_code'];
-            this.conn_.confirmWithdraw( confirmation_code );
+
+            if (this.getModel().get('TwoFactorEnabled')) {
+              var token = withdraw_confirmation_data['token'];
+              var withdraw_id = msg['WithdrawID'];
+              this.conn_.confirmWithdraw( undefined, withdraw_id, token);
+            } else {
+              var confirmation_code = withdraw_confirmation_data['confirmation_code'];
+              this.conn_.confirmWithdraw( confirmation_code );
+            }
           }
         }
       }, this);
@@ -1012,14 +1027,18 @@ bitex.app.BlinkTrade.prototype.onBitexBalanceResponse_ = function(e) {
 
   var clientID = msg['ClientID'];
 
+  var value_fmt = new goog.i18n.NumberFormat(goog.i18n.NumberFormat.Format.DECIMAL);
+  value_fmt.setMaximumFractionDigits(8);
+  value_fmt.setMinimumFractionDigits(2);
+
   goog.object.forEach(msg, function( balances, broker ) {
     goog.object.forEach(balances, function( balance, currency ) {
       balance = balance / 1e8;
 
-      // formatted_balance_9000001:2_USD
       var balance_key = 'balance_' + broker + ':' + clientID + '_'  + currency;
       this.getModel().set( balance_key , balance );
       this.getModel().set('formatted_' + balance_key, this.formatCurrency(balance, currency, true));
+      this.getModel().set('formatted_' + balance_key + '_value', value_fmt.format(balance));
     }, this);
   },this);
 };
@@ -1034,7 +1053,46 @@ bitex.app.BlinkTrade.prototype.onUserWithdrawRequest_ = function(e){
 
   this.setView('withdraw');
 
-  var withdraw_methods = this.getModel().get('Broker')['WithdrawStructure'][currency];
+  var withdraw_methods = goog.object.unsafeClone(this.getModel().get('Broker')['WithdrawStructure'][currency]);
+
+  var user_verification_level = this.getModel().get('Profile')['Verified'];
+
+  var balance_key = 'balance_' +
+      this.getModel().get('Broker')['BrokerID'] + ':' + this.getModel().get('UserID') + '_' + currency;
+  var user_balance = parseInt(this.getModel().get(balance_key,0) * 1e8, 10);
+
+  var user_verified_withdraw_methods = [];
+  goog.array.forEach(withdraw_methods, function(withdrawal_method){
+    var withdrawal_limit;
+    var withdrawal_limit_index;
+    for (withdrawal_limit_index = user_verification_level; withdrawal_limit_index>=0;withdrawal_limit_index--) {
+      withdrawal_limit = withdrawal_method['limits'][ withdrawal_limit_index ];
+      if (goog.isDefAndNotNull(withdrawal_limit)) {
+        break;
+      }
+    }
+
+    var has_limits_enabled = false;
+    if ( goog.isDefAndNotNull(withdrawal_limit) && goog.isDefAndNotNull(withdrawal_limit['enabled'])) {
+      has_limits_enabled = withdrawal_limit['enabled'];
+    }
+
+    if ((!goog.isDefAndNotNull(withdrawal_limit['max'])) || (withdrawal_limit['max'] > user_balance) ) {
+      var formatted_balance_key = 'formatted_balance_' +
+          this.getModel().get('Broker')['BrokerID'] + ':' + this.getModel().get('UserID') + '_' + currency;
+      var formatted_balance_value_key = formatted_balance_key + '_value';
+
+      withdrawal_limit['max']                 = user_balance;
+      withdrawal_limit['formatted_max']       = this.getModel().get(formatted_balance_key);
+      withdrawal_limit['formatted_max_value'] = this.getModel().get(formatted_balance_value_key);
+    }
+    withdrawal_method['limits'][ withdrawal_limit_index ] = withdrawal_limit;
+
+    if (has_limits_enabled) {
+      user_verified_withdraw_methods.push(withdrawal_method);
+    }
+  }, this);
+
 
   var method_element_id = goog.string.getRandomString();
   var withdraw_amount_element_id = goog.string.getRandomString();
@@ -1044,13 +1102,15 @@ bitex.app.BlinkTrade.prototype.onUserWithdrawRequest_ = function(e){
   var net_value_element_id = goog.string.getRandomString();
   var fmt = new goog.i18n.NumberFormat( goog.i18n.NumberFormat.Format.DECIMAL);
 
+
+
   var dialogContent = bitex.templates.DepositWithdrawDialogContent({
     fmt:fmt,
     side: 'client',
     currency: currency,
     verificationLevel: this.getModel().get('Profile')['Verified'],
     currencySign: this.getCurrencySign(currency),
-    methods: withdraw_methods,
+    methods: user_verified_withdraw_methods,
     methodID: method_element_id,
     showFeeDataEntry:false,
     amountID: withdraw_amount_element_id,
@@ -1058,7 +1118,7 @@ bitex.app.BlinkTrade.prototype.onUserWithdrawRequest_ = function(e){
     percentFeeID: percent_fee_element_id,
     totalFeesID: total_fees_element_id,
     netValueID: net_value_element_id,
-    hideNetAmount:true
+    hideNetAmount:false
   });
 
   /**
@@ -1085,12 +1145,12 @@ bitex.app.BlinkTrade.prototype.onUserWithdrawRequest_ = function(e){
           currency,
           method_id + '_' + total_fees_element_id,
           method_id + '_' + net_value_element_id,
-          true,   // opt_add_fees
+          false,  // opt_add_fees
           true,   // opt_is_fixed_fee_in_satoshis
           false,  // opt_is_fixed_fee_formatted
           false,  // opt_is_amount_in_satoshis
           true,   // opt_is_amount_formatted
-          false    // opt_is_percent_fee_formatted
+          false   // opt_is_percent_fee_formatted
           );
     }, this);
   }, this );
@@ -1128,14 +1188,19 @@ bitex.app.BlinkTrade.prototype.onUserWithdrawRequest_ = function(e){
             e.preventDefault();
             return;
           }
-          amount = amount * 1e8;
+
+          var net_amount_el_value_id = withdraw_data['Method'] + '_' + net_value_element_id + '_value';
+          var net_amount_value = parseInt(goog.dom.forms.getValue( goog.dom.getElement(net_amount_el_value_id)),10);
+
+          withdraw_data['Fees'] =
+              goog.dom.getTextContent(goog.dom.getElement(withdraw_data['Method'] + '_' + total_fees_element_id) );
           delete withdraw_data['Amount'];
 
           var method = withdraw_data['Method']; delete withdraw_data['Method'];
           var currency = withdraw_data['Currency']; delete withdraw_data['Currency'];
 
           this.conn_.requestWithdraw( e.target.getRequestId(),
-                                      amount,
+                                      net_amount_value,
                                       method,
                                       currency,
                                       withdraw_data );
@@ -1376,8 +1441,6 @@ bitex.app.BlinkTrade.prototype.onBrokerProcessWithdraw_ = function(e){
           e.preventDefault();
           return;
         }
-        //percent_fee_value = percent_fee_value * 100;
-
 
         var fixed_fee = form_data['FixedFee'];
         pos = [0];
@@ -1393,6 +1456,26 @@ bitex.app.BlinkTrade.prototype.onBrokerProcessWithdraw_ = function(e){
         }
         fixed_fee_value = fixed_fee_value * 1e8;
 
+        var requested_amount = (withdraw_data['Amount'] / ( 100.0 - withdraw_data['PercentFee'] ) * 100.0) + withdraw_data['FixedFee'];
+        var original_fees = requested_amount -  withdraw_data['Amount'];
+
+        var effective_amount = (withdraw_data['Amount'] / ( 100.0 - percent_fee_value ) * 100.0) + fixed_fee_value;
+        var effective_fees = effective_amount -  withdraw_data['Amount'];
+
+        if (original_fees < effective_fees) {
+          // The broker tried to increase the amount of fees.
+          e.stopPropagation();
+          e.preventDefault();
+          return;
+        } else if (original_fees > effective_fees) {
+          form_data['Fees'] = this.formatCurrency(original_fees / 1e8, withdraw_data['Currency'] , true) +
+              '|' + this.formatCurrency(effective_fees / 1e8,withdraw_data['Currency'] , true);
+        }
+
+        delete form_data['Amount'];
+        delete form_data['FixedFee'];
+        delete form_data['PercentFee'];
+
         this.getBitexConnection().processWithdraw(request_id,
                                                   action,
                                                   withdraw_data['WithdrawID'],
@@ -1403,7 +1486,7 @@ bitex.app.BlinkTrade.prototype.onBrokerProcessWithdraw_ = function(e){
                                                   fixed_fee_value); // opt_fixed_fee
 
       }
-    });
+    }, this);
 
   } else if (action === 'COMPLETE') {
     var dialogContent = bitex.templates.DepositWithdrawDialogContent({
@@ -1438,6 +1521,7 @@ bitex.app.BlinkTrade.prototype.onBrokerProcessWithdraw_ = function(e){
     handler.listen(dlg, goog.ui.Dialog.EventType.SELECT, function(e) {
       if (e.key == 'ok') {
         var broker_withdraw_data = bitex.util.getFormAsJSON(goog.dom.getFirstElementChild(dlg.getContentElement()));
+        delete broker_withdraw_data['Amount'];
 
         this.getBitexConnection().processWithdraw(request_id,
                                                   action,
@@ -1769,13 +1853,15 @@ bitex.app.BlinkTrade.prototype.doCalculateFees_ = function(amount_element_id,
     fixed_fee_value = fixed_fee_value * 1e8;
   }
 
-  var total_percent_fee_value = ((amount - fixed_fee_value) * (percent_fee_value/100.0));
+
+
+  var total_percent_fee_value = ((amount - fixed_fee_value) * ((percent_fee_value)/100.0));
   var total_fixed_fee_value = fixed_fee_value;
   var total_fees = total_percent_fee_value + total_fixed_fee_value;
-
   var net_amount = amount - total_fees;
   if (add_fees) {
-    net_amount = amount + total_fees;
+    net_amount = (amount / ( 100. - percent_fee_value ) * 100) + total_fixed_fee_value;
+    total_fees = amount - net_amount;
   }
 
   if (goog.isDefAndNotNull(opt_fee_value_element_id)) {
@@ -1785,6 +1871,9 @@ bitex.app.BlinkTrade.prototype.doCalculateFees_ = function(amount_element_id,
   if (goog.isDefAndNotNull(opt_net_amount_element_id)) {
     var formatted_net_amount = this.formatCurrency(net_amount/1e8, currency, true);
     goog.dom.setTextContent(goog.dom.getElement(opt_net_amount_element_id), formatted_net_amount);
+
+    var net_amount_element_value_id = opt_net_amount_element_id + '_value';
+    goog.dom.forms.setValue(goog.dom.getElement(net_amount_element_value_id), net_amount);
   }
 
   return [ amount, percent_fee_value, fixed_fee_value, net_amount ];
@@ -2026,6 +2115,7 @@ bitex.app.BlinkTrade.prototype.onProcessDeposit_ = function(e){
 bitex.app.BlinkTrade.prototype.onUserDepositRequest_ = function(e){
   var currency = e.target.getCurrency();
   var handler = this.getHandler();
+  var user_verification_level = this.getModel().get('Profile')['Verified'];
 
   this.setView('deposit');
 
@@ -2066,10 +2156,13 @@ bitex.app.BlinkTrade.prototype.onUserDepositRequest_ = function(e){
 
         handler.listenOnce( this.conn_ , bitex.api.BitEx.EventType.DEPOSIT_RESPONSE + '.' + request_id, function(e){
           var msg = e.data;
+
+          var enabled_instant_deposits = user_verification_level >= 3;
+
           var input_address = msg['Data']['InputAddress'];
           goog.soy.renderElement(goog.dom.getFirstElementChild(dlgConfirm.getContentElement()),
                                  bitex.templates.DepositCryptoCurrencyContentDialog,
-                                 {deposit_message:msg} );
+                                 {deposit_message:msg, hasInstantDepositsEnabled:enabled_instant_deposits } );
 
 
           handler.listen(this.conn_ , bitex.api.BitEx.EventType.DEPOSIT_REFRESH, function(e){
@@ -2091,7 +2184,6 @@ bitex.app.BlinkTrade.prototype.onUserDepositRequest_ = function(e){
   value_fmt.setMaximumFractionDigits(8);
   value_fmt.setMinimumFractionDigits(2);
 
-  var user_verification_level = this.getModel().get('Profile')['Verified'];
 
   var deposit_methods = [];
   goog.array.forEach(this.getModel().get('DepositMethods'), function(deposit_method){
@@ -2099,7 +2191,7 @@ bitex.app.BlinkTrade.prototype.onUserDepositRequest_ = function(e){
 
       var deposit_method_limit;
 
-      for (var x = user_verification_level; x>0;x--) {
+      for (var x = user_verification_level; x>=0;x--) {
         deposit_method_limit = deposit_method.deposit_limits[ x ];
         if (goog.isDefAndNotNull(deposit_method_limit)) {
           break;
@@ -3209,6 +3301,9 @@ bitex.app.BlinkTrade.prototype.showDialog = function(content, opt_title, opt_but
  */
 bitex.app.BlinkTrade.prototype.showNotification = function(type , title, content,  opt_display_time) {
   var display_time = 3000;
+  if (type == 'error') {
+    display_time *= 3;
+  }
   if ( goog.isNumber(opt_display_time) ) {
     display_time = opt_display_time;
   }
