@@ -69,6 +69,7 @@ goog.require('bitex.view.CustomersView');
 goog.require('bitex.view.AccountOverview');
 goog.require('bitex.view.BrokerView');
 goog.require('bitex.view.TradingView');
+goog.require('bitex.view.AlgorithmTradingView');
 goog.require('bitex.view.ToolBarView');
 goog.require('bitex.view.MarketView');
 goog.require('bitex.view.LedgerView');
@@ -166,8 +167,6 @@ bitex.app.BlinkTrade.prototype.wss_url_;
  * @private
  */
 bitex.app.BlinkTrade.prototype.rest_url_;
-
-
 
 /**
  * @type {bitex.api.BitEx}
@@ -317,6 +316,7 @@ bitex.app.BlinkTrade.prototype.run = function(host_api) {
   var marketView          = new bitex.view.MarketView(this);
   var rankingView         = new bitex.view.RankingView(this);
   var tradingView         = new bitex.view.TradingView(this);
+  var algorithmTradingView= new bitex.view.AlgorithmTradingView(this);
   var toolBarView         = new bitex.view.ToolBarView(this);
   var sideBarView         = new bitex.view.SideBarView(this);
   var ledgerView          = new bitex.view.LedgerView(this);
@@ -332,6 +332,7 @@ bitex.app.BlinkTrade.prototype.run = function(host_api) {
   this.views_.addChild( signUpView          );
   this.views_.addChild( forgotPasswordView  );
   this.views_.addChild( tradingView         );
+  this.views_.addChild( algorithmTradingView);
   this.views_.addChild( offerBookView       );
   this.views_.addChild( depositView         );
   this.views_.addChild( depositRequestsView );
@@ -364,6 +365,7 @@ bitex.app.BlinkTrade.prototype.run = function(host_api) {
   this.router_.addView( '(signin)'                      , loginView           );
   this.router_.addView( '(signup)'                      , signUpView          );
   this.router_.addView( '(forgot_password)'             , forgotPasswordView  );
+  this.router_.addView( '(algotrading)'                 , algorithmTradingView);
   this.router_.addView( '(trading)'                     , tradingView         );
   this.router_.addView( '(offerbook)'                   , offerBookView       );
   this.router_.addView( '(deposit_requests)'            , depositRequestsView );
@@ -472,6 +474,7 @@ bitex.app.BlinkTrade.prototype.run = function(host_api) {
   handler.listen(this.views_, bitex.view.View.EventType.UPDATE_PROFILE, this.onUpdateProfile_ );
 
   handler.listen(this.views_, bitex.view.View.EventType.FILE_VIEW, this.onUserFileView_);
+
 
   var initial_view = 'start';
   if (!goog.string.isEmpty(location.hash)){
@@ -1228,6 +1231,7 @@ bitex.app.BlinkTrade.prototype.onUpdateProfile_ = function(e){
   var new_values = e.target.getProfileTagNewValues();
   this.conn_.updateUserProfile( new_values , client_id);
 };
+
 
 
 /**
@@ -3328,6 +3332,112 @@ bitex.app.BlinkTrade.prototype.showNotification = function(type , title, content
     }, display_time, this);
   }
 };
+
+/**
+ * @param {string} algo_instance_id
+ */
+bitex.app.BlinkTrade.prototype.registerAlgorithmInstance = function(algo_instance_id) {
+  var handler = this.getHandler();
+
+  /**
+   * @desc starting algorithm notification message
+   */
+  var MSG_STARTING_ALGORITHM_NOTIFICATION = goog.getMsg('starting algorithm ....');
+  this.showNotification('info', MSG_STARTING_ALGORITHM_NOTIFICATION);
+
+
+  handler.listen(this.getModel(), bitex.model.Model.EventType.SET + algo_instance_id + '_params' , this.onAlgoParams_);
+  handler.listen(this.getModel(), bitex.model.Model.EventType.SET + algo_instance_id + '_status',  this.onAlgoStatusChange_);
+
+
+  var algo_sandbox = "// BLINKTRADE ALGO SANDBOX ENVIRONEMT ...      \n";
+  algo_sandbox += "addEventListener('message', function(e) {         \n";
+  algo_sandbox += "   var data = e.data;                             \n";
+  algo_sandbox += "   console.log(data);                             \n";
+  algo_sandbox += "   switch (data.req) {                            \n";
+  algo_sandbox += "     case 'start':                                \n";
+  algo_sandbox += "       postMessage({'rep':'start'});              \n";
+  algo_sandbox += "       break;                                     \n";
+  algo_sandbox += "     case 'params':                               \n";
+  algo_sandbox += "       postMessage({'rep':'params'});             \n";
+  algo_sandbox += "       break;                                     \n";
+  algo_sandbox += "     case 'stop':                                 \n";
+  algo_sandbox += "       postMessage({'rep':'stop'});               \n";
+  algo_sandbox += "       self.close();                              \n";
+  algo_sandbox += "       break;                                     \n";
+  algo_sandbox += "   }                                              \n";
+  algo_sandbox += " }, false);                                       \n";
+
+
+  var blob = new Blob([algo_sandbox]);
+  var blobURL = window.URL.createObjectURL(blob);
+
+
+  var registered_algorithms = this.getModel().get('RegisteredAlgorithms');
+  if (!goog.isDefAndNotNull(registered_algorithms)) {
+    registered_algorithms = {};
+  }
+
+  var worker = new Worker(blobURL);
+  registered_algorithms[algo_instance_id] = {'blobURL': blobURL, 'worker': worker};
+  this.getModel().set('RegisteredAlgorithms', registered_algorithms);
+
+  handler.listen(worker, 'message', function(e) {
+    e = e.getBrowserEvent();
+    switch(e.data['rep']) {
+      case 'start':
+        this.getModel().set( algo_instance_id + '_status', '2' );
+        break;
+      case 'params': // handled parameters
+        break;
+    }
+  }, this);
+
+  var params = this.getModel().get(algo_instance_id + '_params');
+  worker.postMessage({'req':'start', 'params': params});
+};
+
+
+/**
+ * @param {bitex.model.ModelEvent} e
+ * @private
+ */
+bitex.app.BlinkTrade.prototype.onAlgoStatusChange_ = function(e){
+  var model = this.getModel();
+  var algo_instance_id = e.key.substr(0, e.key.length - '_status'.length  );
+  var new_status = e.data;
+  if (new_status == '3'){ // '3' - pending stop
+
+    /**
+     * @desc starting algorithm notification message
+     */
+    var MSG_STOPPING_ALGORITHM_NOTIFICATION = goog.getMsg('stopping algorithm ....');
+    this.showNotification('info', MSG_STOPPING_ALGORITHM_NOTIFICATION);
+
+
+    var registered_algorithms = this.getModel().get('RegisteredAlgorithms');
+    var worker = registered_algorithms[algo_instance_id]['worker'];
+    worker.postMessage( { 'req': 'stop' } );
+
+    model.set( algo_instance_id + '_status', '0' ); // 0 - Idle
+  }
+
+};
+
+/**
+ * @param {bitex.model.ModelEvent} e
+ * @private
+ */
+bitex.app.BlinkTrade.prototype.onAlgoParams_ = function(e){
+  var algo_instance_id = e.key.substr(0, e.key.length - '_params'.length  );
+  var parameters = e.data;
+
+  var registered_algorithms = this.getModel().get('RegisteredAlgorithms');
+  var worker = registered_algorithms[algo_instance_id]['worker'];
+
+  worker.postMessage( { 'req': 'params', 'params': parameters } );
+};
+
 
 /**
  * @param {string} url

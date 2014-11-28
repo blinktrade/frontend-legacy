@@ -119,6 +119,9 @@ views:
   ledger:
     title: Livro contábil
 
+  algotrading:
+    title: Algorithm Trading
+
   settings:
     title: Configurações
 
@@ -144,3 +147,4 @@ views:
     verification: Verificar a sua conta
     support: Suporte e Sugestões
     logout: Sair
+    algotrading: Algo Trading

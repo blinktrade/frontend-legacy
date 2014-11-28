@@ -5,6 +5,15 @@ goog.require('goog.math.Long');
 goog.require('goog.crypt');
 goog.require('goog.crypt.Sha256');
 
+bitex.util.generateGUID = function() {
+  function s4() {
+    return Math.floor((1 + Math.random()) * 0x10000)
+        .toString(16)
+        .substring(1);
+  }
+  return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+      s4() + '-' + s4() + s4() + s4();
+};
 
 bitex.util.isTestNetAddress = function(address) {
   switch(address[0]) {
@@ -129,7 +138,7 @@ bitex.util.getCountries = function() {
     "BA": "Bosnia and Herzegovina",
     "BW": "Botswana",
     "BV": "Bouvet Island",
-    "BR": "Brazil",
+    "BR": ["Brazil", "AC|AL|AP|AM|BA|CE|DF|ES|GO|MA|MT|MS|MG|PA|PB|PR|PE|PI|RJ|RN|RS|RO|RR|SC|SP|SE|TO", "Acre|Alagoas|Amapá|Amazonas|Bahia|Ceará|Distrito Federal|Espirito Santo|Goiás|Maranhão|Mato Grosso|Mato Grosso do Sul|Minas Gerais|Pará|Paraíba|Paraná|Pernambuco|Piauí|Rio de Janeiro|Rio Grande do Norte|Rio Grande do Sul|Rondônia|Roraima|Santa Catarina|São Paulo|Sergipe|Tocantins"],
     "IO": "British Indian Ocean Territory",
     "VG": "British Virgin Islands",
     "BN": "Brunei",

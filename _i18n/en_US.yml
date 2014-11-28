@@ -120,6 +120,9 @@ views:
   ledger:
     title: Ledger
 
+  algotrading:
+    title: Algorithm Trading
+
   settings:
     title: Settings
 
@@ -145,3 +148,4 @@ views:
     verification: Verify your account
     support: Suggestions & Support
     logout: Logout
+    algotrading: Algo Trading
