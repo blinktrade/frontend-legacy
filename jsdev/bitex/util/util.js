@@ -15,6 +15,28 @@ bitex.util.generateGUID = function() {
       s4() + '-' + s4() + s4() + s4();
 };
 
+/**
+ * @param {string} ymd_string
+ * @param {string} opt_time_string
+ * @return {Date}
+ */
+bitex.util.convertServerUTCDateTimeStrToTimestamp = function(ymd_string, opt_time_string) {
+  var timestamp = new Date();
+  var create_date_parts = ymd_string.split('-');
+  timestamp.setUTCFullYear(create_date_parts[0]);
+  timestamp.setUTCMonth(create_date_parts[1]);
+  timestamp.setUTCDate(create_date_parts[2]);
+
+  if (opt_time_string) {
+    var create_time_parts = opt_time_string.split(':');
+    timestamp.setUTCHours(create_time_parts[0]);
+    timestamp.setUTCMinutes(create_time_parts[1]);
+    timestamp.setUTCSeconds(create_time_parts[2]);
+  }
+
+  return timestamp;
+};
+
 bitex.util.isTestNetAddress = function(address) {
   switch(address[0]) {
     case 'm':

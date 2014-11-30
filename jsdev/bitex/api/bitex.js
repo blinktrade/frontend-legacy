@@ -639,10 +639,6 @@ bitex.api.BitEx.prototype.onMessage_ = function(e) {
                   this.dispatchEvent( new bitex.api.BitExEvent( bitex.api.BitEx.EventType.ORDER_BOOK_DELETE_ORDERS_THRU, entry) );
                   this.dispatchEvent( new bitex.api.BitExEvent( bitex.api.BitEx.EventType.ORDER_BOOK_DELETE_ORDERS_THRU + '.' + msg['MDReqID'], entry) );
                   break;
-                case '4': // Trading Session Status
-                  this.dispatchEvent( new bitex.api.BitExEvent( bitex.api.BitEx.EventType.TRADING_SESSION_STATUS, entry) );
-                  this.dispatchEvent( new bitex.api.BitExEvent( bitex.api.BitEx.EventType.TRADING_SESSION_STATUS + '.' + msg['MDReqID'], entry) );
-                  break;
               }
               break;
             case '2': // Trade
@@ -982,9 +978,10 @@ bitex.api.BitEx.prototype.confirmTrustedAddressRequest = function(address, curre
  * @param {number=} opt_page. Defaults to 0
  * @param {number=} opt_limit. Defaults to 100
  * @param {number=} opt_clientID
+ * @param {number=} opt_since
  * @param {Array.<string>=} opt_filter
  */
-bitex.api.BitEx.prototype.requestTradeHistory = function(opt_requestId, opt_page, opt_limit, opt_clientID, opt_filter){
+bitex.api.BitEx.prototype.requestTradeHistory = function(opt_requestId, opt_page, opt_limit, opt_clientID, opt_filter, opt_since){
   var requestId = opt_requestId || parseInt( 1e7 * Math.random() , 10 );
   var page = opt_page || 0;
   var limit = opt_limit || 100;
@@ -1004,6 +1001,9 @@ bitex.api.BitEx.prototype.requestTradeHistory = function(opt_requestId, opt_page
     msg['Filter'] = opt_filter;
   }
 
+  if (goog.isDefAndNotNull(opt_since) && goog.isNumber(opt_since)){
+    msg['Since'] = opt_since;
+  }
 
   this.sendMessage(msg);
 
@@ -1378,9 +1378,7 @@ bitex.api.BitEx.prototype.unSubscribeMarketData = function(market_data_id){
 };
 
 /**
- * @param {number} market_depth
  * @param {Array.<string>} symbols
- * @param {Array.<string>} entries
  * @param {string} opt_requestId. Defaults to random generated number
  * @return {number}
  */
@@ -1631,7 +1629,7 @@ bitex.api.BitEx.prototype.sendRawMessage  = function(msg) {
  * @param {Object} msg
  */
 bitex.api.BitEx.prototype.sendMessage  = function(msg) {
-  this.sendRawMessage(JSON.stringify( msg ));
+  this.sendRawMessage(JSON.stringify(msg));
 };
 
 
@@ -1753,6 +1751,7 @@ goog.exportProperty(BitEx.prototype, 'verifyCustomer', bitex.api.BitEx.prototype
 goog.exportProperty(BitEx.prototype, 'requestBrokerList', bitex.api.BitEx.prototype.requestBrokerList );
 
 
+goog.exportProperty(BitEx.prototype, 'requestTradeHistory', bitex.api.BitEx.prototype.requestTradeHistory);
 goog.exportProperty(BitEx.prototype, 'requestOrderList', bitex.api.BitEx.prototype.requestOrderList);
 goog.exportProperty(BitEx.prototype, 'cancelOrder', bitex.api.BitEx.prototype.cancelOrder);
 goog.exportProperty(BitEx.prototype, 'sendRawMessage', bitex.api.BitEx.prototype.sendRawMessage);

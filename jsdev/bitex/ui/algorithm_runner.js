@@ -85,6 +85,7 @@ bitex.ui.AlgorithmRunner.prototype.createDom = function() {
 
   var el = goog.soy.renderAsElement(bitex.ui.AlgorithmRunner.templates.AlgorithmRunner, {
     id: this.makeId('algo'),
+    instanceID: this.getModel().instanceID,
     symbol: this.getModel().symbol,
     algorithmDefinition: this.getModel().algorithmDefinition,
     status: this.getModel().status
@@ -105,6 +106,23 @@ bitex.ui.AlgorithmRunner.prototype.enterDocument = function() {
   this.setStatus( this.getModel().status );
 };
 
+
+/**
+ * @return {string}
+ */
+bitex.ui.AlgorithmRunner.prototype.getInstanceID = function() {
+  return this.getModel().instanceID;
+};
+
+/**
+ * @param {string} instance_id.
+ */
+bitex.ui.AlgorithmRunner.prototype.setInstanceID = function( instance_id ) {
+  this.getModel().instanceID = instance_id;
+  var instance_id_el = goog.dom.getElement(this.makeId('algo_instance_id'));
+
+  goog.dom.setTextContent(instance_id_el, instance_id);
+};
 
 /**
  * @param {string} status.

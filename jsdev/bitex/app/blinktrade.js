@@ -41,6 +41,7 @@ goog.require('goog.ui.Button');
 goog.require('goog.array');
 goog.require('goog.string');
 goog.require('goog.object');
+goog.require('goog.json');
 
 goog.require('bitex.app.UrlRouter');
 goog.require('bitex.model.Model');
@@ -1029,6 +1030,14 @@ bitex.app.BlinkTrade.prototype.onBitexBalanceResponse_ = function(e) {
   delete msg['BalanceReqID'];
 
   var clientID = msg['ClientID'];
+
+  // Update all running algorithms.
+  var running_algorithms = this.getModel().get('RunningAlgorithms');
+  goog.object.forEach(running_algorithms, function( running_algorithm) {
+    var worker = running_algorithm['worker'];
+    worker.postMessage( { 'req': 'balance', 'balances': msg } );
+  }, this);
+
 
   var value_fmt = new goog.i18n.NumberFormat(goog.i18n.NumberFormat.Format.DECIMAL);
   value_fmt.setMaximumFractionDigits(8);
@@ -3349,52 +3358,129 @@ bitex.app.BlinkTrade.prototype.registerAlgorithmInstance = function(algo_instanc
   handler.listen(this.getModel(), bitex.model.Model.EventType.SET + algo_instance_id + '_params' , this.onAlgoParams_);
   handler.listen(this.getModel(), bitex.model.Model.EventType.SET + algo_instance_id + '_status',  this.onAlgoStatusChange_);
 
-
-  var algo_sandbox = "// BLINKTRADE ALGO SANDBOX ENVIRONEMT ...      \n";
-  algo_sandbox += "addEventListener('message', function(e) {         \n";
-  algo_sandbox += "   var data = e.data;                             \n";
-  algo_sandbox += "   console.log(data);                             \n";
-  algo_sandbox += "   switch (data.req) {                            \n";
-  algo_sandbox += "     case 'start':                                \n";
-  algo_sandbox += "       postMessage({'rep':'start'});              \n";
-  algo_sandbox += "       break;                                     \n";
-  algo_sandbox += "     case 'params':                               \n";
-  algo_sandbox += "       postMessage({'rep':'params'});             \n";
-  algo_sandbox += "       break;                                     \n";
-  algo_sandbox += "     case 'stop':                                 \n";
-  algo_sandbox += "       postMessage({'rep':'stop'});               \n";
-  algo_sandbox += "       self.close();                              \n";
-  algo_sandbox += "       break;                                     \n";
-  algo_sandbox += "   }                                              \n";
-  algo_sandbox += " }, false);                                       \n";
+  var params          = this.getModel().get( algo_instance_id + '_params');
+  var algo            = this.getModel().get( algo_instance_id + '_algo');
+  var symbol          = this.getModel().get( algo_instance_id + '_symbol');
+  var algo_definition = this.getModel().get( algo_instance_id + '_definition');
 
 
-  var blob = new Blob([algo_sandbox]);
+  var algo_sandbox = [
+    "// BLINKTRADE ALGO SANDBOX ENVIRONEMT ...\n",
+    "var websocket_url = '" + this.wss_url_ + "';\n",
+    "var instance_id = '" + algo_instance_id + "';\n",
+    "var selected_symbol = '" + symbol.symbol + "';\n",
+    "var ws;\n",
+    "var instance;\n",
+    "var algorithm_definition = " +  goog.json.serialize(algo_definition)  + ";\n",
+    "\n",
+    "\n",
+    algo,
+    "\n",
+    "\n",
+    "addEventListener('message', function(e) {\n",
+    "  try {\n",
+    "    var data = e.data;\n",
+    "    switch (data['req']) {\n",
+    "      case 'create':\n",
+    "        instance = example.MyBlinkTradeAlgorithm.create(undefined, '" + symbol.symbol +"', data['params']);\n",
+    "        ws = new WebSocket(websocket_url);\n",
+    "        ws.onopen = onWsOpen;\n",
+    "        ws.onmessage = onWsMessage;\n",
+    "        ws.onerror = onWsError;\n",
+    "        break;\n",
+    "      case 'start':\n",
+    "        status_started = true;\n",
+    "        instance.start(data['params']);\n",
+    "        postMessage({'rep':'start', 'instance':instance_id});\n",
+    "        break;\n",
+    "      case 'params':\n",
+    "        instance.onUpdateParams( data['params'] );\n",
+    "        postMessage({'rep':'params', 'instance':instance_id});\n",
+    "        break;\n",
+    "      case 'stop':\n",
+    "        instance.stop();\n",
+    "        postMessage({'rep':'stop', 'instance':instance_id, 'error':null});\n",
+    "        self.close();\n",
+    "        break;\n",
+    "      case 'balance': \n",
+    "        instance.onBalanceUpdate( data['balances'] );\n",
+    "        postMessage({'rep':'balance', 'instance':instance_id});\n",
+    "        break;\n",
+    "    }\n",
+    "  } catch (error) { \n",
+    "    instance.stop();\n",
+    "    postMessage({'rep':'error', 'instance':instance_id, 'error': error.message});\n",
+    "    self.close();\n",
+    "  }\n",
+    "}, false);\n"
+  ];
+
+  var blob = new Blob(algo_sandbox);
   var blobURL = window.URL.createObjectURL(blob);
 
 
-  var registered_algorithms = this.getModel().get('RegisteredAlgorithms');
-  if (!goog.isDefAndNotNull(registered_algorithms)) {
-    registered_algorithms = {};
+  var running_algorithms = this.getModel().get('RunningAlgorithms');
+  if (!goog.isDefAndNotNull(running_algorithms)) {
+    running_algorithms = {};
   }
 
   var worker = new Worker(blobURL);
-  registered_algorithms[algo_instance_id] = {'blobURL': blobURL, 'worker': worker};
-  this.getModel().set('RegisteredAlgorithms', registered_algorithms);
+  running_algorithms[algo_instance_id] = {'blobURL': blobURL, 'worker': worker};
+  this.getModel().set('RunningAlgorithms', running_algorithms);
+
+
+  /**
+   * @desc error algorithm notification message
+   */
+  var MSG_ERROR_RUNNING_ALGORITHM_NOTIFICATION = goog.getMsg('Error running algorithm');
 
   handler.listen(worker, 'message', function(e) {
     e = e.getBrowserEvent();
     switch(e.data['rep']) {
-      case 'start':
-        this.getModel().set( algo_instance_id + '_status', '2' );
+      case 'create':
+        this.getModel().set( e.data['instance'] + '_status', '1' );
+
+        if (e.data['status'] == 'received_security_status') {
+          this.getModel().set( e.data['instance'] + '_status_received_security_status', '1' );
+        }
+
+        if (e.data['status'] == 'received_full_refresh') {
+          this.getModel().set( e.data['instance'] + '_status_received_full_refresh', '1' );
+        }
+        if (e.data['status'] == 'ws_open') {
+          this.getModel().set( e.data['instance'] + '_status_ws_open', '1' );
+        }
+        if (    this.getModel().get( e.data['instance'] + '_status_ws_open' )
+             && this.getModel().get( e.data['instance'] + '_status_received_full_refresh' )
+             && this.getModel().get( e.data['instance'] + '_status_received_security_status' )  ) {
+          worker.postMessage({'req':'start', 'params': params });
+        }
         break;
-      case 'params': // handled parameters
+      case 'start':
+        this.getModel().set( e.data['instance'] + '_status', '2' );
+        break;
+      case 'notification':
+        this.showNotification('info', e.data['title'], e.data['description']);
+        break;
+      case 'error':
+      case 'stop':
+        if (e.data['rep'] == 'error') {
+          this.showNotification('error', MSG_ERROR_RUNNING_ALGORITHM_NOTIFICATION,  e.data['error']);
+        }
+        this.getModel().set( e.data['instance'] + '_status', '0' );
+        running_algorithms = this.getModel().get('RunningAlgorithms');
+        goog.object.remove(running_algorithms, e.data['instance']);
+        this.getModel().set('RunningAlgorithms', running_algorithms);
+        break;
+      case 'new_order_single':
+        break;
+      case 'cancel_order':
+        break;
+      default:
         break;
     }
   }, this);
-
-  var params = this.getModel().get(algo_instance_id + '_params');
-  worker.postMessage({'req':'start', 'params': params});
+  worker.postMessage({'req':'create', 'params': params });
 };
 
 
@@ -3415,11 +3501,9 @@ bitex.app.BlinkTrade.prototype.onAlgoStatusChange_ = function(e){
     this.showNotification('info', MSG_STOPPING_ALGORITHM_NOTIFICATION);
 
 
-    var registered_algorithms = this.getModel().get('RegisteredAlgorithms');
-    var worker = registered_algorithms[algo_instance_id]['worker'];
+    var running_algorithms = this.getModel().get('RunningAlgorithms');
+    var worker = running_algorithms[algo_instance_id]['worker'];
     worker.postMessage( { 'req': 'stop' } );
-
-    model.set( algo_instance_id + '_status', '0' ); // 0 - Idle
   }
 
 };
@@ -3432,8 +3516,8 @@ bitex.app.BlinkTrade.prototype.onAlgoParams_ = function(e){
   var algo_instance_id = e.key.substr(0, e.key.length - '_params'.length  );
   var parameters = e.data;
 
-  var registered_algorithms = this.getModel().get('RegisteredAlgorithms');
-  var worker = registered_algorithms[algo_instance_id]['worker'];
+  var running_algorithms = this.getModel().get('RunningAlgorithms');
+  var worker = running_algorithms[algo_instance_id]['worker'];
 
   worker.postMessage( { 'req': 'params', 'params': parameters } );
 };

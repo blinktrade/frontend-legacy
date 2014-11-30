@@ -16,8 +16,6 @@ goog.require('bitex.ui.AlgorithmRunner');
 bitex.view.AlgorithmTradingView = function(app, opt_domHelper) {
   bitex.view.View.call(this, app, opt_domHelper);
 
-  this.market_data_subscription_id_ = null;
-  this.market_data_subscription_symbol_ = null;
   this.algo_selector_ = null;
   this.algo_runner_ = null;
 
@@ -29,27 +27,6 @@ bitex.view.AlgorithmTradingView = function(app, opt_domHelper) {
   this.asks_ = [];
 };
 goog.inherits(bitex.view.AlgorithmTradingView, bitex.view.View);
-
-/**
- * @type {.Array<Object>}
- */
-bitex.view.AlgorithmTradingView.prototype.bids_;
-
-/**
- * @type {.Array<Object>}
- */
-bitex.view.AlgorithmTradingView.prototype.asks_;
-
-
-/**
- * @type {number}
- */
-bitex.view.AlgorithmTradingView.prototype.market_data_subscription_id_;
-
-/**
- * @type {string}
- */
-bitex.view.AlgorithmTradingView.prototype.market_data_subscription_symbol_;
 
 
 /**
@@ -72,13 +49,10 @@ bitex.view.AlgorithmTradingView.prototype.order_manager_table_;
  */
 bitex.view.AlgorithmTradingView.prototype.algo_selector_;
 
-
 /**
  * @type {goog.ui.Component}
  */
 bitex.view.AlgorithmTradingView.prototype.algo_runner_container_;
-
-
 
 /**
  * @type {number}
@@ -116,20 +90,6 @@ bitex.view.AlgorithmTradingView.prototype.decorateInternal = function(element) {
 bitex.view.AlgorithmTradingView.prototype.destroyComponents_ = function( ) {
   var handler = this.getHandler();
 
-  if (goog.isDefAndNotNull(this.market_data_subscription_id_)) {
-    var conn = this.getApplication().getBitexConnection() ;
-    handler.unlisten( conn, bitex.api.BitEx.EventType.ORDER_BOOK_CLEAR + '.' + this.market_data_subscription_id_, this.onOBClear_);
-    handler.unlisten( conn, bitex.api.BitEx.EventType.ORDER_BOOK_DELETE_ORDERS_THRU + '.' + this.market_data_subscription_id_, this.onOBDeleteOrdersThru_);
-    handler.unlisten( conn, bitex.api.BitEx.EventType.ORDER_BOOK_DELETE_ORDER + '.' + this.market_data_subscription_id_, this.onOBDeleteOrder_);
-    handler.unlisten( conn, bitex.api.BitEx.EventType.ORDER_BOOK_UPDATE_ORDER + '.' + this.market_data_subscription_id_, this.onOBUpdateOrder_);
-    handler.unlisten( conn, bitex.api.BitEx.EventType.ORDER_BOOK_NEW_ORDER + '.' + this.market_data_subscription_id_, this.onOBNewOrder_);
-
-
-    this.dispatchEvent(bitex.view.View.EventType.MARKET_DATA_UNSUBSCRIBE);
-    this.market_data_subscription_id_ = null;
-    this.market_data_subscription_symbol_ = null;
-  }
-
   if (goog.isDefAndNotNull(this.order_manager_table_)) {
 
     handler.unlisten(this.getApplication().getBitexConnection(),
@@ -158,11 +118,6 @@ bitex.view.AlgorithmTradingView.prototype.destroyComponents_ = function( ) {
 bitex.view.AlgorithmTradingView.prototype.recreateComponents_ = function( selected_symbol ) {
   var handler = this.getHandler();
   var model = this.getApplication().getModel();
-
-
-  if (this.market_data_subscription_symbol_ === selected_symbol.symbol) {
-    return;
-  }
 
   this.destroyComponents_();
 
@@ -202,24 +157,6 @@ bitex.view.AlgorithmTradingView.prototype.recreateComponents_ = function( select
   this.order_manager_table_.setColumnFormatter('AvgPx', this.avgPriceFormatter_, this);
   this.order_manager_table_.setColumnFormatter('Volume', this.priceFormatter_, this);
   handler.listen(this.order_manager_table_.getElement(), goog.events.EventType.CLICK, this.onCancelOrder_ );
-
-
-  this.market_data_subscription_id_ = parseInt( 1e7 * Math.random() , 10 );
-  this.market_data_subscription_symbol_ = selected_symbol.symbol;
-
-
-  var conn = this.getApplication().getBitexConnection() ;
-  handler.listen( conn, bitex.api.BitEx.EventType.ORDER_BOOK_CLEAR + '.' + this.market_data_subscription_id_, this.onOBClear_);
-  handler.listen( conn, bitex.api.BitEx.EventType.ORDER_BOOK_DELETE_ORDERS_THRU + '.' + this.market_data_subscription_id_, this.onOBDeleteOrdersThru_);
-  handler.listen( conn, bitex.api.BitEx.EventType.ORDER_BOOK_DELETE_ORDER + '.' + this.market_data_subscription_id_, this.onOBDeleteOrder_);
-  handler.listen( conn, bitex.api.BitEx.EventType.ORDER_BOOK_UPDATE_ORDER + '.' + this.market_data_subscription_id_, this.onOBUpdateOrder_);
-  handler.listen( conn, bitex.api.BitEx.EventType.ORDER_BOOK_NEW_ORDER + '.' + this.market_data_subscription_id_, this.onOBNewOrder_);
-
-  handler.listen( conn ,bitex.api.BitEx.EventType.TRADE + '.' + this.market_data_subscription_id_, this.onTrade_ );
-  this.dispatchEvent(bitex.view.View.EventType.MARKET_DATA_SUBSCRIBE);
-
-
-
 };
 
 bitex.view.AlgorithmTradingView.prototype.enterDocument = function() {
@@ -272,7 +209,7 @@ bitex.view.AlgorithmTradingView.prototype.onAlgoSelectorSelected_ = function(e) 
  * @param {goog.events.Event} e
  */
 bitex.view.AlgorithmTradingView.prototype.onAlgoStop_ = function(e) {
-  var algo_instance_id = e.target.getModel().instanceID;
+  var algo_instance_id = e.target.getInstanceID();
   var model = this.getApplication().getModel();
   model.set( algo_instance_id + '_status', '3' ); // 3 - pending stop
 };
@@ -298,19 +235,18 @@ bitex.view.AlgorithmTradingView.prototype.onAlgoParams_ = function(e) {
   var handler = this.getHandler();
   var runner_object = e.target;
 
-  var algo_instance_id = runner_object.getModel().instanceID;
+  var algo_instance_id = runner_object.getInstanceID();
   if ( !goog.isDefAndNotNull(model.get(algo_instance_id + '_status')) ) {
     runner_object.setStatus('1');
 
-    model.set( algo_instance_id + '_status', '1' ); // 0 - pending start
+    model.set( algo_instance_id + '_status', '1' ); // 1 - pending start
     model.set( algo_instance_id + '_params', runner_object.getModel().params );
     model.set( algo_instance_id + '_algo', runner_object.getModel().algo );
     model.set( algo_instance_id + '_symbol', runner_object.getModel().symbol );
     model.set( algo_instance_id + '_definition', runner_object.getModel().algorithmDefinition );
 
-    handler.listen( model,  bitex.model.Model.EventType.SET + algo_instance_id + '_status', function(e) {
-      runner_object.setStatus( e.data );
-    });
+    handler.listen( model,  bitex.model.Model.EventType.SET + algo_instance_id + '_status',
+                    goog.bind( this.onAlgoRunnerChangeStatus_, this, runner_object )  );
 
     this.getApplication().registerAlgorithmInstance(algo_instance_id);
   } else {
@@ -318,6 +254,29 @@ bitex.view.AlgorithmTradingView.prototype.onAlgoParams_ = function(e) {
   }
 };
 
+/**
+ * @param {bitex.ui.AlgorithmRunner} runner_object
+ * @param {bitex.model.ModelEvent} e
+ * @private
+ */
+bitex.view.AlgorithmTradingView.prototype.onAlgoRunnerChangeStatus_ = function( runner_object, e) {
+  var new_status = e.data;
+  var old_status = e.old_data;
+  runner_object.setStatus( new_status );
+
+  if (new_status == '0' && old_status == '3') {
+    var model = this.getApplication().getModel();
+    var handler = this.getHandler();
+
+    var algo_instance_id = runner_object.getInstanceID();
+    handler.unlisten( model,  bitex.model.Model.EventType.SET + algo_instance_id + '_status',
+                      goog.bind( this.onAlgoRunnerChangeStatus_, this, runner_object )  );
+
+
+    algo_instance_id = bitex.util.generateGUID();
+    runner_object.setInstanceID( algo_instance_id );
+  }
+};
 
 /**
  * @param {*} value
@@ -412,33 +371,7 @@ bitex.view.AlgorithmTradingView.prototype.qtyFormatter_ = function(value, rowSet
 };
 
 
-/**
- * @return {number}
- */
-bitex.view.AlgorithmTradingView.prototype.getMDSubscriptionId = function(){
-  return this.market_data_subscription_id_;
-};
 
-/**
- * @return {Array.<string>}
- */
-bitex.view.AlgorithmTradingView.prototype.getMDInstruments = function(){
-  return [this.market_data_subscription_symbol_];
-};
-
-/**
- * @return {number}
- */
-bitex.view.AlgorithmTradingView.prototype.getMDMarketDepth = function(){
-  return 0;
-};
-
-/**
- * @return {Array.<string>}
- */
-bitex.view.AlgorithmTradingView.prototype.getMDEntries = function(){
-  return ['0', '1', '2']; // bid, ask, trade
-};
 
 bitex.view.AlgorithmTradingView.prototype.getOrderId = function() {
   return this.order_id_;
@@ -504,107 +437,3 @@ bitex.view.AlgorithmTradingView.prototype.onOrderListResponse_ = function(e) {
 };
 
 
-bitex.view.AlgorithmTradingView.prototype.onOBClear_ = function(e){
-  this.bids_ = [];
-  this.asks_ = [];
-  //this.ask_order_entry_.setOrderDepth(this.bids_);
-  //this.bid_order_entry_.setOrderDepth(this.asks_);
-};
-
-bitex.view.AlgorithmTradingView.prototype.onOBDeleteOrdersThru_ = function(e){
-  var msg   = e.data;
-  var index = msg['MDEntryPositionNo'];
-  var side  = msg['MDEntryType'];
-
-  if (side == '0') {
-    this.bids_.splice(0,index);
-
-    //this.ask_order_entry_.setOrderDepth(this.bids_);
-  } else if (side == '1') {
-    this.asks_.splice(0,index);
-
-    //this.bid_order_entry_.setOrderDepth(this.asks_);
-  }
-};
-
-bitex.view.AlgorithmTradingView.prototype.onOBDeleteOrder_ = function(e){
-  var msg   = e.data;
-  var index = msg['MDEntryPositionNo'] - 1;
-  var side  = msg['MDEntryType'];
-
-  if (side == '0') {
-    this.bids_.splice(index,1);
-
-    //this.ask_order_entry_.setOrderDepth(this.bids_);
-  } else if (side == '1') {
-    this.asks_.splice(index,1);
-
-    //this.bid_order_entry_.setOrderDepth(this.asks_);
-  }
-};
-
-bitex.view.AlgorithmTradingView.prototype.onOBUpdateOrder_ = function(e){
-  var msg   = e.data;
-  var index = msg['MDEntryPositionNo'] - 1;
-  var qty   = msg['MDEntrySize'];
-  var side  = msg['MDEntryType'];
-
-  if (side == '0') {
-    this.bids_[index] = [ this.bids_[index][0], qty, this.bids_[index][2] ];
-
-    //this.ask_order_entry_.setOrderDepth(this.bids_);
-  } else if (side == '1') {
-    this.asks_[index] = [ this.asks_[index][0], qty, this.asks_[index][2] ];
-
-    //this.bid_order_entry_.setOrderDepth(this.asks_);
-  }
-};
-
-bitex.view.AlgorithmTradingView.prototype.onOBNewOrder_ = function(e){
-  var msg       = e.data;
-  var index     = msg['MDEntryPositionNo'] - 1;
-  var price     = msg['MDEntryPx'];
-  var qty       = msg['MDEntrySize'];
-  var username  = msg['Username'];
-  var broker    = msg['Broker'];
-  var orderId   = msg['OrderID'];
-  var side      = msg['MDEntryType'];
-
-  if (side == '0') {
-    goog.array.insertAt( this.bids_, [price, qty, username], index );
-
-    //this.ask_order_entry_.setOrderDepth(this.bids_);
-  } else if (side == '1') {
-    goog.array.insertAt( this.asks_, [price, qty, username], index );
-
-
-    //this.bid_order_entry_.setOrderDepth(this.asks_);
-  }
-};
-
-
-
-/**
- * @param {goog.events.Event} e
- */
-bitex.view.MarketView.prototype.onTrade_ = function(e) {
-  var msg = e.data;
-  var record = [];
-
-  record["TradeID"] = msg["TradeID"];
-  record["Market"] = msg["Symbol"];
-  record["Size"] = msg['MDEntrySize'];
-  record["Price"] = msg['MDEntryPx'];
-  record["Side"] = msg['Side'];
-  record["Buyer"] = msg['MDEntryBuyerID'];
-  record["Seller"] = msg['MDEntrySellerID'];
-  if (goog.isDefAndNotNull( msg['MDEntryBuyer'] )) {
-    record["BuyerUsername"] = msg['MDEntryBuyer'];
-  }
-  if (goog.isDefAndNotNull( msg['MDEntrySeller'] )) {
-    record["SellerUsername"] = msg['MDEntrySeller'];
-  }
-  record["Created"] = msg['MDEntryDate'] + " " + msg['MDEntryTime'];
-
-  //this.last_trades_table_.insertOrUpdateRecord(record, 0);
-};
