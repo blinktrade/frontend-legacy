@@ -134,6 +134,8 @@ bitex.app.BlinkTrade = function(broker_id, opt_default_country, opt_default_stat
     this.model_.set('DefaultState', opt_default_state);
   }
 
+  this.open_orders_request_id_ = parseInt( 1e7 * Math.random() , 10 );
+
   this.maximum_allowed_delay_in_ms_ = opt_maximum_allowed_delay_in_ms || 10000;
   this.test_request_delay_          = opt_test_request_timer_in_ms || 30000;
   this.currency_info_               = {};
@@ -242,6 +244,11 @@ bitex.app.BlinkTrade.prototype.profileView_;
  * @type {goog.ui.Component}
  */
 bitex.app.BlinkTrade.prototype.views_;
+
+/**
+ * @type {number}
+ */
+bitex.app.BlinkTrade.prototype.open_orders_request_id_;
 
 /**
  * @type {number}
@@ -384,7 +391,6 @@ bitex.app.BlinkTrade.prototype.run = function(host_api) {
 
   var handler = this.getHandler();
 
-
   handler.listen( this.router_ , bitex.app.UrlRouter.EventType.SET_VIEW, this.onBeforeSetView_ );
 
   handler.listen( this.conn_, bitex.api.BitEx.EventType.OPENED, this.onConnectionOpen_ );
@@ -414,6 +420,7 @@ bitex.app.BlinkTrade.prototype.run = function(host_api) {
 
   handler.listen( this.conn_ , bitex.api.BitEx.EventType.WITHDRAW_REFRESH, this.onBitexWithdrawIncrementalUpdate_);
 
+  handler.listen( this.conn_, bitex.api.BitEx.EventType.ORDER_LIST_RESPONSE + '.' + this.open_orders_request_id_, this.onBitexOrderListResponse_);
   handler.listen( this.conn_ , bitex.api.BitEx.EventType.EXECUTION_REPORT, this.onBitexExecutionReport_);
 
   handler.listen( this.conn_, bitex.api.BitEx.EventType.RAW_MESSAGE, goog.bind(  this.onBitexRawMessageLogger_, this, 'rx' ) );
@@ -943,8 +950,73 @@ bitex.app.BlinkTrade.prototype.onBitexVerifyCustomerUpdate_ = function(e) {
  * @param {bitex.api.BitExEvent} e
  * @private
  */
+bitex.app.BlinkTrade.prototype.onBitexOrderListResponse_ = function(e) {
+  var msg = e.data;
+
+  //msg['OrdListGrp'], msg['Columns']
+  goog.array.forEach(msg['OrdListGrp'], function(record_array){
+    var execution_report_msg = {};
+    goog.array.forEach(record_array, function(col_data, col_index){
+      execution_report_msg[ msg['Columns'][col_index] ] = col_data;
+    }, this);
+
+    this.processExecutionReport_(execution_report_msg);
+  }, this);
+
+  if (msg['OrdListGrp'].length == msg['PageSize'] ) {
+    this.conn_.requestOrderList(this.open_orders_request_id_ , msg['Page'] + 1, msg['PageSize'], ['0', '1'] );
+  } else {
+    this.getModel().set('FinishedInitialOpenOrdersRequest',  true);
+  }
+};
+
+/**
+ * @param {Object} execution_report
+ */
+bitex.app.BlinkTrade.prototype.processExecutionReport_ = function(execution_report) {
+  console.log(execution_report);
+
+  var open_orders = this.getModel().get('OpenOrdersIndex');
+  if (!goog.isDefAndNotNull(open_orders)) {
+    open_orders = [];
+  }
+
+  var should_update_open_order_index_model = false;
+  if (execution_report['OrdStatus'] == '2' || execution_report['OrdStatus'] == '4' ) {
+    if (goog.array.binaryRemove( open_orders, execution_report['OrderID'] )) {
+      this.getModel().remove('order_' + execution_report['OrderID']);
+      should_update_open_order_index_model = true;
+    }
+  }
+  var idx = goog.array.binarySearch( open_orders, execution_report['OrderID']  );
+  if (idx < 0 ) {
+    goog.array.binaryInsert(open_orders, execution_report['OrderID'] ) ;
+    should_update_open_order_index_model = true;
+  }
+  this.getModel().set('order_' + execution_report['OrderID'], execution_report);
+
+  if (should_update_open_order_index_model) {
+    this.getModel().set('OpenOrdersIndex', open_orders);
+  }
+
+  if (this.getModel().get('FinishedInitialOpenOrdersRequest')) {
+    // Update all running algorithms.
+    var running_algorithms = this.getModel().get('RunningAlgorithms');
+    goog.object.forEach(running_algorithms, function( running_algorithm) {
+      var worker = running_algorithm['worker'];
+      worker.postMessage( { 'req': 'execution_report', 'execution_report': execution_report } );
+    }, this);
+  }
+};
+
+/**
+ * @param {bitex.api.BitExEvent} e
+ * @private
+ */
 bitex.app.BlinkTrade.prototype.onBitexExecutionReport_ = function(e) {
   var msg = e.data;
+
+  this.processExecutionReport_(msg);
 
   /**
    * @desc - execution report title notification message
@@ -2622,6 +2694,10 @@ bitex.app.BlinkTrade.prototype.onUserLoginOk_ = function(e) {
       this.router_.setView('offerbook');
     }
   }
+
+  // Request Open Orders
+  this.getModel().set('FinishedInitialOpenOrdersRequest',  false);
+  this.conn_.requestOrderList(this.open_orders_request_id_ , 0, 100, ['0', '1'] );
 };
 
 /**
@@ -3363,56 +3439,25 @@ bitex.app.BlinkTrade.prototype.registerAlgorithmInstance = function(algo_instanc
   var symbol          = this.getModel().get( algo_instance_id + '_symbol');
   var algo_definition = this.getModel().get( algo_instance_id + '_definition');
 
+  var open_orders_index = this.getModel().get('OpenOrdersIndex');
+  var open_orders = {};
+  if (goog.isDefAndNotNull(open_orders_index)) {
+    goog.array.forEach(open_orders_index, function(order_id){
+      open_orders[order_id] = this.getModel().get('order_' + order_id);
+    }, this);
+  }
 
   var algo_sandbox = [
-    "// BLINKTRADE ALGO SANDBOX ENVIRONEMT ...\n",
-    "var websocket_url = '" + this.wss_url_ + "';\n",
-    "var instance_id = '" + algo_instance_id + "';\n",
-    "var selected_symbol = '" + symbol.symbol + "';\n",
-    "var ws;\n",
-    "var instance;\n",
-    "var algorithm_definition = " +  goog.json.serialize(algo_definition)  + ";\n",
-    "\n",
-    "\n",
-    algo,
-    "\n",
-    "\n",
-    "addEventListener('message', function(e) {\n",
-    "  try {\n",
-    "    var data = e.data;\n",
-    "    switch (data['req']) {\n",
-    "      case 'create':\n",
-    "        instance = example.MyBlinkTradeAlgorithm.create(undefined, '" + symbol.symbol +"', data['params']);\n",
-    "        ws = new WebSocket(websocket_url);\n",
-    "        ws.onopen = onWsOpen;\n",
-    "        ws.onmessage = onWsMessage;\n",
-    "        ws.onerror = onWsError;\n",
-    "        break;\n",
-    "      case 'start':\n",
-    "        status_started = true;\n",
-    "        instance.start(data['params']);\n",
-    "        postMessage({'rep':'start', 'instance':instance_id});\n",
-    "        break;\n",
-    "      case 'params':\n",
-    "        instance.onUpdateParams( data['params'] );\n",
-    "        postMessage({'rep':'params', 'instance':instance_id});\n",
-    "        break;\n",
-    "      case 'stop':\n",
-    "        instance.stop();\n",
-    "        postMessage({'rep':'stop', 'instance':instance_id, 'error':null});\n",
-    "        self.close();\n",
-    "        break;\n",
-    "      case 'balance': \n",
-    "        instance.onBalanceUpdate( data['balances'] );\n",
-    "        postMessage({'rep':'balance', 'instance':instance_id});\n",
-    "        break;\n",
-    "    }\n",
-    "  } catch (error) { \n",
-    "    instance.stop();\n",
-    "    postMessage({'rep':'error', 'instance':instance_id, 'error': error.message});\n",
-    "    self.close();\n",
-    "  }\n",
-    "}, false);\n"
+    'var context = {\n',
+    '  "algo_instance_id": "' + algo_instance_id + '",\n',
+    '  "wss_url": "' + this.wss_url_ + '",\n',
+    '  "symbol": "' + symbol.symbol +  '",\n',
+    '  "open_orders": '+ goog.json.serialize(open_orders) +',\n',
+    '  "algo_definition": ' + goog.json.serialize(algo_definition) + '\n',
+    '};\n',
+    '\n',
+    '\n',
+    algo
   ];
 
   var blob = new Blob(algo_sandbox);
@@ -3439,7 +3484,6 @@ bitex.app.BlinkTrade.prototype.registerAlgorithmInstance = function(algo_instanc
     switch(e.data['rep']) {
       case 'create':
         this.getModel().set( e.data['instance'] + '_status', '1' );
-
         if (e.data['status'] == 'received_security_status') {
           this.getModel().set( e.data['instance'] + '_status_received_security_status', '1' );
         }
@@ -3460,11 +3504,15 @@ bitex.app.BlinkTrade.prototype.registerAlgorithmInstance = function(algo_instanc
         this.getModel().set( e.data['instance'] + '_status', '2' );
         break;
       case 'notification':
-        this.showNotification('info', e.data['title'], e.data['description']);
+        this.showNotification(e.data['type'], e.data['title'], e.data['description']);
         break;
       case 'error':
+      case 'terminate':
       case 'stop':
-        if (e.data['rep'] == 'error') {
+        if (this.getModel().get( e.data['instance'] + '_status') == '2') {
+          this.getModel().set( e.data['instance'] + '_status', '3' );
+        }
+        if (goog.isDefAndNotNull(e.data['error'])) {
           this.showNotification('error', MSG_ERROR_RUNNING_ALGORITHM_NOTIFICATION,  e.data['error']);
         }
         this.getModel().set( e.data['instance'] + '_status', '0' );

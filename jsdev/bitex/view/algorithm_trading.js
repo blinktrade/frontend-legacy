@@ -135,7 +135,7 @@ bitex.view.AlgorithmTradingView.prototype.recreateComponents_ = function( select
 
   this.request_order_id_ = parseInt( 1e7 * Math.random() , 10 );
 
-  this.order_manager_table_ =  new bitex.ui.OrderManager('advanced');
+  this.order_manager_table_ =  new bitex.ui.OrderManager('advanced', true /* openOrderTitle */);
 
   handler.listen(this.getApplication().getBitexConnection(),
                  bitex.api.BitEx.EventType.EXECUTION_REPORT,
@@ -150,7 +150,6 @@ bitex.view.AlgorithmTradingView.prototype.recreateComponents_ = function( select
                  this.onOrderListResponse_);
 
   this.addChild(this.order_manager_table_, true);
-
 
   this.order_manager_table_.setColumnFormatter('Side', this.orderFormatter_, this);
   this.order_manager_table_.setColumnFormatter('OrdStatus', this.simpleStatusFormatter_, this);
@@ -404,13 +403,18 @@ bitex.view.AlgorithmTradingView.prototype.onCancelOrder_ = function(e) {
  * @private
  */
 bitex.view.AlgorithmTradingView.prototype.onExecutionReport_ = function(e){
+  var execution_report_msg = e.data;
   if (!goog.isDefAndNotNull(this.order_manager_table_) ) {
     return;
   }
 
-  this.order_manager_table_.processExecutionReport(e.data);
+  if (execution_report_msg['OrdStatus'] == '2' || execution_report_msg['OrdStatus'] == '4' ) {
+    // remove the order from the list in case of fully execution or cancellation
+    this.order_manager_table_.removeOrder(execution_report_msg['ClOrdID']);
+  } else {
+    this.order_manager_table_.processExecutionReport(execution_report_msg);
+  }
 };
-
 
 /**
  *
@@ -421,7 +425,7 @@ bitex.view.AlgorithmTradingView.prototype.onOrderManagerRequestData_ = function(
   var limit = e.options['Limit'];
 
   var conn = this.getApplication().getBitexConnection();
-  conn.requestOrderList(this.request_order_id_, page, limit, ['0', '1', '2', '4'] );
+  conn.requestOrderList(this.request_order_id_, page, limit, ['0', '1'] );
 };
 
 
