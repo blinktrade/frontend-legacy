@@ -1640,7 +1640,7 @@ bitex.api.BitEx.prototype.sendMessage  = function(msg) {
  * @param {number} price
  * @param {number} broker_id
  * @param {string=} opt_client_id
- * @param {number=} opt_clientOrderId. Defaults to random generated number
+ * @param {number=} opt_clientOrderId Defaults to random generated number
  * @return {number}
  */
 bitex.api.BitEx.prototype.sendBuyLimitedOrder = function( symbol, qty, price, broker_id,opt_client_id, opt_clientOrderId ){

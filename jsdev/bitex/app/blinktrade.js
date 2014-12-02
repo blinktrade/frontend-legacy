@@ -3520,9 +3520,20 @@ bitex.app.BlinkTrade.prototype.registerAlgorithmInstance = function(algo_instanc
         goog.object.remove(running_algorithms, e.data['instance']);
         this.getModel().set('RunningAlgorithms', running_algorithms);
         break;
-      case 'new_order_single':
+      case 'new_order_limited':
+        var order_symbol  = this.getModel().get( e.data['instance'] + '_symbol').symbol;
+        this.getBitexConnection().sendLimitedOrder( order_symbol,
+                                                    e.data['qty'],
+                                                    e.data['price'],
+                                                    e.data['side'],
+                                                    this.getModel().get('Profile')['BrokerID'],
+                                                    undefined,
+                                                    e.data['client_order_id']);
+
+
         break;
       case 'cancel_order':
+        this.conn_.cancelOrder(e.data['client_order_id'], e.data['order_id']);
         break;
       default:
         break;
