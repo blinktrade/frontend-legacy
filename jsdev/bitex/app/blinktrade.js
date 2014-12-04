@@ -53,6 +53,7 @@ goog.require('bootstrap.Alert');
 goog.require('bootstrap.Dropdown');
 goog.require('bootstrap.Accordion');
 
+goog.require('bitex.primitives.Price');
 
 goog.require('goog.debug');
 
@@ -305,6 +306,8 @@ bitex.app.BlinkTrade.validateBitcoinAddress_ = function(el, condition, minLength
  * @param {string} host_api
  */
 bitex.app.BlinkTrade.prototype.run = function(host_api) {
+  this.instance_ = this;
+
   this.rest_url_ = 'https://' + host_api;
   this.wss_url_ = 'wss://' + host_api + '/trade/';
 
@@ -1779,9 +1782,11 @@ bitex.app.BlinkTrade.prototype.onUserOrderEntry_ = function(e){
     if (balance_needed_to_send_the_order > user_available_balance_for_trading) {
       // TODO: Create instruction.
 
-      var amount = (balance_needed_to_send_the_order - user_available_balance_for_trading) / 1e8;
+      var amount = balance_needed_to_send_the_order - user_available_balance_for_trading;
 
-      this.showDepositDialog(balance_currency, amount.toFixed(8));
+      var formatted_amount = new bitex.primitives.Price(amount, this.getCurrencyPip(balance_currency) ).format();
+
+      this.showDepositDialog(balance_currency, (amount/1e8).toFixed(8), formatted_amount);
       return;
     }
   }
@@ -2335,9 +2340,13 @@ bitex.app.BlinkTrade.prototype.onProcessDeposit_ = function(e){
  *
  * @param {string} currency
  * @param {number=} opt_amount
+ * @param {string=} opt_formatted_amount
  * @param {Object} opt_instructions
  */
-bitex.app.BlinkTrade.prototype.showDepositDialog = function(currency, opt_amount, opt_instructions) {
+bitex.app.BlinkTrade.prototype.showDepositDialog = function(currency,
+                                                            opt_amount,
+                                                            opt_formatted_amount,
+                                                            opt_instructions) {
   var handler = this.getHandler();
   var user_verification_level = this.getModel().get('Profile')['Verified'];
 
@@ -3155,6 +3164,17 @@ bitex.app.BlinkTrade.prototype.getCurrencySign  =   function(currency_code) {
   return currency_def.sign;
 };
 
+/**
+ * @param {string} currency_code
+ * @return {string}
+ */
+bitex.app.BlinkTrade.prototype.getCurrencyPip =   function(currency_code) {
+  /**
+   * @type {bitex.model.OrderBookCurrencyModel}
+   */
+  var currency_def = this.currency_info_[currency_code];
+  return currency_def.pip;
+};
 
 /**
  * @param {string} currency_code
