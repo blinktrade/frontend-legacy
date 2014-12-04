@@ -525,6 +525,7 @@
 /**
   * @param deposit_message
   * @param hasInstantDepositsEnabled
+  * @param? amount
   */
 {template .DepositCryptoCurrencyContentDialog}
   <div class="row-fluid" data-deposit-status="prepare">
@@ -532,7 +533,7 @@
       {$deposit_message['Data']['InputAddress'] }
     </h4>
     <div class="text-center">
-      <img src="https://chart.googleapis.com/chart?cht=qr&chs=200x200&chl={$deposit_message['Data']['InputAddress'] }"/>
+      <img src="https://chart.googleapis.com/chart?cht=qr&chs=200x200&chl=bitcoin%3A{$deposit_message['Data']['InputAddress']}{if $amount}%3Famount%3D{$amount}{/if}"/>
     </div>
     {if $hasInstantDepositsEnabled}
       <div class="alert alert-block">

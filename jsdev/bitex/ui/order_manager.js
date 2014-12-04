@@ -282,7 +282,7 @@ var MSG_ORDER_MANAGER_STATUS_CXL = goog.getMsg('Cancelled');
  * @enum {string}
  */
 bitex.ui.OrderManager.Status = {
-  '-': MSG_ORDER_MANAGER_STATUS_PENDING,
+  'A': MSG_ORDER_MANAGER_STATUS_PENDING,
   '0': MSG_ORDER_MANAGER_STATUS_NEW,
   '1': MSG_ORDER_MANAGER_STATUS_PARTIALL_FILL,
   '2': MSG_ORDER_MANAGER_STATUS_FILL,
@@ -336,7 +336,7 @@ bitex.ui.OrderManager.prototype.getRowClass = function(row_set) {
 
   var class_status;
   switch(status) {
-    case '-':
+    case 'A':
       class_status = goog.getCssName(bitex.ui.OrderManager.CSS_CLASS, 'pending');
       break;
     case '0':

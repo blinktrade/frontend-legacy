@@ -1536,7 +1536,7 @@ bitex.api.BitEx.prototype.requestDepositMethods = function( opt_requestId ) {
  * @param {string|number=} opt_client_id
  * @param {number=} opt_clientOrderId. Defaults to random generated number
  * @param {string=} opt_orderType Defaults to Limited Order
- * @return {number}
+ * @return {string}
  *
  */
 bitex.api.BitEx.prototype.sendOrder_ = function( symbol, qty, price, side, broker_id, opt_client_id, opt_clientOrderId, opt_orderType ){
@@ -1560,7 +1560,33 @@ bitex.api.BitEx.prototype.sendOrder_ = function( symbol, qty, price, side, broke
 
   this.sendMessage(msg);
 
-  return clientOrderId;
+  var pending_execution_report = {
+    "MsgType": "8",
+    "OrderID": null,
+    "ExecID": null,
+    "ExecType": "A",
+    "OrdStatus": "A",
+    "CumQty": 0,
+    "Symbol": symbol,
+    "OrderQty": qty,
+    "LastShares": 0,
+    "LastPx": 0,
+    "Price": price,
+    "TimeInForce": "1",
+    "LeavesQty": qty,
+    "ExecSide": side,
+    "Side": side,
+    "OrdType": orderType,
+    "CxlQty": 0,
+    "ClOrdID": '' + clientOrderId,
+    "AvgPx": 0,
+    "Volume": 0
+  };
+
+  this.dispatchEvent( new bitex.api.BitExEvent( bitex.api.BitEx.EventType.EXECUTION_REPORT + '.' + clientOrderId, pending_execution_report) );
+  this.dispatchEvent( new bitex.api.BitExEvent( bitex.api.BitEx.EventType.EXECUTION_REPORT, pending_execution_report) );
+
+  return '' + clientOrderId;
 };
 
 /**
