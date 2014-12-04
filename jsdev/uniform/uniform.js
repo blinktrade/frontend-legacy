@@ -460,7 +460,20 @@ uniform.Uniform.prototype.getAsJSON = function(){
       default:
         var form_value = goog.dom.forms.getValue(el);
         if (form_value != null) {
-          json_res[name] = form_value;
+          if ( "number" == el.getAttribute('data-uniform-type') ) {
+            var value_fmt = new goog.i18n.NumberFormat(goog.i18n.NumberFormat.Format.DECIMAL);
+            value_fmt.setMaximumFractionDigits(8);
+            value_fmt.setMinimumFractionDigits(2);
+
+            var pos = [0];
+            var form_value_number = value_fmt.parse(form_value, pos);
+            if (pos[0] != form_value.length || isNaN(form_value_number) ) {
+              form_value_number = 0;
+            }
+            json_res[name] = form_value_number;
+          } else {
+            json_res[name] = form_value;
+          }
         }
     }
   }

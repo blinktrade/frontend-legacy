@@ -533,14 +533,14 @@
     <h4 class="text-center">
       {$deposit_message['Data']['InputAddress'] }
     </h4>
-    <div class="text-center">
-      <img src="https://chart.googleapis.com/chart?cht=qr&chs=200x200&chl=bitcoin%3A{$deposit_message['Data']['InputAddress']}{if $amount}%3Famount%3D{$amount}{/if}"/>
-    </div>
     {if $formattedAmount}
     <div class="text-center">
       {msg desc="deposit the amount"} Deposit the exact amount of :{/msg} {$formattedAmount}
     </div>
     {/if}
+    <div class="text-center">
+      <img src="https://chart.googleapis.com/chart?cht=qr&chs=200x200&chl=bitcoin%3A{$deposit_message['Data']['InputAddress']}{if $amount}%3Famount%3D{$amount}{/if}"/>
+    </div>
     {if $hasInstantDepositsEnabled}
       <div class="alert alert-block">
         {msg desc="Instant deposit warning"}
@@ -600,6 +600,52 @@
         for you to leave Bitcoins at the exchange in order to negotiate them quickly.
       {/msg}
     </div>
+  </div>
+{/template}
+
+/**
+  * @param balanceKey
+  * @param currencyDescription
+  * @param depositFormattedBalance
+  * @param lockedFormattedBalance
+  * @param availableFormattedBalance
+  */
+{template .InsufficientFundsContentDialog}
+  <div class="row-fluid">
+    <p>
+      {msg desc="Insufficient funds title"}You don't have enough funds for this operation.{/msg}
+    </p>
+    <!-- {$currencyDescription} -->
+    <table class="table table-bordered">
+
+      <tr>
+        <td>{msg desc="Your account label on Insufficient Balance message"}Your Account{/msg}</td>
+        <td>
+          <span class="bitex-model" data-model-key="formatted_balance_{$balanceKey}" data-blink-class="balance-info-blink">{if $depositFormattedBalance}{$depositFormattedBalance}{else}-{/if}</span>
+        </td>
+      </tr>
+
+      <tr>
+        <td>{msg desc="Your orders label on Insufficient Balance message"}Your Orders{/msg}</td>
+        <td>
+          <span class="bitex-model" data-model-key="locked_formatted_balance_{$balanceKey}" data-blink-class="balance-info-blink">{if $lockedFormattedBalance}{$lockedFormattedBalance}{else}-{/if}</span>
+        </td>
+      </tr>
+
+      <tr style="font-weight: bolder">
+        <td>{msg desc="Your orders label on Insufficient Balance message"}Total available{/msg}</td>
+        <td>
+          <span class="bitex-model" data-model-key="available_formatted_balance_{$balanceKey}" data-blink-class="balance-info-blink">{if $availableFormattedBalance}{$availableFormattedBalance}{else}-{/if}</span>
+        </td>
+      </tr>
+    </table>
+
+    {if $lockedFormattedBalance}
+      <p>
+        {msg desc="Insufficient funds instructions"}Please either deposit funds or cancel some of your other orders.{/msg}
+      </p>
+    {/if}
+
   </div>
 {/template}
 
@@ -737,6 +783,7 @@
   * @param showFeeDataEntry
   * @param amountID
   * @param? amount
+  * @param? formattedAmount
   * @param percentFeeID
   * @param fixedFeeID
   * @param totalFeesID
@@ -814,9 +861,12 @@
                     <span class="add-on">{$currencySign}</span>
                     <input id="{$method['method']}_{$amountID}"
                         data-uniform-validators="required; validateNumber {if $method['limits'][$verificationLevel]['enabled']} {if $method['limits'][$verificationLevel]['min']}; validateMin {$method['limits'][$verificationLevel]['formatted_min_value'] }{/if}{if $method['limits'][$verificationLevel]['max']}; validateMax {$method['limits'][$verificationLevel]['formatted_max_value'] } {/if} {/if}"
+                        data-uniform-type="number"
+                        data-uniform-filters="positive_number"
                         type="text"
                         class="withdraw-field input-small"
                         size="16"
+                        value="{if $formattedAmount}{$formattedAmount}{/if}"
                         name="Amount">
                   </div>
                   {if $method['limits'][$verificationLevel]['enabled']}
@@ -909,6 +959,9 @@
                     <span class="add-on">{$currencySign}</span>
                     <input id="{$method['method']}_{$amountID}"
                         data-uniform-validators="required; validateNumber {if $method['limits'][$verificationLevel]['enabled']} {if $method['limits'][$verificationLevel]['min']}; validateMin {$method['limits'][$verificationLevel]['formatted_min_value'] }{/if}{if $method['limits'][$verificationLevel]['max']}; validateMax {$method['limits'][$verificationLevel]['formatted_max_value'] } {/if} {/if}"
+                        data-uniform-type="number"
+                        data-uniform-filters="positive_number"
+                        value="{if $formattedAmount}{$formattedAmount}{/if}"
                         type="text"
                         class="withdraw-field input-small"
                         size="16"

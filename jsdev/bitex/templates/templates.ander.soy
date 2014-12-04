@@ -546,12 +546,18 @@
   * @param deposit_message
   * @param hasInstantDepositsEnabled
   * @param? amount
+  * @param? formattedAmount
   */
 {template .DepositCryptoCurrencyContentDialog}
   <div class="row-fluid" data-deposit-status="prepare">
     <h4 class="text-center">
       {$deposit_message['Data']['InputAddress'] }
     </h4>
+    {if $formattedAmount}
+    <div class="text-center">
+      {msg desc="deposit the amount"} Deposit the exact amount of :{/msg} {$formattedAmount}
+    </div>
+    {/if}
     <div class="text-center">
       <img src="https://chart.googleapis.com/chart?cht=qr&chs=200x200&chl=bitcoin%3A{$deposit_message['Data']['InputAddress']}{if $amount}%3Famount%3D{$amount}{/if}"/>
     </div>
@@ -748,6 +754,7 @@
   * @param showFeeDataEntry
   * @param amountID
   * @param? amount
+  * @param? formattedAmount
   * @param percentFeeID
   * @param fixedFeeID
   * @param totalFeesID
@@ -821,9 +828,12 @@
                     <label class="modal-form__label">{msg desc="amount"}Amount{/msg} {$currencySign}:</label>
                     <input id="{$method['method']}_{$amountID}"
                     data-uniform-validators="required; validateNumber {if $method['limits'][$verificationLevel]['enabled']} {if $method['limits'][$verificationLevel]['min']}; validateMin {$method['limits'][$verificationLevel]['formatted_min_value'] }{/if}{if $method['limits'][$verificationLevel]['max']}; validateMax {$method['limits'][$verificationLevel]['formatted_max_value'] } {/if} {/if}"
+                    data-uniform-type="number"
+                    data-uniform-filters="positive_number"
                     type="text"
                     class="withdraw-field input input--full"
                     size="16"
+                    value="{if $formattedAmount}{$formattedAmount}{/if}"
                     name="Amount">
 
                     {if $method['limits'][$verificationLevel]['enabled']}
@@ -891,6 +901,9 @@
 
                     <input id="{$method['method']}_{$amountID}"
                         data-uniform-validators="required; validateNumber {if $method['limits'][$verificationLevel]['enabled']} {if $method['limits'][$verificationLevel]['min']}; validateMin {$method['limits'][$verificationLevel]['formatted_min_value'] }{/if}{if $method['limits'][$verificationLevel]['max']}; validateMax {$method['limits'][$verificationLevel]['formatted_max_value'] } {/if} {/if}"
+                        data-uniform-type="number"
+                        data-uniform-filters="positive_number"
+                        value="{if $formattedAmount}{$formattedAmount}{/if}"
                         type="text"
                         class="withdraw-field input input--full"
                         size="16"

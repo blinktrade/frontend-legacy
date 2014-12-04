@@ -1222,6 +1222,49 @@ bitex.app.BlinkTrade.prototype.onBitexBalanceResponse_ = function(e) {
  * @param {number=} opt_clientID
  * @private
  */
+bitex.app.BlinkTrade.prototype.getDepositedAmount = function(currency, opt_clientID) {
+  var broker_id = this.getModel().get('SelectedBrokerID');
+  var clientID = this.getModel().get('UserID');
+  if (goog.isDefAndNotNull(opt_clientID)){
+    clientID = opt_clientID;
+  }
+
+  var balance_key = 'balance_' + broker_id + ':' + clientID + '_'  + currency;
+
+  if (goog.isDefAndNotNull(this.getModel().get( balance_key ))) {
+    return this.getModel().get( balance_key );
+  }
+  return 0;
+};
+
+/**
+ * @param {string} currency
+ * @param {number=} opt_clientID
+ * @private
+ */
+bitex.app.BlinkTrade.prototype.getLockedAmount = function(currency, opt_clientID) {
+  var broker_id = this.getModel().get('SelectedBrokerID');
+  var clientID = this.getModel().get('UserID');
+  if (goog.isDefAndNotNull(opt_clientID)){
+    clientID = opt_clientID;
+  }
+
+  var balance_key = 'balance_' + broker_id + ':' + clientID + '_'  + currency;
+  var locked_balance_key = 'locked_' + balance_key;
+
+  if (goog.isDefAndNotNull(this.getModel().get( locked_balance_key ))) {
+    return this.getModel().get( locked_balance_key );
+  }
+
+  return 0;
+};
+
+
+/**
+ * @param {string} currency
+ * @param {number=} opt_clientID
+ * @private
+ */
 bitex.app.BlinkTrade.prototype.getAvailableBalanceForTrading = function(currency, opt_clientID) {
   var broker_id = this.getModel().get('SelectedBrokerID');
   var clientID = this.getModel().get('UserID');
@@ -1372,10 +1415,8 @@ bitex.app.BlinkTrade.prototype.onUserWithdrawRequest_ = function(e){
       } else {
           var withdraw_data = withdrawal_uniform.getAsJSON();
 
-          var pos = [0];
-          var amount = value_fmt.parse(withdraw_data['Amount'], pos);
-          if (pos[0] != withdraw_data['Amount'].length || isNaN(amount) || amount <= 0 ) {
-
+          var amount = withdraw_data['Amount'];
+          if (amount < 0) {
             /**
              * @desc Invalid withdrawal amount notification message during the withdrawal.
              */
@@ -1388,6 +1429,7 @@ bitex.app.BlinkTrade.prototype.onUserWithdrawRequest_ = function(e){
             return;
           }
 
+          var pos = [0];
           var net_amount_el_value_id = withdraw_data['Method'] + '_' + net_value_element_id + '_value';
           var net_amount_value = parseInt(goog.dom.forms.getValue( goog.dom.getElement(net_amount_el_value_id)),10);
 
@@ -1778,20 +1820,63 @@ bitex.app.BlinkTrade.prototype.onUserOrderEntry_ = function(e){
       balance_currency =  this.getQtyCurrencyFromSymbol(e.target.getSymbol());
       balance_needed_to_send_the_order =  e.target.getAmount();
     }
+
+    var broker_id = this.getModel().get('SelectedBrokerID');
+    var client_id = this.getModel().get('UserID');
+
     var user_available_balance_for_trading = this.getAvailableBalanceForTrading(balance_currency);
     if (balance_needed_to_send_the_order > user_available_balance_for_trading) {
-      // TODO: Create instruction.
-
       var amount = balance_needed_to_send_the_order - user_available_balance_for_trading;
 
-      var formatted_amount = new bitex.primitives.Price(amount, this.getCurrencyPip(balance_currency) ).format();
+      // TODO: Create instruction.
+      //
 
-      this.showDepositDialog(balance_currency, (amount/1e8).toFixed(8), formatted_amount);
+      var confirmDialogContent = bitex.templates.InsufficientFundsContentDialog({
+        currencyDescription: this.getCurrencyDescription(balance_currency),
+        balanceKey: broker_id + ':' + client_id + '_'  + balance_currency,
+        depositFormattedBalance: this.formatCurrency(this.getDepositedAmount(balance_currency)/1e8, balance_currency, true),
+        lockedFormattedBalance: this.formatCurrency(this.getLockedAmount(balance_currency)/1e8, balance_currency, true),
+        availableFormattedBalance: this.formatCurrency(user_available_balance_for_trading/1e8, balance_currency, true)
+      });
+
+      /**
+       * @desc dialog shown when the user doesn't have enough funds to buy/sell
+       */
+      var MSG_INSUFFICIENT_BALANCE_DIALOG_TITLE = goog.getMsg('Insufficient funds');
+
+      /**
+       * @desc dialog shown when the user doesn't have enough funds to buy/sell
+       */
+      var MSG_INSUFFICIENT_BALANCE_DEPOSIT_BUTTON_CAPTION = goog.getMsg('Deposit {$amount}', {
+        amount: this.formatCurrency(amount/1e8, balance_currency, true)});
+
+
+      var option_buttons = new bootstrap.Dialog.ButtonSet().
+          addButton({
+                       key: 'deposit',
+                       caption: MSG_INSUFFICIENT_BALANCE_DEPOSIT_BUTTON_CAPTION
+                    }, true, true).
+          addButton(goog.ui.Dialog.ButtonSet.DefaultButtons.CANCEL, false, true);
+
+
+      var dlgConfirm =  this.showDialog(confirmDialogContent,
+                                        MSG_INSUFFICIENT_BALANCE_DIALOG_TITLE,
+                                        option_buttons);
+
+      var handler = this.getHandler();
+      handler.listen(dlgConfirm, goog.ui.Dialog.EventType.SELECT, function(e) {
+        if (e.key == 'deposit') {
+          e.preventDefault();
+          e.stopPropagation();
+
+          var formatted_amount = new bitex.primitives.Price(amount, this.getCurrencyPip(balance_currency) ).format();
+
+          this.showDepositDialog(balance_currency, (amount/1e8).toFixed(8), formatted_amount, false);
+        }
+      }, this);
       return;
     }
   }
-
-
 
   /**
    * @desc notification for send order request
@@ -2341,16 +2426,22 @@ bitex.app.BlinkTrade.prototype.onProcessDeposit_ = function(e){
  * @param {string} currency
  * @param {number=} opt_amount
  * @param {string=} opt_formatted_amount
+ * @param {boolean=} opt_switch_view  Defaults to true
  * @param {Object} opt_instructions
  */
 bitex.app.BlinkTrade.prototype.showDepositDialog = function(currency,
                                                             opt_amount,
                                                             opt_formatted_amount,
+                                                            opt_switch_view,
                                                             opt_instructions) {
   var handler = this.getHandler();
   var user_verification_level = this.getModel().get('Profile')['Verified'];
 
-  this.setView('deposit');
+  var switch_view = (opt_switch_view!==false);
+  if (switch_view) {
+    this.setView('deposit');
+  }
+
 
   /**
    * @desc Crypto Currency Withdraw accordion title
@@ -2397,7 +2488,8 @@ bitex.app.BlinkTrade.prototype.showDepositDialog = function(currency,
                                  bitex.templates.DepositCryptoCurrencyContentDialog, {
                                    deposit_message:msg,
                                    hasInstantDepositsEnabled:enabled_instant_deposits,
-                                   amount: opt_amount
+                                   amount: opt_amount,
+                                   formattedAmount: opt_formatted_amount
                                  });
 
 
@@ -2486,6 +2578,8 @@ bitex.app.BlinkTrade.prototype.showDepositDialog = function(currency,
                                                                       methodID: method_element_id,
                                                                       amountID: amount_element_id,
                                                                       showFeeDataEntry:false,
+                                                                      amount:opt_amount,
+                                                                      formattedAmount:opt_formatted_amount,
                                                                       fixedFeeID: fixed_fee_element_id,
                                                                       percentFeeID: percent_fee_element_id,
                                                                       totalFeesID: total_fees_element_id,
@@ -2544,10 +2638,16 @@ bitex.app.BlinkTrade.prototype.showDepositDialog = function(currency,
         var deposit_data = deposit_form_uniform.getAsJSON();
 
         var pos = [0];
-        var amount = value_fmt.parse(deposit_data['Amount'], pos);
+        /* var amount = value_fmt.parse(deposit_data['Amount'], pos);
         if (pos[0] != deposit_data['Amount'].length || isNaN(amount) || amount <= 0 ) {
           amount = 0;
         }
+        */
+        var amount = deposit_data['Amount'];
+        if (amount < 0) {
+          amount = 0;
+        }
+
         amount = amount * 1e8;
 
         var deposit_method_id = goog.string.toNumber(deposit_data['Method']);
