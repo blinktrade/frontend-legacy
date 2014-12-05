@@ -308,6 +308,14 @@ load_application:       True
         </div>
       </div>
 
+      <div id="algotrading" class="bitex-view">
+        <div class="section-title">
+          <h3 class="bitex-view-title">{% t views.algotrading.title %}</h3>
+        </div>
+        <div class="bitex-view-content"></div>
+      </div>
+
+
       <div id="offerbook" class="bitex-view">
         <div class="section-title">
           <h3 class="bitex-view-title">{% t views.offerbook.title %}</h3>
@@ -407,6 +415,9 @@ load_application:       True
         </div>
       </div>
 
+
+
+
       <div id="settings" class="bitex-view">
         <div class="section-title">
           <h3 class="bitex-view-title">{% t views.settings.title %}</h3>
@@ -466,6 +477,7 @@ load_application:       True
                                                 bitex-view-deposit_requests
                                                 bitex-view-ledger
                                                 bitex-view-settings
+                                                bitex-view-algotrading
                                                 bitex-view-my_broker
                                                 bitex-view-verification">
       <h3><span class="bitex-model bitex-view-title" data-model-key="DisplayName"></span>
@@ -504,6 +516,10 @@ load_application:       True
               <i data-switch-view="offerbook" class="icon-book"></i> {% t views.sidebar.offerbook %}</a>
           </li>
 
+          <li style="">
+            <a href="" data-switch-view="algotrading">
+              <i data-switch-view="algotrading" class="icon-cog"></i> {% t views.sidebar.algotrading %}</a>
+          </li>
 
           <li style="">
             <a href="" data-switch-view="ledger">

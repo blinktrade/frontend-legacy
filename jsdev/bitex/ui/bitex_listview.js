@@ -337,8 +337,6 @@ bitex.ui.ListView.prototype.appendResultSet  = function(resultSet, columns) {
   }, this );
 
   if ( elements.length == this.getModel().limit ) {
-    console.log('reached limit');
-
     /**
      * @desc Load more button label on list view
      */

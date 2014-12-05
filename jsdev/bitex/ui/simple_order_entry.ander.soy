@@ -31,7 +31,9 @@
                        data-uniform-label="{msg desc="I want to sell"}Quantity{/msg}"
                        class="input input--full"
                        data-uniform-validators="validateNumber; required"
-                       type="text" required/>
+                       data-uniform-type="number"
+                       data-uniform-filters="positive_number"
+                      type="text" required/>
             </div>
             <!-- /.layout__item -->
 
@@ -48,6 +50,8 @@
                        data-uniform-label="{msg desc="I want to sell"}Total{/msg}"
                        class="input input--full"
                        data-uniform-validators="validateNumber; required"
+                       data-uniform-type="number"
+                       data-uniform-filters="positive_number"
                        type="text" required/>
             </div>
             <!-- /.layout__item -->

@@ -87,13 +87,14 @@ var MSG_ORDER_MANAGER_ACTION_CANCEL_ORDER = goog.getMsg('cancel');
 
 
 /**
- * @param {string} opt_mode. Defaults to advanced mode
- * @param {number} opt_blinkDelay. Defaults to 700 milliseconds
+ * @param {string=} opt_mode. Defaults to advanced mode
+ * @param {boolean=} opt_openOrdersTitle.
+ * @param {number=} opt_blinkDelay. Defaults to 700 milliseconds
  * @param {goog.dom.DomHelper=} opt_domHelper
  * @constructor
  * @extends {goog.ui.Component}
  */
-bitex.ui.OrderManager = function(opt_mode, opt_blinkDelay, opt_domHelper) {
+bitex.ui.OrderManager = function(opt_mode, opt_openOrdersTitle, opt_blinkDelay, opt_domHelper) {
   this.mode_ = opt_mode || 'advanced';
   this.blink_delay_ = opt_blinkDelay || 700;
 
@@ -228,6 +229,9 @@ bitex.ui.OrderManager = function(opt_mode, opt_blinkDelay, opt_domHelper) {
   /** @desc Order manager table tittle */
   var MSG_ORDER_MANAGER_TABLE_TITLE = goog.getMsg('My orders');
 
+  /** @desc Order manager table tittle */
+  var MSG_ORDER_MANAGER_TABLE_TITLE_OPEN_ORDERS = goog.getMsg('My open orders');
+
   var options = {
     'rowIDFn': this.getRowID ,
     'rowClassFn':this.getRowClass,
@@ -235,6 +239,10 @@ bitex.ui.OrderManager = function(opt_mode, opt_blinkDelay, opt_domHelper) {
     'title': MSG_ORDER_MANAGER_TABLE_TITLE,
     'showSearch': false
   };
+
+  if (opt_openOrdersTitle) {
+    options['title'] = MSG_ORDER_MANAGER_TABLE_TITLE_OPEN_ORDERS;
+  }
 
   if (this.mode_ == 'simple') {
     options['columns'] = grid_columns_simple;
@@ -274,7 +282,7 @@ var MSG_ORDER_MANAGER_STATUS_CXL = goog.getMsg('Cancelled');
  * @enum {string}
  */
 bitex.ui.OrderManager.Status = {
-  '-': MSG_ORDER_MANAGER_STATUS_PENDING,
+  'A': MSG_ORDER_MANAGER_STATUS_PENDING,
   '0': MSG_ORDER_MANAGER_STATUS_NEW,
   '1': MSG_ORDER_MANAGER_STATUS_PARTIALL_FILL,
   '2': MSG_ORDER_MANAGER_STATUS_FILL,
@@ -328,7 +336,7 @@ bitex.ui.OrderManager.prototype.getRowClass = function(row_set) {
 
   var class_status;
   switch(status) {
-    case '-':
+    case 'A':
       class_status = goog.getCssName(bitex.ui.OrderManager.CSS_CLASS, 'pending');
       break;
     case '0':

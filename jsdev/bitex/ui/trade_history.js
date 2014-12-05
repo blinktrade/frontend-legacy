@@ -7,6 +7,8 @@ goog.require('goog.Timer');
 
 goog.require('bitex.ui.DataGrid');
 
+goog.require('goog.date.relative');
+
 /**
  * @desc Column Market Pair
  */
@@ -126,6 +128,9 @@ bitex.ui.TradeHistory = function( pseudoNameFunction, opt_blinkDelay,opt_domHelp
       'property': 'Created',
       'label': MSG_TRADE_HISTORY_COLUMN_CREATED,
       'sortable': false,
+      'formatter': function(s, rowSet) {
+        return goog.date.relative.getDateString(rowSet['Timestamp']);
+      },
       'classes': function() { return goog.getCssName(bitex.ui.TradeHistory.CSS_CLASS, 'created');}
     }
   ];
