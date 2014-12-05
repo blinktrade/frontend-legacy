@@ -21,11 +21,16 @@ exchanges:
     description: Compre e venda bitcoins na Venezuela de maneira segura através da SurBitcoin. Com a SurBitcoin você pode começar a comprar e vender bitcoins hoje. O processo de registro dura menos de um minuto.
     keywords: Compra e venda de bitcoins na Venezuela, bolsa de bitcoins na Venezuela, venda bitcoins na Venezuela, compre bitcoins na Venezuela
     lead: A primeira exchange de Bitcoins da Venezuela
+  urdubit:
+    title: UrduBit - A primeira exchange de Bitcoins do Pakistão
+    description: Compre e venda bitcoins no Pakistão de maneira segura através da Urdubit. Com a UrduBit você pode começar a comprar e vender bitcoins hoje. O processo de registro dura menos de um minuto.
+    keywords: Compra e venda de bitcoins no Pakistão, bolsa de bitcoins no Pakistão, venda bitcoins no Pakistão, compre bitcoins no Pakistão
+    lead: A primeira exchange de Bitcoins do Pakistão
   foxbit:
     title: FoxBit - Compre e venda Bitcoins no Brasil
     description: Compre e venda bitcoins no Brasil de maneira segura através da FoxBit. Com o FoxBit você pode começar a comprar e vender bitcoins hoje. O processo de registro dura menos de um minuto.
     keywords: Compra e venda de bitcoins no Brasil, bolsa de bitcoins no Brasil, venda bitcoins no Brasil, compre bitcoins no Brasil
-    lead: Compre ou venda seus Bitcoins no Brasil
+    lead: Compre e Venda seus bitcoins de maneira segura e rápida.
 views:
   toolbar:
     faq: Ajuda
