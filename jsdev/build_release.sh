@@ -77,6 +77,15 @@ java -jar ./tools/SoyToJsSrcCompiler.jar --bidiGlobalDir 1 --shouldGenerateGoogM
   --outputPathFormat  './bitex/ui/{INPUT_FILE_NAME_NO_EXT}.soy.js' \
   ./bitex/ui/change_password.$THEME.soy
 
+java -jar ./tools/SoyToJsSrcCompiler.jar --bidiGlobalDir 1 --shouldGenerateGoogMsgDefs \
+  --shouldProvideRequireSoyNamespaces --codeStyle concat --cssHandlingScheme GOOG  \
+  --outputPathFormat  './bitex/ui/{INPUT_FILE_NAME_NO_EXT}.soy.js' \
+  ./bitex/ui/algorithm_selector.$THEME.soy
+
+java -jar ./tools/SoyToJsSrcCompiler.jar --bidiGlobalDir 1 --shouldGenerateGoogMsgDefs \
+  --shouldProvideRequireSoyNamespaces --codeStyle concat --cssHandlingScheme GOOG  \
+  --outputPathFormat  './bitex/ui/{INPUT_FILE_NAME_NO_EXT}.soy.js' \
+  ./bitex/ui/algorithm_runner.$THEME.soy
 
 # BlinkTrade Application - enUS
 python ./closure-library/closure/bin/build/closurebuilder.py  \

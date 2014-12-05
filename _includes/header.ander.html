@@ -171,22 +171,28 @@
                   </a>
                 </li>
                 <li class="bitex-display-if-logged">
-                  <a href="#trading" title="Buy or Sell" data-switch-view="trading">
+                  <a href="#trading" title="{% t views.sidebar.trading %}" data-switch-view="trading">
                     <i class="icon-random"></i> {% t views.sidebar.trading %}
                   </a>
                 </li>
                 <li class="bitex-display-if-logged">
-                  <a href="#ledger" title="Ledger" data-switch-view="ledger">
+                  <a href="#algotrading" title="{% t views.sidebar.algotrading %}" data-switch-view="algotrading">
+                    <i class="icon-cog"></i> {% t views.sidebar.algotrading %}
+                  </a>
+                </li>
+
+                <li class="bitex-display-if-logged">
+                  <a href="#ledger" title="{% t views.sidebar.ledger %}" data-switch-view="ledger">
                     <i class="icon-list"></i> {% t views.sidebar.ledger %}
                   </a>
                 </li>
                 <li>
-                  <a data-switch-view="market" href="#market" title="Market">
+                  <a data-switch-view="market" href="#market" title="{% t views.toolbar.market %}">
                     <i class="icon-bar-chart"></i> {% t views.toolbar.market %}
                   </a>
                 </li>
                 <li class="bitex-hide-if-logged">
-                  <a data-switch-view="signup" href="#signup" title="Signup">
+                  <a data-switch-view="signup" href="#signup" title="{% t views.toolbar.signup %}">
                     <i class="icon-signin"></i> {% t views.toolbar.signup %}
                   </a>
                 </li>
@@ -219,7 +225,7 @@
                 </li>
 
                 <li class="head__nav-last-item bitex-hide-if-logged">
-                  <a data-switch-view="signin" href="#signin" title="Login">
+                  <a data-switch-view="signin" href="#signin" title="{% t views.toolbar.signin %}">
                     <i class="icon-power-off"></i> {% t views.toolbar.signin %}
                   </a>
                 </li>

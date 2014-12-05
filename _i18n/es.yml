@@ -21,6 +21,12 @@ exchanges:
     description: Compre y venda bitcoins de manera segura a través de SurBitcoin. Con SurBitcoin puede empezar a comprar y vender bitcoins desde hoy mismo. El proceso de registro tarda menos de un minuto.
     keywords: Compra y venta de bitcoins en Venezuela, mercado de bitcoins en Venezuela, venta de bitcoins en Venezuela, comprar bitcoins en Venezuela
     lead: El primer Mercado de Bitcoin de Venezuela
+  foxbit:
+    title: FoxBit - Compre e venda Bitcoins no Brasil
+    description: Compre e venda bitcoins no Brasil de maneira segura através da FoxBit. Com o FoxBit você pode começar a comprar e vender bitcoins hoje. O processo de registro dura menos de um minuto.
+    keywords: Compra e venda de bitcoins no Brasil, bolsa de bitcoins no Brasil, venda bitcoins no Brasil, compre bitcoins no Brasil
+    lead: Compre ou venda seus Bitcoins no Brasil
+
 views:
   toolbar:
     faq: Preguntas frecuentes
@@ -119,6 +125,9 @@ views:
   ledger:
     title: Libro de cuentas
 
+  algotrading:
+    title: Algorithm Trading
+
   settings:
     title: Configuraciones
 
@@ -144,3 +153,4 @@ views:
     verification: Verifique su cuenta
     support: Soporte y sugerencias
     logout: Salir
+    algotrading: Algo Trading

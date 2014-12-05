@@ -1129,8 +1129,7 @@ bitex.view.AccountOverview.prototype.onBalanceResponse_ = function(e) {
 
   var currencies = [];
   goog.object.forEach(user_balances, function( balance, currency ) {
-    balance = balance / 1e8;
-    var formatted_balance = this.getApplication().formatCurrency(balance, currency);
+    var formatted_balance = this.getApplication().formatCurrency(balance / 1e8, currency);
 
     currencies.push({ code: currency, model_key: currency + '.' + msg['ClientID'], balance: formatted_balance });
 
