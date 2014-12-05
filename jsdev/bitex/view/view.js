@@ -63,6 +63,8 @@ bitex.view.View.EventType = {
 
   FILE_VIEW: 'file_view',
 
+  ALGO_PARAMS: 'algo_params',
+
   ENABLE_TWOFACTOR: 'two_factor_enable',
   DISABLE_TWOFACTOR: 'two_factor_disable'
 };

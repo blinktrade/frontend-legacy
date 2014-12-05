@@ -15,8 +15,7 @@ blinktrade_broker_id: 5 # 9 is the id for the demo backend. Don't change that if
 blinktrade_backend_api: "api.testnet.blinktrade.com"
 #blinktrade_backend_api: "localhost"
 google_analytics_id: "UA-56565606-1"
-zopim_key: "2SSNIzvxy8fBypKoZJ0pI43tUoNCv8os"
-
+zopim_key: "2aIJdGCoaI6qy2YO4oK2zPAM8h1NoILb"
 
 
 # Build settings
