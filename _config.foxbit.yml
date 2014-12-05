@@ -1,0 +1,34 @@
+# Site settings
+#url: "https://testnet.foxbit.com.br"
+url: "//localhost:4000"   # activate this to test on your localhost
+author: "BlinkTrade"
+baseurl: ""
+deploy_version: "HEAD"
+
+exchange: "foxbit"
+exchange_logo: "foxbit"
+
+default_country_code: "BR"
+blinktrade_broker_id: 5  # 5 is the id for the demo backend. Don't change that if you don't understand what you doing.
+
+#blinktrade_backend_api: "api.blinktrade.com"
+blinktrade_backend_api: "api.testnet.blinktrade.com"
+#blinktrade_backend_api: "localhost"
+google_analytics_id: "UA-53856711-1"
+zopim_key: "2ZQbAVSILzBFbO31Z6EletdDQaW7H9xj"
+
+
+
+# Build settings
+markdown: kramdown
+
+
+languages: ["pt_BR", "en_US", "es"]
+
+exclude:     [ "jsdev", "LICENSE", "README.md", "config.rb", "deploy.sh", "build_javascript.sh" ]
+source:      .
+destination: ./_site
+plugins:     ./_plugins
+paginate:    5
+paginate_path: "post/page:num"
+permalink:     /post/:title/

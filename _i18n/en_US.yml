@@ -21,7 +21,11 @@ exchanges:
     description: The first bitcoin exchange in Venezuela
     keywords: Buy and sell bitcoin in Venezuela, bitcoin exchange in Venezuela, sell bitcoins in Venezuela, buy bitcoins in Venezuela
     lead: The first bitcoin exchange in Venezuela
-
+  foxbit:
+    title: FoxBit - Compre e venda Bitcoins no Brasil
+    description: Compre e venda bitcoins no Brasil de maneira segura através da FoxBit. Com o FoxBit você pode começar a comprar e vender bitcoins hoje. O processo de registro dura menos de um minuto.
+    keywords: Compra e venda de bitcoins no Brasil, bolsa de bitcoins no Brasil, venda bitcoins no Brasil, compre bitcoins no Brasil
+    lead: Compre ou venda seus Bitcoins no Brasil
 views:
   toolbar:
     faq: FAQ
