@@ -1,7 +1,7 @@
 # Site settings
 #url: "//localhost:4000"   # activate this to test on your localhost
-url: "https://surbitcoin.com"
-#url: "https://surbitcoin.github.io"
+#url: "https://surbitcoin.com"
+url: "https://surbitcoin.github.io"
 author: "BlinkTrade"
 baseurl: ""
 deploy_version: "HEAD"
