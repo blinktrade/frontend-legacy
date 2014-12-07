@@ -48,7 +48,7 @@ $ git push origin gh-pages
 $ git checkout master 
 $ ln -s _config.demo.yml  _config.yml
 $ ./build_javascript.sh # Only needed in case you changed the ./jsdev application
-$ ./deploy.sh gh-pages 
+$ ./deploy.sh gh-pages ""
 $ git push
 ```
 

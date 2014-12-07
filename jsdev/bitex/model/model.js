@@ -79,6 +79,15 @@ bitex.model.Model.prototype.get = function(key, opt_val) {
   return this.map_.get(key, opt_val);
 };
 
+/**
+ * Removes the key from the model
+ * @param {*} key
+ */
+bitex.model.Model.prototype.remove = function(key) {
+  return this.map_.remove(key);
+};
+
+
 
 bitex.model.Model.prototype.updateDom = function() {
 
