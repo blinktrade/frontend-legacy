@@ -45,7 +45,9 @@
                                          class="input input--full"
                                          data-uniform-label="{msg desc="Advanced Order Entry Label"}Amount{/msg}"
                                          data-uniform-validators="validateNumber; required"
-                                         value="0.00000000"
+                                         data-uniform-type="number"
+                                         data-uniform-filters="positive_number"
+                                         value=""
                                          required/>
                         </td>
                     </tr>
@@ -62,7 +64,8 @@
                                          class="input input--full"
                                          data-uniform-label="{msg desc="Advanced Order Entry Label"}Price{/msg}"
                                          data-uniform-validators="validateNumber; required"
-                                         value="0.00000000"
+                                         data-uniform-type="number"
+                                         data-uniform-filters="positive_number"
                                          required/>
                         </td>
                     </tr>
@@ -76,10 +79,11 @@
                           <input id="{$id}_total"
                                            name="total"
                                            type="text"
-                                         class="input input--full"
+                                           class="input input--full"
                                            data-uniform-label="{msg desc="Advanced Order Entry Label"}Total{/msg}"
                                            data-uniform-validators="validateNumber; required"
-                                           value="0.00000000"
+                                           data-uniform-type="number"
+                                           data-uniform-filters="positive_number"
                                            required/>
                         </td>
                     </tr>

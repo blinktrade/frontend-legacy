@@ -1,0 +1,44 @@
+{namespace bitex.ui.AlgorithmRunner.templates}
+
+/**
+ * @param id
+ * @param instanceID
+ * @param symbol
+ * @param algorithmDefinition
+ * @param status
+ */
+{template .AlgorithmRunner}
+<form id="{$id}_form" class="algo-runner form-horizontal well" data-uniform-control-holder-class="control-group" >
+
+  <div class="control-group" style="">
+    <label class="control-label">{msg desc="Market"}Market{/msg}</label>
+    <div class="controls">
+      <label id="{$id}" class="control-label" style="text-align: left;">{$symbol.symbol}</label>
+    </div>
+  </div>
+
+  {foreach $field in $algorithmDefinition['params'] }
+    <div class="control-group">
+      <label class="control-label">{$field['label']}</label>
+      <div class="controls">
+        <input class="algo-runner-field"
+                data-uniform-validators="{$field['validator']}"
+                type="{$field['type']}"
+                name="{$field['name']}"
+                label="{if $field['placeholder']}{$field['placeholder']}{/if}"
+                value="{if $field['value']}{$field['value']}{/if}" />
+      </div>
+    </div>
+  {/foreach}
+
+  <div class="control-group" style="">
+    <div class="controls">
+      <button id="{$id}_btn_update_params" class="btn btn-primary" {if $status=='1' or $status=='3' }disabled{/if}></button>
+      <button id="{$id}_btn_stop" class="btn btn-danger" style="{if $status=='0' or $status=='1' }display:none;{/if}"  {if $status=='3' }disabled{/if}></button>
+    </div>
+  </div>
+
+  <small><i id="{$id}_instance_id">{$instanceID}</i></small>
+
+</form>
+{/template}

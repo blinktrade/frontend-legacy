@@ -25,6 +25,10 @@ load_application:       True
               {% t exchanges.chilebit.lead  %}
             {% when 'surbitcoin' %}
               {% t exchanges.surbitcoin.lead  %}
+            {% when 'urdubit' %}
+              {% t exchanges.urdubit.lead  %}
+            {% when 'foxbit' %}
+              {% t exchanges.foxbit.lead  %}
             {% else %}
               {% t exchanges.demo.lead  %}
           {% endcase %}
@@ -295,6 +299,7 @@ load_application:       True
                                               bitex-view-deposit_requests
                                               bitex-view-ledger
                                               bitex-view-settings
+                                              bitex-view-algotrading
                                               bitex-view-my_broker
                                               bitex-view-verification">
                 <!-- .sidebar__head -->
@@ -484,6 +489,22 @@ load_application:       True
             <!-- /.page__body -->
           </div>
           <!-- /#trading -->
+
+          <!-- #algotrading -->
+          <div id="algotrading" class="bitex-view">
+            <!-- .page__head -->
+            <header class="page__head section-title">
+              <h1 class="page__title beta bitex-view-title">{% t views.algotrading.title %}</h1>
+            </header>
+            <!-- /.page__head -->
+
+            <!-- .page__body -->
+            <div class="page__body bitex-view-content">
+            </div>
+            <!-- /.page__body -->
+          </div>
+          <!-- /#algotrading -->
+
 
           <!-- #ledger -->
           <div id="ledger" class="bitex-view">

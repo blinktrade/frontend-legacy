@@ -21,7 +21,16 @@ exchanges:
     description: The first bitcoin exchange in Venezuela
     keywords: Buy and sell bitcoin in Venezuela, bitcoin exchange in Venezuela, sell bitcoins in Venezuela, buy bitcoins in Venezuela
     lead: The first bitcoin exchange in Venezuela
-
+  urdubit:
+    title: UrduBit - The first bitcoin exchange in Pakistan
+    description: The first bitcoin exchange in Pakistan
+    keywords: Buy and sell bitcoin in Pakistan, bitcoin exchange in Pakistan, sell bitcoins in Pakistan, buy bitcoins in Pakistan
+    lead: The first bitcoin exchange in Pakistan
+  foxbit:
+    title: FoxBit - Buy or sell bitcoins in Brazil
+    description: Compre e venda bitcoins no Brasil de maneira segura através da FoxBit. Com o FoxBit você pode começar a comprar e vender bitcoins hoje. O processo de registro dura menos de um minuto.
+    keywords: Buy and sell bitcoin in Brazil, bitcoin exchange in Brazil, sell bitcoins in Brazil, buy bitcoins in Brazil, Bitcoin exchange in Brazil
+    lead: Compre ou venda seus Bitcoins no Brasil
 views:
   toolbar:
     faq: FAQ
@@ -120,6 +129,9 @@ views:
   ledger:
     title: Ledger
 
+  algotrading:
+    title: Algorithm Trading
+
   settings:
     title: Settings
 
@@ -145,3 +157,4 @@ views:
     verification: Verify your account
     support: Suggestions & Support
     logout: Logout
+    algotrading: Algo Trading

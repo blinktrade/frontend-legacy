@@ -211,9 +211,8 @@ bitex.ui.SimpleOrderEntry.prototype.onChangeQty_ = function(e) {
   value_fmt.setMinimumFractionDigits(2);
 
   var form_values = this.uniform_.getAsJSON();
-  var pos = [0];
-  var value = value_fmt.parse(form_values['qty'], pos);
-  if (pos[0] != form_values['qty'].length || isNaN(value) || value <= 0 ) {
+  var value = form_values['qty'];
+  if (value <= 0 ) {
     e.stopPropagation();
     e.preventDefault();
     return;
@@ -286,9 +285,8 @@ bitex.ui.SimpleOrderEntry.prototype.onChangeTotal_ = function(e) {
   value_fmt.setMinimumFractionDigits(2);
 
   var form_values = this.uniform_.getAsJSON();
-  var pos = [0];
-  var value = value_fmt.parse(form_values['total'], pos);
-  if (pos[0] != form_values['total'].length || isNaN(value) || value <= 0 ) {
+  var value = form_values['total'];
+  if (value <= 0 ) {
     e.stopPropagation();
     e.preventDefault();
     return;
