@@ -1,4 +1,4 @@
 [submodule "xtbgenerator"]
 	path = jsdev/tools/xtbgenerator
 	url = https://github.com/kuzmisin/xtbgenerator.git
-  fetchRecurseSubmodules = on-demand
+	fetchRecurseSubmodules = on-demand
