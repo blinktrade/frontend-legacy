@@ -1277,7 +1277,7 @@ bitex.app.BlinkTrade.prototype.getAvailableBalanceForTrading = function(currency
 
   if (goog.isDefAndNotNull(this.getModel().get( balance_key ))) {
     if (goog.isDefAndNotNull(this.getModel().get( locked_balance_key ))) {
-      return this.getModel().get( balance_key ) - this.getModel().get( locked_balance_key );
+      return Math.round(this.getModel().get( balance_key ) - this.getModel().get( locked_balance_key ));
     } else {
       return this.getModel().get( balance_key )
     }
@@ -1826,10 +1826,22 @@ bitex.app.BlinkTrade.prototype.onUserOrderEntry_ = function(e){
 
     var user_available_balance_for_trading = this.getAvailableBalanceForTrading(balance_currency);
     if (balance_needed_to_send_the_order > user_available_balance_for_trading) {
-      var amount = balance_needed_to_send_the_order - user_available_balance_for_trading;
+      var amount = Math.round(balance_needed_to_send_the_order - user_available_balance_for_trading);
 
-      // TODO: Create instruction.
-      //
+      var instructions = [{
+        'Timeout': 60,  // 60 seconds to deposit
+        'Filter': {'PaidValue': amount},
+        'Msg': {
+          'MsgType': 'D',
+          'ClOrdID': '' + new Date().getTime()  + '.L',
+          'Symbol': e.target.getSymbol(),
+          'Side': e.target.getSide(),
+          'OrdType': '2', // Limited order
+          'Price': e.target.getPrice(),
+          'OrderQty': e.target.getAmount(),
+          'BrokerID': e.target.getBrokerID()
+        }
+      }];
 
       var confirmDialogContent = bitex.templates.InsufficientFundsContentDialog({
         currencyDescription: this.getCurrencyDescription(balance_currency),
@@ -1871,7 +1883,7 @@ bitex.app.BlinkTrade.prototype.onUserOrderEntry_ = function(e){
 
           var formatted_amount = new bitex.primitives.Price(amount, this.getCurrencyPip(balance_currency) ).format();
 
-          this.showDepositDialog(balance_currency, (amount/1e8).toFixed(8), formatted_amount, false);
+          this.showDepositDialog(balance_currency, (amount/1e8).toFixed(8), formatted_amount, false, instructions);
         }
       }, this);
       return;
@@ -2427,7 +2439,7 @@ bitex.app.BlinkTrade.prototype.onProcessDeposit_ = function(e){
  * @param {number=} opt_amount
  * @param {string=} opt_formatted_amount
  * @param {boolean=} opt_switch_view  Defaults to true
- * @param {Object} opt_instructions
+ * @param {Object=} opt_instructions
  */
 bitex.app.BlinkTrade.prototype.showDepositDialog = function(currency,
                                                             opt_amount,
@@ -2466,7 +2478,8 @@ bitex.app.BlinkTrade.prototype.showDepositDialog = function(currency,
         e.stopPropagation();
 
         var request_id = parseInt( 1e7 * Math.random() , 10 );
-        this.conn_.requestDeposit( request_id, undefined , undefined, undefined, currency);
+        this.conn_.requestDeposit(
+          request_id, undefined , opt_formatted_amount, undefined, currency, undefined, opt_instructions);
 
         goog.soy.renderElement(goog.dom.getFirstElementChild(dlgConfirm.getContentElement()),
                                bitex.templates.WaitingForDepositResponseDialogContent);
@@ -2612,7 +2625,25 @@ bitex.app.BlinkTrade.prototype.showDepositDialog = function(currency,
           false   // opt_is_percent_fee_formatted
       );
     }, this);
+
+    this.doCalculateFees_(
+        method_id + '_' + amount_element_id,
+        method_id + '_' + fixed_fee_element_id,
+        method_id + '_' + percent_fee_element_id,
+        currency,
+        method_id + '_' + total_fees_element_id,
+        method_id + '_' + net_value_element_id,
+        false,  // opt_add_fees
+        true,   // opt_is_fixed_fee_in_satoshis
+        false,  // opt_is_fixed_fee_formatted
+        false,  // opt_is_amount_in_satoshis
+        true,   // opt_is_amount_formatted
+        false   // opt_is_percent_fee_formatted
+    );
+
   }, this );
+
+
 
   handler.listen(dlg, goog.ui.Dialog.EventType.SELECT, function(e) {
     if (e.key == 'ok') {
@@ -2636,13 +2667,6 @@ bitex.app.BlinkTrade.prototype.showDepositDialog = function(currency,
         }
 
         var deposit_data = deposit_form_uniform.getAsJSON();
-
-        var pos = [0];
-        /* var amount = value_fmt.parse(deposit_data['Amount'], pos);
-        if (pos[0] != deposit_data['Amount'].length || isNaN(amount) || amount <= 0 ) {
-          amount = 0;
-        }
-        */
         var amount = deposit_data['Amount'];
         if (amount < 0) {
           amount = 0;

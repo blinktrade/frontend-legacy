@@ -7,6 +7,10 @@
         <title>{% t exchanges.chilebit.title %}</title>
       {% when 'surbitcoin' %}
         <title>{% t exchanges.surbitcoin.title %}</title>
+      {% when 'urdubit' %}
+        <title>{% t exchanges.urdubit.title %}</title>
+      {% when 'foxbit' %}
+        <title>{% t exchanges.foxbit.title %}</title>
       {% else %}
         <title>{% t exchanges.demo.title %}</title>
     {% endcase %}
@@ -26,6 +30,16 @@
         <meta name="keywords" content="{% t exchanges.surbitcoin.keywords %}">
         <meta property="og:title" content="{% t exchanges.surbitcoin.title %}">
         <meta property="og:description" content="{% t exchanges.surbitcoin.description %}">
+      {% when 'urdubit' %}
+        <meta name="description" content="{% t exchanges.urdubit.description %}">
+        <meta name="keywords" content="{% t exchanges.urdubit.keywords %}">
+        <meta property="og:title" content="{% t exchanges.urdubit.title %}">
+        <meta property="og:description" content="{% t exchanges.urdubit.description %}">
+      {% when 'foxbit' %}
+        <meta name="description" content="{% t exchanges.foxbit.description %}">
+        <meta name="keywords" content="{% t exchanges.foxbit.keywords %}">
+        <meta property="og:title" content="{% t exchanges.foxbit.title %}">
+        <meta property="og:description" content="{% t exchanges.foxbit.description %}">
       {% else %}
         <meta name="description" content="{% t exchanges.demo.description %}">
         <meta name="keywords" content="{% t exchanges.demo.keywords %}">

@@ -87,6 +87,22 @@ java -jar ./tools/SoyToJsSrcCompiler.jar --bidiGlobalDir 1 --shouldGenerateGoogM
   --outputPathFormat  './bitex/ui/{INPUT_FILE_NAME_NO_EXT}.soy.js' \
   ./bitex/ui/algorithm_runner.$THEME.soy
 
+
+# Messages
+python ./closure-library/closure/bin/build/closurebuilder.py  \
+  --root=./bitex \
+  --root=./closure-library/ \
+  --root=./closure-bootstrap/javascript/ \
+  --root=./scottlogic/ \
+  --root=./uniform/ \
+  --namespace=bitex.app.BlinkTrade \
+  --output_mode=compiled \
+  --compiler_jar=./tools/xtbgenerator/bin/XtbGenerator.jar \
+  --compiler_flags="--translations_file=./translations/$LANG.xtb.xml" \
+  --compiler_flags="--xtb_output_file=./translations/$LANG.xtb.xml" \
+  --compiler_flags="--lang=$LANG" 
+ 
+
 # BlinkTrade Application - enUS
 python ./closure-library/closure/bin/build/closurebuilder.py  \
   --root=./closure-library/ \
@@ -110,7 +126,6 @@ python ./closure-library/closure/bin/build/closurebuilder.py  \
   --compiler_flags="--externs=./externs/jquerymobile-1.4.3.js" \
   --compiler_flags="--externs=./externs/sticky.js" \
   --compiler_flags="--externs=./externs/facebook_javascript_sdk.js" \
-  --compiler_flags="--translations_project='bitex'" \
   --compiler_flags="--translations_file=./translations/$LANG.xtb.xml" \
    > ../assets/js/bitex_app_blink_trade.compiled.$LANG.$THEME.js
 
