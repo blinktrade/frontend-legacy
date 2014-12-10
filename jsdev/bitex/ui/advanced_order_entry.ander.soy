@@ -23,7 +23,7 @@
     <div class="box box--bid-ask box--push-bottom">
         <!-- .box__head -->
         <header class="box__head">
-            {if $side == 1}{msg desc="Buy button in Order Entry"}Buy{/msg}{else}{msg desc="Sell button in Order Entry"}Sell{/msg}{/if} BTC
+            {if $side == 1}{msg desc="Buy button in Order Entry"}Buy{/msg}{else}{msg desc="Sell button in Order Entry"}Sell{/msg}{/if}
         </header>
         <!-- /.box__head -->
 
@@ -35,26 +35,29 @@
                     <tr class="uniform-control-holder">
                         <th class="one-half lap--four-tenths">
                             <label for="" class="order-entry-label">
-                                <span>{msg desc="Amount label in Advanced Order Entry"}Amount:{/msg} {$amount_currency_symbol}
+                                <span>{msg desc="Amount label in Advanced Order Entry"}Amount:{/msg}
+                                <span id="{$id}_amount_sign" class="advanced-order-entry-amount-sign">{$amount_currency_symbol}</span>
                             </label>
                         </th>
                         <td class="one-half lap--six-tenths order-entry-data">
-                                  <input id="{$id}_amount"
-                                         name="amount"
-                                         type="text"
-                                         class="input input--full"
-                                         data-uniform-label="{msg desc="Advanced Order Entry Label"}Amount{/msg}"
-                                         data-uniform-validators="validateNumber; required"
-                                         data-uniform-type="number"
-                                         data-uniform-filters="positive_number"
-                                         value=""
-                                         required/>
+                            <input id="{$id}_amount"
+                                   name="amount"
+                                   type="text"
+                                   class="input input--full"
+                                   data-uniform-label="{msg desc="Advanced Order Entry Label"}Amount{/msg}"
+                                   data-uniform-validators="validateNumber; required"
+                                   data-uniform-type="number"
+                                   data-uniform-filters="positive_number"
+                                   value=""
+                                   required/>
                         </td>
                     </tr>
 
                     <tr class="uniform-control-holder">
                         <th class="one-half lap--four-tenths">
-                            <label for=""><strong><span class="add-on advanced-order-entry-price-sign">{$price_currency_symbol}</span></strong></label>
+                            <label for=""><strong>
+                              {msg desc="'Price per label' in Order Entry"}Price per {/msg}<span class="advanced-order-entry-amount-sign">{$amount_currency_symbol}</span>:
+                            </strong></label>
                         </th>
 
                         <td class="one-half lap--six-tenths order-entry-data">
@@ -72,7 +75,9 @@
 
                     <tr class="uniform-control-holder">
                         <th class="one-half lap--four-tenths">
-                            <strong>{msg desc="Total label in Order Entry"}Total:{/msg}</strong>
+                            <strong>
+                              {msg desc="Total label in Order Entry"}Total:{/msg}  <span id="{$id}_price_sign" class="add-on advanced-order-entry-price-sign">{$price_currency_symbol}</span>
+                            </strong>
                         </th>
 
                         <td class="one-half lap--four-tenths order-entry-data">
