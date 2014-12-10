@@ -1,5 +1,5 @@
 # Site settings
-url: "https://foxbitbr.github.io/exchange"
+url: "https://foxbit.exchange/"
 #url: "//localhost:4000"   # activate this to test on your localhost
 author: "BlinkTrade"
 baseurl: ""
