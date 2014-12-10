@@ -97,7 +97,7 @@ python ./closure-library/closure/bin/build/closurebuilder.py  \
   --root=./uniform/ \
   --namespace=bitex.app.BlinkTrade \
   --output_mode=compiled \
-  --compiler_jar=./tools/xtbgenerator/bin/XtbGenerator.jar \
+  --compiler_jar=./tools/XtbGenerator.jar \
   --compiler_flags="--translations_file=./translations/$LANG.xtb.xml" \
   --compiler_flags="--xtb_output_file=./translations/$LANG.xtb.xml" \
   --compiler_flags="--lang=$LANG" 

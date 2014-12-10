@@ -19,10 +19,11 @@
                 <!-- .trade__label -->
                 <label for="" class="trade__label">
                     {if $side == 1}
-                      {msg desc="I want to buy"}I want to buy {$crypto_currency_symbol}{/msg}
+                      {msg desc="I want to buy"}I want to buy{/msg}
                     {else}
                       {msg desc="I want to sell"}I want to sell{/msg}
                     {/if}
+                    <span class="add-on simple-order-entry-price-sign">{$crypto_currency_symbol}</span>
                 </label>
                 <!-- /.trade__label -->
 
@@ -41,7 +42,8 @@
             <div class="layout__item palm--one-whole four-tenths">
                 <!-- .trade__label -->
                 <label for="" class="trade__label">
-                    {msg desc="for a total of"} for a total of {$currency_symbol}{/msg}
+                    {msg desc="for a total of"} for a total of {/msg}
+                    <span class="add-on simple-order-entry-price-sign">{$currency_symbol}</span>
                 </label>
                 <!-- /.trade__label -->
 
