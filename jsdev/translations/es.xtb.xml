@@ -33,7 +33,7 @@
     <translation id="1216715082058092678" key="MSG_ACCOUNT_ACTIVITY_TABLE_COLUMN_AVG_PX" source="bitex/ui/account_activity.js" desc="Column Average Price of the Account Activity">Precio Medio</translation>
     <translation id="4798155901587681769" key="MSG_ACCOUNT_ACTIVITY_TABLE_COLUMN_VOLUME" source="bitex/ui/account_activity.js" desc="Column Volume of the Account Activity">Total</translation>
     <translation id="3236422184265890902" key="MSG_10MREZ018RP5T" source="bitex/templates/templates.default.soy.js" desc="Customer username">Usuario:</translation>
-    <translation id="5697659303585616266" key="MSG_FCF8V597Y07" source="bitex/templates/templates.default.soy.js" desc="Error code label on error dialog content">C??digo de error</translation>
+    <translation id="5697659303585616266" key="MSG_FCF8V597Y07" source="bitex/templates/templates.default.soy.js" desc="Error code label on error dialog content">Código de error</translation>
     <translation id="3528221637484851073" key="MSG_MBVKLDPBRJRZ" source="bitex/templates/templates.default.soy.js" desc="Download picture link on deposit receipt dialog content">Descargar</translation>
     <translation id="273816828165355421" key="MSG_YWQ8C75BXOS4" source="bitex/templates/templates.default.soy.js" desc="Control number label">Número de control</translation>
     <translation id="1856248176118651420" key="MSG_31SMIXGT1F3" source="bitex/templates/templates.default.soy.js" desc="Amount label">Cantidad abonada</translation>
@@ -263,7 +263,7 @@
     <translation id="843383427370091604" key="MSG_1H2DKXTL25MBP" source="bitex/ui/withdraw_method_editor.default.soy.js" desc="Method field header">Valor</translation>
     <translation id="8921499381548723009" key="MSG_1W9NWN0TAA2UZ" source="bitex/ui/withdraw_method_editor.default.soy.js" desc="Add field button label">Añadir campo</translation>
     <translation id="7121096743062175374" key="MSG_ZIQH36GFKDJR" source="bitex/ui/withdraw_method_editor.default.soy.js" desc="Method fields header">Limites</translation>
-    <translation id="289885140384366683" key="MSG_1JVUHMS9YAHYY" source="bitex/ui/withdraw_method_editor.default.soy.js" desc="Limit table field header">Nivel de verificaci??n</translation>
+    <translation id="289885140384366683" key="MSG_1JVUHMS9YAHYY" source="bitex/ui/withdraw_method_editor.default.soy.js" desc="Limit table field header">Nivel de verificación</translation>
     <translation id="8293246109342663772" key="MSG_DY2NW3DM8M5H" source="bitex/ui/withdraw_method_editor.default.soy.js" desc="Limit table field header">Min</translation>
     <translation id="5302180073822010792" key="MSG_1SB5J60OXCCVI" source="bitex/ui/withdraw_method_editor.default.soy.js" desc="Limit table field header">Max</translation>
     <translation id="5258009494113750123" key="MSG_XCU5BBYWLC4I" source="bitex/ui/withdraw_method_editor.default.soy.js" desc="Limit table field header">Sin verificar</translation>
@@ -283,7 +283,7 @@
     <translation id="3054816167228705124" key="MSG_CHANGE_PASSWORDS_DOES_NOT_MATCH" source="bitex/view/profile.js" desc="Validation error on SignUp view">Las contraseñas no se corresponden</translation>
     <translation id="6005665247653504542" key="MSG_SET_NEW_PASSWORD_VIEW_INVALID_TOKEN" source="bitex/view/set_new_password.js" desc="invalid token error on set new password view">Código de confirmación inválido</translation>
     <translation id="3196333651041713136" key="MSG_SET_NEW_PASSWORD_VIEW_INVALID_PASSWORD" source="bitex/view/set_new_password.js" desc="invalid password error on set new password view">La contraseña debe de disponer de al menos 8 carácteres</translation>
-    <translation id="5911567706403442087" key="MSG_SET_NEW_PASSWORD_VIEW_PASSWORD_DOESNT_MATCH" source="bitex/view/set_new_password.js" desc="invalid password error on set new password view">Las contraseñas no se corrsponden</translation>
+    <translation id="5911567706403442087" key="MSG_SET_NEW_PASSWORD_VIEW_PASSWORD_DOESNT_MATCH" source="bitex/view/set_new_password.js" desc="invalid password error on set new password view">Las contraseñas no se corresponden</translation>
     <translation id="2083270017398032951" key="MSG_CUSTOMER_TABLE_COLUMN_ID" source="bitex/ui/customers.js" desc="Column ID of the Customer Table">ID</translation>
     <translation id="6562079458235436425" key="MSG_CUSTOMER_TABLE_COLUMN_USERNAME" source="bitex/ui/customers.js" desc="Column Username of the Customer Table">Nombre de usuario</translation>
     <translation id="1274435842947160185" key="MSG_CUSTOMER_TABLE_COLUMN_VERIFIED" source="bitex/ui/customers.js" desc="Column Verified of the Customer Table">Verificado</translation>
@@ -302,7 +302,7 @@
     <translation id="7155050110100955426" key="MSG_CUSTOMER_TABLE_COLUMN_ACTION" source="bitex/ui/customers.js" desc="Column Actions the Customer Table">Acciones</translation>
     <translation id="2072331818803802462" key="MSG_CUSTOMER_TABLE_ACTION_DETAILS" source="bitex/ui/customers.js" desc="Label for deposit button inside the customer table in broker view.">detalles</translation>
     <translation id="1068484197751585966" key="MSG_CUSTOMERS_TABLE_TITLE" source="bitex/ui/customers.js" desc="Title  for the customers table">Clientes</translation>
-    <translation id="1015136929938913559" key="MSG_CUSTOMERS_TABLE_SEARCH_PLACEHOLDER" source="bitex/ui/customers.js" desc="placeholder for the search input text in the customers table">Nombre usuario de o email...</translation>
+    <translation id="1015136929938913559" key="MSG_CUSTOMERS_TABLE_SEARCH_PLACEHOLDER" source="bitex/ui/customers.js" desc="placeholder for the search input text in the customers table">Nombre de usuario o correo...</translation>
     <translation id="1646545861057431513" key="MSG_CUSTOMERS_LIST_BUTTON_FILTER_ALL" source="bitex/ui/customers.js" desc="Customers filter all select option">Todos</translation>
     <translation id="8930308327400940205" key="MSG_ORDER_BOOK_BID_TITLE" source="bitex/ui/order_book.js" desc="Title in the bid side on the order book">COMPRA</translation>
     <translation id="6857802332739485005" key="MSG_ORDER_BOOK_ASK_TITLE" source="bitex/ui/order_book.js" desc="Title in the ask side on the order book">VENDA</translation>
@@ -321,11 +321,11 @@
     <translation id="8294855159062792258" key="MSG_DEPOSIT_TABLE_COLUMN_DETAIL" source="bitex/ui/deposit_list.js" desc="Column Detail of the Deposit List">Detalles</translation>
     <translation id="8013742343858000155" key="MSG_DEPOSIT_TABLE_COLUMN_USERNAME" source="bitex/ui/deposit_list.js" desc="Column Username of the Deposit List">Nombre de usuario</translation>
     <translation id="1921819421289808265" key="MSG_DEPOSIT_TABLE_COLUMN_STATUS_PENDING" source="bitex/ui/deposit_list.js" desc="Column Status of the Deposit List">Pendiente</translation>
-    <translation id="4131402607831076559" key="MSG_DEPOSIT_TABLE_COLUMN_STATUS_UNCONFIRMED" source="bitex/ui/deposit_list.js" desc="Column Status of the Deposit List">Sin confrirmar</translation>
+    <translation id="4131402607831076559" key="MSG_DEPOSIT_TABLE_COLUMN_STATUS_UNCONFIRMED" source="bitex/ui/deposit_list.js" desc="Column Status of the Deposit List">Sin confirmar</translation>
     <translation id="3866187847955109907" key="MSG_DEPOSIT_TABLE_COLUMN_STATUS_PROGRESS" source="bitex/ui/deposit_list.js" desc="Column Status of the Deposit List">En progreso...</translation>
     <translation id="6526305363569690055" key="MSG_DEPOSIT_TABLE_COLUMN_STATUS_COMPLETED" source="bitex/ui/deposit_list.js" desc="Column Status of the Deposit List">Completado</translation>
     <translation id="3938863879418577136" key="MSG_DEPOSIT_TABLE_COLUMN_STATUS_CANCELLED" source="bitex/ui/deposit_list.js" desc="Column Status of the Deposit List">Cancelado</translation>
-    <translation id="4367563642227845643" key="MSG_PROGRESS_MESSAGE_FOR_CRYPTO_CURRENCY" source="bitex/ui/deposit_list.js" desc="status message for confirming crypto coin deposits"><ph name="confirmations" /> de <ph name="necessaryconfirmations" /> confirmaci??nes</translation>
+    <translation id="4367563642227845643" key="MSG_PROGRESS_MESSAGE_FOR_CRYPTO_CURRENCY" source="bitex/ui/deposit_list.js" desc="status message for confirming crypto coin deposits"><ph name="confirmations" /> de <ph name="necessaryconfirmations" /> confirmaciones</translation>
     <translation id="8235727154519483188" key="MSG_DEPOSIT_TABLE_DETAILS_COLUMN_BTN_VIEW" source="bitex/ui/deposit_list.js" desc="Deposit delete button label in the  broker's deposit list">ver</translation>
     <translation id="3296051376060046773" key="MSG_DEPOSIT_TABLE_DETAILS_COLUMN_BTN_QR" source="bitex/ui/deposit_list.js" desc="Deposit delete button label in the  broker's deposit list">QR</translation>
     <translation id="1046271529607736967" key="MSG_DEPOSIT_TABLE_DETAILS_COLUMN_BTN_TRANSACTION" source="bitex/ui/deposit_list.js" desc="Deposit delete button label in the  broker's deposit list">blockchain</translation>
@@ -471,7 +471,7 @@
     <translation id="8300754450415616108" key="MSG_APPLY_TO_BE_BROKER" source="bitex/app/blinktrade.js" desc="label for broker selection on signup form">Aplicar para ser un broker</translation>
     <translation id="5569500319697076072" key="MSG_NOTIFY_ME_WHEN_A_NEW_BROKER_ARRIVE" source="bitex/app/blinktrade.js" desc="label for broker selection on signup form">Avíseme cuando un nuevo broker se establezca en mi región</translation>
     <translation id="2040828480399254041" key="MSG_CONNECTION_ERROR_NOTIFICATION_ERROR_TITLE" source="bitex/app/blinktrade.js" desc="notification title on Connection close">Error</translation>
-    <translation id="5190996618520775355" key="MSG_CONNECTION_ERROR_NOTIFICATION_ERROR_CONTENT" source="bitex/app/blinktrade.js" desc="notification content on Connection close">detectado con la conexi??n.</translation>
+    <translation id="5190996618520775355" key="MSG_CONNECTION_ERROR_NOTIFICATION_ERROR_CONTENT" source="bitex/app/blinktrade.js" desc="notification content on Connection close">detectado con la conexión.</translation>
     <translation id="4365925919394117627" key="MSG_CONNECTION_ERROR_MESSAGE_NOTIFICATION_TITLE" source="bitex/app/blinktrade.js" desc="notification content on Connection close">Mensaje del servidor:</translation>
     <translation id="1733499172911384661" key="MSG_CONNECTION_ERROR_DEFAULT_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="Connection error dialog title">Error</translation>
     <translation id="357645026509293267" key="MSG_STARTING_ALGORITHM_NOTIFICATION" source="bitex/app/blinktrade.js" desc="starting algorithm notification message">Comenzando ...</translation>
