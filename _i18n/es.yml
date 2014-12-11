@@ -94,10 +94,10 @@ views:
   profile:
     title: Mi Perfil
     two_factor_auth_section:
-      title: Activar o desactivar verificacion de dos pasos
+      title: Activar o desactivar verificación de dos pasos
       key: Key
       authentication_code: Código de verificación
-      authentication_code_title: Cógico generado por Google Authenticatior
+      authentication_code_title: Código generado por Google Authenticatior
       authentication_code_placeholder: Ex. 555555
       enable: Activar
       disable: Desactivar
@@ -149,7 +149,7 @@ views:
     my_broker: Sobre el exchange
     trading: Comprar o Vender
     offerbook: Libro de órdenes
-    ledger: Livro de cuentas
+    ledger: Libro de cuentas
     customers: Mis clientes
     deposit_requests: Depósitos ( clientes )
     withdraw_requests: Retiros ( clientes )
