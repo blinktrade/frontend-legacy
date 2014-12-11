@@ -417,7 +417,7 @@
     <translation id="9186597034539830374" key="MSG_TRADE_HISTORY_COLUMN_SIDE_BUY" source="bitex/ui/trade_history.js" desc="Column Side Buy">Comprar</translation>
     <translation id="6927559644053892614" key="MSG_TRADE_HISTORY_COLUMN_SIDE_SELL" source="bitex/ui/trade_history.js" desc="Column Side Sell">Vender</translation>
     <translation id="3706778100100763851" key="MSG_TRADE_HISTORY_TABLE_TITLE" source="bitex/ui/trade_history.js" desc="last trades table title">Últimos trades</translation>
-    <translation id="3255834482463686890" key="MSG_SUCCESS_PASSWORD_CHANGE" source="bitex/app/blinktrade.js" desc="Password changed message">Contraseña modificada!</translation>
+    <translation id="3255834482463686890" key="MSG_SUCCESS_PASSWORD_CHANGE" source="bitex/app/blinktrade.js" desc="Password changed message">Contraseña cambiada!</translation>
     <translation id="2296265795818731255" key="MSG_BITEX_PASSWORD_CHANGED_OK_TITLE" source="bitex/app/blinktrade.js" desc="Password Chanced with success dialog title">Éxito</translation>
     <translation id="7313000283228766439" key="MSG_BITEX_ERROR_VALIDATE_REQUIRED" source="bitex/app/blinktrade.js" desc="Error Validade Required in Validators"><ph name="c" /> ha de rellenarse obligatoriamente</translation>
     <translation id="2976488691804301658" key="MSG_BITEX_ERROR_VALIDATE_BTC_ADDRESS" source="bitex/app/blinktrade.js" desc="Error Validade Bitcoin Address"><ph name="c" /> no es una dirección válida</translation>
