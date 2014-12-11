@@ -408,7 +408,7 @@
     <translation id="4218920355193789839" key="MSG_IN_DAYS_SINGULAR" source="closure-library/closure/goog/date/relative.js" desc="Relative date indicating in how many days something happens (singular).">en <ph name="num" /> días</translation>
     <translation id="2569438922978284310" key="MSG_IN_DAYS_PLURAL" source="closure-library/closure/goog/date/relative.js" desc="Relative date indicating in how many days something happens (plural).">en <ph name="num" /> dias</translation>
     <translation id="3562431494351789714" key="MSG_TRADE_HISTORY_COLUMN_MARKET" source="bitex/ui/trade_history.js" desc="Column Market Pair">Mercado</translation>
-    <translation id="7160914947640374388" key="MSG_TRADE_HISTORY_COLUMN_CREATED" source="bitex/ui/trade_history.js" desc="Column Time">Feca/Hora</translation>
+    <translation id="7160914947640374388" key="MSG_TRADE_HISTORY_COLUMN_CREATED" source="bitex/ui/trade_history.js" desc="Column Time">Fecha/Hora</translation>
     <translation id="4009368044472368248" key="MSG_TRADE_HISTORY_COLUMN_SIDE" source="bitex/ui/trade_history.js" desc="Column Side">Lado</translation>
     <translation id="2434114436849906662" key="MSG_TRADE_HISTORY_COLUMN_PRICE" source="bitex/ui/trade_history.js" desc="Column Price">Precio</translation>
     <translation id="7629602828709204610" key="MSG_TRADE_HISTORY_COLUMN_SIZE" source="bitex/ui/trade_history.js" desc="Column Size">Tamaño</translation>
