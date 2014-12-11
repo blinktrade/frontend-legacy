@@ -480,8 +480,8 @@
 	<translation id="4798041947255443334" key="MSG_ERROR_RUNNING_ALGORITHM_NOTIFICATION" source="bitex/app/blinktrade.js" desc="error algorithm notification message">Erro durante a execução do algorítimo</translation>
 	<translation id="4118429264222709574" key="MSG_STOPPING_ALGORITHM_NOTIFICATION" source="bitex/app/blinktrade.js" desc="starting algorithm notification message">Parando algorítimo....</translation>
 	<translation id="7127752746329835498" key="MSG_18D3EL8LYTMHB" source="bitex/templates/templates.default.soy.js" desc="get verified message"> Verifique a sua conta </translation>
-	<translation id="7813032440507104493" key="MSG_1MACHCKNU1JY1" source="bitex/ui/simple_order_entry.ander.soy.js" desc="for a total of"> for a total of <ph name="currencySymbol" /></translation>
-	<translation id="7267136620269436936" key="MSG_1RPYGJ9BS7J35" source="bitex/ui/simple_order_entry.ander.soy.js" desc="I want to buy">I want to buy <ph name="cryptoCurrencySymbol" /></translation>
-	<translation id="7886698491564141760" key="MSG_1TLJJKCN7PV4R" source="bitex/ui/advanced_order_entry.ander.soy.js" desc="Buy button in Order Entry">Buy</translation>
-	<translation id="1541278227797186113" key="MSG_4WNOZ44AEDTA" source="bitex/ui/advanced_order_entry.ander.soy.js" desc="Sell button in Order Entry">Sell</translation>
+	<translation id="7813032440507104493" key="MSG_1MACHCKNU1JY1" source="bitex/ui/simple_order_entry.ander.soy.js" desc="for a total of"> por um total de <ph name="currencySymbol" /></translation>
+	<translation id="7267136620269436936" key="MSG_1RPYGJ9BS7J35" source="bitex/ui/simple_order_entry.ander.soy.js" desc="I want to buy">Eu quero comprar <ph name="cryptoCurrencySymbol" /></translation>
+	<translation id="7886698491564141760" key="MSG_1TLJJKCN7PV4R" source="bitex/ui/advanced_order_entry.ander.soy.js" desc="Buy button in Order Entry">Comprar</translation>
+	<translation id="1541278227797186113" key="MSG_4WNOZ44AEDTA" source="bitex/ui/advanced_order_entry.ander.soy.js" desc="Sell button in Order Entry">Vender</translation>
 </translationbundle>
