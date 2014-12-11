@@ -477,9 +477,9 @@
     <translation id="357645026509293267" key="MSG_STARTING_ALGORITHM_NOTIFICATION" source="bitex/app/blinktrade.js" desc="starting algorithm notification message">Comenzando ...</translation>
     <translation id="4798041947255443334" key="MSG_ERROR_RUNNING_ALGORITHM_NOTIFICATION" source="bitex/app/blinktrade.js" desc="error algorithm notification message">Error durante la ejecución del algoritmo</translation>
     <translation id="4118429264222709574" key="MSG_STOPPING_ALGORITHM_NOTIFICATION" source="bitex/app/blinktrade.js" desc="starting algorithm notification message">deteniendo ...</translation>
-	<translation id="1176226235922874140" key="MSG_10VPB9YX8J6WS" source="bitex/templates/templates.whitedev.soy.js" desc="get verified message">Usted puede hacer la verificación de su cuenta al pinchar en <ph name="startLink" />Verificar cuenta<ph name="endLink" /></translation>
-	<translation id="7813032440507104493" key="MSG_1MACHCKNU1JY1" source="bitex/ui/simple_order_entry.ander.soy.js" desc="for a total of"> para un total de <ph name="currencySymbol" /></translation>
-	<translation id="7267136620269436936" key="MSG_1RPYGJ9BS7J35" source="bitex/ui/simple_order_entry.ander.soy.js" desc="I want to buy">Quiero comprar <ph name="cryptoCurrencySymbol" /></translation>
-	<translation id="7886698491564141760" key="MSG_1TLJJKCN7PV4R" source="bitex/ui/advanced_order_entry.ander.soy.js" desc="Buy button in Order Entry">Comprar</translation>
-	<translation id="1541278227797186113" key="MSG_4WNOZ44AEDTA" source="bitex/ui/advanced_order_entry.ander.soy.js" desc="Sell button in Order Entry">Vender</translation>
+    <translation id="1176226235922874140" key="MSG_10VPB9YX8J6WS" source="bitex/templates/templates.whitedev.soy.js" desc="get verified message">Usted puede hacer la verificación de su cuenta al pinchar en <ph name="startLink" />Verificar cuenta<ph name="endLink" /></translation>
+    <translation id="7813032440507104493" key="MSG_1MACHCKNU1JY1" source="bitex/ui/simple_order_entry.ander.soy.js" desc="for a total of"> para un total de <ph name="currencySymbol" /></translation>
+    <translation id="7267136620269436936" key="MSG_1RPYGJ9BS7J35" source="bitex/ui/simple_order_entry.ander.soy.js" desc="I want to buy">Quiero comprar <ph name="cryptoCurrencySymbol" /></translation>
+    <translation id="7886698491564141760" key="MSG_1TLJJKCN7PV4R" source="bitex/ui/advanced_order_entry.ander.soy.js" desc="Buy button in Order Entry">Comprar</translation>
+    <translation id="1541278227797186113" key="MSG_4WNOZ44AEDTA" source="bitex/ui/advanced_order_entry.ander.soy.js" desc="Sell button in Order Entry">Vender</translation>
 </translationbundle>
