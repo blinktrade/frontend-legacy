@@ -839,9 +839,7 @@
             {/msg}
           </div>
           {if $verificationLevel == 0}
-            {msg desc="get verified message"}
-              You can verify your account by clicking in <a href="" data-switch-view="verification">Verify your account</a>
-            {/msg}
+            <a href="" data-switch-view="verification">{msg desc="get verified message"} Verify your account {/msg}</a>
           {/if}
         {else}
           <div class="alert alert-danger text-center">
