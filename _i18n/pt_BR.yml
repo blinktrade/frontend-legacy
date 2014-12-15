@@ -47,8 +47,8 @@ views:
     signup: Registrar
 
   faq:
-    title: FAQ - Pergunstas Frequentes
-    get_in_touch: Entre em contato caso que você não tenha conseguido encontrar a resposta para a sua pergunta
+    title: FAQ - Perguntas Frequentes
+    get_in_touch: Entre em contato caso você não tenha conseguido encontrar a resposta para a sua pergunta
 
   signup:
     title: Registrar
