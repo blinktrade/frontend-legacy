@@ -109,6 +109,7 @@ bitex.app.BlinkTrade = function(broker_id, opt_default_country, opt_default_stat
 
   bootstrap.Dropdown.install();
   bootstrap.Accordion.install();
+  bootstrap.Alert.install();
 
   this.dialog_ = null;
   this.error_message_alert_timeout_ = 5000;
@@ -938,7 +939,10 @@ bitex.app.BlinkTrade.prototype.onBitexVerifyCustomerUpdate_ = function(e) {
   profile['VerificationData'] = msg['VerificationData'];
   this.getModel().set('Profile', profile);
 
-  this.getModel().set('IsVerified',       profile['Verified'] > 1);
+  this.getModel().set('IsVerified',           profile['Verified'] > 1);
+  this.getModel().set('IsMissingVerification',profile['Verified'] == 0);
+  this.getModel().set('IsAccountBlocked',     profile['Verified'] < 0);
+
 
   /** @desc verification notification title msg */
   var MSG_NOTIFICATION_VERIFY_TITLE = goog.getMsg('Verification:');
@@ -2852,6 +2856,8 @@ bitex.app.BlinkTrade.prototype.onUserLoginOk_ = function(e) {
   this.getModel().set('TwoFactorEnabled', msg['TwoFactorEnabled']);
   this.getModel().set('IsBroker',         msg['IsBroker'] );
   this.getModel().set('IsVerified',       msg['Profile']['Verified'] > 1);
+  this.getModel().set('IsMissingVerification', msg['Profile']['Verified'] == 0);
+  this.getModel().set('IsAccountBlocked', msg['Profile']['Verified'] < 0);
 
   var broker_currencies = new goog.structs.Set();
   var allowed_markets = {};
@@ -2969,8 +2975,11 @@ bitex.app.BlinkTrade.prototype.onUserLoginOk_ = function(e) {
   // Request Deposit Options
   this.conn_.requestDepositMethods();
 
+  this.router_.setView('offerbook');
+  /*
   if (this.getModel().get('IsVerified')) {
     this.router_.setView('offerbook');
+
   } else {
     if (this.getModel().get('Profile')['Verified']==0) {
       this.router_.setView('verification');
@@ -2978,6 +2987,7 @@ bitex.app.BlinkTrade.prototype.onUserLoginOk_ = function(e) {
       this.router_.setView('offerbook');
     }
   }
+  */
 
   // Request Open Orders
   this.getModel().set('FinishedInitialOpenOrdersRequest',  false);

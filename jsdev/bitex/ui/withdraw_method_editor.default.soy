@@ -13,7 +13,7 @@
             <option value="broker" {if $data['side'] == 'broker'}selected{/if}>{msg desc="Broker option on side select"}Broker{/msg}</option>
         </select>
     </td>
-    <td><input id="{$id}_field_name_{$idx}" type="text" class="input-block-level withdraw-method-editor-field-name"  data-uniform-label="{msg desc="Field name"}Name{/msg}" data-uniform-filters="non_space"  data-uniform-validators="required ; validateAlphaNum"  placeholder="" required value="{$data['name']}"></td>
+    <td><input id="{$id}_field_name_{$idx}" type="text" class="input-block-level withdraw-method-editor-field-name"  data-uniform-label="{msg desc="Field name"}Name{/msg}" data-uniform-filters="non_space"  data-uniform-validators="required ; validatePhrase"  placeholder="" required value="{$data['name']}"></td>
     <td><input id="{$id}_field_label_{$idx}" type="text" class="input-block-level withdraw-method-editor-field-label"  data-uniform-label="{msg desc="Field name"}Label{/msg}"  data-uniform-validators="required" placeholder="" required value="{$data['label']}"></td>
     <td><input id="{$id}_field_placeholder_{$idx}" type="text" class="input-block-level withdraw-method-editor-field-placeholder" placeholder="" value="{$data['placeholder']}"></td>
 

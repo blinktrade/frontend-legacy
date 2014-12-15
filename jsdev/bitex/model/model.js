@@ -98,9 +98,33 @@ bitex.model.Model.prototype.updateDom = function() {
     if (goog.isDefAndNotNull(model_key)) {
       var current_value = goog.dom.getTextContent(el);
 
+      var model_action = el.getAttribute('data-model-action');
+      if (!goog.isDefAndNotNull(model_action)) {
+        model_action = 'text_content';
+      }
+
       var value = this.get(model_key);
-      if (current_value !== value) {
-        goog.dom.setTextContent( el, value );
+      if (model_action == 'value') {
+        current_value = goog.dom.forms.getValue(el);
+        if (current_value !== value) {
+          goog.dom.forms.setValue( el, value );
+        }
+      } else if (model_action == 'text_content') {
+        // TODO: make sure this also works with value attribute
+        current_value = goog.dom.getTextContent(el);
+        if (current_value !== value) {
+          goog.dom.setTextContent( el, value );
+        }
+      } else if (model_action == 'show_element') {
+        current_value = goog.style.isElementShown(el);
+        if (current_value !== value) {
+          goog.style.showElement(el, value);
+        }
+      } else if (model_action == 'hide_element') {
+        current_value = !goog.style.isElementShown(el);
+        if (current_value !== value) {
+          goog.style.showElement(el, !value);
+        }
       }
     }
   }, this);
@@ -119,13 +143,39 @@ bitex.model.Model.prototype.set = function(key, value) {
   goog.array.forEach( elements, function(el) {
     var model_key = el.getAttribute('data-model-key');
     if (model_key === key) {
-      // TODO: make sure this also works with value attribute
-      var current_value = goog.dom.getTextContent(el);
+      var model_action = el.getAttribute('data-model-action');
+      if (!goog.isDefAndNotNull(model_action)) {
+        model_action = 'text_content';
+      }
 
-      if (current_value !== value) {
+      var current_value;
+      var should_add_blink_class = false;
+      if (model_action == 'value') {
+        current_value = goog.dom.forms.getValue(el);
+        if (current_value !== value) {
+          goog.dom.forms.setValue( el, value );
+          should_add_blink_class = true;
+        }
+      } else if (model_action == 'text_content') {
+        // TODO: make sure this also works with value attribute
+        current_value = goog.dom.getTextContent(el);
+        if (current_value !== value) {
+          goog.dom.setTextContent( el, value );
+          should_add_blink_class = true;
+        }
+      } else if (model_action == 'show_element') {
+        current_value = goog.style.isElementShown(el);
+        if (current_value !== value) {
+          goog.style.showElement(el, value);
+        }
+      } else if (model_action == 'hide_element') {
+        current_value = !goog.style.isElementShown(el);
+        if (current_value !== value) {
+          goog.style.showElement(el, !value);
+        }
+      }
 
-        goog.dom.setTextContent( el, value );
-
+      if (should_add_blink_class) {
         var blink_class = el.getAttribute('data-blink-class');
         if (goog.isDefAndNotNull(blink_class)) {
           var blink_delay = el.getAttribute('data-blink-delay') || 700;
@@ -135,9 +185,9 @@ bitex.model.Model.prototype.set = function(key, value) {
           goog.Timer.callOnce( function(){
             goog.dom.classes.remove( el,  blink_class );
           }, blink_delay , this);
-
         }
       }
+
     }
   });
 
