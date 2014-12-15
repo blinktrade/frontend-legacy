@@ -89,8 +89,15 @@ bitex.view.ProfileView.prototype.enterView = function() {
   goog.style.showElement( btnDisableEl , this.getApplication().getModel().get("TwoFactorEnabled"));
   goog.style.showElement( divEl , has_secret);
 
+
+  var change_password_place_holder_compoenent = new goog.ui.Component();
+  change_password_place_holder_compoenent.createDom = function(e){
+    this.setElementInternal( goog.soy.renderAsElement( bitex.templates.ProfileViewChangePasswordPlaceHolder ) );
+  };
+  this.addChild(change_password_place_holder_compoenent, true);
+
   this.change_password_ = new bitex.ui.ChangePassword();
-  this.addChild(this.change_password_, true);
+  change_password_place_holder_compoenent.addChild(this.change_password_, true);
   this.change_password_.enterDocument();
 
   handler.listen(this, bitex.ui.ChangePassword.EventType.CHANGE_PASSWORD, this.onChangePassword_);

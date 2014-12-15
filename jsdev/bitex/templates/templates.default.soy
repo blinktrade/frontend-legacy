@@ -1,6 +1,13 @@
 {namespace bitex.templates}
 
 /**
+  */
+{template .ProfileViewChangePasswordPlaceHolder}
+  <div class="span6 well"></div>
+{/template}
+
+
+/**
   * @param msg_customer_detail
   */
 {template .CustomerDetailDialog}
@@ -871,11 +878,11 @@
                     <div>
                       <em>
                         <small>
-                          {if $method['limits'][$verificationLevel]['min']}
-                            {msg desc="amount help block"} Maximum: {$method['limits'][$verificationLevel]['formatted_max'] } per day.  {/msg}
+                          {if $method['limits'][$verificationLevel]['max']}
+                            {msg desc="amount help block"} Available: {$method['limits'][$verificationLevel]['formatted_max'] }{/msg}
                             <br>
                           {/if}
-                          {if $method['limits'][$verificationLevel]['max']}
+                          {if $method['limits'][$verificationLevel]['min']}
                             {msg desc="amount help block"} Minimum: {$method['limits'][$verificationLevel]['formatted_min'] } per transaction.  {/msg}
                           {/if}
                         </small>
@@ -969,11 +976,11 @@
                     <div>
                       <em>
                         <small>
-                          {if $method['limits'][$verificationLevel]['min']}
-                            {msg desc="amount help block"} Maximum: {$method['limits'][$verificationLevel]['formatted_max'] } per day.  {/msg}
+                          {if $method['limits'][$verificationLevel]['max']}
+                            {msg desc="amount help block"} Available: {$method['limits'][$verificationLevel]['formatted_max'] }{/msg}
                             <br>
                           {/if}
-                          {if $method['limits'][$verificationLevel]['max']}
+                          {if $method['limits'][$verificationLevel]['min']}
                             {msg desc="amount help block"} Minimum: {$method['limits'][$verificationLevel]['formatted_min'] } per transaction.  {/msg}
                           {/if}
                         </small>
