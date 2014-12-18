@@ -7,15 +7,15 @@ global:
   twitter: Twitter
 exchanges:
   demo:
-    title: BlinDemo - Exchange de Bitcoin Open Source
-    description: Exchange de Bitcoin Open Source site demo
-    keywords: bitcoin, bitcoin exchange, open source bitcoin exchange, bitcoin trading plataform, open source bitcoin trading plataforma
+    title: RomaniaBitcoin.exchange - Cumpărați și vindeți Bitcoin în România
+    description: Cumpărați și vindeți Bitcoin în România
+    keywords: Buy and sell bitcoin in Romania, bitcoin exchange in Romania, sell bitcoins in Romania, buy bitcoins in Romania,cumpara si vinde Bitcoin in Romania, schimba Bitcoin Romania
     lead:  Urmăriți exchange-ul nostru open source în acțiune 
   chilebit:
-    title: RomaniaBitcoin.exchange -  //Cumpărați și vindeți Bitcoin în România 
-    description:  Cumpărați și vindeți Bitcoin în România 
+    title: ChileBit.NET - The first bitcoin exchange in Chile 
+    description:  The first bitcoin exchange in Chile 
     keywords: Buy and sell bitcoin in Romania, bitcoin exchange in Romania, sell bitcoins in Romania, buy bitcoins in Romania,cumpara si vinde Bitcoin in Romania, schimba Bitcoin Romania
-    lead: Cumpărați și vindeți Bitcoin în România
+    lead: The first bitcoin exchange in Chile
   surbitcoin:
     title: SurBitcoin - The first bitcoin exchange in Venezuela
     description: The first bitcoin exchange in Venezuela
