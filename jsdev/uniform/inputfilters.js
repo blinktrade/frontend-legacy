@@ -145,6 +145,7 @@ uniform.InputFilters.prototype.filterNumber_ = function(e) {
     case goog.events.KeyCodes.PERIOD:
     case goog.events.KeyCodes.COMMA:
     case 108: // NUM_COMA
+    case 194: // ABNT2 NUM_PERIOD
       if (inputValue.indexOf(goog.i18n.NumberFormatSymbols.DECIMAL_SEP) < 0) {
         inputValue =  inputValue.substring( 0, selectionStart ) +
             goog.i18n.NumberFormatSymbols.DECIMAL_SEP + inputValue.substring( selectionEnd );
@@ -187,6 +188,7 @@ uniform.InputFilters.prototype.filterPositiveNumber_ = function(e) {
     case goog.events.KeyCodes.PERIOD:
     case goog.events.KeyCodes.COMMA:
     case 108: // NUM_COMA
+    case 194: // ABNT2 NUM_PERIOD
       if (inputValue.indexOf(goog.i18n.NumberFormatSymbols.DECIMAL_SEP) < 0) {
         inputValue =  inputValue.substring( 0, selectionStart ) +
             goog.i18n.NumberFormatSymbols.DECIMAL_SEP + inputValue.substring( selectionEnd );
