@@ -100,6 +100,13 @@ java -jar ./tools/SoyToJsSrcCompiler.jar --bidiGlobalDir 1 --shouldGenerateGoogM
   --outputPathFormat  './bitex/ui/{INPUT_FILE_NAME_NO_EXT}.soy.js' \
   ./bitex/ui/algorithm_runner.$THEME.soy
 
+echo "locked_balance_display.soy"
+java -jar ./tools/SoyToJsSrcCompiler.jar --bidiGlobalDir 1 --shouldGenerateGoogMsgDefs \
+  --shouldProvideRequireSoyNamespaces --codeStyle concat --cssHandlingScheme GOOG  \
+  --outputPathFormat  './bitex/ui/{INPUT_FILE_NAME_NO_EXT}.soy.js' \
+  ./bitex/ui/locked_balance_display.$THEME.soy
+
+
 echo "done with soy templates"
 
 ## Messages - Uncomment this to generate the translation file
