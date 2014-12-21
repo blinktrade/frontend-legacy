@@ -1,0 +1,22 @@
+{namespace bitex.ui.LockedBalanceDisplay.templates}
+
+/**
+  * @param id
+  * @param accountBuy
+  * @param accountSell
+  * @param? formattedAmountBuying
+  * @param? formattedAmountSelling
+  */
+{template .LockedBalanceDisplay }
+  <div class="row-fluid locked-balance-display">
+     <div class="span6 text-left locked-balance-display-buying">
+        {msg desc="Shown above the order book bids"}You are buying a total of {/msg}
+        <span id="{$id}_buy_account" class="bitex-model" data-model-key="formatted_locked_balance_{$accountBuy}" data-blink-class="balance-info-blink">{if $formattedAmountBuying}{$formattedAmountBuying}{/if}</span>
+     </div>
+     <div class="span6 text-right locked-balance-display-selling">
+        {msg desc="Shown above the order book asks"}You are selling a total of {/msg}
+        <span id="{$id}_sell_account"  class="bitex-model" data-model-key="formatted_locked_balance_{$accountSell}" data-blink-class="balance-info-blink">{if $formattedAmountSelling}{$formattedAmountSelling}{/if}</span>
+     </div>
+  </div>
+{/template}
+

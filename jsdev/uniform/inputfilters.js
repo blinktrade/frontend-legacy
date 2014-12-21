@@ -143,22 +143,18 @@ uniform.InputFilters.prototype.filterNumber_ = function(e) {
       break;
     case goog.events.KeyCodes.NUM_PERIOD:
     case goog.events.KeyCodes.PERIOD:
-      if (goog.i18n.NumberFormatSymbols.DECIMAL_SEP == '.') {
-        if (inputValue.indexOf('.') < 0) {
-          return;
-        }
-      }
-      break;
-
     case goog.events.KeyCodes.COMMA:
     case 108: // NUM_COMA
-      if (goog.i18n.NumberFormatSymbols.DECIMAL_SEP == ',') {
-        if (inputValue.indexOf(',') < 0) {
-          return;
-        }
+    case 194: // ABNT2 NUM_PERIOD
+      if (inputValue.indexOf(goog.i18n.NumberFormatSymbols.DECIMAL_SEP) < 0) {
+        inputValue =  inputValue.substring( 0, selectionStart ) +
+            goog.i18n.NumberFormatSymbols.DECIMAL_SEP + inputValue.substring( selectionEnd );
+        inputEl.value = inputValue;
+        inputEl.select();
+        inputEl.selectionStart = selectionStart + 1;
+        inputEl.selectionEnd = selectionEnd + 1;
       }
       break;
-
     case goog.events.KeyCodes.E:
       if (inputValue.indexOf('e') >= 0 || inputValue.indexOf('E') >= 0 ) {
         break;
@@ -179,6 +175,8 @@ uniform.InputFilters.prototype.filterPositiveNumber_ = function(e) {
   var inputEl = e.target;
 
   var inputValue = goog.dom.forms.getValue(inputEl);
+  var selectionStart = inputEl.selectionStart;
+  var selectionEnd = inputEl.selectionEnd;
 
   if ( e.ctrlKey ||
       (!e.shiftKey && e.keyCode >= goog.events.KeyCodes.ZERO && e.keyCode <= goog.events.KeyCodes.NINE) ||
@@ -188,22 +186,18 @@ uniform.InputFilters.prototype.filterPositiveNumber_ = function(e) {
   switch(e.keyCode) {
     case goog.events.KeyCodes.NUM_PERIOD:
     case goog.events.KeyCodes.PERIOD:
-      if (goog.i18n.NumberFormatSymbols.DECIMAL_SEP == '.') {
-        if (inputValue.indexOf('.') < 0) {
-          return;
-        }
-      }
-      break;
-
     case goog.events.KeyCodes.COMMA:
     case 108: // NUM_COMA
-      if (goog.i18n.NumberFormatSymbols.DECIMAL_SEP == ',') {
-        if (inputValue.indexOf(',') < 0) {
-          return;
-        }
+    case 194: // ABNT2 NUM_PERIOD
+      if (inputValue.indexOf(goog.i18n.NumberFormatSymbols.DECIMAL_SEP) < 0) {
+        inputValue =  inputValue.substring( 0, selectionStart ) +
+            goog.i18n.NumberFormatSymbols.DECIMAL_SEP + inputValue.substring( selectionEnd );
+        inputEl.value = inputValue;
+        inputEl.select();
+        inputEl.selectionStart = selectionStart + 1;
+        inputEl.selectionEnd = selectionEnd + 1;
       }
       break;
-
     case goog.events.KeyCodes.E:
       if (inputValue.indexOf('e') >= 0 || inputValue.indexOf('E') >= 0 ) {
         break;
@@ -238,8 +232,6 @@ uniform.InputFilters.prototype.filterInteger_ = function(e) {
     }
     return;  // allowed
   }
-
-  console.log('blocked keyCode:' + e.keyCode);
   e.preventDefault();
 };
 
