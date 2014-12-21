@@ -3872,6 +3872,7 @@ bitex.app.BlinkTrade.prototype.registerAlgorithmInstance = function(algo_instanc
         e = e.getBrowserEvent();
         if (   e.data['rep'] != 'create'
             && e.data['rep'] != 'start'
+            && e.data['rep'] != 'params'
             && e.data['rep'] != 'error'
             && e.data['rep'] != 'terminate'
             && e.data['rep'] != 'stop') {
