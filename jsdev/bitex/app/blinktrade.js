@@ -1034,6 +1034,16 @@ bitex.app.BlinkTrade.prototype.adjustLockedBalance_ = function(execution_report,
   this.getModel().set('LockedBalance',locked_balance);
 
 
+  var balance_broker = this.getModel().get('balance_' + this.getModel().get('SelectedBrokerID'));
+  if (!goog.isDefAndNotNull(balance_broker)) {
+    balance_broker = {};
+  }
+  var currency_locked_balance_key = currency + '_locked';
+  var currency_balance_locked = {};
+  currency_balance_locked[currency_locked_balance_key] = locked_balance[this.getModel().get('SelectedBrokerID')][currency];
+  goog.object.extend(balance_broker, currency_balance_locked );
+  this.getModel().set('balance_' + this.getModel().get('SelectedBrokerID'), balance_broker);
+
 
   var locked_balance_key = 'locked_balance_' +
       this.getModel().get('SelectedBrokerID') + ':' + this.getModel().get('UserID') + '_'  + currency;
@@ -1207,11 +1217,20 @@ bitex.app.BlinkTrade.prototype.onBitexBalanceResponse_ = function(e) {
   }, this);
 
 
+
   var value_fmt = new goog.i18n.NumberFormat(goog.i18n.NumberFormat.Format.DECIMAL);
   value_fmt.setMaximumFractionDigits(8);
   value_fmt.setMinimumFractionDigits(2);
 
   goog.object.forEach(msg, function( balances, broker ) {
+    var balance_broker = this.getModel().get('balance_' + broker);
+    if (!goog.isDefAndNotNull(balance_broker)) {
+      balance_broker = {};
+    }
+    goog.object.extend(balance_broker, balances);
+    this.getModel().set('balance_' + broker, balance_broker);
+
+
     goog.object.forEach(balances, function( balance, currency ) {
       var balance_key = 'balance_' + broker + ':' + clientID + '_'  + currency;
       this.getModel().set( balance_key , balance );
@@ -1266,10 +1285,10 @@ bitex.app.BlinkTrade.prototype.getLockedAmount = function(currency, opt_clientID
 
 /**
  * @param {string} currency
+ * @param {string} type
  * @param {number=} opt_clientID
- * @private
  */
-bitex.app.BlinkTrade.prototype.getAvailableBalanceForTrading = function(currency, opt_clientID) {
+bitex.app.BlinkTrade.prototype.getBalance = function(currency, type, opt_clientID) {
   var broker_id = this.getModel().get('SelectedBrokerID');
   var clientID = this.getModel().get('UserID');
   if (goog.isDefAndNotNull(opt_clientID)){
@@ -1279,16 +1298,33 @@ bitex.app.BlinkTrade.prototype.getAvailableBalanceForTrading = function(currency
   var balance_key = 'balance_' + broker_id + ':' + clientID + '_'  + currency;
   var locked_balance_key = 'locked_' + balance_key;
 
-  if (goog.isDefAndNotNull(this.getModel().get( balance_key ))) {
-    if (goog.isDefAndNotNull(this.getModel().get( locked_balance_key ))) {
-      return Math.round(this.getModel().get( balance_key ) - this.getModel().get( locked_balance_key ));
+  if (type == "deposit" ) {
+    return this.getModel().get( balance_key );
+  } else if (type == "available") {
+    if (goog.isDefAndNotNull(this.getModel().get( balance_key ))) {
+      if (goog.isDefAndNotNull(this.getModel().get( locked_balance_key ))) {
+        return Math.round(this.getModel().get( balance_key ) - this.getModel().get( locked_balance_key ));
+      } else {
+        return this.getModel().get( balance_key )
+      }
     } else {
-      return this.getModel().get( balance_key )
+      return 0;
+    }
+  } else if (type == 'locked') {
+    if (goog.isDefAndNotNull(this.getModel().get( locked_balance_key ))) {
+      return this.getModel().get( locked_balance_key );
+    } else {
+      return 0;
     }
   } else {
     return 0;
   }
+
 };
+
+
+
+
 
 /**
  * @param {goog.events.Event} e
@@ -1828,10 +1864,10 @@ bitex.app.BlinkTrade.prototype.onUserOrderEntry_ = function(e){
     var broker_id = this.getModel().get('SelectedBrokerID');
     var client_id = this.getModel().get('UserID');
 
-    var user_available_balance_for_trading = this.getAvailableBalanceForTrading(balance_currency);
-    if (balance_needed_to_send_the_order > user_available_balance_for_trading) {
-      var amount = Math.round(balance_needed_to_send_the_order - user_available_balance_for_trading);
 
+    var user_available_balance_for_trading = this.getBalance(balance_currency, "available");
+    var amount = Math.round(balance_needed_to_send_the_order - user_available_balance_for_trading);
+    if (amount > 0) {
       var instructions = [{
         'Timeout': 60,  // 60 seconds to deposit
         'Filter': {'PaidValue': amount},
@@ -3751,118 +3787,187 @@ bitex.app.BlinkTrade.prototype.registerAlgorithmInstance = function(algo_instanc
     }, this);
   }
 
-  var algo_sandbox = [
-    'var context = {\n',
-    '  "algo_instance_id": "' + algo_instance_id + '",\n',
-    '  "wss_url": "' + this.wss_url_ + '",\n',
-    '  "symbol": "' + symbol.symbol +  '",\n',
-    '  "open_orders": '+ goog.json.serialize(open_orders) +',\n',
-    '  "algo_definition": ' + goog.json.serialize(algo_definition) + '\n',
-    '};\n',
-    '\n',
-    '\n',
-    algo,
-    '\n',
-    '\n',
-    '// https://github.com/blinktrade/algorithm-trading/blob/master/algorithm_application.js \n',
-    'var f;function h(a,b,c){return a.call.apply(a.bind,arguments)}function k(a,b,c){if(!a)throw Error();if(2<arguments.length){var d=Array.prototype.slice.call(arguments,2);return function(){var c=Array.prototype.slice.call(arguments);Array.prototype.unshift.apply(c,d);return a.apply(b,c)}}return function(){return a.apply(b,arguments)}}function goog$bind(a,b,c){goog$bind=Function.prototype.bind&&-1!=Function.prototype.bind.toString().indexOf("native code")?h:k;return goog$bind.apply(null,arguments)}\n',
-    'function m(a,b){n.prototype[a]=b};var p=Array.prototype;function q(a,b,c,d){p.splice.apply(a,r(arguments,1))}function r(a,b,c){return 2>=arguments.length?p.slice.call(a,b):p.slice.call(a,b,c)};function t(a,b,c){for(var d in a)b.call(c,a[d],d,a)}var u="constructor hasOwnProperty isPrototypeOf propertyIsEnumerable toLocaleString toString valueOf".split(" ");function v(a,b){for(var c,d,e=1;e<arguments.length;e++){d=arguments[e];for(c in d)a[c]=d[c];for(var g=0;g<u.length;g++)c=u[g],Object.prototype.hasOwnProperty.call(d,c)&&(a[c]=d[c])}};function n(a,b,c,d,e,g){this.G=b;this.b=a;this.h=c;this.g=d;this.i=null;this.d=this.k=this.j=!1;this.l=[];this.c={};this.f={};this.e=new WebSocket(this.G);this.a=g(this,c);this.e.onopen=goog$bind(this.A,this);this.e.onmessage=goog$bind(this.w,this);this.e.onerror=goog$bind(this.v,this)}f=n.prototype;f.B=function(a,b,c){c=c||"algo_"+parseInt(1E7*Math.random(),10);postMessage({rep:"new_order_limited",instance:this.b,qty:a,side:"1",price:b,client_order_id:c});return c};\n',
-    'f.n=function(a,b){null!=a||null!=b?null!=a&&null!=b?this.stop("Invalid paramaters. You must passa either opt_clientOrderId or opt_orderId"):postMessage({rep:"cancel_order",instance:this.b,client_order_id:a,order_id:b}):this.stop("Invalid paramaters. Missing opt_clientOrderId or opt_orderId")};f.m=function(){postMessage({rep:"cancel_order",instance:this.b})};\n',
-    'f.C=function(a,b,c){c=c||"algo_"+parseInt(1E7*Math.random(),10);postMessage({rep:"new_order_limited",instance:this.b,qty:a,side:"2",price:b,client_order_id:c});return c};f.s=function(){return this.c[this.h]};f.o=function(a,b){return"deposit"==b?this.f[a]:"available"==b?this.f[a]-this.f[a+"_locked"]:this.f[a+"_"+b]};f.u=function(){return this.l};f.t=function(){return this.i};f.r=function(){return this.g};f.q=function(){return this.h};f.p=function(){return this.b};\n',
-    'f.F=function(a,b,c){postMessage({rep:"notification",instance:this.b,type:c|NaN,title:a,description:b})};f.stop=function(a){try{this.d&&(this.a.stop(),this.d=!1)}catch(b){}null==a?postMessage({rep:"stop",instance:this.b}):postMessage({rep:"stop",instance:this.b,error:a})};\n',
-    'f.A=function(){postMessage({rep:"create",instance:this.b,status:"ws_open"});var a=[this.h];this.e.send(JSON.stringify({MsgType:"V",MDReqID:parseInt(1E7*Math.random(),10),SubscriptionRequestType:"1",MarketDepth:0,MDUpdateType:"1",MDEntryTypes:["0","1","2"],Instruments:a}));this.e.send(JSON.stringify({MsgType:"e",SecurityStatusReqID:parseInt(1E7*Math.random(),10),SubscriptionRequestType:"1",Instruments:a}));setTimeout(goog$bind(this.D,this),3E4)};\n',
-    'f.D=function(){this.e.send(JSON.stringify({MsgType:"1",TestReqID:parseInt(1E7*Math.random(),10),SendTime:(new Date).getTime()}))};function w(a){var b=x;if(!b.d){try{b.a.start(a),b.d=!0}catch(c){}postMessage({rep:"start",instance:b.b})}}function y(a,b){try{a.d&&(a.a.stop(),a.d=!1)}catch(c){}null==b?postMessage({rep:"terminate",instance:a.b}):postMessage({rep:"terminate",instance:a.b,error:b})}\n',
-    'function z(a){var b=x;v(b.f,a);try{t(a,function(a,b){if("locked"==b.substring(4))this.a.onBalanceUpdate(b.substring(0,3),a,AlgorithmTradingInterface.BalanceType.LOCKED);else this.a.onBalanceUpdate(b,a,AlgorithmTradingInterface.BalanceType.DEPOSIT)},b)}catch(c){}postMessage({rep:"balance",instance:b.b})}function A(a){var b=x;b.i=a;try{b.a.onUpdateParams(a)}catch(c){}postMessage({rep:"params",instance:b.b})}\n',
-    'function B(a){var b=x;"2"==a.OrdStatus||"4"==a.OrdStatus?delete b.g[a.OrderID]:b.g[a.OrderID]=a;try{b.a.onExecutionReport(a)}catch(c){}postMessage({rep:"execution_report",instance:b.b})}f.v=function(a){y(this,a.data)};\n',
-    'function C(a,b){var c=b.Symbol,d=b.MDEntryType,e=b.MDEntryPositionNo-1,g=b.MDEntryPx,l=b.MDEntrySize;null==a.c[c]&&(a.c[c]={bids:[],asks:[]});"0"==d?q(a.c[c].bids,e,0,[g,l]):"1"==d&&q(a.c[c].asks,e,0,[g,l]);if(a.d){try{a.a.onOrderBookNewOrder(entry)}catch(s){}try{a.a.onOrderBookChange(a.c[c])}catch(I){}}}\n',
-    'function D(a,b){var c=new Date,d=b.MDEntryDate.split("-"),e=b.MDEntryTime.split(":");c.setUTCFullYear(d[0]);c.setUTCMonth(d[1]);c.setUTCDate(d[2]);c.setUTCHours(e[0]);c.setUTCMinutes(e[1]);c.setUTCSeconds(e[2]);b.Timestamp=c;a.l.push(b);if(a.d)try{a.a.onTrade(b)}catch(g){}}\n',
-    'f.w=function(a){a=JSON.parse(a.data);var b=a.MsgType;delete a.MsgType;switch(b){case "f":if(this.d)try{this.a.onTicker(a)}catch(c){}this.k||postMessage({rep:"create",instance:this.b,status:"received_security_status"});this.k=!0;break;case "W":for(var d in a.MDFullGrp){var e=a.MDFullGrp[d];e.MDReqID=a.MDReqID;switch(e.MDEntryType){case "0":case "1":e.Symbol=a.Symbol;C(this,e);break;case "2":D(this,e)}}this.j||postMessage({rep:"create",instance:this.b,status:"received_full_refresh"});this.j=!0;break;\n',
-    '  case "X":for(e in a.MDIncGrp)switch(d=a.MDIncGrp[e],d.MDReqID=a.MDReqID,d.MDEntryType){case "0":case "1":switch(d.MDUpdateAction){case "0":C(this,d);break;case "1":var b=d.Symbol,g=d.MDEntryType,l=d.MDEntryPositionNo-1,s=d.MDEntrySize;"0"==g?this.c[b].bids[l]=[this.c[b].bids[l][0],s]:"1"==g&&(this.c[b].asks[l]=[this.c[b].asks[l][0],s]);if(this.d){try{this.a.onOrderBookUpdateOrder(d)}catch(I){}try{this.a.onOrderBookChange(this.c[b])}catch(J){}}break;case "2":b=d.Symbol;g=d.MDEntryPositionNo-1;l=d.MDEntryType;\n',
-    '    "0"==l?this.c[b].bids.splice(g,1):"1"==l&&this.c[b].asks.splice(g,1);if(this.d){try{this.a.onOrderBookDeleteOrder(d)}catch(K){}try{this.a.onOrderBookChange(this.c[b])}catch(L){}}break;case "3":if(b=d.Symbol,g=d.MDEntryPositionNo,l=d.MDEntryType,"0"==l?this.c[b].bids.splice(0,g):"1"==l&&this.c[b].asks.splice(0,g),this.d){try{this.a.onOrderBookDeleteOrdersThru(d)}catch(M){}try{this.a.onOrderBookChange(this.c[b])}catch(N){}}}break;case "2":D(this,d)}}};var x;\n',
-    'addEventListener("message",function(a){try{var b=a.data;switch(b.req){case "create":var c=eval(context.algo_definition.creator);x=new n(context.algo_instance_id,context.wss_url,context.symbol,context.open_orders,0,c);break;case "start":w(b.params);break;case "params":A(b.params);break;case "execution_report":B(b.execution_report);break;case "stop":x.stop();self.close();break;case "balance":z(b.balances)}}catch(d){null!=x&&y(x,d.message),self.close()}},!1);var E=n,F=["Application"],G=this;\n',
-    'F[0]in G||!G.execScript||G.execScript("var "+F[0]);for(var H;F.length&&(H=F.shift());)F.length||void 0===E?G=G[H]?G[H]:G[H]={}:G[H]=E;m("sendBuyLimitedOrder",n.prototype.B);m("sendSellLimitedOrder",n.prototype.C);m("cancelAllOrders",n.prototype.m);m("cancelOrder",n.prototype.n);m("getOrderBook",n.prototype.s);m("getTrades",n.prototype.u);m("getBalance",n.prototype.o);m("getParameters",n.prototype.t);m("getOpenOrders",n.prototype.r);m("getMarket",n.prototype.q);m("getInstanceID",n.prototype.p);\n',
-    'm("showNotification",n.prototype.F);m("stop",n.prototype.stop);\n'
-  ];
-
-  var blob = new Blob(algo_sandbox);
-  var blobURL = window.URL.createObjectURL(blob);
-
-  var running_algorithms = this.getModel().get('RunningAlgorithms');
-  if (!goog.isDefAndNotNull(running_algorithms)) {
-    running_algorithms = {};
-  }
-
-  var worker = new Worker(blobURL);
-  running_algorithms[algo_instance_id] = {'blobURL': blobURL, 'worker': worker};
-  this.getModel().set('RunningAlgorithms', running_algorithms);
-
+  var balance_broker = this.getModel().get('balance_' + this.getModel().get('SelectedBrokerID'));
 
   /**
-   * @desc error algorithm notification message
+   * @desc dialog shown to the user requesting his permissions to run the selected algorithm trading
    */
-  var MSG_ERROR_RUNNING_ALGORITHM_NOTIFICATION = goog.getMsg('Error running algorithm');
+  var MSG_ALGO_REQUEST_PERMISSION = goog.getMsg('Authorize algorithm');
 
-  handler.listen(worker, 'message', function(e) {
-    e = e.getBrowserEvent();
-    switch(e.data['rep']) {
-      case 'create':
-        this.getModel().set( e.data['instance'] + '_status', '1' );
-        if (e.data['status'] == 'received_security_status') {
-          this.getModel().set( e.data['instance'] + '_status_received_security_status', '1' );
+  var algo_permissions = algo_definition['permissions'];
+
+  var dlg = this.showDialog(bitex.templates.AlgoPermissionsDialogContent({ permissions: algo_permissions} ),
+                             MSG_ALGO_REQUEST_PERMISSION,
+                             bootstrap.Dialog.ButtonSet.createYesNo());
+
+  handler.listen(dlg, goog.ui.Dialog.EventType.SELECT, function(e) {
+    if (e.key == 'yes') {
+
+      var algo_sandbox = [
+        'var context = {\n',
+        '  "algo_instance_id": "' + algo_instance_id + '",\n',
+        '  "wss_url": "' + this.wss_url_ + '",\n',
+        '  "symbol": "' + symbol.symbol +  '",\n',
+        '  "open_orders": '+ goog.json.serialize(open_orders) +',\n',
+        '  "balance": ' + goog.json.serialize(balance_broker) + ',\n',
+        '  "algo_definition": ' + goog.json.serialize(algo_definition) + '\n',
+        '};\n',
+        '\n',
+        '\n',
+        algo,
+        '\n',
+        '\n',
+        'var f,k=this;function m(a){return void 0!==a}\n',
+        'function n(a){var b=typeof a;if("object"==b)if(a){if(a instanceof Array)return"array";if(a instanceof Object)return b;var c=Object.prototype.toString.call(a);if("[object Window]"==c)return"object";if("[object Array]"==c||"number"==typeof a.length&&"undefined"!=typeof a.splice&&"undefined"!=typeof a.propertyIsEnumerable&&!a.propertyIsEnumerable("splice"))return"array";if("[object Function]"==c||"undefined"!=typeof a.call&&"undefined"!=typeof a.propertyIsEnumerable&&!a.propertyIsEnumerable("call"))return"function"}else return"null";\n',
+        'else if("function"==b&&"undefined"==typeof a.call)return"object";return b}function p(a){return"array"==n(a)}function q(a){var b=n(a);return"array"==b||"object"==b&&"number"==typeof a.length}function t(a){return"string"==typeof a}function u(a){var b=typeof a;return"object"==b&&null!=a||"function"==b}var v="closure_uid_"+(1E9*Math.random()>>>0),aa=0;function w(a){var b=n(a);if("object"==b||"array"==b){if(a.clone)return a.clone();var b="array"==b?[]:{},c;for(c in a)b[c]=w(a[c]);return b}return a}\n',
+        'function ba(a,b,c){return a.call.apply(a.bind,arguments)}function ca(a,b,c){if(!a)throw Error();if(2<arguments.length){var d=Array.prototype.slice.call(arguments,2);return function(){var c=Array.prototype.slice.call(arguments);Array.prototype.unshift.apply(c,d);return a.apply(b,c)}}return function(){return a.apply(b,arguments)}}function x(a,b,c){x=Function.prototype.bind&&-1!=Function.prototype.bind.toString().indexOf("native code")?ba:ca;return x.apply(null,arguments)}\n',
+        'function y(a,b){var c=Array.prototype.slice.call(arguments,1);return function(){var b=c.slice();b.push.apply(b,arguments);return a.apply(this,b)}}var da=Date.now||function(){return+new Date},z=null;function A(a,b){var c=a.split("."),d=k;c[0]in d||!d.execScript||d.execScript("var "+c[0]);for(var e;c.length&&(e=c.shift());)!c.length&&m(b)?d[e]=b:d=d[e]?d[e]:d[e]={}}function B(a,b){C.prototype[a]=b};var D=Array.prototype,E=D.indexOf?function(a,b,c){return D.indexOf.call(a,b,c)}:function(a,b,c){c=null==c?0:0>c?Math.max(0,a.length+c):c;if(t(a))return t(b)&&1==b.length?a.indexOf(b,c):-1;for(;c<a.length;c++)if(c in a&&a[c]===b)return c;return-1},ea=D.lastIndexOf?function(a,b,c){return D.lastIndexOf.call(a,b,null==c?a.length-1:c)}:function(a,b,c){c=null==c?a.length-1:c;0>c&&(c=Math.max(0,a.length+c));if(t(a))return t(b)&&1==b.length?a.lastIndexOf(b,c):-1;for(;0<=c;c--)if(c in a&&a[c]===b)return c;\n',
+        'return-1},F=D.forEach?function(a,b,c){D.forEach.call(a,b,c)}:function(a,b,c){for(var d=a.length,e=t(a)?a.split(""):a,g=0;g<d;g++)g in e&&b.call(c,e[g],g,a)};function G(a,b,c){for(var d=t(a)?a.split(""):a,e=a.length-1;0<=e;--e)e in d&&b.call(c,d[e],e,a)}\n',
+        'var fa=D.filter?function(a,b,c){return D.filter.call(a,b,c)}:function(a,b,c){for(var d=a.length,e=[],g=0,h=t(a)?a.split(""):a,l=0;l<d;l++)if(l in h){var r=h[l];b.call(c,r,l,a)&&(e[g++]=r)}return e},ga=D.map?function(a,b,c){return D.map.call(a,b,c)}:function(a,b,c){for(var d=a.length,e=Array(d),g=t(a)?a.split(""):a,h=0;h<d;h++)h in g&&(e[h]=b.call(c,g[h],h,a));return e},ha=D.reduce?function(a,b,c,d){d&&(b=x(b,d));return D.reduce.call(a,b,c)}:function(a,b,c,d){var e=c;F(a,function(c,h){e=b.call(d,e,\n',
+        'c,h,a)});return e},ia=D.reduceRight?function(a,b,c,d){d&&(b=x(b,d));return D.reduceRight.call(a,b,c)}:function(a,b,c,d){var e=c;G(a,function(c,h){e=b.call(d,e,c,h,a)});return e},ja=D.some?function(a,b,c){return D.some.call(a,b,c)}:function(a,b,c){for(var d=a.length,e=t(a)?a.split(""):a,g=0;g<d;g++)if(g in e&&b.call(c,e[g],g,a))return!0;return!1},ka=D.every?function(a,b,c){return D.every.call(a,b,c)}:function(a,b,c){for(var d=a.length,e=t(a)?a.split(""):a,g=0;g<d;g++)if(g in e&&!b.call(c,e[g],g,a))return!1;\n',
+        'return!0};function I(a,b,c){for(var d=a.length,e=t(a)?a.split(""):a,g=0;g<d;g++)if(g in e&&b.call(c,e[g],g,a))return g;return-1}function J(a,b,c){for(var d=t(a)?a.split(""):a,e=a.length-1;0<=e;e--)if(e in d&&b.call(c,d[e],e,a))return e;return-1}function K(a,b){return 0<=E(a,b)}function L(a,b,c){M(a,c,0,b)}function N(a,b){return 1==D.splice.call(a,b,1).length}function O(a){var b=a.length;if(0<b){for(var c=Array(b),d=0;d<b;d++)c[d]=a[d];return c}return[]}\n',
+        'function M(a,b,c,d){return D.splice.apply(a,P(arguments,1))}function P(a,b,c){return 2>=arguments.length?D.slice.call(a,b):D.slice.call(a,b,c)}function Q(a,b,c){return R(a,c||S,!1,b)}function R(a,b,c,d,e){for(var g=0,h=a.length,l;g<h;){var r=g+h>>1,H;H=c?b.call(e,a[r],r,a):b(d,a[r]);0<H?g=r+1:(h=r,l=!H)}return l?g:~g}function T(a,b){a.sort(b||S)}function la(a,b,c){var d=c||S;T(a,function(a,c){return d(b(a),b(c))})}function S(a,b){return a>b?1:a<b?-1:0}function U(a,b){return a===b}\n',
+        'function V(a){for(var b=[],c=0;c<arguments.length;c++){var d=arguments[c];if(p(d))for(var e=0;e<d.length;e+=8192)for(var g=V.apply(null,P(d,e,e+8192)),h=0;h<g.length;h++)b.push(g[h]);else b.push(d)}return b};function W(a,b,c){for(var d in a)b.call(c,a[d],d,a)}function ma(a,b){for(var c in a)if(a[c]==b)return!0;return!1}function X(a,b,c){for(var d in a)if(b.call(c,a[d],d,a))return d}function Y(a,b){var c;(c=b in a)&&delete a[b];return c}function na(a){var b=n(a);if("object"==b||"array"==b){if(a.clone)return a.clone();var b="array"==b?[]:{},c;for(c in a)b[c]=na(a[c]);return b}return a}var oa="constructor hasOwnProperty isPrototypeOf propertyIsEnumerable toLocaleString toString valueOf".split(" ");\n',
+        'function pa(a,b){for(var c,d,e=1;e<arguments.length;e++){d=arguments[e];for(c in d)a[c]=d[c];for(var g=0;g<oa.length;g++)c=oa[g],Object.prototype.hasOwnProperty.call(d,c)&&(a[c]=d[c])}}function qa(a){var b=arguments.length;if(1==b&&p(arguments[0]))return qa.apply(null,arguments[0]);if(b%2)throw Error("Uneven number of arguments");for(var c={},d=0;d<b;d+=2)c[arguments[d]]=arguments[d+1];return c}\n',
+        'function ra(a){var b=arguments.length;if(1==b&&p(arguments[0]))return ra.apply(null,arguments[0]);for(var c={},d=0;d<b;d++)c[arguments[d]]=!0;return c};function C(a,b,c,d,e,g,h){this.H=b;this.b=a;this.j=c;this.f=d;this.i=null;this.d=this.l=this.k=!1;this.m=[];this.c={};this.e=g;this.g=new WebSocket(this.H);this.a=h(this,c);this.g.onopen=x(this.B,this);this.g.onmessage=x(this.A,this);this.g.onerror=x(this.w,this)}f=C.prototype;f.C=function(a,b,c){c=c||"algo_"+parseInt(1E7*Math.random(),10);postMessage({rep:"new_order_limited",instance:this.b,qty:a,side:"1",price:b,client_order_id:c});return c};\n',
+        'f.D=function(a,b,c){c=c||"algo_"+parseInt(1E7*Math.random(),10);postMessage({rep:"new_order_limited",instance:this.b,qty:a,side:"2",price:b,client_order_id:c});return c};f.o=function(a,b){if(null!=a||null!=b)if(null!=a&&null!=b)this.stop("Invalid paramaters. You must passa either opt_clientOrderId or opt_orderId");else{if(null!=a)Y(this.f,a);else if(null!=b){var c=X(this.f,function(a){return a.OrderID==b});null!=c&&Y(this.f,c)}postMessage({rep:"cancel_order",instance:this.b,client_order_id:a,order_id:b})}else this.stop("Invalid paramaters. Missing opt_clientOrderId or opt_orderId")};\n',
+        'f.n=function(){postMessage({rep:"cancel_order",instance:this.b})};f.t=function(){return this.c[this.j]};f.p=function(a,b){return"deposit"==b?this.e[a]:"available"==b?null!=this.e[a+"_locked"]?this.e[a]-this.e[a+"_locked"]:null!=this.e[a]?this.e[a]:0:null!=b?this.e[a+"_"+b]:this.e[a]};f.v=function(){return this.m};f.u=function(){return this.i};f.s=function(){return this.f};f.r=function(){return this.j};f.q=function(){return this.b};\n',
+        'f.G=function(a,b,c){postMessage({rep:"notification",instance:this.b,type:c|NaN,title:a,description:b})};f.stop=function(a){try{this.d&&(this.a.stop(),this.d=!1)}catch(b){}null==a?postMessage({rep:"stop",instance:this.b}):postMessage({rep:"stop",instance:this.b,error:a})};\n',
+        'f.B=function(){postMessage({rep:"create",instance:this.b,status:"ws_open"});var a=[this.j];this.g.send(JSON.stringify({MsgType:"V",MDReqID:parseInt(1E7*Math.random(),10),SubscriptionRequestType:"1",MarketDepth:0,MDUpdateType:"1",MDEntryTypes:["0","1","2"],Instruments:a}));this.g.send(JSON.stringify({MsgType:"e",SecurityStatusReqID:parseInt(1E7*Math.random(),10),SubscriptionRequestType:"1",Instruments:a}));setTimeout(x(this.F,this),3E4)};\n',
+        'f.F=function(){this.g.send(JSON.stringify({MsgType:"1",TestReqID:parseInt(1E7*Math.random(),10),SendTime:(new Date).getTime()}))};function sa(a){var b=Z;if(!b.d){try{b.i=a,b.a.start(a),b.d=!0}catch(c){}postMessage({rep:"start",instance:b.b})}}function ta(a,b){try{a.d&&(a.a.stop(),a.d=!1)}catch(c){}null==b?postMessage({rep:"terminate",instance:a.b}):postMessage({rep:"terminate",instance:a.b,error:b})}\n',
+        'function ua(a){var b=Z;pa(b.e,a);try{W(a,function(a,b){if("locked"==b.substring(4))this.a.onBalanceUpdate(b.substring(0,3),a,AlgorithmTradingInterface.BalanceType.LOCKED);else this.a.onBalanceUpdate(b,a,AlgorithmTradingInterface.BalanceType.DEPOSIT)},b)}catch(c){}postMessage({rep:"balance",instance:b.b})}function va(a){var b=Z;b.i=a;try{b.a.onUpdateParams(a)}catch(c){}postMessage({rep:"params",instance:b.b})}\n',
+        'function wa(a){var b=Z;"2"==a.OrdStatus||"4"==a.OrdStatus?Y(b.f,a.ClOrdID):("A"!=a.OrdStatus&&"0"==a.OrdStatus&&Y(b.f,a.ClOrdID),b.f[a.ClOrdID]=a);try{b.a.onExecutionReport(a)}catch(c){}postMessage({rep:"execution_report",instance:b.b})}f.w=function(a){ta(this,a.data)};\n',
+        'function xa(a,b){var c=b.Symbol,d=b.MDEntryType,e=b.MDEntryPositionNo-1,g=b.MDEntryPx,h=b.MDEntrySize;null==a.c[c]&&(a.c[c]={bids:[],asks:[]});"0"==d?L(a.c[c].bids,[g,h],e):"1"==d&&L(a.c[c].asks,[g,h],e);if(a.d){try{a.a.onOrderBookNewOrder(b)}catch(l){}try{a.a.onOrderBookChange(a.c[c])}catch(r){}}}\n',
+        'function ya(a,b){var c=new Date,d=b.MDEntryDate.split("-"),e=b.MDEntryTime.split(":");c.setUTCFullYear(d[0]);c.setUTCMonth(d[1]);c.setUTCDate(d[2]);c.setUTCHours(e[0]);c.setUTCMinutes(e[1]);c.setUTCSeconds(e[2]);b.Timestamp=c;a.m.push(b);if(a.d)try{a.a.onTrade(b)}catch(g){}}\n',
+        'f.A=function(a){a=JSON.parse(a.data);var b=a.MsgType;delete a.MsgType;switch(b){case "f":if(this.d)try{this.a.onTicker(a)}catch(c){}this.l||postMessage({rep:"create",instance:this.b,status:"received_security_status"});this.l=!0;break;case "W":for(var d in a.MDFullGrp){var e=a.MDFullGrp[d];e.MDReqID=a.MDReqID;switch(e.MDEntryType){case "0":case "1":e.Symbol=a.Symbol;xa(this,e);break;case "2":ya(this,e)}}this.k||postMessage({rep:"create",instance:this.b,status:"received_full_refresh"});this.k=!0;break;\n',
+        'case "X":for(e in a.MDIncGrp)switch(d=a.MDIncGrp[e],d.MDReqID=a.MDReqID,d.MDEntryType){case "0":case "1":switch(d.MDUpdateAction){case "0":xa(this,d);break;case "1":var b=d.Symbol,g=d.MDEntryType,h=d.MDEntryPositionNo-1,l=d.MDEntrySize;"0"==g?this.c[b].bids[h]=[this.c[b].bids[h][0],l]:"1"==g&&(this.c[b].asks[h]=[this.c[b].asks[h][0],l]);if(this.d){try{this.a.onOrderBookUpdateOrder(d)}catch(r){}try{this.a.onOrderBookChange(this.c[b])}catch(H){}}break;case "2":b=d.Symbol;g=d.MDEntryPositionNo-1;h=d.MDEntryType;\n',
+        '"0"==h?this.c[b].bids.splice(g,1):"1"==h&&this.c[b].asks.splice(g,1);if(this.d){try{this.a.onOrderBookDeleteOrder(d)}catch(za){}try{this.a.onOrderBookChange(this.c[b])}catch(Aa){}}break;case "3":if(b=d.Symbol,g=d.MDEntryPositionNo,h=d.MDEntryType,"0"==h?this.c[b].bids.splice(0,g):"1"==h&&this.c[b].asks.splice(0,g),this.d){try{this.a.onOrderBookDeleteOrdersThru(d)}catch(Ba){}try{this.a.onOrderBookChange(this.c[b])}catch(Ca){}}}break;case "2":ya(this,d)}}};var Z;\n',
+        'addEventListener("message",function(a){try{var b=a.data;switch(b.req){case "create":var c=eval(context.algo_definition.creator);Z=new C(context.algo_instance_id,context.wss_url,context.symbol,context.open_orders,0,context.balance,c);break;case "start":sa(b.params);break;case "params":va(b.params);break;case "execution_report":wa(b.execution_report);break;case "stop":Z.stop();self.close();break;case "balance":ua(b.balances)}}catch(d){null!=Z&&ta(Z,d.message),self.close()}},!1);A("goog.bind",x);\n',
+        'A("goog.isDefAndNotNull",function(a){return null!=a});A("goog.typeOf",n);A("goog.isDef",m);A("goog.isNull",function(a){return null===a});A("goog.isArray",p);A("goog.isArrayLike",q);A("goog.isDateLike",function(a){return u(a)&&"function"==typeof a.getFullYear});A("goog.isString",t);A("goog.isBoolean",function(a){return"boolean"==typeof a});A("goog.isNumber",function(a){return"number"==typeof a});A("goog.isFunction",function(a){return"function"==n(a)});A("goog.isObject",u);A("goog.cloneObject",w);\n',
+        'A("goog.partial",y);A("goog.mixin",function(a,b){for(var c in b)a[c]=b[c]});A("goog.now",da);\n',
+        'A("goog.globalEval",function(a){if(k.execScript)k.execScript(a,"JavaScript");else if(k.eval)if(null==z&&(k.eval("var _et_ = 1;"),"undefined"!=typeof k._et_?(delete k._et_,z=!0):z=!1),z)k.eval(a);else{var b=k.document,c=b.createElement("script");c.type="text/javascript";c.defer=!1;c.appendChild(b.createTextNode(a));b.body.appendChild(c);b.body.removeChild(c)}else throw Error("goog.globalEval not available");});\n',
+        'A("goog.inherits",function(a,b){function c(){}c.prototype=b.prototype;a.h=b.prototype;a.prototype=new c;a.prototype.constructor=a;a.I=function(a,c,g){for(var h=Array(arguments.length-2),l=2;l<arguments.length;l++)h[l-2]=arguments[l];return b.prototype[c].apply(a,h)}});\n',
+        'A("goog.base",function(a,b,c){var d=arguments.callee.caller;if(!d)throw Error("arguments.caller not defined.  goog.base() cannot be used with strict mode code. See http://www.ecma-international.org/ecma-262/5.1/#sec-C");if(d.h){for(var e=Array(arguments.length-1),g=1;g<arguments.length;g++)e[g-1]=arguments[g];return d.h.constructor.apply(a,e)}e=Array(arguments.length-2);for(g=2;g<arguments.length;g++)e[g-2]=arguments[g];for(var g=!1,h=a.constructor;h;h=h.h&&h.h.constructor)if(h.prototype[b]===d)g=\n',
+        '!0;else if(g)return h.prototype[b].apply(a,e);if(a[b]===d)return a.constructor.prototype[b].apply(a,e);throw Error("goog.base called from a method of one name to a method of a different name");});A("goog.array.splice",M);A("goog.array.insertAt",L);A("goog.array.indexOf",E);A("goog.array.lastIndexOf",ea);A("goog.array.forEach",F);A("goog.array.forEachRight",G);A("goog.array.filter",fa);A("goog.array.map",ga);A("goog.array.reduce",ha);A("goog.array.reduceRight",ia);A("goog.array.some",ja);\n',
+        'A("goog.array.every",ka);A("goog.array.count",function(a,b,c){var d=0;F(a,function(a,g,h){b.call(c,a,g,h)&&++d},c);return d});A("goog.array.findIndex",I);A("goog.array.findRight",function(a,b,c){b=J(a,b,c);return 0>b?null:t(a)?a.charAt(b):a[b]});A("goog.array.findIndexRight",J);A("goog.array.contains",K);A("goog.array.isEmpty",function(a){return 0==a.length});A("goog.array.clear",function(a){if(!p(a))for(var b=a.length-1;0<=b;b--)delete a[b];a.length=0});\n',
+        'A("goog.array.insert",function(a,b){K(a,b)||a.push(b)});A("goog.array.insertArrayAt",function(a,b,c){y(M,a,c,0).apply(null,b)});A("goog.array.insertBefore",function(a,b,c){var d;2==arguments.length||0>(d=E(a,c))?a.push(b):L(a,b,d)});A("goog.array.remove",function(a,b){var c=E(a,b),d;(d=0<=c)&&N(a,c);return d});A("goog.array.removeAt",N);A("goog.array.removeIf",function(a,b,c){b=I(a,b,c);return 0<=b?(N(a,b),!0):!1});A("goog.array.concat",function(a){return D.concat.apply(D,arguments)});\n',
+        'A("goog.array.toArray",O);A("goog.array.clone",O);A("goog.array.extend",function(a,b){for(var c=1;c<arguments.length;c++){var d=arguments[c];if(q(d)){var e=a.length||0,g=d.length||0;a.length=e+g;for(var h=0;h<g;h++)a[e+h]=d[h]}else a.push(d)}});A("goog.array.slice",P);\n',
+        'A("goog.array.removeDuplicates",function(a,b,c){b=b||a;c=c||function(){return u(h)?"o"+(h[v]||(h[v]=++aa)):(typeof h).charAt(0)+h};for(var d={},e=0,g=0;g<a.length;){var h=a[g++],l=c(h);Object.prototype.hasOwnProperty.call(d,l)||(d[l]=!0,b[e++]=h)}b.length=e});A("goog.array.binarySearch",Q);A("goog.array.binarySelect",function(a,b,c){return R(a,b,!0,void 0,c)});A("goog.array.sort",T);\n',
+        'A("goog.array.stableSort",function(a,b){for(var c=0;c<a.length;c++)a[c]={index:c,value:a[c]};var d=b||S;T(a,function(a,b){return d(a.value,b.value)||a.index-b.index});for(c=0;c<a.length;c++)a[c]=a[c].value});A("goog.array.sortObjectsByKey",function(a,b,c){la(a,function(a){return a[b]},c)});A("goog.array.isSorted",function(a,b,c){b=b||S;for(var d=1;d<a.length;d++){var e=b(a[d-1],a[d]);if(0<e||0==e&&c)return!1}return!0});\n',
+        'A("goog.array.equals",function(a,b,c){if(!q(a)||!q(b)||a.length!=b.length)return!1;var d=a.length;c=c||U;for(var e=0;e<d;e++)if(!c(a[e],b[e]))return!1;return!0});A("goog.array.compare3",function(a,b,c){c=c||S;for(var d=Math.min(a.length,b.length),e=0;e<d;e++){var g=c(a[e],b[e]);if(0!=g)return g}return S(a.length,b.length)});A("goog.array.defaultCompare",S);A("goog.array.defaultCompareEquality",U);A("goog.array.binaryInsert",function(a,b,c){c=Q(a,b,c);return 0>c?(L(a,b,-(c+1)),!0):!1});\n',
+        'A("goog.array.binaryRemove",function(a,b,c){b=Q(a,b,c);return 0<=b?N(a,b):!1});A("goog.array.bucket",function(a,b,c){for(var d={},e=0;e<a.length;e++){var g=a[e],h=b.call(c,g,e,a);m(h)&&(d[h]||(d[h]=[])).push(g)}return d});A("goog.array.toObject",function(a,b,c){var d={};F(a,function(e,g){d[b.call(c,e,g,a)]=e});return d});A("goog.array.range",function(a,b,c){var d=[],e=0,g=a;c=c||1;void 0!==b&&(e=a,g=b);if(0>c*(g-e))return[];if(0<c)for(a=e;a<g;a+=c)d.push(a);else for(a=e;a>g;a+=c)d.push(a);return d});\n',
+        'A("goog.array.repeat",function(a,b){for(var c=[],d=0;d<b;d++)c[d]=a;return c});A("goog.array.flatten",V);A("goog.array.rotate",function(a,b){a.length&&(b%=a.length,0<b?D.unshift.apply(a,a.splice(-b,b)):0>b&&D.push.apply(a,a.splice(0,-b)));return a});A("goog.array.zip",function(a){if(!arguments.length)return[];for(var b=[],c=0;;c++){for(var d=[],e=0;e<arguments.length;e++){var g=arguments[e];if(c>=g.length)return b;d.push(g[c])}b.push(d)}});\n',
+        'A("goog.array.shuffle",function(a,b){for(var c=b||Math.random,d=a.length-1;0<d;d--){var e=Math.floor(c()*(d+1)),g=a[d];a[d]=a[e];a[e]=g}});A("goog.object.forEach",W);A("goog.object.extend",pa);A("goog.object.filter",function(a,b,c){var d={},e;for(e in a)b.call(c,a[e],e,a)&&(d[e]=a[e]);return d});A("goog.object.map",function(a,b,c){var d={},e;for(e in a)d[e]=b.call(c,a[e],e,a);return d});A("goog.object.some",function(a,b,c){for(var d in a)if(b.call(c,a[d],d,a))return!0;return!1});\n',
+        'A("goog.object.every",function(a,b,c){for(var d in a)if(!b.call(c,a[d],d,a))return!1;return!0});A("goog.object.getCount",function(a){var b=0,c;for(c in a)b++;return b});A("goog.object.getAnyKey",function(a){for(var b in a)return b});A("goog.object.getAnyValue",function(a){for(var b in a)return a[b]});A("goog.object.contains",function(a,b){return ma(a,b)});A("goog.object.getValues",function(a){var b=[],c=0,d;for(d in a)b[c++]=a[d];return b});\n',
+        'A("goog.object.getKeys",function(a){var b=[],c=0,d;for(d in a)b[c++]=d;return b});A("goog.object.getValueByKeys",function(a,b){for(var c=q(b),d=c?b:arguments,c=c?0:1;c<d.length&&(a=a[d[c]],m(a));c++);return a});A("goog.object.containsKey",function(a,b){return b in a});A("goog.object.containsValue",ma);A("goog.object.findKey",X);A("goog.object.findValue",function(a,b,c){return(b=X(a,b,c))&&a[b]});A("goog.object.isEmpty",function(a){for(var b in a)return!1;return!0});A("goog.object.clear",function(a){for(var b in a)delete a[b]});\n',
+        'A("goog.object.remove",Y);A("goog.object.add",function(a,b,c){if(b in a)throw Error(\'The object already contains the key "\'+b+\'"\');a[b]=c});A("goog.object.get",function(a,b,c){return b in a?a[b]:c});A("goog.object.set",function(a,b,c){a[b]=c});A("goog.object.setIfUndefined",function(a,b,c){return b in a?a[b]:a[b]=c});A("goog.object.clone",function(a){var b={},c;for(c in a)b[c]=a[c];return b});A("goog.object.unsafeClone",na);A("goog.object.transpose",function(a){var b={},c;for(c in a)b[a[c]]=c;return b});\n',
+        'A("goog.object.create",qa);A("goog.object.createSet",ra);A("goog.object.createImmutableView",function(a){var b=a;Object.isFrozen&&!Object.isFrozen(a)&&(b=Object.create(a),Object.freeze(b));return b});A("goog.object.isImmutableView",function(a){return!!Object.isFrozen&&Object.isFrozen(a)});A("Application",C);B("sendBuyLimitedOrder",C.prototype.C);B("sendSellLimitedOrder",C.prototype.D);B("cancelAllOrders",C.prototype.n);B("cancelOrder",C.prototype.o);B("getOrderBook",C.prototype.t);B("getTrades",C.prototype.v);\n',
+        'B("getBalance",C.prototype.p);B("getParameters",C.prototype.u);B("getOpenOrders",C.prototype.s);B("getMarket",C.prototype.r);B("getInstanceID",C.prototype.q);B("showNotification",C.prototype.G);B("stop",C.prototype.stop);\n'
+      ];
+
+      var blob = new Blob(algo_sandbox);
+      var blobURL = window.URL.createObjectURL(blob);
+
+      var running_algorithms = this.getModel().get('RunningAlgorithms');
+      if (!goog.isDefAndNotNull(running_algorithms)) {
+        running_algorithms = {};
+      }
+
+      var worker = new Worker(blobURL);
+      running_algorithms[algo_instance_id] = {'blobURL': blobURL, 'worker': worker};
+      this.getModel().set('RunningAlgorithms', running_algorithms);
+
+
+      /**
+       * @desc error algorithm notification message
+       */
+      var MSG_ERROR_RUNNING_ALGORITHM_NOTIFICATION = goog.getMsg('Error running algorithm');
+
+      handler.listen(worker, 'message', function(e) {
+        e = e.getBrowserEvent();
+        if (   e.data['rep'] != 'create'
+            && e.data['rep'] != 'start'
+            && e.data['rep'] != 'error'
+            && e.data['rep'] != 'terminate'
+            && e.data['rep'] != 'stop') {
+          if ( goog.array.indexOf(algo_permissions, e.data['rep'])  < 0 ) {
+            if (this.getModel().get( e.data['instance'] + '_status') == '2') {
+              this.getModel().set( e.data['instance'] + '_status', '3' );
+            }
+
+            /**
+             * @desc notification shown when the algorithm executed a illegal operation
+             */
+            var MSG_ILLEGAL_OPERATION_ALGORITHM_NOTIFICATION = goog.getMsg('Algorithm tried to execute a ilegal operation');
+
+            this.showNotification('error', MSG_ILLEGAL_OPERATION_ALGORITHM_NOTIFICATION, e.data['rep']);
+
+            this.getModel().set( e.data['instance'] + '_status', '0' );
+            running_algorithms = this.getModel().get('RunningAlgorithms');
+            goog.object.remove(running_algorithms, e.data['instance']);
+            this.getModel().set('RunningAlgorithms', running_algorithms);
+            return;
+          }
         }
 
-        if (e.data['status'] == 'received_full_refresh') {
-          this.getModel().set( e.data['instance'] + '_status_received_full_refresh', '1' );
+        switch(e.data['rep']) {
+          case 'create':
+            this.getModel().set( e.data['instance'] + '_status', '1' );
+            if (e.data['status'] == 'received_security_status') {
+              this.getModel().set( e.data['instance'] + '_status_received_security_status', '1' );
+            }
+            if (e.data['status'] == 'received_full_refresh') {
+              this.getModel().set( e.data['instance'] + '_status_received_full_refresh', '1' );
+            }
+            if (e.data['status'] == 'ws_open') {
+              this.getModel().set( e.data['instance'] + '_status_ws_open', '1' );
+            }
+            if (    this.getModel().get( e.data['instance'] + '_status_ws_open' )
+                && this.getModel().get( e.data['instance'] + '_status_received_full_refresh' )
+                && this.getModel().get( e.data['instance'] + '_status_received_security_status' )  ) {
+              worker.postMessage({'req':'start', 'params': this.getModel().get( algo_instance_id + '_params') });
+            }
+            break;
+          case 'start':
+            this.getModel().set( e.data['instance'] + '_status', '2' );
+            break;
+          case 'notification':
+            this.showNotification(e.data['type'], e.data['title'], e.data['description']);
+            break;
+          case 'error':
+          case 'terminate':
+          case 'stop':
+            if (this.getModel().get( e.data['instance'] + '_status') == '2') {
+              this.getModel().set( e.data['instance'] + '_status', '3' );
+            }
+            if (goog.isDefAndNotNull(e.data['error'])) {
+              this.showNotification('error', MSG_ERROR_RUNNING_ALGORITHM_NOTIFICATION,  e.data['error']);
+            }
+            this.getModel().set( e.data['instance'] + '_status', '0' );
+            running_algorithms = this.getModel().get('RunningAlgorithms');
+            goog.object.remove(running_algorithms, e.data['instance']);
+            this.getModel().set('RunningAlgorithms', running_algorithms);
+            break;
+          case 'new_order_limited':
+            var order_symbol  = this.getModel().get( e.data['instance'] + '_symbol').symbol;
+            this.getBitexConnection().sendLimitedOrder( order_symbol,
+                                                        e.data['qty'],
+                                                        e.data['price'],
+                                                        e.data['side'],
+                                                        this.getModel().get('SelectedBrokerID'),
+                                                        undefined,
+                                                        e.data['client_order_id']);
+            break;
+          case 'cancel_order':
+            this.conn_.cancelOrder(e.data['client_order_id'], e.data['order_id']);
+            break;
+          default:
+            break;
         }
-        if (e.data['status'] == 'ws_open') {
-          this.getModel().set( e.data['instance'] + '_status_ws_open', '1' );
-        }
-        if (    this.getModel().get( e.data['instance'] + '_status_ws_open' )
-             && this.getModel().get( e.data['instance'] + '_status_received_full_refresh' )
-             && this.getModel().get( e.data['instance'] + '_status_received_security_status' )  ) {
-          worker.postMessage({'req':'start', 'params': this.getModel().get( algo_instance_id + '_params') });
-        }
-        break;
-      case 'start':
-        this.getModel().set( e.data['instance'] + '_status', '2' );
-        break;
-      case 'notification':
-        this.showNotification(e.data['type'], e.data['title'], e.data['description']);
-        break;
-      case 'error':
-      case 'terminate':
-      case 'stop':
-        if (this.getModel().get( e.data['instance'] + '_status') == '2') {
-          this.getModel().set( e.data['instance'] + '_status', '3' );
-        }
-        if (goog.isDefAndNotNull(e.data['error'])) {
-          this.showNotification('error', MSG_ERROR_RUNNING_ALGORITHM_NOTIFICATION,  e.data['error']);
-        }
-        this.getModel().set( e.data['instance'] + '_status', '0' );
-        running_algorithms = this.getModel().get('RunningAlgorithms');
-        goog.object.remove(running_algorithms, e.data['instance']);
-        this.getModel().set('RunningAlgorithms', running_algorithms);
-        break;
-      case 'new_order_limited':
-        var order_symbol  = this.getModel().get( e.data['instance'] + '_symbol').symbol;
-        this.getBitexConnection().sendLimitedOrder( order_symbol,
-                                                    e.data['qty'],
-                                                    e.data['price'],
-                                                    e.data['side'],
-                                                    this.getModel().get('SelectedBrokerID'),
-                                                    undefined,
-                                                    e.data['client_order_id']);
-
-
-        break;
-      case 'cancel_order':
-        this.conn_.cancelOrder(e.data['client_order_id'], e.data['order_id']);
-        break;
-      default:
-        break;
+      }, this);
+      worker.postMessage({'req':'create', 'params': params });
     }
   }, this);
-  worker.postMessage({'req':'create', 'params': params });
 };
 
 
@@ -3923,7 +4028,7 @@ goog.exportProperty(BlinkTradeApp.prototype, 'getCurrencySign', bitex.app.BlinkT
 goog.exportProperty(BlinkTradeApp.prototype, 'isCryptoCurrency', bitex.app.BlinkTrade.prototype.isCryptoCurrency);
 goog.exportProperty(BlinkTradeApp.prototype, 'formatCurrency', bitex.app.BlinkTrade.prototype.formatCurrency);
 goog.exportProperty(BlinkTradeApp.prototype, 'getBrokersByCountry', bitex.app.BlinkTrade.prototype.getBrokersByCountry);
-goog.exportProperty(BlinkTradeApp.prototype, 'getAvailableBalanceForTrading', bitex.app.BlinkTrade.prototype.getAvailableBalanceForTrading);
+goog.exportProperty(BlinkTradeApp.prototype, 'getBalance', bitex.app.BlinkTrade.prototype.getBalance);
 goog.exportProperty(BlinkTradeApp.prototype, 'getModel', bitex.app.BlinkTrade.prototype.getModel);
 goog.exportProperty(BlinkTradeApp.prototype, 'getQtyCurrencyFromSymbol', bitex.app.BlinkTrade.prototype.getQtyCurrencyFromSymbol);
 goog.exportProperty(BlinkTradeApp.prototype, 'getPriceCurrencyFromSymbol', bitex.app.BlinkTrade.prototype.getPriceCurrencyFromSymbol);

@@ -482,4 +482,19 @@
 	<translation id="7267136620269436936" key="MSG_1RPYGJ9BS7J35" source="bitex/ui/simple_order_entry.ander.soy.js" desc="I want to buy">I want to buy <ph name="cryptoCurrencySymbol" /></translation>
 	<translation id="7886698491564141760" key="MSG_1TLJJKCN7PV4R" source="bitex/ui/advanced_order_entry.ander.soy.js" desc="Buy button in Order Entry">Buy</translation>
 	<translation id="1541278227797186113" key="MSG_4WNOZ44AEDTA" source="bitex/ui/advanced_order_entry.ander.soy.js" desc="Sell button in Order Entry">Sell</translation>
+	<translation id="5496301359111680367" key="MSG_1X2TPBHY1EURU" source="bitex/templates/templates.default.soy.js" desc="Algorithm trading request permmissions dialog content">This algorithm is requesting your permission to:</translation>
+	<translation id="6530343992702578628" key="MSG_1ARB1GYVJ1DLV" source="bitex/templates/templates.default.soy.js" desc="Permission in Algo Permissions Dialog"> Show notifications</translation>
+	<translation id="7733437359068728634" key="MSG_1KVAZDW3C356W" source="bitex/templates/templates.default.soy.js" desc="Permission in Algo Permissions Dialog"> See your balances</translation>
+	<translation id="5509998647382524703" key="MSG_1T51E45MBUKQB" source="bitex/templates/templates.default.soy.js" desc="Permission in Algo Permissions Dialog"> Listen to the execution reports from your orders</translation>
+	<translation id="2387010282581588658" key="MSG_17RHQERPEJ1NH" source="bitex/templates/templates.default.soy.js" desc="Permission in Algo Permissions Dialog"> Send limited orders</translation>
+	<translation id="7520434777406239327" key="MSG_B0KPZRC0R8NB" source="bitex/templates/templates.default.soy.js" desc="Permission in Algo Permissions Dialog"> Send buy limited orders</translation>
+	<translation id="1386482686192646821" key="MSG_8WDARKASJD9Z" source="bitex/templates/templates.default.soy.js" desc="Permission in Algo Permissions Dialog"> Send sell limited orders</translation>
+	<translation id="6072451498313975644" key="MSG_66KB7HPOOJXC" source="bitex/templates/templates.default.soy.js" desc="Permission in Algo Permissions Dialog"> Send market orders</translation>
+	<translation id="5912913760925977536" key="MSG_9Q91FDVU1RQ" source="bitex/templates/templates.default.soy.js" desc="Permission in Algo Permissions Dialog"> Send buy market orders</translation>
+	<translation id="8358547692552283763" key="MSG_1TS7VWG80DSMP" source="bitex/templates/templates.default.soy.js" desc="Permission in Algo Permissions Dialog"> Send sell market order</translation>
+	<translation id="8413172216296041152" key="MSG_51LKTS4JRUP7" source="bitex/templates/templates.default.soy.js" desc="Permission in Algo Permissions Dialog"> Cancel orders</translation>
+	<translation id="6069267902329163934" key="MSG_1WJM2Y66OJV4V" source="bitex/templates/templates.default.soy.js" desc="amount help block"> Available: <ph name="xxx" /></translation>
+	<translation id="4262057046720410410" key="MSG_C7Q37EIVLA6B" source="bitex/ui/algorithm_selector.default.soy.js" desc="Help message that appears bellow the algorithm trading input box on the algorithm trading view">Understand how the algorithm trading works</translation>
+	<translation id="6128801024546160717" key="MSG_ALGO_REQUEST_PERMISSION" source="bitex/app/blinktrade.js" desc="dialog shown to the user requesting his permissions to run the selected algorithm trading">Authorize algorithm</translation>
+	<translation id="4224560933977011233" key="MSG_ILLEGAL_OPERATION_ALGORITHM_NOTIFICATION" source="bitex/app/blinktrade.js" desc="notification shown when the algorithm executed a illegal operation">Algorithm tried to execute a illegal operation</translation>
 </translationbundle>
