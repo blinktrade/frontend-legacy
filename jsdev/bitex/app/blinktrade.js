@@ -1007,15 +1007,15 @@ bitex.app.BlinkTrade.prototype.adjustLockedBalance_ = function(execution_report,
 
   if (is_buy_order) {
     currency = this.conn_.getPriceCurrencyFromSymbol(execution_report['Symbol']);
-    new_volume = execution_report['LeavesQty'] * execution_report['Price'] / 1e8;
+    new_volume = parseInt(execution_report['LeavesQty'] * execution_report['Price'] / 1e8, 10 );
     if (goog.isDefAndNotNull(opt_current_order)) {
-      current_volume =  opt_current_order['LeavesQty'] * opt_current_order['Price'] / 1e8;
+      current_volume =  parseInt(opt_current_order['LeavesQty'] * opt_current_order['Price'] / 1e8, 10);
     }
   } else if (is_sell_order) {
     currency = this.conn_.getQtyCurrencyFromSymbol(execution_report['Symbol']);
-    new_volume = execution_report['LeavesQty'];
+    new_volume = parseInt(execution_report['LeavesQty'], 10);
     if (goog.isDefAndNotNull(opt_current_order)) {
-      current_volume =  opt_current_order['LeavesQty'];
+      current_volume =  parseInt(opt_current_order['LeavesQty'], 10);
     }
   }
 
@@ -1855,7 +1855,7 @@ bitex.app.BlinkTrade.prototype.onUserOrderEntry_ = function(e){
     var balance_currency;
     if (e.target.getSide() == '1') { // Buy
       balance_currency =  this.getPriceCurrencyFromSymbol(e.target.getSymbol());
-      balance_needed_to_send_the_order = e.target.getPrice() * e.target.getAmount() / 1e8;
+      balance_needed_to_send_the_order = parseInt(e.target.getPrice() * e.target.getAmount() / 1e8, 10);
     } else if (e.target.getSide() == '2') {
       balance_currency =  this.getQtyCurrencyFromSymbol(e.target.getSymbol());
       balance_needed_to_send_the_order =  e.target.getAmount();
@@ -2221,13 +2221,13 @@ bitex.app.BlinkTrade.prototype.doCalculateFees_ = function(amount_element_id,
 
 
 
-  var total_percent_fee_value = ((amount - fixed_fee_value) * ((percent_fee_value)/100.0));
+  var total_percent_fee_value = parseInt(((amount - fixed_fee_value) * ((percent_fee_value)/100.0)),10);
   var total_fixed_fee_value = fixed_fee_value;
-  var total_fees = total_percent_fee_value + total_fixed_fee_value;
-  var net_amount = amount - total_fees;
+  var total_fees = parseInt(total_percent_fee_value + total_fixed_fee_value,10);
+  var net_amount = parseInt(amount - total_fees,10);
   if (add_fees) {
-    net_amount = (amount / ( 100. - percent_fee_value ) * 100) + total_fixed_fee_value;
-    total_fees = amount - net_amount;
+    net_amount = parseInt((amount / ( 100. - percent_fee_value ) * 100) + total_fixed_fee_value,10);
+    total_fees = parseInt(amount - net_amount,10);
   }
 
   if (goog.isDefAndNotNull(opt_fee_value_element_id)) {
@@ -3951,8 +3951,8 @@ bitex.app.BlinkTrade.prototype.registerAlgorithmInstance = function(algo_instanc
           case 'new_order_limited':
             var order_symbol  = this.getModel().get( e.data['instance'] + '_symbol').symbol;
             this.getBitexConnection().sendLimitedOrder( order_symbol,
-                                                        e.data['qty'],
-                                                        e.data['price'],
+                                                        parseInt(e.data['qty'],10),
+                                                        parseInt(e.data['price'],10),
                                                         e.data['side'],
                                                         this.getModel().get('SelectedBrokerID'),
                                                         undefined,
