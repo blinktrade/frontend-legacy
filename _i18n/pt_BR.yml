@@ -47,8 +47,8 @@ views:
     signup: Registrar
 
   faq:
-    title: FAQ - Pergunstas Frequentes
-    get_in_touch: Entre em contato caso que você não tenha conseguido encontrar a resposta para a sua pergunta
+    title: FAQ - Perguntas Frequentes
+    get_in_touch: Entre em contato caso você não tenha conseguido encontrar a resposta para a sua pergunta
 
   signup:
     title: Registrar
@@ -93,7 +93,7 @@ views:
   profile:
     title: Meu Perfil
     two_factor_auth_section:
-      title: Enable or Disable Two steps authentication
+      title: Autenticação em 2 passos (2FA)
       key: Chave
       authentication_code: Código de Autenticação
       authentication_code_title: Código gerado pelo Google Authenticator
@@ -140,6 +140,11 @@ views:
 
   market:
     title: Mercado
+
+  alerts:
+    verification: Verifique a sua conta enviando seus documentos.
+    enable_two_factor: Você pode aumentar a segurança da sua conta apenas habilitando a autenticação em dois passos
+    frozen_account: A sua conta foi congelada pelo administrador, por favor contate o suporte.
 
   sidebar:
     market: "Mercado:"
