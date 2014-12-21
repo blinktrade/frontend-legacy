@@ -497,4 +497,6 @@
 	<translation id="4262057046720410410" key="MSG_C7Q37EIVLA6B" source="bitex/ui/algorithm_selector.default.soy.js" desc="Help message that appears bellow the algorithm trading input box on the algorithm trading view">Understand how the algorithm trading works</translation>
 	<translation id="6128801024546160717" key="MSG_ALGO_REQUEST_PERMISSION" source="bitex/app/blinktrade.js" desc="dialog shown to the user requesting his permissions to run the selected algorithm trading">Authorize algorithm</translation>
 	<translation id="4224560933977011233" key="MSG_ILLEGAL_OPERATION_ALGORITHM_NOTIFICATION" source="bitex/app/blinktrade.js" desc="notification shown when the algorithm executed a illegal operation">Algorithm tried to execute a illegal operation</translation>
+	<translation id="1814724116698926674" key="MSG_IEXXY1PQWR66" source="bitex/ui/locked_balance_display.whitedev.soy.js" desc="Shown above the order book bids">You are buying a total of </translation>
+	<translation id="2009521355879650921" key="MSG_E220FG7VIOQT" source="bitex/ui/locked_balance_display.whitedev.soy.js" desc="Shown above the order book asks">You are selling a total of </translation>
 </translationbundle>
