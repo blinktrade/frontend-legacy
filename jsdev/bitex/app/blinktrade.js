@@ -119,8 +119,6 @@ bitex.app.BlinkTrade = function(broker_id, opt_default_country, opt_default_stat
     this.model_   = new bitex.model.Model(document.body);
     this.conn_    = new bitex.api.BitEx();
     this.views_   = new goog.ui.Component();
-    this.pricemin_ = 0;
-    this.pricemax_ = 0;
   } catch ( error) {
     this.showDialog(error);
   }
@@ -138,11 +136,10 @@ bitex.app.BlinkTrade = function(broker_id, opt_default_country, opt_default_stat
 
   this.open_orders_request_id_ = parseInt( 1e7 * Math.random() , 10 );
 
-  this.maximum_allowed_delay_in_ms_ = opt_maximum_allowed_delay_in_ms || 10000;
-  this.test_request_delay_          = opt_test_request_timer_in_ms || 30000;
+  this.maximum_allowed_delay_in_ms_ = opt_maximum_allowed_delay_in_ms || 15000;
+  this.test_request_delay_          = opt_test_request_timer_in_ms || 40000;
   this.currency_info_               = {};
   this.all_markets_                 = {};
-  this.locked_balance_              = {};
   this.test_request_timer_          = new goog.Timer(this.test_request_delay_);
   this.test_request_timer_.start();
 };
@@ -257,11 +254,6 @@ bitex.app.BlinkTrade.prototype.open_orders_request_id_;
  * @type {number}
  */
 bitex.app.BlinkTrade.prototype.error_message_alert_timeout_;
-
-/**
- * @type {Object}
- */
-bitex.app.BlinkTrade.prototype.locked_balance_;
 
 /**
  * @return {goog.events.EventHandler}
@@ -3012,18 +3004,6 @@ bitex.app.BlinkTrade.prototype.onUserLoginOk_ = function(e) {
   this.conn_.requestDepositMethods();
 
   this.router_.setView('offerbook');
-  /*
-  if (this.getModel().get('IsVerified')) {
-    this.router_.setView('offerbook');
-
-  } else {
-    if (this.getModel().get('Profile')['Verified']==0) {
-      this.router_.setView('verification');
-    } else {
-      this.router_.setView('offerbook');
-    }
-  }
-  */
 
   // Request Open Orders
   this.getModel().set('FinishedInitialOpenOrdersRequest',  false);
@@ -3565,33 +3545,38 @@ bitex.app.BlinkTrade.prototype.onUserConnectBitEx_ = function(e){
  * @protected
  */
 bitex.app.BlinkTrade.prototype.onConnectionOpen_ = function(e){
-  var just_now = new Date(Date.now());
-
   goog.dom.classes.remove( document.body, 'ws-not-connected' );
   goog.dom.classes.add( document.body, 'ws-connected' );
   goog.dom.classes.remove( document.body, 'bitex-broker' );
   goog.dom.classes.remove( document.body, 'bitex-non-broker' );
 
-  if (! goog.isDefAndNotNull(this.model_.get('SecurityList') )) {
-    this.conn_.requestSecurityList();
-  }
-
-  if (! goog.isDefAndNotNull(this.model_.get('BrokerList') )) {
-    this.conn_.requestBrokerList();
-  }
+  this.conn_.testRequest();
+  this.conn_.requestSecurityList();
+  this.conn_.requestBrokerList();
 
   // auto login in case of the user reconnecting
   var username = this.getModel().get('Username');
   var password = this.getModel().get('Password');
+  var broker_id = this.getModel().get('SelectedBrokerID');
+
+  var default_country = this.model_.get('DefaultCountry');
+  var default_state = this.model_.get('DefaultState');
+
+  this.getModel().clear();
+
+  this.model_.set('DefaultCountry', default_country);
+  this.model_.set('DefaultBrokerID', broker_id);
+  this.model_.set('SelectedBrokerID', broker_id);
+  this.model_.set('DefaultState', default_state);
+
+
   if (goog.isDefAndNotNull(username) && goog.isDefAndNotNull(password)) {
     if (!goog.string.isEmpty(username) && !goog.string.isEmpty(password) ) {
       if (password.length >= 8 ) {
-        this.conn_.login(this.getModel().get('SelectedBrokerID'),username, password);
+        this.conn_.login(broker_id,username, password);
       }
     }
   }
-
-  this.conn_.testRequest();
 };
 
 /**

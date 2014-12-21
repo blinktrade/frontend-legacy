@@ -65,7 +65,13 @@ bitex.model.Model.EventType = {
   SET: 'model_set'
 };
 
-
+/**
+ *  Remove everything from the model
+ */
+bitex.model.Model.prototype.clear = function(){
+  this.map_.clear();
+  this.updateDom();
+};
 
 /**
  * Returns the value for the given key.  If the key is not found and the default
@@ -84,7 +90,9 @@ bitex.model.Model.prototype.get = function(key, opt_val) {
  * @param {*} key
  */
 bitex.model.Model.prototype.remove = function(key) {
-  return this.map_.remove(key);
+  var res = this.map_.remove(key);
+  this.updateDom();
+  return res;
 };
 
 
