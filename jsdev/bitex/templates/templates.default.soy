@@ -1,6 +1,52 @@
 {namespace bitex.templates}
 
 /**
+  */
+{template .ProfileViewChangePasswordPlaceHolder}
+  <div class="span6 well"></div>
+{/template}
+
+
+/**
+  * @param permissions
+  */
+{template .AlgoPermissionsDialogContent}
+  <p class="lead"> {msg desc="Algorithm trading request permmissions dialog content"}This algorithm is requesting your permission to:{/msg}</p>
+
+  <ul class="list-unstyled" style="line-height: 2">
+  {foreach $permission in  $permissions }
+    <li><span class="fa fa-check text-success"></span>
+    {switch $permission}
+      {case 'notification'}
+        {msg desc="Permission in Algo Permissions Dialog"} Show notifications{/msg}
+      {case 'balance'}
+        {msg desc="Permission in Algo Permissions Dialog"} See your balances{/msg}
+      {case 'execution_report'}
+        {msg desc="Permission in Algo Permissions Dialog"} Listen to the execution reports from your orders{/msg}
+      {case 'new_order_limited'}
+        {msg desc="Permission in Algo Permissions Dialog"} Send limited orders{/msg}
+      {case 'new_buy_order_limited'}
+        {msg desc="Permission in Algo Permissions Dialog"} Send buy limited orders{/msg}
+      {case 'new_sell_order_limited'}
+        {msg desc="Permission in Algo Permissions Dialog"} Send sell limited orders{/msg}
+      {case 'new_market_order'}
+        {msg desc="Permission in Algo Permissions Dialog"} Send market orders{/msg}
+      {case 'new_buy_market_order'}
+        {msg desc="Permission in Algo Permissions Dialog"} Send buy market orders{/msg}
+      {case 'new_sell_market_order'}
+        {msg desc="Permission in Algo Permissions Dialog"} Send sell market order{/msg}
+      {case 'cancel_order'}
+        {msg desc="Permission in Algo Permissions Dialog"} Cancel orders{/msg}
+      {default}
+        {$permission}
+    {/switch}
+    </li>
+  {/foreach}
+  </ul>
+{/template}
+
+
+/**
   * @param msg_customer_detail
   */
 {template .CustomerDetailDialog}
@@ -871,11 +917,11 @@
                     <div>
                       <em>
                         <small>
-                          {if $method['limits'][$verificationLevel]['min']}
-                            {msg desc="amount help block"} Maximum: {$method['limits'][$verificationLevel]['formatted_max'] } per day.  {/msg}
+                          {if $method['limits'][$verificationLevel]['max']}
+                            {msg desc="amount help block"} Available: {$method['limits'][$verificationLevel]['formatted_max'] }{/msg}
                             <br>
                           {/if}
-                          {if $method['limits'][$verificationLevel]['max']}
+                          {if $method['limits'][$verificationLevel]['min']}
                             {msg desc="amount help block"} Minimum: {$method['limits'][$verificationLevel]['formatted_min'] } per transaction.  {/msg}
                           {/if}
                         </small>
@@ -969,11 +1015,11 @@
                     <div>
                       <em>
                         <small>
-                          {if $method['limits'][$verificationLevel]['min']}
-                            {msg desc="amount help block"} Maximum: {$method['limits'][$verificationLevel]['formatted_max'] } per day.  {/msg}
+                          {if $method['limits'][$verificationLevel]['max']}
+                            {msg desc="amount help block"} Available: {$method['limits'][$verificationLevel]['formatted_max'] }{/msg}
                             <br>
                           {/if}
-                          {if $method['limits'][$verificationLevel]['max']}
+                          {if $method['limits'][$verificationLevel]['min']}
                             {msg desc="amount help block"} Minimum: {$method['limits'][$verificationLevel]['formatted_min'] } per transaction.  {/msg}
                           {/if}
                         </small>
