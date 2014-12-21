@@ -70,6 +70,20 @@ bootstrap.Alert.prototype.createDom = function() {
   return element;
 };
 
+bootstrap.Alert.install = function() {
+  goog.events.listen(document.body, goog.events.EventType.CLICK , function(e) {
+    var element = e.target;
+
+    if (element.getAttribute('data-dismiss') === 'alert') {
+      var alert_element = goog.dom.getAncestorByTagNameAndClass(element, undefined, 'alert' );
+      if (goog.isDefAndNotNull(alert_element)) {
+        goog.dom.removeNode(alert_element);
+        e.stopPropagation();
+        e.preventDefault();
+      }
+    }
+  });
+};
 
 /**
  * A logger to help debugging
@@ -91,6 +105,8 @@ bootstrap.Alert.prototype.enterDocument = function() {
   if (goog.isDefAndNotNull(closeBtn)) {
     handler.listenOnce(closeBtn, goog.events.EventType.CLICK, function(e){
       this.dispose();
+      e.stopPropagation();
+      e.preventDefault();
     });
   }
 };

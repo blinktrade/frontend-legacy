@@ -94,7 +94,7 @@ views:
   profile:
     title: Mi Perfil
     two_factor_auth_section:
-      title: Activar o desactivar verificación de dos pasos
+      title: Verificación de dos pasos (2FA)
       key: Key
       authentication_code: Código de verificación
       authentication_code_title: Código generado por Google Authenticatior
@@ -141,6 +141,11 @@ views:
 
   market:
     title: Mercado
+
+  alerts:
+    verification: No ha presentado sus documentos. Por favor, verifique su cuenta.
+    enable_two_factor: Puede aumentar la seguridad de su cuenta con habilitación de la autentificación en dos pasos
+    frozen_account: Tu cuenta ha sido bloqueada por el administrador, por favor contactar con el soporte.
 
   sidebar:
     market: "Mercado:"
