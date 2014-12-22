@@ -218,6 +218,10 @@ bitex.view.OfferBookView.prototype.onSelectedBrokerID_ = function(e){
   var selected_symbol = model.get('SelectedSymbol');
   selected_symbol = goog.isDefAndNotNull(selected_symbol) ? selected_symbol.symbol : null;
 
+  if (!goog.isDefAndNotNull(model.get('UserBrokers'))) {
+    return;
+  }
+
   var selectedBroker = model.get('UserBrokers')[ selected_broker_id ];
   this.buy_order_entry_.setBrokerID(selected_broker_id);
   this.sell_order_entry_.setBrokerID(selected_broker_id);
@@ -248,6 +252,11 @@ bitex.view.OfferBookView.prototype.onSelectedSymbol_ = function(e){
   var model = this.getApplication().getModel();
   var selected_symbol = model.get('SelectedSymbol');
   var selected_broker_id = model.get('SelectedBrokerID');
+
+  if (!goog.isDefAndNotNull(model.get('UserBrokers'))) {
+    return;
+  }
+
   var selectedBroker = model.get('UserBrokers')[ selected_broker_id ];
   var symbol = selected_symbol.symbol;
 
