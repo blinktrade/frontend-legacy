@@ -3592,7 +3592,7 @@ bitex.app.BlinkTrade.prototype.onTestRequestTimer_ = function(e){
   this.test_request_deadline_timer_.start();
 
   this.getHandler().listenOnce(this.test_request_deadline_timer_, goog.Timer.TICK, function(e){
-    location.reload();
+    //location.reload();
   });
 };
 
