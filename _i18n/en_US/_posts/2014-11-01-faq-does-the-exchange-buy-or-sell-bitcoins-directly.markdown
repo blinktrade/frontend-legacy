@@ -1,12 +1,12 @@
 ---
 layout:     post
-title:      "Does the exchange buy/sell bitcoin directly?"
+title:      "Exchange-ul cumpără/vinde Bitcoin direct?"
 date:       2014-11-01 00:04:00
-categories: en_US faq
+categories: ro faq
 ---
 
-No. We are providing a service. Think on the exchange like eBay, we are just providing a service where you can find buyers or sellers.
+Nu. Noi oferim un serviciu. Gândiți-va la exchange ca eBay, noi doar oferim un serviciu unde puteți găsii vânzători sau cumpărători.
 
-All we do is provide a safe and simple environment to trade with other users, that is all.
+Tot ceea ce facem este să oferim un mediu sigur și simplu pentru a tranzacționa cu alți utilizatori.
 
-We guarantee that buyers get their bitcoins and sellers get their money at agreed price.
+Noi garantăm că cumpărătorul primește Bitcoini și vânzătorul banii, la prețul stabilit.
