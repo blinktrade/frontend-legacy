@@ -1,0 +1,502 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE translationbundle>
+<translationbundle lang="en_US">
+    <translation id="1389515633492806757" key="MSG_ERROR_VALIDATE_REQUIRED" source="uniform/validators.js" desc="Error Validade Required in Validators"><ph name="c" /> este necesară</translation>
+    <translation id="7102101605595770439" key="MSG_ERROR_VALIDATE_MIN_LENGTH" source="uniform/validators.js" desc="Error validate min lenght"><ph name="c" /> cel puțin <ph name="d" /> caractere long</translation>
+    <translation id="6348943748292426048" key="MSG_ERROR_VALIDATE_EMAIL" source="uniform/validators.js" desc="Error validate email"><ph name="c" /> Nu este o adresă de mail valida</translation>
+    <translation id="2167540827965306475" key="MSG_ERROR_VALIDATE_MAX_LENGTH" source="uniform/validators.js" desc="Error Validate Max lenght"><ph name="c" /> să nu fie mai mare de <ph name="d" /> caractere</translation>
+    <translation id="1396260868685465" key="MSG_ERROR_VALIDATE_MAX" source="uniform/validators.js" desc="Error Validate max"><ph name="c" /> trebuie să fie mai mică sau egală cu <ph name="d" /></translation>
+    <translation id="3029321980122559406" key="MSG_ERROR_VALIDATE_MIN" source="uniform/validators.js" desc="Error validate min"><ph name="c" /> trebuie să fie mai mare sau egal cu <ph name="d" /></translation>
+    <translation id="6848903508240629067" key="MSG_ERROR_VALIDATE_NUMBER" source="uniform/validators.js" desc="Error validate number"><ph name="c" /> trebuie să fie un număr</translation>
+    <translation id="3140109020233896827" key="MSG_ERROR_VALIDATE_INTEGER" source="uniform/validators.js" desc="Error validate integer"><ph name="c" /> trebuie să fie un număr întreg</translation>
+    <translation id="5374227695750989408" key="MSG_ERROR_VALIDATE_ALPHA" source="uniform/validators.js" desc="Error validate alpha"><ph name="c" /> trebuie să conțină doar litere (fără caractere speciale)</translation>
+    <translation id="2383106485535929608" key="MSG_ERROR_VALIDATE_ALPHA_NUM" source="uniform/validators.js" desc="Error validate alpha num"><ph name="c" /> trebuie să conțină doar litere și cifre (fără caractere speciale)</translation>
+    <translation id="3244343148402740064" key="MSG_ERROR_VALIDATE_PHRASE" source="uniform/validators.js" desc="error validate phrase"><ph name="c" /> trebuie să conțină litere, numere, spații, și următoarele: . , - _ () * # :</translation>
+    <translation id="7954197427535238099" key="MSG_ERROR_VALIDATE_USERNAME" source="uniform/validators.js" desc="error validate phrase"><ph name="c" /> trebuie să conțină litere, numere, spații, și următoarele: . _ -</translation>
+    <translation id="2237445205703397853" key="MSG_CONFIRM" source="uniform/uniform.js" desc="Show exit confirmation message">Sunteți sigur(ă) că doriți să părăsiți această pagină, fără a salva formularul?</translation>
+    <translation id="5293238891210287969" key="MSG_FORM_ERROR_MSG" source="uniform/uniform.js" desc="for Message error">Ne pare rău, acest formular necesită corecturi.</translation>
+    <translation id="2016260215533150464" key="MSG_YGIA38L27DPP" source="bitex/ui/simple_order_entry.default.soy.js" desc="I want to sell">Cantitate</translation>
+    <translation id="5613740432104794774" key="MSG_81OYLIWXZUL6" source="bitex/ui/simple_order_entry.default.soy.js" desc="for a total of"> pentru un total de </translation>
+    <translation id="809733713639455683" key="MSG_O87TQJIX2UZ5" source="bitex/ui/advanced_order_entry.default.soy.js" desc="Advanced Order Entry Label">Total</translation>
+    <translation id="181130720802757221" key="MSG_WXTUNGE1VT3D" source="bitex/templates/templates.default.soy.js" desc="Fees column on Broker fees table">Taxă</translation>
+    <translation id="5355070080237014607" key="MSG_1MQI4SA73D8AW" source="bitex/ui/simple_order_entry.default.soy.js" desc="Price per crypto currency label on simple order entry">Preț per <ph name="cryptocurrencydescription" /> :</translation>
+    <translation id="8172338706844804389" key="MSG_K9LULBYKWMJ7" source="bitex/ui/simple_order_entry.default.soy.js" desc="I want to buy">Vreau să cumpăr</translation>
+    <translation id="8327902367537937123" key="MSG_12X65RWLHZBEY" source="bitex/ui/simple_order_entry.default.soy.js" desc="I want to sell">Vreau să vând</translation>
+    <translation id="3651657292914060363" key="MSG_KWV196J2UUA4" source="bitex/ui/advanced_order_entry.default.soy.js" desc="Buy button in Order Entry">CUMPĂRĂ</translation>
+    <translation id="8514996864346613029" key="MSG_AV2PS5CS32JW" source="bitex/ui/advanced_order_entry.default.soy.js" desc="Sell button in Order Entry">VINDE</translation>
+    <translation id="8503046849884819597" key="MSG_NO_LIQUIDITY_ERROR" source="bitex/ui/simple_order_entry.js" desc="no orders available to provide market liquidity ( simple order entry )">  ** Nu este destulă lichiditate pentru a finaliza tranzacția **</translation>
+    <translation id="7316534912521851165" key="MSG_ACCOUNT_ACTIVITY_TABLE_COLUMN_ID" source="bitex/ui/account_activity.js" desc="Column ID of the Account Activity">ID</translation>
+    <translation id="4596462729935529657" key="MSG_ACCOUNT_ACTIVITY_TABLE_COLUMN_SIDE" source="bitex/ui/account_activity.js" desc="Column Side of the Account Activity">Side</translation>
+    <translation id="4563120712158862339" key="MSG_ACCOUNT_ACTIVITY_TABLE_COLUMN_ORDER_DATE" source="bitex/ui/account_activity.js" desc="Column Order Date of the Account Activity">Dată/Timp</translation>
+    <translation id="5969690873226491177" key="MSG_ACCOUNT_ACTIVITY_TABLE_COLUMN_PRICE" source="bitex/ui/account_activity.js" desc="Column Price of the Account Activity">Preț</translation>
+    <translation id="6871276581374949223" key="MSG_ACCOUNT_ACTIVITY_TABLE_COLUMN_QTY" source="bitex/ui/account_activity.js" desc="Column Qty of the Account Activity">Qty</translation>
+    <translation id="1216715082058092678" key="MSG_ACCOUNT_ACTIVITY_TABLE_COLUMN_AVG_PX" source="bitex/ui/account_activity.js" desc="Column Average Price of the Account Activity">Preț mediu</translation>
+    <translation id="4798155901587681769" key="MSG_ACCOUNT_ACTIVITY_TABLE_COLUMN_VOLUME" source="bitex/ui/account_activity.js" desc="Column Volume of the Account Activity">Total</translation>
+    <translation id="3236422184265890902" key="MSG_10MREZ018RP5T" source="bitex/templates/templates.default.soy.js" desc="Customer username">Utilizator:</translation>
+    <translation id="5697659303585616266" key="MSG_FCF8V597Y07" source="bitex/templates/templates.default.soy.js" desc="Error code label on error dialog content">Cod de eroare</translation>
+    <translation id="3528221637484851073" key="MSG_MBVKLDPBRJRZ" source="bitex/templates/templates.default.soy.js" desc="Download picture link on deposit receipt dialog content">Descărcați</translation>
+    <translation id="273816828165355421" key="MSG_YWQ8C75BXOS4" source="bitex/templates/templates.default.soy.js" desc="Control number label">Numărul de control</translation>
+    <translation id="1856248176118651420" key="MSG_31SMIXGT1F3" source="bitex/templates/templates.default.soy.js" desc="Amount label">Suma plătită</translation>
+    <translation id="9031595279213129125" key="MSG_H9PUZYZDIKU0" source="bitex/templates/templates.default.soy.js" desc="Fee percentage label">Taxe:</translation>
+    <translation id="7746178583637852614" key="MSG_TJ6EOXYE7AYM" source="bitex/templates/templates.default.soy.js" desc="Net amount">Sumă net</translation>
+    <translation id="7325004207525327143" key="MSG_JOQKUAHI9O8Z" source="bitex/templates/templates.default.soy.js" desc="Title for the Broker view">Broker-ul meu</translation>
+    <translation id="4207630095317176089" key="MSG_1TI4K0AT1GKPJ" source="bitex/templates/templates.default.soy.js" desc="Terms of service section subtitle on Broker view">Termeni de serviciu</translation>
+    <translation id="6241362437101811864" key="MSG_K0BWX8ZXUB0" source="bitex/templates/templates.default.soy.js" desc="label in broker general information table">Telefon</translation>
+    <translation id="6440404554676146532" key="MSG_1UH38TH122H29" source="bitex/templates/templates.default.soy.js" desc="label in broker general information table">T:</translation>
+    <translation id="4569609450753675511" key="MSG_60G2HW0XAKG8" source="bitex/templates/templates.default.soy.js" desc="Allowed markets section subtitle on broker view">Piețele</translation>
+    <translation id="3286501474082002816" key="MSG_1FRGGYRQB1SMP" source="bitex/ui/withdraw_method_editor.default.soy.js" desc="Method Fees label">Taxe</translation>
+    <translation id="2264145908146364599" key="MSG_129WPKBYL0W7J" source="bitex/templates/templates.default.soy.js" desc="Operation column on Broker fees table">Operație</translation>
+    <translation id="389040683792211882" key="MSG_1PQP8MMPC7OUU" source="bitex/templates/templates.default.soy.js" desc="Terms column on Broker fees table">Termeni</translation>
+    <translation id="4083962123418202335" key="MSG_K0Y568XBO457" source="bitex/templates/templates.default.soy.js" desc="label in broker fees table">Taxă tranzacționare</translation>
+    <translation id="7988407278596949144" key="MSG_1EUOC0S6XQP59" source="bitex/templates/templates.default.soy.js" desc="label in broker fees table">Taxă tranzacționare - Partea care cumpără</translation>
+    <translation id="5319657868832870009" key="MSG_1EIWBJ89JWMNN" source="bitex/templates/templates.default.soy.js" desc="label in broker fees table">Taxă tranzacționare - Partea care vinde</translation>
+    <translation id="5166194079944134474" key="MSG_IHWC3OGEO0UD" source="bitex/templates/templates.default.soy.js" desc="Wallet section subtitle on Broker view">Portofele</translation>
+    <translation id="532585968376213265" key="MSG_EL9R0Y7HTKQO" source="bitex/templates/templates.default.soy.js" desc="Coin  column on Broker wallet table">Coin</translation>
+    <translation id="2591562700335263517" key="MSG_TQ0QDGYRUFFU" source="bitex/ui/withdraw_method_editor.default.soy.js" desc="Method field header">Tipul</translation>
+    <translation id="5714718516006897600" key="MSG_1219FO7E8ULLB" source="bitex/templates/templates.default.soy.js" desc="address column type on Broker wallet table">Adresă</translation>
+    <translation id="4071144265295964083" key="MSG_1XN85A4YLEY8G" source="bitex/templates/templates.default.soy.js" desc="multisig column type on Broker wallet table">Multi signature</translation>
+    <translation id="7237446587342347580" key="MSG_F4XF6NK22X4Q" source="bitex/templates/templates.default.soy.js" desc="managed by column on Broker wallet table">Administrat de</translation>
+    <translation id="3219846053255481787" key="MSG_FM2FZS6QI2N4" source="bitex/templates/templates.default.soy.js" desc="label on  overview header">Da</translation>
+    <translation id="7907083975474294998" key="MSG_1JD3NFU15V9AM" source="bitex/templates/templates.default.soy.js" desc="label on  overview header">Nu</translation>
+    <translation id="5782827863726068258" key="MSG_1DYYK9TR87JQJ" source="bitex/templates/templates.default.soy.js" desc="Cancel deposit dialog message">Introduceți un motiv pentru anularea depunerii</translation>
+    <translation id="1515846462569840062" key="MSG_8WFOH488KP13" source="bitex/templates/templates.default.soy.js" desc="Cancel withdraw reason label">Motiv:</translation>
+    <translation id="6322608065353913931" key="MSG_1CAITBR77XGOQ" source="bitex/templates/templates.default.soy.js" desc="reason for cancelling withdraw">Altele</translation>
+    <translation id="6638748241901862953" key="MSG_1AO416S8H2E99" source="bitex/templates/templates.default.soy.js" desc="Cancel withdraw dialog message">Introduceți un motiv pentru anularea retragerii</translation>
+    <translation id="303551417444503426" key="MSG_1E04EPYG2ZISG" source="bitex/templates/templates.default.soy.js" desc="reason for cancelling withdraw">Fonduri insuficiente</translation>
+    <translation id="3983269564776858234" key="MSG_1H0FWVEWFZKRL" source="bitex/templates/templates.default.soy.js" desc="reason for cancelling withdraw">Contul nu este verificat</translation>
+    <translation id="8696632805624960954" key="MSG_19TPK3KA840O0" source="bitex/templates/templates.default.soy.js" desc="reason for cancelling withdraw">Suspect de fraudă</translation>
+    <translation id="4018661123288687221" key="MSG_1O061DVJOV9WY" source="bitex/templates/templates.default.soy.js" desc="reason for cancelling withdraw">Retragerea se efectuează către un alt cont, nu cel al dumneavoastră</translation>
+    <translation id="2202956984042266807" key="MSG_1B05OBZF9WIHR" source="bitex/templates/templates.default.soy.js" desc="reason for cancelling withdraw">Portofel invalid</translation>
+    <translation id="3961425673023411564" key="MSG_6GJKW0ETNXWY" source="bitex/templates/templates.default.soy.js" desc="reason for cancelling withdraw">Cont bancar invalid</translation>
+    <translation id="8213044356837963510" key="MSG_6JE4R9Y781NK" source="bitex/templates/templates.default.soy.js" desc="reason for cancelling withdraw">Suma depășește limita dumneavoastră zilnică de retragere</translation>
+    <translation id="3536993658239660954" key="MSG_SDGA57B1Y9B0" source="bitex/templates/templates.default.soy.js" desc="reason for cancelling withdraw">Utilizatorul are depunerii care nu au fost încă confirmate</translation>
+    <translation id="6376327837383665334" key="MSG_1BKBPN7XRIM9W" source="bitex/templates/templates.default.soy.js" desc="Google Authenticator code dialog label">Google Authenticator code:</translation>
+    <translation id="4021569976401467131" key="MSG_Q6RJ4FMS79HH" source="bitex/templates/templates.default.soy.js" desc="Limit table field header">Google authenticator code</translation>
+    <translation id="3847549940711760229" key="MSG_155HTFF2STTN5" source="bitex/templates/templates.default.soy.js" desc="Google Authenticator code placeholder">ex. 555555</translation>
+    <translation id="7893066449411497446" key="MSG_YNP9NN2M0VCH" source="bitex/templates/templates.default.soy.js" desc="Withdraw confirmation dialog message">Tocmai am trimis codul de confirmare către email-ul dumneavoastră.</translation>
+    <translation id="1812638279514663541" key="MSG_10XCH9IJOMPHM" source="bitex/templates/templates.default.soy.js" desc="Confirmation code placeholder on withdraw confirmation dialog">Codul de confirmare</translation>
+    <translation id="954684538424433107" key="MSG_1RAJW26PPSAAH" source="bitex/templates/templates.default.soy.js" desc="Withdraw confirmation dialog security disclaimer">Aceasta este o măsură de siguranță pentru a mării securitatea contului dumneavoastră</translation>
+    <translation id="2494664866219756857" key="MSG_1WYO5KZ68AFX7" source="bitex/templates/templates.default.soy.js" desc="Buy fee">Taxă cumpărare</translation>
+    <translation id="2548411436763832093" key="MSG_12GXGONHR5MG0" source="bitex/templates/templates.default.soy.js" desc="Buy fee">Taxă vânzare</translation>
+    <translation id="160862720271610375" key="MSG_GRJ0WU8LCA4L" source="bitex/templates/templates.default.soy.js" desc="Your account label in the right side bar">Contul dumneavoastră</translation>
+    <translation id="1580646726604056261" key="MSG_1T6ZY2BG7IKJG" source="bitex/templates/templates.default.soy.js" desc="Unconfirmed deposits">Depuneri neconfirmate, ale adresei dumneavoastră confirmată</translation>
+    <translation id="1174411128350754227" key="MSG_BQ3DCC3U6Q4U" source="bitex/templates/templates.default.soy.js" desc="label for available balance in a currency">Valabil <ph name="currency" /></translation>
+    <translation id="2339505675136555267" key="MSG_1HFEFA946SBUE" source="bitex/templates/templates.default.soy.js" desc="Deposit button label"> Depunere</translation>
+    <translation id="1567351960516504804" key="MSG_Q1Z2SL378UT" source="bitex/templates/templates.default.soy.js" desc="Deposit button label"> Retragere</translation>
+    <translation id="1314170222864170525" key="MSG_RUMST0TKKOV6" source="bitex/templates/templates.default.soy.js" desc="processing deposit request waiting dialog msg">Cererea de depunere în curs de procesare...</translation>
+    <translation id="7402165977423033057" key="MSG_HCRXFK8J1WG3" source="bitex/templates/templates.default.soy.js" desc="deposit the amount"> Depozitați exact suma de :</translation>
+    <translation id="7905716248596198578" key="MSG_1TI1D8OB3VFD8" source="bitex/templates/templates.default.soy.js" desc="Instant deposit warning">Contul dumneavoastră are activat depozitare instant. În cazul în care veți încerca să faceți un atac "double spending" contul dumneavoastră va fi înghețat, chiar și dacă atacul nu a avut succes.</translation>
+    <translation id="7173052092357648083" key="MSG_T7EO36QIOZFX" source="bitex/templates/templates.default.soy.js" desc="confirm trusted address dialog msg"> Doriți să activați depozitare instant pentru această adresă?</translation>
+    <translation id="4185827139701096782" key="MSG_R419E7SVKP6W" source="bitex/templates/templates.default.soy.js" desc="confirm trusted label placeholder">Introduceți o etichetă pentru această adresă.</translation>
+    <translation id="4148171294738467398" key="MSG_FMUM1M0XC7R9" source="bitex/templates/templates.default.soy.js" desc="confirm trusted address dialog msg">Activați doar în cazul în care aveți cheia privată a acestei adrese.</translation>
+    <translation id="5204131073540901515" key="MSG_4QA2MA0OYFL" source="bitex/templates/templates.default.soy.js" desc="confirm trusted address dialog msg">Nu uitați ce s-a întâmplat cu MtGox.</translation>
+    <translation id="6820495314607410876" key="MSG_13CKPQPV63V9R" source="bitex/templates/templates.default.soy.js" desc="confirm trusted address dialog msg">Sub nici un fel de circumstanțe nu vă lăsați Bitcoini depozitați pe un Exchange, indiferent cât de siguri susțin că sunt. Bitcoini trebuie să fie ai oamenilor, nu în mâinile operatorilor Exchange-urilor. Nu vrem să creem o "oală de aur", care va atrace hackeri. Tehnologia "Depozitare instant" vă oferă posibilitatea de a trimite Bitcoini instant  pentru a îi folosii în exchange, astfel eliminând nevoia de a vă ține Bitcoini în Exchange pentru a îi negocia rapid.</translation>
+    <translation id="131005340400919341" key="MSG_1LEA23U21H9IF" source="bitex/templates/templates.default.soy.js" desc="Insufficient funds title">Nu aveți destule fonduri pentru această operațiune.</translation>
+    <translation id="8235587563184591393" key="MSG_QM3ID2D0EEJ3" source="bitex/templates/templates.default.soy.js" desc="Your account label on Insufficient Balance message">Contul dumneavoastră</translation>
+    <translation id="7002857163766404326" key="MSG_1KZDXYE7T9WW3" source="bitex/templates/templates.default.soy.js" desc="Your orders label on Insufficient Balance message">Comenzile dumneavoastră</translation>
+    <translation id="931507532455670598" key="MSG_1J59MK2EUE6L8" source="bitex/templates/templates.default.soy.js" desc="Your orders label on Insufficient Balance message">Total disponibil</translation>
+    <translation id="7052588298085485478" key="MSG_MJXPDX1V126N" source="bitex/templates/templates.default.soy.js" desc="Insufficient funds instructions">Va rugăm depozitați fonduri, sau anulați din comenzi.</translation>
+    <translation id="6207025395398401184" key="MSG_13DG075E8DH1Z" source="bitex/templates/templates.default.soy.js" desc="deposit done dialog msg"> IMPORTANT! </translation>
+    <translation id="6230961676697847120" key="MSG_15SUJB6LVKL3I" source="bitex/templates/templates.default.soy.js" desc="deposit done dialog msg">  Vom genera o adresă unică de <ph name="currencydescription" /> care va fi validă doar pentru această tranzacție.</translation>
+    <translation id="4201264960981533498" key="MSG_MCK4HY50H7IZ" source="bitex/templates/templates.default.soy.js" desc="deposit done dialog msg"> Ați înțeles? </translation>
+    <translation id="2008896170758128959" key="MSG_WICIL6TF2590" source="bitex/ui/withdraw_method_editor.default.soy.js" desc="Percent fee placeholder">Taxă procentuală</translation>
+    <translation id="2925869653895846815" key="MSG_KI0JICLKMNY6" source="bitex/ui/withdraw_method_editor.default.soy.js" desc="Fixed fee placeholder">Taxă fixă</translation>
+    <translation id="7596956893714928425" key="MSG_1AYETW7WU9M0P" source="bitex/templates/templates.default.soy.js" desc="requested amount">Suma solicitată</translation>
+    <translation id="888870645498996327" key="MSG_RJN2WZ4R2TYC" source="bitex/templates/templates.default.soy.js" desc="method">Metoda</translation>
+    <translation id="8172437403730359208" key="MSG_1I8PRKMAB5MU9" source="bitex/templates/templates.default.soy.js" desc="Error message when the user is not yet verified.">Datorită legilor internaționale împotriva spălării de bani și reglementărilor guvernamentale, depunerile/retragerile în monedă locală sunt disponibile doar clienților verificați.<ph name="break" />We are very sorry for the inconvenience.</translation>
+    <translation id="7127752746329835498" key="MSG_18D3EL8LYTMHB" source="bitex/templates/templates.default.soy.js" desc="get verified message"> Verificați contul dvs. </translation>
+    <translation id="8465429449791609704" key="MSG_I7JOKPCGO59U" source="bitex/templates/templates.default.soy.js" desc="Error message when the brokers doesn't have deposit methods">Momentan nu acceptăm depuneri. Ne pare rău pentru neplăcerile create.</translation>
+    <translation id="6118533138055569855" key="MSG_Y43OCC7FZUTV" source="bitex/ui/advanced_order_entry.default.soy.js" desc="Advanced Order Entry Label">Cantitate</translation>
+    <translation id="7336073513678943442" key="MSG_1HQ3WP3NSKCLI" source="bitex/templates/templates.default.soy.js" desc="amount help block"> Maxim: <ph name="xxx" /> pe zi.  </translation>
+    <translation id="8944813994368354425" key="MSG_1WWTEAG4KYGSI" source="bitex/templates/templates.default.soy.js" desc="amount help block"> Minim: <ph name="xxx" /> pe tranzacție.  </translation>
+    <translation id="3602266472152944635" key="MSG_RLSEUA8I31MK" source="bitex/templates/templates.default.soy.js" desc="label for user buy fee">Taxă cumpărare</translation>
+    <translation id="6014134977359959079" key="MSG_1SZ2PFGRW4MNO" source="bitex/templates/templates.default.soy.js" desc="label for user sell fee">Taxă vânzare</translation>
+    <translation id="8683294211415547854" key="MSG_12QX00RJK17BN" source="bitex/templates/templates.default.soy.js" desc="Using broker fee data">-</translation>
+    <translation id="4715805506459418423" key="MSG_O5LUL0ZBUAZR" source="bitex/templates/templates.default.soy.js" desc="label for available balance in a currency">Disponibil <ph name="code" /></translation>
+    <translation id="8429283408494080139" key="MSG_5ZFTRDZAMEY3" source="bitex/ui/withdraw_method_editor.default.soy.js" desc="Limit table field header">În așteptare</translation>
+    <translation id="7031324886650667000" key="MSG_1XNUGFDOROB37" source="bitex/ui/withdraw_method_editor.default.soy.js" desc="Limit table field header">Progres</translation>
+    <translation id="6522067868047172431" key="MSG_1UUKFCADGRX4W" source="bitex/templates/templates.default.soy.js" desc="label on  overview header">Da - Nivel I </translation>
+    <translation id="7363318837567058334" key="MSG_TQYWGO7Y059H" source="bitex/templates/templates.default.soy.js" desc="label on  overview header">Da - Nivel II </translation>
+    <translation id="2805856902424765384" key="MSG_1DFQ3UCFTTPWW" source="bitex/templates/templates.default.soy.js" desc="label on  overview header">Da - Nivel III </translation>
+    <translation id="4192040316842719258" key="MSG_HWI1VSKATHG2" source="bitex/ui/withdraw_method_editor.default.soy.js" desc="Limit table field header">Activat</translation>
+    <translation id="3470864463229922146" key="MSG_1T3O47K0HQNC3" source="bitex/templates/templates.default.soy.js" desc="label on  overview header">Dezactivați</translation>
+    <translation id="2101591245450374515" key="MSG_1MZO68DOT4T32" source="bitex/templates/templates.default.soy.js" desc="label on  overview header">Dezactivat</translation>
+    <translation id="8522139956960745264" key="MSG_AGWNR5YK9XF7" source="bitex/templates/templates.default.soy.js" desc="label on overview header">ID</translation>
+    <translation id="949352526049501059" key="MSG_PMQSSS7RI4XV" source="bitex/templates/templates.default.soy.js" desc="label on  overview header">Utilizator</translation>
+    <translation id="399592666245557274" key="MSG_3KNCLOUVBZCV" source="bitex/templates/templates.default.soy.js" desc="label on  overview header">Email</translation>
+    <translation id="6370859361488001706" key="MSG_1204HGYLUZCLP" source="bitex/templates/templates.default.soy.js" desc="label on  overview header">Stat</translation>
+    <translation id="596098600072292359" key="MSG_1OBYIKS27AZS7" source="bitex/templates/templates.default.soy.js" desc="label on  overview header">Tară</translation>
+    <translation id="5548651012300896145" key="MSG_3SQE9YFDPF94" source="bitex/templates/templates.default.soy.js" desc="label on  overview header">Ultima autentificare</translation>
+    <translation id="1896707324061878880" key="MSG_1KN31F8F5HA3B" source="bitex/templates/templates.default.soy.js" desc="label on  overview header">Este verificat</translation>
+    <translation id="7314299300012997412" key="MSG_5YORQEJAT9GA" source="bitex/templates/templates.default.soy.js" desc="label on  overview header">Are autentificare in doi pași</translation>
+    <translation id="6911763198454622708" key="MSG_1PVS6AC7SII1H" source="bitex/templates/templates.default.soy.js" desc="label on  overview header">Data inregistrarii</translation>
+    <translation id="2335485333660575338" key="MSG_TE382EYJBWRM" source="bitex/templates/templates.default.soy.js" desc="label on  overview header">Are nevoie de confirmare prin email la retragere</translation>
+    <translation id="8897560637540631739" key="MSG_GOCI6WFZS2L0" source="bitex/templates/templates.default.soy.js" desc="label on  overview header">Da - Nivel II</translation>
+    <translation id="5106095901395676033" key="MSG_1T91NVEYNQ569" source="bitex/templates/templates.default.soy.js" desc="label on  overview header">Da - Nivel III</translation>
+    <translation id="691806946732598813" key="MSG_AJOQ10VV9ZPB" source="bitex/templates/templates.default.soy.js" desc="label on  overview header">Da - Nivel IV</translation>
+    <translation id="2056712286003525210" key="MSG_13PFQFEEGL4N6" source="bitex/templates/templates.default.soy.js" desc="label on  overview header">Data verificarii</translation>
+    <translation id="6286321312448659910" key="MSG_17W4NEQEJ2QKE" source="bitex/ui/advanced_order_entry.default.soy.js" desc="Amount label in Advanced Order Entry">Sumă:</translation>
+    <translation id="8090048925201511431" key="MSG_1IQB8UW7ZCWUB" source="bitex/ui/advanced_order_entry.default.soy.js" desc="'Price per label' in Order Entry">Preț per </translation>
+    <translation id="5529309137315212879" key="MSG_1V8N1LUW94VG7" source="bitex/ui/advanced_order_entry.default.soy.js" desc="Total label in Order Entry">Total:</translation>
+    <translation id="2091645730166778520" key="MSG_1AWVKJHC0CZUU" source="bitex/templates/templates.default.soy.js" desc="'Fee (optional):' label in Order Entry">Taxă (opțional):</translation>
+    <translation id="1011824685427913445" key="MSG_ADRG7VPM68ZJ" source="bitex/ui/advanced_order_entry.default.soy.js" desc="Advanced Order Entry Label">ID-ul clientului</translation>
+    <translation id="871552816493203847" key="MSG_INVALID_USERNAME" source="bitex/view/singup.js" desc="Validation erro on SignUp view">Utilizator invalid</translation>
+    <translation id="472117013575644560" key="MSG_INVALID_EMAIL" source="bitex/view/singup.js" desc="Validation erro on SignUp view">Email invalid</translation>
+    <translation id="4598631873929240186" key="MSG_INVALID_PASSWORD" source="bitex/view/singup.js" desc="Validation error on SignUp view">Parola trebuie să aibe cel puțin 8 caractere</translation>
+    <translation id="8590240215221332548" key="MSG_PASSWORDS_DOES_NOT_MATCH" source="bitex/view/singup.js" desc="Validation error on SignUp view">Parolele nu se potrivesc</translation>
+    <translation id="4993442123459090007" key="MSG_10ENIDA5IECG4" source="bitex/ui/algorithm_selector.default.soy.js" desc="Algorithm input label">Algoritm</translation>
+    <translation id="1375786980648920502" key="MSG_UKJWK2XZ9PJN" source="bitex/ui/algorithm_selector.default.soy.js" desc="Clear button on algo selector">Șterge</translation>
+    <translation id="7755986863276201146" key="MSG_6PNKCZCY8K7C" source="bitex/ui/algorithm_selector.default.soy.js" desc="Browse button on algo selector">Browse</translation>
+    <translation id="647542999776904417" key="MSG_ORDER_MANAGER_ACTIVITY_TABLE_COLUMN_ID" source="bitex/ui/order_manager.js" desc="Column ID of the Order Manager">ID</translation>
+    <translation id="3191998597574335479" key="MSG_ORDER_MANAGER_ACTIVITY_TABLE_COLUMN_DESCRIPTION" source="bitex/ui/order_manager.js" desc="Column Status of the Order Manager">Descriere</translation>
+    <translation id="7933272984025572889" key="MSG_ORDER_MANAGER_ACTIVITY_TABLE_COLUMN_STATUS" source="bitex/ui/order_manager.js" desc="Column Status of the Order Manager">Status</translation>
+    <translation id="1684140907306043482" key="MSG_ORDER_MANAGER_ACTIVITY_TABLE_COLUMN_SIDE" source="bitex/ui/order_manager.js" desc="Column Side of the Order Manager">Side</translation>
+    <translation id="3047142040844767261" key="MSG_ORDER_MANAGER_ACTIVITY_TABLE_COLUMN_QTY" source="bitex/ui/order_manager.js" desc="Column Qty of the Order Manager">Qty</translation>
+    <translation id="5243658742939585719" key="MSG_ORDER_MANAGER_ACTIVITY_TABLE_COLUMN_PRICE" source="bitex/ui/order_manager.js" desc="Column Price of the Order Manager">Preț</translation>
+    <translation id="855787899268641726" key="MSG_ORDER_MANAGER_ACTIVITY_TABLE_COLUMN_LEAVES_QTY" source="bitex/ui/order_manager.js" desc="Column  Leaves Qty of the Order Manager">Leaves Qty</translation>
+    <translation id="3065658996020402684" key="MSG_ORDER_MANAGER_ACTIVITY_TABLE_COLUMN_CUM_QTY" source="bitex/ui/order_manager.js" desc="Column  Cum Qty of the Order Manager">Cum Qty</translation>
+    <translation id="3855320384584179456" key="MSG_ORDER_MANAGER_ACTIVITY_TABLE_COLUMN_AVG_PX" source="bitex/ui/order_manager.js" desc="Column Average Price of the Order Manager">Preț mediu</translation>
+    <translation id="8913382455121937812" key="MSG_ORDER_MANAGER_ACTIVITY_TABLE_COLUMN_VOLUME" source="bitex/ui/order_manager.js" desc="Column Volume Price of the Order Manager">Total</translation>
+    <translation id="3817231532322370617" key="MSG_ORDER_MANAGER_ACTIVITY_TABLE_COLUMN_ORDER_DATE" source="bitex/ui/order_manager.js" desc="Column Order Date of the Order Manager">Dată/Timp</translation>
+    <translation id="3836894406109783409" key="MSG_ORDER_MANAGER_ACTIVITY_TABLE_COLUMN_ACTIONS" source="bitex/ui/order_manager.js" desc="Column Actions of the Order Manager">Acțiuni</translation>
+    <translation id="7722135284111067856" key="MSG_ORDER_MANAGER_ACTIVITY_TABLE_COLUMN_SIDE_BUY" source="bitex/ui/order_manager.js" desc="Column Buy Side of the Order Manager">Cumpară</translation>
+    <translation id="7520832174525310563" key="MSG_ORDER_MANAGER_ACTIVITY_TABLE_COLUMN_SIDE_SELL" source="bitex/ui/order_manager.js" desc="Column Sell Side of the Order Manager">Vinde</translation>
+    <translation id="4412485952244158331" key="MSG_ORDER_MANAGER_ACTION_CANCEL_ORDER" source="bitex/ui/order_manager.js" desc="cancel order button on order manager component">anuleaza</translation>
+    <translation id="7162031888993773085" key="MSG_ORDER_MANAGER_TABLE_TITLE" source="bitex/ui/order_manager.js" desc="Order manager table tittle">Comenzile mele</translation>
+    <translation id="1870802805868998314" key="MSG_ORDER_MANAGER_TABLE_TITLE_OPEN_ORDERS" source="bitex/ui/order_manager.js" desc="Order manager table tittle">Comenzile mele deschise</translation>
+    <translation id="3731929233148861355" key="MSG_ORDER_MANAGER_STATUS_PENDING" source="bitex/ui/order_manager.js" desc="Order Manager Status description">În așteptare</translation>
+    <translation id="5821684883547160315" key="MSG_ORDER_MANAGER_STATUS_NEW" source="bitex/ui/order_manager.js" desc="Order Manager Status description">Nou</translation>
+    <translation id="2652882495415677671" key="MSG_ORDER_MANAGER_STATUS_PARTIALL_FILL" source="bitex/ui/order_manager.js" desc="Order Manager Status description">Completat parțial</translation>
+    <translation id="1313348603826262470" key="MSG_ORDER_MANAGER_STATUS_FILL" source="bitex/ui/order_manager.js" desc="Order Manager Status description">Completat</translation>
+    <translation id="4217192634630151739" key="MSG_ORDER_MANAGER_STATUS_CXL" source="bitex/ui/order_manager.js" desc="Order Manager Status description">Anulat</translation>
+    <translation id="732771021568806542" key="MSG_C963NHO3CX5Z" source="bitex/ui/algorithm_runner.default.soy.js" desc="Market">Piață</translation>
+    <translation id="7796796266041215720" key="MSG_ALGO_RUNNER_BUTTON_LABEL_START" source="bitex/ui/algorithm_runner.js" desc="button label on algorithm runner">Start</translation>
+    <translation id="7504301554724231746" key="MSG_ALGO_RUNNER_BUTTON_LABEL_STARTING" source="bitex/ui/algorithm_runner.js" desc="button label on algorithm runner">Începe...</translation>
+    <translation id="7854072836235506525" key="MSG_ALGO_RUNNER_BUTTON_LABEL_UPDATE" source="bitex/ui/algorithm_runner.js" desc="button label on algorithm runner">Update</translation>
+    <translation id="7703512510139353899" key="MSG_ALGO_RUNNER_BUTTON_LABEL_STOP" source="bitex/ui/algorithm_runner.js" desc="button label on algorithm runner">Stop</translation>
+    <translation id="7177053093764741524" key="MSG_ALGO_RUNNER_BUTTON_LABEL_STOPPING" source="bitex/ui/algorithm_runner.js" desc="button label on algorithm runner">Oprire...</translation>
+    <translation id="7705296218752521647" key="MSG_ALGORITHM_TRADING_ORDER_MANAGER_DESC_BUY" source="bitex/view/algorithm_trading.js" desc="Order Status message on Simple Order Manager">CUMPĂRĂ</translation>
+    <translation id="2490936650116283493" key="MSG_ALGORITHM_TRADING_ORDER_MANAGER_DESC_SELL" source="bitex/view/algorithm_trading.js" desc="Order Status message on Simple Order Manager">VINDE</translation>
+    <translation id="5569075025651153272" key="MSG_ALGORITHM_TRADING_ORDER_MANAGER_SIMPLE_STATUS_PENDING" source="bitex/view/algorithm_trading.js" desc="Order Status message on Simple Order Manager">ÎN AȘTEPTARE</translation>
+    <translation id="2285446735611509965" key="MSG_ALGORITHM_TRADING_ORDER_MANAGER_SIMPLE_STATUS_NEW" source="bitex/view/algorithm_trading.js" desc="Order Status message on Simple Order Manager">NOU</translation>
+    <translation id="7593496629365575482" key="MSG_ALGORITHM_TRADING_ORDER_MANAGER_SIMPLE_STATUS_PARTIAL_FILL" source="bitex/view/algorithm_trading.js" desc="Order Status message on Simple Order Manager">PARȚIALĂ</translation>
+    <translation id="2163779163538038389" key="MSG_ALGORITHM_TRADING_ORDER_MANAGER_SIMPLE_STATUS_FILLED" source="bitex/view/algorithm_trading.js" desc="Order Status message on Simple Order Manager">COMPLETAT</translation>
+    <translation id="8842463293807196106" key="MSG_ALGORITHM_TRADING_ORDER_MANAGER_SIMPLE_STATUS_CANCELLED" source="bitex/view/algorithm_trading.js" desc="Order Status message on Simple Order Manager">ANULAT</translation>
+    <translation id="8837024945632551430" key="MSG_ALGORITHM_TRADING_ORDER_MANAGER_SIMPLE_STATUS_COMPLETED" source="bitex/view/algorithm_trading.js" desc="Order Status message on Simple Order Manager">COMPLETAT</translation>
+    <translation id="8974321882013943927" key="MSG_LOGIN_VIEW_INVALID_USERNAME" source="bitex/view/login.js" desc="Invalid Username Alert error message when pushing the login button">Utilizator invalid</translation>
+    <translation id="4442214539046362453" key="MSG_LOGIN_VIEW_INVALID_PASSWORD" source="bitex/view/login.js" desc="Invalid Password Alert error message when pushing the login button">Parola trebuie să aibe cel puțin 8 caractere</translation>
+    <translation id="2975492299768966128" key="MSG_WITHDRAW_TABLE_COLUMN_ID" source="bitex/ui/withdraw_list.js" desc="Column ID of the Withdraw List">ID</translation>
+    <translation id="8133926164510742092" key="MSG_WITHDRAW_TABLE_COLUMN_STATUS" source="bitex/ui/withdraw_list.js" desc="Column Status of the Withdraw List">Status</translation>
+    <translation id="8738252009128823323" key="MSG_WITHDRAW_TABLE_COLUMN_STATUS_PENDING" source="bitex/ui/withdraw_list.js" desc="Column Status of the Withdraw List">În așteptare</translation>
+    <translation id="5572151543316903432" key="MSG_WITHDRAW_TABLE_COLUMN_STATUS_UNCONFIRMED" source="bitex/ui/withdraw_list.js" desc="Column Status of the Withdraw List">Neconfirmat</translation>
+    <translation id="7327232902322873896" key="MSG_WITHDRAW_TABLE_COLUMN_STATUS_PROGRESS" source="bitex/ui/withdraw_list.js" desc="Column Status of the Withdraw List">În curs...</translation>
+    <translation id="6767174149181103896" key="MSG_WITHDRAW_TABLE_COLUMN_STATUS_COMPLETED" source="bitex/ui/withdraw_list.js" desc="Column Status of the Withdraw List">Terminat</translation>
+    <translation id="5973204362360715712" key="MSG_WITHDRAW_TABLE_COLUMN_STATUS_CANCELLED" source="bitex/ui/withdraw_list.js" desc="Column Status of the Withdraw List">Anulat</translation>
+    <translation id="5700974258384853415" key="MSG_WITHDRAW_TABLE_COLUMN_CURRENCY" source="bitex/ui/withdraw_list.js" desc="Column Currency of the Withdraw List">Valută</translation>
+    <translation id="3108139573573527889" key="MSG_WITHDRAW_TABLE_COLUMN_AMOUNT" source="bitex/ui/withdraw_list.js" desc="Column Amount of the Withdraw List">Sumă</translation>
+    <translation id="9126229433335614789" key="MSG_WITHDRAW_TABLE_COLUMN_METHOD" source="bitex/ui/withdraw_list.js" desc="Column Method of the Withdraw List">Metodă</translation>
+    <translation id="5192325197457012380" key="MSG_WITHDRAW_TABLE_COLUMN_CREATED" source="bitex/ui/withdraw_list.js" desc="Column Created of the Withdraw List">Dată/Oră</translation>
+    <translation id="968283588059528015" key="MSG_WITHDRAW_TABLE_COLUMN_ACTIONS" source="bitex/ui/withdraw_list.js" desc="Column Actions of the Withdraw List">Acțiuni</translation>
+    <translation id="4684419195133733171" key="MSG_WITHDRAW_TABLE_COLUMN_DETAIL" source="bitex/ui/withdraw_list.js" desc="Column Detail of the Withdraw List">Detalii</translation>
+    <translation id="8686462251869397620" key="MSG_WITHDRAW_TABLE_COLUMN_USERNAME" source="bitex/ui/withdraw_list.js" desc="Column Username of the Withdraw List">Utilizator</translation>
+    <translation id="6807414328675548971" key="MSG_WITHDRAW_REASON_INSUFFICIENT_FUNDS" source="bitex/ui/withdraw_list.js" desc="reason for cancelling withdraw">Fonduri insuficiente</translation>
+    <translation id="929129040162502196" key="MSG_WITHDRAW_REASON_ACCOUNT_NOT_VERIFIED" source="bitex/ui/withdraw_list.js" desc="reason for cancelling withdraw">Contul nu este verificat</translation>
+    <translation id="3010042358436556883" key="MSG_WITHDRAW_REASON_SUSPICION_OF_FRAUD" source="bitex/ui/withdraw_list.js" desc="reason for cancelling withdraw">Suspiciune de fraudă</translation>
+    <translation id="5925588517580647643" key="MSG_WITHDRAW_REASON_DIFFERENT_ACCOUNT" source="bitex/ui/withdraw_list.js" desc="reason for cancelling withdraw">Retragerea se efectuează către un alt cont, nu cel al dumneavoastră</translation>
+    <translation id="6053058883953022070" key="MSG_WITHDRAW_REASON_INVALID_WALLET" source="bitex/ui/withdraw_list.js" desc="reason for cancelling withdraw">Portofel invalid</translation>
+    <translation id="3313161934739086289" key="MSG_WITHDRAW_REASON_INVALID_BANK_ACCOUNT" source="bitex/ui/withdraw_list.js" desc="reason for cancelling withdraw">Cont bancar invalid</translation>
+    <translation id="2694345077605914393" key="MSG_WITHDRAW_REASON_OVER_LIMIT" source="bitex/ui/withdraw_list.js" desc="reason for cancelling withdraw">Suma depășește limita dumneavoastră zilnică de retragere</translation>
+    <translation id="5319402296472139285" key="MSG_WITHDRAW_REASON_UNCONFIRMED_DEPOSITS" source="bitex/ui/withdraw_list.js" desc="reason for cancelling withdraw">Utilizatorul are depunerii care nu au fost încă confirmate</translation>
+    <translation id="44556838978162870" key="MSG_WITHDRAW_BROKER_RECEIPT_COLUMN" source="bitex/ui/withdraw_list.js" desc="reason for cancelling withdraw">Broker receipt</translation>
+    <translation id="2109463597478790237" key="MSG_WITHDRAW_BROKER_RECEIPT_BUTTON_LABEL" source="bitex/ui/withdraw_list.js" desc="reason for cancelling withdraw">vizualizare</translation>
+    <translation id="2060497430613510544" key="MSG_WITHDRAW_TABLE_DETAILS_COLUMN_TRANSACTION_ID" source="bitex/ui/withdraw_list.js" desc="Withdraw qr button label in the  broker's withdraw list">ID-ul tranzacției</translation>
+    <translation id="6566808226824153897" key="MSG_WITHDRAW_TABLE_WALLET_KEY" source="bitex/ui/withdraw_list.js" desc="Withdraw qr button label in the  broker's withdraw list">Portofel</translation>
+    <translation id="2744083615131574296" key="MSG_WITHDRAW_TABLE_DETAILS_COLUMN_BTN_QR" source="bitex/ui/withdraw_list.js" desc="Withdraw qr button label in the  broker's withdraw list">qr</translation>
+    <translation id="1146045944393811148" key="MSG_WITHDRAW_TABLE_DETAILS_COLUMN_ACCT_NUMBER" source="bitex/ui/withdraw_list.js" desc="Withdraw column label in the  broker's withdraw list detail table">Numarul contului</translation>
+    <translation id="4713095484265476739" key="MSG_WITHDRAW_TABLE_DETAILS_COLUMN_ACCT_HOLDER" source="bitex/ui/withdraw_list.js" desc="Withdraw column label in the  broker's withdraw list detail table">Deținătorul contului</translation>
+    <translation id="3699817409321125141" key="MSG_WITHDRAW_TABLE_DETAILS_COLUMN_BANK_NAME" source="bitex/ui/withdraw_list.js" desc="Withdraw column label in the  broker's withdraw list detail table">Numele Bancii</translation>
+    <translation id="582652967234376249" key="MSG_WITHDRAW_TABLE_DETAILS_COLUMN_BANK_NUMBER" source="bitex/ui/withdraw_list.js" desc="Withdraw column label in the  broker's withdraw list detail table">Numarul Bancii</translation>
+    <translation id="2403944730202502817" key="MSG_WITHDRAW_TABLE_DETAILS_COLUMN_CPF_CNPJ" source="bitex/ui/withdraw_list.js" desc="Withdraw column label in the  broker's withdraw list detail table">CPF sau CNPJ</translation>
+    <translation id="3569242221589361104" key="MSG_WITHDRAW_TABLE_DETAILS_COLUMN_ACCT_BRANCH" source="bitex/ui/withdraw_list.js" desc="Withdraw column label in the  broker's withdraw list detail table">Sucursală cont</translation>
+    <translation id="2877290349390693815" key="MSG_WITHDRAW_TABLE_DETAILS_COLUMN_ROUTING_NUMBER" source="bitex/ui/withdraw_list.js" desc="Withdraw column label in the  broker's withdraw list detail table">Numărul de rutare</translation>
+    <translation id="4993790526563222931" key="MSG_WITHDRAW_TABLE_DETAILS_COLUMN_BANK_SWIFT" source="bitex/ui/withdraw_list.js" desc="Withdraw column label in the  broker's withdraw list detail table">Swift-ul bancii</translation>
+    <translation id="4563638762379287621" key="MSG_WITHDRAW_TABLE_DETAILS_COLUMN_EMAIL" source="bitex/ui/withdraw_list.js" desc="Withdraw column label in the  broker's withdraw list detail table">Email</translation>
+    <translation id="1072672957102508248" key="MSG_WITHDRAW_TABLE_DETAILS_COLUMN_FEES" source="bitex/ui/withdraw_list.js" desc="Withdraw column label in the  broker's withdraw list detail table">Taxe</translation>
+    <translation id="6229978662785299543" key="MSG_WITHDRAW_TABLE_DETAILS_COLUMN_BTN_BLOCKCHAIN" source="bitex/ui/withdraw_list.js" desc="Withdraw qr button label in the  broker's withdraw list">blockchain</translation>
+    <translation id="6678887731950416965" key="MSG_WITHDRAW_TABLE_COLUMN_ACTION_CANCEL" source="bitex/ui/withdraw_list.js" desc="Withdraw cancel button label in the  broker's withdraw list">Anulează</translation>
+    <translation id="5299373936372872959" key="MSG_WITHDRAW_TABLE_COLUMN_ACTION_PROGRESS" source="bitex/ui/withdraw_list.js" desc="Withdraw progress button label in the  broker's withdraw list">Setați în curs</translation>
+    <translation id="5951081948198827457" key="MSG_WITHDRAW_TABLE_COLUMN_ACTION_COMPLETE" source="bitex/ui/withdraw_list.js" desc="Withdraw progress button label in the  broker's withdraw list">Setați ca complet</translation>
+    <translation id="1501102989867637435" key="MSG_WITHDRAW_LIST_TABLE_TITLE" source="bitex/ui/withdraw_list.js" desc="deposit table title">Retrageri</translation>
+    <translation id="4173641508368473927" key="MSG_WITHDRAW_LIST_SEARCH_PLACEHOLDER" source="bitex/ui/withdraw_list.js" desc="placeholder for the search input text">Cauta ...</translation>
+    <translation id="5507515176589784622" key="MSG_WITHDRAW_LIST_BUTTON_FILTER_ALL" source="bitex/ui/withdraw_list.js" desc="All records button filter on withdrawal list">Toate</translation>
+    <translation id="1552945495735851510" key="MSG_DIALOG_OK_" source="closure-library/closure/goog/ui/dialog.js" desc="Standard caption for the dialog 'OK' button.">OK</translation>
+    <translation id="5989508864997829374" key="MSG_DIALOG_CANCEL_" source="closure-library/closure/goog/ui/dialog.js" desc="Standard caption for the dialog 'Cancel' button.">Anulează</translation>
+    <translation id="4693042058030758166" key="MSG_DIALOG_YES_" source="closure-library/closure/goog/ui/dialog.js" desc="Standard caption for the dialog 'Yes' button.">Da</translation>
+    <translation id="3127360860193158075" key="MSG_DIALOG_NO_" source="closure-library/closure/goog/ui/dialog.js" desc="Standard caption for the dialog 'No' button.">Nu</translation>
+    <translation id="3952584928426997635" key="MSG_DIALOG_SAVE_" source="closure-library/closure/goog/ui/dialog.js" desc="Standard caption for the dialog 'Save' button.">Salvează</translation>
+    <translation id="3248647889859134916" key="MSG_DIALOG_CONTINUE_" source="closure-library/closure/goog/ui/dialog.js" desc="Standard caption for the dialog 'Continue' button.">Continuă</translation>
+    <translation id="6219268191805334503" key="MSG_DIALOG_PRINT_" source="closure-bootstrap/javascript/bootstrap/Dialog.js" desc="Standard caption for the dialog 'Print' button.">Imprimă</translation>
+    <translation id="5147240118570948396" key="MSG_DIALOG_DOWNLOAD_" source="closure-bootstrap/javascript/bootstrap/Dialog.js" desc="Standard caption for the dialog 'Download' button.">Descarcă</translation>
+    <translation id="4943261173627375487" key="MSG_158L0G110FYSY" source="bitex/ui/advanced_order_entry.default.soy.js" desc="Advanced Order Entry Label">Preț</translation>
+    <translation id="8907473018378627785" key="MSG_F8AZEOYNA6HU" source="bitex/ui/withdraw_methods.default.soy.js" desc="Methods column header">Valută</translation>
+    <translation id="1208420604808647569" key="MSG_VFE45R6QB9L1" source="bitex/ui/withdraw_method_editor.default.soy.js" desc="Method field header">Nume</translation>
+    <translation id="2713475938532410126" key="MSG_1OJ0R34RYC70H" source="bitex/ui/withdraw_method_editor.default.soy.js" desc="Method disclaimer label">Disclaimer</translation>
+    <translation id="5882308637178570512" key="MSG_R8WOS2HYIYYH" source="bitex/ui/withdraw_method_editor.default.soy.js" desc="Method field header">Acțiuni</translation>
+    <translation id="7525547849338831451" key="MSG_62FS6ZVKS4W5" source="bitex/ui/withdraw_methods.default.soy.js" desc="Method edit action">editează</translation>
+    <translation id="6103588105306733726" key="MSG_SFPPE7ETAZOJ" source="bitex/ui/withdraw_method_editor.default.soy.js" desc="Field delete action">șterge</translation>
+    <translation id="3442789566007593788" key="MSG_YPZDSKDEKL3G" source="bitex/ui/withdraw_methods.default.soy.js" desc="Save withdraw_structure button">Salvează</translation>
+    <translation id="6791785466902623219" key="MSG_1UB3ITWI32AZC" source="bitex/ui/withdraw_methods.default.soy.js" desc="Cancel withdraw_structure button">Anulează</translation>
+    <translation id="737436912993099490" key="MSG_1N14G65TREHQ4" source="bitex/ui/withdraw_methods.default.soy.js" desc="Add withdraw method">Adaugă metodă de retragere</translation>
+    <translation id="5185994614932733962" key="MSG_199GICMZG8GE5" source="bitex/ui/withdraw_methods.default.soy.js" desc="Saving status message on the save withdraw structure">Se salvează...</translation>
+    <translation id="5189544120001329713" key="MSG_EDIT_WITHDRAW_METHOD_DIALOG_TITLE" source="bitex/ui/withdraw_methods.js" desc="Edit Method dialog title">Editați metoda de retragere</translation>
+    <translation id="2631634835626713969" key="MSG_ADD_WITHDRAW_METHOD_DIALOG_TITLE" source="bitex/ui/withdraw_methods.js" desc="Edit Method dialog title">Adaugă metodă de retragere</translation>
+    <translation id="2985754989089526125" key="MSG_1YYITW6MGBXB" source="bitex/ui/withdraw_method_editor.default.soy.js" desc="Client option on side select">Client</translation>
+    <translation id="4763417483028420290" key="MSG_16Q51SXD87JUN" source="bitex/ui/withdraw_method_editor.default.soy.js" desc="Broker option on side select">Broker</translation>
+    <translation id="6287348469981484531" key="MSG_1IJOBDJISTEKO" source="bitex/ui/withdraw_method_editor.default.soy.js" desc="Method field header">Etichetă</translation>
+    <translation id="3645638245691642076" key="MSG_9LZF99DLRPND" source="bitex/ui/withdraw_method_editor.default.soy.js" desc="Text option on type select">Text</translation>
+    <translation id="7730793010105004135" key="MSG_974XJS2GCRLE" source="bitex/ui/withdraw_method_editor.default.soy.js" desc="Method name label">Numele metodei</translation>
+    <translation id="4715539171002659473" key="MSG_8R4R53I77XFT" source="bitex/ui/withdraw_method_editor.default.soy.js" desc="Method description label">Descriere</translation>
+    <translation id="5489733450514207435" key="MSG_3G8RPOVNYFW6" source="bitex/ui/withdraw_method_editor.default.soy.js" desc="Method fields header">Câmpuri personalizate</translation>
+    <translation id="4687605769534591647" key="MSG_4830ZLFM78KJ" source="bitex/ui/withdraw_method_editor.default.soy.js" desc="Method field header">Side</translation>
+    <translation id="433116100464060968" key="MSG_76PFY4LLR9BY" source="bitex/ui/withdraw_method_editor.default.soy.js" desc="Method field header">Substituent</translation>
+    <translation id="4993619833127260568" key="MSG_D53BOU1GDL19" source="bitex/ui/withdraw_method_editor.default.soy.js" desc="Method field header">Validator</translation>
+    <translation id="843383427370091604" key="MSG_1H2DKXTL25MBP" source="bitex/ui/withdraw_method_editor.default.soy.js" desc="Method field header">Valoare</translation>
+    <translation id="8921499381548723009" key="MSG_1W9NWN0TAA2UZ" source="bitex/ui/withdraw_method_editor.default.soy.js" desc="Add field button label">Adaugă câmp</translation>
+    <translation id="7121096743062175374" key="MSG_ZIQH36GFKDJR" source="bitex/ui/withdraw_method_editor.default.soy.js" desc="Method fields header">Limite</translation>
+    <translation id="289885140384366683" key="MSG_1JVUHMS9YAHYY" source="bitex/ui/withdraw_method_editor.default.soy.js" desc="Limit table field header">Nivel de verificare</translation>
+    <translation id="8293246109342663772" key="MSG_DY2NW3DM8M5H" source="bitex/ui/withdraw_method_editor.default.soy.js" desc="Limit table field header">Min</translation>
+    <translation id="5302180073822010792" key="MSG_1SB5J60OXCCVI" source="bitex/ui/withdraw_method_editor.default.soy.js" desc="Limit table field header">Max</translation>
+    <translation id="5258009494113750123" key="MSG_XCU5BBYWLC4I" source="bitex/ui/withdraw_method_editor.default.soy.js" desc="Limit table field header">Neverificat</translation>
+    <translation id="6761813771978274124" key="MSG_1FP8OFEBB9BUD" source="bitex/ui/withdraw_method_editor.default.soy.js" desc="Limit table field header">Verificat - Level I</translation>
+    <translation id="4607160597491549182" key="MSG_BV5ZGN6FFHHV" source="bitex/ui/withdraw_method_editor.default.soy.js" desc="Limit table field header">Verificat - Level II</translation>
+    <translation id="3563544998484718707" key="MSG_3K5U3EA50SYF" source="bitex/ui/withdraw_method_editor.default.soy.js" desc="Limit table field header">Verificat - Level III</translation>
+    <translation id="3733165137926803511" key="MSG_K47BZYT136M2" source="bitex/ui/change_password.default.soy.js" desc="Change password view title on change password component">Schimbă parola</translation>
+    <translation id="5792566064065292440" key="MSG_16N4HQ2E12G7" source="bitex/ui/change_password.default.soy.js" desc="Old Password label on change password component">Parola actuală</translation>
+    <translation id="841985793511490022" key="MSG_1TTMDD8089NOB" source="bitex/ui/change_password.default.soy.js" desc="Password label on change password component">Parola nouă</translation>
+    <translation id="987431473774004171" key="MSG_1G5FVWPYSQN1I" source="bitex/ui/change_password.default.soy.js" desc="Confirm new password label on change password component">Confirmă parola nouă</translation>
+    <translation id="6184130779631261438" key="MSG_S198ZC9QV7JJ" source="bitex/ui/change_password.default.soy.js" desc="change password button on change password component">Schimbă Parola</translation>
+    <translation id="1036998296011345725" key="MSG_MONTH_AND_YEAR" source="closure-library/closure/goog/date/date.js" desc="Month/year format given the month name and the numeric year."><ph name="monthname" /> <ph name="ynum" /></translation>
+    <translation id="2307498693105169755" key="MSG_TIME_AM" source="closure-library/closure/goog/date/date.js" desc="Suffix for morning times.">am</translation>
+    <translation id="2880376617002328348" key="MSG_TIME_PM" source="closure-library/closure/goog/date/date.js" desc="Suffix for afternoon times.">pm</translation>
+    <translation id="4844733369982759671" key="MSG_CHANGE_PASSWORD_EMPTY_PASSWORD" source="bitex/view/profile.js" desc="Validation error on SignUp view">Parola nu poate fi camp gol</translation>
+    <translation id="2245958459637225903" key="MSG_CHANGE_PASSWORD_INVALID_PASSWORD" source="bitex/view/profile.js" desc="Validation error on SignUp view">Parola nouă trebuie să aibe cel puțin 8 caractere</translation>
+    <translation id="3054816167228705124" key="MSG_CHANGE_PASSWORDS_DOES_NOT_MATCH" source="bitex/view/profile.js" desc="Validation error on SignUp view">Parolele nu se potrivesc</translation>
+    <translation id="6005665247653504542" key="MSG_SET_NEW_PASSWORD_VIEW_INVALID_TOKEN" source="bitex/view/set_new_password.js" desc="invalid token error on set new password view">Cod de confirmare invalid</translation>
+    <translation id="3196333651041713136" key="MSG_SET_NEW_PASSWORD_VIEW_INVALID_PASSWORD" source="bitex/view/set_new_password.js" desc="invalid password error on set new password view">Parola trebuie să aibe cel puțin 8 caractere</translation>
+    <translation id="5911567706403442087" key="MSG_SET_NEW_PASSWORD_VIEW_PASSWORD_DOESNT_MATCH" source="bitex/view/set_new_password.js" desc="invalid password error on set new password view">Parolele nu se potrivesc</translation>
+    <translation id="2083270017398032951" key="MSG_CUSTOMER_TABLE_COLUMN_ID" source="bitex/ui/customers.js" desc="Column ID of the Customer Table">ID</translation>
+    <translation id="6562079458235436425" key="MSG_CUSTOMER_TABLE_COLUMN_USERNAME" source="bitex/ui/customers.js" desc="Column Username of the Customer Table">Utilizator</translation>
+    <translation id="1274435842947160185" key="MSG_CUSTOMER_TABLE_COLUMN_VERIFIED" source="bitex/ui/customers.js" desc="Column Verified of the Customer Table">Verificat</translation>
+    <translation id="1750212340841672536" key="MSG_CUSTOMER_TABLE_COLUMN_VERIFIED_YES_LI" source="bitex/ui/customers.js" desc="Column Verified YES of the Customer Table">Da - Nivel I</translation>
+    <translation id="7448170974460633782" key="MSG_CUSTOMER_TABLE_COLUMN_VERIFIED_YES_LII" source="bitex/ui/customers.js" desc="Column Verified YES of the Customer Table">Da - Nivel II</translation>
+    <translation id="3866795999403527345" key="MSG_CUSTOMER_TABLE_COLUMN_VERIFIED_YES_LIII" source="bitex/ui/customers.js" desc="Column Verified YES of the Customer Table">Da - Nivel III</translation>
+    <translation id="4181314586936416092" key="MSG_CUSTOMER_TABLE_COLUMN_VERIFIED_YES_LIV" source="bitex/ui/customers.js" desc="Column Verified YES of the Customer Table">Da - Nivel IV</translation>
+    <translation id="6542213751969348176" key="MSG_CUSTOMER_TABLE_COLUMN_VERIFIED_PROGRESS" source="bitex/ui/customers.js" desc="Column Verified PENDING of the Customer Table">Progres</translation>
+    <translation id="4210897808615346854" key="MSG_CUSTOMER_TABLE_COLUMN_VERIFIED_PENDING" source="bitex/ui/customers.js" desc="Column Verified PENDING of the Customer Table">În așteptarea</translation>
+    <translation id="3211027935537611175" key="MSG_CUSTOMER_TABLE_COLUMN_VERIFIED_NO" source="bitex/ui/customers.js" desc="Column Verified NO of the Customer Table">Nu</translation>
+    <translation id="2718867950892862769" key="MSG_CUSTOMER_TABLE_COLUMN_EMAIL" source="bitex/ui/customers.js" desc="Column Email of the Customer Table">Email</translation>
+    <translation id="1723675698743117994" key="MSG_CUSTOMER_TABLE_COLUMN_LAST_LOGIN" source="bitex/ui/customers.js" desc="Column Last login of the Customer Table">Văzut ultima dată</translation>
+    <translation id="6637870093615928207" key="MSG_CUSTOMER_TABLE_COLUMN_TWO_FACTOR_ENABLED" source="bitex/ui/customers.js" desc="Column Two step authentication of the Customer Table">Doi pasi</translation>
+    <translation id="7260696145988671801" key="MSG_CUSTOMER_TABLE_COLUMN_TWO_FACTOR_ENABLED_YES" source="bitex/ui/customers.js" desc="Column Verified YES of the Customer Table">Da</translation>
+    <translation id="8807659796587038335" key="MSG_CUSTOMER_TABLE_COLUMN_TWO_FACTOR_ENABLED_NO" source="bitex/ui/customers.js" desc="Column Verified NO of the Customer Table">Nu</translation>
+    <translation id="7155050110100955426" key="MSG_CUSTOMER_TABLE_COLUMN_ACTION" source="bitex/ui/customers.js" desc="Column Actions the Customer Table">Acțiuni</translation>
+    <translation id="2072331818803802462" key="MSG_CUSTOMER_TABLE_ACTION_DETAILS" source="bitex/ui/customers.js" desc="Label for deposit button inside the customer table in broker view.">detalii</translation>
+    <translation id="1068484197751585966" key="MSG_CUSTOMERS_TABLE_TITLE" source="bitex/ui/customers.js" desc="Title  for the customers table">Clienți</translation>
+    <translation id="1015136929938913559" key="MSG_CUSTOMERS_TABLE_SEARCH_PLACEHOLDER" source="bitex/ui/customers.js" desc="placeholder for the search input text in the customers table">Utilizator sau email...</translation>
+    <translation id="1646545861057431513" key="MSG_CUSTOMERS_LIST_BUTTON_FILTER_ALL" source="bitex/ui/customers.js" desc="Customers filter all select option">Toate</translation>
+    <translation id="8930308327400940205" key="MSG_ORDER_BOOK_BID_TITLE" source="bitex/ui/order_book.js" desc="Title in the bid side on the order book">OFERTĂ</translation>
+    <translation id="6857802332739485005" key="MSG_ORDER_BOOK_ASK_TITLE" source="bitex/ui/order_book.js" desc="Title in the ask side on the order book">CERERE</translation>
+    <translation id="8752744574554067957" key="MSG_ORDER_BOOK_BUYER_COLUMN" source="bitex/ui/order_book.js" desc="Buyer column on the order book">Cumpărător</translation>
+    <translation id="7114430755693068053" key="MSG_ORDER_BOOK_SELLER_COLUMN" source="bitex/ui/order_book.js" desc="Seller column on the order book">Vânzător</translation>
+    <translation id="6540154733894385338" key="MSG_ORDER_BOOK_AMOUNT_COLUMN" source="bitex/ui/order_book.js" desc="Amount column on the order book">Sumă</translation>
+    <translation id="8893662537030583205" key="MSG_ORDER_BOOK_PRICE_COLUMN" source="bitex/ui/order_book.js" desc="Price column on the order book">Preț</translation>
+    <translation id="5896837899996280618" key="MSG_DEPOSIT_TABLE_COLUMN_ID" source="bitex/ui/deposit_list.js" desc="Column ID of the Deposit List">ID</translation>
+    <translation id="558243926842418493" key="MSG_DEPOSIT_TABLE_COLUMN_STATUS" source="bitex/ui/deposit_list.js" desc="Column Status of the Deposit List">Stare</translation>
+    <translation id="8752180416937504144" key="MSG_DEPOSIT_TABLE_COLUMN_CURRENCY" source="bitex/ui/deposit_list.js" desc="Column Currency of the Deposit List">Valută</translation>
+    <translation id="3111961516961145374" key="MSG_DEPOSIT_TABLE_COLUMN_VALUE" source="bitex/ui/deposit_list.js" desc="Column Amount of the Deposit List">Valoare</translation>
+    <translation id="7483672723658937294" key="MSG_DEPOSIT_TABLE_COLUMN_PAID_VALUE" source="bitex/ui/deposit_list.js" desc="Column Amount of the Deposit List">Valoare plătită</translation>
+    <translation id="30795367555545131" key="MSG_DEPOSIT_TABLE_COLUMN_CTRL_NUMBER" source="bitex/ui/deposit_list.js" desc="Column Method of the Deposit List">Număr de Control</translation>
+    <translation id="7353716381708318755" key="MSG_DEPOSIT_TABLE_COLUMN_CREATED" source="bitex/ui/deposit_list.js" desc="Column Created of the Deposit List">Dată/Oră</translation>
+    <translation id="5720419683060747319" key="MSG_DEPOSIT_TABLE_COLUMN_ACTIONS" source="bitex/ui/deposit_list.js" desc="Column Actions of the Deposit List">Acțiuni</translation>
+    <translation id="8294855159062792258" key="MSG_DEPOSIT_TABLE_COLUMN_DETAIL" source="bitex/ui/deposit_list.js" desc="Column Detail of the Deposit List">Detalii</translation>
+    <translation id="8013742343858000155" key="MSG_DEPOSIT_TABLE_COLUMN_USERNAME" source="bitex/ui/deposit_list.js" desc="Column Username of the Deposit List">Utilizator</translation>
+    <translation id="1921819421289808265" key="MSG_DEPOSIT_TABLE_COLUMN_STATUS_PENDING" source="bitex/ui/deposit_list.js" desc="Column Status of the Deposit List">În așteptare</translation>
+    <translation id="4131402607831076559" key="MSG_DEPOSIT_TABLE_COLUMN_STATUS_UNCONFIRMED" source="bitex/ui/deposit_list.js" desc="Column Status of the Deposit List">Neconfirmate</translation>
+    <translation id="3866187847955109907" key="MSG_DEPOSIT_TABLE_COLUMN_STATUS_PROGRESS" source="bitex/ui/deposit_list.js" desc="Column Status of the Deposit List">În curs...</translation>
+    <translation id="6526305363569690055" key="MSG_DEPOSIT_TABLE_COLUMN_STATUS_COMPLETED" source="bitex/ui/deposit_list.js" desc="Column Status of the Deposit List">Terminat</translation>
+    <translation id="3938863879418577136" key="MSG_DEPOSIT_TABLE_COLUMN_STATUS_CANCELLED" source="bitex/ui/deposit_list.js" desc="Column Status of the Deposit List">Anulat</translation>
+    <translation id="4367563642227845643" key="MSG_PROGRESS_MESSAGE_FOR_CRYPTO_CURRENCY" source="bitex/ui/deposit_list.js" desc="status message for confirming crypto coin deposits"><ph name="confirmations" /> din <ph name="necessaryconfirmations" /> confirmări</translation>
+    <translation id="8235727154519483188" key="MSG_DEPOSIT_TABLE_DETAILS_COLUMN_BTN_VIEW" source="bitex/ui/deposit_list.js" desc="Deposit delete button label in the  broker's deposit list">vizualizare</translation>
+    <translation id="3296051376060046773" key="MSG_DEPOSIT_TABLE_DETAILS_COLUMN_BTN_QR" source="bitex/ui/deposit_list.js" desc="Deposit delete button label in the  broker's deposit list">qr</translation>
+    <translation id="1046271529607736967" key="MSG_DEPOSIT_TABLE_DETAILS_COLUMN_BTN_TRANSACTION" source="bitex/ui/deposit_list.js" desc="Deposit delete button label in the  broker's deposit list">blockchain</translation>
+    <translation id="7562130993408924613" key="MSG_DEPOSIT_TABLE_DETAILS_COLUMN_BTN_CANCEL" source="bitex/ui/deposit_list.js" desc="Deposit delete button label in the  broker's deposit list">anulează</translation>
+    <translation id="3344551797535253657" key="MSG_DEPOSIT_TABLE_DETAILS_COLUMN_BTN_UPLOAD" source="bitex/ui/deposit_list.js" desc="Deposit delete button label in the  broker's deposit list">trimite factură</translation>
+    <translation id="715205464556312734" key="MSG_DEPOSIT_TABLE_COLUMN_ACTION_PROGRESS" source="bitex/ui/deposit_list.js" desc="Withdraw progress button label in the  broker's withdraw list">Setează în progres</translation>
+    <translation id="5597056239730075477" key="MSG_DEPOSIT_TABLE_COLUMN_ACTION_COMPLETE" source="bitex/ui/deposit_list.js" desc="Withdraw progress button label in the  broker's withdraw list">Setează ca complet</translation>
+    <translation id="8909166540949811308" key="MSG_DEPOSIT_TABLE_COLUMN_ACTION_REQUEST_SUPPORT" source="bitex/ui/deposit_list.js" desc="Request support action button label on deposit table">Unde sunt monede mele ?</translation>
+    <translation id="7509927254631476752" key="MSG_DEPOSIT_LIST_TABLE_TITLE" source="bitex/ui/deposit_list.js" desc="deposit table title">Depuneri</translation>
+    <translation id="697284776626599196" key="MSG_DEPOSIT_LIST_SEARCH_PLACEHOLDER" source="bitex/ui/deposit_list.js" desc="placeholder for the search input text">Caută ...</translation>
+    <translation id="332292655920456618" key="MSG_DEPOSIT_LIST_BUTTON_FILTER_ALL" source="bitex/ui/deposit_list.js" desc="All records button filter on deposit list">Toate</translation>
+    <translation id="5839634383131837227" key="MSG_DEPOSIT_DIFFERENT_DECLARED_PAID_VALUE" source="bitex/view/deposit.js" desc="value abbrev title when paid value differs from declared value">declarat / plătit în <ph name="currencydesc" /></translation>
+    <translation id="1582132247801777623" key="MSG_ORDER_MANAGER_DESC_BUYING" source="bitex/view/trading.js" desc="Order Status message on Simple Order Manager">Buying <ph name="buyqty" /></translation>
+    <translation id="2483499656579380553" key="MSG_ORDER_MANAGER_DESC_SELLING" source="bitex/view/trading.js" desc="Order Status message on Simple Order Manager">Selling <ph name="sellqty" /></translation>
+    <translation id="6761854666121980932" key="MSG_ORDER_MANAGER_DESC_PARTIAL_BOUGHT" source="bitex/view/trading.js" desc="Order Status message on Simple Order Manager">Bought <ph name="cumboughtqty" /> din <ph name="boughtqty" /></translation>
+    <translation id="8522423348880416618" key="MSG_ORDER_MANAGER_DESC_PARTIAL_SOLD" source="bitex/view/trading.js" desc="Order Status message on Simple Order Manager">Sold <ph name="cumsoldqty" /> din <ph name="soldqty" /></translation>
+    <translation id="5824501837483622291" key="MSG_ORDER_MANAGER_DESC_BOUGHT" source="bitex/view/trading.js" desc="Order Status message on Simple Order Manager">Bought <ph name="boughtcumqty" /></translation>
+    <translation id="5241473232395253761" key="MSG_ORDER_MANAGER_DESC_SOLD" source="bitex/view/trading.js" desc="Order Status message on Simple Order Manager">Sold <ph name="souldcumqty" /></translation>
+    <translation id="5027825266220139478" key="MSG_ORDER_MANAGER_DESC_BUYING_CANCELLED" source="bitex/view/trading.js" desc="Order Status message on Simple Order Manager">Comenzi de cumpărare anulate <ph name="cancelledbuyorderqty" /></translation>
+    <translation id="1767232399795350200" key="MSG_ORDER_MANAGER_DESC_SELLING_CANCELLED" source="bitex/view/trading.js" desc="Order Status message on Simple Order Manager">Comenzi de vânzare anulate <ph name="cancelledsellorderqty" /></translation>
+    <translation id="5711359788337990967" key="MSG_ORDER_MANAGER_SIMPLE_STATUS_SENDING" source="bitex/view/trading.js" desc="Order Status message on Simple Order Manager">Se trimite...</translation>
+    <translation id="8648714070751933144" key="MSG_ORDER_MANAGER_SIMPLE_STATUS_WAITING_BUYERS" source="bitex/view/trading.js" desc="Order Status message on Simple Order Manager">Se așteaptă cumpărători</translation>
+    <translation id="129656398282383842" key="MSG_ORDER_MANAGER_SIMPLE_STATUS_WAITING_SELLERS" source="bitex/view/trading.js" desc="Order Status message on Simple Order Manager">Se așteaptă vânzători</translation>
+    <translation id="7016456953146581564" key="MSG_ORDER_MANAGER_SIMPLE_STATUS_PARTIAL_BOUGHT" source="bitex/view/trading.js" desc="Order Status message on Simple Order Manager">Cumpărat parțial</translation>
+    <translation id="1180400674134756725" key="MSG_ORDER_MANAGER_SIMPLE_STATUS_PARTIAL_SOLD" source="bitex/view/trading.js" desc="Order Status message on Simple Order Manager">Vândut parțial</translation>
+    <translation id="7883247551374042422" key="MSG_ORDER_MANAGER_SIMPLE_STATUS_COMPLETE" source="bitex/view/trading.js" desc="Order Status message on Simple Order Manager">Terminat</translation>
+    <translation id="1587332647452484958" key="MSG_ORDER_MANAGER_SIMPLE_STATUS_CANCELLED" source="bitex/view/trading.js" desc="Order Status message on Simple Order Manager">Anulat</translation>
+    <translation id="4553492561604952295" key="MSG_SEND_MSG_ERROR_TITLE" source="bitex/api/bitex.js" desc="error message when sending raw message">Eroare</translation>
+    <translation id="1377985720837270041" key="MSG_SEND_MSG_ERROR_NOT_CONNECTED_CONTENT" source="bitex/api/bitex.js" desc="not connected error when sending a message">Nu sunteți contectat la server</translation>
+    <translation id="4368436483914807519" key="MSG_SEND_MSG_EXCEPTION_TITLE" source="bitex/api/bitex.js" desc="exception message when sending raw message">Excepție</translation>
+    <translation id="1860206272186183056" key="MSG_RANKING_COLUMN_NO" source="bitex/ui/ranking_view_table.js" desc="Column Rank">#</translation>
+    <translation id="255433464202913283" key="MSG_RANKING_COLUMN_TRADER" source="bitex/ui/ranking_view_table.js" desc="Column Trader">Trader</translation>
+    <translation id="7682038845668131051" key="MSG_RANKING_COLUMN_BROKER" source="bitex/ui/ranking_view_table.js" desc="Column Trader">Broker</translation>
+    <translation id="2584623148973634903" key="MSG_RANKING_COLUMN_AMOUT" source="bitex/ui/ranking_view_table.js" desc="Column BTC Amount">Sumă BTC</translation>
+    <translation id="7213447371383189654" key="MSG_FORGOT_PASSWORD_INVALID_EMAIL" source="bitex/view/forgot_password.js" desc="invalid email message shown in the forgot password view">Adresa de e-mail invalidă</translation>
+    <translation id="7506129242306683894" key="MSG_LEDGER_ACTIVITY_TABLE_COLUMN_ID" source="bitex/ui/ledger_activity.js" desc="Column ID of the Ledger Activity">ID</translation>
+    <translation id="2304338209237478082" key="MSG_LEDGER_ACTIVITY_TABLE_COLUMN_DATE_TIME" source="bitex/ui/ledger_activity.js" desc="Column  Date / Time of the Ledger Activity">Dată/Timp</translation>
+    <translation id="463650649344747531" key="MSG_LEDGER_ACTIVITY_TABLE_COLUMN_CURRENCY" source="bitex/ui/ledger_activity.js" desc="Column Currency of the Ledger Activity">Valută</translation>
+    <translation id="1557118141644026265" key="MSG_LEDGER_ACTIVITY_TABLE_COLUMN_AMOUNT" source="bitex/ui/ledger_activity.js" desc="Column Amount of the Ledger Activity">Sumă</translation>
+    <translation id="3072000514458089188" key="MSG_LEDGER_ACTIVITY_TABLE_COLUMN_BALANCE" source="bitex/ui/ledger_activity.js" desc="Column Balance of the Ledger Activity">Sold</translation>
+    <translation id="7219131899371347962" key="MSG_LEDGER_ACTIVITY_TABLE_COLUMN_OPERATION" source="bitex/ui/ledger_activity.js" desc="Column Operation of the Ledger Activity">Operațiune</translation>
+    <translation id="4368755824430823573" key="MSG_LEDGER_ACTIVITY_TABLE_COLUMN_DESCRIPTION" source="bitex/ui/ledger_activity.js" desc="Column Description of the Ledger Activity">Descriere</translation>
+    <translation id="372265234020655220" key="MSG_LEDGER_ACTIVITY_TABLE_COLUMN_ACCOUNT_NAME" source="bitex/ui/ledger_activity.js" desc="Column Account Name of the Ledger Activity">Cont</translation>
+    <translation id="8031841143816773563" key="MSG_LEDGER_ACTIVITY_TABLE_COLUMN_PAYEE" source="bitex/ui/ledger_activity.js" desc="Column Payee of the Ledger Activity">Beneficiar al plății</translation>
+    <translation id="4988973568793267789" key="MSG_LEDGER_DEPOSIT_DESCRIPTION" source="bitex/ui/ledger_activity.js" desc="Ledger deposit description">Depunere</translation>
+    <translation id="7317279204839966234" key="MSG_LEDGER_WITHDRAW_DESCRIPTION" source="bitex/ui/ledger_activity.js" desc="Ledger withdraw description">Retragere</translation>
+    <translation id="1790581558876115605" key="MSG_LEDGER_DEPOSIT_FEE_DESCRIPTION" source="bitex/ui/ledger_activity.js" desc="Ledger deposit fee description">Taxă de depozitare</translation>
+    <translation id="2496976096376104378" key="MSG_LEDGER_WITHDRAW_FEE_DESCRIPTION" source="bitex/ui/ledger_activity.js" desc="Ledger withdraw fee description">Taxă de retragere</translation>
+    <translation id="4917678248058952669" key="MSG_LEDGER_TRADE_DESCRIPTION" source="bitex/ui/ledger_activity.js" desc="Ledger trade  description">Tranzacționare</translation>
+    <translation id="3113961977394914654" key="MSG_LEDGER_TRADE_FEE_DESCRIPTION" source="bitex/ui/ledger_activity.js" desc="Ledger trade fee description">Taxă de tranzacționare</translation>
+    <translation id="3714376345944817837" key="MSG_LEDGER_TRADE_BONUS_DESCRIPTION" source="bitex/ui/ledger_activity.js" desc="Ledger trade  description">Bonus</translation>
+    <translation id="7859929297688167758" key="MSG_LEDGER_ACTIVITY_TITLE" source="bitex/ui/ledger_activity.js" desc="deposit table title">Registru</translation>
+    <translation id="3327883171268820814" key="MSG_LEDGER_ACTIVITY_SEARCH_PLACEHOLDER" source="bitex/ui/ledger_activity.js" desc="placeholder for the search input text in the customers table">Se caută ...</translation>
+    <translation id="1488008330998227698" key="MSG_LEDGER_TABLE_SEARCH_ALL_CURRENCIES" source="bitex/view/ledger.js" desc="All currencies filter label on ledger table filters">Toate valutele</translation>
+    <translation id="8443933915360722226" key="MSG_MY_CUSTOMERS_LABEL" source="bitex/view/ledger.js" desc="label on ledge filter">Clienți mei</translation>
+    <translation id="1349757727940620067" key="MSG_USER_FEES_DIALOG_TITLE" source="bitex/view/account_overview.js" desc="user custom fees">Setați taxe de utilizator personalizate</translation>
+    <translation id="7352468665642972762" key="MSG_VERIFICATION_DATA_DIALOG_TITLE" source="bitex/view/account_overview.js" desc="Verification Data Dialog content title">Introduceți datele de verificare</translation>
+    <translation id="6337512722019146814" key="MSG_ACCOUNT_OVERVIEW_DEPOSIT_DIFFERENT_DECLARED_PAID_VALUE" source="bitex/view/account_overview.js" desc="value abbrev title when paid value differs from declared value">declarat / plătit in <ph name="currencydesc" /></translation>
+    <translation id="8956923086586785808" key="MSG_MY_CUSTOMERS_ACCOUNT_BALANCE_LABEL" source="bitex/view/side_bar.js" desc="My customers account balance label">Clienți mei</translation>
+    <translation id="540371278665799483" key="MSG_PZ1480CFEALI" source="bitex/ui/market_view_table.default.soy.js" desc="Method field header">Asociere/Pereche</translation>
+    <translation id="6144131012087048413" key="MSG_1PYSWLOXZPYIJ" source="bitex/ui/market_view_table.default.soy.js" desc="Method field header">Ultimul</translation>
+    <translation id="4862560589674900513" key="MSG_ZU872NP5G4IZ" source="bitex/ui/market_view_table.default.soy.js" desc="Method field header">Oferta</translation>
+    <translation id="359126399564616939" key="MSG_7O7PIFIBMY6J" source="bitex/ui/market_view_table.default.soy.js" desc="Method field header">Cerere</translation>
+    <translation id="2804697564508208450" key="MSG_1XOT5DC40Y74P" source="bitex/ui/market_view_table.default.soy.js" desc="Method field header">Volum (BTC)</translation>
+    <translation id="2810122694573914334" key="MSG_4ZVCLEHQ7SCW" source="bitex/ui/market_view_table.default.soy.js" desc="Method field header">Volum</translation>
+    <translation id="9069641955420533662" key="MSG_11PK3QCKDL93G" source="bitex/ui/market_view_table.default.soy.js" desc="Method field header">High/Sus</translation>
+    <translation id="5413947898733120986" key="MSG_SBW9E76572FZ" source="bitex/ui/market_view_table.default.soy.js" desc="Method field header">Low/jos</translation>
+    <translation id="7193569929423689975" key="MSG_TODAY" source="closure-library/closure/goog/date/relative.js" desc="Today.">Astăzi</translation>
+    <translation id="1428723246486669776" key="MSG_YESTERDAY" source="closure-library/closure/goog/date/relative.js" desc="Yesterday.">Ieri</translation>
+    <translation id="5173092562051888378" key="MSG_MINUTES_AGO_SINGULAR" source="closure-library/closure/goog/date/relative.js" desc="Relative date indicating how many minutes ago something happened (singular)."><ph name="num" /> minut în urmă</translation>
+    <translation id="2980192934149920770" key="MSG_MINUTES_AGO_PLURAL" source="closure-library/closure/goog/date/relative.js" desc="Relative date indicating how many minutes ago something happened (plural)."><ph name="num" /> minute în urmă</translation>
+    <translation id="9019211444535457930" key="MSG_IN_MINUTES_SINGULAR" source="closure-library/closure/goog/date/relative.js" desc="Relative date indicating in how many minutes something happens (singular).">in <ph name="num" /> minut</translation>
+    <translation id="4253332605280801137" key="MSG_IN_MINUTES_PLURAL" source="closure-library/closure/goog/date/relative.js" desc="Relative date indicating in how many minutes something happens (plural).">in <ph name="num" /> minute</translation>
+    <translation id="1308849837048428199" key="MSG_HOURS_AGO_SINGULAR" source="closure-library/closure/goog/date/relative.js" desc="Relative date indicating how many hours ago something happened (singular)."><ph name="num" /> oră în urmă</translation>
+    <translation id="4669004535587538063" key="MSG_HOURS_AGO_PLURAL" source="closure-library/closure/goog/date/relative.js" desc="Relative date indicating how many hours ago something happened (plural)."><ph name="num" /> ore în urmă</translation>
+    <translation id="1499566838560358324" key="MSG_IN_HOURS_SINGULAR" source="closure-library/closure/goog/date/relative.js" desc="Relative date indicating in how many hours something happens (singular).">in <ph name="num" /> oră</translation>
+    <translation id="7557327300424117500" key="MSG_IN_HOURS_PLURAL" source="closure-library/closure/goog/date/relative.js" desc="Relative date indicating in how many hours something happens (plural).">in <ph name="num" /> ore</translation>
+    <translation id="7334391477982461059" key="MSG_DAYS_AGO_SINGULAR" source="closure-library/closure/goog/date/relative.js" desc="Relative date indicating how many days ago something happened (singular)."><ph name="num" /> zi în urmă</translation>
+    <translation id="5134210481550173004" key="MSG_DAYS_AGO_PLURAL" source="closure-library/closure/goog/date/relative.js" desc="Relative date indicating how many days ago something happened (plural)."><ph name="num" /> zile în urmă</translation>
+    <translation id="4218920355193789839" key="MSG_IN_DAYS_SINGULAR" source="closure-library/closure/goog/date/relative.js" desc="Relative date indicating in how many days something happens (singular).">in <ph name="num" /> zi</translation>
+    <translation id="2569438922978284310" key="MSG_IN_DAYS_PLURAL" source="closure-library/closure/goog/date/relative.js" desc="Relative date indicating in how many days something happens (plural).">in <ph name="num" /> zile</translation>
+    <translation id="3562431494351789714" key="MSG_TRADE_HISTORY_COLUMN_MARKET" source="bitex/ui/trade_history.js" desc="Column Market Pair">Piață</translation>
+    <translation id="7160914947640374388" key="MSG_TRADE_HISTORY_COLUMN_CREATED" source="bitex/ui/trade_history.js" desc="Column Time">Data/Ora</translation>
+    <translation id="4009368044472368248" key="MSG_TRADE_HISTORY_COLUMN_SIDE" source="bitex/ui/trade_history.js" desc="Column Side">Side</translation>
+    <translation id="2434114436849906662" key="MSG_TRADE_HISTORY_COLUMN_PRICE" source="bitex/ui/trade_history.js" desc="Column Price">Preț</translation>
+    <translation id="7629602828709204610" key="MSG_TRADE_HISTORY_COLUMN_SIZE" source="bitex/ui/trade_history.js" desc="Column Size">Mărime</translation>
+    <translation id="789666974085016595" key="MSG_TRADE_HISTORY_COLUMN_BUYER" source="bitex/ui/trade_history.js" desc="Column Buyer">Cumpărător</translation>
+    <translation id="4019947527190654168" key="MSG_TRADE_HISTORY_COLUMN_SELLER" source="bitex/ui/trade_history.js" desc="Column Seller">Vânzător</translation>
+    <translation id="9186597034539830374" key="MSG_TRADE_HISTORY_COLUMN_SIDE_BUY" source="bitex/ui/trade_history.js" desc="Column Side Buy">Cumpără</translation>
+    <translation id="6927559644053892614" key="MSG_TRADE_HISTORY_COLUMN_SIDE_SELL" source="bitex/ui/trade_history.js" desc="Column Side Sell">Vinde</translation>
+    <translation id="3706778100100763851" key="MSG_TRADE_HISTORY_TABLE_TITLE" source="bitex/ui/trade_history.js" desc="last trades table title">Ultimele tranzacții</translation>
+    <translation id="3255834482463686890" key="MSG_SUCCESS_PASSWORD_CHANGE" source="bitex/app/blinktrade.js" desc="Password changed message">Parolă schimbată</translation>
+    <translation id="2296265795818731255" key="MSG_BITEX_PASSWORD_CHANGED_OK_TITLE" source="bitex/app/blinktrade.js" desc="Password Chanced with success dialog title">Succes</translation>
+    <translation id="7313000283228766439" key="MSG_BITEX_ERROR_VALIDATE_REQUIRED" source="bitex/app/blinktrade.js" desc="Error Validade Required in Validators"><ph name="c" /> este necesar</translation>
+    <translation id="2976488691804301658" key="MSG_BITEX_ERROR_VALIDATE_BTC_ADDRESS" source="bitex/app/blinktrade.js" desc="Error Validade Bitcoin Address"><ph name="c" /> Nu este o adresă validă</translation>
+    <translation id="6924418042716431677" key="MSG_INVALID_CONFIRMATION_TOKEN" source="bitex/app/blinktrade.js" desc="invalid confirmation toker">Confirmare invalidă token!</translation>
+    <translation id="7586111184934934529" key="MSG_WITHDRAW_CONFIRMATION_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="withdraw confirmation dialog title">Confirm</translation>
+    <translation id="3716246999798007796" key="MSG_CONNECTION_ERROR" source="bitex/app/blinktrade.js" desc="Connection error message when trying to open websockets connection for the first time">Eroare de conectare la server. Browser-ul dumneavoastră TREBUIE să suporte WebSockets.</translation>
+    <translation id="7908360175436440943" key="MSG_CHANGE_PASSWORD_TWO_STEPS_AUTHENTICATION_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="google authentication dialog title">Autentificare 2 păși</translation>
+    <translation id="1045497273348572946" key="MSG_BITEX_PASSWORD_CHANGED_ERROR_TITLE" source="bitex/app/blinktrade.js" desc="Password Chanced with success dialog title">Eroare</translation>
+    <translation id="6119056431532509140" key="MSG_BITEX_PASSWORD_CHANGED_ERROR_CONTENT" source="bitex/app/blinktrade.js" desc="Password Chanced with success dialog content">A apărut o eroare în schimbarea parolei</translation>
+    <translation id="632698081542536133" key="MSG_CHANGE_PASSWORD_INVALID_SECURITY_CODE" source="bitex/app/blinktrade.js" desc="Password changed message">Cod de securitate invalid.</translation>
+    <translation id="5924054123017085307" key="MSG_WITHDRAW_NOTIFICATION_USER_UNCONFIRMED_TITLE" source="bitex/app/blinktrade.js" desc="Withdraw user notification">Crează retragere [<ph name="id" />] </translation>
+    <translation id="7064284120198517349" key="MSG_WITHDRAW_NOTIFICATION_USER_CONFIRMED_TITLE" source="bitex/app/blinktrade.js" desc="Withdraw user notification">Retragere [<ph name="id" />] confirmată</translation>
+    <translation id="5839256615062668924" key="MSG_WITHDRAW_NOTIFICATION_USER_PROGRESS_TITLE" source="bitex/app/blinktrade.js" desc="Withdraw user notification">Retragere [<ph name="id" />] în progres</translation>
+    <translation id="4961946579536179002" key="MSG_WITHDRAW_NOTIFICATION_USER_COMPLETE_TITLE" source="bitex/app/blinktrade.js" desc="Withdraw user notification">Retragere [<ph name="id" />] terminată</translation>
+    <translation id="1417999362323413909" key="MSG_WITHDRAW_NOTIFICATION_USER_CANCEL_TITLE" source="bitex/app/blinktrade.js" desc="Withdraw user notification">retragere [<ph name="id" />] anulată</translation>
+    <translation id="4659012133109455476" key="MSG_NOTIFICATION_VERIFY_TITLE" source="bitex/app/blinktrade.js" desc="verification notification title msg">Verificare:</translation>
+    <translation id="1247968148425240993" key="MSG_PENDING_VERIFICATION_CONTENT" source="bitex/app/blinktrade.js" desc="pending verification notification content msg">Trimis către broker.</translation>
+    <translation id="6898272788688887441" key="MSG_PROGRESS_VERIFICATION_CONTENT" source="bitex/app/blinktrade.js" desc="pending verification notification content msg">În progres.</translation>
+    <translation id="1912725761619341246" key="MSG_ACCOUNT_VERIFIED_CONTENT" source="bitex/app/blinktrade.js" desc="level 2 verification notification content msg">Contul dumneavoastră a fost verificat. nivel - <ph name="level" /></translation>
+    <translation id="5600116004340686223" key="MSG_ORDER_EXECUTION_TITLE_NOTIFICATION" source="bitex/app/blinktrade.js" desc="- execution report title notification message">Comanda <ph name="id" /> </translation>
+    <translation id="7343510545245590739" key="MSG_NOTIFICATION_ORDER_PARTIALLY_FILLED" source="bitex/app/blinktrade.js" desc="- Partially filled notification message">parțial completat</translation>
+    <translation id="8525903415095588809" key="MSG_NOTIFICATION_ORDER_FILLED" source="bitex/app/blinktrade.js" desc="- filled notification message">completat</translation>
+    <translation id="7777482384987435001" key="MSG_NOTIFICATION_ORDER_CANCELLED" source="bitex/app/blinktrade.js" desc="- Canceled notification message">anulat</translation>
+    <translation id="3323205535308057074" key="MSG_CURRENCY_WITHDRAW_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="Crypto Currency Withdraw accordion title">retragere <ph name="currency" /> </translation>
+    <translation id="5378780252427031622" key="MSG_INVALID_WITHDRAWAL_AMOUNT_VALUE" source="bitex/app/blinktrade.js" desc="Invalid withdrawal amount notification message during the withdrawal.">Sumă de retragere invalidă</translation>
+    <translation id="1303722161788372191" key="MSG_FILE_VIEW_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="File view dialog title">Vizualizează</translation>
+    <translation id="4410152437687815595" key="MSG_WITHDRAW_CANCEL_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="Cancel Withdraw dialog title">Anulează retragere</translation>
+    <translation id="654854339816380160" key="MSG_WITHDRAW_IN_PROGRESS_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="Crypto Currency Withdraw accordion title">Setează retragere <ph name="currency" /> în progres</translation>
+    <translation id="7091694946380763121" key="MSG_CURRENCY_BROKER_WITHDRAW_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="Crypto Currency Withdraw accordion title">Confirm retragerea <ph name="currency" /></translation>
+    <translation id="8436234120443762929" key="MSG_SEND_ORDER_NOTIFICATION_TITLE" source="bitex/app/blinktrade.js" desc="notification for send order request">Se trimite comanda...</translation>
+    <translation id="8109791583857100985" key="MSG_SEND_ORDER_NOTIFICATION_SIDE_BUY" source="bitex/app/blinktrade.js" desc="notification for send order request">CUMPĂRĂ</translation>
+    <translation id="7239404401522699867" key="MSG_SEND_ORDER_NOTIFICATION_SIDE_SELL" source="bitex/app/blinktrade.js" desc="notification for send order request">VINDE</translation>
+    <translation id="5705341812052053984" key="MSG_INSUFFICIENT_BALANCE_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="dialog shown when the user doesn't have enough funds to buy/sell">Fonduri insuficiente</translation>
+    <translation id="1295461643444648993" key="MSG_INSUFFICIENT_BALANCE_DEPOSIT_BUTTON_CAPTION" source="bitex/app/blinktrade.js" desc="dialog shown when the user doesn't have enough funds to buy/sell">Depozitați <ph name="amount" /></translation>
+    <translation id="6742747885899253010" key="MSG_SEND_ORDER_NOTIFICATION_CONTENT" source="bitex/app/blinktrade.js" desc="notification for send order request"><ph name="side" /> <ph name="amount" /> <ph name="symbol" />  @ <ph name="price" /></translation>
+    <translation id="1172621097575866779" key="MSG_CANCEL_ORDER_NOTIFICATION_TITLE" source="bitex/app/blinktrade.js" desc="notification for order cancel request">Se anulează comanda...</translation>
+    <translation id="8749545027873374962" key="MSG_SHOW_DEPOSIT_RECEIPT_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="Crypto Currency Withdraw deposit title">Depunerea <ph name="submissionid" /></translation>
+    <translation id="3193148586780403406" key="MSG_ENABLE_INSTANT_DEPOSIT_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="Enable instant deposit dialog title">Activare depunere instant <ph name="currency" />?</translation>
+    <translation id="6127304771554563659" key="MSG_SHOW_QR_CURRENCY_DEPOSIT_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="Crypto Currency Withdraw deposit title"><ph name="currency" /> depunere</translation>
+    <translation id="2225738943455464187" key="MSG_SHOW_QR_CURRENCY_WITHDRAW_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="Crypto Currency Withdraw withdraw title"><ph name="currency" /> retragere</translation>
+    <translation id="3830167277314814271" key="MSG_DEPOSIT_CANCEL_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="Cancel Deposit dialog title">Anulează depunere</translation>
+    <translation id="7496906925365343434" key="MSG_DLG_TITLE_GET_DEPOSIT_PAID_VALUE" source="bitex/app/blinktrade.js" desc="Dialog title to get deposit paid value">Confirmă depunerea</translation>
+    <translation id="5545270625797886732" key="MSG_CURRENCY_DEPOSIT_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="Crypto Currency Withdraw accordion title"><ph name="currency" /> depunere</translation>
+    <translation id="2835185174766852870" key="MSG_ERROR_SETTING_TWO_FACTOR" source="bitex/app/blinktrade.js" desc="Error message when user missed the google authentication code">Cod de autentificare greșit. Vă rugăm asigurați-vă că folosiți Google Authenticator și că telefonul dumneavoastră este sincronizat serverul Google.</translation>
+    <translation id="519289737641591893" key="MSG_TWO_STEPS_AUTHENTICATION_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="google authentication dialog title">autentificare 2 pași</translation>
+    <translation id="4916739059107319469" key="MSG_LOGIN_ERROR_INVALID_PASSWORD" source="bitex/app/blinktrade.js" desc="Invalid Password error">Parolă invalidă</translation>
+    <translation id="2129910954277323031" key="MSG_LOGIN_ERROR_INVALID_USERNAME_OR_PASSWORD" source="bitex/app/blinktrade.js" desc="Invalid Password error">Parolă sau utilizator invalid</translation>
+    <translation id="7895096865721644617" key="MSG_LOGIN_ERROR_INVALID_SECOND_STEP" source="bitex/app/blinktrade.js" desc="Invalid second step auth error">Codul de autentificare pasul doi invalid</translation>
+    <translation id="5339728393192346290" key="MSG_LOGIN_ERROR_INVALID_BROKER" source="bitex/app/blinktrade.js" desc="Invalid second step auth error">Broker invalid</translation>
+    <translation id="3021656363250205406" key="MSG_LOGIN_ERROR_USERNAME_ALREADY_TAKEN" source="bitex/app/blinktrade.js" desc="Invalid second step auth error">Utilizator sau email deja folosit</translation>
+    <translation id="8300754450415616108" key="MSG_APPLY_TO_BE_BROKER" source="bitex/app/blinktrade.js" desc="label for broker selection on signup form">Aplică să fi broker</translation>
+    <translation id="5569500319697076072" key="MSG_NOTIFY_ME_WHEN_A_NEW_BROKER_ARRIVE" source="bitex/app/blinktrade.js" desc="label for broker selection on signup form">Anunță-mă când un nou broker ajunge în zona mea</translation>
+    <translation id="2040828480399254041" key="MSG_CONNECTION_ERROR_NOTIFICATION_ERROR_TITLE" source="bitex/app/blinktrade.js" desc="notification title on Connection close">Erore</translation>
+    <translation id="5190996618520775355" key="MSG_CONNECTION_ERROR_NOTIFICATION_ERROR_CONTENT" source="bitex/app/blinktrade.js" desc="notification content on Connection close">detected with the connection.</translation>
+    <translation id="4365925919394117627" key="MSG_CONNECTION_ERROR_MESSAGE_NOTIFICATION_TITLE" source="bitex/app/blinktrade.js" desc="notification content on Connection close">Mesaj de la server:</translation>
+    <translation id="1733499172911384661" key="MSG_CONNECTION_ERROR_DEFAULT_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="Connection error dialog title">Eroare</translation>
+    <translation id="357645026509293267" key="MSG_STARTING_ALGORITHM_NOTIFICATION" source="bitex/app/blinktrade.js" desc="starting algorithm notification message">Începe algoritmul ....</translation>
+    <translation id="4798041947255443334" key="MSG_ERROR_RUNNING_ALGORITHM_NOTIFICATION" source="bitex/app/blinktrade.js" desc="error algorithm notification message">Eroare la rularea algoritmului</translation>
+    <translation id="4118429264222709574" key="MSG_STOPPING_ALGORITHM_NOTIFICATION" source="bitex/app/blinktrade.js" desc="starting algorithm notification message">algoritmul se oprește ....</translation>
+    <translation id="1176226235922874140" key="MSG_10VPB9YX8J6WS" source="bitex/templates/templates.whitedev.soy.js" desc="get verified message">Îți poți verifică contul dând click pe <ph name="startLink" />Verifică-ți contul<ph name="endLink" /></translation>
+    <translation id="7813032440507104493" key="MSG_1MACHCKNU1JY1" source="bitex/ui/simple_order_entry.ander.soy.js" desc="for a total of"> pentru un total de <ph name="currencySymbol" /></translation>
+    <translation id="7267136620269436936" key="MSG_1RPYGJ9BS7J35" source="bitex/ui/simple_order_entry.ander.soy.js" desc="I want to buy">Vreau să cumpăr <ph name="cryptoCurrencySymbol" /></translation>
+    <translation id="7886698491564141760" key="MSG_1TLJJKCN7PV4R" source="bitex/ui/advanced_order_entry.ander.soy.js" desc="Buy button in Order Entry">Cumpără</translation>
+    <translation id="1541278227797186113" key="MSG_4WNOZ44AEDTA" source="bitex/ui/advanced_order_entry.ander.soy.js" desc="Sell button in Order Entry">Vinde</translation>
+    <translation id="5496301359111680367" key="MSG_1X2TPBHY1EURU" source="bitex/templates/templates.default.soy.js" desc="Algorithm trading request permmissions dialog content">This algorithm is requesting your permission to:</translation>
+    <translation id="6530343992702578628" key="MSG_1ARB1GYVJ1DLV" source="bitex/templates/templates.default.soy.js" desc="Permission in Algo Permissions Dialog"> Show notifications</translation>
+    <translation id="7733437359068728634" key="MSG_1KVAZDW3C356W" source="bitex/templates/templates.default.soy.js" desc="Permission in Algo Permissions Dialog"> See your balances</translation>
+    <translation id="5509998647382524703" key="MSG_1T51E45MBUKQB" source="bitex/templates/templates.default.soy.js" desc="Permission in Algo Permissions Dialog"> Listen to the execution reports from your orders</translation>
+    <translation id="2387010282581588658" key="MSG_17RHQERPEJ1NH" source="bitex/templates/templates.default.soy.js" desc="Permission in Algo Permissions Dialog"> Send limited orders</translation>
+    <translation id="7520434777406239327" key="MSG_B0KPZRC0R8NB" source="bitex/templates/templates.default.soy.js" desc="Permission in Algo Permissions Dialog"> Send buy limited orders</translation>
+    <translation id="1386482686192646821" key="MSG_8WDARKASJD9Z" source="bitex/templates/templates.default.soy.js" desc="Permission in Algo Permissions Dialog"> Send sell limited orders</translation>
+    <translation id="6072451498313975644" key="MSG_66KB7HPOOJXC" source="bitex/templates/templates.default.soy.js" desc="Permission in Algo Permissions Dialog"> Send market orders</translation>
+    <translation id="5912913760925977536" key="MSG_9Q91FDVU1RQ" source="bitex/templates/templates.default.soy.js" desc="Permission in Algo Permissions Dialog"> Send buy market orders</translation>
+    <translation id="8358547692552283763" key="MSG_1TS7VWG80DSMP" source="bitex/templates/templates.default.soy.js" desc="Permission in Algo Permissions Dialog"> Send sell market order</translation>
+    <translation id="8413172216296041152" key="MSG_51LKTS4JRUP7" source="bitex/templates/templates.default.soy.js" desc="Permission in Algo Permissions Dialog"> Cancel orders</translation>
+    <translation id="6069267902329163934" key="MSG_1WJM2Y66OJV4V" source="bitex/templates/templates.default.soy.js" desc="amount help block"> Available: <ph name="xxx" /></translation>
+    <translation id="4262057046720410410" key="MSG_C7Q37EIVLA6B" source="bitex/ui/algorithm_selector.default.soy.js" desc="Help message that appears bellow the algorithm trading input box on the algorithm trading view">Understand how the algorithm trading works</translation>
+    <translation id="6128801024546160717" key="MSG_ALGO_REQUEST_PERMISSION" source="bitex/app/blinktrade.js" desc="dialog shown to the user requesting his permissions to run the selected algorithm trading">Authorize algorithm</translation>
+    <translation id="4224560933977011233" key="MSG_ILLEGAL_OPERATION_ALGORITHM_NOTIFICATION" source="bitex/app/blinktrade.js" desc="notification shown when the algorithm executed a illegal operation">Algorithm tried to execute a illegal operation</translation>
+    <translation id="1814724116698926674" key="MSG_IEXXY1PQWR66" source="bitex/ui/locked_balance_display.whitedev.soy.js" desc="Shown above the order book bids">Ai cumpara un total de </translation>
+    <translation id="2009521355879650921" key="MSG_E220FG7VIOQT" source="bitex/ui/locked_balance_display.whitedev.soy.js" desc="Shown above the order book asks">Sunteți de vânzare-un total de </translation>
+</translationbundle>
