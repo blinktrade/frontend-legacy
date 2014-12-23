@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "How long does a BTC deposit take?"
+title:  "Cât timp durează o depozitare BTC?"
 date:   2014-11-07 00:18:00
-categories: en_US blog
+categories: ro faq
 ---
 
-As long as the blockchain network takes to confirm the transaction. Usually no longer than 10 minutes.  For deposits higher than 2 BTC, we require 3 confirmations that can take up to 30 minutes. And for amounts higher than 10 BTC, we require of 6 confirmations that can take up to 60 minutes.
+Atât timp cât ia rețelei Bitcoin să confirme tranzacția. De obicei nu durează mai mult de 10 minute. Pentru depozitări mai mari de 2 BTC, cerem 3 confirmări, care pot să dureze până la 30 de minute. Iar pentru sume mai mari de 10 BTC cerem 6 confirmări, care pot dura până la 60 de minute.
