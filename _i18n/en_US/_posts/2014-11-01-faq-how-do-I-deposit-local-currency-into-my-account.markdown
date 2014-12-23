@@ -1,8 +1,8 @@
 ---
 layout:     post
-title:      "How do I deposit local currency into my account?"
+title:      "Cum depozitez bani(fiat) în contul meu?"
 date:       2014-11-07 00:08:00
-categories: en_US faq
+categories: ro faq
 ---
 
-On the main menu, click on “Deposit local currency” and a new window will appear. You will have to specify the amount of FIAT you want to deposit in order to buy bitcoins. Have in mind that the broker will charge you a fee every time you wish to make a deposit. In a deposit of $800 with a fee of 1.65% you will see $786.8 credited on your balance.
+În meniul principal, apăsați pe "Depozit monedă locală" și va apărea o fereastră nouă. You will have to specify the amount of FIAT you want to deposit in order to buy bitcoins. Va trebui să specificați cantitatea de FIAT pe care doriți să o depozitați, pentru a cumpără Bitcoin. Țineți cont că există taxă de depozitare. Pentru o depozitare de 800 lei cu o taxa de 1.5%, veți avea 788 lei creditați către contul dumneavoastră.
