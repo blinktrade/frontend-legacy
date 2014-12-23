@@ -7,7 +7,7 @@ global:
   twitter: Twitter
 exchanges:
   demo:
-    title: BlinDemo - Open Source Bitcoin Exchange demo website
+    title: BlinkDemo - Open Source Bitcoin Exchange demo website
     description: Open Source Bitcoin Exchange demo website
     keywords: bitcoin, bitcoin exchange, open source bitcoin exchange, bitcoin trading plataform, open source bitcoin trading plataform
     lead: See our open source Bitcoin exchange in action
@@ -31,6 +31,11 @@ exchanges:
     description: Compre e venda bitcoins no Brasil de maneira segura através da FoxBit. Com o FoxBit você pode começar a comprar e vender bitcoins hoje. O processo de registro dura menos de um minuto.
     keywords: Buy and sell bitcoin in Brazil, bitcoin exchange in Brazil, sell bitcoins in Brazil, buy bitcoins in Brazil, Bitcoin exchange in Brazil
     lead: Compre ou venda seus Bitcoins no Brasil
+  romaniabex:
+    title: RomaniaBitcoin.Exchange - Buy or sell bitcoins in Romania
+    description: Buy and sell bitcoin in Romania
+    keywords: Buy and sell bitcoin in Romania, bitcoin exchange in Romania, sell bitcoins in Romania, buy bitcoins in Romania
+    lead: Buy and sell bitcoin in Romania
 views:
   toolbar:
     faq: FAQ
