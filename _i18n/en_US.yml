@@ -41,22 +41,22 @@ views:
     faq: FAQ
     trading: Trading
     market: Market
-    signin: Sigin
-    signup: Signup
+    signin: Signin
+    signup: Sign up
     connect: Connect
 
   start:
     username: "Username:"
     password: "Password:"
     login: login
-    signup: Signup
+    signup: Sign up
 
   faq:
     title: FAQ - Frequently Asked Questions
     get_in_touch: Contact us in case you didn't find the answer to your question
 
   signup:
-    title: Signup
+    title: Sign up
     already_registered:  Already registered?
     login: Login
     username: Username
@@ -70,16 +70,16 @@ views:
     broker: Broker
     terms_of_service: Terms of service
     i_agree_with_terms_of_service: I agree with terms of service
-    signup_button_label: Signup
+    signup_button_label: Sign up
 
   signin:
-    title: Sigin
+    title: Signin
     dont_have_an_account: Don't have an account?
-    signup: Singup
+    signup: Sign up
     username: Username
     password: Password
     forgot_your_password: Forgot your password?
-    login_button_label: Login
+    login_button_label: Signin
 
   forgot_password:
     title: Password recovery
