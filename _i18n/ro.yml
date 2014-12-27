@@ -1,0 +1,170 @@
+global:
+  portuguese: Português
+  english: English
+  spanish: Español
+  tagline: English
+  about: About
+  twitter: Twitter
+exchanges:
+  demo:
+    title: BlinkDemo - Exchange de Bitcoin Open Source
+    description: Exchange de Bitcoin Open Source site demo
+    keywords: bitcoin, bitcoin exchange, open source bitcoin exchange, bitcoin trading plataform, open source bitcoin trading plataforma
+    lead:  Urmăriți exchange-ul nostru open source în acțiune 
+  chilebit:
+    title: ChileBit.NET -  //Cumpărați și vindeți Bitcoin în Chile
+    description:  Cumpărați și vindeți Bitcoin în Chile
+    keywords: Buy and sell bitcoin in Chile, bitcoin exchange in Chile, sell bitcoins in Chile, buy bitcoins in Chile,cumpara si vinde Bitcoin in Chile, schimba Bitcoin Chile
+    lead: Cumpărați și vindeți Bitcoin în Chile
+  surbitcoin:
+    title: SurBitcoin - The first bitcoin exchange in Venezuela
+    description: The first bitcoin exchange in Venezuela
+    keywords: Buy and sell bitcoin in Venezuela, bitcoin exchange in Venezuela, sell bitcoins in Venezuela, buy bitcoins in Venezuela
+    lead: The first bitcoin exchange in Venezuela
+  urdubit:
+    title: UrduBit - The first bitcoin exchange in Pakistan
+    description: The first bitcoin exchange in Pakistan
+    keywords: Buy and sell bitcoin in Pakistan, bitcoin exchange in Pakistan, sell bitcoins in Pakistan, buy bitcoins in Pakistan
+    lead: The first bitcoin exchange in Pakistan
+  foxbit:
+    title: FoxBit - //Cumpărați și vindeți Bitcoin în Brazilia
+    description: Cumpărați și vindeți Bitcoin în Brazilia
+    keywords: Buy and sell bitcoin in Brazil, bitcoin exchange in Brazil, sell bitcoins in Brazil, buy bitcoins in Brazil, Bitcoin exchange in Brazil
+    lead: Cumpărați și vindeți Bitcoin în Brazilia
+  romaniabex:
+    title: RomaniaBitcoin.exchange -  //Cumpărați și vindeți Bitcoin în România
+    description:  Cumpărați și vindeți Bitcoin în România
+    keywords: Buy and sell bitcoin in Romania, bitcoin exchange in Romania, sell bitcoins in Romania, buy bitcoins in Romania,cumpara si vinde Bitcoin in Romania, schimba Bitcoin Romania
+    lead: Cumpărați și vindeți Bitcoin în România
+views:
+  toolbar:
+    faq: Întrebări frecvente
+    trading: Tranzacționare
+    market: Piață
+    signin: Autentificare
+    signup: Cont nou
+    connect: Autentificare
+
+  start:
+    username: "Nume utilizator:"
+    password: "Parola:"
+    login: Autentificare
+    signup: Cont nou
+
+  faq:
+    title: Întrebări frecvente
+    get_in_touch:  Contactati-ne în cazul în care nu ați găsit răspunsul la întrebările dumneavoastră 
+
+  signup:
+    title: Creează cont nou
+    already_registered:  Deja ai cont?
+    login: Autentificare
+    username: Nume utilizator
+    email: Adresa Email
+    email_placeholder: "ex.: joe@doe.ro"
+    password: Parola
+    password_help:  Cel puțin 8 caractere 
+    confirm_password:  Confirmați parola
+    country: Țara
+    state: Județul
+    broker: Agent
+    terms_of_service: Termeni și condiții
+    i_agree_with_terms_of_service:  Sunt de acord cu termenii și condițiile serviciului 
+    signup_button_label: Crează cont nou
+
+  signin:
+    title: Autentificare
+    dont_have_an_account:  Nu ai cont? 
+    signup: Crează cont nou
+    username: Nume utilizator
+    password: Parola
+    forgot_your_password: Ați uitat parola?
+    login_button_label: Autentificare
+
+  forgot_password:
+    title: Recuperare parolă
+    email: Email
+    recover_password_button_label:  Recuperează parola
+
+  set_new_password:
+    title: Setați parolă nouă 
+    security_code:  Cod de securitate 
+    security_code_help: Codul de securitate a fost trimis pe adresa dumneavoastră de email.
+    new_password:  Parolă nouă 
+    new_password_help: Cel puțin 8 caractere
+    confirm_password: Confirmați parola
+    set_new_password_button_label:  Resetați parola
+
+  profile:
+    title: Profilul meu
+    two_factor_auth_section:
+      title:  Autentificare cu doi factori (2FA)
+      key: Cheie
+      authentication_code: Codul de autenficare
+      authentication_code_title: Cod generat de Google Authenticatior
+      authentication_code_placeholder: Ex. 555555
+      enable: Activați
+      disable: Dezactivați
+
+  trading:
+    title: Cumpără sau Vinde
+
+  offerbook:
+    title: Registrul de comenzi
+
+  customers:
+    title: Clienții mei
+
+  account_overview:
+    title:  Prezentare generală a contului
+    set_user_fees_button_label: Setați taxele pentru utilizator
+
+  withdraw:
+    title: Retragerile mele
+
+  withdraw_requests:
+    title: Solicitări de retragere
+
+  deposit:
+    title: Depunerile mele
+
+  deposit_requests:
+    title: Solicitări de depunere
+
+  ledger:
+    title: Registru
+
+  algotrading:
+    title: Tranzacționarea algoritmică
+
+  settings:
+    title: Setări
+
+  verification:
+    title: Verificare cont
+
+  market:
+    title: Market
+
+  alerts:
+    verification: You have not submitted your documents. Vă rugăm să confirmați indentitatea.
+    enable_two_factor: Puteți crește securitatea contului dvs. prin activarea autentificare în doi pasi.
+    frozen_account: Contul nostru a fost oprit de către administrator, vă rugăm să contactați echipa de suport.
+
+  sidebar:
+    market: "Moneda de schimb :"
+    menu: Meniu
+    my_profile: Profilul meu
+    my_broker: Despre exchange
+    trading: Cumpără sau Vinde
+    offerbook: Registrul de comenzi
+    ledger: Registru
+    customers: Clienți mei
+    deposit_requests: Cerere de depunere
+    withdraw_requests: Cerere de retragere
+    deposit: Depunerile mele
+    withdraw: Retragerile mele
+    verification: Verificați-va contul
+    support: Sugestii & Support
+    logout: Delogare
+    algotrading: Algo Trading

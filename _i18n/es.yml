@@ -37,14 +37,14 @@ views:
     faq: Preguntas frecuentes
     trading: Negociaciones
     market: Mercado
-    signin: Ingressar
+    signin: Ingresar
     signup: Registrarse
     connect: Conectar
 
   start:
     username: "Nombre de usuario:"
     password: "Contraseña"
-    login: Ingressar
+    login: Ingresar
     signup: Registrarse
 
   faq:
@@ -54,7 +54,7 @@ views:
   signup:
     title: Registrarse
     already_registered:  ¿Ya estás registrado?
-    login: Ingressar
+    login: Ingresar
     username: Nombre de usuario
     email: Email
     email_placeholder: "ej.: jose@email.com"
@@ -75,7 +75,7 @@ views:
     username: Nombre de usuario
     password: Contraseña
     forgot_your_password: Olvidaste tu contraseña?
-    login_button_label: Ingressar
+    login_button_label: Ingresar
 
   forgot_password:
     title: Recuperar contraseña
