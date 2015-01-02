@@ -27,11 +27,15 @@ exchanges:
     keywords: Compra y venta de bitcoins en Pakistán, mercado de bitcoins en Pakistán, venta de bitcoins en Pakistán, comprar bitcoins en Pakistán
     lead: El primer Mercado de Bitcoin de Pakistán
   foxbit:
-    title: FoxBit - Compre e venda Bitcoins no Brasil
+    title: FoxBit - Compra y venta de bitcoins en Brasil
     description: Compre e venda bitcoins no Brasil de maneira segura através da FoxBit. Com o FoxBit você pode começar a comprar e vender bitcoins hoje. O processo de registro dura menos de um minuto.
     keywords: Compra e venda de bitcoins no Brasil, bolsa de bitcoins no Brasil, venda bitcoins no Brasil, compre bitcoins no Brasil
-    lead: Compre ou venda seus Bitcoins no Brasil
-
+    lead: Compra y venta de bitcoins en Brasil
+  romaniabex:
+    title: RomaniaBitcoin.exchange - Compra y venta de bitcoins en Romênia
+    description:  Compra y venta de bitcoins en Romênia
+    keywords: Compra y venta de bitcoins en Romênia, mercado de bitcoins en Romênia, venta de bitcoins en Romênia, comprar bitcoins en Romênia
+    lead: Compra y venta de bitcoins en Romênia
 views:
   toolbar:
     faq: Preguntas frecuentes
