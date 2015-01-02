@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "Can I audit the balance of the wallets of the exchange?"
+title:  "Pot verifica soldul portofelelor din exchange?"
 date:   2014-11-07 00:25:00
-categories: en_US blog
+categories: ro faq
 
-Yes. Both public keys for the hot and cold wallets are available for auditing. All you have to do is go to blockchain.info and enter the adress you want to check out.
+Da. Cheile publice pentru portofelele calde și reci sunt disponibile pentru verificare. Tot ce trebuie să faceți este să intrați pe blockchain.info și să înserați adresa pe care doriți să o verificați.
 
