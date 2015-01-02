@@ -31,6 +31,11 @@ exchanges:
     description: Compre e venda bitcoins no Brasil de maneira segura através da FoxBit. Com o FoxBit você pode começar a comprar e vender bitcoins hoje. O processo de registro dura menos de um minuto.
     keywords: Compra e venda de bitcoins no Brasil, bolsa de bitcoins no Brasil, venda bitcoins no Brasil, compre bitcoins no Brasil
     lead: Compre e Venda seus bitcoins de maneira segura e rápida.
+  romaniabex:
+    title: RomaniaBitcoin.exchange - Compre e venda bitcoins na Romênia
+    description:  Compre e venda bitcoins na Romênia
+    keywords: Compra e venda de bitcoins na Romênia, bolsa de bitcoins na Romênia, venda bitcoins na Romênia, compre bitcoins na Romênia
+    lead: Compre e venda bitcoins na Romênia
 views:
   toolbar:
     faq: Ajuda
