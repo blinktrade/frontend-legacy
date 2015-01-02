@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "What is the instant deposit mode?"
+title:  "Care este modul de depunere instant?"
 date:   2014-11-07 00:19:00
-categories: en_US blog
+categories: ro faq
 ---
 
-It’s a feature of the exchange that enables trusted and verified users to start trading even though the FIAT deposit hasn’t still been verified by the broker. The account of the user gets credited without the need of waiting for deposit confirmations.
+Este o funcție a exchange-ului care permite utilizatorilor verificați și de încredere să poate tranzacționa, chiar dacă depozitarea FIAT nu a fost încă confirmată de broker. Contului utilizatorului este creditat fără a fi nevoit să aștepte pentru confirmare.
