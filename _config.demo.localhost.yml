@@ -1,0 +1,32 @@
+# Site settings
+url: "//localhost:4000"   # activate this to test on your localhost
+author: "BlinkTrade"
+baseurl: ""
+deploy_version: "HEAD"
+
+exchange: "demo"
+exchange_logo: "demo"
+
+default_country_code: "US"
+blinktrade_broker_id: 5
+
+blinktrade_backend_api: "api.testnet.blinktrade.com"
+#blinktrade_backend_api: "localhost"
+google_analytics_id: "UA-53856711-1"
+zopim_key: "2SSNIzvxy8fBypKoZJ0pI43tUoNCv8os"
+
+
+
+# Build settings
+markdown: kramdown
+
+
+languages: ["en_US", "es", "pt_BR", "ro"]
+
+exclude:     [ "jsdev", "LICENSE", "README.md", "config.rb", "deploy.sh", "build_javascript.sh" ]
+source:      .
+destination: ./_site
+plugins:     ./_plugins
+paginate:    5
+paginate_path: "post/page:num"
+permalink:     /post/:title/

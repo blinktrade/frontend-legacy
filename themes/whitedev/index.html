@@ -252,6 +252,23 @@ load_application:       True
     </div>
   </div>
 
+  <div class="bitex-display-if-logged">
+    <div class="alert | bitex-model" style="display: none" data-model-key="IsMissingVerification" data-model-action="show_element">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <a href="" data-switch-view="verification"> {% t views.alerts.verification %} </a>
+    </div>
+
+    <div class="alert alert-success | bitex-model" style="display: none" data-model-key="TwoFactorEnabled" data-model-action="hide_element">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <a href="" data-switch-view="profile"> {% t views.alerts.enable_two_factor %} </a>
+    </div>
+
+    <div class="alert alert-error | bitex-model" style="display: none" data-model-key="IsAccountBlocked" data-model-action="show_element">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <a href="" data-switch-view="faq"> {% t views.alerts.frozen_account %} </a>
+    </div>
+  </div>
+
   <div class="page row-fluid bitex-display-if-logged">
     <div class="span9">
       <div id="profile" class="bitex-view">

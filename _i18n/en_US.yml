@@ -41,7 +41,7 @@ views:
     faq: FAQ
     trading: Trading
     market: Market
-    signin: Signin
+    signin: Sign in
     signup: Sign up
     connect: Connect
 
@@ -73,13 +73,13 @@ views:
     signup_button_label: Sign up
 
   signin:
-    title: Signin
+    title: Sign in
     dont_have_an_account: Don't have an account?
     signup: Sign up
     username: Username
     password: Password
     forgot_your_password: Forgot your password?
-    login_button_label: Signin
+    login_button_label: Sign in
 
   forgot_password:
     title: Password recovery
