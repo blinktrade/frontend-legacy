@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE translationbundle>
 <translationbundle lang="en_US">
-	<translation id="1389515633492806757" key="MSG_ERROR_VALIDATE_REQUIRED" source="uniform/validators.js" desc="Error Validade Required in Validators"><ph name="c" /> is required</translation>
-	<translation id="7102101605595770439" key="MSG_ERROR_VALIDATE_MIN_LENGTH" source="uniform/validators.js" desc="Error validate min lenght"><ph name="c" /> should be at least <ph name="d" /> characters long</translation>
-	<translation id="6348943748292426048" key="MSG_ERROR_VALIDATE_EMAIL" source="uniform/validators.js" desc="Error validate email"><ph name="c" /> is not a valid email address</translation>
-	<translation id="2167540827965306475" key="MSG_ERROR_VALIDATE_MAX_LENGTH" source="uniform/validators.js" desc="Error Validate Max lenght"><ph name="c" /> should not be longer than <ph name="d" /> characters</translation>
-	<translation id="1396260868685465" key="MSG_ERROR_VALIDATE_MAX" source="uniform/validators.js" desc="Error Validate max"><ph name="c" /> should be less than or equal to <ph name="d" /></translation>
-	<translation id="3029321980122559406" key="MSG_ERROR_VALIDATE_MIN" source="uniform/validators.js" desc="Error validate min"><ph name="c" /> should be greater than or equal to <ph name="d" /></translation>
-	<translation id="6848903508240629067" key="MSG_ERROR_VALIDATE_NUMBER" source="uniform/validators.js" desc="Error validate number"><ph name="c" /> needs to be a number</translation>
-	<translation id="3140109020233896827" key="MSG_ERROR_VALIDATE_INTEGER" source="uniform/validators.js" desc="Error validate integer"><ph name="c" /> needs to be a whole number</translation>
-	<translation id="5374227695750989408" key="MSG_ERROR_VALIDATE_ALPHA" source="uniform/validators.js" desc="Error validate alpha"><ph name="c" /> should contain only letters (without special characters or numbers)</translation>
+	<translation id="1389515633492806757" key="MSG_ERROR_VALIDATE_REQUIRED" source="uniform/validators.js" desc="Error Validade Required in Validators"><ph name="c" /> 需要用户名</translation>
+	<translation id="7102101605595770439" key="MSG_ERROR_VALIDATE_MIN_LENGTH" source="uniform/validators.js" desc="Error validate min lenght"><ph name="c" /> 应该至少是 <ph name="d" />字符</translation>
+	<translation id="6348943748292426048" key="MSG_ERROR_VALIDATE_EMAIL" source="uniform/validators.js" desc="Error validate email"><ph name="c" /> 不是有效的Email邮箱地址</translation>
+	<translation id="2167540827965306475" key="MSG_ERROR_VALIDATE_MAX_LENGTH" source="uniform/validators.js" desc="Error Validate Max lenght"><ph name="c" /> 长度不超过 <ph name="d" /> 字符</translation>
+	<translation id="1396260868685465" key="MSG_ERROR_VALIDATE_MAX" source="uniform/validators.js" desc="Error Validate max"><ph name="c" /> 应小于等于 <ph name="d" /></translation>
+	<translation id="3029321980122559406" key="MSG_ERROR_VALIDATE_MIN" source="uniform/validators.js" desc="Error validate min"><ph name="c" /> 应大于等于 <ph name="d" /></translation>
+	<translation id="6848903508240629067" key="MSG_ERROR_VALIDATE_NUMBER" source="uniform/validators.js" desc="Error validate number"><ph name="c" /> 需要是数字</translation>
+	<translation id="3140109020233896827" key="MSG_ERROR_VALIDATE_INTEGER" source="uniform/validators.js" desc="Error validate integer"><ph name="c" /> 需要是整数</translation>
+	<translation id="5374227695750989408" key="MSG_ERROR_VALIDATE_ALPHA" source="uniform/validators.js" desc="Error validate alpha"><ph name="c" /> 应只包含字母 (不包含特殊字符或者数字)</translation>
 	<translation id="2383106485535929608" key="MSG_ERROR_VALIDATE_ALPHA_NUM" source="uniform/validators.js" desc="Error validate alpha num"><ph name="c" /> should contain only numbers and letters (without special characters)</translation>
 	<translation id="3244343148402740064" key="MSG_ERROR_VALIDATE_PHRASE" source="uniform/validators.js" desc="error validate phrase"><ph name="c" /> should contain only alphabetic characters, numbers, spaces, and the following: . , - _ () * # :</translation>
 	<translation id="7954197427535238099" key="MSG_ERROR_VALIDATE_USERNAME" source="uniform/validators.js" desc="error validate phrase"><ph name="c" /> should contain only alphabetic characters, numbers, and the following characters: . _ -</translation>
