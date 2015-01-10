@@ -111,6 +111,8 @@ views:
 
   offerbook:
     title: Libro de órdenes
+    cumulative: Acumulado
+    fees: Tasas
 
   customers:
     title: Mis clientes

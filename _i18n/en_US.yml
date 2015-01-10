@@ -111,6 +111,8 @@ views:
 
   offerbook:
     title: Order Book
+    cumulative: Cumulative
+    fees: Fees
 
   customers:
     title: My customers
