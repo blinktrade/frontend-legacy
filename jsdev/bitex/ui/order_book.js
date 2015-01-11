@@ -36,7 +36,8 @@ bitex.ui.OrderBook = function ( username, side, qtyCurrencyDef, priceCurrencyDef
   this.side_ = side;
 
   this.show_cum_qty_ = false;
-  this.show_fee_ = false;
+  this.show_fees_ = false;
+  this.fee_ = 1;
 };
 goog.inherits( bitex.ui.OrderBook, goog.ui.Component);
 
@@ -106,7 +107,7 @@ bitex.ui.OrderBook.prototype.show_cum_qty_;
  * @type {boolean}
  * @private
  */
-bitex.ui.OrderBook.prototype.show_fee_;
+bitex.ui.OrderBook.prototype.show_fees_;
 
 /**
  * @type {number}
@@ -171,8 +172,39 @@ bitex.ui.OrderBook.prototype.createDom = function() {
     title: title,
     columns: columns
   });
-
   this.decorateInternal(el);
+};
+
+bitex.ui.OrderBook.prototype.setFee = function(fee) {
+  this.fee_ = fee;
+};
+
+/**
+ * @param {boolean} show
+ */
+bitex.ui.OrderBook.prototype.showFees = function(show) {
+  this.show_fees_ = show;
+
+  var price_element_index = 0;
+  if (this.side_ ==  bitex.ui.OrderBook.Side.BUY) {
+    price_element_index = 2;
+  }
+
+  var dom = this.getDomHelper();
+  var formatter = new goog.i18n.NumberFormat( this.priceCurrencyDef_.format, this.priceCurrencyDef_.code );
+  var row_elements = dom.getChildren(this.bodyEl_ );
+
+  for (index = 0; index<row_elements.length; ++index) {
+    var row_element = row_elements[index];
+    var price = parseInt(row_element.getAttribute('data-price-value'),10 );
+
+    if (this.show_fees_) {
+      price = price + price * this.fee_;
+    }
+
+    var price_el = dom.getChildren( row_element )[price_element_index];
+    dom.setTextContent(price_el, formatter.format(price/1e8));
+  }
 };
 
 
@@ -431,6 +463,9 @@ bitex.ui.OrderBook.prototype.insertOrder = function( index, id, price, qty, user
   formatted_qty = qty_formatter.format(qty/1e8);
 
   var price_formatter = new goog.i18n.NumberFormat( this.priceCurrencyDef_.format, this.priceCurrencyDef_.code );
+  if (this.show_fees_) {
+    price = price + price * this.fee_;
+  }
   formatted_price = price_formatter.format(price/1e8);
 
   var priceEl = dom.createDom( 'td', goog.getCssName(this.getBaseCssClass(), 'price') , formatted_price);

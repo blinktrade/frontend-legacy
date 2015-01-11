@@ -212,6 +212,17 @@ bitex.view.OfferBookView.prototype.recreateOrderBookComponents_ = function( sele
   this.order_book_bid_.render( goog.dom.getElement('id_order_book_bid_content') );
   this.order_book_offer_.render( goog.dom.getElement('id_order_book_ask_content') );
 
+  var fee_buy = this.getApplication().getModel().get('Broker')['TransactionFeeBuy'] / 10000 ;
+  if (goog.isDefAndNotNull(this.getApplication().getModel().get('Profile')['TransactionFeeBuy'])) {
+    fee_buy = this.getApplication().getModel().get('Profile')['TransactionFeeBuy'] / 10000;
+  }
+  var fee_sell = this.getApplication().getModel().get('Broker')['TransactionFeeSell'] / 10000 ;
+  if (goog.isDefAndNotNull(this.getApplication().getModel().get('Profile')['TransactionFeeSell'])) {
+    fee_sell = this.getApplication().getModel().get('Profile')['TransactionFeeSell'] / 10000;
+  }
+  this.order_book_bid_.setFee(fee_buy * -1);
+  this.order_book_offer_.setFee(fee_sell);
+
   handler.listen(this.order_book_bid_ ,bitex.ui.OrderBook.EventType.CANCEL, this.onCancelOrder_ );
   handler.listen(this.order_book_offer_ ,bitex.ui.OrderBook.EventType.CANCEL, this.onCancelOrder_ );
 
@@ -261,6 +272,9 @@ bitex.view.OfferBookView.prototype.enterDocument = function() {
 bitex.view.OfferBookView.prototype.onFeesClick_ = function(e) {
   var isActive = this.fee_btn_.hasState(goog.ui.Component.State.ACTIVE);
   this.fee_btn_.setActive(!isActive);
+
+  this.order_book_bid_.showFees(this.fee_btn_.hasState(goog.ui.Component.State.ACTIVE));
+  this.order_book_offer_.showFees(this.fee_btn_.hasState(goog.ui.Component.State.ACTIVE));
 };
 
 bitex.view.OfferBookView.prototype.onCumQtyClick_ = function(e) {
