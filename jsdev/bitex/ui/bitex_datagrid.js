@@ -647,7 +647,7 @@ bitex.ui.DataGrid.prototype.insertOrUpdateRecord = function(record, opt_index) {
     this.adjustSizes_(first_row);
   }
 
-  var blink_class = 'warning';
+  var blink_class = 'md-blink';
   goog.dom.classes.add( tr,  blink_class );
   goog.Timer.callOnce( function(){
     goog.dom.classes.remove( tr,  blink_class );

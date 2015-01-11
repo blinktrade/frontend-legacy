@@ -17,6 +17,7 @@ blinktrade_backend_api: "api.testnet.blinktrade.com"
 google_analytics_id: "UA-53856711-1"
 zopim_key: "2SSNIzvxy8fBypKoZJ0pI43tUoNCv8os"
 
+embedded_chat_id : 4296  # embedded-chat.com
 
 
 # Build settings
