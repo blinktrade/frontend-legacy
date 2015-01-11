@@ -111,6 +111,8 @@ views:
 
   offerbook:
     title: Livro de ofertas
+    cumulative: Acumulado
+    fees: Taxas
 
   customers:
     title: Meus clientes

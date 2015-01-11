@@ -276,7 +276,7 @@ bitex.ui.ListView.prototype.insertOrUpdateRecord = function(record, opt_index) {
     goog.dom.appendChild(row_element, rowFormatterFn(record ));
   }
 
-  var blink_class = 'warning';
+  var blink_class = 'md-blink';
   goog.dom.classes.add( row_element,  blink_class );
   goog.Timer.callOnce( function(){
     goog.dom.classes.remove( row_element,  blink_class );

@@ -18,7 +18,7 @@ goog.require('bitex.model.OrderBookCurrencyModel');
  * @param {bitex.ui.OrderBook.Side} side
  * @param {bitex.model.OrderBookCurrencyModel} qtyCurrencyDef
  * @param {bitex.model.OrderBookCurrencyModel} priceCurrencyDef
- * @param {number} opt_blinkDelay. Defaults to 700 milliseconds
+ * @param {number} opt_blinkDelay. Defaults to 1200 milliseconds
  * @param {goog.dom.DomHelper=} opt_domHelper Optional DOM helper.
  *
  * @extends {goog.ui.Component}
@@ -27,13 +27,17 @@ goog.require('bitex.model.OrderBookCurrencyModel');
 bitex.ui.OrderBook = function ( username, side, qtyCurrencyDef, priceCurrencyDef , opt_blinkDelay, opt_domHelper) {
   goog.base(this, opt_domHelper);
 
-  this.blink_delay_ = opt_blinkDelay || 700;
+  this.blink_delay_ = opt_blinkDelay || 1200;
 
   this.qtyCurrencyDef_ = qtyCurrencyDef;
   this.priceCurrencyDef_ = priceCurrencyDef;
 
   this.username_ = username;
   this.side_ = side;
+
+  this.show_cum_qty_ = false;
+  this.show_fees_ = false;
+  this.fee_ = 1;
 };
 goog.inherits( bitex.ui.OrderBook, goog.ui.Component);
 
@@ -50,7 +54,9 @@ bitex.ui.OrderBook.Side = {
  * @enum {string}
  */
 bitex.ui.OrderBook.EventType = {
-  CANCEL: 'cancel'
+  CANCEL: 'cancel',
+  PRICE_CLICK: 'price_click',
+  QTY_CLICK: 'qty_click'
 };
 
 
@@ -79,7 +85,6 @@ bitex.ui.OrderBook.prototype.qtyCurrencyDef_;
  */
 bitex.ui.OrderBook.prototype.priceCurrencyDef_;
 
-
 /**
  * @type {number}
  * @private
@@ -91,6 +96,25 @@ bitex.ui.OrderBook.prototype.blink_delay_;
  * @private
  */
 bitex.ui.OrderBook.prototype.bodyEl_;
+
+/**
+ * @type {boolean}
+ * @private
+ */
+bitex.ui.OrderBook.prototype.show_cum_qty_;
+
+/**
+ * @type {boolean}
+ * @private
+ */
+bitex.ui.OrderBook.prototype.show_fees_;
+
+/**
+ * @type {number}
+ * @private
+ */
+bitex.ui.OrderBook.prototype.fee_;
+
 
 
 /**
@@ -148,10 +172,84 @@ bitex.ui.OrderBook.prototype.createDom = function() {
     title: title,
     columns: columns
   });
-
   this.decorateInternal(el);
 };
 
+bitex.ui.OrderBook.prototype.setFee = function(fee) {
+  this.fee_ = fee;
+};
+
+/**
+ * @param {boolean} show
+ */
+bitex.ui.OrderBook.prototype.showFees = function(show) {
+  this.show_fees_ = show;
+
+  var price_element_index = 0;
+  if (this.side_ ==  bitex.ui.OrderBook.Side.BUY) {
+    price_element_index = 2;
+  }
+
+  var dom = this.getDomHelper();
+  var formatter = new goog.i18n.NumberFormat( this.priceCurrencyDef_.format, this.priceCurrencyDef_.code );
+  var row_elements = dom.getChildren(this.bodyEl_ );
+
+  for (index = 0; index<row_elements.length; ++index) {
+    var row_element = row_elements[index];
+    var price = parseInt(row_element.getAttribute('data-price-value'),10 );
+
+    if (this.show_fees_) {
+      price = price + price * this.fee_;
+    }
+
+    var price_el = dom.getChildren( row_element )[price_element_index];
+    dom.setTextContent(price_el, formatter.format(price/1e8));
+  }
+};
+
+
+bitex.ui.OrderBook.prototype.showCumulativeQty = function() {
+  this.show_cum_qty_ = true;
+
+  var dom = this.getDomHelper();
+  var formatter = new goog.i18n.NumberFormat( this.qtyCurrencyDef_.format, this.qtyCurrencyDef_.code );
+
+  var row_elements = dom.getChildren(this.bodyEl_ );
+  for (index = 0; index<row_elements.length; ++index) {
+    var row_element = row_elements[index];
+    var qty = parseInt(row_element.getAttribute('data-cum-qty-value'),10 );
+
+    formatted_qty = formatter.format(qty/1e8);
+
+    var tdQtyEl = dom.getChildren( row_element )[1];
+    dom.setTextContent(tdQtyEl, formatted_qty);
+  }
+};
+
+bitex.ui.OrderBook.prototype.showQty = function() {
+  this.show_cum_qty_ = false;
+
+  var dom = this.getDomHelper();
+  var formatter = new goog.i18n.NumberFormat( this.qtyCurrencyDef_.format, this.qtyCurrencyDef_.code );
+
+  var row_elements = dom.getChildren(this.bodyEl_ );
+  for (index = 0; index<row_elements.length; ++index) {
+    var row_element = row_elements[index];
+    var qty = parseInt(row_element.getAttribute('data-qty-value'),10 );
+
+    formatted_qty = formatter.format(qty/1e8);
+
+    var tdQtyEl = dom.getChildren( row_element )[1];
+    dom.setTextContent(tdQtyEl, formatted_qty);
+  }
+};
+
+/**
+ * @return {boolean}
+ */
+bitex.ui.OrderBook.prototype.isShowingCumQty = function(){
+  return this.show_cum_qty_;
+};
 
 /** @override */
 bitex.ui.OrderBook.prototype.decorateInternal = function(element) {
@@ -172,15 +270,33 @@ bitex.ui.OrderBook.prototype.enterDocument = function() {
  * @param {goog.events.Event} e
  */
 bitex.ui.OrderBook.prototype.onClick_  = function(e){
-  var cxlEl = e.target;
-  if (cxlEl.tagName == goog.dom.TagName.A || cxlEl.tagName == goog.dom.TagName.I ) {
-    var orderId = cxlEl.getAttribute('data-order-id');
+  var el = e.target;
+  var tr_element = goog.dom.getAncestorByTagNameAndClass(el, goog.dom.TagName.TR);
+  if (!goog.isDefAndNotNull(tr_element)) {
+    return;
+  }
+
+  if (el.tagName == goog.dom.TagName.A || el.tagName == goog.dom.TagName.I ) {
+    var orderId = el.getAttribute('data-order-id');
     if ( goog.isDefAndNotNull(orderId)  ) {
       this.dispatchEvent( new bitex.ui.OrderBookEvent (bitex.ui.OrderBook.EventType.CANCEL, orderId) );
-
       e.preventDefault();
       e.stopPropagation();
     }
+    return;
+  }
+
+  var price = parseInt(tr_element.getAttribute('data-price-value'));
+  var qty = parseInt(tr_element.getAttribute('data-qty-value'));
+  var cum_qty = parseInt(tr_element.getAttribute('data-cum-qty-value'));
+
+  if ( goog.dom.classes.has(el, goog.getCssName(this.getBaseCssClass(), 'price')) ) {
+    this.dispatchEvent(
+        new bitex.ui.OrderBookEvent(bitex.ui.OrderBook.EventType.PRICE_CLICK,undefined, qty, cum_qty, price));
+  }
+  if ( goog.dom.classes.has(el, goog.getCssName(this.getBaseCssClass(), 'qty')) ) {
+    this.dispatchEvent(
+        new bitex.ui.OrderBookEvent(bitex.ui.OrderBook.EventType.QTY_CLICK,undefined, qty, cum_qty, price));
   }
 };
 
@@ -188,17 +304,35 @@ bitex.ui.OrderBook.prototype.onClick_  = function(e){
 /**
  *
  * @param {string} type
- * @param {string} orderId
+ * @param {string=} opt_orderId
+ * @param {number=} opt_qty
+ * @param {number=} opt_cum_qty
+ * @param {number=} opt_price
  * @extends {goog.events.Event}
  * @constructor
  */
-bitex.ui.OrderBookEvent = function(type, orderId) {
+bitex.ui.OrderBookEvent = function(type, opt_orderId, opt_qty, opt_cum_qty, opt_price) {
   goog.events.Event.call(this, type);
 
   /**
    * @type {string}
    */
-  this.order_id = orderId;
+  this.order_id = opt_orderId;
+
+  /**
+   * @type {number}
+   */
+  this.qty = opt_qty;
+
+  /**
+   * @type {number}
+   */
+  this.cum_qty = opt_cum_qty;
+
+  /**
+   * @type {number}
+   */
+  this.price = opt_price;
 };
 goog.inherits(bitex.ui.OrderBookEvent, goog.events.Event);
 
@@ -207,7 +341,6 @@ goog.inherits(bitex.ui.OrderBookEvent, goog.events.Event);
 
 bitex.ui.OrderBook.prototype.clear  = function(){
   var dom = this.getDomHelper();
-
   goog.dom.removeChildren(this.bodyEl_);
 };
 
@@ -217,11 +350,26 @@ bitex.ui.OrderBook.prototype.clear  = function(){
  */
 bitex.ui.OrderBook.prototype.deleteOrderThru = function( index) {
   var dom = this.getDomHelper();
+  var formatter = new goog.i18n.NumberFormat( this.qtyCurrencyDef_.format, this.qtyCurrencyDef_.code );
 
   var child;
   while ((child = this.bodyEl_.firstChild) && index>0 ) {
     this.bodyEl_.removeChild(child);
     index--;
+  }
+
+  var row_elements = dom.getChildren(this.bodyEl_ );
+  var cum_qty = 0;
+  for (index = 0; index<row_elements.length; ++index) {
+    var row_element = row_elements[index];
+    cum_qty += parseInt(row_element.getAttribute('data-qty-value'),10 );
+    row_element.setAttribute('data-cum-qty-value',cum_qty);
+
+    if (this.show_cum_qty_){
+      var formatted_qty = formatter.format(cum_qty/1e8);
+      var tdQtyEl = dom.getChildren( row_element )[1];
+      dom.setTextContent(tdQtyEl, formatted_qty);
+    }
   }
 };
 
@@ -230,7 +378,27 @@ bitex.ui.OrderBook.prototype.deleteOrderThru = function( index) {
  */
 bitex.ui.OrderBook.prototype.deleteOrder = function( index) {
   var dom = this.getDomHelper();
-  var trEl = dom.getChildren(this.bodyEl_ )[index];
+
+  var formatter = new goog.i18n.NumberFormat( this.qtyCurrencyDef_.format, this.qtyCurrencyDef_.code );
+
+  var row_elements = dom.getChildren(this.bodyEl_ );
+  var trEl = row_elements[index];
+  var qty = trEl.getAttribute('data-qty-value');
+
+  // update cumulative qty of the following orders
+  for (var next_index = index + 1; next_index<row_elements.length; ++next_index) {
+    var nextRowEl = row_elements[next_index];
+    var new_cum_qty = parseInt(nextRowEl.getAttribute('data-cum-qty-value'),10 ) - qty;
+    nextRowEl.setAttribute('data-cum-qty-value',new_cum_qty);
+
+    if (this.show_cum_qty_){
+      var formatted_qty = formatter.format(new_cum_qty/1e8);
+      var tdQtyEl = dom.getChildren( nextRowEl )[1];
+      dom.setTextContent(tdQtyEl, formatted_qty);
+    }
+
+  }
+
   dom.removeNode(trEl );
 };
 
@@ -242,14 +410,36 @@ bitex.ui.OrderBook.prototype.updateOrder = function( index, qty) {
   var dom = this.getDomHelper();
   
   var formatter = new goog.i18n.NumberFormat( this.qtyCurrencyDef_.format, this.qtyCurrencyDef_.code );
-  qty = formatter.format(qty);
-  
-  var trEl = dom.getChildren(this.bodyEl_ )[index];
+  formatted_qty = formatter.format(qty/1e8);
+
+  var row_elements = dom.getChildren(this.bodyEl_ );
+
+  var trEl = row_elements[index];
+  var old_qty = trEl.getAttribute('data-qty-value');
+  var diff_qty = qty - old_qty;
+
+
+  trEl.setAttribute('data-qty-value', qty);
+
+
+  // update cumulative qty of the following orders
+  for (var next_index = index; next_index<row_elements.length; ++next_index) {
+    var nextRowEl = row_elements[next_index];
+    var new_cum_qty = parseInt(nextRowEl.getAttribute('data-cum-qty-value'),10 ) + diff_qty;
+    nextRowEl.setAttribute('data-cum-qty-value',new_cum_qty);
+
+    if (this.show_cum_qty_){
+      var formatted_cum_qty = formatter.format(new_cum_qty/1e8);
+      dom.setTextContent(dom.getChildren( nextRowEl )[1], formatted_cum_qty);
+    }
+  }
 
   var tdQtyEl = dom.getChildren( trEl )[1];
-  dom.setTextContent(tdQtyEl, qty);
+  if (!this.show_cum_qty_){
+    dom.setTextContent(tdQtyEl, formatted_qty);
+  }
 
-  var blink_class = 'warning'; //goog.getCssName(this.getBaseCssClass(), 'blink');
+  var blink_class = 'md-blink';
   goog.dom.classes.add( tdQtyEl,  blink_class );
 
   goog.Timer.callOnce( function(){
@@ -269,14 +459,17 @@ bitex.ui.OrderBook.prototype.updateOrder = function( index, qty) {
 bitex.ui.OrderBook.prototype.insertOrder = function( index, id, price, qty, username, broker ) {
   var dom = this.getDomHelper();
 
-  var formatter = new goog.i18n.NumberFormat( this.qtyCurrencyDef_.format, this.qtyCurrencyDef_.code );
-  qty = formatter.format(qty);
+  var qty_formatter = new goog.i18n.NumberFormat( this.qtyCurrencyDef_.format, this.qtyCurrencyDef_.code );
+  formatted_qty = qty_formatter.format(qty/1e8);
 
-  formatter = new goog.i18n.NumberFormat( this.priceCurrencyDef_.format, this.priceCurrencyDef_.code );
-  price = formatter.format(price);
+  var price_formatter = new goog.i18n.NumberFormat( this.priceCurrencyDef_.format, this.priceCurrencyDef_.code );
+  if (this.show_fees_) {
+    price = price + price * this.fee_;
+  }
+  formatted_price = price_formatter.format(price/1e8);
 
-  var priceEl = dom.createDom( 'td', goog.getCssName(this.getBaseCssClass(), 'price') , price);
-  var qtyEl = dom.createDom( 'td', goog.getCssName(this.getBaseCssClass(), 'qty'), qty);
+  var priceEl = dom.createDom( 'td', goog.getCssName(this.getBaseCssClass(), 'price') , formatted_price);
+  var qtyEl = dom.createDom( 'td', goog.getCssName(this.getBaseCssClass(), 'qty'), formatted_qty);
 
   var userNameEl;
   if (username === this.username_ || broker === this.username_ ){
@@ -306,11 +499,40 @@ bitex.ui.OrderBook.prototype.insertOrder = function( index, id, price, qty, user
     'class': goog.getCssName(this.getBaseCssClass(), 'row')
   };
 
+  var row_elements = dom.getChildren(this.bodyEl_ );
+  var cumulative_qty = qty;
   var rowEl = dom.createDom( 'tr', tr_properties , td_list );
+  rowEl.setAttribute('data-price-value', price);
+  rowEl.setAttribute('data-qty-value', qty);
+  if (index == 0) {
+    rowEl.setAttribute('data-cum-qty-value', cumulative_qty);
+  } else {
+    var previousRowEl = row_elements[index-1];
+    cumulative_qty += parseInt(previousRowEl.getAttribute('data-cum-qty-value'),10 );
+    rowEl.setAttribute('data-cum-qty-value', cumulative_qty);
+  }
+  if (this.show_cum_qty_){
+    var formatted_cumulative_qty = qty_formatter.format(cumulative_qty/1e8);
+    dom.setTextContent(dom.getChildren( rowEl )[1], formatted_cumulative_qty);
+  }
+
+  // update cumulative qty of the following orders
+  for (var next_index = index; next_index<row_elements.length; ++next_index) {
+    var nextRowEl = row_elements[next_index];
+    var new_cum_qty = parseInt(nextRowEl.getAttribute('data-cum-qty-value'),10 ) + qty;
+    nextRowEl.setAttribute('data-cum-qty-value',new_cum_qty);
+
+     if (this.show_cum_qty_){
+      var formatted_cum_qty = qty_formatter.format(new_cum_qty/1e8);
+      dom.setTextContent(dom.getChildren( nextRowEl )[1], formatted_cum_qty);
+    }
+ }
+
+
   dom.insertChildAt( this.bodyEl_, rowEl, index );
 
 
-  var blink_class  = 'warning'; // goog.getCssName(this.getBaseCssClass(), 'blink');
+  var blink_class  = 'md-blink';
   goog.dom.classes.add( rowEl,  blink_class );
 
   goog.Timer.callOnce( function(){
