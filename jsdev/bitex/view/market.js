@@ -148,7 +148,6 @@ bitex.view.MarketView.prototype.destroyComponents_ = function( ) {
 
     this.dispatchEvent(bitex.view.View.EventType.MARKET_DATA_UNSUBSCRIBE);
     this.dispatchEvent(bitex.view.View.EventType.SECURITY_STATUS_UNSUBSCRIBE);
-
   }
 
   this.removeChildren(true);
