@@ -106,6 +106,12 @@ java -jar ./tools/SoyToJsSrcCompiler.jar --bidiGlobalDir 1 --shouldGenerateGoogM
   --outputPathFormat  './bitex/ui/{INPUT_FILE_NAME_NO_EXT}.soy.js' \
   ./bitex/ui/locked_balance_display.$THEME.soy
 
+echo "remittance_box.soy"
+java -jar ./tools/SoyToJsSrcCompiler.jar --bidiGlobalDir 1 --shouldGenerateGoogMsgDefs \
+  --shouldProvideRequireSoyNamespaces --codeStyle concat --cssHandlingScheme GOOG  \
+  --outputPathFormat  './bitex/ui/{INPUT_FILE_NAME_NO_EXT}.soy.js' \
+  ./bitex/ui/remittance_box.$THEME.soy
+
 
 echo "done with soy templates"
 
@@ -148,6 +154,9 @@ python ./closure-library/closure/bin/build/closurebuilder.py  \
   --compiler_flags="--externs=./externs/sticky.js" \
   --compiler_flags="--externs=./externs/facebook_javascript_sdk.js" \
   --compiler_flags="--translations_file=./translations/$LANG.xtb.xml" \
+  --compiler_flags="--debug=TRUE" \
+  --compiler_flags="--formatting=PRETTY_PRINT" \
+  --compiler_flags="--formatting=PRINT_INPUT_DELIMITER" \
    > ../assets/js/bitex_app_blink_trade.compiled.$LANG.$THEME.js
 
 # enable those flags to debug the compiled code.

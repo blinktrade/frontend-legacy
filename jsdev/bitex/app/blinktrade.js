@@ -810,6 +810,7 @@ bitex.app.BlinkTrade.prototype.onUserSecurityStatusUnsubscribe_ = function(e) {
   this.conn_.unSubscribeSecurityStatus(e.target.getSecSubscriptionId());
 };
 
+
 /**
  * @param {string} symbol
  * @return {string}
