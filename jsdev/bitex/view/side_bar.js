@@ -209,12 +209,20 @@ bitex.view.SideBarView.prototype.enterDocument = function() {
 
   handler.listen(goog.dom.getElement('id_instrument_1'), goog.events.EventType.CHANGE  , function(e) {
     this.dispatchEvent(bitex.view.SideBarView.EventType.CHANGE_MARKET);
-
     if (goog.isDefAndNotNull(this.remittance_box_)) {
-      this.remittance_box_.clearCurrencies();
       var symbol = this.getSymbol();
-      var currency = this.getApplication().getPriceCurrencyFromSymbol(symbol);
-      this.remittance_box_.addCurrency(currency);
+      this.remittance_box_.clearCurrencies();
+
+      if (goog.isDefAndNotNull( model.get('Broker')['AllowedMarkets'][symbol])) {
+        goog.array.forEach(model.get('Broker')['BrokerCurrencies'], function(currency) {
+          if (!this.getApplication().isCryptoCurrency(currency)){
+            this.remittance_box_.addCurrency(currency);
+          }
+        }, this);
+      } else {
+        var currency = this.getApplication().getPriceCurrencyFromSymbol(symbol);
+        this.remittance_box_.addCurrency(currency);
+      }
     }
   }, this);
 
