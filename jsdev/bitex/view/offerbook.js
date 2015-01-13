@@ -169,7 +169,7 @@ bitex.view.OfferBookView.prototype.destroyOrderBookComponents_ = function( ) {
     this.order_book_offer_.dispose();
   }
   if (goog.isDefAndNotNull(this.market_data_subscription_id_)) {
-    var conn = this.getApplication().getBitexConnection() ;
+    var conn = this.getApplication().getBitexConnection();
     handler.unlisten( conn, bitex.api.BitEx.EventType.ORDER_BOOK_CLEAR + '.' + this.market_data_subscription_id_, this.onOBClear_);
     handler.unlisten( conn, bitex.api.BitEx.EventType.ORDER_BOOK_DELETE_ORDERS_THRU + '.' + this.market_data_subscription_id_, this.onOBDeleteOrdersThru_);
     handler.unlisten( conn, bitex.api.BitEx.EventType.ORDER_BOOK_DELETE_ORDER + '.' + this.market_data_subscription_id_, this.onOBDeleteOrder_);
