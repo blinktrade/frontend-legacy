@@ -13,6 +13,8 @@ goog.require('goog.dom.forms');
 goog.require('bitex.util');
 goog.require('bitex.util.PriceAmountCalculatorVerb');
 
+goog.require('bitex.primitives.Price');
+
 goog.require('uniform.Uniform');
 
 
@@ -111,7 +113,9 @@ bitex.ui.AdvancedOrderEntry.prototype.createDom = function() {
     broker_id                 : this.getModel().broker_id,
     amount_currency_symbol    : this.getModel().amount_currency_symbol,
     price_currency_symbol     : this.getModel().price_currency_symbol,
-    client_id                 : this.getModel().client_id
+    client_id                 : this.getModel().client_id,
+    amount_currency_code      : this.getModel().amount_currency_code,
+    price_currency_code       : this.getModel().price_currency_code
   });
   this.setElementInternal(el);
 };
@@ -135,9 +139,18 @@ bitex.ui.AdvancedOrderEntry.prototype.enterDocument = function() {
   handler.listen( new goog.events.InputHandler( goog.dom.getElement( this.makeId('order_entry_total') ) ),
                   goog.events.InputHandler.EventType.INPUT,
                   this.onChangeTotal_ );
-  handler.listen( new goog.events.InputHandler( goog.dom.getElement( this.makeId('order_entry_client_id') ) ),
-                  goog.events.InputHandler.EventType.INPUT,
-                  this.onChangeClientID_ );
+
+  if (goog.isDefAndNotNull(goog.dom.getElement( this.makeId('order_entry_client_id')))) {
+    handler.listen( new goog.events.InputHandler( goog.dom.getElement( this.makeId('order_entry_client_id') ) ),
+                    goog.events.InputHandler.EventType.INPUT,
+                    this.onChangeClientID_);
+  }
+
+  if (goog.isDefAndNotNull(goog.dom.getElement( this.makeId('order_entry_available_badge')))) {
+    handler.listen( goog.dom.getElement( this.makeId('order_entry_available_badge') ) ,
+                    goog.events.EventType.CLICK,
+                    this.onAvailableBadgeClick_);
+  }
 
   handler.listen( goog.dom.getElement( this.makeId('order_entry_action') ),
                   goog.events.EventType.CLICK,
@@ -156,6 +169,23 @@ bitex.ui.AdvancedOrderEntry.prototype.onAction_ = function(e) {
     e.stopPropagation();
   } else {
     this.dispatchEvent( bitex.ui.AdvancedOrderEntry.EventType.SUBMIT);
+  }
+};
+
+/**
+ * @param {goog.events.Event} e
+ * @private
+ */
+bitex.ui.AdvancedOrderEntry.prototype.onAvailableBadgeClick_ = function(e){
+  var value = parseInt(goog.dom.getTextContent(goog.dom.getElement( this.makeId('order_entry_available_value'))));
+  if (this.getSide() == bitex.ui.AdvancedOrderEntry.Side.BUY) {
+    value = new bitex.primitives.Price(value, this.getModel().price_currency_pip  ).floor();
+    this.setTotal(value);
+    this.onChangeTotal_();
+  } else {
+    value = new bitex.primitives.Price(value, this.getModel().amount_currency_pip  ).floor();
+    this.setAmount(value);
+    this.onChangeAmount_();
   }
 };
 
@@ -231,25 +261,67 @@ bitex.ui.AdvancedOrderEntry.prototype.onChangeClientID_ = function(e) {
 
 
 /**
- * @param {string} value
+ * @private
  */
-bitex.ui.AdvancedOrderEntry.prototype.setAmountCurrencySign = function(value){
+bitex.ui.AdvancedOrderEntry.prototype.adjustAvailableBadge_ = function(){
+  var available_el = goog.dom.getElement( this.makeId('order_entry_available'));
+  if (!goog.isDefAndNotNull(available_el)) {
+    return;
+  }
+  var available_value_el = goog.dom.getElement( this.makeId('order_entry_available_value'));
+
+  var available_model_key = 'available_balance_';
+  available_model_key += this.getBrokerID();
+  available_model_key += ':';
+  available_model_key += this.getClientID();
+  available_model_key += '_';
+  if (this.getSide() == bitex.ui.AdvancedOrderEntry.Side.BUY ) {
+    available_model_key += this.getModel().price_currency_code;
+  } else {
+    available_model_key += this.getModel().amount_currency_code;
+  }
+
+  available_value_el.setAttribute('data-model-key', available_model_key);
+  available_el.setAttribute('data-model-key', 'formatted_' + available_model_key);
+};
+
+
+/**
+ * @param {string} sign
+ * @param {string} code
+ * @param {number} pip
+ * @param {number} number_of_decimals
+ */
+bitex.ui.AdvancedOrderEntry.prototype.setAmountCurrency = function(sign, code, pip, number_of_decimals){
   var dom  = this.getDomHelper();
   var elements = dom.getElementsByClass(goog.getCssName(this.getBaseCssClass(), 'amount-sign'), this.getElement());
   goog.array.forEach(elements, function(el){
-    goog.dom.setTextContent(el, value);
+    goog.dom.setTextContent(el, sign);
   });
+
+  this.getModel().amount_currency_code = code;
+  this.getModel().amount_currency_symbol = sign;
+  this.getModel().amount_currency_pip = pip;
+  this.getModel().amount_number_of_decimals = number_of_decimals;
 };
 
 /**
- * @param {string} value
+ * @param {string} sign
+ * @param {string} code
+ * @param {number} pip
+ * @param {number} number_of_decimals
  */
-bitex.ui.AdvancedOrderEntry.prototype.setPriceCurrencySign = function(value){
+bitex.ui.AdvancedOrderEntry.prototype.setPriceCurrency = function(sign, code, pip, number_of_decimals){
   var dom  = this.getDomHelper();
   var elements = dom.getElementsByClass(goog.getCssName(this.getBaseCssClass(), 'price-sign'), this.getElement());
   goog.array.forEach(elements, function(el){
-    goog.dom.setTextContent(el, value);
+    goog.dom.setTextContent(el, sign);
   });
+
+  this.getModel().price_currency_code = code;
+  this.getModel().price_currency_symbol = sign;
+  this.getModel().price_currency_pip = pip;
+  this.getModel().price_number_of_decimals = number_of_decimals;
 };
 
 
@@ -258,8 +330,11 @@ bitex.ui.AdvancedOrderEntry.prototype.setPriceCurrencySign = function(value){
  */
 bitex.ui.AdvancedOrderEntry.prototype.setBrokerMode = function(value) {
   goog.dom.forms.setValue(goog.dom.getElement( this.makeId('order_entry_is_broker')), value);
-  goog.style.showElement( goog.dom.getElement( this.makeId('order_entry_client_id')) , value );
-  goog.dom.getElement( this.makeId('order_entry_client_id')).disabled = !value;
+  if (goog.isDefAndNotNull(goog.dom.getElement( this.makeId('order_entry_client_id')))) {
+    goog.style.showElement( goog.dom.getElement( this.makeId('order_entry_client_id')) , value );
+    goog.dom.getElement( this.makeId('order_entry_client_id')).disabled = !value;
+  }
+  this.getModel().is_broker = value;
 };
 
 /**
@@ -278,10 +353,11 @@ bitex.ui.AdvancedOrderEntry.prototype.getSymbol = function(){
 };
 
 /**
- * @param {string}
+ * @param {string} symbol
  */
 bitex.ui.AdvancedOrderEntry.prototype.setSymbol = function(symbol) {
   goog.dom.forms.setValue(goog.dom.getElement( this.makeId('order_entry_symbol')), symbol);
+  this.getModel().symbol = symbol;
 };
 
 /**
@@ -299,10 +375,11 @@ bitex.ui.AdvancedOrderEntry.prototype.getType = function(){
 };
 
 /**
- * @param {string}
+ * @param {string} type
  */
 bitex.ui.AdvancedOrderEntry.prototype.setType = function(type){
   goog.dom.forms.setValue(goog.dom.getElement( this.makeId('order_entry_broker_id')), type );
+  this.getModel().type = type;
 };
 
 /**
@@ -313,25 +390,34 @@ bitex.ui.AdvancedOrderEntry.prototype.getBrokerID = function(){
 };
 
 /**
- * @param {number}
+ * @param {number} broker_id
  */
 bitex.ui.AdvancedOrderEntry.prototype.setBrokerID = function(broker_id){
   goog.dom.forms.setValue(goog.dom.getElement( this.makeId('order_entry_broker_id')), broker_id );
+  this.getModel().broker_id = broker_id;
+  this.adjustAvailableBadge_();
 };
 
 
 /**
- * @return {string}
+ * @return {string|null}
  */
 bitex.ui.AdvancedOrderEntry.prototype.getClientID = function(){
-  return goog.dom.forms.getValue(goog.dom.getElement( this.makeId('order_entry_client_id')));
+  if (goog.isDefAndNotNull(goog.dom.getElement( this.makeId('order_entry_client_id')))) {
+    return goog.dom.forms.getValue(goog.dom.getElement(this.makeId('order_entry_client_id')));
+  }
+  return this.getModel().client_id;
 };
 
 /**
- * @param {number}
+ * @param {number} client_id
     */
 bitex.ui.AdvancedOrderEntry.prototype.setClientID = function(client_id){
-  goog.dom.forms.setValue(goog.dom.getElement( this.makeId('order_entry_client_id')), client_id );
+  if (goog.isDefAndNotNull(goog.dom.getElement( this.makeId('order_entry_client_id')))) {
+    goog.dom.forms.setValue(goog.dom.getElement( this.makeId('order_entry_client_id')), client_id );
+  }
+  this.getModel().client_id = client_id;
+  this.adjustAvailableBadge_();
 };
 
 
@@ -341,8 +427,8 @@ bitex.ui.AdvancedOrderEntry.prototype.setClientID = function(client_id){
  */
 bitex.ui.AdvancedOrderEntry.prototype.getPrice = function(){
   var value_fmt = new goog.i18n.NumberFormat(goog.i18n.NumberFormat.Format.DECIMAL);
-  value_fmt.setMaximumFractionDigits(8);
-  value_fmt.setMinimumFractionDigits(2);
+  value_fmt.setMaximumFractionDigits(this.getModel().price_number_of_decimals);
+  value_fmt.setMinimumFractionDigits(this.getModel().price_number_of_decimals);
 
   var el  = goog.dom.getElement( this.makeId('order_entry_price'));
   var inputValue = goog.dom.forms.getValue(el);
@@ -361,8 +447,8 @@ bitex.ui.AdvancedOrderEntry.prototype.getPrice = function(){
  */
 bitex.ui.AdvancedOrderEntry.prototype.setPrice = function(value){
   var fmt = new goog.i18n.NumberFormat(goog.i18n.NumberFormat.Format.DECIMAL);
-  fmt.setMaximumFractionDigits(8);
-  fmt.setMinimumFractionDigits(2);
+  fmt.setMaximumFractionDigits(this.getModel().price_number_of_decimals);
+  fmt.setMinimumFractionDigits(this.getModel().price_number_of_decimals);
 
   var el  = goog.dom.getElement( this.makeId('order_entry_price'));
   goog.dom.forms.setValue( el, fmt.format(value/this.factor_price_) );
@@ -373,8 +459,8 @@ bitex.ui.AdvancedOrderEntry.prototype.setPrice = function(value){
  */
 bitex.ui.AdvancedOrderEntry.prototype.getAmount = function(){
   var value_fmt = new goog.i18n.NumberFormat(goog.i18n.NumberFormat.Format.DECIMAL);
-  value_fmt.setMaximumFractionDigits(8);
-  value_fmt.setMinimumFractionDigits(2);
+  value_fmt.setMaximumFractionDigits(this.getModel().amount_number_of_decimals);
+  value_fmt.setMinimumFractionDigits(this.getModel().amount_number_of_decimals);
 
   var el  = goog.dom.getElement( this.makeId('order_entry_amount'));
   var inputValue = goog.dom.forms.getValue(el);
@@ -392,8 +478,8 @@ bitex.ui.AdvancedOrderEntry.prototype.getAmount = function(){
  */
 bitex.ui.AdvancedOrderEntry.prototype.setAmount = function(value){
   var fmt = new goog.i18n.NumberFormat(goog.i18n.NumberFormat.Format.DECIMAL);
-  fmt.setMaximumFractionDigits(8);
-  fmt.setMinimumFractionDigits(2);
+  fmt.setMaximumFractionDigits(this.getModel().amount_number_of_decimals);
+  fmt.setMinimumFractionDigits(this.getModel().amount_number_of_decimals);
 
   var el  = goog.dom.getElement( this.makeId('order_entry_amount'));
   goog.dom.forms.setValue( el, fmt.format(value/this.factor_amount_) );
@@ -406,8 +492,8 @@ bitex.ui.AdvancedOrderEntry.prototype.setAmount = function(value){
  */
 bitex.ui.AdvancedOrderEntry.prototype.getTotal = function(){
   var value_fmt = new goog.i18n.NumberFormat(goog.i18n.NumberFormat.Format.DECIMAL);
-  value_fmt.setMaximumFractionDigits(8);
-  value_fmt.setMinimumFractionDigits(2);
+  value_fmt.setMaximumFractionDigits(this.getModel().price_number_of_decimals);
+  value_fmt.setMinimumFractionDigits(this.getModel().price_number_of_decimals);
 
   var el  = goog.dom.getElement( this.makeId('order_entry_total'));
   var inputValue = goog.dom.forms.getValue(el);
@@ -418,7 +504,6 @@ bitex.ui.AdvancedOrderEntry.prototype.getTotal = function(){
     return 0;
   }
   return parseInt(value * this.factor_price_, 10);
-
 };
 
 
@@ -427,8 +512,8 @@ bitex.ui.AdvancedOrderEntry.prototype.getTotal = function(){
  */
 bitex.ui.AdvancedOrderEntry.prototype.setTotal = function(value){
   var fmt = new goog.i18n.NumberFormat(goog.i18n.NumberFormat.Format.DECIMAL);
-  fmt.setMaximumFractionDigits(8);
-  fmt.setMinimumFractionDigits(2);
+  fmt.setMaximumFractionDigits(this.getModel().price_number_of_decimals);
+  fmt.setMinimumFractionDigits(this.getModel().price_number_of_decimals);
 
   var el  = goog.dom.getElement( this.makeId('order_entry_total'));
   goog.dom.forms.setValue( el, fmt.format(value/this.factor_price_) );

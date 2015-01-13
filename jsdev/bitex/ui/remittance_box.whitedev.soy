@@ -1,0 +1,55 @@
+{namespace bitex.ui.RemittancesBox.templates}
+
+/**
+  * @param id
+  * @param remittance_pair
+  */
+{template .RemittancesBoxCurrency}
+  <tr>
+    <td style="padding: 4px;border-top: 0;"><strong>{$remittance_pair[1]}</strong></td>
+    <td style="padding: 4px;border-top: 0;">
+      <span id="{$id}_{$remittance_pair[0]}_buy"  data-blink-class="md-blink"></span>
+      <span> / <span>
+      <span id="{$id}_{$remittance_pair[0]}_sell" data-blink-class="md-blink"></span>
+    </td>
+  </tr>
+{/template}
+
+
+/**
+  * @param id
+  * @param remittance_pairs
+  */
+{template .RemittancesBoxCurrencies}
+  {foreach $remittance_pair in $remittance_pairs}
+    {call .RemittancesBoxCurrency}
+      {param id: $id /}
+      {param remittance_pair: $remittance_pair /}
+    {/call}
+  {/foreach}
+{/template}
+
+/**
+  * @param id
+  * @param remittance_pairs
+  */
+{template .RemittancesBox}
+  <div id="{$id}" class="remittance-box">
+    <table class="table table-bordered table-condensed remittance-box-table">
+      <thead>
+        <tr>
+          <td colspan="2">
+            <strong>{msg desc="Remittance box title"}Be your own Remittance Service{/msg}</strong>
+          </td>
+        </tr>
+      </thead>
+      <tbody class="remittance-box-content">
+        {call .RemittancesBoxCurrencies}
+          {param id: $id /}
+          {param remittance_pairs: $remittance_pairs /}
+        {/call}
+      </tbody>
+    </table>
+  </div>
+{/template}
+

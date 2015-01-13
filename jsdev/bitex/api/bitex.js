@@ -336,7 +336,8 @@ bitex.api.BitEx.prototype.onSecurityList_ =   function(msg) {
       description : currency['Description'],
       sign : currency['Sign'],
       pip : currency['Pip'],
-      is_crypto : currency['IsCrypto']
+      is_crypto : currency['IsCrypto'],
+      number_of_decimals: currency['NumberOfDecimals']
     };
   }, this);
 
