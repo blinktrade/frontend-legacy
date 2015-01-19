@@ -1372,29 +1372,6 @@ bitex.app.BlinkTrade.prototype.onBitexBalanceResponse_ = function(e) {
     }, this);
   },this);
   this.getModel().set('Balance', model_balances);
-
-  /*
-  var value_fmt = new goog.i18n.NumberFormat(goog.i18n.NumberFormat.Format.DECIMAL);
-  value_fmt.setMaximumFractionDigits(8);
-  value_fmt.setMinimumFractionDigits(2);
-
-  goog.object.forEach(msg, function( balances, broker ) {
-    var balance_broker = this.getModel().get('balance_' + broker);
-    if (!goog.isDefAndNotNull(balance_broker)) {
-      balance_broker = {};
-    }
-    goog.object.extend(balance_broker, balances);
-    this.getModel().set('balance_' + broker, balance_broker);
-
-
-    goog.object.forEach(balances, function( balance, currency ) {
-      var balance_key = 'balance_' + broker + ':' + clientID + '_'  + currency;
-      this.getModel().set( balance_key , balance );
-      this.getModel().set('formatted_' + balance_key + '_value', value_fmt.format(balance/1e8));
-      this.getModel().set('formatted_' + balance_key, this.formatCurrency(balance/1e8, currency, true));
-    }, this);
-  },this);
-  */
 };
 
 /**
@@ -3954,8 +3931,16 @@ bitex.app.BlinkTrade.prototype.registerAlgorithmInstance = function(algo_instanc
     }, this);
   }
 
-  //var balance_broker = this.getModel().get('Balance')[this.getModel().get('SelectedBrokerID')][this.getModel().get('UserID')];
-  var balance_broker = this.getModel().get('balance_' + this.getModel().get('SelectedBrokerID'));
+  var deposited_balance_broker = this.getModel().get('Balance')[this.getModel().get('SelectedBrokerID')][this.getModel().get('UserID')];
+  var locked_balance_broker = this.getModel().get('LockedBalance')[this.getModel().get('SelectedBrokerID')][this.getModel().get('UserID')];
+
+  var balance_broker = {};
+  goog.object.forEach(deposited_balance_broker, function( balance, currency ) { 
+    balance_broker[currency] = balance;
+  }, this); 
+  goog.object.forEach(locked_balance_broker, function( balance, currency ) { 
+    balance_broker[currency + '_locked' ] = balance;
+  }, this); 
 
   /**
    * @desc dialog shown to the user requesting his permissions to run the selected algorithm trading
