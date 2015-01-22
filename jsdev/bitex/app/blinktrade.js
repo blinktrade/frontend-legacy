@@ -1223,7 +1223,7 @@ bitex.app.BlinkTrade.prototype.processExecutionReport_ = function(execution_repo
   }
 
   var should_update_open_order_index_model = false;
-  if (execution_report['OrdStatus'] == '2' || execution_report['OrdStatus'] == '4' ) {
+  if (execution_report['LeavesQty'] == 0) {
     if (goog.array.binaryRemove( open_orders, execution_report['ClOrdID'] )) {
       this.adjustLockedBalance_(execution_report, this.getModel().get('order_' + execution_report['ClOrdID']));
       this.getModel().remove('order_' + execution_report['ClOrdID']);
@@ -1284,6 +1284,10 @@ bitex.app.BlinkTrade.prototype.onBitexExecutionReport_ = function(e) {
    */
   var MSG_NOTIFICATION_ORDER_CANCELLED = goog.getMsg('cancelled');
 
+  /**
+   * @desc - Rejected notification message
+   */
+  var MSG_NOTIFICATION_ORDER_REJECTED = goog.getMsg('rejected - {$err}', {err:msg['OrdRejReason']});
 
   switch( msg['ExecType'] ) {
     case '1':  //Partial Execution
@@ -1294,6 +1298,9 @@ bitex.app.BlinkTrade.prototype.onBitexExecutionReport_ = function(e) {
       break;
     case '4':  //Offer Cancelled
       this.showNotification('success', MSG_ORDER_EXECUTION_TITLE_NOTIFICATION, MSG_NOTIFICATION_ORDER_CANCELLED);
+      break;
+    case '8':  //Offer Rejected
+      this.showNotification('error', MSG_ORDER_EXECUTION_TITLE_NOTIFICATION, MSG_NOTIFICATION_ORDER_REJECTED);
       break;
   }
 };

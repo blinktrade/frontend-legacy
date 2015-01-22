@@ -347,6 +347,8 @@ bitex.view.TradingView.prototype.orderFormatter_ = function(value, rowSet) {
           return MSG_ORDER_MANAGER_DESC_SOLD;
         }
       }
+    case '8': // Rejected 
+      return rowSet['OrdRejReason'];
   }
 
 };
@@ -377,6 +379,9 @@ bitex.view.TradingView.prototype.simpleStatusFormatter_ = function(value, rowSet
   /** @desc Order Status message on Simple Order Manager */
   var MSG_ORDER_MANAGER_SIMPLE_STATUS_CANCELLED = goog.getMsg('Cancelled');
 
+  /** @desc Order Status message on Simple Order Manager */
+  var MSG_ORDER_MANAGER_SIMPLE_STATUS_REJECTED = goog.getMsg('Rejected');
+
   switch (value) {
     case '-': // Pending ...
       return MSG_ORDER_MANAGER_SIMPLE_STATUS_SENDING;
@@ -400,6 +405,8 @@ bitex.view.TradingView.prototype.simpleStatusFormatter_ = function(value, rowSet
       } else {
         return MSG_ORDER_MANAGER_SIMPLE_STATUS_COMPLETE;
       }
+    case '8': // Rejected 
+      return MSG_ORDER_MANAGER_SIMPLE_STATUS_REJECTED;
   }
 };
 
