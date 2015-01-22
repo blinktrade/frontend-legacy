@@ -10,6 +10,8 @@
 {template .AlgorithmRunner}
 <form id="{$id}_form" class="algo-runner form-horizontal well" data-uniform-control-holder-class="control-group" >
 
+  <legend>{$algorithmDefinition['description']}</legend>
+
   <div class="control-group" style="">
     <label class="control-label">{msg desc="Market"}Market{/msg}</label>
     <div class="controls">
@@ -22,8 +24,14 @@
       <label class="control-label">{$field['label']}</label>
       <div class="controls">
         <input class="algo-runner-field"
-                data-uniform-validators="{$field['validator']}"
-                type="{$field['type']}"
+                {if $field['validator']} data-uniform-validators="{$field['validator']}" {/if}
+                {if $field['filter']} data-uniform-filters="{$field['filter']}" {/if}
+                {if $field['type'] == 'number' }
+                  type="text"
+                  data-uniform-type="number"
+                {else}
+                  type="{$field['type']}"
+                {/if}
                 name="{$field['name']}"
                 label="{if $field['placeholder']}{$field['placeholder']}{/if}"
                 value="{if $field['value']}{$field['value']}{/if}" />
