@@ -279,6 +279,11 @@ var MSG_ORDER_MANAGER_STATUS_FILL = goog.getMsg('Filled');
 var MSG_ORDER_MANAGER_STATUS_CXL = goog.getMsg('Cancelled');
 
 /**
+ * @desc Order Manager Status description
+ */
+var MSG_ORDER_MANAGER_STATUS_REJECTED = goog.getMsg('Rejected');
+
+/**
  * @enum {string}
  */
 bitex.ui.OrderManager.Status = {
@@ -286,7 +291,8 @@ bitex.ui.OrderManager.Status = {
   '0': MSG_ORDER_MANAGER_STATUS_NEW,
   '1': MSG_ORDER_MANAGER_STATUS_PARTIALL_FILL,
   '2': MSG_ORDER_MANAGER_STATUS_FILL,
-  '4': MSG_ORDER_MANAGER_STATUS_CXL
+  '4': MSG_ORDER_MANAGER_STATUS_CXL,
+  '8': MSG_ORDER_MANAGER_STATUS_REJECTED
 };
 
 /**
@@ -349,7 +355,15 @@ bitex.ui.OrderManager.prototype.getRowClass = function(row_set) {
       class_status = goog.getCssName(bitex.ui.OrderManager.CSS_CLASS, 'fill');
       break;
     case '4':
-      class_status = goog.getCssName(bitex.ui.OrderManager.CSS_CLASS, 'cancel');
+      var cum_qty = row_set['CumQty'];
+      if (goog.isDefAndNotNull(cum_qty) && cum_qty > 0 ) {
+        class_status = goog.getCssName(bitex.ui.OrderManager.CSS_CLASS, 'fill');
+      } else {
+        class_status = goog.getCssName(bitex.ui.OrderManager.CSS_CLASS, 'cancel');
+      }
+      break;
+    case '8':
+      class_status = goog.getCssName(bitex.ui.OrderManager.CSS_CLASS, 'rejected');
       break;
   }
 

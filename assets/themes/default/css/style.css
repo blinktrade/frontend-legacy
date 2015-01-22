@@ -173,11 +173,13 @@ body {
   background-color: #e0ffff;
 }
 
-.order-manager-fill {
-  background-color: #008b8b;
+.order-manager-fill,
+.order-manager-fill-cancel {
+  background-color: #03DDDD;
 }
 
-.order-manager-cancel {
+.order-manager-cancel,
+.order-manager-rejected {
   background-color: #f08080;
 }
 
