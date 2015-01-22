@@ -10,6 +10,8 @@
 {template .AlgorithmRunner}
 <form id="{$id}_form" class="algo-runner form-horizontal well" data-uniform-control-holder-class="control-group" >
 
+  <legend>{$algorithmDefinition['description']}</legend>
+
   <div class="control-group" style="">
     <label class="control-label">{msg desc="Market"}Market{/msg}</label>
     <div class="controls">
@@ -17,12 +19,15 @@
     </div>
   </div>
 
+
+
   {foreach $field in $algorithmDefinition['params'] }
     <div class="control-group">
       <label class="control-label">{$field['label']}</label>
       <div class="controls">
         <input class="algo-runner-field"
-                data-uniform-validators="{$field['validator']}"
+                {if $field['validator']} data-uniform-validators="{$field['validator']}" {/if}
+                {if $field['filter']} data-uniform-filters="{$field['filter']}" {/if}
                 type="{$field['type']}"
                 name="{$field['name']}"
                 label="{if $field['placeholder']}{$field['placeholder']}{/if}"

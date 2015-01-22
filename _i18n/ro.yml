@@ -111,6 +111,8 @@ views:
 
   offerbook:
     title: Registrul de comenzi
+    cumulative: A acumulat
+    fees: Taxe
 
   customers:
     title: Clienții mei

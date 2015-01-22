@@ -6,6 +6,10 @@ goog.require('bitex.view.View.EventType');
 
 goog.require('bitex.ui.AdvancedOrderEntry');
 
+goog.require('bootstrap.Button');
+goog.require('bootstrap.ButtonRenderer');
+goog.require('goog.ui.ToggleButton');
+
 goog.require('bitex.ui.LockedBalanceDisplay');
 
 /**
@@ -76,6 +80,16 @@ bitex.view.OfferBookView.prototype.buy_order_entry_;
 bitex.view.OfferBookView.prototype.sell_order_entry_;
 
 /**
+ * @type {bootstrap.Button}
+ */
+bitex.view.OfferBookView.prototype.cum_qty_btn_;
+
+/**
+ * @type {bootstrap.Button}
+ */
+bitex.view.OfferBookView.prototype.fee_btn_;
+
+/**
  * The events fired
  * @enum {string} The event types
  */
@@ -108,14 +122,30 @@ bitex.view.OfferBookView.prototype.decorateInternal = function(element) {
   this.sell_order_entry_ = new bitex.ui.AdvancedOrderEntry( {side: 2, type:2} );
   this.locked_balance_display_ = new bitex.ui.LockedBalanceDisplay();
 
+  var cum_qty_el = goog.dom.getElementByClass('btn-show-cum-qty', element);
+  if (goog.isDefAndNotNull(cum_qty_el)) {
+    this.cum_qty_btn_ = new goog.ui.ToggleButton(undefined, bootstrap.ButtonRenderer.getInstance());
+    this.cum_qty_btn_.setSupportedState(goog.ui.Component.State.CHECKED, true);
+    this.cum_qty_btn_.decorate(cum_qty_el);
+  }
+
+  var fee_btn_el = goog.dom.getElementByClass('btn-show-fees', element);
+  if (goog.isDefAndNotNull(fee_btn_el)) {
+    this.fee_btn_ = new goog.ui.ToggleButton(undefined, bootstrap.ButtonRenderer.getInstance());
+    this.fee_btn_.setSupportedState(goog.ui.Component.State.CHECKED, true);
+    this.fee_btn_.decorate(fee_btn_el);
+  }
+
+
+
   this.getContentElement = function() {
     return goog.dom.getElement('offer_book_order_entry_content');
   };
 
-
   this.addChild(this.buy_order_entry_, true);
   this.addChild(this.sell_order_entry_, true);
   this.addChild(this.locked_balance_display_, true);
+
 };
 
 /**
@@ -126,14 +156,20 @@ bitex.view.OfferBookView.prototype.destroyOrderBookComponents_ = function( ) {
 
   if (goog.isDefAndNotNull(this.order_book_bid_) ) {
     handler.unlisten(this.order_book_bid_ ,bitex.ui.OrderBook.EventType.CANCEL, this.onCancelOrder_ );
+    handler.listen(this.order_book_bid_ ,bitex.ui.OrderBook.EventType.QTY_CLICK, this.onQtyClick_ );
+    handler.listen(this.order_book_bid_ ,bitex.ui.OrderBook.EventType.PRICE_CLICK, this.onPriceClick_ );
+
     this.order_book_bid_.dispose();
   }
   if (goog.isDefAndNotNull(this.order_book_offer_) ) {
     handler.unlisten(this.order_book_offer_ ,bitex.ui.OrderBook.EventType.CANCEL, this.onCancelOrder_ );
+    handler.listen(this.order_book_offer_ ,bitex.ui.OrderBook.EventType.QTY_CLICK, this.onQtyClick_ );
+    handler.listen(this.order_book_offer_ ,bitex.ui.OrderBook.EventType.PRICE_CLICK, this.onPriceClick_ );
+
     this.order_book_offer_.dispose();
   }
   if (goog.isDefAndNotNull(this.market_data_subscription_id_)) {
-    var conn = this.getApplication().getBitexConnection() ;
+    var conn = this.getApplication().getBitexConnection();
     handler.unlisten( conn, bitex.api.BitEx.EventType.ORDER_BOOK_CLEAR + '.' + this.market_data_subscription_id_, this.onOBClear_);
     handler.unlisten( conn, bitex.api.BitEx.EventType.ORDER_BOOK_DELETE_ORDERS_THRU + '.' + this.market_data_subscription_id_, this.onOBDeleteOrdersThru_);
     handler.unlisten( conn, bitex.api.BitEx.EventType.ORDER_BOOK_DELETE_ORDER + '.' + this.market_data_subscription_id_, this.onOBDeleteOrder_);
@@ -176,8 +212,26 @@ bitex.view.OfferBookView.prototype.recreateOrderBookComponents_ = function( sele
   this.order_book_bid_.render( goog.dom.getElement('id_order_book_bid_content') );
   this.order_book_offer_.render( goog.dom.getElement('id_order_book_ask_content') );
 
+  var fee_buy = this.getApplication().getModel().get('Broker')['TransactionFeeBuy'] / 10000 ;
+  if (goog.isDefAndNotNull(this.getApplication().getModel().get('Profile')['TransactionFeeBuy'])) {
+    fee_buy = this.getApplication().getModel().get('Profile')['TransactionFeeBuy'] / 10000;
+  }
+  var fee_sell = this.getApplication().getModel().get('Broker')['TransactionFeeSell'] / 10000 ;
+  if (goog.isDefAndNotNull(this.getApplication().getModel().get('Profile')['TransactionFeeSell'])) {
+    fee_sell = this.getApplication().getModel().get('Profile')['TransactionFeeSell'] / 10000;
+  }
+  this.order_book_bid_.setFee(fee_buy * -1);
+  this.order_book_offer_.setFee(fee_sell);
+
   handler.listen(this.order_book_bid_ ,bitex.ui.OrderBook.EventType.CANCEL, this.onCancelOrder_ );
   handler.listen(this.order_book_offer_ ,bitex.ui.OrderBook.EventType.CANCEL, this.onCancelOrder_ );
+
+  handler.listen(this.order_book_bid_ ,bitex.ui.OrderBook.EventType.QTY_CLICK, goog.bind(this.onPriceQtyClick_, this, 'bid'));
+  handler.listen(this.order_book_bid_ ,bitex.ui.OrderBook.EventType.PRICE_CLICK, goog.bind(this.onPriceQtyClick_, this, 'bid'));
+
+  handler.listen(this.order_book_offer_ ,bitex.ui.OrderBook.EventType.QTY_CLICK, goog.bind(this.onPriceQtyClick_, this, 'ask'));
+  handler.listen(this.order_book_offer_ ,bitex.ui.OrderBook.EventType.PRICE_CLICK, goog.bind(this.onPriceQtyClick_, this, 'ask'));
+
 
   this.market_data_subscription_id_ = parseInt( 1e7 * Math.random() , 10 );
   this.market_data_subscription_symbol_ = selected_symbol.symbol;
@@ -205,6 +259,35 @@ bitex.view.OfferBookView.prototype.enterDocument = function() {
   var model = this.getApplication().getModel();
   handler.listen(model, bitex.model.Model.EventType.SET + 'SelectedSymbol',   this.onSelectedSymbol_);
   handler.listen(model, bitex.model.Model.EventType.SET + 'SelectedBrokerID', this.onSelectedBrokerID_);
+
+  if (goog.isDefAndNotNull(this.cum_qty_btn_)) {
+    handler.listen(this.cum_qty_btn_, goog.ui.Component.EventType.ACTION, this.onCumQtyClick_);
+  }
+
+  if (goog.isDefAndNotNull(this.fee_btn_)) {
+    handler.listen(this.fee_btn_, goog.ui.Component.EventType.ACTION, this.onFeesClick_);
+  }
+};
+
+bitex.view.OfferBookView.prototype.onFeesClick_ = function(e) {
+  var isActive = this.fee_btn_.hasState(goog.ui.Component.State.ACTIVE);
+  this.fee_btn_.setActive(!isActive);
+
+  this.order_book_bid_.showFees(this.fee_btn_.hasState(goog.ui.Component.State.ACTIVE));
+  this.order_book_offer_.showFees(this.fee_btn_.hasState(goog.ui.Component.State.ACTIVE));
+};
+
+bitex.view.OfferBookView.prototype.onCumQtyClick_ = function(e) {
+  var isActive = this.cum_qty_btn_.hasState(goog.ui.Component.State.ACTIVE);
+  this.cum_qty_btn_.setActive( !isActive );
+
+  if (this.cum_qty_btn_.hasState(goog.ui.Component.State.ACTIVE)) {
+    this.order_book_bid_.showCumulativeQty();
+    this.order_book_offer_.showCumulativeQty();
+  } else {
+    this.order_book_bid_.showQty();
+    this.order_book_offer_.showQty();
+  }
 };
 
 /**
@@ -224,7 +307,9 @@ bitex.view.OfferBookView.prototype.onSelectedBrokerID_ = function(e){
 
   var selectedBroker = model.get('UserBrokers')[ selected_broker_id ];
   this.buy_order_entry_.setBrokerID(selected_broker_id);
+  this.buy_order_entry_.setClientID(model.get('UserID'));
   this.sell_order_entry_.setBrokerID(selected_broker_id);
+  this.sell_order_entry_.setClientID(model.get('UserID'));
   this.locked_balance_display_.setAccountID(model.get('UserID'));
   this.locked_balance_display_.setBrokerID(selected_broker_id);
 
@@ -262,18 +347,31 @@ bitex.view.OfferBookView.prototype.onSelectedSymbol_ = function(e){
 
   this.buy_order_entry_.setSymbol(symbol);
   if (goog.isDefAndNotNull(selected_symbol.qty_currency)) {
-    this.buy_order_entry_.setAmountCurrencySign( selected_symbol.qty_currency.sign );
+    this.buy_order_entry_.setAmountCurrency( selected_symbol.qty_currency.sign,
+                                             selected_symbol.qty_currency.code,
+                                             selected_symbol.qty_currency.pip,
+                                             selected_symbol.qty_currency.number_of_decimals );
+
   }
   if (goog.isDefAndNotNull(selected_symbol.price_currency)) {
-    this.buy_order_entry_.setPriceCurrencySign( selected_symbol.price_currency.sign );
+    this.buy_order_entry_.setPriceCurrency( selected_symbol.price_currency.sign,
+                                            selected_symbol.price_currency.code,
+                                            selected_symbol.price_currency.pip,
+                                            selected_symbol.price_currency.number_of_decimals);
   }
 
   this.sell_order_entry_.setSymbol(symbol);
   if (goog.isDefAndNotNull(selected_symbol.qty_currency)) {
-    this.sell_order_entry_.setAmountCurrencySign( selected_symbol.qty_currency.sign );
+    this.sell_order_entry_.setAmountCurrency( selected_symbol.qty_currency.sign,
+                                              selected_symbol.qty_currency.code,
+                                              selected_symbol.qty_currency.pip,
+                                              selected_symbol.qty_currency.number_of_decimals );
   }
   if (goog.isDefAndNotNull(selected_symbol.price_currency)) {
-    this.sell_order_entry_.setPriceCurrencySign( selected_symbol.price_currency.sign );
+    this.sell_order_entry_.setPriceCurrency( selected_symbol.price_currency.sign,
+                                             selected_symbol.price_currency.code,
+                                             selected_symbol.price_currency.pip,
+                                             selected_symbol.price_currency.number_of_decimals);
   }
 
   this.locked_balance_display_.setBuyCurrency(selected_symbol.price_currency.code);
@@ -334,7 +432,6 @@ bitex.view.OfferBookView.prototype.onOBDeleteOrder_ = function(e){
   if (!goog.isDefAndNotNull(this.order_book_offer_)) {
     return;
   }
-
   var msg   = e.data;
   var index = msg['MDEntryPositionNo'] - 1;
   var side  = msg['MDEntryType'];
@@ -347,13 +444,13 @@ bitex.view.OfferBookView.prototype.onOBDeleteOrder_ = function(e){
 };
 
 bitex.view.OfferBookView.prototype.onOBUpdateOrder_ = function(e){
-  if (!goog.isDefAndNotNull(this.order_book_offer_)) {
+  if (!goog.isDefAndNotNull(this.order_book_offer_)){
     return;
   }
 
   var msg   = e.data;
   var index = msg['MDEntryPositionNo'] - 1;
-  var qty   = msg['MDEntrySize']/1e8;
+  var qty   = msg['MDEntrySize'];
   var side  = msg['MDEntryType'];
 
   if (side == '0') {
@@ -364,15 +461,15 @@ bitex.view.OfferBookView.prototype.onOBUpdateOrder_ = function(e){
 };
 
 bitex.view.OfferBookView.prototype.onOBNewOrder_ = function(e){
-  if (!goog.isDefAndNotNull(this.order_book_offer_)) {
+  if (!goog.isDefAndNotNull(this.order_book_offer_)){
     return;
   }
   var model = this.getApplication().getModel();
 
   var msg       = e.data;
   var index     = msg['MDEntryPositionNo'] - 1;
-  var price     = msg['MDEntryPx']/1e8;
-  var qty       = msg['MDEntrySize']/1e8;
+  var price     = msg['MDEntryPx'];
+  var qty       = msg['MDEntrySize'];
 
 
   var username;
@@ -442,8 +539,34 @@ bitex.view.OfferBookView.prototype.onCancelOrder_ = function(e) {
   this.dispatchEvent(bitex.view.View.EventType.CANCEL_ORDER);
 };
 
+bitex.view.OfferBookView.prototype.onPriceQtyClick_ = function(side, e) {
+  this.buy_order_entry_.setPrice(e.price);
+  this.sell_order_entry_.setPrice(e.price);
 
+  var symbol = this.buy_order_entry_.getSymbol();
+  var qty_currency = this.getApplication().getQtyCurrencyFromSymbol(symbol);
+  var price_currency = this.getApplication().getPriceCurrencyFromSymbol(symbol);
 
+  var available_qty = this.getApplication().getBalance(qty_currency, "available");
+  available_qty = new bitex.primitives.Price(available_qty,
+                                             this.getApplication().getCurrencyPip(qty_currency)).floor();
+
+  var available_price_currency = this.getApplication().getBalance(price_currency, "available");
+  available_price_currency = new bitex.primitives.Price(available_price_currency,
+                                                        this.getApplication().getCurrencyPip(price_currency)).floor();
+
+  var max_bid_amount = parseInt(available_price_currency / e.price  * 1e8, 10);
+
+  if (side == 'bid') {
+    this.sell_order_entry_.setAmount(Math.min(available_qty, e.cum_qty));
+    this.buy_order_entry_.setAmount( Math.min(e.qty, max_bid_amount));
+  } else {
+    this.buy_order_entry_.setAmount( Math.min(e.cum_qty, max_bid_amount));
+    this.sell_order_entry_.setAmount(Math.min(available_qty, e.qty));
+  }
+  this.buy_order_entry_.setTotal((this.buy_order_entry_.getPrice() * this.buy_order_entry_.getAmount()) / 1e8);
+  this.sell_order_entry_.setTotal((this.sell_order_entry_.getPrice() * this.sell_order_entry_.getAmount()) / 1e8);
+};
 
 /**
  * @override

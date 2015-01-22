@@ -1,0 +1,8 @@
+ ---
+ layout: post
+ title:  "Care este modul de depunere instant?"
+ date:   2014-11-07 00:19:00
+ categories: ro faq
+ ---
+
+Este o funcție a exchange-ului care permite utilizatorilor verificați și de încredere să poate tranzacționa, chiar dacă depozitarea FIAT nu a fost încă confirmată de broker. Contului utilizatorului este creditat fără a fi nevoit să aștepte pentru confirmare.
