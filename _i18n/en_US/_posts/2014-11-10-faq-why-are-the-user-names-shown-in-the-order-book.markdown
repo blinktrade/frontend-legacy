@@ -2,7 +2,7 @@
 layout: post
 title:  "Why are the user names shown in the order book?"
 date:   2014-11-07 00:28:00
-categories: en_US blog
+categories: en_US faq
 ---
 
 We assign a random name for every single account. The name looks like something like this:  Rhino_899009

@@ -106,7 +106,7 @@ bitex.util.getFormAsJSON = function(element){
 };
 
 /**
- * @param {number] user_id
+ * @param {number} user_id
  * @returns {string}
  */
 bitex.util.getPseudoName = function(user_id) {
