@@ -5872,7 +5872,7 @@ function $bitex$ui$OrderManager$$($grid_columns_simple_opt_mode$$1$$, $opt_openO
   $bitex$ui$DataGrid$$.call(this, $opt_blinkDelay$$1_options$$10$$, $opt_domHelper$$11$$);
 }
 $goog$inherits$$($bitex$ui$OrderManager$$, $bitex$ui$DataGrid$$);
-var $bitex$ui$OrderManager$Status$$ = {A:"Pendente", 0:"Nova", 1:"Partialmente exec.", 2:"Executada", 4:"Cancelada", 8:"Rejected"}, $bitex$ui$OrderManager$CSS_CLASS$$ = "order-manager";
+var $bitex$ui$OrderManager$Status$$ = {A:"Pendente", 0:"Nova", 1:"Partialmente exec.", 2:"Executada", 4:"Cancelada", 8:"Rejeitado"}, $bitex$ui$OrderManager$CSS_CLASS$$ = "order-manager";
 $bitex$ui$OrderManager$$.prototype.$getCssClass$ = function $$bitex$ui$OrderManager$$$$$getCssClass$$() {
   return $bitex$ui$OrderManager$CSS_CLASS$$;
 };
@@ -9404,9 +9404,9 @@ function $bitex$ui$DepositWithdrawButtonGroup$templates$DepositWithdrawButtonGro
   for (var $buttonListLen6$$ = $buttonList6_opt_data$$50$$.length, $buttonIndex6$$ = 0;$buttonIndex6$$ < $buttonListLen6$$;$buttonIndex6$$++) {
     var $buttonData6$$ = $buttonList6_opt_data$$50$$[$buttonIndex6$$], $output$$44$$ = $output$$44$$ + ('<button class="btn btn-default btn-mini text-center" data-currency="' + $soy$$0$0escapeHtml$$($buttonData6$$.currency) + '" data-action="' + $soy$$0$0escapeHtml$$($buttonData6$$.mode) + '">');
     if ("deposit" == $buttonData6$$.mode) {
-      var $MSG_UNNAMED_39$$1_MSG_UNNAMED_41$$1$$ = "Deposit " + $soy$$0$0escapeHtml$$($buttonData6$$.currencyDescription), $output$$44$$ = $output$$44$$ + ('<h2 class="icon-download-alt"> ' + $soy$$0$0escapeHtml$$($buttonData6$$.currencySign) + "</h2><br>" + $MSG_UNNAMED_39$$1_MSG_UNNAMED_41$$1$$)
+      var $MSG_UNNAMED_39$$1_MSG_UNNAMED_41$$1$$ = "Depositar " + $soy$$0$0escapeHtml$$($buttonData6$$.currencyDescription), $output$$44$$ = $output$$44$$ + ('<h2 class="icon-download-alt"> ' + $soy$$0$0escapeHtml$$($buttonData6$$.currencySign) + "</h2><br>" + $MSG_UNNAMED_39$$1_MSG_UNNAMED_41$$1$$)
     } else {
-      $MSG_UNNAMED_39$$1_MSG_UNNAMED_41$$1$$ = "Withdraw " + $soy$$0$0escapeHtml$$($buttonData6$$.currencyDescription), $output$$44$$ += '<h2 class="icon-upload-alt"> ' + $soy$$0$0escapeHtml$$($buttonData6$$.currencySign) + "</h2><br>" + $MSG_UNNAMED_39$$1_MSG_UNNAMED_41$$1$$;
+      $MSG_UNNAMED_39$$1_MSG_UNNAMED_41$$1$$ = "Sacar " + $soy$$0$0escapeHtml$$($buttonData6$$.currencyDescription), $output$$44$$ += '<h2 class="icon-upload-alt"> ' + $soy$$0$0escapeHtml$$($buttonData6$$.currencySign) + "</h2><br>" + $MSG_UNNAMED_39$$1_MSG_UNNAMED_41$$1$$;
     }
     $output$$44$$ += "</button>&nbsp;";
   }
@@ -9882,7 +9882,7 @@ $JSCompiler_prototypeAlias$$.$simpleStatusFormatter_$ = function $$JSCompiler_pr
     case "4":
       return 0 == $rowSet$$15$$.CumQty ? "Cancelado" : "Finalizado";
     case "8":
-      return "Rejected";
+      return "Rejeitado";
   }
 };
 $JSCompiler_prototypeAlias$$.$avgPriceFormatter_$ = function $$JSCompiler_prototypeAlias$$$$avgPriceFormatter_$$($value$$192$$, $rowSet$$16$$) {
@@ -12325,7 +12325,7 @@ $JSCompiler_prototypeAlias$$.$onBitexExecutionReport_$ = function $$JSCompiler_p
   $JSCompiler_StaticMethods_processExecutionReport_$$(this, $bodyElem$$inline_1309_e$$282_msg$$97$$);
   var $MSG_ORDER_EXECUTION_TITLE_NOTIFICATION_order_id$$1_soundElem$$inline_1310$$ = $bodyElem$$inline_1309_e$$282_msg$$97$$.OrderID;
   null != $MSG_ORDER_EXECUTION_TITLE_NOTIFICATION_order_id$$1_soundElem$$inline_1310$$ || ($MSG_ORDER_EXECUTION_TITLE_NOTIFICATION_order_id$$1_soundElem$$inline_1310$$ = $bodyElem$$inline_1309_e$$282_msg$$97$$.ClOrdID);
-  var $MSG_ORDER_EXECUTION_TITLE_NOTIFICATION_order_id$$1_soundElem$$inline_1310$$ = "Ordem " + ($MSG_ORDER_EXECUTION_TITLE_NOTIFICATION_order_id$$1_soundElem$$inline_1310$$ + " "), $MSG_NOTIFICATION_ORDER_REJECTED_isHTML5$$inline_1308_paramElem$$inline_1311$$ = "rejected - " + $bodyElem$$inline_1309_e$$282_msg$$97$$.OrdRejReason, $should_beep$$ = !1;
+  var $MSG_ORDER_EXECUTION_TITLE_NOTIFICATION_order_id$$1_soundElem$$inline_1310$$ = "Ordem " + ($MSG_ORDER_EXECUTION_TITLE_NOTIFICATION_order_id$$1_soundElem$$inline_1310$$ + " "), $MSG_NOTIFICATION_ORDER_REJECTED_isHTML5$$inline_1308_paramElem$$inline_1311$$ = "rejeitado - " + $bodyElem$$inline_1309_e$$282_msg$$97$$.OrdRejReason, $should_beep$$ = !1;
   switch($bodyElem$$inline_1309_e$$282_msg$$97$$.ExecType) {
     case "1":
       $should_beep$$ = !0;
