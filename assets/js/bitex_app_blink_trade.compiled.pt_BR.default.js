@@ -9721,13 +9721,12 @@ $JSCompiler_prototypeAlias$$.$recreateComponents_$ = function $$JSCompiler_proto
   var $handler$$83$$ = this.$getHandler$(), $model$$29$$ = this.$app_$.$model_$, $app$$14$$ = this.$app_$;
   this.$destroyComponents_$();
   this.$request_id_$ = parseInt(1E7 * Math.random(), 10);
-  this.$deposit_button_group_$ = new $bitex$ui$DepositWithdrawButtonGroup$$;
-  $goog$array$forEach$$($model$$29$$.get("Broker").BrokerCurrencies, function($currency$$6$$) {
+  var $broker$$6_deposit_button_group_el_profile$$ = $goog$dom$getElement$$("id_deposit_button_group");
+  null != $broker$$6_deposit_button_group_el_profile$$ && (this.$deposit_button_group_$ = new $bitex$ui$DepositWithdrawButtonGroup$$, $goog$array$forEach$$($model$$29$$.get("Broker").BrokerCurrencies, function($currency$$6$$) {
     this.$deposit_button_group_$.$addButton$("deposit", $currency$$6$$, $app$$14$$.$getCurrencyDescription$($currency$$6$$), $app$$14$$.$getCurrencySign$($currency$$6$$));
-  }, this);
-  this.$deposit_button_group_$.render($goog$dom$getElement$$("id_deposit_balances_container"));
-  var $broker$$6_profile$$ = $model$$29$$.get("Broker");
-  $model$$29$$.get("IsBroker") && this.$is_requests_from_customers_$ ? ($broker$$6_profile$$ = $model$$29$$.get("Profile"), this.$deposit_list_table_$ = new $bitex$ui$DepositList$$($broker$$6_profile$$.CryptoCurrencies, !0, !0, this.$app_$.$rest_url_$)) : this.$deposit_list_table_$ = new $bitex$ui$DepositList$$($broker$$6_profile$$.CryptoCurrencies, !1, !1, this.$app_$.$rest_url_$);
+  }, this), this.$deposit_button_group_$.render($broker$$6_deposit_button_group_el_profile$$));
+  $broker$$6_deposit_button_group_el_profile$$ = $model$$29$$.get("Broker");
+  $model$$29$$.get("IsBroker") && this.$is_requests_from_customers_$ ? ($broker$$6_deposit_button_group_el_profile$$ = $model$$29$$.get("Profile"), this.$deposit_list_table_$ = new $bitex$ui$DepositList$$($broker$$6_deposit_button_group_el_profile$$.CryptoCurrencies, !0, !0, this.$app_$.$rest_url_$)) : this.$deposit_list_table_$ = new $bitex$ui$DepositList$$($broker$$6_deposit_button_group_el_profile$$.CryptoCurrencies, !1, !1, this.$app_$.$rest_url_$);
   $JSCompiler_StaticMethods_listen$$($handler$$83$$, this.$deposit_list_table_$, "request_data", this.$onDepositListTableRequestData_$);
   $JSCompiler_StaticMethods_listen$$($handler$$83$$, this.$app_$.$conn_$, $bitex$api$BitEx$EventType$DEPOSIT_LIST_RESPONSE$$ + "." + this.$request_id_$, this.$onDepositListReponse_$);
   $JSCompiler_StaticMethods_listen$$($handler$$83$$, this.$app_$.$conn_$, $bitex$api$BitEx$EventType$DEPOSIT_REFRESH$$ + "." + $model$$29$$.get("UserID"), this.$onDepositRefresh_$);
@@ -10703,25 +10702,30 @@ $JSCompiler_prototypeAlias$$.$onWithdrawListTableClick_$ = function $$JSCompiler
 };
 $JSCompiler_prototypeAlias$$.$destroyComponents_$ = function $$JSCompiler_prototypeAlias$$$$destroyComponents_$$() {
   var $handler$$91$$ = this.$getHandler$(), $model$$34$$ = this.$app_$.$model_$;
+  null != this.$withdraw_button_group_$ && this.$withdraw_button_group_$.$dispose$(!0);
   null != this.$withdraw_list_table_$ && ($JSCompiler_StaticMethods_unlisten$$($handler$$91$$, this.$withdraw_list_table_$, "request_data", this.$onWithdrawListTableRequestData_$), $JSCompiler_StaticMethods_unlisten$$($handler$$91$$, this.$app_$.$conn_$, "withdraw_list_response", this.$onWithdrawListReponse_$), $JSCompiler_StaticMethods_unlisten$$($handler$$91$$, this.$app_$.$conn_$, "withdraw_refresh." + $model$$34$$.get("UserID"), this.$onWithdrawRefresh_$), $JSCompiler_StaticMethods_unlisten$$($handler$$91$$, 
   this.$withdraw_list_table_$.$getElement$(), "click", this.$onWithdrawListTableClick_$), $JSCompiler_StaticMethods_unlisten$$($handler$$91$$, this.$withdraw_list_table_$, "withdraw_cancel", this.$onUserCancelWithdraw_$), $JSCompiler_StaticMethods_unlisten$$($handler$$91$$, this.$withdraw_list_table_$, "withdraw_progress", this.$onUserSetWithdrawInProgress_$), $JSCompiler_StaticMethods_unlisten$$($handler$$91$$, this.$withdraw_list_table_$, "withdraw_complete", this.$onUserSetWithdrawComplete_$), 
   this.$removeChildren$(!0));
   this.$request_id_$ = this.$withdraw_list_table_$ = null;
 };
 $JSCompiler_prototypeAlias$$.$recreateComponents_$ = function $$JSCompiler_prototypeAlias$$$$recreateComponents_$$() {
-  var $handler$$92$$ = this.$getHandler$(), $model$$35$$ = this.$app_$.$model_$;
+  var $handler$$92$$ = this.$getHandler$(), $model$$35$$ = this.$app_$.$model_$, $app$$19$$ = this.$app_$;
   this.$destroyComponents_$();
   this.$request_id_$ = parseInt(1E7 * Math.random(), 10);
-  var $currency_method_description_obj$$ = {}, $broker$$9$$ = $model$$35$$.get("Broker");
-  $model$$35$$.get("IsBroker") && this.$is_requests_from_customers_$ && ($broker$$9$$ = $model$$35$$.get("Profile"), $broker$$9$$ = $goog$array$find$$($model$$35$$.get("BrokerList"), function($broker_obj$$) {
+  var $broker$$9_withdraw_button_group_el$$ = $goog$dom$getElement$$("id_withdraw_button_group");
+  null != $broker$$9_withdraw_button_group_el$$ && (this.$withdraw_button_group_$ = new $bitex$ui$DepositWithdrawButtonGroup$$, $goog$array$forEach$$($model$$35$$.get("Broker").BrokerCurrencies, function($currency$$10$$) {
+    this.$withdraw_button_group_$.$addButton$("withdraw", $currency$$10$$, $app$$19$$.$getCurrencyDescription$($currency$$10$$), $app$$19$$.$getCurrencySign$($currency$$10$$));
+  }, this), this.$withdraw_button_group_$.render($broker$$9_withdraw_button_group_el$$));
+  var $currency_method_description_obj$$ = {}, $broker$$9_withdraw_button_group_el$$ = $model$$35$$.get("Broker");
+  $model$$35$$.get("IsBroker") && this.$is_requests_from_customers_$ && ($broker$$9_withdraw_button_group_el$$ = $model$$35$$.get("Profile"), $broker$$9_withdraw_button_group_el$$ = $goog$array$find$$($model$$35$$.get("BrokerList"), function($broker_obj$$) {
     if ($broker_obj$$.BrokerID == $model$$35$$.get("UserID")) {
       return!0;
     }
   }));
-  $goog$object$forEach$$($broker$$9$$.WithdrawStructure, function($method_list$$, $currency$$10$$) {
-    $currency_method_description_obj$$[$currency$$10$$] = {};
+  $goog$object$forEach$$($broker$$9_withdraw_button_group_el$$.WithdrawStructure, function($method_list$$, $currency$$11$$) {
+    $currency_method_description_obj$$[$currency$$11$$] = {};
     $goog$array$forEach$$($method_list$$, function($method$$5$$) {
-      $currency_method_description_obj$$[$currency$$10$$][$method$$5$$.method] = $method$$5$$.description;
+      $currency_method_description_obj$$[$currency$$11$$][$method$$5$$.method] = $method$$5$$.description;
     });
   });
   $model$$35$$.get("IsBroker") && this.$is_requests_from_customers_$ ? this.$withdraw_list_table_$ = new $bitex$ui$WithdrawList$$($currency_method_description_obj$$, !0, !0) : this.$withdraw_list_table_$ = new $bitex$ui$WithdrawList$$($currency_method_description_obj$$, !1, !1);
@@ -10847,8 +10851,8 @@ $goog$ui$registry$setDecoratorByClassName$$($bitex$ui$LedgerActivity$CSS_CLASS$$
   return new $bitex$ui$LedgerActivity$$;
 });
 // Input 178
-function $bitex$view$LedgerView$$($app$$19$$, $opt_domHelper$$47$$) {
-  $bitex$view$View$$.call(this, $app$$19$$, $opt_domHelper$$47$$);
+function $bitex$view$LedgerView$$($app$$20$$, $opt_domHelper$$47$$) {
+  $bitex$view$View$$.call(this, $app$$20$$, $opt_domHelper$$47$$);
   this.$request_id_$ = null;
 }
 $goog$inherits$$($bitex$view$LedgerView$$, $bitex$view$View$$);
@@ -10900,26 +10904,26 @@ $JSCompiler_prototypeAlias$$.$balanceFormatter_$ = function $$JSCompiler_prototy
 $JSCompiler_prototypeAlias$$.$onLedgerTableRequestData_$ = function $$JSCompiler_prototypeAlias$$$$onLedgerTableRequestData_$$($e$$204_filters_param$$) {
   var $page$$14$$ = $e$$204_filters_param$$.options.Page, $limit$$15$$ = $e$$204_filters_param$$.options.Limit;
   $e$$204_filters_param$$ = $e$$204_filters_param$$.options.Filter;
-  var $currency$$11$$, $filters$$ = [], $userID$$ = this.$app_$.$model_$.get("UserID"), $brokerID$$3$$ = this.$app_$.$model_$.get("Broker").BrokerID;
+  var $currency$$12$$, $filters$$ = [], $userID$$ = this.$app_$.$model_$.get("UserID"), $brokerID$$3$$ = this.$app_$.$model_$.get("Broker").BrokerID;
   this.$app_$.$model_$.get("IsBroker") && ($brokerID$$3$$ = $userID$$);
   $goog$isArrayLike$$($e$$204_filters_param$$) && $goog$array$forEach$$($e$$204_filters_param$$, function($filter$$12$$) {
     try {
       var $filter_obj$$ = $goog$json$parse$$($filter$$12$$);
-      null != $filter_obj$$.currency && ($currency$$11$$ = $filter_obj$$.currency);
+      null != $filter_obj$$.currency && ($currency$$12$$ = $filter_obj$$.currency);
       null != $filter_obj$$.broker_id && ($brokerID$$3$$ = $filter_obj$$.broker_id);
       null != $filter_obj$$.account_id && ($userID$$ = $filter_obj$$.account_id);
     } catch ($ex$$14$$) {
       $filters$$.push($filter$$12$$);
     }
   }, this);
-  this.$app_$.$conn_$.$requestLedgerList$(this.$request_id_$, $page$$14$$, $limit$$15$$, $brokerID$$3$$, $userID$$, $currency$$11$$, $filters$$);
+  this.$app_$.$conn_$.$requestLedgerList$(this.$request_id_$, $page$$14$$, $limit$$15$$, $brokerID$$3$$, $userID$$, $currency$$12$$, $filters$$);
 };
 $JSCompiler_prototypeAlias$$.$onLedgerListResponse_$ = function $$JSCompiler_prototypeAlias$$$$onLedgerListResponse_$$($e$$205_msg$$70$$) {
   null != this.$ledger_table_$ && ($e$$205_msg$$70$$ = $e$$205_msg$$70$$.data, $JSCompiler_StaticMethods_setResultSet$$(this.$ledger_table_$, $e$$205_msg$$70$$.LedgerListGrp, $e$$205_msg$$70$$.Columns));
 };
 // Input 179
-function $bitex$view$AccountOverview$$($app$$20$$, $opt_domHelper$$48$$) {
-  $bitex$view$View$$.call(this, $app$$20$$, $opt_domHelper$$48$$);
+function $bitex$view$AccountOverview$$($app$$21$$, $opt_domHelper$$48$$) {
+  $bitex$view$View$$.call(this, $app$$21$$, $opt_domHelper$$48$$);
   this.$verification_data_$ = this.$qr_data_verb_$ = this.$qr_data_$ = this.$deposit_data_$ = this.$deposit_action_$ = this.$withdraw_action_$ = this.$request_id_$ = null;
 }
 $goog$inherits$$($bitex$view$AccountOverview$$, $bitex$view$View$$);
@@ -11001,10 +11005,10 @@ $JSCompiler_prototypeAlias$$.$recreateComponents_$ = function $$JSCompiler_proto
   $JSCompiler_StaticMethods_listen$$($handler$$98$$, this.$app_$.$conn_$, "process_deposit." + this.$request_id_$, this.$onDepositProcessResponse_$);
   $JSCompiler_StaticMethods_listen$$($handler$$98$$, this.$app_$.$conn_$, $bitex$api$BitEx$EventType$DEPOSIT_REFRESH$$ + "." + $customer$$2$$.ID, this.$onDepositRefresh_$);
   var $currency_method_description_obj$$1$$ = {};
-  $goog$object$forEach$$($account_overview_verify_el_profile$$1$$.WithdrawStructure, function($method_list$$1$$, $currency$$12$$) {
-    $currency_method_description_obj$$1$$[$currency$$12$$] = {};
+  $goog$object$forEach$$($account_overview_verify_el_profile$$1$$.WithdrawStructure, function($method_list$$1$$, $currency$$13$$) {
+    $currency_method_description_obj$$1$$[$currency$$13$$] = {};
     $goog$array$forEach$$($method_list$$1$$, function($method$$6$$) {
-      $currency_method_description_obj$$1$$[$currency$$12$$][$method$$6$$.method] = $method$$6$$.description;
+      $currency_method_description_obj$$1$$[$currency$$13$$][$method$$6$$.method] = $method$$6$$.description;
     });
   });
   this.$withdraw_list_table_$ = new $bitex$ui$WithdrawList$$($currency_method_description_obj$$1$$, !0);
@@ -11239,10 +11243,10 @@ $JSCompiler_prototypeAlias$$.$onBalanceResponse_$ = function $$JSCompiler_protot
   delete $msg$$77$$.BalanceReqID;
   $e$$229_user_balances$$ = $msg$$77$$[$model$$39$$.get("UserID")];
   var $currencies$$ = [];
-  $goog$object$forEach$$($e$$229_user_balances$$, function($balance$$, $currency$$13$$) {
-    var $formatted_balance$$ = this.$app_$.$formatCurrency$($balance$$ / 1E8, $currency$$13$$);
-    $currencies$$.push({code:$currency$$13$$, $model_key$:$currency$$13$$ + "." + $msg$$77$$.ClientID, $balance$:$formatted_balance$$});
-    var $balance_key$$ = "balance_" + $currency$$13$$ + "." + $msg$$77$$.ClientID;
+  $goog$object$forEach$$($e$$229_user_balances$$, function($balance$$, $currency$$14$$) {
+    var $formatted_balance$$ = this.$app_$.$formatCurrency$($balance$$ / 1E8, $currency$$14$$);
+    $currencies$$.push({code:$currency$$14$$, $model_key$:$currency$$14$$ + "." + $msg$$77$$.ClientID, $balance$:$formatted_balance$$});
+    var $balance_key$$ = "balance_" + $currency$$14$$ + "." + $msg$$77$$.ClientID;
     $model$$39$$.set($balance_key$$, $balance$$);
     $model$$39$$.set("formatted_" + $balance_key$$, $formatted_balance$$);
   }, this);
@@ -11253,8 +11257,8 @@ $JSCompiler_prototypeAlias$$.$onWithdrawRefresh_$ = function $$JSCompiler_protot
   $JSCompiler_StaticMethods_insertOrUpdateRecord$$(this.$withdraw_list_table_$, $e$$230$$.data);
 };
 // Input 180
-function $bitex$view$VerificationView$$($app$$21$$, $opt_domHelper$$49$$) {
-  $bitex$view$View$$.call(this, $app$$21$$, $opt_domHelper$$49$$);
+function $bitex$view$VerificationView$$($app$$22$$, $opt_domHelper$$49$$) {
+  $bitex$view$View$$.call(this, $app$$22$$, $opt_domHelper$$49$$);
   this.$loaded_jot_form_$ = !1;
 }
 $goog$inherits$$($bitex$view$VerificationView$$, $bitex$view$View$$);
@@ -11309,8 +11313,8 @@ function $JSCompiler_StaticMethods_clearCurrencies$$($JSCompiler_StaticMethods_c
   $JSCompiler_StaticMethods_clearCurrencies$self_table_tbody_el$$1$$ = $goog$dom$getElementsByTagNameAndClass$$("TBODY", void 0, $goog$dom$getElement$$($JSCompiler_StaticMethods_makeId$$($JSCompiler_StaticMethods_clearCurrencies$self_table_tbody_el$$1$$, "remittance_box")))[0];
   $goog$dom$removeChildren$$($JSCompiler_StaticMethods_clearCurrencies$self_table_tbody_el$$1$$);
 }
-function $JSCompiler_StaticMethods_addCurrency$$($JSCompiler_StaticMethods_addCurrency$self$$, $currency$$14$$) {
-  var $currency_record$$ = ["USDBTC" + $currency$$14$$, "USD -> BTC -> " + $currency$$14$$];
+function $JSCompiler_StaticMethods_addCurrency$$($JSCompiler_StaticMethods_addCurrency$self$$, $currency$$15$$) {
+  var $currency_record$$ = ["USDBTC" + $currency$$15$$, "USD -> BTC -> " + $currency$$15$$];
   $JSCompiler_StaticMethods_addCurrency$self$$.$model_$.push($currency_record$$);
   var $table_tbody_el$$2$$ = $goog$dom$getElementsByTagNameAndClass$$("TBODY", void 0, $goog$dom$getElement$$($JSCompiler_StaticMethods_makeId$$($JSCompiler_StaticMethods_addCurrency$self$$, "remittance_box")))[0], $wrapper$$6$$ = $JSCompiler_StaticMethods_addCurrency$self$$.$getDomHelper$().createElement("tbody");
   $wrapper$$6$$.innerHTML = $bitex$ui$RemittancesBox$templates$RemittancesBoxCurrency$$({id:$JSCompiler_StaticMethods_makeId$$($JSCompiler_StaticMethods_addCurrency$self$$, "remittance_box"), $remittance_pair$:$currency_record$$});
@@ -11386,8 +11390,8 @@ function $JSCompiler_StaticMethods_calculateQuotes_$$($JSCompiler_StaticMethods_
 }
 ;
 // Input 183
-function $bitex$view$SideBarView$$($app$$22$$, $opt_domHelper$$51$$) {
-  $bitex$view$View$$.call(this, $app$$22$$, $opt_domHelper$$51$$);
+function $bitex$view$SideBarView$$($app$$23$$, $opt_domHelper$$51$$) {
+  $bitex$view$View$$.call(this, $app$$23$$, $opt_domHelper$$51$$);
 }
 $goog$inherits$$($bitex$view$SideBarView$$, $bitex$view$View$$);
 $JSCompiler_prototypeAlias$$ = $bitex$view$SideBarView$$.prototype;
@@ -11400,8 +11404,8 @@ $JSCompiler_prototypeAlias$$.$onSelectedBroker_$ = function $$JSCompiler_prototy
       $goog$dom$classes$remove$$($broker_element$$, "account-summary-broker-selected");
     }, this);
     null != $element$$209_selectedBrokerID$$ && $goog$dom$classes$add$$($element$$209_selectedBrokerID$$, "account-summary-broker-selected");
-    null != this.$remittance_box_$ && $goog$array$forEach$$($model$$41$$.get("Broker").BrokerCurrencies, function($currency$$16$$) {
-      this.$app_$.$isCryptoCurrency$($currency$$16$$) || $JSCompiler_StaticMethods_addCurrency$$(this.$remittance_box_$, $currency$$16$$);
+    null != this.$remittance_box_$ && $goog$array$forEach$$($model$$41$$.get("Broker").BrokerCurrencies, function($currency$$17$$) {
+      this.$app_$.$isCryptoCurrency$($currency$$17$$) || $JSCompiler_StaticMethods_addCurrency$$(this.$remittance_box_$, $currency$$17$$);
     }, this);
   }
 };
@@ -11420,15 +11424,15 @@ $JSCompiler_prototypeAlias$$.$enterDocument$ = function $$JSCompiler_prototypeAl
     $goog$dom$removeChildren$$($goog$dom$getElement$$("id_account_summary_content"));
     var $accounts$$ = [];
     $accounts$$.push({brokerID:$model$$42$$.get("Broker").BrokerID, brokerName:$model$$42$$.get("Broker").ShortName, clientID:$model$$42$$.get("UserID"), currencies:[]});
-    $goog$array$forEach$$($model$$42$$.get("Broker").BrokerCurrencies, function($currency$$17$$) {
-      $accounts$$[0].currencies.push({currency:$currency$$17$$, balance:0, formattedBalance:this.$app_$.$formatCurrency$(0, $currency$$17$$, !0), showDeposit:!0, showWithdraw:!0});
+    $goog$array$forEach$$($model$$42$$.get("Broker").BrokerCurrencies, function($currency$$18$$) {
+      $accounts$$[0].currencies.push({currency:$currency$$18$$, balance:0, formattedBalance:this.$app_$.$formatCurrency$(0, $currency$$18$$, !0), showDeposit:!0, showWithdraw:!0});
     }, this);
-    $model$$42$$.get("IsBroker") && ($accounts$$.push({brokerID:$model$$42$$.get("Profile").BrokerID, brokerName:"Meus clientes", clientID:$model$$42$$.get("UserID"), currencies:[]}), $goog$array$forEach$$($model$$42$$.get("Profile").BrokerCurrencies, function($currency$$18$$) {
-      $accounts$$[1].currencies.push({currency:$currency$$18$$, balance:0, formattedBalance:this.$app_$.$formatCurrency$(0, $currency$$18$$, !0), showDeposit:!1, showWithdraw:!1});
+    $model$$42$$.get("IsBroker") && ($accounts$$.push({brokerID:$model$$42$$.get("Profile").BrokerID, brokerName:"Meus clientes", clientID:$model$$42$$.get("UserID"), currencies:[]}), $goog$array$forEach$$($model$$42$$.get("Profile").BrokerCurrencies, function($currency$$19$$) {
+      $accounts$$[1].currencies.push({currency:$currency$$19$$, balance:0, formattedBalance:this.$app_$.$formatCurrency$(0, $currency$$19$$, !0), showDeposit:!1, showWithdraw:!1});
     }, this), $goog$isDefAndNotNull$$($model$$42$$.get("Profile").Accounts) && $goog$object$forEach$$($model$$42$$.get("Profile").Accounts, function($account_data$$1$$, $account_name$$1$$) {
       $accounts$$.push({brokerID:$model$$42$$.get("Profile").BrokerID, brokerName:$account_name$$1$$, clientID:$account_data$$1$$[0], currencies:[]});
-      $goog$array$forEach$$($model$$42$$.get("Profile").BrokerCurrencies, function($currency$$19$$) {
-        $accounts$$[$accounts$$.length - 1].currencies.push({currency:$currency$$19$$, balance:0, formattedBalance:this.$app_$.$formatCurrency$(0, $currency$$19$$, !0), showDeposit:!1, showWithdraw:!1});
+      $goog$array$forEach$$($model$$42$$.get("Profile").BrokerCurrencies, function($currency$$20$$) {
+        $accounts$$[$accounts$$.length - 1].currencies.push({currency:$currency$$20$$, balance:0, formattedBalance:this.$app_$.$formatCurrency$(0, $currency$$20$$, !0), showDeposit:!1, showWithdraw:!1});
       }, this);
     }, this));
     $goog$soy$renderElement$$($goog$dom$getElement$$("id_account_summary_content"), $bitex$templates$YourAccountSummary$$, {$accounts$:$accounts$$});
@@ -11456,8 +11460,8 @@ $JSCompiler_prototypeAlias$$.$enterDocument$ = function $$JSCompiler_prototypeAl
     if (null != this.$remittance_box_$) {
       var $symbol$$12$$ = this.$getSymbol$();
       $JSCompiler_StaticMethods_clearCurrencies$$(this.$remittance_box_$);
-      $goog$isDefAndNotNull$$($model$$42$$.get("Broker").AllowedMarkets[$symbol$$12$$]) ? $goog$array$forEach$$($model$$42$$.get("Broker").BrokerCurrencies, function($currency$$21$$) {
-        this.$app_$.$isCryptoCurrency$($currency$$21$$) || $JSCompiler_StaticMethods_addCurrency$$(this.$remittance_box_$, $currency$$21$$);
+      $goog$isDefAndNotNull$$($model$$42$$.get("Broker").AllowedMarkets[$symbol$$12$$]) ? $goog$array$forEach$$($model$$42$$.get("Broker").BrokerCurrencies, function($currency$$22$$) {
+        this.$app_$.$isCryptoCurrency$($currency$$22$$) || $JSCompiler_StaticMethods_addCurrency$$(this.$remittance_box_$, $currency$$22$$);
       }, this) : $JSCompiler_StaticMethods_addCurrency$$(this.$remittance_box_$, this.$app_$.$getPriceCurrencyFromSymbol$($symbol$$12$$));
     }
   }, this);
@@ -11648,8 +11652,8 @@ $goog$ui$registry$setDecoratorByClassName$$($bitex$ui$TradeHistory$CSS_CLASS$$, 
   return new $bitex$ui$TradeHistory$$;
 });
 // Input 190
-function $bitex$view$MarketView$$($app$$23$$, $opt_domHelper$$55$$) {
-  $bitex$view$View$$.call(this, $app$$23$$, $opt_domHelper$$55$$);
+function $bitex$view$MarketView$$($app$$24$$, $opt_domHelper$$55$$) {
+  $bitex$view$View$$.call(this, $app$$24$$, $opt_domHelper$$55$$);
   this.$market_data_subscription_symbol_$ = this.$market_data_subscription_id_$ = null;
 }
 $goog$inherits$$($bitex$view$MarketView$$, $bitex$view$View$$);
@@ -11722,14 +11726,14 @@ $JSCompiler_prototypeAlias$$.$onTradeHistoryTableRequestData_$ = function $$JSCo
 $JSCompiler_prototypeAlias$$.$onBitexSecurityStatus_$ = function $$JSCompiler_prototypeAlias$$$$onBitexSecurityStatus_$$($e$$244_msg$$82$$) {
   if (null != this.$market_view_table_$) {
     $e$$244_msg$$82$$ = $e$$244_msg$$82$$.data;
-    var $model$$45$$ = this.$app_$.$model_$, $currency$$23$$ = $e$$244_msg$$82$$.Symbol.substr(3), $crypto_currency$$ = $e$$244_msg$$82$$.Symbol.substr(0, 3);
-    $model$$45$$.set("formatted_volume_buy_" + $e$$244_msg$$82$$.Symbol, this.$app_$.$formatCurrency$($e$$244_msg$$82$$.BuyVolume / 1E8, $currency$$23$$, !0), !0);
+    var $model$$45$$ = this.$app_$.$model_$, $currency$$24$$ = $e$$244_msg$$82$$.Symbol.substr(3), $crypto_currency$$ = $e$$244_msg$$82$$.Symbol.substr(0, 3);
+    $model$$45$$.set("formatted_volume_buy_" + $e$$244_msg$$82$$.Symbol, this.$app_$.$formatCurrency$($e$$244_msg$$82$$.BuyVolume / 1E8, $currency$$24$$, !0), !0);
     $model$$45$$.set("formatted_volume_sell_" + $e$$244_msg$$82$$.Symbol, this.$app_$.$formatCurrency$($e$$244_msg$$82$$.SellVolume / 1E8, $crypto_currency$$, !0), !0);
-    $model$$45$$.set("formatted_min_" + $e$$244_msg$$82$$.Symbol, this.$app_$.$formatCurrency$($e$$244_msg$$82$$.LowPx / 1E8, $currency$$23$$, !0), !0);
-    $model$$45$$.set("formatted_max_" + $e$$244_msg$$82$$.Symbol, this.$app_$.$formatCurrency$($e$$244_msg$$82$$.HighPx / 1E8, $currency$$23$$, !0), !0);
-    $model$$45$$.set("formatted_last_price_" + $e$$244_msg$$82$$.Symbol, this.$app_$.$formatCurrency$($e$$244_msg$$82$$.LastPx / 1E8, $currency$$23$$, !0), !0);
-    $model$$45$$.set("formatted_bid_" + $e$$244_msg$$82$$.Symbol, this.$app_$.$formatCurrency$($e$$244_msg$$82$$.BestBid / 1E8, $currency$$23$$, !0), !0);
-    $model$$45$$.set("formatted_ask_" + $e$$244_msg$$82$$.Symbol, this.$app_$.$formatCurrency$($e$$244_msg$$82$$.BestAsk / 1E8, $currency$$23$$, !0), !0);
+    $model$$45$$.set("formatted_min_" + $e$$244_msg$$82$$.Symbol, this.$app_$.$formatCurrency$($e$$244_msg$$82$$.LowPx / 1E8, $currency$$24$$, !0), !0);
+    $model$$45$$.set("formatted_max_" + $e$$244_msg$$82$$.Symbol, this.$app_$.$formatCurrency$($e$$244_msg$$82$$.HighPx / 1E8, $currency$$24$$, !0), !0);
+    $model$$45$$.set("formatted_last_price_" + $e$$244_msg$$82$$.Symbol, this.$app_$.$formatCurrency$($e$$244_msg$$82$$.LastPx / 1E8, $currency$$24$$, !0), !0);
+    $model$$45$$.set("formatted_bid_" + $e$$244_msg$$82$$.Symbol, this.$app_$.$formatCurrency$($e$$244_msg$$82$$.BestBid / 1E8, $currency$$24$$, !0), !0);
+    $model$$45$$.set("formatted_ask_" + $e$$244_msg$$82$$.Symbol, this.$app_$.$formatCurrency$($e$$244_msg$$82$$.BestAsk / 1E8, $currency$$24$$, !0), !0);
   }
 };
 $JSCompiler_prototypeAlias$$.$onBitexTrade_$ = function $$JSCompiler_prototypeAlias$$$$onBitexTrade_$$($e$$245_msg$$83$$) {
@@ -11762,22 +11766,22 @@ $JSCompiler_prototypeAlias$$.$onTradeHistoryReponse_$ = function $$JSCompiler_pr
   }
 };
 $JSCompiler_prototypeAlias$$.$onBitexOrderBookNewOrder_$ = function $$JSCompiler_prototypeAlias$$$$onBitexOrderBookNewOrder_$$($e$$247_index$$91$$) {
-  var $currency$$24_msg$$85$$ = $e$$247_index$$91$$.data;
-  $e$$247_index$$91$$ = $currency$$24_msg$$85$$.MDEntryPositionNo - 1;
-  var $price$$11$$ = $currency$$24_msg$$85$$.MDEntryPx / 1E8, $side$$16$$ = $currency$$24_msg$$85$$.MDEntryType, $currency$$24_msg$$85$$ = $currency$$24_msg$$85$$.Symbol.substr(3, 3);
-  "0" == $side$$16$$ ? 0 === $e$$247_index$$91$$ && this.$app_$.$model_$.set("formatted_best_bid_" + $currency$$24_msg$$85$$.toLowerCase(), this.$app_$.$formatCurrency$($price$$11$$, $currency$$24_msg$$85$$)) : "1" == $side$$16$$ && 0 === $e$$247_index$$91$$ && this.$app_$.$model_$.set("formatted_best_offer_" + $currency$$24_msg$$85$$.toLowerCase(), this.$app_$.$formatCurrency$($price$$11$$, $currency$$24_msg$$85$$));
+  var $currency$$25_msg$$85$$ = $e$$247_index$$91$$.data;
+  $e$$247_index$$91$$ = $currency$$25_msg$$85$$.MDEntryPositionNo - 1;
+  var $price$$11$$ = $currency$$25_msg$$85$$.MDEntryPx / 1E8, $side$$16$$ = $currency$$25_msg$$85$$.MDEntryType, $currency$$25_msg$$85$$ = $currency$$25_msg$$85$$.Symbol.substr(3, 3);
+  "0" == $side$$16$$ ? 0 === $e$$247_index$$91$$ && this.$app_$.$model_$.set("formatted_best_bid_" + $currency$$25_msg$$85$$.toLowerCase(), this.$app_$.$formatCurrency$($price$$11$$, $currency$$25_msg$$85$$)) : "1" == $side$$16$$ && 0 === $e$$247_index$$91$$ && this.$app_$.$model_$.set("formatted_best_offer_" + $currency$$25_msg$$85$$.toLowerCase(), this.$app_$.$formatCurrency$($price$$11$$, $currency$$25_msg$$85$$));
 };
 $JSCompiler_prototypeAlias$$.$onBitexTradingSessionStatus_$ = function $$JSCompiler_prototypeAlias$$$$onBitexTradingSessionStatus_$$($e$$248$$) {
   try {
     var $msg$$86$$ = $e$$248$$.data;
     delete $msg$$86$$.MDEntryType;
     delete $msg$$86$$.MDReqID;
-    var $app$$24$$ = this.$app_$;
-    $goog$object$forEach$$($msg$$86$$, function($volume$$, $currency$$25$$) {
+    var $app$$25$$ = this.$app_$;
+    $goog$object$forEach$$($msg$$86$$, function($volume$$, $currency$$26$$) {
       $volume$$ /= 1E8;
-      var $volume_key$$ = "volume_" + $currency$$25$$.toLowerCase();
-      $app$$24$$.$model_$.set($volume_key$$, $volume$$);
-      $app$$24$$.$model_$.set("formatted_" + $volume_key$$, $app$$24$$.$formatCurrency$($volume$$, $currency$$25$$));
+      var $volume_key$$ = "volume_" + $currency$$26$$.toLowerCase();
+      $app$$25$$.$model_$.set($volume_key$$, $volume$$);
+      $app$$25$$.$model_$.set("formatted_" + $volume_key$$, $app$$25$$.$formatCurrency$($volume$$, $currency$$26$$));
     });
   } catch ($str$$107$$) {
   }
@@ -12042,11 +12046,11 @@ $JSCompiler_prototypeAlias$$.$onUpdateAvailableBalance_$ = function $$JSCompiler
   $JSCompiler_StaticMethods_setMinimumFractionDigits$$($value_fmt$$7$$, 2);
   $goog$object$forEach$$($e$$253$$.data, function($broker_balance$$, $broker_id$$8$$) {
     $goog$object$forEach$$($broker_balance$$, function($account_balance$$, $account_id$$1$$) {
-      $goog$object$forEach$$($account_balance$$, function($balance$$1$$, $currency$$26$$) {
-        var $available_balance_key$$ = "available_balance_" + $broker_id$$8$$ + ":" + $account_id$$1$$ + "_" + $currency$$26$$;
+      $goog$object$forEach$$($account_balance$$, function($balance$$1$$, $currency$$27$$) {
+        var $available_balance_key$$ = "available_balance_" + $broker_id$$8$$ + ":" + $account_id$$1$$ + "_" + $currency$$27$$;
         this.$model_$.set($available_balance_key$$, $balance$$1$$);
-        $balance$$1$$ = (new $bitex$primitives$Price$$($balance$$1$$, this.$currency_info_$[$currency$$26$$].$pip$)).floor();
-        this.$model_$.set("formatted_" + $available_balance_key$$, this.$formatCurrency$($balance$$1$$ / 1E8, $currency$$26$$, !0));
+        $balance$$1$$ = (new $bitex$primitives$Price$$($balance$$1$$, this.$currency_info_$[$currency$$27$$].$pip$)).floor();
+        this.$model_$.set("formatted_" + $available_balance_key$$, this.$formatCurrency$($balance$$1$$ / 1E8, $currency$$27$$, !0));
         this.$model_$.set("formatted_" + $available_balance_key$$ + "_value", $value_fmt$$7$$.format($balance$$1$$ / 1E8));
       }, this);
     }, this);
@@ -12062,22 +12066,22 @@ $JSCompiler_prototypeAlias$$.$onUpdateLockedBalance_$ = function $$JSCompiler_pr
     null == $available_balance$$[$broker_id$$9$$] && ($available_balance$$[$broker_id$$9$$] = {}, $should_update_available_balance$$ = !0);
     $goog$object$forEach$$($broker_balance$$1$$, function($account_balance$$1$$, $account_id$$2$$) {
       null == $available_balance$$[$broker_id$$9$$][$account_id$$2$$] && ($available_balance$$[$broker_id$$9$$][$account_id$$2$$] = {}, $should_update_available_balance$$ = !0);
-      $goog$object$forEach$$($account_balance$$1$$, function($balance$$2$$, $currency$$27$$) {
-        if (null == $available_balance$$[$broker_id$$9$$][$account_id$$2$$][$currency$$27$$]) {
-          $available_balance$$[$broker_id$$9$$][$account_id$$2$$][$currency$$27$$] = $balance$$2$$;
+      $goog$object$forEach$$($account_balance$$1$$, function($balance$$2$$, $currency$$28$$) {
+        if (null == $available_balance$$[$broker_id$$9$$][$account_id$$2$$][$currency$$28$$]) {
+          $available_balance$$[$broker_id$$9$$][$account_id$$2$$][$currency$$28$$] = $balance$$2$$;
           try {
-            $available_balance$$[$broker_id$$9$$][$account_id$$2$$][$currency$$27$$] = $deposit_balance$$[$broker_id$$9$$][$account_id$$2$$][$currency$$27$$] - $balance$$2$$;
+            $available_balance$$[$broker_id$$9$$][$account_id$$2$$][$currency$$28$$] = $deposit_balance$$[$broker_id$$9$$][$account_id$$2$$][$currency$$28$$] - $balance$$2$$;
           } catch ($e$$255$$) {
           }
           $should_update_available_balance$$ = !0;
         }
         try {
-          $available_balance$$[$broker_id$$9$$][$account_id$$2$$][$currency$$27$$] != $deposit_balance$$[$broker_id$$9$$][$account_id$$2$$][$currency$$27$$] - $balance$$2$$ && ($available_balance$$[$broker_id$$9$$][$account_id$$2$$][$currency$$27$$] = $deposit_balance$$[$broker_id$$9$$][$account_id$$2$$][$currency$$27$$] - $balance$$2$$, $should_update_available_balance$$ = !0);
+          $available_balance$$[$broker_id$$9$$][$account_id$$2$$][$currency$$28$$] != $deposit_balance$$[$broker_id$$9$$][$account_id$$2$$][$currency$$28$$] - $balance$$2$$ && ($available_balance$$[$broker_id$$9$$][$account_id$$2$$][$currency$$28$$] = $deposit_balance$$[$broker_id$$9$$][$account_id$$2$$][$currency$$28$$] - $balance$$2$$, $should_update_available_balance$$ = !0);
         } catch ($e$$256$$) {
         }
-        var $locked_balance_key$$ = "locked_balance_" + $broker_id$$9$$ + ":" + $account_id$$2$$ + "_" + $currency$$27$$;
+        var $locked_balance_key$$ = "locked_balance_" + $broker_id$$9$$ + ":" + $account_id$$2$$ + "_" + $currency$$28$$;
         this.$model_$.set($locked_balance_key$$, $balance$$2$$);
-        this.$model_$.set("formatted_" + $locked_balance_key$$, this.$formatCurrency$($balance$$2$$ / 1E8, $currency$$27$$, !0));
+        this.$model_$.set("formatted_" + $locked_balance_key$$, this.$formatCurrency$($balance$$2$$ / 1E8, $currency$$28$$, !0));
         this.$model_$.set("formatted_" + $locked_balance_key$$ + "_value", $value_fmt$$8$$.format($balance$$2$$ / 1E8));
       }, this);
     }, this);
@@ -12094,23 +12098,23 @@ $JSCompiler_prototypeAlias$$.$onUpdateBalance_$ = function $$JSCompiler_prototyp
     null == $available_balance$$1$$[$broker_id$$10$$] && ($available_balance$$1$$[$broker_id$$10$$] = {}, $should_update_available_balance$$1$$ = !0);
     $goog$object$forEach$$($broker_balance$$2$$, function($account_balance$$2$$, $account_id$$3$$) {
       null == $available_balance$$1$$[$broker_id$$10$$][$account_id$$3$$] && ($available_balance$$1$$[$broker_id$$10$$][$account_id$$3$$] = {}, $should_update_available_balance$$1$$ = !0);
-      $goog$object$forEach$$($account_balance$$2$$, function($balance$$3$$, $currency$$28$$) {
-        if (null == $available_balance$$1$$[$broker_id$$10$$][$account_id$$3$$][$currency$$28$$]) {
-          $available_balance$$1$$[$broker_id$$10$$][$account_id$$3$$][$currency$$28$$] = $balance$$3$$;
+      $goog$object$forEach$$($account_balance$$2$$, function($balance$$3$$, $currency$$29$$) {
+        if (null == $available_balance$$1$$[$broker_id$$10$$][$account_id$$3$$][$currency$$29$$]) {
+          $available_balance$$1$$[$broker_id$$10$$][$account_id$$3$$][$currency$$29$$] = $balance$$3$$;
           try {
-            $available_balance$$1$$[$broker_id$$10$$][$account_id$$3$$][$currency$$28$$] = $balance$$3$$ - $locked_balance$$[$broker_id$$10$$][$account_id$$3$$][$currency$$28$$];
+            $available_balance$$1$$[$broker_id$$10$$][$account_id$$3$$][$currency$$29$$] = $balance$$3$$ - $locked_balance$$[$broker_id$$10$$][$account_id$$3$$][$currency$$29$$];
           } catch ($e$$258$$) {
           }
           $should_update_available_balance$$1$$ = !0;
         }
         try {
-          $available_balance$$1$$[$broker_id$$10$$][$account_id$$3$$][$currency$$28$$] != $balance$$3$$ - $locked_balance$$[$broker_id$$10$$][$account_id$$3$$][$currency$$28$$] && ($available_balance$$1$$[$broker_id$$10$$][$account_id$$3$$][$currency$$28$$] = $balance$$3$$ - $locked_balance$$[$broker_id$$10$$][$account_id$$3$$][$currency$$28$$], $should_update_available_balance$$1$$ = !0);
+          $available_balance$$1$$[$broker_id$$10$$][$account_id$$3$$][$currency$$29$$] != $balance$$3$$ - $locked_balance$$[$broker_id$$10$$][$account_id$$3$$][$currency$$29$$] && ($available_balance$$1$$[$broker_id$$10$$][$account_id$$3$$][$currency$$29$$] = $balance$$3$$ - $locked_balance$$[$broker_id$$10$$][$account_id$$3$$][$currency$$29$$], $should_update_available_balance$$1$$ = !0);
         } catch ($e$$259$$) {
         }
-        var $balance_key$$1$$ = "balance_" + $broker_id$$10$$ + ":" + $account_id$$3$$ + "_" + $currency$$28$$;
+        var $balance_key$$1$$ = "balance_" + $broker_id$$10$$ + ":" + $account_id$$3$$ + "_" + $currency$$29$$;
         this.$model_$.set($balance_key$$1$$, $balance$$3$$);
-        $balance$$3$$ = (new $bitex$primitives$Price$$($balance$$3$$, this.$currency_info_$[$currency$$28$$].$pip$)).floor();
-        this.$model_$.set("formatted_" + $balance_key$$1$$, this.$formatCurrency$($balance$$3$$ / 1E8, $currency$$28$$, !0));
+        $balance$$3$$ = (new $bitex$primitives$Price$$($balance$$3$$, this.$currency_info_$[$currency$$29$$].$pip$)).floor();
+        this.$model_$.set("formatted_" + $balance_key$$1$$, this.$formatCurrency$($balance$$3$$ / 1E8, $currency$$29$$, !0));
         this.$model_$.set("formatted_" + $balance_key$$1$$ + "_value", $value_fmt$$9$$.format($balance$$3$$ / 1E8));
       }, this);
     }, this);
@@ -12280,27 +12284,27 @@ $JSCompiler_prototypeAlias$$.$onBitexOrderListResponse_$ = function $$JSCompiler
   $msg$$96$$.OrdListGrp.length == $msg$$96$$.PageSize ? this.$conn_$.$requestOrderList$(this.$open_orders_request_id_$, $msg$$96$$.Page + 1, $msg$$96$$.PageSize, ["0", "1"]) : this.$model_$.set("FinishedInitialOpenOrdersRequest", !0);
 };
 function $JSCompiler_StaticMethods_adjustLockedBalance_$$($JSCompiler_StaticMethods_adjustLockedBalance_$self$$, $execution_report_locked_balance$$1$$, $opt_current_order$$) {
-  var $currency$$30$$, $is_sell_order$$ = "2" == $execution_report_locked_balance$$1$$.Side, $balance_broker_locked_balance_key$$1_new_volume$$ = 0, $currency_balance_locked_current_volume_running_algorithms$$ = 0;
-  "1" == $execution_report_locked_balance$$1$$.Side ? ($currency$$30$$ = $JSCompiler_StaticMethods_adjustLockedBalance_$self$$.$conn_$.$getPriceCurrencyFromSymbol$($execution_report_locked_balance$$1$$.Symbol), $balance_broker_locked_balance_key$$1_new_volume$$ = parseInt($execution_report_locked_balance$$1$$.LeavesQty * $execution_report_locked_balance$$1$$.Price / 1E8, 10), null != $opt_current_order$$ && ($currency_balance_locked_current_volume_running_algorithms$$ = parseInt($opt_current_order$$.LeavesQty * 
-  $opt_current_order$$.Price / 1E8, 10))) : $is_sell_order$$ && ($currency$$30$$ = $JSCompiler_StaticMethods_adjustLockedBalance_$self$$.$conn_$.$getQtyCurrencyFromSymbol$($execution_report_locked_balance$$1$$.Symbol), $balance_broker_locked_balance_key$$1_new_volume$$ = parseInt($execution_report_locked_balance$$1$$.LeavesQty, 10), null != $opt_current_order$$ && ($currency_balance_locked_current_volume_running_algorithms$$ = parseInt($opt_current_order$$.LeavesQty, 10)));
+  var $currency$$31$$, $is_sell_order$$ = "2" == $execution_report_locked_balance$$1$$.Side, $balance_broker_locked_balance_key$$1_new_volume$$ = 0, $currency_balance_locked_current_volume_running_algorithms$$ = 0;
+  "1" == $execution_report_locked_balance$$1$$.Side ? ($currency$$31$$ = $JSCompiler_StaticMethods_adjustLockedBalance_$self$$.$conn_$.$getPriceCurrencyFromSymbol$($execution_report_locked_balance$$1$$.Symbol), $balance_broker_locked_balance_key$$1_new_volume$$ = parseInt($execution_report_locked_balance$$1$$.LeavesQty * $execution_report_locked_balance$$1$$.Price / 1E8, 10), null != $opt_current_order$$ && ($currency_balance_locked_current_volume_running_algorithms$$ = parseInt($opt_current_order$$.LeavesQty * 
+  $opt_current_order$$.Price / 1E8, 10))) : $is_sell_order$$ && ($currency$$31$$ = $JSCompiler_StaticMethods_adjustLockedBalance_$self$$.$conn_$.$getQtyCurrencyFromSymbol$($execution_report_locked_balance$$1$$.Symbol), $balance_broker_locked_balance_key$$1_new_volume$$ = parseInt($execution_report_locked_balance$$1$$.LeavesQty, 10), null != $opt_current_order$$ && ($currency_balance_locked_current_volume_running_algorithms$$ = parseInt($opt_current_order$$.LeavesQty, 10)));
   $execution_report_locked_balance$$1$$ = $JSCompiler_StaticMethods_adjustLockedBalance_$self$$.$model_$.get("LockedBalance");
   null == $execution_report_locked_balance$$1$$ && ($execution_report_locked_balance$$1$$ = {}, $execution_report_locked_balance$$1$$[$JSCompiler_StaticMethods_adjustLockedBalance_$self$$.$model_$.get("SelectedBrokerID")] = {}, $execution_report_locked_balance$$1$$[$JSCompiler_StaticMethods_adjustLockedBalance_$self$$.$model_$.get("SelectedBrokerID")][$JSCompiler_StaticMethods_adjustLockedBalance_$self$$.$model_$.get("UserID")] = {});
-  var $current_locked_balance$$ = $execution_report_locked_balance$$1$$[$JSCompiler_StaticMethods_adjustLockedBalance_$self$$.$model_$.get("SelectedBrokerID")][$JSCompiler_StaticMethods_adjustLockedBalance_$self$$.$model_$.get("UserID")][$currency$$30$$];
+  var $current_locked_balance$$ = $execution_report_locked_balance$$1$$[$JSCompiler_StaticMethods_adjustLockedBalance_$self$$.$model_$.get("SelectedBrokerID")][$JSCompiler_StaticMethods_adjustLockedBalance_$self$$.$model_$.get("UserID")][$currency$$31$$];
   null != $current_locked_balance$$ || ($current_locked_balance$$ = 0);
   $current_locked_balance$$ += $balance_broker_locked_balance_key$$1_new_volume$$ - $currency_balance_locked_current_volume_running_algorithms$$;
-  $execution_report_locked_balance$$1$$[$JSCompiler_StaticMethods_adjustLockedBalance_$self$$.$model_$.get("SelectedBrokerID")][$JSCompiler_StaticMethods_adjustLockedBalance_$self$$.$model_$.get("UserID")][$currency$$30$$] = $current_locked_balance$$;
+  $execution_report_locked_balance$$1$$[$JSCompiler_StaticMethods_adjustLockedBalance_$self$$.$model_$.get("SelectedBrokerID")][$JSCompiler_StaticMethods_adjustLockedBalance_$self$$.$model_$.get("UserID")][$currency$$31$$] = $current_locked_balance$$;
   $JSCompiler_StaticMethods_adjustLockedBalance_$self$$.$model_$.set("LockedBalance", $execution_report_locked_balance$$1$$);
   $balance_broker_locked_balance_key$$1_new_volume$$ = $JSCompiler_StaticMethods_adjustLockedBalance_$self$$.$model_$.get("balance_" + $JSCompiler_StaticMethods_adjustLockedBalance_$self$$.$model_$.get("SelectedBrokerID"));
   null != $balance_broker_locked_balance_key$$1_new_volume$$ || ($balance_broker_locked_balance_key$$1_new_volume$$ = {});
   $currency_balance_locked_current_volume_running_algorithms$$ = {};
-  $currency_balance_locked_current_volume_running_algorithms$$[$currency$$30$$ + "_locked"] = $execution_report_locked_balance$$1$$[$JSCompiler_StaticMethods_adjustLockedBalance_$self$$.$model_$.get("SelectedBrokerID")][$JSCompiler_StaticMethods_adjustLockedBalance_$self$$.$model_$.get("UserID")][$currency$$30$$];
+  $currency_balance_locked_current_volume_running_algorithms$$[$currency$$31$$ + "_locked"] = $execution_report_locked_balance$$1$$[$JSCompiler_StaticMethods_adjustLockedBalance_$self$$.$model_$.get("SelectedBrokerID")][$JSCompiler_StaticMethods_adjustLockedBalance_$self$$.$model_$.get("UserID")][$currency$$31$$];
   $goog$object$extend$$($balance_broker_locked_balance_key$$1_new_volume$$, $currency_balance_locked_current_volume_running_algorithms$$);
   $JSCompiler_StaticMethods_adjustLockedBalance_$self$$.$model_$.set("balance_" + $JSCompiler_StaticMethods_adjustLockedBalance_$self$$.$model_$.get("SelectedBrokerID"), $balance_broker_locked_balance_key$$1_new_volume$$);
-  $balance_broker_locked_balance_key$$1_new_volume$$ = "locked_balance_" + $JSCompiler_StaticMethods_adjustLockedBalance_$self$$.$model_$.get("SelectedBrokerID") + ":" + $JSCompiler_StaticMethods_adjustLockedBalance_$self$$.$model_$.get("UserID") + "_" + $currency$$30$$;
+  $balance_broker_locked_balance_key$$1_new_volume$$ = "locked_balance_" + $JSCompiler_StaticMethods_adjustLockedBalance_$self$$.$model_$.get("SelectedBrokerID") + ":" + $JSCompiler_StaticMethods_adjustLockedBalance_$self$$.$model_$.get("UserID") + "_" + $currency$$31$$;
   $JSCompiler_StaticMethods_adjustLockedBalance_$self$$.$model_$.get($balance_broker_locked_balance_key$$1_new_volume$$) != $current_locked_balance$$ && ($currency_balance_locked_current_volume_running_algorithms$$ = $JSCompiler_StaticMethods_adjustLockedBalance_$self$$.$model_$.get("RunningAlgorithms"), $goog$object$forEach$$($currency_balance_locked_current_volume_running_algorithms$$, function($running_algorithm_worker$$) {
     $running_algorithm_worker$$ = $running_algorithm_worker$$.worker;
     var $balance_message$$ = {};
-    $balance_message$$[$currency$$30$$ + "_locked"] = $current_locked_balance$$;
+    $balance_message$$[$currency$$31$$ + "_locked"] = $current_locked_balance$$;
     $running_algorithm_worker$$.postMessage({req:"balance", balances:$balance_message$$});
   }, $JSCompiler_StaticMethods_adjustLockedBalance_$self$$), $JSCompiler_StaticMethods_adjustLockedBalance_$self$$.$model_$.set($balance_broker_locked_balance_key$$1_new_volume$$, $current_locked_balance$$));
 }
@@ -12383,11 +12387,11 @@ $JSCompiler_prototypeAlias$$.$onBitexPositionResponse_$ = function $$JSCompiler_
   delete $e$$284_msg$$99$$.PositionReqID;
   var $clientID$$2$$ = $e$$284_msg$$99$$.ClientID;
   $goog$object$forEach$$($e$$284_msg$$99$$, function($positions$$, $broker$$13$$) {
-    $goog$object$forEach$$($positions$$, function($position$$3$$, $currency$$31$$) {
+    $goog$object$forEach$$($positions$$, function($position$$3$$, $currency$$32$$) {
       $position$$3$$ /= 1E8;
-      var $position_key$$ = "position_" + $broker$$13$$ + ":" + $clientID$$2$$ + "_" + $currency$$31$$;
+      var $position_key$$ = "position_" + $broker$$13$$ + ":" + $clientID$$2$$ + "_" + $currency$$32$$;
       this.$model_$.set($position_key$$, $position$$3$$);
-      $position$$3$$ ? this.$model_$.set("formatted_" + $position_key$$, this.$formatCurrency$($position$$3$$, $currency$$31$$, !0)) : this.$model_$.set("formatted_" + $position_key$$, "");
+      $position$$3$$ ? this.$model_$.set("formatted_" + $position_key$$, this.$formatCurrency$($position$$3$$, $currency$$32$$, !0)) : this.$model_$.set("formatted_" + $position_key$$, "");
     }, this);
   }, this);
 };
@@ -12404,37 +12408,37 @@ $JSCompiler_prototypeAlias$$.$onBitexBalanceResponse_$ = function $$JSCompiler_p
   }, this);
   var $model_balances$$ = this.$model_$.get("Balance");
   $goog$object$forEach$$($msg$$100$$, function($balances$$, $brokerID$$5$$) {
-    $goog$object$forEach$$($balances$$, function($balance$$4$$, $currency$$32$$) {
+    $goog$object$forEach$$($balances$$, function($balance$$4$$, $currency$$33$$) {
       null != $model_balances$$[$brokerID$$5$$] || ($model_balances$$[$brokerID$$5$$] = {});
       null != $model_balances$$[$brokerID$$5$$][$clientID$$3$$] || ($model_balances$$[$brokerID$$5$$][$clientID$$3$$] = {});
-      $model_balances$$[$brokerID$$5$$][$clientID$$3$$][$currency$$32$$] = $balance$$4$$;
+      $model_balances$$[$brokerID$$5$$][$clientID$$3$$][$currency$$33$$] = $balance$$4$$;
     }, this);
   }, this);
   this.$model_$.set("Balance", $model_balances$$);
 };
-function $JSCompiler_StaticMethods_getDepositedAmount$$($JSCompiler_StaticMethods_getDepositedAmount$self$$, $currency$$33$$) {
-  var $balance_key$$2_broker_id$$12$$ = $JSCompiler_StaticMethods_getDepositedAmount$self$$.$model_$.get("SelectedBrokerID"), $clientID$$4$$ = $JSCompiler_StaticMethods_getDepositedAmount$self$$.$model_$.get("UserID"), $balance_key$$2_broker_id$$12$$ = "balance_" + $balance_key$$2_broker_id$$12$$ + ":" + $clientID$$4$$ + "_" + $currency$$33$$;
+function $JSCompiler_StaticMethods_getDepositedAmount$$($JSCompiler_StaticMethods_getDepositedAmount$self$$, $currency$$34$$) {
+  var $balance_key$$2_broker_id$$12$$ = $JSCompiler_StaticMethods_getDepositedAmount$self$$.$model_$.get("SelectedBrokerID"), $clientID$$4$$ = $JSCompiler_StaticMethods_getDepositedAmount$self$$.$model_$.get("UserID"), $balance_key$$2_broker_id$$12$$ = "balance_" + $balance_key$$2_broker_id$$12$$ + ":" + $clientID$$4$$ + "_" + $currency$$34$$;
   return null != $JSCompiler_StaticMethods_getDepositedAmount$self$$.$model_$.get($balance_key$$2_broker_id$$12$$) ? $JSCompiler_StaticMethods_getDepositedAmount$self$$.$model_$.get($balance_key$$2_broker_id$$12$$) : 0;
 }
-function $JSCompiler_StaticMethods_getLockedAmount$$($JSCompiler_StaticMethods_getLockedAmount$self$$, $currency$$34$$) {
-  var $broker_id$$13_locked_balance_key$$2$$ = $JSCompiler_StaticMethods_getLockedAmount$self$$.$model_$.get("SelectedBrokerID"), $clientID$$5$$ = $JSCompiler_StaticMethods_getLockedAmount$self$$.$model_$.get("UserID"), $broker_id$$13_locked_balance_key$$2$$ = "locked_" + ("balance_" + $broker_id$$13_locked_balance_key$$2$$ + ":" + $clientID$$5$$ + "_" + $currency$$34$$);
+function $JSCompiler_StaticMethods_getLockedAmount$$($JSCompiler_StaticMethods_getLockedAmount$self$$, $currency$$35$$) {
+  var $broker_id$$13_locked_balance_key$$2$$ = $JSCompiler_StaticMethods_getLockedAmount$self$$.$model_$.get("SelectedBrokerID"), $clientID$$5$$ = $JSCompiler_StaticMethods_getLockedAmount$self$$.$model_$.get("UserID"), $broker_id$$13_locked_balance_key$$2$$ = "locked_" + ("balance_" + $broker_id$$13_locked_balance_key$$2$$ + ":" + $clientID$$5$$ + "_" + $currency$$35$$);
   return null != $JSCompiler_StaticMethods_getLockedAmount$self$$.$model_$.get($broker_id$$13_locked_balance_key$$2$$) ? $JSCompiler_StaticMethods_getLockedAmount$self$$.$model_$.get($broker_id$$13_locked_balance_key$$2$$) : 0;
 }
-$JSCompiler_prototypeAlias$$.$getBalance$ = function $$JSCompiler_prototypeAlias$$$$getBalance$$($balance_key$$4_currency$$35$$, $type$$137$$, $locked_balance_key$$3_opt_clientID$$10$$) {
+$JSCompiler_prototypeAlias$$.$getBalance$ = function $$JSCompiler_prototypeAlias$$$$getBalance$$($balance_key$$4_currency$$36$$, $type$$137$$, $locked_balance_key$$3_opt_clientID$$10$$) {
   var $broker_id$$14$$ = this.$model_$.get("SelectedBrokerID"), $clientID$$6$$ = this.$model_$.get("UserID");
   null != $locked_balance_key$$3_opt_clientID$$10$$ && ($clientID$$6$$ = $locked_balance_key$$3_opt_clientID$$10$$);
-  $balance_key$$4_currency$$35$$ = "balance_" + $broker_id$$14$$ + ":" + $clientID$$6$$ + "_" + $balance_key$$4_currency$$35$$;
-  $locked_balance_key$$3_opt_clientID$$10$$ = "locked_" + $balance_key$$4_currency$$35$$;
-  return "deposit" == $type$$137$$ ? this.$model_$.get($balance_key$$4_currency$$35$$) : "available" == $type$$137$$ ? null != this.$model_$.get($balance_key$$4_currency$$35$$) ? null != this.$model_$.get($locked_balance_key$$3_opt_clientID$$10$$) ? Math.round(this.$model_$.get($balance_key$$4_currency$$35$$) - this.$model_$.get($locked_balance_key$$3_opt_clientID$$10$$)) : this.$model_$.get($balance_key$$4_currency$$35$$) : 0 : "locked" == $type$$137$$ ? null != this.$model_$.get($locked_balance_key$$3_opt_clientID$$10$$) ? 
+  $balance_key$$4_currency$$36$$ = "balance_" + $broker_id$$14$$ + ":" + $clientID$$6$$ + "_" + $balance_key$$4_currency$$36$$;
+  $locked_balance_key$$3_opt_clientID$$10$$ = "locked_" + $balance_key$$4_currency$$36$$;
+  return "deposit" == $type$$137$$ ? this.$model_$.get($balance_key$$4_currency$$36$$) : "available" == $type$$137$$ ? null != this.$model_$.get($balance_key$$4_currency$$36$$) ? null != this.$model_$.get($locked_balance_key$$3_opt_clientID$$10$$) ? Math.round(this.$model_$.get($balance_key$$4_currency$$36$$) - this.$model_$.get($locked_balance_key$$3_opt_clientID$$10$$)) : this.$model_$.get($balance_key$$4_currency$$36$$) : 0 : "locked" == $type$$137$$ ? null != this.$model_$.get($locked_balance_key$$3_opt_clientID$$10$$) ? 
   this.$model_$.get($locked_balance_key$$3_opt_clientID$$10$$) : 0 : 0;
 };
 $JSCompiler_prototypeAlias$$.$onUserWithdrawRequest_$ = function $$JSCompiler_prototypeAlias$$$$onUserWithdrawRequest_$$($e$$286$$) {
   $JSCompiler_StaticMethods_showWithdrawalDialog$$(this, $e$$286$$.target.$currency_$);
 };
-function $JSCompiler_StaticMethods_showWithdrawalDialog$$($JSCompiler_StaticMethods_showWithdrawalDialog$self$$, $currency$$37$$) {
+function $JSCompiler_StaticMethods_showWithdrawalDialog$$($JSCompiler_StaticMethods_showWithdrawalDialog$self$$, $currency$$38$$) {
   $JSCompiler_StaticMethods_showWithdrawalDialog$self$$.$setView$("withdraw");
-  var $value_fmt$$10_withdraw_methods$$2$$ = $goog$object$unsafeClone$$($JSCompiler_StaticMethods_showWithdrawalDialog$self$$.$model_$.get("Broker").WithdrawStructure[$currency$$37$$]), $user_verification_level$$ = $JSCompiler_StaticMethods_showWithdrawalDialog$self$$.$model_$.get("Profile").Verified, $balance_key$$5_dialogContent_dlg$$2_method_element_id$$ = "available_balance_" + $JSCompiler_StaticMethods_showWithdrawalDialog$self$$.$model_$.get("Broker").BrokerID + ":" + $JSCompiler_StaticMethods_showWithdrawalDialog$self$$.$model_$.get("UserID") + 
-  "_" + $currency$$37$$, $user_balance$$ = parseInt($JSCompiler_StaticMethods_showWithdrawalDialog$self$$.$model_$.get($balance_key$$5_dialogContent_dlg$$2_method_element_id$$, 0), 10), $user_verified_withdraw_methods$$ = [];
+  var $value_fmt$$10_withdraw_methods$$2$$ = $goog$object$unsafeClone$$($JSCompiler_StaticMethods_showWithdrawalDialog$self$$.$model_$.get("Broker").WithdrawStructure[$currency$$38$$]), $user_verification_level$$ = $JSCompiler_StaticMethods_showWithdrawalDialog$self$$.$model_$.get("Profile").Verified, $balance_key$$5_dialogContent_dlg$$2_method_element_id$$ = "available_balance_" + $JSCompiler_StaticMethods_showWithdrawalDialog$self$$.$model_$.get("Broker").BrokerID + ":" + $JSCompiler_StaticMethods_showWithdrawalDialog$self$$.$model_$.get("UserID") + 
+  "_" + $currency$$38$$, $user_balance$$ = parseInt($JSCompiler_StaticMethods_showWithdrawalDialog$self$$.$model_$.get($balance_key$$5_dialogContent_dlg$$2_method_element_id$$, 0), 10), $user_verified_withdraw_methods$$ = [];
   $goog$array$forEach$$($value_fmt$$10_withdraw_methods$$2$$, function($withdrawal_method$$) {
     var $withdrawal_limit$$, $withdrawal_limit_index$$;
     for ($withdrawal_limit_index$$ = $user_verification_level$$;0 <= $withdrawal_limit_index$$ && ($withdrawal_limit$$ = $withdrawal_method$$.limits[$withdrawal_limit_index$$], null == $withdrawal_limit$$);$withdrawal_limit_index$$--) {
@@ -12442,7 +12446,7 @@ function $JSCompiler_StaticMethods_showWithdrawalDialog$$($JSCompiler_StaticMeth
     var $has_limits_enabled$$ = !1;
     null != $withdrawal_limit$$ && null != $withdrawal_limit$$.enabled && ($has_limits_enabled$$ = $withdrawal_limit$$.enabled);
     if (null == $withdrawal_limit$$.max || $withdrawal_limit$$.max > $user_balance$$) {
-      var $formatted_balance_key$$ = "formatted_available_balance_" + this.$model_$.get("Broker").BrokerID + ":" + this.$model_$.get("UserID") + "_" + $currency$$37$$, $formatted_balance_value_key$$ = $formatted_balance_key$$ + "_value";
+      var $formatted_balance_key$$ = "formatted_available_balance_" + this.$model_$.get("Broker").BrokerID + ":" + this.$model_$.get("UserID") + "_" + $currency$$38$$, $formatted_balance_value_key$$ = $formatted_balance_key$$ + "_value";
       $withdrawal_limit$$.max = $user_balance$$;
       $withdrawal_limit$$.formatted_max = this.$model_$.get($formatted_balance_key$$);
       $withdrawal_limit$$.formatted_max_value = this.$model_$.get($formatted_balance_value_key$$);
@@ -12451,14 +12455,14 @@ function $JSCompiler_StaticMethods_showWithdrawalDialog$$($JSCompiler_StaticMeth
     $has_limits_enabled$$ && $user_verified_withdraw_methods$$.push($withdrawal_method$$);
   }, $JSCompiler_StaticMethods_showWithdrawalDialog$self$$);
   var $balance_key$$5_dialogContent_dlg$$2_method_element_id$$ = $goog$string$getRandomString$$(), $withdraw_amount_element_id$$ = $goog$string$getRandomString$$(), $fixed_fee_element_id$$ = $goog$string$getRandomString$$(), $percent_fee_element_id$$ = $goog$string$getRandomString$$(), $total_fees_element_id$$ = $goog$string$getRandomString$$(), $net_value_element_id$$ = $goog$string$getRandomString$$(), $fmt$$11_withdrawal_form_el$$ = new $goog$i18n$NumberFormat$$(1), $balance_key$$5_dialogContent_dlg$$2_method_element_id$$ = 
-  $bitex$templates$DepositWithdrawDialogContent$$({$fmt$:$fmt$$11_withdrawal_form_el$$, $side$:"client", $currency$:$currency$$37$$, $verificationLevel$:$JSCompiler_StaticMethods_showWithdrawalDialog$self$$.$model_$.get("Profile").Verified, $currencySign$:$JSCompiler_StaticMethods_showWithdrawalDialog$self$$.$getCurrencySign$($currency$$37$$), methods:$user_verified_withdraw_methods$$, $methodID$:$balance_key$$5_dialogContent_dlg$$2_method_element_id$$, $showFeeDataEntry$:!1, $amountID$:$withdraw_amount_element_id$$, 
-  $fixedFeeID$:$fixed_fee_element_id$$, $percentFeeID$:$percent_fee_element_id$$, $totalFeesID$:$total_fees_element_id$$, $netValueID$:$net_value_element_id$$, $hideNetAmount$:!1}), $balance_key$$5_dialogContent_dlg$$2_method_element_id$$ = $JSCompiler_StaticMethods_showWithdrawalDialog$self$$.$showDialog$($balance_key$$5_dialogContent_dlg$$2_method_element_id$$, "Pedido de saque em " + $JSCompiler_StaticMethods_showWithdrawalDialog$self$$.$getCurrencyDescription$($currency$$37$$), $bootstrap$Dialog$ButtonSet$createOkCancel$$()), 
+  $bitex$templates$DepositWithdrawDialogContent$$({$fmt$:$fmt$$11_withdrawal_form_el$$, $side$:"client", $currency$:$currency$$38$$, $verificationLevel$:$JSCompiler_StaticMethods_showWithdrawalDialog$self$$.$model_$.get("Profile").Verified, $currencySign$:$JSCompiler_StaticMethods_showWithdrawalDialog$self$$.$getCurrencySign$($currency$$38$$), methods:$user_verified_withdraw_methods$$, $methodID$:$balance_key$$5_dialogContent_dlg$$2_method_element_id$$, $showFeeDataEntry$:!1, $amountID$:$withdraw_amount_element_id$$, 
+  $fixedFeeID$:$fixed_fee_element_id$$, $percentFeeID$:$percent_fee_element_id$$, $totalFeesID$:$total_fees_element_id$$, $netValueID$:$net_value_element_id$$, $hideNetAmount$:!1}), $balance_key$$5_dialogContent_dlg$$2_method_element_id$$ = $JSCompiler_StaticMethods_showWithdrawalDialog$self$$.$showDialog$($balance_key$$5_dialogContent_dlg$$2_method_element_id$$, "Pedido de saque em " + $JSCompiler_StaticMethods_showWithdrawalDialog$self$$.$getCurrencyDescription$($currency$$38$$), $bootstrap$Dialog$ButtonSet$createOkCancel$$()), 
   $handler$$110$$ = $JSCompiler_StaticMethods_showWithdrawalDialog$self$$.$getHandler$(), $fmt$$11_withdrawal_form_el$$ = $goog$dom$getFirstElementChild$$($balance_key$$5_dialogContent_dlg$$2_method_element_id$$.$getContentElement$()), $withdrawal_uniform$$ = new $uniform$Uniform$$;
   $withdrawal_uniform$$.$decorate$($fmt$$11_withdrawal_form_el$$);
   $goog$array$forEach$$($value_fmt$$10_withdraw_methods$$2$$, function($withdraw_method$$1$$) {
     var $method_id$$ = $withdraw_method$$1$$.method;
     $JSCompiler_StaticMethods_listen$$($handler$$110$$, new $goog$events$InputHandler$$($goog$dom$getElement$$($method_id$$ + "_" + $withdraw_amount_element_id$$)), "input", function() {
-      this.$doCalculateFees_$($method_id$$ + "_" + $withdraw_amount_element_id$$, $method_id$$ + "_" + $fixed_fee_element_id$$, $method_id$$ + "_" + $percent_fee_element_id$$, $currency$$37$$, $method_id$$ + "_" + $total_fees_element_id$$, $method_id$$ + "_" + $net_value_element_id$$, !1, !0, !1, !1, !0, !1);
+      this.$doCalculateFees_$($method_id$$ + "_" + $withdraw_amount_element_id$$, $method_id$$ + "_" + $fixed_fee_element_id$$, $method_id$$ + "_" + $percent_fee_element_id$$, $currency$$38$$, $method_id$$ + "_" + $total_fees_element_id$$, $method_id$$ + "_" + $net_value_element_id$$, !1, !0, !1, !1, !0, !1);
     }, this);
   }, $JSCompiler_StaticMethods_showWithdrawalDialog$self$$);
   $value_fmt$$10_withdraw_methods$$2$$ = new $goog$i18n$NumberFormat$$(1);
@@ -12480,9 +12484,9 @@ function $JSCompiler_StaticMethods_showWithdrawalDialog$$($JSCompiler_StaticMeth
           delete $error_list$$7_withdraw_data$$.Amount;
           var $method$$7$$ = $error_list$$7_withdraw_data$$.Method;
           delete $error_list$$7_withdraw_data$$.Method;
-          var $currency$$38$$ = $error_list$$7_withdraw_data$$.Currency;
+          var $currency$$39$$ = $error_list$$7_withdraw_data$$.Currency;
           delete $error_list$$7_withdraw_data$$.Currency;
-          this.$conn_$.$requestWithdraw$($e$$288$$.target.$request_id_$, $net_amount_value$$, $method$$7$$, $currency$$38$$, $error_list$$7_withdraw_data$$);
+          this.$conn_$.$requestWithdraw$($e$$288$$.target.$request_id_$, $net_amount_value$$, $method$$7$$, $currency$$39$$, $error_list$$7_withdraw_data$$);
         }
       }
     }
@@ -12655,7 +12659,7 @@ $JSCompiler_prototypeAlias$$.$onUserUploadReceipt_$ = function $$JSCompiler_prot
     window.open($broker$$14_upload_form_url$$, "blank", "scrollbars=yes,toolbar=no,width=700,height=500");
   }
 };
-$JSCompiler_prototypeAlias$$.$doCalculateFees_$ = function $$JSCompiler_prototypeAlias$$$$doCalculateFees_$$($amount$$7_amount_element_id$$, $fixed_fee_element_id$$2_fixed_fee_value$$1$$, $percent_fee_element_id$$2_percent_fee_value$$1$$, $currency$$39_formatted_net_amount$$, $opt_fee_value_element_id$$, $opt_net_amount_element_id$$, $is_fixed_fee_in_satoshis_net_amount_opt_add_fees$$, $is_fixed_fee_formatted_opt_is_fixed_fee_in_satoshis_total_fixed_fee_value$$, $fixed_fee$$3_is_amount_in_satoshis_opt_is_fixed_fee_formatted_percent_fee$$3$$, 
+$JSCompiler_prototypeAlias$$.$doCalculateFees_$ = function $$JSCompiler_prototypeAlias$$$$doCalculateFees_$$($amount$$7_amount_element_id$$, $fixed_fee_element_id$$2_fixed_fee_value$$1$$, $percent_fee_element_id$$2_percent_fee_value$$1$$, $currency$$40_formatted_net_amount$$, $opt_fee_value_element_id$$, $opt_net_amount_element_id$$, $is_fixed_fee_in_satoshis_net_amount_opt_add_fees$$, $is_fixed_fee_formatted_opt_is_fixed_fee_in_satoshis_total_fixed_fee_value$$, $fixed_fee$$3_is_amount_in_satoshis_opt_is_fixed_fee_formatted_percent_fee$$3$$, 
 $opt_is_amount_in_satoshis_pos$$26$$, $is_percent_fee_formatted_opt_is_amount_formatted$$, $opt_is_percent_fee_formatted_total_fees_valueFormatter$$4$$) {
   var $add_fees_formatted_total_fee$$ = !0;
   !1 === $is_fixed_fee_in_satoshis_net_amount_opt_add_fees$$ && ($add_fees_formatted_total_fee$$ = $is_fixed_fee_in_satoshis_net_amount_opt_add_fees$$);
@@ -12697,8 +12701,8 @@ $opt_is_amount_in_satoshis_pos$$26$$, $is_percent_fee_formatted_opt_is_amount_fo
   $opt_is_percent_fee_formatted_total_fees_valueFormatter$$4$$ = parseInt(parseInt($percent_fee_element_id$$2_percent_fee_value$$1$$ / 100 * ($amount$$7_amount_element_id$$ - $fixed_fee_element_id$$2_fixed_fee_value$$1$$), 10) + $is_fixed_fee_formatted_opt_is_fixed_fee_in_satoshis_total_fixed_fee_value$$, 10);
   $is_fixed_fee_in_satoshis_net_amount_opt_add_fees$$ = parseInt($amount$$7_amount_element_id$$ - $opt_is_percent_fee_formatted_total_fees_valueFormatter$$4$$, 10);
   $add_fees_formatted_total_fee$$ && ($is_fixed_fee_in_satoshis_net_amount_opt_add_fees$$ = parseInt($amount$$7_amount_element_id$$ / (100 - $percent_fee_element_id$$2_percent_fee_value$$1$$) * 100 + $is_fixed_fee_formatted_opt_is_fixed_fee_in_satoshis_total_fixed_fee_value$$, 10), $opt_is_percent_fee_formatted_total_fees_valueFormatter$$4$$ = parseInt($amount$$7_amount_element_id$$ - $is_fixed_fee_in_satoshis_net_amount_opt_add_fees$$, 10));
-  null != $opt_fee_value_element_id$$ && ($add_fees_formatted_total_fee$$ = this.$formatCurrency$($opt_is_percent_fee_formatted_total_fees_valueFormatter$$4$$ / 1E8, $currency$$39_formatted_net_amount$$, !0), $goog$dom$setTextContent$$($goog$dom$getElement$$($opt_fee_value_element_id$$), $add_fees_formatted_total_fee$$));
-  null != $opt_net_amount_element_id$$ && ($currency$$39_formatted_net_amount$$ = this.$formatCurrency$($is_fixed_fee_in_satoshis_net_amount_opt_add_fees$$ / 1E8, $currency$$39_formatted_net_amount$$, !0), $goog$dom$setTextContent$$($goog$dom$getElement$$($opt_net_amount_element_id$$), $currency$$39_formatted_net_amount$$), $goog$dom$forms$setValue$$($goog$dom$getElement$$($opt_net_amount_element_id$$ + "_value"), $is_fixed_fee_in_satoshis_net_amount_opt_add_fees$$));
+  null != $opt_fee_value_element_id$$ && ($add_fees_formatted_total_fee$$ = this.$formatCurrency$($opt_is_percent_fee_formatted_total_fees_valueFormatter$$4$$ / 1E8, $currency$$40_formatted_net_amount$$, !0), $goog$dom$setTextContent$$($goog$dom$getElement$$($opt_fee_value_element_id$$), $add_fees_formatted_total_fee$$));
+  null != $opt_net_amount_element_id$$ && ($currency$$40_formatted_net_amount$$ = this.$formatCurrency$($is_fixed_fee_in_satoshis_net_amount_opt_add_fees$$ / 1E8, $currency$$40_formatted_net_amount$$, !0), $goog$dom$setTextContent$$($goog$dom$getElement$$($opt_net_amount_element_id$$), $currency$$40_formatted_net_amount$$), $goog$dom$forms$setValue$$($goog$dom$getElement$$($opt_net_amount_element_id$$ + "_value"), $is_fixed_fee_in_satoshis_net_amount_opt_add_fees$$));
   return[$amount$$7_amount_element_id$$, $percent_fee_element_id$$2_percent_fee_value$$1$$, $fixed_fee_element_id$$2_fixed_fee_value$$1$$, $is_fixed_fee_in_satoshis_net_amount_opt_add_fees$$];
 };
 $JSCompiler_prototypeAlias$$.$onProcessDeposit_$ = function $$JSCompiler_prototypeAlias$$$$onProcessDeposit_$$($e$$309_handler$$115$$) {
@@ -12761,14 +12765,14 @@ $JSCompiler_prototypeAlias$$.$onProcessDeposit_$ = function $$JSCompiler_prototy
     }
   }
 };
-function $JSCompiler_StaticMethods_showDepositDialog$$($JSCompiler_StaticMethods_showDepositDialog$self$$, $currency$$40$$, $opt_amount$$1$$, $opt_formatted_amount$$, $MSG_CURRENCY_DEPOSIT_DIALOG_TITLE_opt_switch_view$$, $opt_instructions$$1$$) {
+function $JSCompiler_StaticMethods_showDepositDialog$$($JSCompiler_StaticMethods_showDepositDialog$self$$, $currency$$41$$, $opt_amount$$1$$, $opt_formatted_amount$$, $MSG_CURRENCY_DEPOSIT_DIALOG_TITLE_opt_switch_view$$, $opt_instructions$$1$$) {
   var $handler$$116$$ = $JSCompiler_StaticMethods_showDepositDialog$self$$.$getHandler$(), $user_verification_level$$1$$ = $JSCompiler_StaticMethods_showDepositDialog$self$$.$model_$.get("Profile").Verified;
   !1 !== $MSG_CURRENCY_DEPOSIT_DIALOG_TITLE_opt_switch_view$$ && $JSCompiler_StaticMethods_showDepositDialog$self$$.$setView$("deposit");
-  $MSG_CURRENCY_DEPOSIT_DIALOG_TITLE_opt_switch_view$$ = "Depositar " + $JSCompiler_StaticMethods_showDepositDialog$self$$.$getCurrencyDescription$($currency$$40$$);
-  if ($JSCompiler_StaticMethods_showDepositDialog$self$$.$isCryptoCurrency$($currency$$40$$)) {
-    var $confirmDialogContent$$1_dialogContent$$2_method_element_id$$2$$ = $bitex$templates$ConfirmDepositCryptoCurrencyContentDialog$$({$currencydescription$:$JSCompiler_StaticMethods_showDepositDialog$self$$.$getCurrencyDescription$($currency$$40$$)}), $dlgConfirm$$1$$ = $JSCompiler_StaticMethods_showDepositDialog$self$$.$showDialog$($confirmDialogContent$$1_dialogContent$$2_method_element_id$$2$$, $MSG_CURRENCY_DEPOSIT_DIALOG_TITLE_opt_switch_view$$, $bootstrap$Dialog$ButtonSet$createYesNoCancel$$());
+  $MSG_CURRENCY_DEPOSIT_DIALOG_TITLE_opt_switch_view$$ = "Depositar " + $JSCompiler_StaticMethods_showDepositDialog$self$$.$getCurrencyDescription$($currency$$41$$);
+  if ($JSCompiler_StaticMethods_showDepositDialog$self$$.$isCryptoCurrency$($currency$$41$$)) {
+    var $confirmDialogContent$$1_dialogContent$$2_method_element_id$$2$$ = $bitex$templates$ConfirmDepositCryptoCurrencyContentDialog$$({$currencydescription$:$JSCompiler_StaticMethods_showDepositDialog$self$$.$getCurrencyDescription$($currency$$41$$)}), $dlgConfirm$$1$$ = $JSCompiler_StaticMethods_showDepositDialog$self$$.$showDialog$($confirmDialogContent$$1_dialogContent$$2_method_element_id$$2$$, $MSG_CURRENCY_DEPOSIT_DIALOG_TITLE_opt_switch_view$$, $bootstrap$Dialog$ButtonSet$createYesNoCancel$$());
     $JSCompiler_StaticMethods_listen$$($handler$$116$$, $dlgConfirm$$1$$, $goog$ui$Dialog$EventType$SELECT$$, function($e$$313_request_id$$3$$) {
-      "yes" == $e$$313_request_id$$3$$.key && ($e$$313_request_id$$3$$.preventDefault(), $e$$313_request_id$$3$$.stopPropagation(), $e$$313_request_id$$3$$ = parseInt(1E7 * Math.random(), 10), this.$conn_$.$requestDeposit$($e$$313_request_id$$3$$, void 0, $opt_formatted_amount$$, void 0, $currency$$40$$, void 0, $opt_instructions$$1$$), $goog$soy$renderElement$$($goog$dom$getFirstElementChild$$($dlgConfirm$$1$$.$getContentElement$()), $bitex$templates$WaitingForDepositResponseDialogContent$$), $JSCompiler_StaticMethods_setButtonSet$$($dlgConfirm$$1$$, 
+      "yes" == $e$$313_request_id$$3$$.key && ($e$$313_request_id$$3$$.preventDefault(), $e$$313_request_id$$3$$.stopPropagation(), $e$$313_request_id$$3$$ = parseInt(1E7 * Math.random(), 10), this.$conn_$.$requestDeposit$($e$$313_request_id$$3$$, void 0, $opt_formatted_amount$$, void 0, $currency$$41$$, void 0, $opt_instructions$$1$$), $goog$soy$renderElement$$($goog$dom$getFirstElementChild$$($dlgConfirm$$1$$.$getContentElement$()), $bitex$templates$WaitingForDepositResponseDialogContent$$), $JSCompiler_StaticMethods_setButtonSet$$($dlgConfirm$$1$$, 
       (new $bootstrap$Dialog$ButtonSet$$).$addButton$($goog$ui$Dialog$ButtonSet$DefaultButtons$CANCEL$$, !1, !0)), $JSCompiler_StaticMethods_listenOnce$$($handler$$116$$, this.$conn_$, "error_message." + $e$$313_request_id$$3$$, function() {
         $dlgConfirm$$1$$.$dispose$();
       }), $JSCompiler_StaticMethods_listenOnce$$($handler$$116$$, this.$conn_$, "deposit_response." + $e$$313_request_id$$3$$, function($e$$315_msg$$103$$) {
@@ -12787,12 +12791,12 @@ function $JSCompiler_StaticMethods_showDepositDialog$$($JSCompiler_StaticMethods
     $JSCompiler_StaticMethods_setMinimumFractionDigits$$($value_fmt$$11$$, 2);
     var $deposit_methods$$1$$ = [];
     $goog$array$forEach$$($JSCompiler_StaticMethods_showDepositDialog$self$$.$model_$.get("DepositMethods"), function($deposit_method$$1$$) {
-      if ($deposit_method$$1$$.$currency$ == $currency$$40$$) {
+      if ($deposit_method$$1$$.$currency$ == $currency$$41$$) {
         for (var $deposit_method_limit_limits$$1$$, $deposit_limit_x$$76$$ = $user_verification_level$$1$$;0 <= $deposit_limit_x$$76$$ && ($deposit_method_limit_limits$$1$$ = $deposit_method$$1$$.$deposit_limits$[$deposit_limit_x$$76$$], null == $deposit_method_limit_limits$$1$$);$deposit_limit_x$$76$$--) {
         }
         var $deposit_limit_x$$76$$ = {enabled:!1}, $has_limits_enabled_on_deposit_method$$ = !1;
         null != $deposit_method_limit_limits$$1$$ && null != $deposit_method_limit_limits$$1$$.enabled && ($has_limits_enabled_on_deposit_method$$ = $deposit_method_limit_limits$$1$$.enabled);
-        $has_limits_enabled_on_deposit_method$$ && ($deposit_limit_x$$76$$.enabled = !0, $deposit_limit_x$$76$$.min = $deposit_method_limit_limits$$1$$.min, $deposit_limit_x$$76$$.max = $deposit_method_limit_limits$$1$$.max, $deposit_limit_x$$76$$.formatted_min = this.$formatCurrency$($deposit_limit_x$$76$$.min / 1E8, $currency$$40$$, !0), $deposit_limit_x$$76$$.formatted_max = this.$formatCurrency$($deposit_limit_x$$76$$.max / 1E8, $currency$$40$$, !0), $deposit_limit_x$$76$$.formatted_min_value = 
+        $has_limits_enabled_on_deposit_method$$ && ($deposit_limit_x$$76$$.enabled = !0, $deposit_limit_x$$76$$.min = $deposit_method_limit_limits$$1$$.min, $deposit_limit_x$$76$$.max = $deposit_method_limit_limits$$1$$.max, $deposit_limit_x$$76$$.formatted_min = this.$formatCurrency$($deposit_limit_x$$76$$.min / 1E8, $currency$$41$$, !0), $deposit_limit_x$$76$$.formatted_max = this.$formatCurrency$($deposit_limit_x$$76$$.max / 1E8, $currency$$41$$, !0), $deposit_limit_x$$76$$.formatted_min_value = 
         $value_fmt$$11$$.format($deposit_limit_x$$76$$.min / 1E8), $deposit_limit_x$$76$$.formatted_max_value = $value_fmt$$11$$.format($deposit_limit_x$$76$$.max / 1E8));
         $deposit_method_limit_limits$$1$$ = {};
         $deposit_method_limit_limits$$1$$["" + $user_verification_level$$1$$] = $deposit_limit_x$$76$$;
@@ -12800,15 +12804,15 @@ function $JSCompiler_StaticMethods_showDepositDialog$$($JSCompiler_StaticMethods
       }
     }, $JSCompiler_StaticMethods_showDepositDialog$self$$);
     var $confirmDialogContent$$1_dialogContent$$2_method_element_id$$2$$ = $goog$string$getRandomString$$(), $amount_element_id$$1$$ = $goog$string$getRandomString$$(), $fixed_fee_element_id$$4$$ = $goog$string$getRandomString$$(), $percent_fee_element_id$$4$$ = $goog$string$getRandomString$$(), $total_fees_element_id$$3$$ = $goog$string$getRandomString$$(), $net_value_element_id$$3$$ = $goog$string$getRandomString$$(), $confirmDialogContent$$1_dialogContent$$2_method_element_id$$2$$ = $bitex$templates$DepositWithdrawDialogContent$$({$side$:"client", 
-    $currency$:$currency$$40$$, $verificationLevel$:$user_verification_level$$1$$, $currencySign$:$JSCompiler_StaticMethods_showDepositDialog$self$$.$getCurrencySign$($currency$$40$$), methods:$deposit_methods$$1$$, $methodID$:$confirmDialogContent$$1_dialogContent$$2_method_element_id$$2$$, $amountID$:$amount_element_id$$1$$, $showFeeDataEntry$:!1, $amount$:$opt_amount$$1$$, $formattedAmount$:$opt_formatted_amount$$, $fixedFeeID$:$fixed_fee_element_id$$4$$, $percentFeeID$:$percent_fee_element_id$$4$$, 
+    $currency$:$currency$$41$$, $verificationLevel$:$user_verification_level$$1$$, $currencySign$:$JSCompiler_StaticMethods_showDepositDialog$self$$.$getCurrencySign$($currency$$41$$), methods:$deposit_methods$$1$$, $methodID$:$confirmDialogContent$$1_dialogContent$$2_method_element_id$$2$$, $amountID$:$amount_element_id$$1$$, $showFeeDataEntry$:!1, $amount$:$opt_amount$$1$$, $formattedAmount$:$opt_formatted_amount$$, $fixedFeeID$:$fixed_fee_element_id$$4$$, $percentFeeID$:$percent_fee_element_id$$4$$, 
     $totalFeesID$:$total_fees_element_id$$3$$, $netValueID$:$net_value_element_id$$3$$, $hideNetAmount$:!1}), $dlg$$7$$ = $JSCompiler_StaticMethods_showDepositDialog$self$$.$showDialog$($confirmDialogContent$$1_dialogContent$$2_method_element_id$$2$$, $MSG_CURRENCY_DEPOSIT_DIALOG_TITLE_opt_switch_view$$, $bootstrap$Dialog$ButtonSet$createOkCancel$$()), $deposit_form_uniform$$ = new $uniform$Uniform$$;
     $deposit_form_uniform$$.$decorate$($goog$dom$getFirstElementChild$$($dlg$$7$$.$getContentElement$()));
     $goog$array$forEach$$($deposit_methods$$1$$, function($deposit_method$$2$$) {
       var $method_id$$1$$ = $deposit_method$$2$$.method;
       $JSCompiler_StaticMethods_listen$$($handler$$116$$, new $goog$events$InputHandler$$($goog$dom$getElement$$($method_id$$1$$ + "_" + $amount_element_id$$1$$)), "input", function() {
-        this.$doCalculateFees_$($method_id$$1$$ + "_" + $amount_element_id$$1$$, $method_id$$1$$ + "_" + $fixed_fee_element_id$$4$$, $method_id$$1$$ + "_" + $percent_fee_element_id$$4$$, $currency$$40$$, $method_id$$1$$ + "_" + $total_fees_element_id$$3$$, $method_id$$1$$ + "_" + $net_value_element_id$$3$$, !1, !0, !1, !1, !0, !1);
+        this.$doCalculateFees_$($method_id$$1$$ + "_" + $amount_element_id$$1$$, $method_id$$1$$ + "_" + $fixed_fee_element_id$$4$$, $method_id$$1$$ + "_" + $percent_fee_element_id$$4$$, $currency$$41$$, $method_id$$1$$ + "_" + $total_fees_element_id$$3$$, $method_id$$1$$ + "_" + $net_value_element_id$$3$$, !1, !0, !1, !1, !0, !1);
       }, this);
-      this.$doCalculateFees_$($method_id$$1$$ + "_" + $amount_element_id$$1$$, $method_id$$1$$ + "_" + $fixed_fee_element_id$$4$$, $method_id$$1$$ + "_" + $percent_fee_element_id$$4$$, $currency$$40$$, $method_id$$1$$ + "_" + $total_fees_element_id$$3$$, $method_id$$1$$ + "_" + $net_value_element_id$$3$$, !1, !0, !1, !1, !0, !1);
+      this.$doCalculateFees_$($method_id$$1$$ + "_" + $amount_element_id$$1$$, $method_id$$1$$ + "_" + $fixed_fee_element_id$$4$$, $method_id$$1$$ + "_" + $percent_fee_element_id$$4$$, $currency$$41$$, $method_id$$1$$ + "_" + $total_fees_element_id$$3$$, $method_id$$1$$ + "_" + $net_value_element_id$$3$$, !1, !0, !1, !1, !0, !1);
     }, $JSCompiler_StaticMethods_showDepositDialog$self$$);
     $JSCompiler_StaticMethods_listen$$($handler$$116$$, $dlg$$7$$, $goog$ui$Dialog$EventType$SELECT$$, function($deposit_data$$2_e$$318$$) {
       if ("ok" == $deposit_data$$2_e$$318$$.key) {
@@ -12985,8 +12989,8 @@ $JSCompiler_prototypeAlias$$.$onUserLoginOk_$ = function $$JSCompiler_prototypeA
   var $balances$$1$$ = {};
   $balances$$1$$[this.$model_$.get("SelectedBrokerID")] = {};
   $balances$$1$$[this.$model_$.get("SelectedBrokerID")][this.$model_$.get("UserID")] = {};
-  $goog$structs$forEach$$($broker_currencies$$3_e$$330$$, function($currency$$42$$) {
-    $balances$$1$$[this.$model_$.get("SelectedBrokerID")][this.$model_$.get("UserID")][$currency$$42$$] = 0;
+  $goog$structs$forEach$$($broker_currencies$$3_e$$330$$, function($currency$$43$$) {
+    $balances$$1$$[this.$model_$.get("SelectedBrokerID")][this.$model_$.get("UserID")][$currency$$43$$] = 0;
   }, this);
   this.$model_$.set("Balance", $goog$object$unsafeClone$$($balances$$1$$));
   this.$model_$.set("LockedBalance", $goog$object$unsafeClone$$($balances$$1$$));
@@ -13125,8 +13129,8 @@ $JSCompiler_prototypeAlias$$.$getCurrencyDescription$ = function $$JSCompiler_pr
 };
 $JSCompiler_prototypeAlias$$.$onSecurityList_$ = function $$JSCompiler_prototypeAlias$$$$onSecurityList_$$($e$$336_msg$$108$$) {
   $e$$336_msg$$108$$ = $e$$336_msg$$108$$.data;
-  $goog$array$forEach$$($e$$336_msg$$108$$.Currencies, function($currency$$43$$) {
-    this.$currency_info_$[$currency$$43$$.Code] = {code:$currency$$43$$.Code, format:$currency$$43$$.FormatJS, $human_format$:$currency$$43$$.HumanFormatJS, description:$currency$$43$$.Description, sign:$currency$$43$$.Sign, $pip$:$currency$$43$$.Pip, $is_crypto$:$currency$$43$$.IsCrypto, $number_of_decimals$:$currency$$43$$.NumberOfDecimals};
+  $goog$array$forEach$$($e$$336_msg$$108$$.Currencies, function($currency$$44$$) {
+    this.$currency_info_$[$currency$$44$$.Code] = {code:$currency$$44$$.Code, format:$currency$$44$$.FormatJS, $human_format$:$currency$$44$$.HumanFormatJS, description:$currency$$44$$.Description, sign:$currency$$44$$.Sign, $pip$:$currency$$44$$.Pip, $is_crypto$:$currency$$44$$.IsCrypto, $number_of_decimals$:$currency$$44$$.NumberOfDecimals};
   }, this);
   var $symbols$$3$$ = [];
   $goog$array$forEach$$($e$$336_msg$$108$$.Instruments, function($instrument$$2$$) {
@@ -13171,9 +13175,9 @@ function $JSCompiler_StaticMethods_adjustBrokerData_$$($JSCompiler_StaticMethods
       if (0 <= $symbol$$20$$.indexOf($crypto_currency$$1$$.CurrencyCode)) {
         return!0;
       }
-    }) && $goog$array$forEach$$($broker_info$$8$$.Currencies, function($currency$$44$$) {
+    }) && $goog$array$forEach$$($broker_info$$8$$.Currencies, function($currency$$45$$) {
       var $market_currency$$ = $goog$object$findKey$$(this.$all_markets_$, function($market_info$$1$$, $symbol$$21$$) {
-        if (0 <= $symbol$$21$$.indexOf($currency$$44$$)) {
+        if (0 <= $symbol$$21$$.indexOf($currency$$45$$)) {
           return!0;
         }
       });
@@ -13297,11 +13301,11 @@ function $JSCompiler_StaticMethods_registerAlgorithmInstance$$($JSCompiler_Stati
   }, $JSCompiler_StaticMethods_registerAlgorithmInstance$self$$);
   var $deposited_balance_broker_dlg$$8_open_orders_index$$ = $JSCompiler_StaticMethods_registerAlgorithmInstance$self$$.$model_$.get("Balance")[$JSCompiler_StaticMethods_registerAlgorithmInstance$self$$.$model_$.get("SelectedBrokerID")][$JSCompiler_StaticMethods_registerAlgorithmInstance$self$$.$model_$.get("UserID")], $locked_balance_broker$$ = $JSCompiler_StaticMethods_registerAlgorithmInstance$self$$.$model_$.get("LockedBalance")[$JSCompiler_StaticMethods_registerAlgorithmInstance$self$$.$model_$.get("SelectedBrokerID")][$JSCompiler_StaticMethods_registerAlgorithmInstance$self$$.$model_$.get("UserID")], 
   $balance_broker$$1$$ = {};
-  $goog$object$forEach$$($deposited_balance_broker_dlg$$8_open_orders_index$$, function($balance$$5$$, $currency$$45$$) {
-    $balance_broker$$1$$[$currency$$45$$] = $balance$$5$$;
+  $goog$object$forEach$$($deposited_balance_broker_dlg$$8_open_orders_index$$, function($balance$$5$$, $currency$$46$$) {
+    $balance_broker$$1$$[$currency$$46$$] = $balance$$5$$;
   }, $JSCompiler_StaticMethods_registerAlgorithmInstance$self$$);
-  $goog$object$forEach$$($locked_balance_broker$$, function($balance$$6$$, $currency$$46$$) {
-    $balance_broker$$1$$[$currency$$46$$ + "_locked"] = $balance$$6$$;
+  $goog$object$forEach$$($locked_balance_broker$$, function($balance$$6$$, $currency$$47$$) {
+    $balance_broker$$1$$[$currency$$47$$ + "_locked"] = $balance$$6$$;
   }, $JSCompiler_StaticMethods_registerAlgorithmInstance$self$$);
   var $algo_permissions$$ = $algo_definition$$1$$.permissions, $deposited_balance_broker_dlg$$8_open_orders_index$$ = $JSCompiler_StaticMethods_registerAlgorithmInstance$self$$.$showDialog$($bitex$templates$AlgoPermissionsDialogContent$$({$permissions$:$algo_permissions$$}), "Autorizar algor\u00edtimo", (new $bootstrap$Dialog$ButtonSet$$).$addButton$($goog$ui$Dialog$ButtonSet$DefaultButtons$YES$$, !0).$addButton$($goog$ui$Dialog$ButtonSet$DefaultButtons$NO$$, !1, !0));
   $JSCompiler_StaticMethods_listen$$($handler$$120$$, $deposited_balance_broker_dlg$$8_open_orders_index$$, $goog$ui$Dialog$EventType$SELECT$$, function($algo_sandbox_blobURL_e$$348$$) {
