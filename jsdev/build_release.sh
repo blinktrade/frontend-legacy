@@ -22,6 +22,12 @@ fi
 #############################################
 # compile soy templates
 #############################################
+echo "deposit_withdraw_button_group.soy"
+java -jar ./tools/SoyToJsSrcCompiler.jar --bidiGlobalDir 1 --shouldGenerateGoogMsgDefs \
+  --shouldProvideRequireSoyNamespaces --codeStyle concat --cssHandlingScheme GOOG  \
+  --outputPathFormat  './bitex/ui/{INPUT_FILE_NAME_NO_EXT}.soy.js' \
+  ./bitex/ui/deposit_withdraw_button_group.$THEME.soy
+
 echo "templates.soy"
 java -jar ./tools/SoyToJsSrcCompiler.jar --bidiGlobalDir 1 --shouldGenerateGoogMsgDefs \
   --shouldProvideRequireSoyNamespaces --codeStyle concat --cssHandlingScheme GOOG  \
@@ -153,6 +159,9 @@ python ./closure-library/closure/bin/build/closurebuilder.py  \
   --compiler_flags="--externs=./externs/jquerymobile-1.4.3.js" \
   --compiler_flags="--externs=./externs/sticky.js" \
   --compiler_flags="--externs=./externs/facebook_javascript_sdk.js" \
+  --compiler_flags="--debug=TRUE" \
+  --compiler_flags="--formatting=PRETTY_PRINT" \
+  --compiler_flags="--formatting=PRINT_INPUT_DELIMITER" \
   --compiler_flags="--translations_file=./translations/$LANG.xtb.xml" \
    > ../assets/js/bitex_app_blink_trade.compiled.$LANG.$THEME.js
 

@@ -305,7 +305,7 @@
     <translation id="1015136929938913559" key="MSG_CUSTOMERS_TABLE_SEARCH_PLACEHOLDER" source="bitex/ui/customers.js" desc="placeholder for the search input text in the customers table">Nombre de usuario o correo...</translation>
     <translation id="1646545861057431513" key="MSG_CUSTOMERS_LIST_BUTTON_FILTER_ALL" source="bitex/ui/customers.js" desc="Customers filter all select option">Todos</translation>
     <translation id="8930308327400940205" key="MSG_ORDER_BOOK_BID_TITLE" source="bitex/ui/order_book.js" desc="Title in the bid side on the order book">COMPRA</translation>
-    <translation id="6857802332739485005" key="MSG_ORDER_BOOK_ASK_TITLE" source="bitex/ui/order_book.js" desc="Title in the ask side on the order book">VENDA</translation>
+    <translation id="6857802332739485005" key="MSG_ORDER_BOOK_ASK_TITLE" source="bitex/ui/order_book.js" desc="Title in the ask side on the order book">VENTA</translation>
     <translation id="8752744574554067957" key="MSG_ORDER_BOOK_BUYER_COLUMN" source="bitex/ui/order_book.js" desc="Buyer column on the order book">Comprador</translation>
     <translation id="7114430755693068053" key="MSG_ORDER_BOOK_SELLER_COLUMN" source="bitex/ui/order_book.js" desc="Seller column on the order book">Vendedor</translation>
     <translation id="6540154733894385338" key="MSG_ORDER_BOOK_AMOUNT_COLUMN" source="bitex/ui/order_book.js" desc="Amount column on the order book">Cantidad</translation>

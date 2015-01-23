@@ -16,6 +16,63 @@ bitex.util.generateGUID = function() {
 };
 
 /**
+ * @param {string} soundFile
+ */
+bitex.util.playSound = function(soundFile) {
+	var isHTML5 = true;
+	try {
+		if (typeof document.createElement("audio").play=="undefined") {
+      isHTML5 = false;
+    }
+	}
+	catch (ex){
+		isHTML5 = false;
+	}	
+
+	var bodyElem = document.getElementsByTagName("body")[0];	
+	if (!bodyElem) {
+    bodyElem = document.getElementsByTagName("html")[0];
+  }
+	
+	var soundElem = document.getElementById("jBeep");		
+	if (soundElem) {
+    bodyElem.removeChild(soundElem);
+  }
+
+	if (isHTML5) {
+		soundElem = document.createElement("audio");
+		soundElem.setAttribute("id", "jBeep");
+		soundElem.setAttribute("src", soundFile);
+		soundElem.play();
+	} else if(navigator.userAgent.toLowerCase().indexOf("msie")>-1){		
+		soundElem = document.createElement("bgsound");
+		soundElem.setAttribute("id", "jBeep");
+		soundElem.setAttribute("loop", 1);
+		soundElem.setAttribute("src", soundFile);
+		bodyElem.appendChild(soundElem);
+	} else {
+		soundElem = document.createElement("object");
+		soundElem.setAttribute("id", "jBeep");
+		soundElem.setAttribute("type", "audio/wav");
+		soundElem.setAttribute("style", "display:none;");
+		soundElem.setAttribute("data", soundFile);
+		
+		var paramElem = document.createElement("param");
+		paramElem.setAttribute("name", "autostart");
+		paramElem.setAttribute("value", "false");
+		
+		soundElem.appendChild(paramElem);
+		bodyElem.appendChild(soundElem);
+		try {
+			soundElem.Play();
+		}
+		catch (ex) {
+			soundElem.object.Play();
+		}	
+	}
+};
+
+/**
  * @param {string} ymd_string
  * @param {string} opt_time_string
  * @return {Date}
