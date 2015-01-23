@@ -2,6 +2,7 @@ goog.provide('bitex.view.WithdrawView');
 
 goog.require('bitex.view.View');
 
+goog.require('bitex.ui.DepositWithdrawButtonGroup');
 goog.require('bitex.ui.WithdrawList');
 goog.require('bitex.templates');
 goog.require('bitex.util');
@@ -103,6 +104,11 @@ bitex.view.WithdrawView.prototype.qr_data_;
  */
 bitex.view.WithdrawView.prototype.qr_data_verb_;
 
+/**
+ * @type {bitex.ui.DepositWithdrawButtonGroup} 
+ */
+bitex.view.WithdrawView.prototype.withdraw_button_group_; 
+
 
 /**
  * @override
@@ -200,6 +206,11 @@ bitex.view.WithdrawView.prototype.destroyComponents_ = function( ) {
   var handler = this.getHandler();
   var model = this.getApplication().getModel();
 
+  if (goog.isDefAndNotNull(this.withdraw_button_group_)) {
+    this.withdraw_button_group_.dispose(true);
+  }
+
+
   if (goog.isDefAndNotNull(this.withdraw_list_table_)) {
 
     handler.unlisten(this.withdraw_list_table_,
@@ -248,10 +259,21 @@ bitex.view.WithdrawView.prototype.destroyComponents_ = function( ) {
 bitex.view.WithdrawView.prototype.recreateComponents_ = function() {
   var handler = this.getHandler();
   var model = this.getApplication().getModel();
+  var app = this.getApplication();
 
   this.destroyComponents_();
 
   this.request_id_ = parseInt( 1e7 * Math.random() , 10 );
+
+  var withdraw_button_group_el = goog.dom.getElement('id_withdraw_button_group');
+  if (goog.isDefAndNotNull(withdraw_button_group_el)) {
+    this.withdraw_button_group_ = new bitex.ui.DepositWithdrawButtonGroup();
+    goog.array.forEach(model.get('Broker')['BrokerCurrencies'], function(currency) {
+      this.withdraw_button_group_.addButton('withdraw', currency, app.getCurrencyDescription(currency), app.getCurrencySign(currency));
+    }, this);
+    this.withdraw_button_group_.render( withdraw_button_group_el );
+  }
+
 
 
   var el;
