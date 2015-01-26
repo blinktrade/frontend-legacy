@@ -87,6 +87,37 @@ var MSG_ORDER_MANAGER_ACTION_CANCEL_ORDER = goog.getMsg('cancel');
 
 
 /**
+ * @desc Order Manager Status description
+ */
+var MSG_ORDER_MANAGER_STATUS_PENDING = goog.getMsg('Pending');
+
+/**
+ * @desc Order Manager Status description
+ */
+var MSG_ORDER_MANAGER_STATUS_NEW = goog.getMsg('New');
+
+/**
+ * @desc Order Manager Status description
+ */
+var MSG_ORDER_MANAGER_STATUS_PARTIALL_FILL = goog.getMsg('Partially filled');
+
+/**
+ * @desc Order Manager Status description
+ */
+var MSG_ORDER_MANAGER_STATUS_FILL = goog.getMsg('Filled');
+
+/**
+ * @desc Order Manager Status description
+ */
+var MSG_ORDER_MANAGER_STATUS_CXL = goog.getMsg('Cancelled');
+
+/**
+ * @desc Order Manager Status description
+ */
+var MSG_ORDER_MANAGER_STATUS_REJECTED = goog.getMsg('Rejected');
+
+
+/**
  * @param {string=} opt_mode. Defaults to advanced mode
  * @param {boolean=} opt_openOrdersTitle.
  * @param {number=} opt_blinkDelay. Defaults to 700 milliseconds
@@ -232,16 +263,50 @@ bitex.ui.OrderManager = function(opt_mode, opt_openOrdersTitle, opt_blinkDelay, 
   /** @desc Order manager table tittle */
   var MSG_ORDER_MANAGER_TABLE_TITLE_OPEN_ORDERS = goog.getMsg('My open orders');
 
+
+  /**
+   * @desc All option on the Orders filters
+   */
+  var MSG_ORDER_MANAGER_TABLE_BUTTON_FILTER_ALL = goog.getMsg('All');
+
+  /**
+   * @desc Open Orders option on the Orders filters
+   */
+  var MSG_ORDER_MANAGER_TABLE_BUTTON_FILTER_OPEN_ORDERS = goog.getMsg('Open');
+
+  /**
+   * @desc Open Orders option on the Orders filters
+   */
+  var MSG_ORDER_MANAGER_TABLE_BUTTON_FILTER_FILLED = goog.getMsg('Filled');
+
+  /**
+   * @desc Cancelled option on the Orders filters
+   */
+  var MSG_ORDER_MANAGER_TABLE_BUTTON_FILTER_CANCELED = goog.getMsg('Cancelled');
+
+
   var options = {
     'rowIDFn': this.getRowID ,
     'rowClassFn':this.getRowClass,
     'columns': grid_columns_advanced,
     'title': MSG_ORDER_MANAGER_TABLE_TITLE,
-    'showSearch': false
+    'showSearch': false,
+    'buttonFilters': [
+      { 'label': MSG_ORDER_MANAGER_TABLE_BUTTON_FILTER_ALL,         'value': 'all'},
+      { 'label': MSG_ORDER_MANAGER_TABLE_BUTTON_FILTER_OPEN_ORDERS, 'value': '0,1' },
+      { 'label': MSG_ORDER_MANAGER_TABLE_BUTTON_FILTER_FILLED,      'value': '1,2,4'},
+      { 'label': MSG_ORDER_MANAGER_TABLE_BUTTON_FILTER_CANCELED,    'value': '4' }
+    ]
   };
 
   if (opt_openOrdersTitle) {
     options['title'] = MSG_ORDER_MANAGER_TABLE_TITLE_OPEN_ORDERS;
+    options['buttonFilters'] = [
+      { 'label': MSG_ORDER_MANAGER_TABLE_BUTTON_FILTER_OPEN_ORDERS, 'value': '0,1' },
+      { 'label': MSG_ORDER_MANAGER_TABLE_BUTTON_FILTER_FILLED,      'value': '1,2,4'},
+      { 'label': MSG_ORDER_MANAGER_TABLE_BUTTON_FILTER_CANCELED,    'value': '4' },
+      { 'label': MSG_ORDER_MANAGER_TABLE_BUTTON_FILTER_ALL,         'value': 'all'}
+    ]
   }
 
   if (this.mode_ == 'simple') {
@@ -251,37 +316,6 @@ bitex.ui.OrderManager = function(opt_mode, opt_openOrdersTitle, opt_blinkDelay, 
   bitex.ui.DataGrid.call(this,  options , opt_domHelper);
 };
 goog.inherits(bitex.ui.OrderManager, bitex.ui.DataGrid);
-
-
-/**
- * @desc Order Manager Status description
- */
-var MSG_ORDER_MANAGER_STATUS_PENDING = goog.getMsg('Pending');
-
-/**
- * @desc Order Manager Status description
- */
-var MSG_ORDER_MANAGER_STATUS_NEW = goog.getMsg('New');
-
-/**
- * @desc Order Manager Status description
- */
-var MSG_ORDER_MANAGER_STATUS_PARTIALL_FILL = goog.getMsg('Partially filled');
-
-/**
- * @desc Order Manager Status description
- */
-var MSG_ORDER_MANAGER_STATUS_FILL = goog.getMsg('Filled');
-
-/**
- * @desc Order Manager Status description
- */
-var MSG_ORDER_MANAGER_STATUS_CXL = goog.getMsg('Cancelled');
-
-/**
- * @desc Order Manager Status description
- */
-var MSG_ORDER_MANAGER_STATUS_REJECTED = goog.getMsg('Rejected');
 
 /**
  * @enum {string}

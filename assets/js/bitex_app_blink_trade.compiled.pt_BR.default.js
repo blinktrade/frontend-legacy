@@ -5866,8 +5866,8 @@ function $bitex$ui$OrderManager$$($grid_columns_simple_opt_mode$$1$$, $opt_openO
     return null != $row_set_obj$$2$$ && ($attributes$$2$$["data-order-id"] = $row_set_obj$$2$$.OrderID, 0 == $row_set_obj$$2$$.LeavesQty) ? "" : $goog$dom$createDom$$("a", $attributes$$2$$, "cancelar");
   }, classes:function() {
     return $bitex$ui$OrderManager$CSS_CLASS$$ + "-actions";
-  }}], title:"Minhas ordens", showSearch:!1};
-  $opt_openOrdersTitle$$ && ($opt_blinkDelay$$1_options$$10$$.title = "Minhas ordens em aberto");
+  }}], title:"Minhas ordens", showSearch:!1, buttonFilters:[{label:"All", value:"all"}, {label:"Open", value:"0,1"}, {label:"Filled", value:"1,2,4"}, {label:"Cancelled", value:"4"}]};
+  $opt_openOrdersTitle$$ && ($opt_blinkDelay$$1_options$$10$$.title = "Minhas ordens em aberto", $opt_blinkDelay$$1_options$$10$$.buttonFilters = [{label:"Open", value:"0,1"}, {label:"Filled", value:"1,2,4"}, {label:"Cancelled", value:"4"}, {label:"All", value:"all"}]);
   "simple" == this.$mode_$ && ($opt_blinkDelay$$1_options$$10$$.columns = $grid_columns_simple_opt_mode$$1$$);
   $bitex$ui$DataGrid$$.call(this, $opt_blinkDelay$$1_options$$10$$, $opt_domHelper$$11$$);
 }
@@ -6119,8 +6119,12 @@ $JSCompiler_prototypeAlias$$.$onExecutionReport_$ = function $$JSCompiler_protot
   $JSCompiler_StaticMethods_getId$$(this.$order_manager_table_$) + "_" + $client_order_id$$inline_635_e$$83_el$$inline_637_execution_report_msg$$1_rowId$$inline_636$$, $client_order_id$$inline_635_e$$83_el$$inline_637_execution_report_msg$$1_rowId$$inline_636$$ = $goog$dom$getElement$$($client_order_id$$inline_635_e$$83_el$$inline_637_execution_report_msg$$1_rowId$$inline_636$$), null != $client_order_id$$inline_635_e$$83_el$$inline_637_execution_report_msg$$1_rowId$$inline_636$$ && $goog$dom$removeNode$$($client_order_id$$inline_635_e$$83_el$$inline_637_execution_report_msg$$1_rowId$$inline_636$$)) : 
   $JSCompiler_StaticMethods_insertOrUpdateRecord$$(this.$order_manager_table_$, $client_order_id$$inline_635_e$$83_el$$inline_637_execution_report_msg$$1_rowId$$inline_636$$));
 };
-$JSCompiler_prototypeAlias$$.$onOrderManagerRequestData_$ = function $$JSCompiler_prototypeAlias$$$$onOrderManagerRequestData_$$($e$$84$$) {
-  this.$app_$.$conn_$.$requestOrderList$(this.$request_order_id_$, $e$$84$$.options.Page, $e$$84$$.options.Limit, ["0", "1"]);
+$JSCompiler_prototypeAlias$$.$onOrderManagerRequestData_$ = function $$JSCompiler_prototypeAlias$$$$onOrderManagerRequestData_$$($e$$84_filter$$8$$) {
+  var $page$$ = $e$$84_filter$$8$$.options.Page, $limit$$ = $e$$84_filter$$8$$.options.Limit;
+  $e$$84_filter$$8$$ = $e$$84_filter$$8$$.options.Filter;
+  var $order_status_list$$ = ["0", "1", "2", "4"];
+  "0,1" == $e$$84_filter$$8$$ ? ($order_status_list$$ = ["0", "1"], $e$$84_filter$$8$$ = void 0) : "1,2,4" == $e$$84_filter$$8$$ ? ($order_status_list$$ = ["1", "2", "4"], $e$$84_filter$$8$$ = ["CumQty gt 0"]) : "4" == $e$$84_filter$$8$$ && ($order_status_list$$ = ["4"], $e$$84_filter$$8$$ = void 0);
+  this.$app_$.$conn_$.$requestOrderList$(this.$request_order_id_$, $page$$, $limit$$, $order_status_list$$, $e$$84_filter$$8$$);
 };
 $JSCompiler_prototypeAlias$$.$onOrderListResponse_$ = function $$JSCompiler_prototypeAlias$$$$onOrderListResponse_$$($e$$85_msg$$15$$) {
   null != this.$order_manager_table_$ && ($e$$85_msg$$15$$ = $e$$85_msg$$15$$.data, $JSCompiler_StaticMethods_setResultSet$$(this.$order_manager_table_$, $e$$85_msg$$15$$.OrdListGrp, $e$$85_msg$$15$$.Columns));
@@ -9386,13 +9390,13 @@ $JSCompiler_prototypeAlias$$.$onUserDetailsClick_$ = function $$JSCompiler_proto
   this.$app_$.$setView$("account_overview/" + $data$$40_e$$172$$.Username + "/");
 };
 $JSCompiler_prototypeAlias$$.$onCustomerListTableRequestData_$ = function $$JSCompiler_prototypeAlias$$$$onCustomerListTableRequestData_$$($e$$173$$) {
-  var $page$$1$$ = $e$$173$$.options.Page, $limit$$2$$ = $e$$173$$.options.Limit, $filter$$8$$ = $e$$173$$.options.Filter, $status$$3$$ = [0, 1, 2, 3, 4, 5];
-  null != $filter$$8$$ && ($goog$array$forEach$$($filter$$8$$, function($f$$48$$, $idx_filter$$) {
+  var $page$$1$$ = $e$$173$$.options.Page, $limit$$2$$ = $e$$173$$.options.Limit, $filter$$9$$ = $e$$173$$.options.Filter, $status$$3$$ = [0, 1, 2, 3, 4, 5];
+  null != $filter$$9$$ && ($goog$array$forEach$$($filter$$9$$, function($f$$48$$, $idx_filter$$) {
     if (0 <= $goog$array$indexOf$$($status$$3$$, parseInt($f$$48$$, 10))) {
-      return $status$$3$$ = [parseInt($f$$48$$)], $goog$array$removeAt$$($filter$$8$$, $idx_filter$$), !0;
+      return $status$$3$$ = [parseInt($f$$48$$)], $goog$array$removeAt$$($filter$$9$$, $idx_filter$$), !0;
     }
-  }, this), 0 == $filter$$8$$.length && ($filter$$8$$ = void 0));
-  this.$app_$.$conn_$.$requestCustomerList$(this.$request_id_$, void 0, void 0, $filter$$8$$, $page$$1$$, $limit$$2$$, $status$$3$$);
+  }, this), 0 == $filter$$9$$.length && ($filter$$9$$ = void 0));
+  this.$app_$.$conn_$.$requestCustomerList$(this.$request_id_$, void 0, void 0, $filter$$9$$, $page$$1$$, $limit$$2$$, $status$$3$$);
 };
 $JSCompiler_prototypeAlias$$.$onCustomerListReponse_$ = function $$JSCompiler_prototypeAlias$$$$onCustomerListReponse_$$($e$$174_msg$$21$$) {
   null != this.$customers_table_$ && ($e$$174_msg$$21$$ = $e$$174_msg$$21$$.data, $JSCompiler_StaticMethods_setResultSet$$(this.$customers_table_$, $e$$174_msg$$21$$.CustomerListGrp, $e$$174_msg$$21$$.Columns));
@@ -9767,17 +9771,17 @@ $JSCompiler_prototypeAlias$$.$valuePriceFormatter_$ = function $$JSCompiler_prot
   $currency_description$$}, $formatted_value$$ + " / " + $formatted_paid_value_paid_value$$)) : $goog$dom$createDom$$("abbr", {title:$currency_description$$}, $formatted_value$$);
 };
 $JSCompiler_prototypeAlias$$.$onDepositListTableRequestData_$ = function $$JSCompiler_prototypeAlias$$$$onDepositListTableRequestData_$$($conn$$5_e$$177$$) {
-  var $page$$2$$ = $conn$$5_e$$177$$.options.Page, $limit$$3$$ = $conn$$5_e$$177$$.options.Limit, $filter$$9$$ = $conn$$5_e$$177$$.options.Filter;
+  var $page$$2$$ = $conn$$5_e$$177$$.options.Page, $limit$$3$$ = $conn$$5_e$$177$$.options.Limit, $filter$$10$$ = $conn$$5_e$$177$$.options.Filter;
   $conn$$5_e$$177$$ = this.$app_$.$conn_$;
   var $model$$30$$ = this.$app_$.$model_$, $clientID$$ = void 0;
   $model$$30$$.get("IsBroker") && !this.$is_requests_from_customers_$ && ($clientID$$ = $model$$30$$.get("UserID"));
   var $status$$5$$ = ["0", "1", "2", "4", "8"];
-  null != $filter$$9$$ && $goog$array$forEach$$($filter$$9$$, function($f$$49$$, $idx_filter$$1$$) {
+  null != $filter$$10$$ && $goog$array$forEach$$($filter$$10$$, function($f$$49$$, $idx_filter$$1$$) {
     if (0 <= $goog$array$indexOf$$($status$$5$$, $f$$49$$)) {
-      return $status$$5$$ = [$f$$49$$], $goog$array$removeAt$$($filter$$9$$, $idx_filter$$1$$), !0;
+      return $status$$5$$ = [$f$$49$$], $goog$array$removeAt$$($filter$$10$$, $idx_filter$$1$$), !0;
     }
   }, this);
-  $conn$$5_e$$177$$.$requestDepositList$(this.$request_id_$, $page$$2$$, $limit$$3$$, $status$$5$$, $clientID$$, $filter$$9$$);
+  $conn$$5_e$$177$$.$requestDepositList$(this.$request_id_$, $page$$2$$, $limit$$3$$, $status$$5$$, $clientID$$, $filter$$10$$);
 };
 $JSCompiler_prototypeAlias$$.$onDepositRefresh_$ = function $$JSCompiler_prototypeAlias$$$$onDepositRefresh_$$($e$$178_msg$$22$$) {
   $e$$178_msg$$22$$ = $e$$178_msg$$22$$.data;
@@ -9909,8 +9913,12 @@ $JSCompiler_prototypeAlias$$.$onCancelOrder_$ = function $$JSCompiler_prototypeA
 $JSCompiler_prototypeAlias$$.$onExecutionReport_$ = function $$JSCompiler_prototypeAlias$$$$onExecutionReport_$$($e$$183$$) {
   null != this.$order_manager_table_$ && $JSCompiler_StaticMethods_insertOrUpdateRecord$$(this.$order_manager_table_$, $e$$183$$.data);
 };
-$JSCompiler_prototypeAlias$$.$onOrderManagerRequestData_$ = function $$JSCompiler_prototypeAlias$$$$onOrderManagerRequestData_$$($e$$184$$) {
-  this.$app_$.$conn_$.$requestOrderList$(this.$request_order_id_$, $e$$184$$.options.Page, $e$$184$$.options.Limit, ["0", "1", "2", "4"]);
+$JSCompiler_prototypeAlias$$.$onOrderManagerRequestData_$ = function $$JSCompiler_prototypeAlias$$$$onOrderManagerRequestData_$$($e$$184_filter$$11$$) {
+  var $page$$3$$ = $e$$184_filter$$11$$.options.Page, $limit$$4$$ = $e$$184_filter$$11$$.options.Limit;
+  $e$$184_filter$$11$$ = $e$$184_filter$$11$$.options.Filter;
+  var $order_status_list$$1$$ = ["0", "1", "2", "4"];
+  "0,1" == $e$$184_filter$$11$$ ? ($order_status_list$$1$$ = ["0", "1"], $e$$184_filter$$11$$ = void 0) : "1,2,4" == $e$$184_filter$$11$$ ? ($order_status_list$$1$$ = ["1", "2", "4"], $e$$184_filter$$11$$ = void 0) : "4" == $e$$184_filter$$11$$ && ($order_status_list$$1$$ = ["4"], $e$$184_filter$$11$$ = void 0);
+  this.$app_$.$conn_$.$requestOrderList$(this.$request_order_id_$, $page$$3$$, $limit$$4$$, $order_status_list$$1$$, $e$$184_filter$$11$$);
 };
 $JSCompiler_prototypeAlias$$.$onOrderListResponse_$ = function $$JSCompiler_prototypeAlias$$$$onOrderListResponse_$$($e$$185_msg$$24$$) {
   null != this.$order_manager_table_$ && ($e$$185_msg$$24$$ = $e$$185_msg$$24$$.data, $JSCompiler_StaticMethods_setResultSet$$(this.$order_manager_table_$, $e$$185_msg$$24$$.OrdListGrp, $e$$185_msg$$24$$.Columns));
@@ -10473,9 +10481,11 @@ $JSCompiler_prototypeAlias$$.$requestSecurityList$ = function $$JSCompiler_proto
 $JSCompiler_prototypeAlias$$.$signUp$ = function $$JSCompiler_prototypeAlias$$$$signUp$$($username$$9$$, $password$$5$$, $email$$3$$, $state$$21$$, $country_code$$2$$, $broker$$8$$, $opt_requestId$$18$$) {
   $JSCompiler_StaticMethods_sendMessage$$(this, {MsgType:"U0", UserReqID:$opt_requestId$$18$$ || parseInt(1E7 * Math.random(), 10), Username:$username$$9$$, Password:$password$$5$$, Email:$email$$3$$, State:$state$$21$$, CountryCode:$country_code$$2$$, BrokerID:$broker$$8$$});
 };
-$JSCompiler_prototypeAlias$$.$requestOrderList$ = function $$JSCompiler_prototypeAlias$$$$requestOrderList$$($opt_requestId$$19_requestId$$20$$, $opt_page$$7$$, $opt_limit$$8$$, $opt_status$$4$$) {
+$JSCompiler_prototypeAlias$$.$requestOrderList$ = function $$JSCompiler_prototypeAlias$$$$requestOrderList$$($opt_requestId$$19_requestId$$20$$, $msg$$59_opt_page$$7$$, $opt_limit$$8$$, $opt_status$$4$$, $opt_filter$$5$$) {
   $opt_requestId$$19_requestId$$20$$ = $opt_requestId$$19_requestId$$20$$ || parseInt(1E7 * Math.random(), 10);
-  $JSCompiler_StaticMethods_sendMessage$$(this, {MsgType:"U4", OrdersReqID:$opt_requestId$$19_requestId$$20$$, Page:$opt_page$$7$$ || 0, PageSize:$opt_limit$$8$$ || 100, StatusList:$opt_status$$4$$ || ["0", "1"]});
+  $msg$$59_opt_page$$7$$ = {MsgType:"U4", OrdersReqID:$opt_requestId$$19_requestId$$20$$, Page:$msg$$59_opt_page$$7$$ || 0, PageSize:$opt_limit$$8$$ || 100, StatusList:$opt_status$$4$$ || ["0", "1"]};
+  null != $opt_filter$$5$$ && ($msg$$59_opt_page$$7$$.Filter = $opt_filter$$5$$);
+  $JSCompiler_StaticMethods_sendMessage$$(this, $msg$$59_opt_page$$7$$);
   return $opt_requestId$$19_requestId$$20$$;
 };
 $JSCompiler_prototypeAlias$$.$requestDeposit$ = function $$JSCompiler_prototypeAlias$$$$requestDeposit$$($msg$$60_opt_requestId$$20$$, $opt_depositOptionId$$, $opt_value$$13$$, $opt_depositID$$, $opt_currency$$3$$, $opt_client_order_id$$2$$, $opt_instructions$$) {
@@ -10744,17 +10754,17 @@ $JSCompiler_prototypeAlias$$.$priceFormatter_$ = function $$JSCompiler_prototype
   return 0 === $value$$208$$ ? "-" : $goog$dom$createDom$$("abbr", {title:this.$app_$.$getCurrencyDescription$($priceCurrency$$8$$)}, this.$app_$.$formatCurrency$($value$$208$$ / 1E8, $priceCurrency$$8$$));
 };
 $JSCompiler_prototypeAlias$$.$onWithdrawListTableRequestData_$ = function $$JSCompiler_prototypeAlias$$$$onWithdrawListTableRequestData_$$($conn$$10_e$$198$$) {
-  var $page$$13$$ = $conn$$10_e$$198$$.options.Page, $limit$$14$$ = $conn$$10_e$$198$$.options.Limit, $filter$$11$$ = $conn$$10_e$$198$$.options.Filter;
+  var $page$$13$$ = $conn$$10_e$$198$$.options.Page, $limit$$14$$ = $conn$$10_e$$198$$.options.Limit, $filter$$13$$ = $conn$$10_e$$198$$.options.Filter;
   $conn$$10_e$$198$$ = this.$app_$.$conn_$;
   var $model$$36$$ = this.$app_$.$model_$, $clientID$$1$$ = void 0;
   $model$$36$$.get("IsBroker") && !this.$is_requests_from_customers_$ && ($clientID$$1$$ = $model$$36$$.get("UserID"));
   var $status$$11$$ = ["1", "2", "4", "8"];
-  null != $filter$$11$$ && $goog$array$forEach$$($filter$$11$$, function($f$$50$$, $idx_filter$$2$$) {
+  null != $filter$$13$$ && $goog$array$forEach$$($filter$$13$$, function($f$$50$$, $idx_filter$$2$$) {
     if (0 <= $goog$array$indexOf$$($status$$11$$, $f$$50$$)) {
-      return $status$$11$$ = [$f$$50$$], $goog$array$removeAt$$($filter$$11$$, $idx_filter$$2$$), !0;
+      return $status$$11$$ = [$f$$50$$], $goog$array$removeAt$$($filter$$13$$, $idx_filter$$2$$), !0;
     }
   }, this);
-  $conn$$10_e$$198$$.$requestWithdrawList$(this.$request_id_$, $page$$13$$, $limit$$14$$, $status$$11$$, $clientID$$1$$, $filter$$11$$);
+  $conn$$10_e$$198$$.$requestWithdrawList$(this.$request_id_$, $page$$13$$, $limit$$14$$, $status$$11$$, $clientID$$1$$, $filter$$13$$);
 };
 $JSCompiler_prototypeAlias$$.$onUserCancelWithdraw_$ = function $$JSCompiler_prototypeAlias$$$$onUserCancelWithdraw_$$() {
   this.$withdraw_action_$ = "CANCEL";
@@ -10906,14 +10916,14 @@ $JSCompiler_prototypeAlias$$.$onLedgerTableRequestData_$ = function $$JSCompiler
   $e$$204_filters_param$$ = $e$$204_filters_param$$.options.Filter;
   var $currency$$12$$, $filters$$ = [], $userID$$ = this.$app_$.$model_$.get("UserID"), $brokerID$$3$$ = this.$app_$.$model_$.get("Broker").BrokerID;
   this.$app_$.$model_$.get("IsBroker") && ($brokerID$$3$$ = $userID$$);
-  $goog$isArrayLike$$($e$$204_filters_param$$) && $goog$array$forEach$$($e$$204_filters_param$$, function($filter$$12$$) {
+  $goog$isArrayLike$$($e$$204_filters_param$$) && $goog$array$forEach$$($e$$204_filters_param$$, function($filter$$14$$) {
     try {
-      var $filter_obj$$ = $goog$json$parse$$($filter$$12$$);
+      var $filter_obj$$ = $goog$json$parse$$($filter$$14$$);
       null != $filter_obj$$.currency && ($currency$$12$$ = $filter_obj$$.currency);
       null != $filter_obj$$.broker_id && ($brokerID$$3$$ = $filter_obj$$.broker_id);
       null != $filter_obj$$.account_id && ($userID$$ = $filter_obj$$.account_id);
     } catch ($ex$$14$$) {
-      $filters$$.push($filter$$12$$);
+      $filters$$.push($filter$$14$$);
     }
   }, this);
   this.$app_$.$conn_$.$requestLedgerList$(this.$request_id_$, $page$$14$$, $limit$$15$$, $brokerID$$3$$, $userID$$, $currency$$12$$, $filters$$);
@@ -11056,11 +11066,11 @@ $JSCompiler_prototypeAlias$$.$getDepositData$ = function $$JSCompiler_prototypeA
 $JSCompiler_prototypeAlias$$.$getDepositAction$ = function $$JSCompiler_prototypeAlias$$$$getDepositAction$$() {
   return this.$deposit_action_$;
 };
-$JSCompiler_prototypeAlias$$.$onDepositListTableRequestData_$ = function $$JSCompiler_prototypeAlias$$$$onDepositListTableRequestData_$$($e$$207_filter$$13$$) {
-  var $page$$15$$ = $e$$207_filter$$13$$.options.Page, $limit$$16$$ = $e$$207_filter$$13$$.options.Limit;
-  $e$$207_filter$$13$$ = $e$$207_filter$$13$$.options.Filter;
+$JSCompiler_prototypeAlias$$.$onDepositListTableRequestData_$ = function $$JSCompiler_prototypeAlias$$$$onDepositListTableRequestData_$$($e$$207_filter$$15$$) {
+  var $page$$15$$ = $e$$207_filter$$15$$.options.Page, $limit$$16$$ = $e$$207_filter$$15$$.options.Limit;
+  $e$$207_filter$$15$$ = $e$$207_filter$$15$$.options.Filter;
   var $selectedCustomer$$2$$ = this.$app_$.$model_$.get("SelectedCustomer");
-  this.$app_$.$conn_$.$requestDepositList$(this.$request_id_$, $page$$15$$, $limit$$16$$, ["0", "1", "2", "4", "8"], $selectedCustomer$$2$$.ID, $e$$207_filter$$13$$);
+  this.$app_$.$conn_$.$requestDepositList$(this.$request_id_$, $page$$15$$, $limit$$16$$, ["0", "1", "2", "4", "8"], $selectedCustomer$$2$$.ID, $e$$207_filter$$15$$);
 };
 $JSCompiler_prototypeAlias$$.$onDepositRefresh_$ = function $$JSCompiler_prototypeAlias$$$$onDepositRefresh_$$($e$$208_msg$$71$$) {
   $e$$208_msg$$71$$ = $e$$208_msg$$71$$.data;
@@ -11215,11 +11225,11 @@ $JSCompiler_prototypeAlias$$.$onUserSetWithdrawComplete_$ = function $$JSCompile
   this.$withdraw_action_$ = "COMPLETE";
   this.dispatchEvent("process_withdraw");
 };
-$JSCompiler_prototypeAlias$$.$onWithdrawListTableRequestData_$ = function $$JSCompiler_prototypeAlias$$$$onWithdrawListTableRequestData_$$($e$$225_filter$$14$$) {
-  var $page$$16$$ = $e$$225_filter$$14$$.options.Page, $limit$$17$$ = $e$$225_filter$$14$$.options.Limit;
-  $e$$225_filter$$14$$ = $e$$225_filter$$14$$.options.Filter;
+$JSCompiler_prototypeAlias$$.$onWithdrawListTableRequestData_$ = function $$JSCompiler_prototypeAlias$$$$onWithdrawListTableRequestData_$$($e$$225_filter$$16$$) {
+  var $page$$16$$ = $e$$225_filter$$16$$.options.Page, $limit$$17$$ = $e$$225_filter$$16$$.options.Limit;
+  $e$$225_filter$$16$$ = $e$$225_filter$$16$$.options.Filter;
   var $selectedCustomer$$7$$ = this.$app_$.$model_$.get("SelectedCustomer");
-  this.$app_$.$conn_$.$requestWithdrawList$(this.$request_id_$, $page$$16$$, $limit$$17$$, ["1", "2", "4", "8"], $selectedCustomer$$7$$.ID, $e$$225_filter$$14$$);
+  this.$app_$.$conn_$.$requestWithdrawList$(this.$request_id_$, $page$$16$$, $limit$$17$$, ["1", "2", "4", "8"], $selectedCustomer$$7$$.ID, $e$$225_filter$$16$$);
 };
 $JSCompiler_prototypeAlias$$.$priceFormatter_$ = function $$JSCompiler_prototypeAlias$$$$priceFormatter_$$($value$$211$$, $rowSet$$24$$) {
   var $priceCurrency$$9$$ = $rowSet$$24$$.Currency;

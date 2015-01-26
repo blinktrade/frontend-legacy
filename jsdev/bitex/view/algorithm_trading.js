@@ -423,9 +423,23 @@ bitex.view.AlgorithmTradingView.prototype.onExecutionReport_ = function(e){
 bitex.view.AlgorithmTradingView.prototype.onOrderManagerRequestData_ = function(e) {
   var page = e.options['Page'];
   var limit = e.options['Limit'];
+  var filter = e.options['Filter'];
+  var order_status_list = ['0', '1', '2', '4'];
+
+  if (filter == '0,1') {
+    order_status_list = ['0', '1'];
+    filter = undefined;
+  } else if (filter == '1,2,4') {
+    order_status_list = ['1', '2', '4'];
+    filter = ['CumQty gt 0'];
+  } else if (filter == '4') {
+    order_status_list = ['4'];
+    filter = undefined;
+  }
 
   var conn = this.getApplication().getBitexConnection();
-  conn.requestOrderList(this.request_order_id_, page, limit, ['0', '1'] );
+  conn.requestOrderList(this.request_order_id_, page, limit, order_status_list, filter );
+
 };
 
 

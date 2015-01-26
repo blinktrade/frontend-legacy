@@ -1456,8 +1456,9 @@ bitex.api.BitEx.prototype.signUp = function(username, password, email, state, co
  * @param {number=} opt_page. Defaults to 0
  * @param {number=} opt_limit. Defaults to 100
  * @param {Array.<string>=} opt_status. Defaults to ['0','1'] ( open orders )
+ * @param {Object=} opt_filter.
  */
-bitex.api.BitEx.prototype.requestOrderList = function(opt_requestId, opt_page, opt_limit, opt_status){
+bitex.api.BitEx.prototype.requestOrderList = function(opt_requestId, opt_page, opt_limit, opt_status, opt_filter){
   var requestId = opt_requestId || parseInt( 1e7 * Math.random() , 10 );
   var page = opt_page || 0;
   var limit = opt_limit || 100;
@@ -1470,6 +1471,10 @@ bitex.api.BitEx.prototype.requestOrderList = function(opt_requestId, opt_page, o
     'PageSize': limit,
     'StatusList': status
   };
+  if (goog.isDefAndNotNull(opt_filter)) {
+    msg['Filter'] = opt_filter;
+  }
+
   this.sendMessage(msg);
 
   return requestId;
