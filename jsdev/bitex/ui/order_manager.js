@@ -292,21 +292,15 @@ bitex.ui.OrderManager = function(opt_mode, opt_openOrdersTitle, opt_blinkDelay, 
     'title': MSG_ORDER_MANAGER_TABLE_TITLE,
     'showSearch': false,
     'buttonFilters': [
-      { 'label': MSG_ORDER_MANAGER_TABLE_BUTTON_FILTER_ALL,         'value': 'all'},
-      { 'label': MSG_ORDER_MANAGER_TABLE_BUTTON_FILTER_OPEN_ORDERS, 'value': '0,1' },
-      { 'label': MSG_ORDER_MANAGER_TABLE_BUTTON_FILTER_FILLED,      'value': '1,2,4'},
-      { 'label': MSG_ORDER_MANAGER_TABLE_BUTTON_FILTER_CANCELED,    'value': '4' }
-    ]
-  };
-
-  if (opt_openOrdersTitle) {
-    options['title'] = MSG_ORDER_MANAGER_TABLE_TITLE_OPEN_ORDERS;
-    options['buttonFilters'] = [
       { 'label': MSG_ORDER_MANAGER_TABLE_BUTTON_FILTER_OPEN_ORDERS, 'value': '0,1' },
       { 'label': MSG_ORDER_MANAGER_TABLE_BUTTON_FILTER_FILLED,      'value': '1,2,4'},
       { 'label': MSG_ORDER_MANAGER_TABLE_BUTTON_FILTER_CANCELED,    'value': '4' },
       { 'label': MSG_ORDER_MANAGER_TABLE_BUTTON_FILTER_ALL,         'value': 'all'}
     ]
+  };
+
+  if (opt_openOrdersTitle) {
+    options['title'] = MSG_ORDER_MANAGER_TABLE_TITLE_OPEN_ORDERS;
   }
 
   if (this.mode_ == 'simple') {

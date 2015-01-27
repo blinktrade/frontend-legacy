@@ -23,7 +23,7 @@ zopim_key: "2YMGhOCdrfa6wpaXqhPAMYewR4gUC2Ee"
 markdown: kramdown
 
 
-languages: ["es", "en_US", "pt_BR", "ro"]
+languages: ["es", "en_US", "pt_BR", "ro", "zn_CN"]
 
 exclude:     [ "jsdev", "LICENSE", "README.md", "config.rb", "deploy.sh", "build_javascript.sh" ]
 source:      .

@@ -431,7 +431,7 @@ bitex.view.AlgorithmTradingView.prototype.onOrderManagerRequestData_ = function(
     filter = undefined;
   } else if (filter == '1,2,4') {
     order_status_list = ['1', '2', '4'];
-    filter = ['CumQty gt 0'];
+    filter = ['cum_qty gt 0'];
   } else if (filter == '4') {
     order_status_list = ['4'];
     filter = undefined;

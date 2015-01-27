@@ -1869,8 +1869,7 @@ $JSCompiler_prototypeAlias$$.$removeChildren$ = function $$JSCompiler_prototypeA
   return $removedChildren$$;
 };
 // Input 37
-var $goog$i18n$NumberFormatSymbols$$ = {$DECIMAL_SEP$:".", $GROUP_SEP$:",", $PERCENT$:"%", $ZERO_DIGIT$:"0", $PLUS_SIGN$:"+", $MINUS_SIGN$:"-", $EXP_SYMBOL$:"E", $PERMILL$:"\u2030", $INFINITY$:"\u221e", $NAN$:"NaN", $DECIMAL_PATTERN$:"#,##0.###", $SCIENTIFIC_PATTERN$:"#E0", $PERCENT_PATTERN$:"#,##0%", $CURRENCY_PATTERN$:"\u00a4#,##0.00;(\u00a4#,##0.00)", $DEF_CURRENCY_CODE$:"USD"}, $goog$i18n$NumberFormatSymbols$$ = {$DECIMAL_SEP$:",", $GROUP_SEP$:".", $PERCENT$:"%", $ZERO_DIGIT$:"0", $PLUS_SIGN$:"+", 
-$MINUS_SIGN$:"-", $EXP_SYMBOL$:"E", $PERMILL$:"\u2030", $INFINITY$:"\u221e", $NAN$:"NaN", $DECIMAL_PATTERN$:"#,##0.###", $SCIENTIFIC_PATTERN$:"#E0", $PERCENT_PATTERN$:"#,##0%", $CURRENCY_PATTERN$:"\u00a4#,##0.00;(\u00a4#,##0.00)", $DEF_CURRENCY_CODE$:"BRL"};
+var $goog$i18n$NumberFormatSymbols$$ = {$DECIMAL_SEP$:".", $GROUP_SEP$:",", $PERCENT$:"%", $ZERO_DIGIT$:"0", $PLUS_SIGN$:"+", $MINUS_SIGN$:"-", $EXP_SYMBOL$:"E", $PERMILL$:"\u2030", $INFINITY$:"\u221e", $NAN$:"NaN", $DECIMAL_PATTERN$:"#,##0.###", $SCIENTIFIC_PATTERN$:"#E0", $PERCENT_PATTERN$:"#,##0%", $CURRENCY_PATTERN$:"\u00a4#,##0.00;(\u00a4#,##0.00)", $DEF_CURRENCY_CODE$:"USD"};
 // Input 38
 // Input 39
 function $goog$structs$getCount$$($JSCompiler_temp$$39_JSCompiler_temp$$40_col$$) {
@@ -3112,32 +3111,32 @@ $JSCompiler_prototypeAlias$$.$metaMap_$ = null;
 $JSCompiler_prototypeAlias$$.$validateRequired_$ = function $$JSCompiler_prototypeAlias$$$$validateRequired_$$($el$$54_elValue$$, $condition$$7$$, $params$$6$$, $caption$$1$$) {
   if (!$condition$$7$$ || eval($condition$$7$$)) {
     if ($el$$54_elValue$$ = $goog$dom$forms$getValue$$($el$$54_elValue$$), null == $el$$54_elValue$$ || $goog$string$isEmpty$$($el$$54_elValue$$)) {
-      throw "O campo " + ($caption$$1$$ + " \u00e9 de preenchimento obrigat\u00f3rio");
+      throw $caption$$1$$ + " \u9700\u8981\u7528\u6237\u540d";
     }
   }
 };
 $JSCompiler_prototypeAlias$$.$validateMinLength_$ = function $$JSCompiler_prototypeAlias$$$$validateMinLength_$$($el$$55$$, $condition$$8$$, $minLength$$1$$, $caption$$2$$) {
   if (!$condition$$8$$ || eval($condition$$8$$)) {
     if ($minLength$$1$$ = parseInt($minLength$$1$$, 10), 0 < $minLength$$1$$ && $goog$dom$forms$getValue$$($el$$55$$).length < $minLength$$1$$) {
-      throw "O campo " + ($caption$$2$$ + (" tem de ter ao menos " + ($minLength$$1$$ + " caracteres")));
+      throw $caption$$2$$ + (" \u5e94\u8be5\u81f3\u5c11\u662f " + ($minLength$$1$$ + "\u5b57\u7b26"));
     }
   }
 };
 $JSCompiler_prototypeAlias$$.$validateEmail_$ = function $$JSCompiler_prototypeAlias$$$$validateEmail_$$($el$$56$$, $condition$$9$$, $params$$7$$, $caption$$3$$) {
   if ((!$condition$$9$$ || eval($condition$$9$$)) && !$goog$dom$forms$getValue$$($el$$56$$).match(/^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/)) {
-    throw $caption$$3$$ + " n\u00e3o \u00e9 um endere\u00e7o de email v\u00e1lido";
+    throw $caption$$3$$ + " \u4e0d\u662f\u6709\u6548\u7684Email\u90ae\u7bb1\u5730\u5740";
   }
 };
 $JSCompiler_prototypeAlias$$.$validateMaxLength_$ = function $$JSCompiler_prototypeAlias$$$$validateMaxLength_$$($el$$57$$, $condition$$10$$, $maxLength$$, $caption$$4$$) {
   if (!$condition$$10$$ || eval($condition$$10$$)) {
     if ($maxLength$$ = parseInt($maxLength$$, 10), 0 < $maxLength$$ && $goog$dom$forms$getValue$$($el$$57$$).length > $maxLength$$) {
-      throw "O campo " + ($caption$$4$$ + (" n\u00e3o pode ter mais do que " + ($maxLength$$ + " caracteres")));
+      throw $caption$$4$$ + (" \u957f\u5ea6\u4e0d\u8d85\u8fc7 " + ($maxLength$$ + " \u5b57\u7b26"));
     }
   }
 };
 $JSCompiler_prototypeAlias$$.$validateMax_$ = function $$JSCompiler_prototypeAlias$$$$validateMax_$$($el$$58$$, $MSG_ERROR_VALIDATE_MAX_condition$$11$$, $field_value_maxValue$$, $caption$$5_pos$$10$$) {
   if (!$MSG_ERROR_VALIDATE_MAX_condition$$11$$ || eval($MSG_ERROR_VALIDATE_MAX_condition$$11$$)) {
-    $MSG_ERROR_VALIDATE_MAX_condition$$11$$ = $caption$$5_pos$$10$$ + (" tem de ser menor ou igual \u00e0 " + $field_value_maxValue$$);
+    $MSG_ERROR_VALIDATE_MAX_condition$$11$$ = $caption$$5_pos$$10$$ + (" \u5e94\u5c0f\u4e8e\u7b49\u4e8e " + $field_value_maxValue$$);
     var $valueFormatter$$ = new $goog$i18n$NumberFormat$$(1);
     $field_value_maxValue$$ = $goog$string$trim$$($field_value_maxValue$$);
     $caption$$5_pos$$10$$ = [0];
@@ -3160,7 +3159,7 @@ $JSCompiler_prototypeAlias$$.$validateMax_$ = function $$JSCompiler_prototypeAli
 };
 $JSCompiler_prototypeAlias$$.$validateMin_$ = function $$JSCompiler_prototypeAlias$$$$validateMin_$$($el$$59$$, $MSG_ERROR_VALIDATE_MIN_condition$$12$$, $field_value$$1_minValue$$, $caption$$6_pos$$11$$) {
   if (!$MSG_ERROR_VALIDATE_MIN_condition$$12$$ || eval($MSG_ERROR_VALIDATE_MIN_condition$$12$$)) {
-    $MSG_ERROR_VALIDATE_MIN_condition$$12$$ = $caption$$6_pos$$11$$ + (" tem de ser maior ou igual \u00e0 " + $field_value$$1_minValue$$);
+    $MSG_ERROR_VALIDATE_MIN_condition$$12$$ = $caption$$6_pos$$11$$ + (" \u5e94\u5927\u4e8e\u7b49\u4e8e " + $field_value$$1_minValue$$);
     var $valueFormatter$$1$$ = new $goog$i18n$NumberFormat$$(1);
     $field_value$$1_minValue$$ = $goog$string$trim$$($field_value$$1_minValue$$);
     $caption$$6_pos$$11$$ = [0];
@@ -3183,7 +3182,7 @@ $JSCompiler_prototypeAlias$$.$validateMin_$ = function $$JSCompiler_prototypeAli
 };
 $JSCompiler_prototypeAlias$$.$validateNumber_$ = function $$JSCompiler_prototypeAlias$$$$validateNumber_$$($el$$60_elValue$$2$$, $MSG_ERROR_VALIDATE_NUMBER_condition$$13$$, $params$$8_pos$$12$$, $caption$$7_value$$100$$) {
   if (!$MSG_ERROR_VALIDATE_NUMBER_condition$$13$$ || eval($MSG_ERROR_VALIDATE_NUMBER_condition$$13$$)) {
-    if ($MSG_ERROR_VALIDATE_NUMBER_condition$$13$$ = $caption$$7_value$$100$$ + " precisa ser um n\u00famero", $el$$60_elValue$$2$$ = $goog$dom$forms$getValue$$($el$$60_elValue$$2$$), !$goog$string$isEmpty$$($el$$60_elValue$$2$$)) {
+    if ($MSG_ERROR_VALIDATE_NUMBER_condition$$13$$ = $caption$$7_value$$100$$ + " \u9700\u8981\u662f\u6570\u5b57", $el$$60_elValue$$2$$ = $goog$dom$forms$getValue$$($el$$60_elValue$$2$$), !$goog$string$isEmpty$$($el$$60_elValue$$2$$)) {
       $params$$8_pos$$12$$ = [0];
       $caption$$7_value$$100$$ = (new $goog$i18n$NumberFormat$$(1)).parse($el$$60_elValue$$2$$, $params$$8_pos$$12$$);
       if (isNaN($caption$$7_value$$100$$)) {
@@ -3198,35 +3197,35 @@ $JSCompiler_prototypeAlias$$.$validateNumber_$ = function $$JSCompiler_prototype
 $JSCompiler_prototypeAlias$$.$validateInteger_$ = function $$JSCompiler_prototypeAlias$$$$validateInteger_$$($el$$61_elValue$$3$$, $condition$$14$$, $params$$9$$, $caption$$8$$) {
   if (!$condition$$14$$ || eval($condition$$14$$)) {
     if ($el$$61_elValue$$3$$ = $goog$dom$forms$getValue$$($el$$61_elValue$$3$$), /[^0-9]/.test($el$$61_elValue$$3$$)) {
-      throw $caption$$8$$ + " precisa ser um n\u00famero inteiro";
+      throw $caption$$8$$ + " \u9700\u8981\u662f\u6574\u6570";
     }
   }
 };
 $JSCompiler_prototypeAlias$$.$validateAlpha_$ = function $$JSCompiler_prototypeAlias$$$$validateAlpha_$$($el$$62_elValue$$4$$, $condition$$15$$, $params$$10$$, $caption$$9$$) {
   if (!$condition$$15$$ || eval($condition$$15$$)) {
     if ($el$$62_elValue$$4$$ = $goog$dom$forms$getValue$$($el$$62_elValue$$4$$), /[^a-zA-Z]/.test($el$$62_elValue$$4$$)) {
-      throw $caption$$9$$ + " s\u00f3 pode ter apenas letras ( sem carateres especiais ou n\u00fameros )";
+      throw $caption$$9$$ + " \u5e94\u53ea\u5305\u542b\u5b57\u6bcd (\u4e0d\u5305\u542b\u7279\u6b8a\u5b57\u7b26\u6216\u8005\u6570\u5b57)";
     }
   }
 };
 $JSCompiler_prototypeAlias$$.$validateAlphaNum_$ = function $$JSCompiler_prototypeAlias$$$$validateAlphaNum_$$($el$$63_elValue$$5$$, $condition$$16$$, $params$$11$$, $caption$$10$$) {
   if (!$condition$$16$$ || eval($condition$$16$$)) {
     if ($el$$63_elValue$$5$$ = $goog$dom$forms$getValue$$($el$$63_elValue$$5$$), /[^a-zA-Z0-9]/.test($el$$63_elValue$$5$$)) {
-      throw $caption$$10$$ + " s\u00f3 pode conter apenas n\u00fameros e letras (sem caracteres especiais)";
+      throw $caption$$10$$ + " \u5e94\u53ea\u5305\u542b\u6570\u5b57\u548c\u5b57\u6bcd\uff08\u4e0d\u542b\u7279\u6b8a\u5b57\u7b26\uff09";
     }
   }
 };
 $JSCompiler_prototypeAlias$$.$validatePhrase_$ = function $$JSCompiler_prototypeAlias$$$$validatePhrase_$$($el$$64_elValue$$6$$, $condition$$17$$, $params$$12$$, $caption$$11$$) {
   if (!$condition$$17$$ || eval($condition$$17$$)) {
     if ($el$$64_elValue$$6$$ = $goog$dom$forms$getValue$$($el$$64_elValue$$6$$), !$el$$64_elValue$$6$$.match(/^[\w\d\.\-_\(\)\*'# :,]+$/i) && !$goog$string$isEmpty$$($el$$64_elValue$$6$$)) {
-      throw $caption$$11$$ + " s\u00f3 pode conter letras, n\u00fameros, espa\u00e7o e os seguintes caracteres: . , - _ () * # :";
+      throw $caption$$11$$ + " \u5e94\u53ea\u5305\u542b \u5b57\u6bcd, \u6570\u5b57, \u7a7a\u683c, \u548c\u4ee5\u4e0b\u5b57\u7b26: . , - _ () * # :";
     }
   }
 };
 $JSCompiler_prototypeAlias$$.$validateUsername_$ = function $$JSCompiler_prototypeAlias$$$$validateUsername_$$($el$$65_elValue$$7$$, $condition$$18$$, $params$$13$$, $caption$$12$$) {
   if (!$condition$$18$$ || eval($condition$$18$$)) {
     if ($el$$65_elValue$$7$$ = $goog$dom$forms$getValue$$($el$$65_elValue$$7$$), !$el$$65_elValue$$7$$.match(/^[a-zA-Z0-9](_(?!(\.|_))|\.(?!(_|\.))|[a-zA-Z0-9]){1,18}[a-zA-Z0-9]$/) && !$goog$string$isEmpty$$($el$$65_elValue$$7$$)) {
-      throw $caption$$12$$ + " s\u00f3 pode conter letras, n\u00fameros e os seguintes caracteres: . _ -";
+      throw $caption$$12$$ + "\u5e94\u53ea\u5305\u542b \u5b57\u6bcd, \u6570\u5b57, \u7a7a\u683c, \u548c\u4ee5\u4e0b\u5b57\u7b26 : . _ -";
     }
   }
 };
@@ -3767,7 +3766,7 @@ $JSCompiler_prototypeAlias$$.$onFormElementBlur_$ = function $$JSCompiler_protot
 };
 $JSCompiler_prototypeAlias$$.$onWindowBeforeUnload_$ = function $$JSCompiler_prototypeAlias$$$$onWindowBeforeUnload_$$() {
   var $finalFormValue$$ = $goog$dom$forms$getFormDataString$$(this.$getElement$());
-  return this.$initialFormValue_$ != $finalFormValue$$ && $goog$dom$classes$has$$(this.$getElement$(), "askOnLeave") ? confirm("Voc\u00ea est\u00e1 prestes a sair desta p\u00e1gina sem salvar os dados. Confirma a sa\u00edda?") : !0;
+  return this.$initialFormValue_$ != $finalFormValue$$ && $goog$dom$classes$has$$(this.$getElement$(), "askOnLeave") ? confirm("\u786e\u5b9a\u4e0d\u4fdd\u5b58\u5e76\u5173\u95ed\u8fd9\u4e2a\u9875\u9762??") : !0;
 };
 $JSCompiler_prototypeAlias$$.focus = function $$JSCompiler_prototypeAlias$$$focus$() {
   for (var $el$$inline_466_el$$inline_468_els$$8$$ = this.$getElement$().elements, $el$$69$$, $i$$128$$ = 0;$el$$69$$ = $el$$inline_466_el$$inline_468_els$$8$$[$i$$128$$];$i$$128$$++) {
@@ -3795,7 +3794,7 @@ function $JSCompiler_StaticMethods_showFormError$$($JSCompiler_StaticMethods_sho
   $goog$array$forEach$$($messages$$, function($message$$20$$) {
     $errorMessagesList$$.appendChild($dom$$5$$.$createDom$("li", void 0, $message$$20$$));
   });
-  $currentErrorMsgEl_newErrorMsgEl$$ = $dom$$5$$.$createDom$("div", {id:"errorMsg"}, $dom$$5$$.$createDom$("h3", void 0, "Desculpe, mas este formul\u00e1rio necessita de algumas corre\u00e7\u00f5es."), $errorMessagesList$$);
+  $currentErrorMsgEl_newErrorMsgEl$$ = $dom$$5$$.$createDom$("div", {id:"errorMsg"}, $dom$$5$$.$createDom$("h3", void 0, "\u63d0\u9192, \u8bf7\u518d\u6b21\u68c0\u67e5\u8fd9\u4e2a\u9875\u9762\u662f\u5426\u6709\u9519\u8bef."), $errorMessagesList$$);
   $dom$$5$$.$insertSiblingBefore$($currentErrorMsgEl_newErrorMsgEl$$, $dom$$5$$.$getFirstElementChild$($JSCompiler_StaticMethods_showFormError$self$$.$getElement$()));
 }
 function $JSCompiler_StaticMethods_getCaptionForElement$$($JSCompiler_StaticMethods_getCaptionForElement$self$$, $el$$71$$) {
@@ -4267,11 +4266,11 @@ function $soy$esc$$0$0REPLACER_FOR_ESCAPE_HTML__AND__NORMALIZE_HTML__AND__ESCAPE
 var $soy$esc$$0$0MATCHER_FOR_ESCAPE_HTML_$$ = /[\x00\x22\x26\x27\x3c\x3e]/g;
 // Input 78
 function $bitex$ui$SimpleOrderEntry$templates$SimpleOrderEntry$$($opt_data$$4$$) {
-  var $output$$2$$ = "", $MSG_UNNAMED_85$$ = "Pre\u00e7o por " + ($soy$$0$0escapeHtml$$($opt_data$$4$$.$cryptocurrencydescription$) + " :"), $output$$2$$ = $output$$2$$ + ('<form id="' + $soy$$0$0escapeHtml$$($opt_data$$4$$.id) + '" class="simple-order-entry well" ><div class="row-fluid"><div class="span10"><div class="row-fluid"><div class="pull-left"><span class="simple-order-entry-text" >'), $output$$2$$ = 1 == $opt_data$$4$$.$side$ ? $output$$2$$ + "Eu quero comprar" : $output$$2$$ + "Eu quero vender", 
-  $output$$2$$ = $output$$2$$ + ('</span><div class="input-prepend uniform-control-holder"><span class="add-on simple-order-entry-price-sign">' + $soy$$0$0escapeHtml$$($opt_data$$4$$.$crypto_currency_symbol$) + '</span><input id="' + $soy$$0$0escapeHtml$$($opt_data$$4$$.id) + '_qty" name="qty" data-uniform-label="Quantidade " class="input-small simple-order-entry-qty" data-uniform-validators="validateNumber; required" data-uniform-type="number" data-uniform-filters="positive_number" type="text" required/></div></div><div class="pull-left"><span class="simple-order-entry-text" > por um total de </span><div class="input-prepend uniform-control-holder"><span class="add-on simple-order-entry-price-sign">' + 
-  $soy$$0$0escapeHtml$$($opt_data$$4$$.$currency_symbol$) + '</span><input id="' + $soy$$0$0escapeHtml$$($opt_data$$4$$.id) + '_total" name="total" data-uniform-label="Total" class="input-small simple-order-entry-total" data-uniform-validators="validateNumber; required" data-uniform-type="number" data-uniform-filters="positive_number" type="text" required/></div></div></div><div class="row-fluid"><small>Taxas ( ' + $soy$$0$0escapeHtml$$($opt_data$$4$$.$formatted_fee$) + ' ) : <span id="' + $soy$$0$0escapeHtml$$($opt_data$$4$$.id) + 
-  '_fee"></span>,' + $MSG_UNNAMED_85$$ + '<strong><span id="' + $soy$$0$0escapeHtml$$($opt_data$$4$$.id) + '_avg_price"></span></strong></strong></small></div></div><div class="span2"><div class="row-fluid">'), $output$$2$$ = 1 == $opt_data$$4$$.$side$ ? $output$$2$$ + ('<button id="' + $soy$$0$0escapeHtml$$($opt_data$$4$$.id) + '_action_simple" class="btn btn-large btn-success order-entry-action span12">COMPRAR</button>') : $output$$2$$ + ('<button id="' + $soy$$0$0escapeHtml$$($opt_data$$4$$.id) + 
-  '_action_simple" class="btn btn-large btn-danger order-entry-action span12">VENDER</button>');
+  var $output$$2$$ = "", $MSG_UNNAMED_85$$ = "\u5355\u4ef7 " + ($soy$$0$0escapeHtml$$($opt_data$$4$$.$cryptocurrencydescription$) + " :"), $output$$2$$ = $output$$2$$ + ('<form id="' + $soy$$0$0escapeHtml$$($opt_data$$4$$.id) + '" class="simple-order-entry well" ><div class="row-fluid"><div class="span10"><div class="row-fluid"><div class="pull-left"><span class="simple-order-entry-text" >'), $output$$2$$ = 1 == $opt_data$$4$$.$side$ ? $output$$2$$ + "\u6211\u8981\u8d2d\u4e70" : $output$$2$$ + "\u6211\u8981\u5356\u51fa", 
+  $output$$2$$ = $output$$2$$ + ('</span><div class="input-prepend uniform-control-holder"><span class="add-on simple-order-entry-price-sign">' + $soy$$0$0escapeHtml$$($opt_data$$4$$.$crypto_currency_symbol$) + '</span><input id="' + $soy$$0$0escapeHtml$$($opt_data$$4$$.id) + '_qty" name="qty" data-uniform-label="\u6570\u91cf" class="input-small simple-order-entry-qty" data-uniform-validators="validateNumber; required" data-uniform-type="number" data-uniform-filters="positive_number" type="text" required/></div></div><div class="pull-left"><span class="simple-order-entry-text" > \u603b\u91cf </span><div class="input-prepend uniform-control-holder"><span class="add-on simple-order-entry-price-sign">' + 
+  $soy$$0$0escapeHtml$$($opt_data$$4$$.$currency_symbol$) + '</span><input id="' + $soy$$0$0escapeHtml$$($opt_data$$4$$.id) + '_total" name="total" data-uniform-label="\u603b\u91cf" class="input-small simple-order-entry-total" data-uniform-validators="validateNumber; required" data-uniform-type="number" data-uniform-filters="positive_number" type="text" required/></div></div></div><div class="row-fluid"><small>\u624b\u7eed\u8d39 ( ' + $soy$$0$0escapeHtml$$($opt_data$$4$$.$formatted_fee$) + ' ) : <span id="' + 
+  $soy$$0$0escapeHtml$$($opt_data$$4$$.id) + '_fee"></span>,' + $MSG_UNNAMED_85$$ + '<strong><span id="' + $soy$$0$0escapeHtml$$($opt_data$$4$$.id) + '_avg_price"></span></strong></strong></small></div></div><div class="span2"><div class="row-fluid">'), $output$$2$$ = 1 == $opt_data$$4$$.$side$ ? $output$$2$$ + ('<button id="' + $soy$$0$0escapeHtml$$($opt_data$$4$$.id) + '_action_simple" class="btn btn-large btn-success order-entry-action span12">\u8d2d\u4e70</button>') : $output$$2$$ + ('<button id="' + 
+  $soy$$0$0escapeHtml$$($opt_data$$4$$.id) + '_action_simple" class="btn btn-large btn-danger order-entry-action span12">\u5356\u51fa</button>');
   return $output$$2$$ + "</div></div></div></form>";
 }
 ;
@@ -4312,7 +4311,7 @@ function $JSCompiler_StaticMethods_disableActions_$$($JSCompiler_StaticMethods_d
   var $action_button$$ = new $goog$ui$Button$$;
   $action_button$$.$decorate$($goog$dom$getElement$$($JSCompiler_StaticMethods_makeId$$($JSCompiler_StaticMethods_disableActions_$self$$, "order_entry_action_simple")));
   $action_button$$.$setEnabled$($enabled$$3$$);
-  $enabled$$3$$ ? $goog$dom$setTextContent$$($goog$dom$getElement$$($JSCompiler_StaticMethods_makeId$$($JSCompiler_StaticMethods_disableActions_$self$$, "order_entry_avg_price")), "") : $goog$dom$setTextContent$$($goog$dom$getElement$$($JSCompiler_StaticMethods_makeId$$($JSCompiler_StaticMethods_disableActions_$self$$, "order_entry_avg_price")), "  ** N\u00e3o existem ofertas dispon\u00edveis para completar esta opera\u00e7\u00e3o **");
+  $enabled$$3$$ ? $goog$dom$setTextContent$$($goog$dom$getElement$$($JSCompiler_StaticMethods_makeId$$($JSCompiler_StaticMethods_disableActions_$self$$, "order_entry_avg_price")), "") : $goog$dom$setTextContent$$($goog$dom$getElement$$($JSCompiler_StaticMethods_makeId$$($JSCompiler_StaticMethods_disableActions_$self$$, "order_entry_avg_price")), "  ** \u5e02\u573a\u7f3a\u4e4f\u6302\u5355\u6df1\u5ea6,\u65e0\u6cd5\u5b8c\u6210\u8fd9\u7b14\u4ea4\u6613 **");
 }
 $JSCompiler_prototypeAlias$$.$onChangeQty_$ = function $$JSCompiler_prototypeAlias$$$$onChangeQty_$$($crypto_currency_formatter_e$$53$$) {
   this.$last_changed_field_$ = "qty";
@@ -4684,9 +4683,9 @@ function $bitex$ui$DataGridEvent$$($type$$122$$, $options$$9$$) {
 $goog$inherits$$($bitex$ui$DataGridEvent$$, $goog$events$Event$$);
 // Input 82
 function $bitex$ui$AccountActivity$$($opt_domHelper$$7$$) {
-  $bitex$ui$DataGrid$$.call(this, {rowClassFn:this.$getRowClass$, columns:[{property:"OrderID", label:"ID", sortable:!1, classes:function() {
+  $bitex$ui$DataGrid$$.call(this, {rowClassFn:this.$getRowClass$, columns:[{property:"OrderID", label:"\u6211\u7684ID", sortable:!1, classes:function() {
     return $bitex$ui$AccountActivity$CSS_CLASS$$ + "-order-id";
-  }}, {property:"Side", label:"C/V", sortable:!1, formatter:function($s$$22$$) {
+  }}, {property:"Side", label:"\u680f", sortable:!1, formatter:function($s$$22$$) {
     switch($s$$22$$) {
       case "1":
         return "C";
@@ -4696,15 +4695,15 @@ function $bitex$ui$AccountActivity$$($opt_domHelper$$7$$) {
     return "";
   }, classes:function() {
     return $bitex$ui$AccountActivity$CSS_CLASS$$ + "-side";
-  }}, {property:"OrderDate", label:"Data/Hora", sortable:!1, classes:function() {
+  }}, {property:"OrderDate", label:"\u65e5\u671f/\u65f6\u95f4", sortable:!1, classes:function() {
     return $bitex$ui$AccountActivity$CSS_CLASS$$ + "-order-date";
-  }}, {property:"Price", label:"Pre\u00e7o", sortable:!1, classes:function() {
+  }}, {property:"Price", label:"\u4ef7\u683c", sortable:!1, classes:function() {
     return $bitex$ui$AccountActivity$CSS_CLASS$$ + "-price";
-  }}, {property:"CumQty", label:"Qtd", sortable:!1, classes:function() {
+  }}, {property:"CumQty", label:"\u6570\u91cf", sortable:!1, classes:function() {
     return $bitex$ui$AccountActivity$CSS_CLASS$$ + "-cum-qty";
-  }}, {property:"AvgPx", label:"Pre\u00e7o M\u00e9dio", sortable:!1, classes:function() {
+  }}, {property:"AvgPx", label:"\u5e73\u5747\u4ef7\u683c", sortable:!1, classes:function() {
     return $bitex$ui$AccountActivity$CSS_CLASS$$ + "-avg-price";
-  }}, {property:"Volume", label:"Total", sortable:!1, classes:function() {
+  }}, {property:"Volume", label:"\u603b\u91cf", sortable:!1, classes:function() {
     return $bitex$ui$AccountActivity$CSS_CLASS$$ + "-vol";
   }}]}, $opt_domHelper$$7$$);
 }
@@ -5052,41 +5051,41 @@ function $bitex$templates$ProfileViewChangePasswordPlaceHolder$$() {
 }
 function $bitex$templates$AlgoPermissionsDialogContent$$($opt_data$$7_permissionList9$$) {
   var $output$$4$$;
-  $output$$4$$ = '<p class="lead"> Este algor\u00edtimo necessita das seguintes permiss\u00f5es:</p><ul class="list-unstyled" style="line-height: 2">';
+  $output$$4$$ = '<p class="lead"> \u6b64\u7a0b\u5e8f\u6b63\u5728\u8bf7\u6c42\u60a8\u7684\u8bb8\u53ef:</p><ul class="list-unstyled" style="line-height: 2">';
   $opt_data$$7_permissionList9$$ = $opt_data$$7_permissionList9$$.$permissions$;
   for (var $permissionListLen9$$ = $opt_data$$7_permissionList9$$.length, $permissionIndex9$$ = 0;$permissionIndex9$$ < $permissionListLen9$$;$permissionIndex9$$++) {
     var $permissionData9$$ = $opt_data$$7_permissionList9$$[$permissionIndex9$$];
     $output$$4$$ += '<li><span class="fa fa-check text-success"></span>';
     switch($permissionData9$$) {
       case "notification":
-        $output$$4$$ += " Mostrar notifica\u00e7\u00f5es";
+        $output$$4$$ += " \u5c55\u793a\u901a\u77e5\u6d88\u606f";
         break;
       case "balance":
-        $output$$4$$ += " Ver seus saldos";
+        $output$$4$$ += " \u67e5\u770b\u4f59\u989d";
         break;
       case "execution_report":
-        $output$$4$$ += " Receber os relat\u00f3rios de execu\u00e7\u00f5es de suas ordens";
+        $output$$4$$ += "\u67e5\u770b\u8ba2\u5355\u6267\u884c\u60c5\u51b5";
         break;
       case "new_order_limited":
-        $output$$4$$ += " Enviar ordens limitadas";
+        $output$$4$$ += " \u63d0\u4ea4\u9650\u4ef7\u5355";
         break;
       case "new_buy_order_limited":
-        $output$$4$$ += " Enviar ordens limitadas de compra";
+        $output$$4$$ += "\u63d0\u4ea4\u4e70\u5165\u9650\u4ef7\u5355";
         break;
       case "new_sell_order_limited":
-        $output$$4$$ += " Enviar ordens limitadas de venda";
+        $output$$4$$ += " \u63d0\u4ea4\u5356\u51fa\u9650\u4ef7\u5355";
         break;
       case "new_market_order":
-        $output$$4$$ += " Enviar ordens a mercado";
+        $output$$4$$ += " \u63d0\u4ea4\u5e02\u4ef7\u5355";
         break;
       case "new_buy_market_order":
-        $output$$4$$ += " Enviar ordens a mercado de compra";
+        $output$$4$$ += " \u63d0\u4ea4\u4e70\u5165\u5e02\u4ef7\u5355";
         break;
       case "new_sell_market_order":
-        $output$$4$$ += " Enviar ordens a mercado de venda";
+        $output$$4$$ += " \u63d0\u4ea4\u5356\u51fa\u5e02\u4ef7\u5355";
         break;
       case "cancel_order":
-        $output$$4$$ += " Cancelar ordens";
+        $output$$4$$ += " \u53d6\u6d88\u8ba2\u5355";
         break;
       default:
         $output$$4$$ += $soy$$0$0escapeHtml$$($permissionData9$$);
@@ -5099,27 +5098,27 @@ function $bitex$templates$DepositReceiptDialogContent$$($opt_data$$11_receipt_ur
   var $output$$7$$ = "";
   $opt_data$$11_receipt_urlList67$$ = $opt_data$$11_receipt_urlList67$$.$depositReceiptList$;
   for (var $receipt_urlListLen67$$ = $opt_data$$11_receipt_urlList67$$.length, $receipt_urlIndex67$$ = 0;$receipt_urlIndex67$$ < $receipt_urlListLen67$$;$receipt_urlIndex67$$++) {
-    var $receipt_urlData67$$ = $opt_data$$11_receipt_urlList67$$[$receipt_urlIndex67$$], $output$$7$$ = $output$$7$$ + ('<img width="100%" src="' + $soy$$0$0escapeHtml$$($receipt_urlData67$$) + '"/><a href="' + $soy$$0$0escapeHtml$$($receipt_urlData67$$) + '" target="_blank">Baixas</a>')
+    var $receipt_urlData67$$ = $opt_data$$11_receipt_urlList67$$[$receipt_urlIndex67$$], $output$$7$$ = $output$$7$$ + ('<img width="100%" src="' + $soy$$0$0escapeHtml$$($receipt_urlData67$$) + '"/><a href="' + $soy$$0$0escapeHtml$$($receipt_urlData67$$) + '" target="_blank">\u4e0b\u8f7d</a>')
   }
   return $output$$7$$;
 }
 function $bitex$templates$BrokerConfirmDepositContent$$($opt_data$$12_output$$8$$) {
-  return $opt_data$$12_output$$8$$ = "" + ('<form class="form-horizontal broker-confirm-deposit"><div class="control-group"><label class="control-label">N\u00famero de controle</label><div class="controls"><label class="control-label" style="text-align: left;">' + $soy$$0$0escapeHtml$$($opt_data$$12_output$$8$$.$controlNumber$) + '</label></div></div><div class="control-group"><label class="control-label">Valor pago</label><div class="controls"><div class="input-prepend"><span class="add-on">' + 
-  $soy$$0$0escapeHtml$$($opt_data$$12_output$$8$$.$currencySign$) + '</span><input id="' + $soy$$0$0escapeHtml$$($opt_data$$12_output$$8$$.$id_value$) + '" type="text" class="input-small" size="16" name="PaidValue" value="' + $soy$$0$0escapeHtml$$($opt_data$$12_output$$8$$.value) + '"></div></div></div><div class="control-group"><label class="control-label">Taxas:</label><div class="controls"><div class="row-fluid"><div class="span4"><div class="input-append"><input id="' + $soy$$0$0escapeHtml$$($opt_data$$12_output$$8$$.$percentFeeID$) + 
+  return $opt_data$$12_output$$8$$ = "" + ('<form class="form-horizontal broker-confirm-deposit"><div class="control-group"><label class="control-label">\u63a7\u5236\u7f16\u53f7</label><div class="controls"><label class="control-label" style="text-align: left;">' + $soy$$0$0escapeHtml$$($opt_data$$12_output$$8$$.$controlNumber$) + '</label></div></div><div class="control-group"><label class="control-label">\u5df2\u652f\u4ed8\u6570\u91cf</label><div class="controls"><div class="input-prepend"><span class="add-on">' + 
+  $soy$$0$0escapeHtml$$($opt_data$$12_output$$8$$.$currencySign$) + '</span><input id="' + $soy$$0$0escapeHtml$$($opt_data$$12_output$$8$$.$id_value$) + '" type="text" class="input-small" size="16" name="PaidValue" value="' + $soy$$0$0escapeHtml$$($opt_data$$12_output$$8$$.value) + '"></div></div></div><div class="control-group"><label class="control-label">\u624b\u7eed\u8d39:</label><div class="controls"><div class="row-fluid"><div class="span4"><div class="input-append"><input id="' + $soy$$0$0escapeHtml$$($opt_data$$12_output$$8$$.$percentFeeID$) + 
   '" type="text" class="input-mini" size="16" name="Fee" value="' + $soy$$0$0escapeHtml$$($opt_data$$12_output$$8$$.$percentFee$) + '"><span class="add-on">%</span></div></div><div class="span4"><div class="input-prepend"><span class="add-on">' + $soy$$0$0escapeHtml$$($opt_data$$12_output$$8$$.$currencySign$) + '</span><input id="' + $soy$$0$0escapeHtml$$($opt_data$$12_output$$8$$.$fixedFeeID$) + '" type="text" class="input-mini" size="16" name="Fee" value="' + $soy$$0$0escapeHtml$$($opt_data$$12_output$$8$$.$fixedFee$) + 
-  '"></div></div><div class="span4"><label id="' + $soy$$0$0escapeHtml$$($opt_data$$12_output$$8$$.$totalFeesID$) + '" class="control-label broker-confirm-deposit-fee" style="text-align: left;"></label></div></div></div></div><div class="control-group"><label class="control-label">Valor l\u00edquido</label><div class="controls"><label id="' + $soy$$0$0escapeHtml$$($opt_data$$12_output$$8$$.$netValueID$) + '" class="control-label broker-confirm-deposit-net-amount" style="text-align: left;"></label><input id="' + 
+  '"></div></div><div class="span4"><label id="' + $soy$$0$0escapeHtml$$($opt_data$$12_output$$8$$.$totalFeesID$) + '" class="control-label broker-confirm-deposit-fee" style="text-align: left;"></label></div></div></div></div><div class="control-group"><label class="control-label">\u51c0\u503c</label><div class="controls"><label id="' + $soy$$0$0escapeHtml$$($opt_data$$12_output$$8$$.$netValueID$) + '" class="control-label broker-confirm-deposit-net-amount" style="text-align: left;"></label><input id="' + 
   $soy$$0$0escapeHtml$$($opt_data$$12_output$$8$$.$netValueID$) + '_value" type="hidden" value=""></div></div></form>');
 }
 function $bitex$templates$BrokerView$$($opt_data$$13$$) {
   var $output$$9$$ = "";
-  $opt_data$$13$$.$show_title$ && ($output$$9$$ += '<div class="section-title"><h3>Sobre a exchange</h3></div>');
+  $opt_data$$13$$.$show_title$ && ($output$$9$$ += '<div class="section-title"><h3>\u6211\u7684\u4ee3\u7406</h3></div>');
   $output$$9$$ += '<div class="content">';
   if (-1 != $opt_data$$13$$.$msg_broker$.BrokerID) {
     $output$$9$$ += "<address><strong>" + $soy$$0$0escapeHtml$$($opt_data$$13$$.$msg_broker$.BusinessName) + "</strong><br/>" + $soy$$0$0escapeHtml$$($opt_data$$13$$.$msg_broker$.Address) + "<br/>" + $soy$$0$0escapeHtml$$($opt_data$$13$$.$msg_broker$.City) + ", " + $soy$$0$0escapeHtml$$($opt_data$$13$$.$msg_broker$.State) + " " + $soy$$0$0escapeHtml$$($opt_data$$13$$.$msg_broker$.ZipCode) + " - " + $soy$$0$0escapeHtml$$($opt_data$$13$$.$msg_broker$.Country) + "<br/>";
-    $opt_data$$13$$.$msg_broker$.PhoneNumber1 && ($output$$9$$ += '<abbr title="Telefone">T:</abbr>' + $soy$$0$0escapeHtml$$($opt_data$$13$$.$msg_broker$.PhoneNumber1) + " " + ($opt_data$$13$$.$msg_broker$.PhoneNumber2 ? ", " + $soy$$0$0escapeHtml$$($opt_data$$13$$.$msg_broker$.PhoneNumber2) : "") + "<br/>");
+    $opt_data$$13$$.$msg_broker$.PhoneNumber1 && ($output$$9$$ += '<abbr title="\u624b\u673a\u53f7\u7801">P:</abbr>' + $soy$$0$0escapeHtml$$($opt_data$$13$$.$msg_broker$.PhoneNumber1) + " " + ($opt_data$$13$$.$msg_broker$.PhoneNumber2 ? ", " + $soy$$0$0escapeHtml$$($opt_data$$13$$.$msg_broker$.PhoneNumber2) : "") + "<br/>");
     $output$$9$$ += ($opt_data$$13$$.$msg_broker$.Skype ? "Skype: " + $soy$$0$0escapeHtml$$($opt_data$$13$$.$msg_broker$.Skype) + "<br/>" : "") + '<a href="mailto:' + $soy$$0$0escapeHtml$$($opt_data$$13$$.$msg_broker$.Email) + '" target="_blank">' + $soy$$0$0escapeHtml$$($opt_data$$13$$.$msg_broker$.Email) + "</a></address>";
     if (0 < $opt_data$$13$$.$msg_broker$.BrokerID) {
-      var $output$$9$$ = $output$$9$$ + '<div class="row-fluid"><div class="span3"><h4>Mercados</h4>', $allowed_marketListLen171_crypto_currenciesListLen247_feeListLen216_map$$inline_563$$ = $opt_data$$13$$.$msg_broker$.AllowedMarkets, $crypto_currenciesList247_feeList216_mapKeys$$inline_564$$ = [], $allowed_marketIndex171_crypto_currenciesIndex247_feeIndex216_key$$inline_565$$;
+      var $output$$9$$ = $output$$9$$ + '<div class="row-fluid"><div class="span3"><h4>\u5e02\u573a</h4>', $allowed_marketListLen171_crypto_currenciesListLen247_feeListLen216_map$$inline_563$$ = $opt_data$$13$$.$msg_broker$.AllowedMarkets, $crypto_currenciesList247_feeList216_mapKeys$$inline_564$$ = [], $allowed_marketIndex171_crypto_currenciesIndex247_feeIndex216_key$$inline_565$$;
       for ($allowed_marketIndex171_crypto_currenciesIndex247_feeIndex216_key$$inline_565$$ in $allowed_marketListLen171_crypto_currenciesListLen247_feeListLen216_map$$inline_563$$) {
         $crypto_currenciesList247_feeList216_mapKeys$$inline_564$$.push($allowed_marketIndex171_crypto_currenciesIndex247_feeIndex216_key$$inline_565$$);
       }
@@ -5130,9 +5129,9 @@ function $bitex$templates$BrokerView$$($opt_data$$13$$) {
       $output$$9$$ += "</div></div>";
     }
     if (0 <= $opt_data$$13$$.$msg_broker$.BrokerID && 0 < $opt_data$$13$$.$msg_broker$.FeeStructure.length) {
-      $output$$9$$ += '<h4>Taxas</h4><table class="table table-bordered"><thead><tr><th>Opera\u00e7\u00e3o</th><th>Taxas</th><th>Termos</th></tr></thead><tbody>';
-      $opt_data$$13$$.$msg_broker$.IsBrokerHub || ($output$$9$$ = $opt_data$$13$$.$msg_broker$.FormattedTransactionFeeBuy == $opt_data$$13$$.$msg_broker$.FormattedTransactionFeeSell ? $output$$9$$ + ("<tr><td>Taxa de trade</td><td>" + $soy$$0$0escapeHtml$$($opt_data$$13$$.$msg_broker$.FormattedTransactionFeeBuy) + "</td><td></td></tr>") : $output$$9$$ + ("<tr><td>Taxa de trade - compra</td><td>" + $soy$$0$0escapeHtml$$($opt_data$$13$$.$msg_broker$.FormattedTransactionFeeBuy) + "</td><td></td></tr><tr><td>Taxa de trade - venda</td><td>" + 
-      $soy$$0$0escapeHtml$$($opt_data$$13$$.$msg_broker$.FormattedTransactionFeeSell) + " %</td><td></td></tr>"));
+      $output$$9$$ += '<h4>\u624b\u7eed\u8d39</h4><table class="table table-bordered"><thead><tr><th>\u64cd\u4f5c</th><th>\u624b\u7eed\u8d39</th><th>\u6761\u7ea6</th></tr></thead><tbody>';
+      $opt_data$$13$$.$msg_broker$.IsBrokerHub || ($output$$9$$ = $opt_data$$13$$.$msg_broker$.FormattedTransactionFeeBuy == $opt_data$$13$$.$msg_broker$.FormattedTransactionFeeSell ? $output$$9$$ + ("<tr><td>\u4ea4\u6613\u8d39\u7528</td><td>" + $soy$$0$0escapeHtml$$($opt_data$$13$$.$msg_broker$.FormattedTransactionFeeBuy) + "</td><td></td></tr>") : $output$$9$$ + ("<tr><td>\u4e70\u65b9\u4ea4\u6613\u8d39\u7528</td><td>" + $soy$$0$0escapeHtml$$($opt_data$$13$$.$msg_broker$.FormattedTransactionFeeBuy) + 
+      "</td><td></td></tr><tr><td>\u5356\u65b9\u4ea4\u6613\u8d39\u7528</td><td>" + $soy$$0$0escapeHtml$$($opt_data$$13$$.$msg_broker$.FormattedTransactionFeeSell) + " %</td><td></td></tr>"));
       $crypto_currenciesList247_feeList216_mapKeys$$inline_564$$ = $opt_data$$13$$.$msg_broker$.FeeStructure;
       $allowed_marketListLen171_crypto_currenciesListLen247_feeListLen216_map$$inline_563$$ = $crypto_currenciesList247_feeList216_mapKeys$$inline_564$$.length;
       for ($allowed_marketIndex171_crypto_currenciesIndex247_feeIndex216_key$$inline_565$$ = 0;$allowed_marketIndex171_crypto_currenciesIndex247_feeIndex216_key$$inline_565$$ < $allowed_marketListLen171_crypto_currenciesListLen247_feeListLen216_map$$inline_563$$;$allowed_marketIndex171_crypto_currenciesIndex247_feeIndex216_key$$inline_565$$++) {
@@ -5141,7 +5140,7 @@ function $bitex$templates$BrokerView$$($opt_data$$13$$) {
       $output$$9$$ += "</tbody></table>";
     }
     if (!$opt_data$$13$$.$msg_broker$.IsBrokerHub) {
-      $output$$9$$ += '<h4>Carteiras</h4><table class="table table-bordered"><thead><tr><th>Moeda</th><th>Tipo</th><th>Endere\u00e7o</th><th>Multi assinada</th><th>Gerenciada por</th></tr></thead><tbody>';
+      $output$$9$$ += '<h4>\u94b1\u5305</h4><table class="table table-bordered"><thead><tr><th>\u865a\u62df\u8d27\u5e01</th><th>\u7c7b\u578b</th><th>\u94b1\u5305\u5730\u5740</th><th>\u591a\u91cd\u7b7e\u540d</th><th>\u7ba1\u7406</th></tr></thead><tbody>';
       $crypto_currenciesList247_feeList216_mapKeys$$inline_564$$ = $opt_data$$13$$.$msg_broker$.CryptoCurrencies;
       $allowed_marketListLen171_crypto_currenciesListLen247_feeListLen216_map$$inline_563$$ = $crypto_currenciesList247_feeList216_mapKeys$$inline_564$$.length;
       for ($allowed_marketIndex171_crypto_currenciesIndex247_feeIndex216_key$$inline_565$$ = 0;$allowed_marketIndex171_crypto_currenciesIndex247_feeIndex216_key$$inline_565$$ < $allowed_marketListLen171_crypto_currenciesListLen247_feeListLen216_map$$inline_563$$;$allowed_marketIndex171_crypto_currenciesIndex247_feeIndex216_key$$inline_565$$++) {
@@ -5167,40 +5166,40 @@ function $bitex$templates$BrokerView$$($opt_data$$13$$) {
             $output$$9$$ += $soy$$0$0escapeHtml$$($walletsData248$$.address);
           }
           $output$$9$$ += "</td><td>";
-          $output$$9$$ = $walletsData248$$.multisig ? $output$$9$$ + "Sim" : $output$$9$$ + "N\u00e3o";
+          $output$$9$$ = $walletsData248$$.multisig ? $output$$9$$ + "\u662f" : $output$$9$$ + "\u5426";
           $output$$9$$ += "</td><td>" + $soy$$0$0escapeHtml$$($walletsData248$$.managed_by) + "</td></tr>";
         }
       }
       $output$$9$$ += "</tbody></table>";
     }
-    $output$$9$$ += '<h4>Termos de servi\u00e7o</h4><iframe style="width:100%;height:400px;" src="' + $soy$$0$0escapeHtml$$($opt_data$$13$$.$msg_broker$.TosUrl) + '"></iframe>';
+    $output$$9$$ += '<h4>\u670d\u52a1\u6761\u7ea6</h4><iframe style="width:100%;height:400px;" src="' + $soy$$0$0escapeHtml$$($opt_data$$13$$.$msg_broker$.TosUrl) + '"></iframe>';
   }
   return $output$$9$$ + "</div>";
 }
 function $bitex$templates$CancelDepositDialogContent$$() {
   var $output$$10$$;
-  return $output$$10$$ = "" + ('<p>Entre com uma raz\u00e3o para estar cancelando este dep\u00f3sito</p><form class="form-horizontal"><fieldset><div class="control-group"><label class="control-label" for="' + $soy$$0$0escapeHtml$$("id_select_reason") + '" >Raz\u00e3o:</label><div class="controls"><select id="' + $soy$$0$0escapeHtml$$("id_select_reason") + '"><option value=0 selected>Outra</option></select></div></div><div class="control-group"><div class="controls"><textarea id="' + $soy$$0$0escapeHtml$$("id_custom_reason_text") + 
+  return $output$$10$$ = "" + ('<p>\u8bf7\u586b\u5199\u53d6\u6d88\u5145\u503c\u7684\u539f\u56e0</p><form class="form-horizontal"><fieldset><div class="control-group"><label class="control-label" for="' + $soy$$0$0escapeHtml$$("id_select_reason") + '" >\u539f\u56e0</label><div class="controls"><select id="' + $soy$$0$0escapeHtml$$("id_select_reason") + '"><option value=0 selected>\u5176\u4ed6</option></select></div></div><div class="control-group"><div class="controls"><textarea id="' + $soy$$0$0escapeHtml$$("id_custom_reason_text") + 
   '" rows="2" style=""></textarea></div></div></fieldset></form>');
 }
 function $bitex$templates$CancelWithdrawDialogContent$$() {
   var $output$$11$$;
-  return $output$$11$$ = "" + ('<p>Entre com uma raz\u00e3o para estar cancelando o pedido de saque do usu\u00e1rio</p><form class="form-horizontal"><fieldset><div class="control-group"><label class="control-label" for="' + $soy$$0$0escapeHtml$$("id_select_reason") + '" >Raz\u00e3o:</label><div class="controls"><select id="' + $soy$$0$0escapeHtml$$("id_select_reason") + '"><option value=0>Outra</option><option value=-1 selected>Fundos insuficientes</option><option value=-2>Conta n\u00e3o verificada</option><option value=-3>Suspeita de fraude</option><option value=-4>Saque para uma conta diferente da sua</option><option value=-5>Carteira inv\u00e1lida</option><option value=-6>Conta banc\u00e1ria inv\u00e1lida</option><option value=-7>O valor ultrapassou o limite di\u00e1rio de saques</option><option value=-8>Possui dep\u00f3sitos que ainda n\u00e3o est\u00e3o confirmados</option></select></div></div><div class="control-group"><div class="controls"><textarea id="' + 
+  return $output$$11$$ = "" + ('<p>\u8bf7\u586b\u5199\u53d6\u6d88\u63d0\u6b3e\u6216\u63d0\u5e01\u7684\u539f\u56e0</p><form class="form-horizontal"><fieldset><div class="control-group"><label class="control-label" for="' + $soy$$0$0escapeHtml$$("id_select_reason") + '" >\u539f\u56e0</label><div class="controls"><select id="' + $soy$$0$0escapeHtml$$("id_select_reason") + '"><option value=0>\u5176\u4ed6</option><option value=-1 selected>\u8d26\u6237\u4f59\u989d\u4e0d\u8db3</option><option value=-2>\u8d26\u6237\u6ca1\u6709\u9a8c\u8bc1</option><option value=-3>\u56e0\u6d89\u5acc\u6b3a\u8bc8</option><option value=-4>\u6b63\u5728\u63d0\u73b0\u5230\u5176\u4ed6\u8d26\u6237</option><option value=-5>\u65e0\u6548\u94b1\u5305</option><option value=-6>\u9519\u8bef\u7684\u94f6\u884c\u8d26\u6237</option><option value=-7>\u8d85\u51fa\u6bcf\u65e5\u63d0\u6b3e\u4e0a\u9650</option><option value=-8>\u5145\u503c\u5c1a\u672a\u786e\u8ba4</option></select></div></div><div class="control-group"><div class="controls"><textarea id="' + 
   $soy$$0$0escapeHtml$$("id_custom_reason_text") + '" rows="2" style="display:none;"></textarea></div></div></fieldset></form>');
 }
 function $bitex$templates$GoogleAuthenticationCodeDialogContent$$() {
-  return'<form class="form-horizontal" data-deposit-status="prepare" data-uniform-control-holder-class="control-group"><fieldset><div class="control-group"><label>C\u00f3digo do Google Authenticator:</label><input name="token" data-uniform-validators="required" data-uniform-label="C\u00f3digo do Google Authenticator" label="ex: 888888" class="input-large" type="text" size="10"></div></fieldset></form>';
+  return'<form class="form-horizontal" data-deposit-status="prepare" data-uniform-control-holder-class="control-group"><fieldset><div class="control-group"><label>Google\u53e3\u4ee4\u9a8c\u8bc1\u7801:</label><input name="token" data-uniform-validators="required" data-uniform-label="Google \u53e3\u4ee4\u9a8c\u8bc1\u7801\uff1a" label="\u4f8b\u5982\uff1a555555" class="input-large" type="text" size="10"></div></fieldset></form>';
 }
 function $bitex$templates$WithdrawConfirmationDialogContent$$() {
-  return'<form class="form-horizontal" data-deposit-status="prepare" data-uniform-control-holder-class="control-group"><fieldset><p>Acabamos de enviar um c\u00f3digo de confirma\u00e7\u00e3o para o seu email.</p><div class="control-group"><label>Confirmation Code</label><input name="confirmation_code" type="text" data-uniform-validators="required" label="C\u00f3digo de confirma\u00e7\u00e3o" class="input-block-level"></div><p><i>Esta \u00e9 uma medida adicional de seguran\u00e7a para proteger a sua conta</i></p></fieldset></form>';
+  return'<form class="form-horizontal" data-deposit-status="prepare" data-uniform-control-holder-class="control-group"><fieldset><p>\u6211\u4eec\u5df2\u7ecf\u5c06\u9a8c\u8bc1\u7801\u53d1\u5230\u60a8\u7684\u6ce8\u518c\u90ae\u7bb1.</p><div class="control-group"><label>Confirmation Code</label><input name="confirmation_code" type="text" data-uniform-validators="required" label="\u9a8c\u8bc1\u7801" class="input-block-level"></div><p><i>\u8fd9\u662f\u4e3a\u63d0\u9ad8\u60a8\u7684\u8d26\u6237\u5b89\u5168\u6027\u91c7\u7528\u7684\u63aa\u65bd</i></p></fieldset></form>';
 }
 function $bitex$templates$UserFeesDialogContent$$($opt_data$$18_output$$14$$) {
-  return $opt_data$$18_output$$14$$ = "" + ('<form class="form-horizontal"><div class="control-group"><label class="control-label" for="' + $soy$$0$0escapeHtml$$($opt_data$$18_output$$14$$.id) + '_buy_fee">Taxa de compra</label><div class="controls"><input type="text" id="' + $soy$$0$0escapeHtml$$($opt_data$$18_output$$14$$.id) + '_buy_fee"  style="text-align: right;" value="' + $soy$$0$0escapeHtml$$($opt_data$$18_output$$14$$.$buy_fee$) + '"/><div class="checkbox"><label><input type="checkbox" id="' + 
-  $soy$$0$0escapeHtml$$($opt_data$$18_output$$14$$.id) + '_broker_buy_fee"> Use Broker Fee</label></div></div></div><div class="control-group"><label class="control-label" for="' + $soy$$0$0escapeHtml$$($opt_data$$18_output$$14$$.id) + '_sell_fee">Taxa de venda</label><div class="controls"><input type="text" id="' + $soy$$0$0escapeHtml$$($opt_data$$18_output$$14$$.id) + '_sell_fee"  style="text-align: right;" value="' + $soy$$0$0escapeHtml$$($opt_data$$18_output$$14$$.$sell_fee$) + '"/><div class="checkbox"><label><input type="checkbox" id="' + 
-  $soy$$0$0escapeHtml$$($opt_data$$18_output$$14$$.id) + '_broker_sell_fee"> Use Broker Fee</label></div></div></div></form>');
+  return $opt_data$$18_output$$14$$ = "" + ('<form class="form-horizontal"><div class="control-group"><label class="control-label" for="' + $soy$$0$0escapeHtml$$($opt_data$$18_output$$14$$.id) + '_buy_fee">\u8d2d\u4e70\u624b\u7eed\u8d39 </label><div class="controls"><input type="text" id="' + $soy$$0$0escapeHtml$$($opt_data$$18_output$$14$$.id) + '_buy_fee"  style="text-align: right;" value="' + $soy$$0$0escapeHtml$$($opt_data$$18_output$$14$$.$buy_fee$) + '"/><div class="checkbox"><label><input type="checkbox" id="' + 
+  $soy$$0$0escapeHtml$$($opt_data$$18_output$$14$$.id) + '_broker_buy_fee"> Use Broker Fee</label></div></div></div><div class="control-group"><label class="control-label" for="' + $soy$$0$0escapeHtml$$($opt_data$$18_output$$14$$.id) + '_sell_fee">\u5356\u51fa\u624b\u7eed\u8d39</label><div class="controls"><input type="text" id="' + $soy$$0$0escapeHtml$$($opt_data$$18_output$$14$$.id) + '_sell_fee"  style="text-align: right;" value="' + $soy$$0$0escapeHtml$$($opt_data$$18_output$$14$$.$sell_fee$) + 
+  '"/><div class="checkbox"><label><input type="checkbox" id="' + $soy$$0$0escapeHtml$$($opt_data$$18_output$$14$$.id) + '_broker_sell_fee"> Use Broker Fee</label></div></div></div></form>');
 }
 function $bitex$templates$YourAccountSummary$$($opt_data$$19$$) {
   var $output$$15$$;
-  $output$$15$$ = "<h6>Sua conta</h6>";
+  $output$$15$$ = "<h6>\u6211\u7684\u8d26\u6237</h6>";
   for (var $accountList401$$ = $opt_data$$19$$.$accounts$, $accountListLen401$$ = $accountList401$$.length, $accountIndex401$$ = 0;$accountIndex401$$ < $accountListLen401$$;$accountIndex401$$++) {
     var $accountData401$$ = $accountList401$$[$accountIndex401$$];
     $output$$15$$ += '<table class="table table-bordered account-summary-table" ><tbody><tr id="id_account_summary_' + $soy$$0$0escapeHtml$$($accountData401$$.brokerID) + '" class=\'account-summary-broker model-action-set\' data-key="SelectedBrokerID" data-value="' + $soy$$0$0escapeHtml$$($accountData401$$.brokerID) + '"' + (1 >= $opt_data$$19$$.$accounts$.length || 0 == $accountData401$$.currencies.length ? 'style="display:none;"' : "") + '><td colspan="3"><strong>' + $soy$$0$0escapeHtml$$($accountData401$$.brokerName) + 
@@ -5208,7 +5207,7 @@ function $bitex$templates$YourAccountSummary$$($opt_data$$19$$) {
     for (var $currency_infoList413$$ = $accountData401$$.currencies, $currency_infoListLen413$$ = $currency_infoList413$$.length, $currency_infoIndex413$$ = 0;$currency_infoIndex413$$ < $currency_infoListLen413$$;$currency_infoIndex413$$++) {
       var $currency_infoData413$$ = $currency_infoList413$$[$currency_infoIndex413$$];
       $output$$15$$ += '<tr><td style="padding: 4px;' + (0 != $currency_infoIndex413$$ ? "border-top: 0;" : "") + '"><strong>' + $soy$$0$0escapeHtml$$($currency_infoData413$$.currency) + '</strong></td><td style="padding: 4px;' + (0 != $currency_infoIndex413$$ ? "border-top: 0;" : "") + '"><span class="bitex-model" data-model-key="formatted_balance_' + $soy$$0$0escapeHtml$$($accountData401$$.brokerID) + ":" + $soy$$0$0escapeHtml$$($accountData401$$.clientID) + "_" + $soy$$0$0escapeHtml$$($currency_infoData413$$.currency) + 
-      '" data-blink-class="balance-info-blink">' + $soy$$0$0escapeHtml$$($currency_infoData413$$.formattedBalance) + '</span><abbr title="Dep\u00f3sitos pendentes de confirma\u00e7\u00e3o"><em><span class="bitex-model" data-model-key="formatted_position_' + $soy$$0$0escapeHtml$$($accountData401$$.brokerID) + ":" + $soy$$0$0escapeHtml$$($accountData401$$.clientID) + "_" + $soy$$0$0escapeHtml$$($currency_infoData413$$.currency) + '" data-blink-class="balance-info-blink"></span></em></abbr></td><td style="padding: 4px;border-left:0;' + 
+      '" data-blink-class="balance-info-blink">' + $soy$$0$0escapeHtml$$($currency_infoData413$$.formattedBalance) + '</span><abbr title="\u672a\u7ecf\u786e\u8ba4\u7684\u5145\u503c"><em><span class="bitex-model" data-model-key="formatted_position_' + $soy$$0$0escapeHtml$$($accountData401$$.brokerID) + ":" + $soy$$0$0escapeHtml$$($accountData401$$.clientID) + "_" + $soy$$0$0escapeHtml$$($currency_infoData413$$.currency) + '" data-blink-class="balance-info-blink"></span></em></abbr></td><td style="padding: 4px;border-left:0;' + 
       (0 != $currency_infoIndex413$$ ? "border-top: 0;" : "") + '">' + ($currency_infoData413$$.showDeposit && $currency_infoData413$$.showWithdraw ? '<div class="btn-group">' : "") + ($currency_infoData413$$.showDeposit ? '<button class="btn btn-mini" data-action="deposit" data-currency="' + $soy$$0$0escapeHtml$$($currency_infoData413$$.currency) + '"><i data-action="deposit" data-currency="' + $soy$$0$0escapeHtml$$($currency_infoData413$$.currency) + '" class="icon-download-alt"></i></button>' : 
       "") + ($currency_infoData413$$.showWithdraw ? '<button class="btn btn-mini" data-action="withdraw" data-currency="' + $soy$$0$0escapeHtml$$($currency_infoData413$$.currency) + '"><i data-action="withdraw" data-currency="' + $soy$$0$0escapeHtml$$($currency_infoData413$$.currency) + '" class="icon-upload-alt"></i></button>' : "") + ($currency_infoData413$$.showDeposit && $currency_infoData413$$.showWithdraw ? "</div>" : "") + "</td></tr>";
     }
@@ -5217,45 +5216,45 @@ function $bitex$templates$YourAccountSummary$$($opt_data$$19$$) {
   return $output$$15$$;
 }
 function $bitex$templates$WaitingForDepositResponseDialogContent$$() {
-  return'<div class="row-fluid" data-deposit-status="processing"><h5 class="text-center">Processando pedido de dep\u00f3sito...</h5></div><div class="row-fluid"><div class="span6 offset3"><div class="progress progress-striped active"><div class="bar" style="width: 100%;"></div></div></div></div>';
+  return'<div class="row-fluid" data-deposit-status="processing"><h5 class="text-center">\u6b63\u5728\u5904\u7406\u5145\u503c\u8bf7\u6c42</h5></div><div class="row-fluid"><div class="span6 offset3"><div class="progress progress-striped active"><div class="bar" style="width: 100%;"></div></div></div></div>';
 }
 function $bitex$templates$DepositCryptoCurrencyContentDialog$$($opt_data$$22$$) {
   var $output$$18$$ = '<div class="row-fluid" data-deposit-status="prepare"><h4 class="text-center">' + $soy$$0$0escapeHtml$$($opt_data$$22$$.$deposit_message$.Data.InputAddress) + "</h4>";
-  $opt_data$$22$$.$formattedAmount$ && ($output$$18$$ += '<div class="text-center"> Deposite o valor exato de : ' + $soy$$0$0escapeHtml$$($opt_data$$22$$.$formattedAmount$) + "</div>");
+  $opt_data$$22$$.$formattedAmount$ && ($output$$18$$ += '<div class="text-center"> \u8bf7\u4e25\u683c\u6309\u7167\u4ee5\u4e0b\u6570\u91cf\u5145\u503c : ' + $soy$$0$0escapeHtml$$($opt_data$$22$$.$formattedAmount$) + "</div>");
   $output$$18$$ += '<div class="text-center"><img src="https://chart.googleapis.com/chart?cht=qr&chs=200x200&chl=bitcoin%3A' + $soy$$0$0escapeHtml$$($opt_data$$22$$.$deposit_message$.Data.InputAddress) + ($opt_data$$22$$.$amount$ ? "%3Famount%3D" + $soy$$0$0escapeHtml$$($opt_data$$22$$.$amount$) : "") + '"/></div>';
-  $opt_data$$22$$.$hasInstantDepositsEnabled$ && ($output$$18$$ += '<div class="alert alert-block">Os dep\u00f3sitos instant\u00e2neos est\u00e3o ativados para a sua conta. Se voc\u00ea tentar executar um ataque de "double spending" intencionalmente, a sua conta ser\u00e1 congelada, mesmo que o seu ataque n\u00e3o seja bem sucedido.</div>');
+  $opt_data$$22$$.$hasInstantDepositsEnabled$ && ($output$$18$$ += '<div class="alert alert-block">\u60a8\u7684\u7acb\u5373\u5145\u503c\u529f\u80fd\u5df2\u7ecf\u6fc0\u6d3b,\u5982\u679c\u60a8\u610f\u56fe"double spending" \u653b\u51fb, \u5373\u4f7f\u653b\u51fb\u6ca1\u6709\u6210\u529f\uff0c\u4f60\u7684\u8d26\u6237\u4e5f\u4f1a\u88ab\u51bb\u7ed3, </div>');
   return $output$$18$$ + "</div>";
 }
 function $bitex$templates$CryptoCurrencyQRContentDialog$$($opt_data$$23$$) {
   return'<div class="row-fluid" data-deposit-status="prepare"><h4 class="text-center">' + $soy$$0$0escapeHtml$$($opt_data$$23$$.data.Wallet) + '</h4><div class="text-center"><img src="https://chart.googleapis.com/chart?cht=qr&chs=200x200&chl=' + $soy$$0$0escapeHtml$$($opt_data$$23$$.data.Wallet) + '"/></div></div>';
 }
 function $bitex$templates$ConfirmTrustedAddressContentDialog$$($opt_data$$24_output$$19$$) {
-  return $opt_data$$24_output$$19$$ = "" + ('<div class="row-fluid"><h3 class="text-center"> Voc\u00ea deseja ativar dep\u00f3sitos instant\u00e2neos para os dep\u00f3sitos provenientes deste endere\u00e7o?</h3><h5 class="text-center">' + $soy$$0$0escapeHtml$$($opt_data$$24_output$$19$$.data.Address) + '</h5><div class="text-center"><input type="text" class="confirm-trusted-address-label" size="30" placeholder="D\u00ea um nome para este endere\u00e7o."></input></div><h4 class="text-center">Ative este recurso somente se voc\u00ea tiver a chave privada deste endere\u00e7o.</h4><div class="alert alert-block"><h4>Sempre se lembre do que aconteceu na MtGox</h4>Nunca, mas nunca mesmo, em nenhuma circunst\u00e2ncia deixe seus Bitcoins depositados em nenhuma Exchange, n\u00e3o interessa o qu\u00e3o seguro elas afirmem ser. Bitcoins foram feitos para ficar nas m\u00e3os das pessoas e n\u00e3o centralizados nas m\u00e3os de bancos ou exchanges. N\u00f3s n\u00e3o queremos criar um "pote de ouro" que ir\u00e1 atrair hackers. Ativando os dep\u00f3sitos instant\u00e2neos ir\u00e1 permitir que voc\u00ea os negocie imediatamente, desta forma eliminando a necessidade de voc\u00ea deixar-los depositados na exchange para negocia-los rapidamente.</div></div>');
+  return $opt_data$$24_output$$19$$ = "" + ('<div class="row-fluid"><h3 class="text-center"> \u4f60\u60f3\u4ece\u8be5\u5730\u5740\u4f7f\u7528\u7acb\u5373\u5145\u503c\uff08\u79d2\u51b2\uff09\u529f\u80fd\u5417\uff1f</h3><h5 class="text-center">' + $soy$$0$0escapeHtml$$($opt_data$$24_output$$19$$.data.Address) + '</h5><div class="text-center"><input type="text" class="confirm-trusted-address-label" size="30" placeholder="\u4e3a\u8be5\u5730\u5740\u589e\u52a0\u4e00\u4e2a\u6807\u7b7e."></input></div><h4 class="text-center">\u53ea\u5bf9\u81ea\u5df1\u638c\u63e1\u79c1\u5319\u7684\u5730\u5740\u5f00\u542f\u6b64\u529f\u80fd.</h4><div class="alert alert-block"><h4>\u8bf7\u8c28\u8bb0MTgox\u53d1\u751f\u7684\u4e8b\u60c5</h4>\u8bf7\u4e0d\u8981\u628a\u5927\u91cf\u6bd4\u7279\u5e01\u7559\u5230\u4ea4\u6613\u5e73\u53f0, \u65e0\u8bba\u4ed6\u4eec\u5ba3\u79f0\u591a\u4e48\u5b89\u5168. \u79d2\u51b2\u529f\u80fd\u53ef\u4ee5\u65b9\u4fbf\u60a8\u5728\u5143\u6bd4\u7279\u53ca\u65f6\u4ea4\u6613\u3002</div></div>');
 }
 function $bitex$templates$InsufficientFundsContentDialog$$($opt_data$$25$$) {
   var $output$$20$$;
-  $output$$20$$ = "" + ('<div class="row-fluid"><p>Fundos insuficientes para executar esta opera\u00e7\u00e3o.</p>\x3c!-- ' + $soy$$0$0escapeHtml$$($opt_data$$25$$.$currencyDescription$) + ' --\x3e<table class="table table-bordered"><tr><td>Sua conta</td><td><span class="bitex-model" data-model-key="formatted_balance_' + $soy$$0$0escapeHtml$$($opt_data$$25$$.$balanceKey$) + '" data-blink-class="balance-info-blink">' + ($opt_data$$25$$.$depositFormattedBalance$ ? $soy$$0$0escapeHtml$$($opt_data$$25$$.$depositFormattedBalance$) : 
-  "-") + '</span></td></tr><tr><td>Suas ordens</td><td><span class="bitex-model" data-model-key="locked_formatted_balance_' + $soy$$0$0escapeHtml$$($opt_data$$25$$.$balanceKey$) + '" data-blink-class="balance-info-blink">' + ($opt_data$$25$$.$lockedFormattedBalance$ ? $soy$$0$0escapeHtml$$($opt_data$$25$$.$lockedFormattedBalance$) : "-") + '</span></td></tr><tr style="font-weight: bolder"><td>Total dispon\u00edvel</td><td><span class="bitex-model" data-model-key="available_formatted_balance_' + $soy$$0$0escapeHtml$$($opt_data$$25$$.$balanceKey$) + 
-  '" data-blink-class="balance-info-blink">' + ($opt_data$$25$$.$availableFormattedBalance$ ? $soy$$0$0escapeHtml$$($opt_data$$25$$.$availableFormattedBalance$) : "-") + "</span></td></tr></table>");
-  $opt_data$$25$$.$lockedFormattedBalance$ && ($output$$20$$ += "<p>Deposite ou cancele algumas de suas ordens.</p>");
+  $output$$20$$ = "" + ('<div class="row-fluid"><p>\u4f59\u989d\u4e0d\u8db3.</p>\x3c!-- ' + $soy$$0$0escapeHtml$$($opt_data$$25$$.$currencyDescription$) + ' --\x3e<table class="table table-bordered"><tr><td>\u4f60\u7684\u8d26\u6237</td><td><span class="bitex-model" data-model-key="formatted_balance_' + $soy$$0$0escapeHtml$$($opt_data$$25$$.$balanceKey$) + '" data-blink-class="balance-info-blink">' + ($opt_data$$25$$.$depositFormattedBalance$ ? $soy$$0$0escapeHtml$$($opt_data$$25$$.$depositFormattedBalance$) : 
+  "-") + '</span></td></tr><tr><td>\u4f60\u7684\u8ba2\u5355</td><td><span class="bitex-model" data-model-key="locked_formatted_balance_' + $soy$$0$0escapeHtml$$($opt_data$$25$$.$balanceKey$) + '" data-blink-class="balance-info-blink">' + ($opt_data$$25$$.$lockedFormattedBalance$ ? $soy$$0$0escapeHtml$$($opt_data$$25$$.$lockedFormattedBalance$) : "-") + '</span></td></tr><tr style="font-weight: bolder"><td>\u53ef\u7528\u7684\u603b\u91cf</td><td><span class="bitex-model" data-model-key="available_formatted_balance_' + 
+  $soy$$0$0escapeHtml$$($opt_data$$25$$.$balanceKey$) + '" data-blink-class="balance-info-blink">' + ($opt_data$$25$$.$availableFormattedBalance$ ? $soy$$0$0escapeHtml$$($opt_data$$25$$.$availableFormattedBalance$) : "-") + "</span></td></tr></table>");
+  $opt_data$$25$$.$lockedFormattedBalance$ && ($output$$20$$ += "<p>\u8bf7\u5145\u503c\u6216\u8005\u53d6\u6d88\u4e00\u90e8\u5206\u8ba2\u5355</p>");
   return $output$$20$$ + "</div>";
 }
 function $bitex$templates$ConfirmDepositCryptoCurrencyContentDialog$$($MSG_UNNAMED_1753_opt_data$$26$$) {
   var $output$$21$$ = "";
-  $MSG_UNNAMED_1753_opt_data$$26$$ = " Ser\u00e1 criado um endere\u00e7o de " + ($soy$$0$0escapeHtml$$($MSG_UNNAMED_1753_opt_data$$26$$.$currencydescription$) + " \u00fanico e exclusivo que ser\u00e1 v\u00e1lido somente para este dep\u00f3sito.");
-  return $output$$21$$ + ('<div class="row-fluid" data-deposit-status="confirm"><h3 class="text-center"> IMPORTANTE! </h3><h4 class="text-center">' + $MSG_UNNAMED_1753_opt_data$$26$$ + '</h4><h3 class="text-center"> Voc\u00ea entendeu? </h3><br/><br/></div>');
+  $MSG_UNNAMED_1753_opt_data$$26$$ = " \u6211\u4eec\u5c06\u4ea7\u751f\u552f\u4e00\u7684 " + ($soy$$0$0escapeHtml$$($MSG_UNNAMED_1753_opt_data$$26$$.$currencydescription$) + " \u5730\u5740\uff0c\u4ec5\u4f9b\u8fd9\u6b21transaction\u4f7f\u7528.");
+  return $output$$21$$ + ('<div class="row-fluid" data-deposit-status="confirm"><h3 class="text-center"> \u63d0\u9192\uff01 </h3><h4 class="text-center">' + $MSG_UNNAMED_1753_opt_data$$26$$ + '</h4><h3 class="text-center">\u60a8\u5df2\u7ecf\u5b8c\u5168\u7406\u89e3\u4e86\u5417\uff1f </h3><br/><br/></div>');
 }
 function $bitex$templates$DepositSlipContentDialog$$($opt_data$$27$$) {
   return'<div class="row-fluid" data-deposit-status="done"><iframe allowtransparency="true" src="' + $soy$$0$0escapeHtml$$($opt_data$$27$$.$rest_url$) + "/get_deposit?deposit_id=" + $soy$$0$0escapeHtml$$($opt_data$$27$$.$deposit_id$) + '" frameborder="0" style="width: 500px; height: 500px; border: none;" scrolling="yes"></iframe></div>';
 }
 function $bitex$templates$FeesFormControls$$($opt_data$$28_output$$22$$) {
-  return $opt_data$$28_output$$22$$ = "" + ('<div class="control-group"><label class="control-label">Taxas:</label><div class="controls"><div class="row-fluid"><div class="span3"><div class="input-append"><input id="' + $soy$$0$0escapeHtml$$($opt_data$$28_output$$22$$.$percentFeeID$) + '" type="text" class="input-mini" size="16"  style="width: 40px;" name="PercentFee" value="' + $soy$$0$0escapeHtml$$($opt_data$$28_output$$22$$.$percentFee$) + '"><span class="add-on">%</span></div><span style="font-style: italic;">Taxa em percentagem</span></div><div class="span1" style="margin-top: 4px;margin-bottom: -4px;"><span style="font-weight: bold;">+</span></div><div class="span3"><div class="input-prepend"><span class="add-on">' + 
-  $soy$$0$0escapeHtml$$($opt_data$$28_output$$22$$.$currencySign$) + '</span><input id="' + $soy$$0$0escapeHtml$$($opt_data$$28_output$$22$$.$fixedFeeID$) + '" type="text" class="input-mini" size="16" style="width: 40px;" name="FixedFee" value="' + $soy$$0$0escapeHtml$$($opt_data$$28_output$$22$$.$fixedFee$) + '"></div><span style="font-style: italic;">Taxa fixa</span></div><div class="span1" style="margin-top: 4px;margin-bottom: -4px;"><span style="font-weight: bold;">=</span></div><div class="span4"><label id="' + 
-  $soy$$0$0escapeHtml$$($opt_data$$28_output$$22$$.$totalFeesID$) + '" class="control-label" style="text-align: left;"></label></div></div></div></div><div class="control-group" style="' + ($opt_data$$28_output$$22$$.$hideNetValueID$ ? "display:none" : "") + '"><label class="control-label">Valor l\u00edquido</label><div class="controls"><label id="' + $soy$$0$0escapeHtml$$($opt_data$$28_output$$22$$.$netValueID$) + '" class="control-label" style="text-align: left;"></label><input id="' + $soy$$0$0escapeHtml$$($opt_data$$28_output$$22$$.$netValueID$) + 
+  return $opt_data$$28_output$$22$$ = "" + ('<div class="control-group"><label class="control-label">\u624b\u7eed\u8d39:</label><div class="controls"><div class="row-fluid"><div class="span3"><div class="input-append"><input id="' + $soy$$0$0escapeHtml$$($opt_data$$28_output$$22$$.$percentFeeID$) + '" type="text" class="input-mini" size="16"  style="width: 40px;" name="PercentFee" value="' + $soy$$0$0escapeHtml$$($opt_data$$28_output$$22$$.$percentFee$) + '"><span class="add-on">%</span></div><span style="font-style: italic;">\u6309\u6bd4\u4f8b\u624b\u7eed\u8d39</span></div><div class="span1" style="margin-top: 4px;margin-bottom: -4px;"><span style="font-weight: bold;">+</span></div><div class="span3"><div class="input-prepend"><span class="add-on">' + 
+  $soy$$0$0escapeHtml$$($opt_data$$28_output$$22$$.$currencySign$) + '</span><input id="' + $soy$$0$0escapeHtml$$($opt_data$$28_output$$22$$.$fixedFeeID$) + '" type="text" class="input-mini" size="16" style="width: 40px;" name="FixedFee" value="' + $soy$$0$0escapeHtml$$($opt_data$$28_output$$22$$.$fixedFee$) + '"></div><span style="font-style: italic;">\u56fa\u5b9a\u624b\u7eed\u8d39</span></div><div class="span1" style="margin-top: 4px;margin-bottom: -4px;"><span style="font-weight: bold;">=</span></div><div class="span4"><label id="' + 
+  $soy$$0$0escapeHtml$$($opt_data$$28_output$$22$$.$totalFeesID$) + '" class="control-label" style="text-align: left;"></label></div></div></div></div><div class="control-group" style="' + ($opt_data$$28_output$$22$$.$hideNetValueID$ ? "display:none" : "") + '"><label class="control-label">\u51c0\u503c</label><div class="controls"><label id="' + $soy$$0$0escapeHtml$$($opt_data$$28_output$$22$$.$netValueID$) + '" class="control-label" style="text-align: left;"></label><input id="' + $soy$$0$0escapeHtml$$($opt_data$$28_output$$22$$.$netValueID$) + 
   '_value" type="hidden" value=""></div></div>');
 }
 function $bitex$templates$FeesForm$$($opt_data$$29_output$$23$$) {
-  return $opt_data$$29_output$$23$$ = "" + ('<form class="form-horizontal" data-deposit-status="prepare"><input type="hidden" name="Currency" value="' + $soy$$0$0escapeHtml$$($opt_data$$29_output$$23$$.$currency$) + '"><input id="' + $soy$$0$0escapeHtml$$($opt_data$$29_output$$23$$.$amountID$) + '" type="hidden" name="Amount" value="' + $soy$$0$0escapeHtml$$($opt_data$$29_output$$23$$.$amount$) + '"><div class="control-group"><label class="control-label">Valor solicitado</label><div class="controls"><label class="control-label" style="text-align: left;">' + 
+  return $opt_data$$29_output$$23$$ = "" + ('<form class="form-horizontal" data-deposit-status="prepare"><input type="hidden" name="Currency" value="' + $soy$$0$0escapeHtml$$($opt_data$$29_output$$23$$.$currency$) + '"><input id="' + $soy$$0$0escapeHtml$$($opt_data$$29_output$$23$$.$amountID$) + '" type="hidden" name="Amount" value="' + $soy$$0$0escapeHtml$$($opt_data$$29_output$$23$$.$amount$) + '"><div class="control-group"><label class="control-label">\u8bf7\u6c42\u6570\u91cf</label><div class="controls"><label class="control-label" style="text-align: left;">' + 
   $soy$$0$0escapeHtml$$($opt_data$$29_output$$23$$.$formattedAmount$) + "</label></div></div>" + $bitex$templates$FeesFormControls$$({$currencySign$:$opt_data$$29_output$$23$$.$currencySign$, $percentFeeID$:$opt_data$$29_output$$23$$.$percentFeeID$, $percentFee$:$opt_data$$29_output$$23$$.$percentFee$, $fixedFeeID$:$opt_data$$29_output$$23$$.$fixedFeeID$, $fixedFee$:$opt_data$$29_output$$23$$.$fixedFee$, $totalFeesID$:$opt_data$$29_output$$23$$.$totalFeesID$, $netValueID$:$opt_data$$29_output$$23$$.$netValueID$, 
   $hideNetValueID$:!0}) + "</form>");
 }
@@ -5263,7 +5262,7 @@ function $bitex$templates$DepositWithdrawDialogContent$$($opt_data$$30$$) {
   var $output$$24$$ = '<form class="form-horizontal" data-deposit-status="prepare" data-uniform-control-holder-class="control-group"><fieldset><input type="hidden" name="Currency" value="' + $soy$$0$0escapeHtml$$($opt_data$$30$$.$currency$) + '">' + ("broker" == $opt_data$$30$$.$side$ ? '<input id="' + $soy$$0$0escapeHtml$$($opt_data$$30$$.$amountID$) + '" type="hidden" name="Amount" value="' + $soy$$0$0escapeHtml$$($opt_data$$30$$.$amount$ / 1E8) + '">' : "") + '<div class="error"></div>';
   if (!$opt_data$$30$$.$force_method$) {
     if (1 < $opt_data$$30$$.methods.length) {
-      for (var $output$$24$$ = $output$$24$$ + ('<div class="control-group"><label class="control-label">M\u00e9todo</label><div class="controls"><select id="' + $soy$$0$0escapeHtml$$($opt_data$$30$$.$methodID$) + '" name="Method" class="withdraw-method-selector">'), $methodList706_methodList731_methodList776$$ = $opt_data$$30$$.methods, $methodListLen706_methodListLen731_methodListLen776$$ = $methodList706_methodList731_methodList776$$.length, $methodIndex706_methodIndex731_methodIndex776$$ = 0;$methodIndex706_methodIndex731_methodIndex776$$ < 
+      for (var $output$$24$$ = $output$$24$$ + ('<div class="control-group"><label class="control-label">\u65b9\u6cd5</label><div class="controls"><select id="' + $soy$$0$0escapeHtml$$($opt_data$$30$$.$methodID$) + '" name="Method" class="withdraw-method-selector">'), $methodList706_methodList731_methodList776$$ = $opt_data$$30$$.methods, $methodListLen706_methodListLen731_methodListLen776$$ = $methodList706_methodList731_methodList776$$.length, $methodIndex706_methodIndex731_methodIndex776$$ = 0;$methodIndex706_methodIndex731_methodIndex776$$ < 
       $methodListLen706_methodListLen731_methodListLen776$$;$methodIndex706_methodIndex731_methodIndex776$$++) {
         var $fieldList1000_methodData706_methodData731_methodData776$$ = $methodList706_methodList731_methodList776$$[$methodIndex706_methodIndex731_methodIndex776$$], $output$$24$$ = $output$$24$$ + ("<option " + (0 == $methodIndex706_methodIndex731_methodIndex776$$ ? "selected" : "") + ' value="' + $soy$$0$0escapeHtml$$($fieldList1000_methodData706_methodData731_methodData776$$.method) + '" data-net-value="' + $soy$$0$0escapeHtml$$($fieldList1000_methodData706_methodData731_methodData776$$.method) + 
         "_" + $soy$$0$0escapeHtml$$($opt_data$$30$$.$netValueID$) + '" data-percent-fee="' + $soy$$0$0escapeHtml$$($fieldList1000_methodData706_methodData731_methodData776$$.method) + "_" + $soy$$0$0escapeHtml$$($opt_data$$30$$.$percentFeeID$) + '" data-fixed-fee="' + $soy$$0$0escapeHtml$$($fieldList1000_methodData706_methodData731_methodData776$$.method) + "_" + $soy$$0$0escapeHtml$$($opt_data$$30$$.$fixedFeeID$) + '">' + $soy$$0$0escapeHtml$$($fieldList1000_methodData706_methodData731_methodData776$$.description) + 
@@ -5278,23 +5277,23 @@ function $bitex$templates$DepositWithdrawDialogContent$$($opt_data$$30$$) {
     }
   }
   $output$$24$$ += '<div class="withdraw-methods">';
-  0 == $opt_data$$30$$.methods.length && (2 >= $opt_data$$30$$.$verificationLevel$ ? ($output$$24$$ += '<div class="alert alert-warning text-left">Devido a leis internacionais contra lavagem de dinheiro e leis federais, os dep\u00f3sitos e saques em moeda local s\u00f3 estar\u00e3o dispon\u00edveis para clientes com contas verificadas.<br/>Sentimos muito pela inconveni\u00eancia.</div>', 0 == $opt_data$$30$$.$verificationLevel$ && ($output$$24$$ += '<a href="" data-switch-view="verification"> Verifique a sua conta </a>')) : 
-  $output$$24$$ += '<div class="alert alert-danger text-center">N\u00e3o estamos aceitando dep\u00f3sitos neste momento. Sentimos muito pela inconveni\u00eancia.</div>');
+  0 == $opt_data$$30$$.methods.length && (2 >= $opt_data$$30$$.$verificationLevel$ ? ($output$$24$$ += '<div class="alert alert-warning text-left">\u7531\u4e8e\u53cd\u6d17\u94b1\u6cd5\u548c\u653f\u5e9c\u76d1\u7ba1, \u8bf7\u5148\u5b8c\u6210\u5b9e\u540d\u8ba4\u8bc1\uff0c\u7136\u540e\u53ef\u4ee5\u5145\u503c\u63d0\u73b0\u4eba\u6c11\u5e01.<br/>We are very sorry for the inconvenience.</div>', 0 == $opt_data$$30$$.$verificationLevel$ && ($output$$24$$ += '<a href="" data-switch-view="verification"> \u9a8c\u8bc1\u60a8\u7684\u8d26\u6237 </a>')) : 
+  $output$$24$$ += '<div class="alert alert-danger text-center">\u6682\u65f6\u4e0d\u63a5\u53d7\u5145\u503c\uff0c\u7ed9\u60a8\u5e26\u6765\u7684\u4e0d\u4fbf\uff0c\u656c\u8bf7\u7406\u89e3</div>');
   $methodList706_methodList731_methodList776$$ = $opt_data$$30$$.methods;
   $methodListLen706_methodListLen731_methodListLen776$$ = $methodList706_methodList731_methodList776$$.length;
   for ($methodIndex706_methodIndex731_methodIndex776$$ = 0;$methodIndex706_methodIndex731_methodIndex776$$ < $methodListLen706_methodListLen731_methodListLen776$$;$methodIndex706_methodIndex731_methodIndex776$$++) {
     if ($fieldList1000_methodData706_methodData731_methodData776$$ = $methodList706_methodList731_methodList776$$[$methodIndex706_methodIndex731_methodIndex776$$], $opt_data$$30$$.$force_method$) {
       if ($fieldList1000_methodData706_methodData731_methodData776$$.method == $opt_data$$30$$.$force_method$) {
         if ("client" == $opt_data$$30$$.$side$) {
-          $output$$24$$ += '<div class="control-group"><label class="control-label">Quantidade</label><div class="controls"><div class="input-prepend"><span class="add-on">' + $soy$$0$0escapeHtml$$($opt_data$$30$$.$currencySign$) + '</span><input id="' + $soy$$0$0escapeHtml$$($fieldList1000_methodData706_methodData731_methodData776$$.method) + "_" + $soy$$0$0escapeHtml$$($opt_data$$30$$.$amountID$) + '" data-uniform-validators="required; validateNumber ' + ($fieldList1000_methodData706_methodData731_methodData776$$.limits[$opt_data$$30$$.$verificationLevel$].enabled ? 
+          $output$$24$$ += '<div class="control-group"><label class="control-label">\u6570\u91cf</label><div class="controls"><div class="input-prepend"><span class="add-on">' + $soy$$0$0escapeHtml$$($opt_data$$30$$.$currencySign$) + '</span><input id="' + $soy$$0$0escapeHtml$$($fieldList1000_methodData706_methodData731_methodData776$$.method) + "_" + $soy$$0$0escapeHtml$$($opt_data$$30$$.$amountID$) + '" data-uniform-validators="required; validateNumber ' + ($fieldList1000_methodData706_methodData731_methodData776$$.limits[$opt_data$$30$$.$verificationLevel$].enabled ? 
           " " + ($fieldList1000_methodData706_methodData731_methodData776$$.limits[$opt_data$$30$$.$verificationLevel$].min ? "; validateMin " + $soy$$0$0escapeHtml$$($fieldList1000_methodData706_methodData731_methodData776$$.limits[$opt_data$$30$$.$verificationLevel$].formatted_min_value) : "") + ($fieldList1000_methodData706_methodData731_methodData776$$.limits[$opt_data$$30$$.$verificationLevel$].max ? "; validateMax " + $soy$$0$0escapeHtml$$($fieldList1000_methodData706_methodData731_methodData776$$.limits[$opt_data$$30$$.$verificationLevel$].formatted_max_value) + 
           " " : "") + " " : "") + '" data-uniform-type="number" data-uniform-filters="positive_number" type="text" class="withdraw-field input-small" size="16" value="' + ($opt_data$$30$$.$formattedAmount$ ? $soy$$0$0escapeHtml$$($opt_data$$30$$.$formattedAmount$) : "") + '" name="Amount"></div>';
           if ($fieldList1000_methodData706_methodData731_methodData776$$.limits[$opt_data$$30$$.$verificationLevel$].enabled) {
             $output$$24$$ += "<div><em><small>";
             if ($fieldList1000_methodData706_methodData731_methodData776$$.limits[$opt_data$$30$$.$verificationLevel$].max) {
-              var $MSG_UNNAMED_1777_MSG_UNNAMED_1779_MSG_UNNAMED_1787_MSG_UNNAMED_1789_fieldList830_fieldListLen1000$$ = " Dispon\u00edvel: " + $soy$$0$0escapeHtml$$($fieldList1000_methodData706_methodData731_methodData776$$.limits[$opt_data$$30$$.$verificationLevel$].formatted_max), $output$$24$$ = $output$$24$$ + ($MSG_UNNAMED_1777_MSG_UNNAMED_1779_MSG_UNNAMED_1787_MSG_UNNAMED_1789_fieldList830_fieldListLen1000$$ + "<br>")
+              var $MSG_UNNAMED_1777_MSG_UNNAMED_1779_MSG_UNNAMED_1787_MSG_UNNAMED_1789_fieldList830_fieldListLen1000$$ = " Available: " + $soy$$0$0escapeHtml$$($fieldList1000_methodData706_methodData731_methodData776$$.limits[$opt_data$$30$$.$verificationLevel$].formatted_max), $output$$24$$ = $output$$24$$ + ($MSG_UNNAMED_1777_MSG_UNNAMED_1779_MSG_UNNAMED_1787_MSG_UNNAMED_1789_fieldList830_fieldListLen1000$$ + "<br>")
             }
-            $fieldList1000_methodData706_methodData731_methodData776$$.limits[$opt_data$$30$$.$verificationLevel$].min && ($MSG_UNNAMED_1777_MSG_UNNAMED_1779_MSG_UNNAMED_1787_MSG_UNNAMED_1789_fieldList830_fieldListLen1000$$ = " M\u00ednimo: " + ($soy$$0$0escapeHtml$$($fieldList1000_methodData706_methodData731_methodData776$$.limits[$opt_data$$30$$.$verificationLevel$].formatted_min) + " por transa\u00e7\u00e3o.  "), $output$$24$$ += $MSG_UNNAMED_1777_MSG_UNNAMED_1779_MSG_UNNAMED_1787_MSG_UNNAMED_1789_fieldList830_fieldListLen1000$$);
+            $fieldList1000_methodData706_methodData731_methodData776$$.limits[$opt_data$$30$$.$verificationLevel$].min && ($MSG_UNNAMED_1777_MSG_UNNAMED_1779_MSG_UNNAMED_1787_MSG_UNNAMED_1789_fieldList830_fieldListLen1000$$ = " \u6700\u5c11: " + ($soy$$0$0escapeHtml$$($fieldList1000_methodData706_methodData731_methodData776$$.limits[$opt_data$$30$$.$verificationLevel$].formatted_min) + " \u6bcf\u6b21  "), $output$$24$$ += $MSG_UNNAMED_1777_MSG_UNNAMED_1779_MSG_UNNAMED_1787_MSG_UNNAMED_1789_fieldList830_fieldListLen1000$$);
             $output$$24$$ += "</small></em></div>";
           }
           $output$$24$$ += "</div></div>";
@@ -5304,23 +5303,23 @@ function $bitex$templates$DepositWithdrawDialogContent$$($opt_data$$30$$) {
           $soy$$0$0escapeHtml$$($fieldData830$$.type) + '" name="' + $soy$$0$0escapeHtml$$($fieldData830$$.name) + '" label="' + $soy$$0$0escapeHtml$$($fieldData830$$.placeholder) + '" value="' + $soy$$0$0escapeHtml$$($fieldData830$$.value) + '"/></div></div>' : "")
         }
         $output$$24$$ = "client" == $opt_data$$30$$.$side$ ? $output$$24$$ + ('<div class="control-group" style="margin-bottom: 5px;"><div class="controls"><label>' + $soy$$0$0escapeHtml$$($fieldList1000_methodData706_methodData731_methodData776$$.disclaimer) + '</label><input id="' + $soy$$0$0escapeHtml$$($fieldList1000_methodData706_methodData731_methodData776$$.method) + "_" + $soy$$0$0escapeHtml$$($opt_data$$30$$.$percentFeeID$) + '" type="hidden" value="' + $soy$$0$0escapeHtml$$($fieldList1000_methodData706_methodData731_methodData776$$.percent_fee) + 
-        '"><input id="' + $soy$$0$0escapeHtml$$($fieldList1000_methodData706_methodData731_methodData776$$.method) + "_" + $soy$$0$0escapeHtml$$($opt_data$$30$$.$fixedFeeID$) + '" type="hidden" value="' + $soy$$0$0escapeHtml$$($fieldList1000_methodData706_methodData731_methodData776$$.fixed_fee) + '"></div></div><div class="control-group"><label class="control-label">Taxas:</label><div class="controls"><label id="' + $soy$$0$0escapeHtml$$($fieldList1000_methodData706_methodData731_methodData776$$.method) + 
-        "_" + $soy$$0$0escapeHtml$$($opt_data$$30$$.$totalFeesID$) + '" class="control-label" style="text-align: left;"></label></div></div><div class="control-group" ' + ($opt_data$$30$$.$hideNetAmount$ ? ' style="display:none;" ' : "") + ' ><label class="control-label">Valor l\u00edquido</label><div class="controls"><label id="' + $soy$$0$0escapeHtml$$($fieldList1000_methodData706_methodData731_methodData776$$.method) + "_" + $soy$$0$0escapeHtml$$($opt_data$$30$$.$netValueID$) + '" class="control-label" style="text-align: left;"></label><input id="' + 
+        '"><input id="' + $soy$$0$0escapeHtml$$($fieldList1000_methodData706_methodData731_methodData776$$.method) + "_" + $soy$$0$0escapeHtml$$($opt_data$$30$$.$fixedFeeID$) + '" type="hidden" value="' + $soy$$0$0escapeHtml$$($fieldList1000_methodData706_methodData731_methodData776$$.fixed_fee) + '"></div></div><div class="control-group"><label class="control-label">\u624b\u7eed\u8d39:</label><div class="controls"><label id="' + $soy$$0$0escapeHtml$$($fieldList1000_methodData706_methodData731_methodData776$$.method) + 
+        "_" + $soy$$0$0escapeHtml$$($opt_data$$30$$.$totalFeesID$) + '" class="control-label" style="text-align: left;"></label></div></div><div class="control-group" ' + ($opt_data$$30$$.$hideNetAmount$ ? ' style="display:none;" ' : "") + ' ><label class="control-label">\u51c0\u503c</label><div class="controls"><label id="' + $soy$$0$0escapeHtml$$($fieldList1000_methodData706_methodData731_methodData776$$.method) + "_" + $soy$$0$0escapeHtml$$($opt_data$$30$$.$netValueID$) + '" class="control-label" style="text-align: left;"></label><input id="' + 
         $soy$$0$0escapeHtml$$($fieldList1000_methodData706_methodData731_methodData776$$.method) + "_" + $soy$$0$0escapeHtml$$($opt_data$$30$$.$netValueID$) + '_value" type="hidden" value=""></div></div>') : $output$$24$$ + ("broker" == $opt_data$$30$$.$side$ ? '<div class="control-group" style="margin-bottom: 5px;"><div class="controls"><label>' + $soy$$0$0escapeHtml$$($fieldList1000_methodData706_methodData731_methodData776$$.disclaimer) + "</label></div></div>" + ($opt_data$$30$$.$showFeeDataEntry$ ? 
         $bitex$templates$FeesFormControls$$({$currencySign$:$opt_data$$30$$.$currencySign$, $percentFeeID$:$fieldList1000_methodData706_methodData731_methodData776$$.method + "_" + $opt_data$$30$$.$percentFeeID$, $percentFee$:$fieldList1000_methodData706_methodData731_methodData776$$.percent_fee, $fixedFeeID$:$fieldList1000_methodData706_methodData731_methodData776$$.method + "_" + $opt_data$$30$$.$fixedFeeID$, $fixedFee$:$fieldList1000_methodData706_methodData731_methodData776$$.fixed_fee, $totalFeesID$:$fieldList1000_methodData706_methodData731_methodData776$$.method + 
         "_" + $opt_data$$30$$.$totalFeesID$, $netValueID$:$fieldList1000_methodData706_methodData731_methodData776$$.method + "_" + $opt_data$$30$$.$netValueID$}) : "") : "");
       }
     } else {
       $output$$24$$ += '<div class="withdraw-method" data-withdraw-method="' + $soy$$0$0escapeHtml$$($fieldList1000_methodData706_methodData731_methodData776$$.method) + '" style="' + (0 != $methodIndex706_methodIndex731_methodIndex776$$ ? "display:none;" : "") + '" >';
-      "client" == $opt_data$$30$$.$side$ && ($output$$24$$ += '<div class="control-group"><label class="control-label">Quantidade</label><div class="controls"><div class="input-prepend"><span class="add-on">' + $soy$$0$0escapeHtml$$($opt_data$$30$$.$currencySign$) + '</span><input id="' + $soy$$0$0escapeHtml$$($fieldList1000_methodData706_methodData731_methodData776$$.method) + "_" + $soy$$0$0escapeHtml$$($opt_data$$30$$.$amountID$) + '" data-uniform-validators="required; validateNumber ' + ($fieldList1000_methodData706_methodData731_methodData776$$.limits[$opt_data$$30$$.$verificationLevel$].enabled ? 
+      "client" == $opt_data$$30$$.$side$ && ($output$$24$$ += '<div class="control-group"><label class="control-label">\u6570\u91cf</label><div class="controls"><div class="input-prepend"><span class="add-on">' + $soy$$0$0escapeHtml$$($opt_data$$30$$.$currencySign$) + '</span><input id="' + $soy$$0$0escapeHtml$$($fieldList1000_methodData706_methodData731_methodData776$$.method) + "_" + $soy$$0$0escapeHtml$$($opt_data$$30$$.$amountID$) + '" data-uniform-validators="required; validateNumber ' + ($fieldList1000_methodData706_methodData731_methodData776$$.limits[$opt_data$$30$$.$verificationLevel$].enabled ? 
       " " + ($fieldList1000_methodData706_methodData731_methodData776$$.limits[$opt_data$$30$$.$verificationLevel$].min ? "; validateMin " + $soy$$0$0escapeHtml$$($fieldList1000_methodData706_methodData731_methodData776$$.limits[$opt_data$$30$$.$verificationLevel$].formatted_min_value) : "") + ($fieldList1000_methodData706_methodData731_methodData776$$.limits[$opt_data$$30$$.$verificationLevel$].max ? "; validateMax " + $soy$$0$0escapeHtml$$($fieldList1000_methodData706_methodData731_methodData776$$.limits[$opt_data$$30$$.$verificationLevel$].formatted_max_value) + 
       " " : "") + " " : "") + '" data-uniform-type="number" data-uniform-filters="positive_number" value="' + ($opt_data$$30$$.$formattedAmount$ ? $soy$$0$0escapeHtml$$($opt_data$$30$$.$formattedAmount$) : "") + '" type="text" class="withdraw-field input-small" size="16" name="Amount" ' + (0 != $methodIndex706_methodIndex731_methodIndex776$$ ? "disabled" : "") + "></div>", $fieldList1000_methodData706_methodData731_methodData776$$.limits[$opt_data$$30$$.$verificationLevel$].enabled && ($output$$24$$ += 
-      "<div><em><small>", $fieldList1000_methodData706_methodData731_methodData776$$.limits[$opt_data$$30$$.$verificationLevel$].max && ($MSG_UNNAMED_1777_MSG_UNNAMED_1779_MSG_UNNAMED_1787_MSG_UNNAMED_1789_fieldList830_fieldListLen1000$$ = " Dispon\u00edvel: " + $soy$$0$0escapeHtml$$($fieldList1000_methodData706_methodData731_methodData776$$.limits[$opt_data$$30$$.$verificationLevel$].formatted_max), $output$$24$$ += $MSG_UNNAMED_1777_MSG_UNNAMED_1779_MSG_UNNAMED_1787_MSG_UNNAMED_1789_fieldList830_fieldListLen1000$$ + 
-      "<br>"), $fieldList1000_methodData706_methodData731_methodData776$$.limits[$opt_data$$30$$.$verificationLevel$].min && ($MSG_UNNAMED_1777_MSG_UNNAMED_1779_MSG_UNNAMED_1787_MSG_UNNAMED_1789_fieldList830_fieldListLen1000$$ = " M\u00ednimo: " + ($soy$$0$0escapeHtml$$($fieldList1000_methodData706_methodData731_methodData776$$.limits[$opt_data$$30$$.$verificationLevel$].formatted_min) + " por transa\u00e7\u00e3o.  "), $output$$24$$ += $MSG_UNNAMED_1777_MSG_UNNAMED_1779_MSG_UNNAMED_1787_MSG_UNNAMED_1789_fieldList830_fieldListLen1000$$), 
+      "<div><em><small>", $fieldList1000_methodData706_methodData731_methodData776$$.limits[$opt_data$$30$$.$verificationLevel$].max && ($MSG_UNNAMED_1777_MSG_UNNAMED_1779_MSG_UNNAMED_1787_MSG_UNNAMED_1789_fieldList830_fieldListLen1000$$ = " Available: " + $soy$$0$0escapeHtml$$($fieldList1000_methodData706_methodData731_methodData776$$.limits[$opt_data$$30$$.$verificationLevel$].formatted_max), $output$$24$$ += $MSG_UNNAMED_1777_MSG_UNNAMED_1779_MSG_UNNAMED_1787_MSG_UNNAMED_1789_fieldList830_fieldListLen1000$$ + 
+      "<br>"), $fieldList1000_methodData706_methodData731_methodData776$$.limits[$opt_data$$30$$.$verificationLevel$].min && ($MSG_UNNAMED_1777_MSG_UNNAMED_1779_MSG_UNNAMED_1787_MSG_UNNAMED_1789_fieldList830_fieldListLen1000$$ = " \u6700\u5c11: " + ($soy$$0$0escapeHtml$$($fieldList1000_methodData706_methodData731_methodData776$$.limits[$opt_data$$30$$.$verificationLevel$].formatted_min) + " \u6bcf\u6b21  "), $output$$24$$ += $MSG_UNNAMED_1777_MSG_UNNAMED_1779_MSG_UNNAMED_1787_MSG_UNNAMED_1789_fieldList830_fieldListLen1000$$), 
       $output$$24$$ += "</small></em></div>"), $output$$24$$ += "</div></div>");
       $output$$24$$ += '<div class="control-group" style="margin-bottom: 5px;"><div class="controls"><label>' + $soy$$0$0escapeHtml$$($fieldList1000_methodData706_methodData731_methodData776$$.disclaimer) + '</label><input id="' + $soy$$0$0escapeHtml$$($fieldList1000_methodData706_methodData731_methodData776$$.method) + "_" + $soy$$0$0escapeHtml$$($opt_data$$30$$.$percentFeeID$) + '" type="hidden" value="' + $soy$$0$0escapeHtml$$($fieldList1000_methodData706_methodData731_methodData776$$.percent_fee) + 
-      '"><input id="' + $soy$$0$0escapeHtml$$($fieldList1000_methodData706_methodData731_methodData776$$.method) + "_" + $soy$$0$0escapeHtml$$($opt_data$$30$$.$fixedFeeID$) + '" type="hidden" value="' + $soy$$0$0escapeHtml$$($fieldList1000_methodData706_methodData731_methodData776$$.fixed_fee) + '"></div></div><div class="control-group"><label class="control-label">Taxas:</label><div class="controls"><label id="' + $soy$$0$0escapeHtml$$($fieldList1000_methodData706_methodData731_methodData776$$.method) + 
-      "_" + $soy$$0$0escapeHtml$$($opt_data$$30$$.$totalFeesID$) + '" class="control-label" style="text-align: left;"></label></div></div><div class="control-group" ' + ($opt_data$$30$$.$hideNetAmount$ ? ' style="display:none;" ' : "") + '><label class="control-label">Valor l\u00edquido</label><div class="controls"><label id="' + $soy$$0$0escapeHtml$$($fieldList1000_methodData706_methodData731_methodData776$$.method) + "_" + $soy$$0$0escapeHtml$$($opt_data$$30$$.$netValueID$) + '" class="control-label broker-confirm-deposit-net-amount" style="text-align: left;"></label><input id="' + 
+      '"><input id="' + $soy$$0$0escapeHtml$$($fieldList1000_methodData706_methodData731_methodData776$$.method) + "_" + $soy$$0$0escapeHtml$$($opt_data$$30$$.$fixedFeeID$) + '" type="hidden" value="' + $soy$$0$0escapeHtml$$($fieldList1000_methodData706_methodData731_methodData776$$.fixed_fee) + '"></div></div><div class="control-group"><label class="control-label">\u624b\u7eed\u8d39:</label><div class="controls"><label id="' + $soy$$0$0escapeHtml$$($fieldList1000_methodData706_methodData731_methodData776$$.method) + 
+      "_" + $soy$$0$0escapeHtml$$($opt_data$$30$$.$totalFeesID$) + '" class="control-label" style="text-align: left;"></label></div></div><div class="control-group" ' + ($opt_data$$30$$.$hideNetAmount$ ? ' style="display:none;" ' : "") + '><label class="control-label">\u51c0\u503c</label><div class="controls"><label id="' + $soy$$0$0escapeHtml$$($fieldList1000_methodData706_methodData731_methodData776$$.method) + "_" + $soy$$0$0escapeHtml$$($opt_data$$30$$.$netValueID$) + '" class="control-label broker-confirm-deposit-net-amount" style="text-align: left;"></label><input id="' + 
       $soy$$0$0escapeHtml$$($fieldList1000_methodData706_methodData731_methodData776$$.method) + "_" + $soy$$0$0escapeHtml$$($opt_data$$30$$.$netValueID$) + '_value" type="hidden" value=""></div></div>';
       $fieldList1000_methodData706_methodData731_methodData776$$ = $fieldList1000_methodData706_methodData731_methodData776$$.fields;
       $MSG_UNNAMED_1777_MSG_UNNAMED_1779_MSG_UNNAMED_1787_MSG_UNNAMED_1789_fieldList830_fieldListLen1000$$ = $fieldList1000_methodData706_methodData731_methodData776$$.length;
@@ -5335,9 +5334,9 @@ function $bitex$templates$DepositWithdrawDialogContent$$($opt_data$$30$$) {
 }
 function $bitex$templates$YourFeesBalances$$($opt_data$$31$$) {
   var $output$$25$$;
-  $output$$25$$ = '<table class="table table-striped table-condensed"><tbody><tr><td><strong>Taxa de compra</strong></td><td><span class="bitex-model">';
+  $output$$25$$ = '<table class="table table-striped table-condensed"><tbody><tr><td><strong>\u8d2d\u4e70\u624b\u7eed\u8d39</strong></td><td><span class="bitex-model">';
   $output$$25$$ = $opt_data$$31$$.$buy_fee$ ? $output$$25$$ + $soy$$0$0escapeHtml$$($opt_data$$31$$.$buy_fee$) : $output$$25$$ + "-";
-  $output$$25$$ += '</span></td></tr><tr><td><strong>Taxa de venda</strong></td><td><span class="bitex-model">';
+  $output$$25$$ += '</span></td></tr><tr><td><strong>\u5356\u51fa\u624b\u7eed\u8d39</strong></td><td><span class="bitex-model">';
   $output$$25$$ = $opt_data$$31$$.$sell_fee$ ? $output$$25$$ + $soy$$0$0escapeHtml$$($opt_data$$31$$.$sell_fee$) : $output$$25$$ + "-";
   return $output$$25$$ + "</span></td></tr></tbody></table>";
 }
@@ -5345,56 +5344,56 @@ function $bitex$templates$YourAccountBalances$$($currencyList1048_opt_data$$32$$
   var $output$$26$$ = '<table class="table table-striped" style="width: 350px"><tbody>';
   $currencyList1048_opt_data$$32$$ = $currencyList1048_opt_data$$32$$.$currencies$;
   for (var $currencyListLen1048$$ = $currencyList1048_opt_data$$32$$.length, $currencyIndex1048$$ = 0;$currencyIndex1048$$ < $currencyListLen1048$$;$currencyIndex1048$$++) {
-    var $currencyData1048$$ = $currencyList1048_opt_data$$32$$[$currencyIndex1048$$], $MSG_UNNAMED_1803$$ = $soy$$0$0escapeHtml$$($currencyData1048$$.code) + " dispon\u00edvel", $output$$26$$ = $output$$26$$ + ("<tr><td><strong>" + $MSG_UNNAMED_1803$$ + '</strong></td><td><span class="bitex-model" data-model-key="formatted_balance_' + $soy$$0$0escapeHtml$$($currencyData1048$$.$model_key$) + '" data-blink-class="balance-info-blink">' + ($currencyData1048$$.$balance$ ? $soy$$0$0escapeHtml$$($currencyData1048$$.$balance$) : 
+    var $currencyData1048$$ = $currencyList1048_opt_data$$32$$[$currencyIndex1048$$], $MSG_UNNAMED_1803$$ = "\u53ef\u7528\u7684 " + $soy$$0$0escapeHtml$$($currencyData1048$$.code), $output$$26$$ = $output$$26$$ + ("<tr><td><strong>" + $MSG_UNNAMED_1803$$ + '</strong></td><td><span class="bitex-model" data-model-key="formatted_balance_' + $soy$$0$0escapeHtml$$($currencyData1048$$.$model_key$) + '" data-blink-class="balance-info-blink">' + ($currencyData1048$$.$balance$ ? $soy$$0$0escapeHtml$$($currencyData1048$$.$balance$) : 
     "-") + "</span></td></tr>")
   }
   return $output$$26$$ + "</tbody></table>";
 }
 function $bitex$templates$AccountOverviewHeaderWithDrawEmailData$$($opt_data$$34$$) {
   var $output$$28$$ = "";
-  return $output$$28$$ = $opt_data$$34$$.$msg_customer_detail$.NeedWithdrawEmail ? $output$$28$$ + ('<span class="label label-success">Ativado</span> <a href="#" class="btn btn-primary btn-mini" data-action="SET_WITHDRAW_EMAIL" data-row="' + $soy$$0$0escapeHtml$$($opt_data$$34$$.$msg_customer_detail$.ID) + '">Desativar</a>') : $output$$28$$ + ('<span class="label label-important">Desativado</span> <a href="#" class="btn btn-primary btn-mini" data-action="SET_WITHDRAW_EMAIL" data-row="' + $soy$$0$0escapeHtml$$($opt_data$$34$$.$msg_customer_detail$.ID) + 
-  '">Ativado</a>');
+  return $output$$28$$ = $opt_data$$34$$.$msg_customer_detail$.NeedWithdrawEmail ? $output$$28$$ + ('<span class="label label-success">\u542f\u7528</span> <a href="#" class="btn btn-primary btn-mini" data-action="SET_WITHDRAW_EMAIL" data-row="' + $soy$$0$0escapeHtml$$($opt_data$$34$$.$msg_customer_detail$.ID) + '">\u505c\u7528</a>') : $output$$28$$ + ('<span class="label label-important">\u505c\u7528</span> <a href="#" class="btn btn-primary btn-mini" data-action="SET_WITHDRAW_EMAIL" data-row="' + 
+  $soy$$0$0escapeHtml$$($opt_data$$34$$.$msg_customer_detail$.ID) + '">\u542f\u7528</a>');
 }
 function $bitex$templates$AccountOverviewHeaderTwoFactors$$($opt_data$$35$$) {
   var $output$$29$$ = "";
-  return $output$$29$$ = $opt_data$$35$$.$msg_customer_detail$.TwoFactorEnabled ? $output$$29$$ + ('<span class="label label-success">Ativado</span><a href="#" class="btn btn-primary btn-mini" data-action="SET_TWO_FACTOR" data-row="' + $soy$$0$0escapeHtml$$($opt_data$$35$$.$msg_customer_detail$.ID) + '">Desativar</a>') : $output$$29$$ + '<span class="label label-important">Desativado</span>';
+  return $output$$29$$ = $opt_data$$35$$.$msg_customer_detail$.TwoFactorEnabled ? $output$$29$$ + ('<span class="label label-success">\u542f\u7528</span><a href="#" class="btn btn-primary btn-mini" data-action="SET_TWO_FACTOR" data-row="' + $soy$$0$0escapeHtml$$($opt_data$$35$$.$msg_customer_detail$.ID) + '">\u505c\u7528</a>') : $output$$29$$ + '<span class="label label-important">\u505c\u7528</span>';
 }
 function $bitex$templates$AccountOverviewHeader$$($opt_data$$36_output$$30$$) {
-  var $JSCompiler_temp_const$$83$$ = "", $JSCompiler_temp_const$$82$$ = '<table class="table table-striped table-condensed account-overview-table" style="width: 350px"><tbody><tr><td><strong>ID</strong></td><td>' + $soy$$0$0escapeHtml$$($opt_data$$36_output$$30$$.$msg_customer_detail$.ID) + "</td></tr><tr><td><strong>Username</strong></td><td>" + $soy$$0$0escapeHtml$$($opt_data$$36_output$$30$$.$msg_customer_detail$.Username) + "</td></tr><tr><td><strong>Email</strong></td><td>" + $soy$$0$0escapeHtml$$($opt_data$$36_output$$30$$.$msg_customer_detail$.Email) + 
-  "</td></tr><tr><td><strong>Estado</strong></td><td>" + $soy$$0$0escapeHtml$$($opt_data$$36_output$$30$$.$msg_customer_detail$.State) + "</td></tr><tr><td><strong>Pa\u00eds</strong></td><td>" + $soy$$0$0escapeHtml$$($opt_data$$36_output$$30$$.$msg_customer_detail$.CountryCode) + "</td></tr><tr><td><strong>\u00daltimo login</strong></td><td>" + $soy$$0$0escapeHtml$$($opt_data$$36_output$$30$$.$msg_customer_detail$.LastLogin) + '</td></tr><tr><td><strong>\u00c9 verificado</strong></td><td class="account-overview-val account-overview-verified">', 
-  $output$$inline_568$$;
-  $output$$inline_568$$ = "" + ('<select id="id_select_new_verification_level" data-profile-change="Verified" ><option value=0 ' + (0 == $opt_data$$36_output$$30$$.$msg_customer_detail$.Verified ? "selected" : "") + ">N\u00e3o</option><option value=1 " + (1 == $opt_data$$36_output$$30$$.$msg_customer_detail$.Verified ? "selected" : "") + ">Pendente</option><option value=2 " + (2 == $opt_data$$36_output$$30$$.$msg_customer_detail$.Verified ? "selected" : "") + ">Andamento</option><option value=3 " + 
-  (3 == $opt_data$$36_output$$30$$.$msg_customer_detail$.Verified ? "selected" : "") + ">Sim - N\u00edvel I </option><option value=4 " + (4 == $opt_data$$36_output$$30$$.$msg_customer_detail$.Verified ? "selected" : "") + ">Sim - N\u00edvel II </option><option value=5 " + (5 == $opt_data$$36_output$$30$$.$msg_customer_detail$.Verified ? "selected" : "") + ">Sim - N\u00edvel III </option></select>");
-  return $opt_data$$36_output$$30$$ = $JSCompiler_temp_const$$83$$ + ($JSCompiler_temp_const$$82$$ + $output$$inline_568$$ + '</td></tr><tr><td><strong>Possui Autentica\u00e7\u00e3o em 2 passos</strong></td><td class="account-overview-val account-overview-two-factors" >' + $bitex$templates$AccountOverviewHeaderTwoFactors$$($opt_data$$36_output$$30$$) + "</td></tr><tr><td><strong>Data de registro</strong></td><td>" + $soy$$0$0escapeHtml$$($opt_data$$36_output$$30$$.$msg_customer_detail$.Created) + 
-  '</td></tr><tr><td><strong>Precisa de confirma\u00e7\u00e3o de saque</strong></td><td class="account-overview-val account-overview-withdraw-email">' + $bitex$templates$AccountOverviewHeaderWithDrawEmailData$$($opt_data$$36_output$$30$$) + "</td></tr></tbody></table>");
+  var $JSCompiler_temp_const$$83$$ = "", $JSCompiler_temp_const$$82$$ = '<table class="table table-striped table-condensed account-overview-table" style="width: 350px"><tbody><tr><td><strong>\u6211\u7684ID</strong></td><td>' + $soy$$0$0escapeHtml$$($opt_data$$36_output$$30$$.$msg_customer_detail$.ID) + "</td></tr><tr><td><strong>\u7528\u6237\u540d</strong></td><td>" + $soy$$0$0escapeHtml$$($opt_data$$36_output$$30$$.$msg_customer_detail$.Username) + "</td></tr><tr><td><strong>Email\u5730\u5740</strong></td><td>" + 
+  $soy$$0$0escapeHtml$$($opt_data$$36_output$$30$$.$msg_customer_detail$.Email) + "</td></tr><tr><td><strong>\u56fd\u5bb6</strong></td><td>" + $soy$$0$0escapeHtml$$($opt_data$$36_output$$30$$.$msg_customer_detail$.State) + "</td></tr><tr><td><strong>\u7701\u4efd</strong></td><td>" + $soy$$0$0escapeHtml$$($opt_data$$36_output$$30$$.$msg_customer_detail$.CountryCode) + "</td></tr><tr><td><strong>\u4e0a\u6b21\u767b\u5f55</strong></td><td>" + $soy$$0$0escapeHtml$$($opt_data$$36_output$$30$$.$msg_customer_detail$.LastLogin) + 
+  '</td></tr><tr><td><strong>\u5df2\u7ecf\u9a8c\u8bc1</strong></td><td class="account-overview-val account-overview-verified">', $output$$inline_568$$;
+  $output$$inline_568$$ = "" + ('<select id="id_select_new_verification_level" data-profile-change="Verified" ><option value=0 ' + (0 == $opt_data$$36_output$$30$$.$msg_customer_detail$.Verified ? "selected" : "") + ">\u5426</option><option value=1 " + (1 == $opt_data$$36_output$$30$$.$msg_customer_detail$.Verified ? "selected" : "") + ">\u7b49\u5f85\u4e2d</option><option value=2 " + (2 == $opt_data$$36_output$$30$$.$msg_customer_detail$.Verified ? "selected" : "") + ">\u6b63\u5728\u5904\u7406</option><option value=3 " + 
+  (3 == $opt_data$$36_output$$30$$.$msg_customer_detail$.Verified ? "selected" : "") + ">\u662f- \u7b49\u7ea7 I </option><option value=4 " + (4 == $opt_data$$36_output$$30$$.$msg_customer_detail$.Verified ? "selected" : "") + ">\u662f - \u7b49\u7ea7 II </option><option value=5 " + (5 == $opt_data$$36_output$$30$$.$msg_customer_detail$.Verified ? "selected" : "") + ">\u662f - \u7b49\u7ea7 III </option></select>");
+  return $opt_data$$36_output$$30$$ = $JSCompiler_temp_const$$83$$ + ($JSCompiler_temp_const$$82$$ + $output$$inline_568$$ + '</td></tr><tr><td><strong>\u6709\u4e24\u6b65\u9a8c\u8bc1</strong></td><td class="account-overview-val account-overview-two-factors" >' + $bitex$templates$AccountOverviewHeaderTwoFactors$$($opt_data$$36_output$$30$$) + "</td></tr><tr><td><strong>\u6ce8\u518c\u65e5\u671f</strong></td><td>" + $soy$$0$0escapeHtml$$($opt_data$$36_output$$30$$.$msg_customer_detail$.Created) + '</td></tr><tr><td><strong>\u63d0\u73b0\u9700\u8981\u90ae\u4ef6\u786e\u8ba4</strong></td><td class="account-overview-val account-overview-withdraw-email">' + 
+  $bitex$templates$AccountOverviewHeaderWithDrawEmailData$$($opt_data$$36_output$$30$$) + "</td></tr></tbody></table>");
 }
 function $bitex$templates$AccountOverviewUser$$($opt_data$$37$$) {
   var $output$$31$$;
-  $output$$31$$ = "" + ('<table class="table table-striped table-condensed account-overview-table" style="width: 350px"><tbody><tr><td><strong>ID</strong></td><td>' + $soy$$0$0escapeHtml$$($opt_data$$37$$.$msg_customer_detail$.ID) + "</td></tr><tr><td><strong>Username</strong></td><td>" + $soy$$0$0escapeHtml$$($opt_data$$37$$.$msg_customer_detail$.Username) + "</td></tr><tr><td><strong>Email</strong></td><td>" + $soy$$0$0escapeHtml$$($opt_data$$37$$.$msg_customer_detail$.Email) + "</td></tr><tr><td><strong>Estado</strong></td><td>" + 
-  $soy$$0$0escapeHtml$$($opt_data$$37$$.$msg_customer_detail$.State) + "</td></tr><tr><td><strong>Pa\u00eds</strong></td><td>" + $soy$$0$0escapeHtml$$($opt_data$$37$$.$msg_customer_detail$.CountryCode) + '</td></tr><tr><td><strong>\u00c9 verificado</strong></td><td class="account-overview-val account-overview-verified">');
+  $output$$31$$ = "" + ('<table class="table table-striped table-condensed account-overview-table" style="width: 350px"><tbody><tr><td><strong>\u6211\u7684ID</strong></td><td>' + $soy$$0$0escapeHtml$$($opt_data$$37$$.$msg_customer_detail$.ID) + "</td></tr><tr><td><strong>\u7528\u6237\u540d</strong></td><td>" + $soy$$0$0escapeHtml$$($opt_data$$37$$.$msg_customer_detail$.Username) + "</td></tr><tr><td><strong>Email\u5730\u5740</strong></td><td>" + $soy$$0$0escapeHtml$$($opt_data$$37$$.$msg_customer_detail$.Email) + 
+  "</td></tr><tr><td><strong>\u56fd\u5bb6</strong></td><td>" + $soy$$0$0escapeHtml$$($opt_data$$37$$.$msg_customer_detail$.State) + "</td></tr><tr><td><strong>\u7701\u4efd</strong></td><td>" + $soy$$0$0escapeHtml$$($opt_data$$37$$.$msg_customer_detail$.CountryCode) + '</td></tr><tr><td><strong>\u5df2\u7ecf\u9a8c\u8bc1</strong></td><td class="account-overview-val account-overview-verified">');
   switch($opt_data$$37$$.$msg_customer_detail$.Verified) {
     case 0:
-      $output$$31$$ += '<span class="label label-important">N\u00e3o</span>';
+      $output$$31$$ += '<span class="label label-important">\u5426</span>';
       break;
     case 1:
-      $output$$31$$ += '<span class="label label-important">Pendente</span>';
+      $output$$31$$ += '<span class="label label-important">\u7b49\u5f85\u4e2d</span>';
       break;
     case 2:
-      $output$$31$$ += '<span class="label label-success">Sim</span>';
+      $output$$31$$ += '<span class="label label-success">\u662f</span>';
       break;
     case 3:
-      $output$$31$$ += '<span class="label label-success">Sim - N\u00edvel II</span>';
+      $output$$31$$ += '<span class="label label-success">\u662f - \u7b49\u7ea7 II</span>';
       break;
     case 4:
-      $output$$31$$ += '<span class="label label-success">Sim - N\u00edvel III</span>';
+      $output$$31$$ += '<span class="label label-success">\u662f - \u7b49\u7ea7 III</span>';
       break;
     case 5:
-      $output$$31$$ += '<span class="label label-success">Sim - N\u00edvel IV</span>';
+      $output$$31$$ += '<span class="label label-success">\u662f - \u7b49\u7ea7 IV</span>';
   }
   return $output$$31$$ + "</td></tr></tbody></table>";
 }
 function $bitex$templates$EnterVerificationDataDialogContent$$($opt_data$$38_output$$32$$) {
-  return $opt_data$$38_output$$32$$ = "" + ('<form class="form-horizontal" data-deposit-status="prepare"><input type="hidden" name="ClientID" value="' + $soy$$0$0escapeHtml$$($opt_data$$38_output$$32$$.$clientID$) + '"><div class="control-group"><label class="control-label"> Dados verificados </label><div class="controls"><input type="text" class="input-xlarge" size="16" name="VerificationData"></div></div></form>');
+  return $opt_data$$38_output$$32$$ = "" + ('<form class="form-horizontal" data-deposit-status="prepare"><input type="hidden" name="ClientID" value="' + $soy$$0$0escapeHtml$$($opt_data$$38_output$$32$$.$clientID$) + '"><div class="control-group"><label class="control-label"> \u9a8c\u8bc1\u65e5\u671f </label><div class="controls"><input type="text" class="input-xlarge" size="16" name="VerificationData"></div></div></form>');
 }
 ;
 // Input 98
@@ -5445,7 +5444,7 @@ $JSCompiler_prototypeAlias$$.$onSignupButtonClick_$ = function $$JSCompiler_prot
   $goog$dom$forms$getValue$$($goog$dom$getElement$$("id_signup_state"));
   $goog$dom$forms$getValue$$($goog$dom$getElement$$("id_signup_country"));
   $goog$dom$forms$getValue$$($goog$dom$getElement$$("id_signup_broker"));
-  $goog$string$isEmpty$$($e$$63_username$$1$$) || /[^a-zA-Z0-9]/.test($e$$63_username$$1$$) ? this.$app_$.$showDialog$("Username inv\u00e1lido") : $email$$1$$.match(/^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/) ? $goog$string$isEmpty$$($password$$) || 8 > $password$$.length ? this.$app_$.$showDialog$("A senha precisa ter no m\u00ednimo 8 letras") : $password$$ !== $password2$$ ? this.$app_$.$showDialog$("As senhas n\u00e3o conferem") : this.dispatchEvent("signup_click") : this.$app_$.$showDialog$("Email inv\u00e1lido");
+  $goog$string$isEmpty$$($e$$63_username$$1$$) || /[^a-zA-Z0-9]/.test($e$$63_username$$1$$) ? this.$app_$.$showDialog$("\u65e0\u6548\u7684\u7528\u6237\u540d") : $email$$1$$.match(/^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/) ? $goog$string$isEmpty$$($password$$) || 8 > $password$$.length ? this.$app_$.$showDialog$("\u5bc6\u7801\u81f3\u5c118\u4f4d") : $password$$ !== $password2$$ ? this.$app_$.$showDialog$("\u5bc6\u7801\u9519\u8bef") : this.dispatchEvent("signup_click") : this.$app_$.$showDialog$("\u65e0\u6548\u7684\u90ae\u7bb1");
 };
 $JSCompiler_prototypeAlias$$.$onBrokerList_$ = function $$JSCompiler_prototypeAlias$$$$onBrokerList_$$() {
   var $model$$3$$ = this.$app_$.$model_$, $broker_list$$ = $model$$3$$.get("BrokerList");
@@ -5734,9 +5733,9 @@ function $goog$fs$FileReader$createDeferred_$$($reader$$4$$) {
 ;
 // Input 103
 function $bitex$ui$AlgorithmSelector$templates$AlgorithmSelector$$($opt_data$$41_output$$35$$) {
-  return $opt_data$$41_output$$35$$ = "" + ('<form id="' + $soy$$0$0escapeHtml$$($opt_data$$41_output$$35$$.id) + '_form" class="algo-selector form-horizontal well" ><div class="control-group"><label class="control-label" for="' + $soy$$0$0escapeHtml$$($opt_data$$41_output$$35$$.id) + '_filename">Algor\u00edtimo</label><div class="controls"><div class="input-append" data-original-title="" title=""><input id="' + $soy$$0$0escapeHtml$$($opt_data$$41_output$$35$$.id) + '_filename" type="text" class="input-xxlarge" disabled="disabled" /><button id="' + 
-  $soy$$0$0escapeHtml$$($opt_data$$41_output$$35$$.id) + '_btn_clear" type="button" class="btn btn-default" style="display:none;"><span class="glyphicon glyphicon-remove"></span> Limpar</button><div id="' + $soy$$0$0escapeHtml$$($opt_data$$41_output$$35$$.id) + '_btn_browse_container" class="btn btn-default" style=" position: relative;  overflow: hidden;  margin: 0px;"><span class="glyphicon glyphicon-folder-open"></span><span id="' + $soy$$0$0escapeHtml$$($opt_data$$41_output$$35$$.id) + '_btn_browse" style="margin-left:2px">Escolher</span><input id="' + 
-  $soy$$0$0escapeHtml$$($opt_data$$41_output$$35$$.id) + '_file" type="file" accept=".algo" style=" position: absolute; top: 0; right: 0; margin: 0; padding: 0; font-size: 20px; cursor: pointer; opacity: 0; filter: alpha(opacity=0);" /></div></div><a href="https://github.com/blinktrade/algorithm-trading/" target="_blank">Entenda como funciona  o m\u00f3dulo algorithm trading</a></div></div></form>');
+  return $opt_data$$41_output$$35$$ = "" + ('<form id="' + $soy$$0$0escapeHtml$$($opt_data$$41_output$$35$$.id) + '_form" class="algo-selector form-horizontal well" ><div class="control-group"><label class="control-label" for="' + $soy$$0$0escapeHtml$$($opt_data$$41_output$$35$$.id) + '_filename">\u7b97\u6cd5</label><div class="controls"><div class="input-append" data-original-title="" title=""><input id="' + $soy$$0$0escapeHtml$$($opt_data$$41_output$$35$$.id) + '_filename" type="text" class="input-xxlarge" disabled="disabled" /><button id="' + 
+  $soy$$0$0escapeHtml$$($opt_data$$41_output$$35$$.id) + '_btn_clear" type="button" class="btn btn-default" style="display:none;"><span class="glyphicon glyphicon-remove"></span> \u6e05\u9664</button><div id="' + $soy$$0$0escapeHtml$$($opt_data$$41_output$$35$$.id) + '_btn_browse_container" class="btn btn-default" style=" position: relative;  overflow: hidden;  margin: 0px;"><span class="glyphicon glyphicon-folder-open"></span><span id="' + $soy$$0$0escapeHtml$$($opt_data$$41_output$$35$$.id) + '_btn_browse" style="margin-left:2px">\u6d4f\u89c8</span><input id="' + 
+  $soy$$0$0escapeHtml$$($opt_data$$41_output$$35$$.id) + '_file" type="file" accept=".algo" style=" position: absolute; top: 0; right: 0; margin: 0; padding: 0; font-size: 20px; cursor: pointer; opacity: 0; filter: alpha(opacity=0);" /></div></div><a href="https://github.com/blinktrade/algorithm-trading/" target="_blank">\u7406\u89e3\u7a0b\u5e8f\u8ffd\u8e2a\u539f\u7406</a></div></div></form>');
 }
 ;
 // Input 104
@@ -5803,76 +5802,76 @@ $JSCompiler_prototypeAlias$$.$onClearFile_$ = function $$JSCompiler_prototypeAli
 function $bitex$ui$OrderManager$$($grid_columns_simple_opt_mode$$1$$, $opt_openOrdersTitle$$, $opt_blinkDelay$$1_options$$10$$, $opt_domHelper$$11$$) {
   this.$mode_$ = $grid_columns_simple_opt_mode$$1$$ || "advanced";
   this.$blink_delay_$ = $opt_blinkDelay$$1_options$$10$$ || 700;
-  $grid_columns_simple_opt_mode$$1$$ = [{property:"OrderID", label:"ID", sortable:!1, formatter:function($s$$28$$, $rowSet$$) {
+  $grid_columns_simple_opt_mode$$1$$ = [{property:"OrderID", label:"\u6211\u7684ID", sortable:!1, formatter:function($s$$28$$, $rowSet$$) {
     return $rowSet$$.ClOrdID;
   }, classes:function() {
     return $bitex$ui$OrderManager$CSS_CLASS$$ + "-order-id";
-  }}, {property:"Side", label:"Descri\u00e7\u00e3o", sortable:!1, formatter:function($s$$29$$) {
+  }}, {property:"Side", label:"\u63cf\u8ff0", sortable:!1, formatter:function($s$$29$$) {
     return $bitex$ui$OrderManager$Status$$[$s$$29$$];
   }, classes:function() {
     return $bitex$ui$OrderManager$CSS_CLASS$$ + "-description";
-  }}, {property:"OrdStatus", label:"Situa\u00e7\u00e3o", sortable:!1, formatter:function($s$$30$$) {
+  }}, {property:"OrdStatus", label:"\u72b6\u6001", sortable:!1, formatter:function($s$$30$$) {
     return $bitex$ui$OrderManager$Status$$[$s$$30$$];
   }, classes:function() {
     return $bitex$ui$OrderManager$CSS_CLASS$$ + "-status";
-  }}, {property:"AvgPx", label:"Pre\u00e7o", sortable:!1, classes:function() {
+  }}, {property:"AvgPx", label:"\u4ef7\u683c", sortable:!1, classes:function() {
     return $bitex$ui$OrderManager$CSS_CLASS$$ + "-avg-price";
-  }}, {property:"Volume", label:"Total", sortable:!1, classes:function() {
+  }}, {property:"Volume", label:"\u603b\u91cf", sortable:!1, classes:function() {
     return $bitex$ui$OrderManager$CSS_CLASS$$ + "-volume";
-  }}, {property:"ClOrdID", label:"A\u00e7\u00f5es", sortable:!1, formatter:function($id$$11$$, $row_set_obj$$1$$) {
+  }}, {property:"ClOrdID", label:"\u64cd\u4f5c", sortable:!1, formatter:function($id$$11$$, $row_set_obj$$1$$) {
     var $attributes$$1$$ = {"class":"btn btn-mini btn-danger", "data-action":"cancel", "data-client-order-id":$id$$11$$};
-    return null != $row_set_obj$$1$$ && ($attributes$$1$$["data-order-id"] = $row_set_obj$$1$$.OrderID, 0 == $row_set_obj$$1$$.LeavesQty) ? "" : $goog$dom$createDom$$("a", $attributes$$1$$, "cancelar");
+    return null != $row_set_obj$$1$$ && ($attributes$$1$$["data-order-id"] = $row_set_obj$$1$$.OrderID, 0 == $row_set_obj$$1$$.LeavesQty) ? "" : $goog$dom$createDom$$("a", $attributes$$1$$, "\u53d6\u6d88");
   }, classes:function() {
     return $bitex$ui$OrderManager$CSS_CLASS$$ + "-actions";
   }}];
-  $opt_blinkDelay$$1_options$$10$$ = {rowIDFn:this.$getRowID$, rowClassFn:this.$getRowClass$, columns:[{property:"OrderID", label:"ID", sortable:!1, classes:function() {
+  $opt_blinkDelay$$1_options$$10$$ = {rowIDFn:this.$getRowID$, rowClassFn:this.$getRowClass$, columns:[{property:"OrderID", label:"\u6211\u7684ID", sortable:!1, classes:function() {
     return $bitex$ui$OrderManager$CSS_CLASS$$ + "-order-id";
-  }}, {property:"OrdStatus", label:"Situa\u00e7\u00e3o", sortable:!1, formatter:function($s$$31$$) {
+  }}, {property:"OrdStatus", label:"\u72b6\u6001", sortable:!1, formatter:function($s$$31$$) {
     return $bitex$ui$OrderManager$Status$$[$s$$31$$];
   }, classes:function() {
     return $bitex$ui$OrderManager$CSS_CLASS$$ + "-status";
-  }}, {property:"Side", label:"Lado", sortable:!1, formatter:function($s$$32$$) {
+  }}, {property:"Side", label:"\u4fa7\u8fb9", sortable:!1, formatter:function($s$$32$$) {
     switch($s$$32$$) {
       case "1":
-        return "Compra";
+        return "\u4e70";
       case "2":
-        return "Venda";
+        return "\u5356";
     }
     return "";
   }, classes:function() {
     return $bitex$ui$OrderManager$CSS_CLASS$$ + "-side";
-  }}, {property:"OrderQty", label:"Qtd", sortable:!1, formatter:function($s$$33$$) {
+  }}, {property:"OrderQty", label:"\u6570\u91cf", sortable:!1, formatter:function($s$$33$$) {
     return($s$$33$$ / 1E8).toFixed(8);
   }, classes:function() {
     return $bitex$ui$OrderManager$CSS_CLASS$$ + "-order-qty";
-  }}, {property:"Price", label:"Pre\u00e7o", sortable:!1, formatter:function($s$$34$$) {
+  }}, {property:"Price", label:"\u4ef7\u683c", sortable:!1, formatter:function($s$$34$$) {
     return($s$$34$$ / 1E8).toFixed(5);
   }, classes:function() {
     return $bitex$ui$OrderManager$CSS_CLASS$$ + "-price";
-  }}, {property:"LeavesQty", label:"Qtd Disp.", sortable:!1, formatter:function($s$$35$$) {
+  }}, {property:"LeavesQty", label:"Leaves Qty", sortable:!1, formatter:function($s$$35$$) {
     return($s$$35$$ / 1E8).toFixed(8);
   }, classes:function() {
     return $bitex$ui$OrderManager$CSS_CLASS$$ + "-leaves_qty";
-  }}, {property:"CumQty", label:"Qtd exec.", sortable:!1, formatter:function($s$$36$$) {
+  }}, {property:"CumQty", label:"Cum Qty", sortable:!1, formatter:function($s$$36$$) {
     return($s$$36$$ / 1E8).toFixed(8);
   }, classes:function() {
     return $bitex$ui$OrderManager$CSS_CLASS$$ + "-cum-qty";
-  }}, {property:"AvgPx", label:"Pre\u00e7o m\u00e9dio", sortable:!1, formatter:function($s$$37$$) {
+  }}, {property:"AvgPx", label:"\u5e73\u5747\u4ef7\u683c", sortable:!1, formatter:function($s$$37$$) {
     return($s$$37$$ / 1E8).toFixed(5);
   }, classes:function() {
     return $bitex$ui$OrderManager$CSS_CLASS$$ + "-avg-price";
-  }}, {property:"ClOrdID", label:"A\u00e7\u00f5es", sortable:!1, formatter:function($id$$12$$, $row_set_obj$$2$$) {
+  }}, {property:"ClOrdID", label:"\u64cd\u4f5c", sortable:!1, formatter:function($id$$12$$, $row_set_obj$$2$$) {
     var $attributes$$2$$ = {"class":"btn btn-mini btn-danger", "data-action":"cancel", "data-client-order-id":$id$$12$$};
-    return null != $row_set_obj$$2$$ && ($attributes$$2$$["data-order-id"] = $row_set_obj$$2$$.OrderID, 0 == $row_set_obj$$2$$.LeavesQty) ? "" : $goog$dom$createDom$$("a", $attributes$$2$$, "cancelar");
+    return null != $row_set_obj$$2$$ && ($attributes$$2$$["data-order-id"] = $row_set_obj$$2$$.OrderID, 0 == $row_set_obj$$2$$.LeavesQty) ? "" : $goog$dom$createDom$$("a", $attributes$$2$$, "\u53d6\u6d88");
   }, classes:function() {
     return $bitex$ui$OrderManager$CSS_CLASS$$ + "-actions";
-  }}], title:"Minhas ordens", showSearch:!1, buttonFilters:[{label:"Em aberto", value:"0,1"}, {label:"Executadas", value:"1,2,4"}, {label:"Canceladas", value:"4"}, {label:"Todas", value:"all"}]};
-  $opt_openOrdersTitle$$ && ($opt_blinkDelay$$1_options$$10$$.title = "Minhas ordens em aberto");
+  }}], title:"\u6211\u7684\u8ba2\u5355", showSearch:!1, buttonFilters:[{label:"Open", value:"0,1"}, {label:"Filled", value:"1,2,4"}, {label:"Cancelled", value:"4"}, {label:"All", value:"all"}]};
+  $opt_openOrdersTitle$$ && ($opt_blinkDelay$$1_options$$10$$.title = "\u6211\u7684\u6302\u5355");
   "simple" == this.$mode_$ && ($opt_blinkDelay$$1_options$$10$$.columns = $grid_columns_simple_opt_mode$$1$$);
   $bitex$ui$DataGrid$$.call(this, $opt_blinkDelay$$1_options$$10$$, $opt_domHelper$$11$$);
 }
 $goog$inherits$$($bitex$ui$OrderManager$$, $bitex$ui$DataGrid$$);
-var $bitex$ui$OrderManager$Status$$ = {A:"Pendente", 0:"Nova", 1:"Partialmente exec.", 2:"Executada", 4:"Cancelada", 8:"Rejeitado"}, $bitex$ui$OrderManager$CSS_CLASS$$ = "order-manager";
+var $bitex$ui$OrderManager$Status$$ = {A:"\u7b49\u5f85\u4e2d", 0:"\u65b0\u7684", 1:"\u90e8\u5206\u6210\u4ea4", 2:"\u6210\u4ea4\u7684", 4:"\u5df2\u53d6\u6d88", 8:"Rejected"}, $bitex$ui$OrderManager$CSS_CLASS$$ = "order-manager";
 $bitex$ui$OrderManager$$.prototype.$getCssClass$ = function $$bitex$ui$OrderManager$$$$$getCssClass$$() {
   return $bitex$ui$OrderManager$CSS_CLASS$$;
 };
@@ -5922,8 +5921,8 @@ $goog$ui$registry$setDecoratorByClassName$$($bitex$ui$OrderManager$CSS_CLASS$$, 
 // Input 106
 function $bitex$ui$AlgorithmRunner$templates$AlgorithmRunner$$($opt_data$$42$$) {
   var $output$$36$$;
-  $output$$36$$ = "" + ('<form id="' + $soy$$0$0escapeHtml$$($opt_data$$42$$.id) + '_form" class="algo-runner form-horizontal well" data-uniform-control-holder-class="control-group" ><legend>' + $soy$$0$0escapeHtml$$($opt_data$$42$$.$algorithmDefinition$.description) + '</legend><div class="control-group" style=""><label class="control-label">Mercado</label><div class="controls"><label id="' + $soy$$0$0escapeHtml$$($opt_data$$42$$.id) + '" class="control-label" style="text-align: left;">' + $soy$$0$0escapeHtml$$($opt_data$$42$$.$symbol$.$symbol$) + 
-  "</label></div></div>");
+  $output$$36$$ = "" + ('<form id="' + $soy$$0$0escapeHtml$$($opt_data$$42$$.id) + '_form" class="algo-runner form-horizontal well" data-uniform-control-holder-class="control-group" ><legend>' + $soy$$0$0escapeHtml$$($opt_data$$42$$.$algorithmDefinition$.description) + '</legend><div class="control-group" style=""><label class="control-label">\u5e02\u573a</label><div class="controls"><label id="' + $soy$$0$0escapeHtml$$($opt_data$$42$$.id) + '" class="control-label" style="text-align: left;">' + 
+  $soy$$0$0escapeHtml$$($opt_data$$42$$.$symbol$.$symbol$) + "</label></div></div>");
   for (var $fieldList15$$ = $opt_data$$42$$.$algorithmDefinition$.params, $fieldListLen15$$ = $fieldList15$$.length, $fieldIndex15$$ = 0;$fieldIndex15$$ < $fieldListLen15$$;$fieldIndex15$$++) {
     var $fieldData15$$ = $fieldList15$$[$fieldIndex15$$];
     $output$$36$$ += '<div class="control-group"><label class="control-label">' + $soy$$0$0escapeHtml$$($fieldData15$$.label) + '</label><div class="controls"><input class="algo-runner-field"' + ($fieldData15$$.validator ? ' data-uniform-validators="' + $soy$$0$0escapeHtml$$($fieldData15$$.validator) + '" ' : "") + ($fieldData15$$.filter ? ' data-uniform-filters="' + $soy$$0$0escapeHtml$$($fieldData15$$.filter) + '" ' : "") + ("number" == $fieldData15$$.type ? 'type="text" data-uniform-type="number"' : 
@@ -5965,19 +5964,19 @@ function $JSCompiler_StaticMethods_setStatus$$($JSCompiler_StaticMethods_setStat
   $goog$dom$forms$setDisabled$$($param_button_el$$, "1" == $status$$1$$ || "3" == $status$$1$$);
   switch($status$$1$$) {
     case "0":
-      $goog$dom$setTextContent$$($param_button_el$$, "Iniciar");
-      $goog$dom$setTextContent$$($stop_button_el$$, "Parar");
+      $goog$dom$setTextContent$$($param_button_el$$, "\u5f00\u59cb");
+      $goog$dom$setTextContent$$($stop_button_el$$, "\u505c\u6b62");
       break;
     case "1":
-      $goog$dom$setTextContent$$($param_button_el$$, "Iniciando...");
-      $goog$dom$setTextContent$$($stop_button_el$$, "Parar");
+      $goog$dom$setTextContent$$($param_button_el$$, "\u6b63\u5728\u5f00\u59cb...");
+      $goog$dom$setTextContent$$($stop_button_el$$, "\u505c\u6b62");
       break;
     case "2":
-      $goog$dom$setTextContent$$($param_button_el$$, "Atualizar");
-      $goog$dom$setTextContent$$($stop_button_el$$, "Parar");
+      $goog$dom$setTextContent$$($param_button_el$$, "\u66f4\u65b0");
+      $goog$dom$setTextContent$$($stop_button_el$$, "\u505c\u6b62");
       break;
     case "3":
-      $goog$dom$setTextContent$$($param_button_el$$, "Atualizar"), $goog$dom$setTextContent$$($stop_button_el$$, "Parando...");
+      $goog$dom$setTextContent$$($param_button_el$$, "\u66f4\u65b0"), $goog$dom$setTextContent$$($stop_button_el$$, "\u6b63\u5728\u505c\u6b62...");
   }
 }
 $JSCompiler_prototypeAlias$$.$onBtnStop_$ = function $$JSCompiler_prototypeAlias$$$$onBtnStop_$$($e$$73$$) {
@@ -6087,20 +6086,20 @@ $JSCompiler_prototypeAlias$$.$onAlgoRunnerChangeStatus_$ = function $$JSCompiler
   }
 };
 $JSCompiler_prototypeAlias$$.$orderFormatter_$ = function $$JSCompiler_prototypeAlias$$$$orderFormatter_$$($value$$155$$, $rowSet$$1$$) {
-  return "1" == $rowSet$$1$$.Side ? "COMPRA" : "VENDA";
+  return "1" == $rowSet$$1$$.Side ? "\u4e70" : "\u5356";
 };
 $JSCompiler_prototypeAlias$$.$simpleStatusFormatter_$ = function $$JSCompiler_prototypeAlias$$$$simpleStatusFormatter_$$($value$$156$$, $rowSet$$2$$) {
   switch($value$$156$$) {
     case "-":
-      return "PENDENTE";
+      return "\u7b49\u5f85\u4e2d";
     case "0":
-      return "NOVA";
+      return "\u65b0\u7684";
     case "1":
-      return "PARCIAL";
+      return "\u90e8\u5206\u6210\u4ea4";
     case "2":
-      return "EXECUTADA";
+      return "\u5df2\u7ecf\u6210\u4ea4";
     case "4":
-      return 0 == $rowSet$$2$$.CumQty ? "CANCELADA" : "COMPLETADA";
+      return 0 == $rowSet$$2$$.CumQty ? "\u5df2\u53d6\u6d88" : "\u5df2\u5b8c\u6210";
   }
 };
 $JSCompiler_prototypeAlias$$.$avgPriceFormatter_$ = function $$JSCompiler_prototypeAlias$$$$avgPriceFormatter_$$($value$$157$$, $rowSet$$3$$) {
@@ -6160,7 +6159,7 @@ function $JSCompiler_StaticMethods_onLoginClick_$$($JSCompiler_StaticMethods_onL
   $JSCompiler_StaticMethods_onLoginClick_$self$$.$password_el_$ = $password$$1_password_el$$;
   $username$$2_username_el$$ = $JSCompiler_StaticMethods_onLoginClick_$self$$.$getUsername$();
   $password$$1_password_el$$ = $JSCompiler_StaticMethods_onLoginClick_$self$$.$getPassword$();
-  $goog$string$isEmpty$$($username$$2_username_el$$) ? ($JSCompiler_StaticMethods_onLoginClick_$self$$.$app_$.$showDialog$("Username inv\u00e1lido"), $JSCompiler_StaticMethods_onLoginClick_$self$$.$username_el_$.focus()) : $goog$string$isEmpty$$($password$$1_password_el$$) || 8 > $password$$1_password_el$$.length ? ($JSCompiler_StaticMethods_onLoginClick_$self$$.$app_$.$showDialog$("A senha precisa ter no m\u00ednimo 8 letras"), $JSCompiler_StaticMethods_onLoginClick_$self$$.$password_el_$.focus()) : 
+  $goog$string$isEmpty$$($username$$2_username_el$$) ? ($JSCompiler_StaticMethods_onLoginClick_$self$$.$app_$.$showDialog$("\u65e0\u6548\u7684\u7528\u6237\u540d"), $JSCompiler_StaticMethods_onLoginClick_$self$$.$username_el_$.focus()) : $goog$string$isEmpty$$($password$$1_password_el$$) || 8 > $password$$1_password_el$$.length ? ($JSCompiler_StaticMethods_onLoginClick_$self$$.$app_$.$showDialog$("\u5bc6\u7801\u957f\u5ea6\u81f3\u5c118\u4f4d"), $JSCompiler_StaticMethods_onLoginClick_$self$$.$password_el_$.focus()) : 
   $JSCompiler_StaticMethods_onLoginClick_$self$$.dispatchEvent("login_click");
 }
 $bitex$view$LoginView$$.prototype.clear = function $$bitex$view$LoginView$$$$clear$() {
@@ -6173,21 +6172,21 @@ function $bitex$ui$WithdrawList$$($methodDescriptionObj$$, $opt_broker_mode_show
   !0 === $opt_broker_mode_show_customers$$ && ($broker_mode$$ = $opt_broker_mode_show_customers$$);
   $opt_broker_mode_show_customers$$ = !1;
   !0 === $grid_columns$$1_opt_show_customers$$ && ($opt_broker_mode_show_customers$$ = $grid_columns$$1_opt_show_customers$$);
-  $grid_columns$$1_opt_show_customers$$ = [{property:"Created", label:"Data/Hora", sortable:!1, classes:function() {
+  $grid_columns$$1_opt_show_customers$$ = [{property:"Created", label:"\u65e5\u671f/\u65f6\u95f4", sortable:!1, classes:function() {
     return $bitex$ui$WithdrawList$CSS_CLASS$$ + "-created";
-  }}, {property:"Status", label:"Situa\u00e7\u00e3o", sortable:!1, formatter:function($s$$38$$, $rowSet$$6$$) {
+  }}, {property:"Status", label:"\u72b6\u6001", sortable:!1, formatter:function($s$$38$$, $rowSet$$6$$) {
     var $label_class_text_reason_el$$ = function($s$$39$$) {
       switch($s$$39$$) {
         case "0":
-          return["", "N\u00e3o confirmado"];
+          return["", "\u672a\u786e\u8ba4"];
         case "1":
-          return["warning", "Pendente"];
+          return["warning", "\u7b49\u5f85\u4e2d"];
         case "2":
-          return["info", "Em andamento..."];
+          return["info", "\u6b63\u5728\u5904\u7406..."];
         case "4":
-          return["success", "Completado"];
+          return["success", "\u5df2\u5b8c\u6210"];
         case "8":
-          return["important", "Cancelado"];
+          return["important", "\u5df2\u53d6\u6d88"];
       }
       return["", ""];
     }($s$$38$$), $reason_id$$ = $rowSet$$6$$.ReasonID, $reason$$ = $rowSet$$6$$.Reason;
@@ -6198,28 +6197,28 @@ function $bitex$ui$WithdrawList$$($methodDescriptionObj$$, $opt_broker_mode_show
           $label_class_text_reason_el$$ = $goog$dom$createDom$$("abbr", {title:$reason$$}, $label_class_text_reason_el$$[1]);
           break;
         case -1:
-          $label_class_text_reason_el$$ = $goog$dom$createDom$$("abbr", {title:"Fundos insuficientes"}, $label_class_text_reason_el$$[1]);
+          $label_class_text_reason_el$$ = $goog$dom$createDom$$("abbr", {title:"\u8d26\u6237\u4f59\u989d\u4e0d\u8db3"}, $label_class_text_reason_el$$[1]);
           break;
         case -2:
-          $label_class_text_reason_el$$ = $goog$dom$createDom$$("abbr", {title:"Conta n\u00e3o verificada"}, $label_class_text_reason_el$$[1]);
+          $label_class_text_reason_el$$ = $goog$dom$createDom$$("abbr", {title:"\u8d26\u6237\u672a\u9a8c\u8bc1"}, $label_class_text_reason_el$$[1]);
           break;
         case -3:
-          $label_class_text_reason_el$$ = $goog$dom$createDom$$("abbr", {title:"Suspeita de fraude"}, $label_class_text_reason_el$$[1]);
+          $label_class_text_reason_el$$ = $goog$dom$createDom$$("abbr", {title:"\u56e0\u6d89\u5acc\u6b3a\u8bc8"}, $label_class_text_reason_el$$[1]);
           break;
         case -4:
-          $label_class_text_reason_el$$ = $goog$dom$createDom$$("abbr", {title:"Saque para uma conta diferente da sua"}, $label_class_text_reason_el$$[1]);
+          $label_class_text_reason_el$$ = $goog$dom$createDom$$("abbr", {title:"\u6b63\u5728\u63d0\u73b0\u5230\u5176\u4ed6\u8d26\u6237"}, $label_class_text_reason_el$$[1]);
           break;
         case -5:
-          $label_class_text_reason_el$$ = $goog$dom$createDom$$("abbr", {title:"Carteira inv\u00e1lida"}, $label_class_text_reason_el$$[1]);
+          $label_class_text_reason_el$$ = $goog$dom$createDom$$("abbr", {title:"\u65e0\u6548\u94b1\u5305"}, $label_class_text_reason_el$$[1]);
           break;
         case -6:
-          $label_class_text_reason_el$$ = $goog$dom$createDom$$("abbr", {title:"Conta banc\u00e1ria inv\u00e1lida"}, $label_class_text_reason_el$$[1]);
+          $label_class_text_reason_el$$ = $goog$dom$createDom$$("abbr", {title:"\u65e0\u6548\u94f6\u884c\u8d26\u6237"}, $label_class_text_reason_el$$[1]);
           break;
         case -7:
-          $label_class_text_reason_el$$ = $goog$dom$createDom$$("abbr", {title:"O valor ultrapassou o limite di\u00e1rio de saques"}, $label_class_text_reason_el$$[1]);
+          $label_class_text_reason_el$$ = $goog$dom$createDom$$("abbr", {title:"\u63d0\u73b0\u8d85\u51fa\u6bcf\u65e5\u9650\u989d"}, $label_class_text_reason_el$$[1]);
           break;
         case -8:
-          $label_class_text_reason_el$$ = $goog$dom$createDom$$("abbr", {title:"Possui dep\u00f3sitos que ainda n\u00e3o est\u00e3o confirmados"}, $label_class_text_reason_el$$[1]);
+          $label_class_text_reason_el$$ = $goog$dom$createDom$$("abbr", {title:"\u5145\u503c\u5c1a\u672a\u786e\u8ba4"}, $label_class_text_reason_el$$[1]);
           break;
         default:
           return $goog$dom$createDom$$("span", ["label", "label-" + $label_class_text_reason_el$$[0]], $label_class_text_reason_el$$[1]);
@@ -6230,47 +6229,47 @@ function $bitex$ui$WithdrawList$$($methodDescriptionObj$$, $opt_broker_mode_show
     return $goog$dom$createDom$$("span", ["label", "label-" + $label_class_text_reason_el$$[0]], $label_class_text_reason_el$$[1]);
   }, classes:function() {
     return $bitex$ui$WithdrawList$CSS_CLASS$$ + "-status";
-  }}, {property:"Amount", label:"Valor", sortable:!1, classes:function() {
+  }}, {property:"Amount", label:"\u6570\u91cf", sortable:!1, classes:function() {
     return $bitex$ui$WithdrawList$CSS_CLASS$$ + "-amount";
-  }}, {property:"Data", label:"Detalhes", sortable:!1, formatter:function($data$$39$$, $rowSet$$7$$) {
+  }}, {property:"Data", label:"\u8be6\u60c5", sortable:!1, formatter:function($data$$39$$, $rowSet$$7$$) {
     var $element$$141$$ = $goog$dom$createDom$$("table"), $block_explorer_btn_blockchain_method$$3_original_fee_element$$ = $methodDescriptionObj$$[$rowSet$$7$$.Currency][$rowSet$$7$$.Method];
-    $goog$dom$appendChild$$($element$$141$$, $goog$dom$createDom$$("tr", $bitex$ui$WithdrawList$CSS_CLASS$$ + "-details-tr", $goog$dom$createDom$$("td", $bitex$ui$WithdrawList$CSS_CLASS$$ + "-details-td-key", "M\u00e9todo"), $goog$dom$createDom$$("td", $bitex$ui$WithdrawList$CSS_CLASS$$ + "-details-td-value", $block_explorer_btn_blockchain_method$$3_original_fee_element$$)));
-    null != $data$$39$$.Link && ($goog$string$isEmpty$$($data$$39$$.Link) || $goog$dom$appendChild$$($element$$141$$, $goog$dom$createDom$$("tr", $bitex$ui$WithdrawList$CSS_CLASS$$ + "-details-tr", $goog$dom$createDom$$("td", $bitex$ui$WithdrawList$CSS_CLASS$$ + "-details-td-key", "Comprovante"), $goog$dom$createDom$$("td", $bitex$ui$WithdrawList$CSS_CLASS$$ + "-details-td-value", $goog$dom$createDom$$("a", {"class":"btn btn-mini btn-primary", target:"_blank", href:$data$$39$$.Link}, "ver", " ", 
-    $goog$dom$createDom$$("i", ["icon-white", "icon-eye-open"]))))));
+    $goog$dom$appendChild$$($element$$141$$, $goog$dom$createDom$$("tr", $bitex$ui$WithdrawList$CSS_CLASS$$ + "-details-tr", $goog$dom$createDom$$("td", $bitex$ui$WithdrawList$CSS_CLASS$$ + "-details-td-key", "\u65b9\u6cd5"), $goog$dom$createDom$$("td", $bitex$ui$WithdrawList$CSS_CLASS$$ + "-details-td-value", $block_explorer_btn_blockchain_method$$3_original_fee_element$$)));
+    null != $data$$39$$.Link && ($goog$string$isEmpty$$($data$$39$$.Link) || $goog$dom$appendChild$$($element$$141$$, $goog$dom$createDom$$("tr", $bitex$ui$WithdrawList$CSS_CLASS$$ + "-details-tr", $goog$dom$createDom$$("td", $bitex$ui$WithdrawList$CSS_CLASS$$ + "-details-td-key", "\u4ee3\u7406\u6536\u5230"), $goog$dom$createDom$$("td", $bitex$ui$WithdrawList$CSS_CLASS$$ + "-details-td-value", $goog$dom$createDom$$("a", {"class":"btn btn-mini btn-primary", target:"_blank", href:$data$$39$$.Link}, 
+    "\u67e5\u770b", " ", $goog$dom$createDom$$("i", ["icon-white", "icon-eye-open"]))))));
     $goog$object$forEach$$($data$$39$$, function($value$$160$$, $key$$79$$) {
       if ("Link" != $key$$79$$ && "Currency" != $key$$79$$ && "Fees" != $key$$79$$ && "TransactionID" != $key$$79$$ && null != $value$$160$$ && !$goog$string$isEmpty$$($value$$160$$)) {
         if ("Wallet" == $key$$79$$) {
-          var $btn_qr_child$$inline_646_child$$inline_649_key_description$$ = $goog$dom$createDom$$("a", {"class":"btn btn-mini btn-info btn-withdraw-list-qr", href:"#", "data-action":"SHOW_QR", "data-row":$goog$json$serialize$$($rowSet$$7$$)}, "QR", " ", $goog$dom$createDom$$("i", ["icon-white", "icon-qrcode"])), $btn_qr_child$$inline_646_child$$inline_649_key_description$$ = $goog$dom$createDom$$("tr", $bitex$ui$WithdrawList$CSS_CLASS$$ + "-details-tr", $goog$dom$createDom$$("td", $bitex$ui$WithdrawList$CSS_CLASS$$ + 
-          "-details-td-key", "Carteira"), $goog$dom$createDom$$("td", $bitex$ui$WithdrawList$CSS_CLASS$$ + "-details-td-value", $btn_qr_child$$inline_646_child$$inline_649_key_description$$))
+          var $btn_qr_child$$inline_646_child$$inline_649_key_description$$ = $goog$dom$createDom$$("a", {"class":"btn btn-mini btn-info btn-withdraw-list-qr", href:"#", "data-action":"SHOW_QR", "data-row":$goog$json$serialize$$($rowSet$$7$$)}, "qr", " ", $goog$dom$createDom$$("i", ["icon-white", "icon-qrcode"])), $btn_qr_child$$inline_646_child$$inline_649_key_description$$ = $goog$dom$createDom$$("tr", $bitex$ui$WithdrawList$CSS_CLASS$$ + "-details-tr", $goog$dom$createDom$$("td", $bitex$ui$WithdrawList$CSS_CLASS$$ + 
+          "-details-td-key", "\u94b1\u5305"), $goog$dom$createDom$$("td", $bitex$ui$WithdrawList$CSS_CLASS$$ + "-details-td-value", $btn_qr_child$$inline_646_child$$inline_649_key_description$$))
         } else {
           $btn_qr_child$$inline_646_child$$inline_649_key_description$$ = $key$$79$$;
           switch($key$$79$$) {
             case "AccountNumber":
-              $btn_qr_child$$inline_646_child$$inline_649_key_description$$ = "N\u00famero da conta";
+              $btn_qr_child$$inline_646_child$$inline_649_key_description$$ = "\u8d26\u6237\u53f7\u7801";
               break;
             case "BankName":
-              $btn_qr_child$$inline_646_child$$inline_649_key_description$$ = "Nome do banco";
+              $btn_qr_child$$inline_646_child$$inline_649_key_description$$ = "\u94f6\u884c\u540d\u79f0";
               break;
             case "BankNumber":
-              $btn_qr_child$$inline_646_child$$inline_649_key_description$$ = "N\u00famero do banco";
+              $btn_qr_child$$inline_646_child$$inline_649_key_description$$ = "\u94f6\u884c\u4ee3\u7801";
               break;
             case "CPF_CNPJ":
-              $btn_qr_child$$inline_646_child$$inline_649_key_description$$ = "CPF ou CNPJ";
+              $btn_qr_child$$inline_646_child$$inline_649_key_description$$ = "\u4f01\u4e1a\u6cd5\u4eba\u767b\u8bb0\u53f7";
               break;
             case "AccountBranch":
-              $btn_qr_child$$inline_646_child$$inline_649_key_description$$ = "Ag\u00eancia";
+              $btn_qr_child$$inline_646_child$$inline_649_key_description$$ = "\u8d26\u6237\u5206\u652f";
               break;
             case "AccountName":
-              $btn_qr_child$$inline_646_child$$inline_649_key_description$$ = "Nome do T\u00edtular ";
+              $btn_qr_child$$inline_646_child$$inline_649_key_description$$ = "\u8d26\u6237\u59d3\u540d";
               break;
             case "RoutingNumber":
-              $btn_qr_child$$inline_646_child$$inline_649_key_description$$ = "N\u00famero do Routing";
+              $btn_qr_child$$inline_646_child$$inline_649_key_description$$ = "\u94f6\u884c\u4ee3\u53f7";
               break;
             case "BankSwift":
-              $btn_qr_child$$inline_646_child$$inline_649_key_description$$ = "C\u00f3digo Swift";
+              $btn_qr_child$$inline_646_child$$inline_649_key_description$$ = "\u94f6\u884cSwift\u4ee3\u7801";
               break;
             case "Email":
-              $btn_qr_child$$inline_646_child$$inline_649_key_description$$ = "Email";
+              $btn_qr_child$$inline_646_child$$inline_649_key_description$$ = "\u90ae\u7bb1\u5730\u5740";
           }
           $btn_qr_child$$inline_646_child$$inline_649_key_description$$ = $goog$dom$createDom$$("tr", $bitex$ui$WithdrawList$CSS_CLASS$$ + "-details-tr", $goog$dom$createDom$$("td", $bitex$ui$WithdrawList$CSS_CLASS$$ + "-details-td-key", $btn_qr_child$$inline_646_child$$inline_649_key_description$$), $goog$dom$createDom$$("td", $bitex$ui$WithdrawList$CSS_CLASS$$ + "-details-td-value", $value$$160$$));
         }
@@ -6279,10 +6278,10 @@ function $bitex$ui$WithdrawList$$($methodDescriptionObj$$, $opt_broker_mode_show
     }, this);
     if (null != $data$$39$$.Fees) {
       if (0 == $goog$string$countOf$$($data$$39$$.Fees)) {
-        $goog$dom$appendChild$$($element$$141$$, $goog$dom$createDom$$("tr", $bitex$ui$WithdrawList$CSS_CLASS$$ + "-details-tr", $goog$dom$createDom$$("td", $bitex$ui$WithdrawList$CSS_CLASS$$ + "-details-td-key", "Taxas"), $goog$dom$createDom$$("td", $bitex$ui$WithdrawList$CSS_CLASS$$ + "-details-td-value", $data$$39$$.Fees)));
+        $goog$dom$appendChild$$($element$$141$$, $goog$dom$createDom$$("tr", $bitex$ui$WithdrawList$CSS_CLASS$$ + "-details-tr", $goog$dom$createDom$$("td", $bitex$ui$WithdrawList$CSS_CLASS$$ + "-details-td-key", "\u624b\u7eed\u8d39"), $goog$dom$createDom$$("td", $bitex$ui$WithdrawList$CSS_CLASS$$ + "-details-td-value", $data$$39$$.Fees)));
       } else {
         var $effective_fee_effective_fee_element$$ = $data$$39$$.Fees.split("|")[1], $block_explorer_btn_blockchain_method$$3_original_fee_element$$ = $goog$dom$createDom$$("s", {style:"color: gray; padding-right: 10px;"}, $data$$39$$.Fees.split("|")[0]), $effective_fee_effective_fee_element$$ = $goog$dom$createDom$$("b", void 0, $effective_fee_effective_fee_element$$);
-        $goog$dom$appendChild$$($element$$141$$, $goog$dom$createDom$$("tr", $bitex$ui$WithdrawList$CSS_CLASS$$ + "-details-tr", $goog$dom$createDom$$("td", $bitex$ui$WithdrawList$CSS_CLASS$$ + "-details-td-key", "Taxas"), $goog$dom$createDom$$("td", $bitex$ui$WithdrawList$CSS_CLASS$$ + "-details-td-value", $block_explorer_btn_blockchain_method$$3_original_fee_element$$, $effective_fee_effective_fee_element$$)));
+        $goog$dom$appendChild$$($element$$141$$, $goog$dom$createDom$$("tr", $bitex$ui$WithdrawList$CSS_CLASS$$ + "-details-tr", $goog$dom$createDom$$("td", $bitex$ui$WithdrawList$CSS_CLASS$$ + "-details-td-key", "\u624b\u7eed\u8d39"), $goog$dom$createDom$$("td", $bitex$ui$WithdrawList$CSS_CLASS$$ + "-details-td-value", $block_explorer_btn_blockchain_method$$3_original_fee_element$$, $effective_fee_effective_fee_element$$)));
       }
     }
     if (null != $data$$39$$.TransactionID) {
@@ -6300,24 +6299,24 @@ function $bitex$ui$WithdrawList$$($methodDescriptionObj$$, $opt_broker_mode_show
           case "c":
             $block_explorer_btn_blockchain_method$$3_original_fee_element$$ = "https://test-insight.bitpay.com";
         }
-        $block_explorer_btn_blockchain_method$$3_original_fee_element$$ = $goog$dom$createDom$$("a", {"class":"btn btn-mini btn-info btn-btc-blockchain", href:$block_explorer_btn_blockchain_method$$3_original_fee_element$$ + "/tx/" + $data$$39$$.TransactionID, target:"_blank"}, "blockchain", " ", $goog$dom$createDom$$("i", ["icon-white", "icon-share-alt"]));
-        $goog$dom$appendChild$$($element$$141$$, $goog$dom$createDom$$("tr", $bitex$ui$WithdrawList$CSS_CLASS$$ + "-details-tr", $goog$dom$createDom$$("td", $bitex$ui$WithdrawList$CSS_CLASS$$ + "-details-td-key", "ID da transa\u00e7\u00e3o"), $goog$dom$createDom$$("td", $bitex$ui$WithdrawList$CSS_CLASS$$ + "-details-td-value", $block_explorer_btn_blockchain_method$$3_original_fee_element$$)));
+        $block_explorer_btn_blockchain_method$$3_original_fee_element$$ = $goog$dom$createDom$$("a", {"class":"btn btn-mini btn-info btn-btc-blockchain", href:$block_explorer_btn_blockchain_method$$3_original_fee_element$$ + "/tx/" + $data$$39$$.TransactionID, target:"_blank"}, "\u533a\u5757\u94fe", " ", $goog$dom$createDom$$("i", ["icon-white", "icon-share-alt"]));
+        $goog$dom$appendChild$$($element$$141$$, $goog$dom$createDom$$("tr", $bitex$ui$WithdrawList$CSS_CLASS$$ + "-details-tr", $goog$dom$createDom$$("td", $bitex$ui$WithdrawList$CSS_CLASS$$ + "-details-td-key", "Transaction ID"), $goog$dom$createDom$$("td", $bitex$ui$WithdrawList$CSS_CLASS$$ + "-details-td-value", $block_explorer_btn_blockchain_method$$3_original_fee_element$$)));
       } else {
-        $goog$dom$appendChild$$($element$$141$$, $goog$dom$createDom$$("tr", $bitex$ui$WithdrawList$CSS_CLASS$$ + "-details-tr", $goog$dom$createDom$$("td", $bitex$ui$WithdrawList$CSS_CLASS$$ + "-details-td-key", "ID da transa\u00e7\u00e3o"), $goog$dom$createDom$$("td", $bitex$ui$WithdrawList$CSS_CLASS$$ + "-details-td-value", $data$$39$$.TransactionID)));
+        $goog$dom$appendChild$$($element$$141$$, $goog$dom$createDom$$("tr", $bitex$ui$WithdrawList$CSS_CLASS$$ + "-details-tr", $goog$dom$createDom$$("td", $bitex$ui$WithdrawList$CSS_CLASS$$ + "-details-td-key", "Transaction ID"), $goog$dom$createDom$$("td", $bitex$ui$WithdrawList$CSS_CLASS$$ + "-details-td-value", $data$$39$$.TransactionID)));
       }
     }
     return $element$$141$$;
   }, classes:function() {
     return $bitex$ui$WithdrawList$CSS_CLASS$$ + "-details";
   }}];
-  $opt_broker_mode_show_customers$$ && $grid_columns$$1_opt_show_customers$$.push({property:"Username", label:"Username", sortable:!1, classes:function() {
+  $opt_broker_mode_show_customers$$ && $grid_columns$$1_opt_show_customers$$.push({property:"Username", label:"\u7528\u6237\u540d", sortable:!1, classes:function() {
     return $bitex$ui$WithdrawList$CSS_CLASS$$ + "-username";
   }});
-  $broker_mode$$ && $grid_columns$$1_opt_show_customers$$.push({property:"WithdrawID", label:"A\u00e7\u00f5es", sortable:!1, classes:function() {
+  $broker_mode$$ && $grid_columns$$1_opt_show_customers$$.push({property:"WithdrawID", label:"\u64cd\u4f5c", sortable:!1, classes:function() {
     return $bitex$ui$WithdrawList$CSS_CLASS$$ + "-actions";
   }, formatter:function($s$$40$$, $row_set_obj$$3$$) {
-    var $btn_complete_data_row$$1$$ = $goog$json$serialize$$($row_set_obj$$3$$), $btn_cancel$$ = $goog$dom$createDom$$("button", {"class":"btn btn-mini btn-danger btn-withdraw-cancel", "data-row":$btn_complete_data_row$$1$$}, "Cancelar"), $btn_progress$$ = $goog$dom$createDom$$("button", {"class":"btn btn-mini btn-primary btn-withdraw-progress", "data-row":$btn_complete_data_row$$1$$}, "Em andamento"), $btn_complete_data_row$$1$$ = $goog$dom$createDom$$("button", {"class":"btn btn-mini btn-success btn-withdraw-complete", 
-    "data-row":$btn_complete_data_row$$1$$}, "Completar");
+    var $btn_complete_data_row$$1$$ = $goog$json$serialize$$($row_set_obj$$3$$), $btn_cancel$$ = $goog$dom$createDom$$("button", {"class":"btn btn-mini btn-danger btn-withdraw-cancel", "data-row":$btn_complete_data_row$$1$$}, "\u53d6\u6d88"), $btn_progress$$ = $goog$dom$createDom$$("button", {"class":"btn btn-mini btn-primary btn-withdraw-progress", "data-row":$btn_complete_data_row$$1$$}, "\u6b63\u5728\u5904\u7406"), $btn_complete_data_row$$1$$ = $goog$dom$createDom$$("button", {"class":"btn btn-mini btn-success btn-withdraw-complete", 
+    "data-row":$btn_complete_data_row$$1$$}, "\u5df2\u7ecf\u5b8c\u6210");
     switch($row_set_obj$$3$$.Status) {
       case "0":
         return $btn_cancel$$;
@@ -6332,7 +6331,7 @@ function $bitex$ui$WithdrawList$$($methodDescriptionObj$$, $opt_broker_mode_show
     }
   }});
   this.$selected_withdraw_$ = null;
-  $bitex$ui$DataGrid$$.call(this, {rowIDFn:this.$getRowId$, rowClassFn:this.$getRowClass$, columns:$grid_columns$$1_opt_show_customers$$, title:"Saques", showSearch:!0, searchPlaceholder:"Pesquisar ...", wrapperHeight:600, buttonFilters:[{label:"Todos", value:"all"}, {label:"Pendente", value:"1"}, {label:"Em andamento...", value:"2"}, {label:"Completado", value:"4"}, {label:"Cancelado", value:"8"}]}, $opt_domHelper$$15$$);
+  $bitex$ui$DataGrid$$.call(this, {rowIDFn:this.$getRowId$, rowClassFn:this.$getRowClass$, columns:$grid_columns$$1_opt_show_customers$$, title:"\u63d0\u73b0", showSearch:!0, searchPlaceholder:"\u641c\u7d22 ...", wrapperHeight:600, buttonFilters:[{label:"\u6240\u6709", value:"all"}, {label:"\u7b49\u5f85\u4e2d", value:"1"}, {label:"\u6b63\u5728\u5904\u7406...", value:"2"}, {label:"\u5df2\u5b8c\u6210", value:"4"}, {label:"\u5df2\u53d6\u6d88", value:"8"}]}, $opt_domHelper$$15$$);
 }
 $goog$inherits$$($bitex$ui$WithdrawList$$, $bitex$ui$DataGrid$$);
 var $bitex$ui$WithdrawList$CSS_CLASS$$ = "withdraw-list";
@@ -6999,8 +6998,8 @@ $JSCompiler_prototypeAlias$$.$getElement$ = function $$JSCompiler_prototypeAlias
 $JSCompiler_prototypeAlias$$.$getDomHelper$ = function $$JSCompiler_prototypeAlias$$$$getDomHelper$$() {
   return this.$dom_$;
 };
-var $goog$ui$Dialog$DefaultButtonKeys$CANCEL$$ = "cancel", $goog$ui$Dialog$ButtonSet$DefaultButtons$OK$$ = {key:"ok", caption:"OK"}, $goog$ui$Dialog$ButtonSet$DefaultButtons$CANCEL$$ = {key:$goog$ui$Dialog$DefaultButtonKeys$CANCEL$$, caption:"Cancelar"}, $goog$ui$Dialog$ButtonSet$DefaultButtons$YES$$ = {key:"yes", caption:"Sim"}, $goog$ui$Dialog$ButtonSet$DefaultButtons$NO$$ = {key:"no", caption:"N\u00e3o"}, $goog$ui$Dialog$ButtonSet$DefaultButtons$SAVE$$ = {key:"save", caption:"Salvar"}, $goog$ui$Dialog$ButtonSet$DefaultButtons$CONTINUE$$ = 
-{key:"continue", caption:"Continuar"};
+var $goog$ui$Dialog$DefaultButtonKeys$CANCEL$$ = "cancel", $goog$ui$Dialog$ButtonSet$DefaultButtons$OK$$ = {key:"ok", caption:"OK"}, $goog$ui$Dialog$ButtonSet$DefaultButtons$CANCEL$$ = {key:$goog$ui$Dialog$DefaultButtonKeys$CANCEL$$, caption:"\u53d6\u6d88"}, $goog$ui$Dialog$ButtonSet$DefaultButtons$YES$$ = {key:"yes", caption:"\u662f"}, $goog$ui$Dialog$ButtonSet$DefaultButtons$NO$$ = {key:"no", caption:"\u5426"}, $goog$ui$Dialog$ButtonSet$DefaultButtons$SAVE$$ = {key:"save", caption:"\u4fdd\u6301"}, 
+$goog$ui$Dialog$ButtonSet$DefaultButtons$CONTINUE$$ = {key:"continue", caption:"\u7ee7\u7eed"};
 "undefined" != typeof document && ((new $goog$ui$Dialog$ButtonSet$$).$addButton$($goog$ui$Dialog$ButtonSet$DefaultButtons$OK$$, !0, !0), (new $goog$ui$Dialog$ButtonSet$$).$addButton$($goog$ui$Dialog$ButtonSet$DefaultButtons$OK$$, !0).$addButton$($goog$ui$Dialog$ButtonSet$DefaultButtons$CANCEL$$, !1, !0), (new $goog$ui$Dialog$ButtonSet$$).$addButton$($goog$ui$Dialog$ButtonSet$DefaultButtons$YES$$, !0).$addButton$($goog$ui$Dialog$ButtonSet$DefaultButtons$NO$$, !1, !0), (new $goog$ui$Dialog$ButtonSet$$).$addButton$($goog$ui$Dialog$ButtonSet$DefaultButtons$YES$$).$addButton$($goog$ui$Dialog$ButtonSet$DefaultButtons$NO$$, 
 !0).$addButton$($goog$ui$Dialog$ButtonSet$DefaultButtons$CANCEL$$, !1, !0), (new $goog$ui$Dialog$ButtonSet$$).$addButton$($goog$ui$Dialog$ButtonSet$DefaultButtons$CONTINUE$$).$addButton$($goog$ui$Dialog$ButtonSet$DefaultButtons$SAVE$$).$addButton$($goog$ui$Dialog$ButtonSet$DefaultButtons$CANCEL$$, !0, !0));
 // Input 117
@@ -7046,7 +7045,7 @@ $bootstrap$Dialog$ButtonSet$$.prototype.render = function $$bootstrap$Dialog$But
     }, this);
   }
 };
-var $bootstrap$Dialog$ButtonSet$DefaultButtons$PRINT$$ = {key:"print", caption:"Imprimir"};
+var $bootstrap$Dialog$ButtonSet$DefaultButtons$PRINT$$ = {key:"print", caption:"\u6253\u5370"};
 function $bootstrap$Dialog$ButtonSet$createOk$$() {
   return(new $bootstrap$Dialog$ButtonSet$$).$addButton$($goog$ui$Dialog$ButtonSet$DefaultButtons$OK$$, !0, !0);
 }
@@ -7665,8 +7664,8 @@ $goog$ui$registry$setDecoratorByClassName$$("goog-button", function() {
 // Input 129
 // Input 130
 function $bitex$ui$LockedBalanceDisplay$templates$LockedBalanceDisplay$$($opt_data$$43_output$$37$$) {
-  return $opt_data$$43_output$$37$$ = "" + ('<div class="row-fluid locked-balance-display"><div class="span6 text-left locked-balance-display-buying">Voc\u00ea est\u00e1 comprando um total de <span id="' + $soy$$0$0escapeHtml$$($opt_data$$43_output$$37$$.id) + '_buy_account" class="bitex-model" data-model-key="formatted_locked_balance_' + $soy$$0$0escapeHtml$$($opt_data$$43_output$$37$$.$accountBuy$) + '" data-blink-class="balance-info-blink">' + ($opt_data$$43_output$$37$$.$formattedAmountBuying$ ? 
-  $soy$$0$0escapeHtml$$($opt_data$$43_output$$37$$.$formattedAmountBuying$) : "") + '</span></div><div class="span6 text-right locked-balance-display-selling">Voc\u00ea est\u00e1 vendendo um total de <span id="' + $soy$$0$0escapeHtml$$($opt_data$$43_output$$37$$.id) + '_sell_account"  class="bitex-model" data-model-key="formatted_locked_balance_' + $soy$$0$0escapeHtml$$($opt_data$$43_output$$37$$.$accountSell$) + '" data-blink-class="balance-info-blink">' + ($opt_data$$43_output$$37$$.$formattedAmountSelling$ ? 
+  return $opt_data$$43_output$$37$$ = "" + ('<div class="row-fluid locked-balance-display"><div class="span6 text-left locked-balance-display-buying">\u4f60\u6b63\u5728\u4e70\u5165\u7684\u6570\u91cf\u4e3a <span id="' + $soy$$0$0escapeHtml$$($opt_data$$43_output$$37$$.id) + '_buy_account" class="bitex-model" data-model-key="formatted_locked_balance_' + $soy$$0$0escapeHtml$$($opt_data$$43_output$$37$$.$accountBuy$) + '" data-blink-class="balance-info-blink">' + ($opt_data$$43_output$$37$$.$formattedAmountBuying$ ? 
+  $soy$$0$0escapeHtml$$($opt_data$$43_output$$37$$.$formattedAmountBuying$) : "") + '</span></div><div class="span6 text-right locked-balance-display-selling">\u4f60\u6b63\u5728\u5356\u51fa\u7684\u6570\u91cf\u4e3a <span id="' + $soy$$0$0escapeHtml$$($opt_data$$43_output$$37$$.id) + '_sell_account"  class="bitex-model" data-model-key="formatted_locked_balance_' + $soy$$0$0escapeHtml$$($opt_data$$43_output$$37$$.$accountSell$) + '" data-blink-class="balance-info-blink">' + ($opt_data$$43_output$$37$$.$formattedAmountSelling$ ? 
   $soy$$0$0escapeHtml$$($opt_data$$43_output$$37$$.$formattedAmountSelling$) : "") + "</span></div></div>");
 }
 ;
@@ -7779,16 +7778,16 @@ $goog$ui$registry$setDecoratorByClassName$$("goog-toggle-button", function() {
 function $bitex$ui$AdvancedOrderEntry$templates$AdvancedOrderEntry$$($opt_data$$44$$) {
   var $output$$38$$;
   $output$$38$$ = "" + ('<form id="' + $soy$$0$0escapeHtml$$($opt_data$$44$$.id) + '" class="well span6 advanced-order-entry" data-uniform-control-holder-class="uniform-control-holder"><input id="' + $soy$$0$0escapeHtml$$($opt_data$$44$$.id) + '_symbol" type="hidden" name="symbol" value="' + $soy$$0$0escapeHtml$$($opt_data$$44$$.$symbol$) + '"><input id="' + $soy$$0$0escapeHtml$$($opt_data$$44$$.id) + '_side" type="hidden" name="side" value="' + $soy$$0$0escapeHtml$$($opt_data$$44$$.$side$) + '"><input id="' + 
-  $soy$$0$0escapeHtml$$($opt_data$$44$$.id) + '_type" type="hidden" name="type" value="' + $soy$$0$0escapeHtml$$($opt_data$$44$$.type) + '"><input id="' + $soy$$0$0escapeHtml$$($opt_data$$44$$.id) + '_is_broker" type="hidden" value="' + $soy$$0$0escapeHtml$$($opt_data$$44$$.$is_broker$) + '"><input id="' + $soy$$0$0escapeHtml$$($opt_data$$44$$.id) + '_broker_id" type="hidden" name="broker_id" value="' + $soy$$0$0escapeHtml$$($opt_data$$44$$.$broker_id$) + '"><div class="row-fluid uniform-control-holder"><div class="span5"> <span>Quantidade:</span></div><div class="span6"><div class="input-prepend input-block-level"><span id="' + 
-  $soy$$0$0escapeHtml$$($opt_data$$44$$.id) + '_amount_sign" class="add-on advanced-order-entry-amount-sign">' + $soy$$0$0escapeHtml$$($opt_data$$44$$.$amount_currency_symbol$) + '</span><input id="' + $soy$$0$0escapeHtml$$($opt_data$$44$$.id) + '_amount" name="amount" type="text" class="input-block-level" data-uniform-label="Quantidade" data-uniform-validators="validateNumber; required" data-uniform-type="number" data-uniform-filters="positive_number" value="" required/></div></div></div><div class="row-fluid uniform-control-holder"><div class="span5"> <span>Pre\u00e7o por <span class="advanced-order-entry-amount-sign">' + 
-  $soy$$0$0escapeHtml$$($opt_data$$44$$.$amount_currency_symbol$) + '</span>:</span></div><div class="span6"><div class="input-prepend input-block-level"><span id="' + $soy$$0$0escapeHtml$$($opt_data$$44$$.id) + '_price_sign" class="add-on advanced-order-entry-price-sign">' + $soy$$0$0escapeHtml$$($opt_data$$44$$.$price_currency_symbol$) + '</span><input id="' + $soy$$0$0escapeHtml$$($opt_data$$44$$.id) + '_price" name="price" type="text" class="input-block-level" data-uniform-label="Pre\u00e7o" data-uniform-validators="validateNumber; required" data-uniform-type="number" data-uniform-filters="positive_number" required/></div></div></div><div class="row-fluid uniform-control-holder"><div class="span5"><span>Total:</span></div><div class="span6"><div class="input-prepend input-block-level"><span class="add-on advanced-order-entry-price-sign">' + 
-  $soy$$0$0escapeHtml$$($opt_data$$44$$.$price_currency_symbol$) + '</span><input id="' + $soy$$0$0escapeHtml$$($opt_data$$44$$.id) + '_total" name="total" type="text" class="input-block-level" data-uniform-label="Total" data-uniform-validators="validateNumber; required" data-uniform-type="number" data-uniform-filters="positive_number" required/></div></div></div><div class="row-fluid uniform-control-holder"><div class="span5">');
-  $output$$38$$ = $opt_data$$44$$.$is_broker$ ? $output$$38$$ + ('<input id="' + $soy$$0$0escapeHtml$$($opt_data$$44$$.id) + '_client_id" name="client_id" type="text" class="input-block-level" label="ID do cliente" data-uniform-label="ID do cliente" data-uniform-validators="required"/>') : $output$$38$$ + ('<div id="' + $soy$$0$0escapeHtml$$($opt_data$$44$$.id) + '_available_badge" class="text-block" style="margin-top: 10px;cursor: pointer;">Dispon\u00edvel: <span id="' + $soy$$0$0escapeHtml$$($opt_data$$44$$.id) + 
+  $soy$$0$0escapeHtml$$($opt_data$$44$$.id) + '_type" type="hidden" name="type" value="' + $soy$$0$0escapeHtml$$($opt_data$$44$$.type) + '"><input id="' + $soy$$0$0escapeHtml$$($opt_data$$44$$.id) + '_is_broker" type="hidden" value="' + $soy$$0$0escapeHtml$$($opt_data$$44$$.$is_broker$) + '"><input id="' + $soy$$0$0escapeHtml$$($opt_data$$44$$.id) + '_broker_id" type="hidden" name="broker_id" value="' + $soy$$0$0escapeHtml$$($opt_data$$44$$.$broker_id$) + '"><div class="row-fluid uniform-control-holder"><div class="span5"> <span>\u6570\u91cf:</span></div><div class="span6"><div class="input-prepend input-block-level"><span id="' + 
+  $soy$$0$0escapeHtml$$($opt_data$$44$$.id) + '_amount_sign" class="add-on advanced-order-entry-amount-sign">' + $soy$$0$0escapeHtml$$($opt_data$$44$$.$amount_currency_symbol$) + '</span><input id="' + $soy$$0$0escapeHtml$$($opt_data$$44$$.id) + '_amount" name="amount" type="text" class="input-block-level" data-uniform-label="\u6570\u91cf" data-uniform-validators="validateNumber; required" data-uniform-type="number" data-uniform-filters="positive_number" value="" required/></div></div></div><div class="row-fluid uniform-control-holder"><div class="span5"> <span>\u5355\u4ef7 <span class="advanced-order-entry-amount-sign">' + 
+  $soy$$0$0escapeHtml$$($opt_data$$44$$.$amount_currency_symbol$) + '</span>:</span></div><div class="span6"><div class="input-prepend input-block-level"><span id="' + $soy$$0$0escapeHtml$$($opt_data$$44$$.id) + '_price_sign" class="add-on advanced-order-entry-price-sign">' + $soy$$0$0escapeHtml$$($opt_data$$44$$.$price_currency_symbol$) + '</span><input id="' + $soy$$0$0escapeHtml$$($opt_data$$44$$.id) + '_price" name="price" type="text" class="input-block-level" data-uniform-label="\u4ef7\u683c" data-uniform-validators="validateNumber; required" data-uniform-type="number" data-uniform-filters="positive_number" required/></div></div></div><div class="row-fluid uniform-control-holder"><div class="span5"><span>\u603b\u91cf:</span></div><div class="span6"><div class="input-prepend input-block-level"><span class="add-on advanced-order-entry-price-sign">' + 
+  $soy$$0$0escapeHtml$$($opt_data$$44$$.$price_currency_symbol$) + '</span><input id="' + $soy$$0$0escapeHtml$$($opt_data$$44$$.id) + '_total" name="total" type="text" class="input-block-level" data-uniform-label="\u603b\u91cf" data-uniform-validators="validateNumber; required" data-uniform-type="number" data-uniform-filters="positive_number" required/></div></div></div><div class="row-fluid uniform-control-holder"><div class="span5">');
+  $output$$38$$ = $opt_data$$44$$.$is_broker$ ? $output$$38$$ + ('<input id="' + $soy$$0$0escapeHtml$$($opt_data$$44$$.id) + '_client_id" name="client_id" type="text" class="input-block-level" label="\u5ba2\u6237ID" data-uniform-label="\u5ba2\u6237ID" data-uniform-validators="required"/>') : $output$$38$$ + ('<div id="' + $soy$$0$0escapeHtml$$($opt_data$$44$$.id) + '_available_badge" class="text-block" style="margin-top: 10px;cursor: pointer;">Available: <span id="' + $soy$$0$0escapeHtml$$($opt_data$$44$$.id) + 
   '_available_value" class="bitex-model" data-model-key="available_balance_' + $soy$$0$0escapeHtml$$($opt_data$$44$$.$broker_id$) + ":" + $soy$$0$0escapeHtml$$($opt_data$$44$$.$client_id$) + "_" + $soy$$0$0escapeHtml$$($opt_data$$44$$.$price_currency_code$) + '" style="display:none"></span><small>' + (1 == $opt_data$$44$$.$side$ ? '<span id="' + $soy$$0$0escapeHtml$$($opt_data$$44$$.id) + '_available" class="bitex-model" data-model-key="formatted_available_balance_' + $soy$$0$0escapeHtml$$($opt_data$$44$$.$broker_id$) + 
   ":" + $soy$$0$0escapeHtml$$($opt_data$$44$$.$client_id$) + "_" + $soy$$0$0escapeHtml$$($opt_data$$44$$.$price_currency_code$) + '" data-blink-class="balance-info-blink"></span>' : '<span id="' + $soy$$0$0escapeHtml$$($opt_data$$44$$.id) + '_available" class="bitex-model" data-model-key="formatted_available_balance_' + $soy$$0$0escapeHtml$$($opt_data$$44$$.$broker_id$) + ":" + $soy$$0$0escapeHtml$$($opt_data$$44$$.$client_id$) + "_" + $soy$$0$0escapeHtml$$($opt_data$$44$$.$amount_currency_code$) + 
   '" data-blink-class="balance-info-blink"></span>') + "</small></div>");
   $output$$38$$ += '</div><div class="span7"><button id="' + $soy$$0$0escapeHtml$$($opt_data$$44$$.id) + '_action" class="btn ' + (1 == $opt_data$$44$$.$side$ ? "btn-success" : "btn-danger") + ' btn-execution" style="width: 100%;">';
-  $output$$38$$ = 1 == $opt_data$$44$$.$side$ ? $output$$38$$ + "COMPRAR" : $output$$38$$ + "VENDER";
+  $output$$38$$ = 1 == $opt_data$$44$$.$side$ ? $output$$38$$ + "\u8d2d\u4e70" : $output$$38$$ + "\u5356\u51fa";
   return $output$$38$$ + "</button></div></div></form>";
 }
 ;
@@ -8204,19 +8203,19 @@ $JSCompiler_prototypeAlias$$.$exitDocument$ = function $$JSCompiler_prototypeAli
 // Input 138
 function $bitex$ui$withdraw_methods$templates$WithdrawMethods$$($currList62_opt_data$$45$$) {
   var $output$$39$$;
-  $output$$39$$ = "" + ('<div class="row-fluid"><div class="span12"><table id="' + $soy$$0$0escapeHtml$$($currList62_opt_data$$45$$.id) + '_table" class="table table-condensed table-hover"><thead><tr><th> Moeda</th><th> Nome</th><th> Aviso </th><th> Taxas</th><th> A\u00e7\u00f5es </th></tr></thead><tbody>');
+  $output$$39$$ = "" + ('<div class="row-fluid"><div class="span12"><table id="' + $soy$$0$0escapeHtml$$($currList62_opt_data$$45$$.id) + '_table" class="table table-condensed table-hover"><thead><tr><th> \u8d27\u5e01</th><th> \u540d\u79f0</th><th> \u514d\u8d23\u7533\u660e </th><th> \u624b\u7eed\u8d39</th><th> \u64cd\u4f5c </th></tr></thead><tbody>');
   for (var $currListLen62_methodList21$$ = $currList62_opt_data$$45$$.methods, $currIndex62_methodListLen21$$ = $currListLen62_methodList21$$.length, $currData62_methodIndex21$$ = 0;$currData62_methodIndex21$$ < $currIndex62_methodListLen21$$;$currData62_methodIndex21$$++) {
     var $methodData21$$ = $currListLen62_methodList21$$[$currData62_methodIndex21$$];
     $output$$39$$ += '<tr data-withdraw-currency="' + $soy$$0$0escapeHtml$$($methodData21$$.currency) + '"  data-withdraw-method="' + $soy$$0$0escapeHtml$$($methodData21$$.method) + '"><td>' + $soy$$0$0escapeHtml$$($methodData21$$.currency_description) + "</td><td>" + $soy$$0$0escapeHtml$$($methodData21$$.description) + "</td><td>" + $soy$$0$0escapeHtml$$($methodData21$$.disclaimer) + "</td>" + ($methodData21$$.has_fixed_fee ? "<td>" + $soy$$0$0escapeHtml$$($methodData21$$.formatted_percent_fee) + 
-    "% + " + $soy$$0$0escapeHtml$$($methodData21$$.formatted_fixed_fee) + "</td>" : "<td>" + $soy$$0$0escapeHtml$$($methodData21$$.formatted_percent_fee) + "%</td>") + '<td><div class="btn-group"><button class="btn btn-mini btn-success withdraw-methods-action-edit withdraw-method-action">editar</button><button class="btn btn-mini btn-danger withdraw-methods-action-delete withdraw-method-action">deletar</button></div></td></tr>';
+    "% + " + $soy$$0$0escapeHtml$$($methodData21$$.formatted_fixed_fee) + "</td>" : "<td>" + $soy$$0$0escapeHtml$$($methodData21$$.formatted_percent_fee) + "%</td>") + '<td><div class="btn-group"><button class="btn btn-mini btn-success withdraw-methods-action-edit withdraw-method-action">\u7f16\u8f91</button><button class="btn btn-mini btn-danger withdraw-methods-action-delete withdraw-method-action">\u5220\u9664</button></div></td></tr>';
   }
-  $output$$39$$ += '</tbody></table><div class="withdraw-methods-show-when-dirty-state pull-right" ><button  class="btn btn-large btn-success withdraw-methods-action-save">Salvar</button> <button class="btn btn-large btn-danger withdraw-methods-action-cancel">Cancelar</button></div><div class="withdraw-methods-show-when-clean-state btn-group pull-right "><a class="btn btn-primary btn-small dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-white icon-plus"></i> Adicionar m\u00e9todo de saque</a><ul class="dropdown-menu">';
+  $output$$39$$ += '</tbody></table><div class="withdraw-methods-show-when-dirty-state pull-right" ><button  class="btn btn-large btn-success withdraw-methods-action-save">\u4fdd\u5b58</button> <button class="btn btn-large btn-danger withdraw-methods-action-cancel">\u53d6\u6d88</button></div><div class="withdraw-methods-show-when-clean-state btn-group pull-right "><a class="btn btn-primary btn-small dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-white icon-plus"></i> \u6dfb\u52a0\u63d0\u73b0\u65b9\u6cd5</a><ul class="dropdown-menu">';
   $currList62_opt_data$$45$$ = $currList62_opt_data$$45$$.$currencies$;
   $currListLen62_methodList21$$ = $currList62_opt_data$$45$$.length;
   for ($currIndex62_methodListLen21$$ = 0;$currIndex62_methodListLen21$$ < $currListLen62_methodList21$$;$currIndex62_methodListLen21$$++) {
     $currData62_methodIndex21$$ = $currList62_opt_data$$45$$[$currIndex62_methodListLen21$$], $output$$39$$ += '<li><a href="" data-withdraw-currency="' + $soy$$0$0escapeHtml$$($currData62_methodIndex21$$.code) + '" class="withdraw-methods-action-add withdraw-method-action" >' + $soy$$0$0escapeHtml$$($currData62_methodIndex21$$.description) + "</a></li>";
   }
-  return $output$$39$$ + '</ul></div><div class="withdraw-methods-show-when-saving-state span4 pull-right" ><div class="progress progress-success progress-striped active"><div class="bar" style="width: 100%">Salvando...</div></div></div><div class="clearfix"></div></div></div>';
+  return $output$$39$$ + '</ul></div><div class="withdraw-methods-show-when-saving-state span4 pull-right" ><div class="progress progress-success progress-striped active"><div class="bar" style="width: 100%">\u4fdd\u5b58\u4e2d...</div></div></div><div class="clearfix"></div></div></div>';
 }
 ;
 // Input 139
@@ -8304,7 +8303,7 @@ function $JSCompiler_StaticMethods_onActionEdit_$$($JSCompiler_StaticMethods_onA
   $buttonSet$$1_withdraw_method_editor_model$$.currency = $JSCompiler_StaticMethods_onActionEdit_$self$$.$selected_currency_$;
   $withdraw_method_editor$$.$setModel$($buttonSet$$1_withdraw_method_editor_model$$);
   var $buttonSet$$1_withdraw_method_editor_model$$ = $bootstrap$Dialog$ButtonSet$createOkCancel$$(), $dialog_$$ = new $bootstrap$Dialog$$;
-  $JSCompiler_StaticMethods_setTitle$$($dialog_$$, "Editar m\u00e9todo de saque");
+  $JSCompiler_StaticMethods_setTitle$$($dialog_$$, "\u7f16\u8f91\u63d0\u73b0\u9009\u9879");
   $JSCompiler_StaticMethods_addChild$$($dialog_$$, $withdraw_method_editor$$, !0);
   $JSCompiler_StaticMethods_setButtonSet$$($dialog_$$, $buttonSet$$1_withdraw_method_editor_model$$);
   $dialog_$$.$setVisible$(!0);
@@ -8333,7 +8332,7 @@ $JSCompiler_prototypeAlias$$.$onAddField_$ = function $$JSCompiler_prototypeAlia
     $withdraw_method_editor$$1$$.$setModel$({currency:this.$selected_currency_$, description:"", disclaimer:"", fields:[], fixed_fee:"", method:"", percent_fee:""});
     $buttonSet$$2_e$$150$$ = $bootstrap$Dialog$ButtonSet$createOkCancel$$();
     var $dialog_$$1$$ = new $bootstrap$Dialog$$;
-    $JSCompiler_StaticMethods_setTitle$$($dialog_$$1$$, "Adicionar m\u00e9todo de saque");
+    $JSCompiler_StaticMethods_setTitle$$($dialog_$$1$$, "\u6dfb\u52a0\u63d0\u73b0\u65b9\u6cd5");
     $JSCompiler_StaticMethods_addChild$$($dialog_$$1$$, $withdraw_method_editor$$1$$, !0);
     $JSCompiler_StaticMethods_setButtonSet$$($dialog_$$1$$, $buttonSet$$2_e$$150$$);
     $dialog_$$1$$.$setVisible$(!0);
@@ -8352,51 +8351,51 @@ $JSCompiler_prototypeAlias$$.$onAddField_$ = function $$JSCompiler_prototypeAlia
 };
 // Input 140
 function $bitex$ui$withdraw_method_editor$templates$WithdrawMethodFieldLineEditor$$($opt_data$$46_output$$40$$) {
-  return $opt_data$$46_output$$40$$ = "" + ('<tr id="' + $soy$$0$0escapeHtml$$($opt_data$$46_output$$40$$.id) + "_field_" + $soy$$0$0escapeHtml$$($opt_data$$46_output$$40$$.$idx$) + '"><td><select id="' + $soy$$0$0escapeHtml$$($opt_data$$46_output$$40$$.id) + "_field_side_" + $soy$$0$0escapeHtml$$($opt_data$$46_output$$40$$.$idx$) + '" class="withdraw-method-editor-field-side"><option value="client" ' + ("client" == $opt_data$$46_output$$40$$.data.side ? "selected" : "") + '>Cliente</option><option value="broker" ' + 
-  ("broker" == $opt_data$$46_output$$40$$.data.side ? "selected" : "") + '>Corretora</option></select></td><td><input id="' + $soy$$0$0escapeHtml$$($opt_data$$46_output$$40$$.id) + "_field_name_" + $soy$$0$0escapeHtml$$($opt_data$$46_output$$40$$.$idx$) + '" type="text" class="input-block-level withdraw-method-editor-field-name"  data-uniform-label="Nome" data-uniform-filters="non_space"  data-uniform-validators="required ; validatePhrase"  placeholder="" required value="' + $soy$$0$0escapeHtml$$($opt_data$$46_output$$40$$.data.name) + 
-  '"></td><td><input id="' + $soy$$0$0escapeHtml$$($opt_data$$46_output$$40$$.id) + "_field_label_" + $soy$$0$0escapeHtml$$($opt_data$$46_output$$40$$.$idx$) + '" type="text" class="input-block-level withdraw-method-editor-field-label"  data-uniform-label="R\u00f3tulo"  data-uniform-validators="required" placeholder="" required value="' + $soy$$0$0escapeHtml$$($opt_data$$46_output$$40$$.data.label) + '"></td><td><input id="' + $soy$$0$0escapeHtml$$($opt_data$$46_output$$40$$.id) + "_field_placeholder_" + 
+  return $opt_data$$46_output$$40$$ = "" + ('<tr id="' + $soy$$0$0escapeHtml$$($opt_data$$46_output$$40$$.id) + "_field_" + $soy$$0$0escapeHtml$$($opt_data$$46_output$$40$$.$idx$) + '"><td><select id="' + $soy$$0$0escapeHtml$$($opt_data$$46_output$$40$$.id) + "_field_side_" + $soy$$0$0escapeHtml$$($opt_data$$46_output$$40$$.$idx$) + '" class="withdraw-method-editor-field-side"><option value="client" ' + ("client" == $opt_data$$46_output$$40$$.data.side ? "selected" : "") + '>\u5ba2\u6237</option><option value="broker" ' + 
+  ("broker" == $opt_data$$46_output$$40$$.data.side ? "selected" : "") + '>\u4ee3\u7406</option></select></td><td><input id="' + $soy$$0$0escapeHtml$$($opt_data$$46_output$$40$$.id) + "_field_name_" + $soy$$0$0escapeHtml$$($opt_data$$46_output$$40$$.$idx$) + '" type="text" class="input-block-level withdraw-method-editor-field-name"  data-uniform-label="\u540d\u79f0" data-uniform-filters="non_space"  data-uniform-validators="required ; validatePhrase"  placeholder="" required value="' + $soy$$0$0escapeHtml$$($opt_data$$46_output$$40$$.data.name) + 
+  '"></td><td><input id="' + $soy$$0$0escapeHtml$$($opt_data$$46_output$$40$$.id) + "_field_label_" + $soy$$0$0escapeHtml$$($opt_data$$46_output$$40$$.$idx$) + '" type="text" class="input-block-level withdraw-method-editor-field-label"  data-uniform-label="\u6807\u7b7e"  data-uniform-validators="required" placeholder="" required value="' + $soy$$0$0escapeHtml$$($opt_data$$46_output$$40$$.data.label) + '"></td><td><input id="' + $soy$$0$0escapeHtml$$($opt_data$$46_output$$40$$.id) + "_field_placeholder_" + 
   $soy$$0$0escapeHtml$$($opt_data$$46_output$$40$$.$idx$) + '" type="text" class="input-block-level withdraw-method-editor-field-placeholder" placeholder="" value="' + $soy$$0$0escapeHtml$$($opt_data$$46_output$$40$$.data.placeholder) + '"></td><td><select id="' + $soy$$0$0escapeHtml$$($opt_data$$46_output$$40$$.id) + "_field_type_" + $soy$$0$0escapeHtml$$($opt_data$$46_output$$40$$.$idx$) + '" class="withdraw-method-editor-field-type"><option value="text" ' + ("text" == $opt_data$$46_output$$40$$.data.type ? 
-  "selected" : "") + '>Texto</option></select></td><td><select id="' + $soy$$0$0escapeHtml$$($opt_data$$46_output$$40$$.id) + "_field_validator_" + $soy$$0$0escapeHtml$$($opt_data$$46_output$$40$$.$idx$) + '" class="withdraw-method-editor-field-validator"><option value="required" ' + ("required" == $opt_data$$46_output$$40$$.data.validator ? "selected" : "") + ' >Required</option><option value="validateEmail" ' + ("validateEmail" == $opt_data$$46_output$$40$$.data.validator ? "selected" : "") + ' >Email</option><option value="validateNumber" ' + 
-  ("validateNumber" == $opt_data$$46_output$$40$$.data.validator ? "selected" : "") + ' >Number</option><option value="validateInteger" ' + ("validateInteger" == $opt_data$$46_output$$40$$.data.validator ? "selected" : "") + ' >Integer</option><option value="validateAlpha" ' + ("validateAlpha" == $opt_data$$46_output$$40$$.data.validator ? "selected" : "") + ' >Alpha</option><option value="validateUsername" ' + ("validateUsername" == $opt_data$$46_output$$40$$.data.validator ? "selected" : "") + 
-  ' >Username</option><option value="validateAlphaNum" ' + ("validateAlphaNum" == $opt_data$$46_output$$40$$.data.validator ? "selected" : "") + ' >Alpha Numeric</option><option value="validateAddress" ' + ("validateAddress" == $opt_data$$46_output$$40$$.data.validator ? "selected" : "") + '  >BTC Address</option></select></td><td><input id="' + $soy$$0$0escapeHtml$$($opt_data$$46_output$$40$$.id) + "_field_value_" + $soy$$0$0escapeHtml$$($opt_data$$46_output$$40$$.$idx$) + '" type="text" class="input-block-level withdraw-method-editor-field-value" placeholder="" value="' + 
-  $soy$$0$0escapeHtml$$($opt_data$$46_output$$40$$.data.value) + '"></td><td><button id="' + $soy$$0$0escapeHtml$$($opt_data$$46_output$$40$$.id) + "_field_delete_" + $soy$$0$0escapeHtml$$($opt_data$$46_output$$40$$.$idx$) + '" data-index="' + $soy$$0$0escapeHtml$$($opt_data$$46_output$$40$$.$idx$) + '" class="btn btn-mini btn-danger withdraw-method-editor-field-action-delete withdraw-method-editor-field-action">deletar</button></td></tr>');
+  "selected" : "") + '>\u6587\u672c</option></select></td><td><select id="' + $soy$$0$0escapeHtml$$($opt_data$$46_output$$40$$.id) + "_field_validator_" + $soy$$0$0escapeHtml$$($opt_data$$46_output$$40$$.$idx$) + '" class="withdraw-method-editor-field-validator"><option value="required" ' + ("required" == $opt_data$$46_output$$40$$.data.validator ? "selected" : "") + ' >Required</option><option value="validateEmail" ' + ("validateEmail" == $opt_data$$46_output$$40$$.data.validator ? "selected" : 
+  "") + ' >Email</option><option value="validateNumber" ' + ("validateNumber" == $opt_data$$46_output$$40$$.data.validator ? "selected" : "") + ' >Number</option><option value="validateInteger" ' + ("validateInteger" == $opt_data$$46_output$$40$$.data.validator ? "selected" : "") + ' >Integer</option><option value="validateAlpha" ' + ("validateAlpha" == $opt_data$$46_output$$40$$.data.validator ? "selected" : "") + ' >Alpha</option><option value="validateUsername" ' + ("validateUsername" == $opt_data$$46_output$$40$$.data.validator ? 
+  "selected" : "") + ' >Username</option><option value="validateAlphaNum" ' + ("validateAlphaNum" == $opt_data$$46_output$$40$$.data.validator ? "selected" : "") + ' >Alpha Numeric</option><option value="validateAddress" ' + ("validateAddress" == $opt_data$$46_output$$40$$.data.validator ? "selected" : "") + '  >BTC Address</option></select></td><td><input id="' + $soy$$0$0escapeHtml$$($opt_data$$46_output$$40$$.id) + "_field_value_" + $soy$$0$0escapeHtml$$($opt_data$$46_output$$40$$.$idx$) + '" type="text" class="input-block-level withdraw-method-editor-field-value" placeholder="" value="' + 
+  $soy$$0$0escapeHtml$$($opt_data$$46_output$$40$$.data.value) + '"></td><td><button id="' + $soy$$0$0escapeHtml$$($opt_data$$46_output$$40$$.id) + "_field_delete_" + $soy$$0$0escapeHtml$$($opt_data$$46_output$$40$$.$idx$) + '" data-index="' + $soy$$0$0escapeHtml$$($opt_data$$46_output$$40$$.$idx$) + '" class="btn btn-mini btn-danger withdraw-method-editor-field-action-delete withdraw-method-editor-field-action">\u5220\u9664</button></td></tr>');
 }
 function $bitex$ui$withdraw_method_editor$templates$WithdrawMethodEditor$$($opt_data$$47$$) {
   var $output$$41$$;
-  $output$$41$$ = "" + ('<div class="row-fluid"><div class="span12"><form id="' + $soy$$0$0escapeHtml$$($opt_data$$47$$.id) + '" class="form-horizontal span6"  data-uniform-control-holder-class="control-group"><fieldset><div class="control-group"><label class="control-label">Nome do m\u00e9todo</label><div class="controls"><input id="' + $soy$$0$0escapeHtml$$($opt_data$$47$$.id) + '_name"  type="text" class="input-block-level"  data-uniform-validators="required; validateAlphaNum" data-uniform-filters="non_space" placeholder="" required value="' + 
-  $soy$$0$0escapeHtml$$($opt_data$$47$$.$model$.method) + '"></div></div><div class="control-group"><label class="control-label">Descri\u00e7\u00e3o</label><div class="controls"><input id="' + $soy$$0$0escapeHtml$$($opt_data$$47$$.id) + '_description"  type="text" class="input-block-level" data-uniform-validators="required" placeholder="" required value="' + $soy$$0$0escapeHtml$$($opt_data$$47$$.$model$.description) + '"></div></div><div class="control-group"><label class="control-label">Aviso</label><div class="controls"><input id="' + 
-  $soy$$0$0escapeHtml$$($opt_data$$47$$.id) + '_placeholder"  type="text" class="input-block-level" placeholder="" value="' + $soy$$0$0escapeHtml$$($opt_data$$47$$.$model$.disclaimer) + '"></div></div><div class="control-group"><label class="control-label">Taxas</label><div class="controls"><div class="row-fluid"><div class="span6"><div class="input-append"><input id="' + $soy$$0$0escapeHtml$$($opt_data$$47$$.id) + '_percent_fee" type="text" class="input-block-level" autocomplete="off" maxlength="4" data-uniform-validators="required ; validateNumber; validateMin 0; validateMax 25" label="Taxa em percentagem" required value="' + 
-  $soy$$0$0escapeHtml$$($opt_data$$47$$.$model$.percent_fee) + '"><span class="add-on">%</span></div></div><div class="span6"><div class="input-prepend"><span class="add-on">' + $soy$$0$0escapeHtml$$($opt_data$$47$$.$model$.currency) + '</span><input id="' + $soy$$0$0escapeHtml$$($opt_data$$47$$.id) + '_fixed_fee" type="text" class="input-block-level" autocomplete="off" data-uniform-validators="required ; validateNumber; validateMin 0" label="Taxa fixa" required value="' + $soy$$0$0escapeHtml$$($opt_data$$47$$.$model$.fixed_fee) + 
-  '"></div></div></div></div></div><div class="control-group"><table id="' + $soy$$0$0escapeHtml$$($opt_data$$47$$.id) + '_table" class="table table-condensed table-bordered table-hover"><thead><tr><td colspan="7" style="text-align: center">Campos</td></tr><tr><th> Lado</th><th> Nome </th><th> R\u00f3tulo </th><th> Placeholder </th><th> Tipo </th><th> Valida\u00e7\u00e3o </th><th> Valor </th><th> A\u00e7\u00f5es </th></tr></thead><tbody>');
+  $output$$41$$ = "" + ('<div class="row-fluid"><div class="span12"><form id="' + $soy$$0$0escapeHtml$$($opt_data$$47$$.id) + '" class="form-horizontal span6"  data-uniform-control-holder-class="control-group"><fieldset><div class="control-group"><label class="control-label">\u65b9\u6cd5\u540d\u79f0</label><div class="controls"><input id="' + $soy$$0$0escapeHtml$$($opt_data$$47$$.id) + '_name"  type="text" class="input-block-level"  data-uniform-validators="required; validateAlphaNum" data-uniform-filters="non_space" placeholder="" required value="' + 
+  $soy$$0$0escapeHtml$$($opt_data$$47$$.$model$.method) + '"></div></div><div class="control-group"><label class="control-label">\u63cf\u8ff0</label><div class="controls"><input id="' + $soy$$0$0escapeHtml$$($opt_data$$47$$.id) + '_description"  type="text" class="input-block-level" data-uniform-validators="required" placeholder="" required value="' + $soy$$0$0escapeHtml$$($opt_data$$47$$.$model$.description) + '"></div></div><div class="control-group"><label class="control-label">\u514d\u8d23\u7533\u660e</label><div class="controls"><input id="' + 
+  $soy$$0$0escapeHtml$$($opt_data$$47$$.id) + '_placeholder"  type="text" class="input-block-level" placeholder="" value="' + $soy$$0$0escapeHtml$$($opt_data$$47$$.$model$.disclaimer) + '"></div></div><div class="control-group"><label class="control-label">\u624b\u7eed\u8d39</label><div class="controls"><div class="row-fluid"><div class="span6"><div class="input-append"><input id="' + $soy$$0$0escapeHtml$$($opt_data$$47$$.id) + '_percent_fee" type="text" class="input-block-level" autocomplete="off" maxlength="4" data-uniform-validators="required ; validateNumber; validateMin 0; validateMax 25" label="\u6309\u6bd4\u4f8b\u624b\u7eed\u8d39" required value="' + 
+  $soy$$0$0escapeHtml$$($opt_data$$47$$.$model$.percent_fee) + '"><span class="add-on">%</span></div></div><div class="span6"><div class="input-prepend"><span class="add-on">' + $soy$$0$0escapeHtml$$($opt_data$$47$$.$model$.currency) + '</span><input id="' + $soy$$0$0escapeHtml$$($opt_data$$47$$.id) + '_fixed_fee" type="text" class="input-block-level" autocomplete="off" data-uniform-validators="required ; validateNumber; validateMin 0" label="\u56fa\u5b9a\u624b\u7eed\u8d39" required value="' + $soy$$0$0escapeHtml$$($opt_data$$47$$.$model$.fixed_fee) + 
+  '"></div></div></div></div></div><div class="control-group"><table id="' + $soy$$0$0escapeHtml$$($opt_data$$47$$.id) + '_table" class="table table-condensed table-bordered table-hover"><thead><tr><td colspan="7" style="text-align: center">\u81ea\u5b9a\u4e49\u5b57\u6bb5</td></tr><tr><th> \u4fa7\u8fb9</th><th> \u540d\u79f0 </th><th> \u6807\u7b7e </th><th> \u5360\u4f4d\u7b26 </th><th> \u7c7b\u578b </th><th> \u9a8c\u8bc1\u5668 </th><th> \u503c </th><th> \u64cd\u4f5c </th></tr></thead><tbody>');
   for (var $fieldList185_level214$$ = $opt_data$$47$$.$model$.fields, $fieldListLen185$$ = $fieldList185_level214$$.length, $fieldIndex185$$ = 0;$fieldIndex185$$ < $fieldListLen185$$;$fieldIndex185$$++) {
     $output$$41$$ += $bitex$ui$withdraw_method_editor$templates$WithdrawMethodFieldLineEditor$$({id:$opt_data$$47$$.id, $idx$:$fieldIndex185$$, data:$fieldList185_level214$$[$fieldIndex185$$]});
   }
-  $output$$41$$ += '</tbody></table><button id="' + $soy$$0$0escapeHtml$$($opt_data$$47$$.id) + '_add" class="btn btn-primary"><i class="icon-white icon-plus"></i> Adicionar campo</button></div><div class="control-group"><table id="' + $soy$$0$0escapeHtml$$($opt_data$$47$$.id) + '_limits" class="table table-condensed table-bordered table-hover"><thead><tr><td colspan="4" style="text-align: center">Limites</td></tr><tr><th>N\u00edvel de verifica\u00e7\u00e3o</th><th>Ativado</th><th>M\u00edn</th><th>M\u00e1x</th></tr></thead><tbody>';
+  $output$$41$$ += '</tbody></table><button id="' + $soy$$0$0escapeHtml$$($opt_data$$47$$.id) + '_add" class="btn btn-primary"><i class="icon-white icon-plus"></i> \u6dfb\u52a0\u533a\u57df</button></div><div class="control-group"><table id="' + $soy$$0$0escapeHtml$$($opt_data$$47$$.id) + '_limits" class="table table-condensed table-bordered table-hover"><thead><tr><td colspan="4" style="text-align: center">\u9650\u5236</td></tr><tr><th>\u9a8c\u8bc1\u7ea7\u522b</th><th>\u542f\u7528</th><th>\u6700\u5c0f</th><th>\u6700\u5927</th></tr></thead><tbody>';
   for ($fieldList185_level214$$ = 0;6 > $fieldList185_level214$$;$fieldList185_level214$$++) {
     $output$$41$$ += "<tr>";
     switch($fieldList185_level214$$) {
       case 0:
-        $output$$41$$ += "<td>N\u00e3o verificado</td>";
+        $output$$41$$ += "<td>\u672a\u9a8c\u8bc1</td>";
         break;
       case 1:
-        $output$$41$$ += "<td>Pendente</td>";
+        $output$$41$$ += "<td>\u7b49\u5f85\u4e2d</td>";
         break;
       case 2:
-        $output$$41$$ += "<td>Andamento</td>";
+        $output$$41$$ += "<td>\u6b63\u5728\u5904\u7406</td>";
         break;
       case 3:
-        $output$$41$$ += "<td>Verificado - N\u00edvel I</td>";
+        $output$$41$$ += "<td>\u9a8c\u8bc1 - \u7ea7\u522b I</td>";
         break;
       case 4:
-        $output$$41$$ += "<td>Verificado - N\u00edvel II</td>";
+        $output$$41$$ += "<td>\u9a8c\u8bc1 - \u7ea7\u522b II</td>";
         break;
       case 5:
-        $output$$41$$ += "<td>Verificado - N\u00edvel III</td>";
+        $output$$41$$ += "<td>\u9a8c\u8bc1 - \u7ea7\u522b III</td>";
     }
     $output$$41$$ += '<td><input id="' + $soy$$0$0escapeHtml$$($opt_data$$47$$.id) + "_level_" + $soy$$0$0escapeHtml$$($fieldList185_level214$$) + '_enabled" type="checkbox" class="withdraw-method-editor-limit-enabled"' + ($opt_data$$47$$.$model$.limits && $opt_data$$47$$.$model$.limits[$fieldList185_level214$$] && $opt_data$$47$$.$model$.limits[$fieldList185_level214$$].enabled ? "checked" : "") + '/></td><td><input id="' + $soy$$0$0escapeHtml$$($opt_data$$47$$.id) + "_level_" + $soy$$0$0escapeHtml$$($fieldList185_level214$$) + 
-    '_min" name="min_' + $soy$$0$0escapeHtml$$($fieldList185_level214$$) + '" type="text" autocomplete="off" class="input-small withdraw-method-editor-limit-max" data-uniform-label="M\u00edn" data-uniform-validators="validateNumber; validateMin 0" data-uniform-meta="display If ' + $soy$$0$0escapeHtml$$($opt_data$$47$$.id) + "_level_" + $soy$$0$0escapeHtml$$($fieldList185_level214$$) + "_enabled == 'on'; enable If " + $soy$$0$0escapeHtml$$($opt_data$$47$$.id) + "_level_" + $soy$$0$0escapeHtml$$($fieldList185_level214$$) + 
+    '_min" name="min_' + $soy$$0$0escapeHtml$$($fieldList185_level214$$) + '" type="text" autocomplete="off" class="input-small withdraw-method-editor-limit-max" data-uniform-label="\u6700\u5c0f" data-uniform-validators="validateNumber; validateMin 0" data-uniform-meta="display If ' + $soy$$0$0escapeHtml$$($opt_data$$47$$.id) + "_level_" + $soy$$0$0escapeHtml$$($fieldList185_level214$$) + "_enabled == 'on'; enable If " + $soy$$0$0escapeHtml$$($opt_data$$47$$.id) + "_level_" + $soy$$0$0escapeHtml$$($fieldList185_level214$$) + 
     "_enabled == 'on'\" value=\"" + ($opt_data$$47$$.$model$.limits && $opt_data$$47$$.$model$.limits[$fieldList185_level214$$] && $opt_data$$47$$.$model$.limits[$fieldList185_level214$$].min ? $soy$$0$0escapeHtml$$($opt_data$$47$$.$model$.limits[$fieldList185_level214$$].min) : "0") + '"' + ($opt_data$$47$$.$model$.limits && $opt_data$$47$$.$model$.limits[$fieldList185_level214$$] && !$opt_data$$47$$.$model$.limits[$fieldList185_level214$$].enabled ? 'style="display: none;" disabled' : "") + '/></td><td><input id="' + 
-    $soy$$0$0escapeHtml$$($opt_data$$47$$.id) + "_level_" + $soy$$0$0escapeHtml$$($fieldList185_level214$$) + '_max" name="max_' + $soy$$0$0escapeHtml$$($fieldList185_level214$$) + '" type="text" autocomplete="off" class="input-small withdraw-method-editor-limit-max" data-uniform-label="M\u00e1x" data-uniform-validators="validateNumber" data-uniform-meta="display If ' + $soy$$0$0escapeHtml$$($opt_data$$47$$.id) + "_level_" + $soy$$0$0escapeHtml$$($fieldList185_level214$$) + "_enabled == 'on'; enable If " + 
+    $soy$$0$0escapeHtml$$($opt_data$$47$$.id) + "_level_" + $soy$$0$0escapeHtml$$($fieldList185_level214$$) + '_max" name="max_' + $soy$$0$0escapeHtml$$($fieldList185_level214$$) + '" type="text" autocomplete="off" class="input-small withdraw-method-editor-limit-max" data-uniform-label="\u6700\u5927" data-uniform-validators="validateNumber" data-uniform-meta="display If ' + $soy$$0$0escapeHtml$$($opt_data$$47$$.id) + "_level_" + $soy$$0$0escapeHtml$$($fieldList185_level214$$) + "_enabled == 'on'; enable If " + 
     $soy$$0$0escapeHtml$$($opt_data$$47$$.id) + "_level_" + $soy$$0$0escapeHtml$$($fieldList185_level214$$) + '_enabled == \'on\'"" value="' + ($opt_data$$47$$.$model$.limits && $opt_data$$47$$.$model$.limits[$fieldList185_level214$$] && $opt_data$$47$$.$model$.limits[$fieldList185_level214$$].max ? $soy$$0$0escapeHtml$$($opt_data$$47$$.$model$.limits[$fieldList185_level214$$].max) : "") + '"' + ($opt_data$$47$$.$model$.limits && $opt_data$$47$$.$model$.limits[$fieldList185_level214$$] && !$opt_data$$47$$.$model$.limits[$fieldList185_level214$$].enabled ? 
     'style="display: none;" disabled' : "") + "/></td></tr>";
   }
@@ -8505,9 +8504,9 @@ $JSCompiler_prototypeAlias$$.$onAddField_$ = function $$JSCompiler_prototypeAlia
 };
 // Input 142
 function $bitex$ui$ChangePassword$templates$ChangePassword$$($opt_data$$48_output$$42$$) {
-  return $opt_data$$48_output$$42$$ = "" + ('<div class="section-title"><h3 class="bitex-view-title">Alterar senha </h3></div><div id="' + $soy$$0$0escapeHtml$$($opt_data$$48_output$$42$$.id) + '"><div class="clearfix"><label for="' + $soy$$0$0escapeHtml$$($opt_data$$48_output$$42$$.id) + '_oldpassword">Senha atual</label><div class="input"><input autocapitalize="off" autocorrect="off" id="' + $soy$$0$0escapeHtml$$($opt_data$$48_output$$42$$.id) + '_oldpassword" name="username" type="password" ></div></div><div class="clearfix"><label for="' + 
-  $soy$$0$0escapeHtml$$($opt_data$$48_output$$42$$.id) + '_password">Nova senha</label><div class="input"><input id="' + $soy$$0$0escapeHtml$$($opt_data$$48_output$$42$$.id) + '_password" placeholder="" name="password" type="password"></div></div><div class="clearfix"><label for="' + $soy$$0$0escapeHtml$$($opt_data$$48_output$$42$$.id) + '_repeat_password">Confirme a nova senha</label><div class="input"><input id="' + $soy$$0$0escapeHtml$$($opt_data$$48_output$$42$$.id) + '_repeat_password" placeholder="" name="repeat_password" type="password"></div></div><div class="actions"><button id="' + 
-  $soy$$0$0escapeHtml$$($opt_data$$48_output$$42$$.id) + '_change" class="btn btn-primary">Alterar senha</button></div></div>');
+  return $opt_data$$48_output$$42$$ = "" + ('<div class="section-title"><h3 class="bitex-view-title">\u4fee\u6539\u60a8\u7684\u5bc6\u7801 </h3></div><div id="' + $soy$$0$0escapeHtml$$($opt_data$$48_output$$42$$.id) + '"><div class="clearfix"><label for="' + $soy$$0$0escapeHtml$$($opt_data$$48_output$$42$$.id) + '_oldpassword">\u73b0\u5728\u7684\u5bc6\u7801\u662f</label><div class="input"><input autocapitalize="off" autocorrect="off" id="' + $soy$$0$0escapeHtml$$($opt_data$$48_output$$42$$.id) + '_oldpassword" name="username" type="password" ></div></div><div class="clearfix"><label for="' + 
+  $soy$$0$0escapeHtml$$($opt_data$$48_output$$42$$.id) + '_password">\u65b0\u7684\u5bc6\u7801\u662f</label><div class="input"><input id="' + $soy$$0$0escapeHtml$$($opt_data$$48_output$$42$$.id) + '_password" placeholder="" name="password" type="password"></div></div><div class="clearfix"><label for="' + $soy$$0$0escapeHtml$$($opt_data$$48_output$$42$$.id) + '_repeat_password">\u786e\u8ba4\u65b0\u7684\u5bc6\u7801</label><div class="input"><input id="' + $soy$$0$0escapeHtml$$($opt_data$$48_output$$42$$.id) + 
+  '_repeat_password" placeholder="" name="repeat_password" type="password"></div></div><div class="actions"><button id="' + $soy$$0$0escapeHtml$$($opt_data$$48_output$$42$$.id) + '_change" class="btn btn-primary">\u4fee\u6539\u60a8\u7684\u5bc6\u7801</button></div></div>');
 }
 ;
 // Input 143
@@ -8546,9 +8545,9 @@ $JSCompiler_prototypeAlias$$.$getNewPassword$ = function $$JSCompiler_prototypeA
 // Input 144
 // Input 145
 var $goog$i18n$DateTimeSymbols$$;
-$goog$i18n$DateTimeSymbols$$ = {$ERAS$:["a.C.", "d.C."], $ERANAMES$:["Antes de Cristo", "Ano do Senhor"], $NARROWMONTHS$:"JFMAMJJASOND".split(""), $STANDALONENARROWMONTHS$:"JFMAMJJASOND".split(""), $MONTHS$:"janeiro fevereiro mar\u00e7o abril maio junho julho agosto setembro outubro novembro dezembro".split(" "), $STANDALONEMONTHS$:"janeiro fevereiro mar\u00e7o abril maio junho julho agosto setembro outubro novembro dezembro".split(" "), $SHORTMONTHS$:"jan fev mar abr mai jun jul ago set out nov dez".split(" "), 
-$STANDALONESHORTMONTHS$:"jan fev mar abr mai jun jul ago set out nov dez".split(" "), $WEEKDAYS$:"domingo segunda-feira ter\u00e7a-feira quarta-feira quinta-feira sexta-feira s\u00e1bado".split(" "), $STANDALONEWEEKDAYS$:"domingo segunda-feira ter\u00e7a-feira quarta-feira quinta-feira sexta-feira s\u00e1bado".split(" "), $SHORTWEEKDAYS$:"dom seg ter qua qui sex s\u00e1b".split(" "), $STANDALONESHORTWEEKDAYS$:"dom seg ter qua qui sex s\u00e1b".split(" "), $NARROWWEEKDAYS$:"DSTQQSS".split(""), $STANDALONENARROWWEEKDAYS$:"DSTQQSS".split(""), 
-$SHORTQUARTERS$:["T1", "T2", "T3", "T4"], $QUARTERS$:["1\u00ba trimestre", "2\u00ba trimestre", "3\u00ba trimestre", "4\u00ba trimestre"], $AMPMS$:["AM", "PM"], $DATEFORMATS$:["EEEE, d 'de' MMMM 'de' y", "d 'de' MMMM 'de' y", "dd/MM/yyyy", "dd/MM/yy"], $TIMEFORMATS$:["HH'h'mm'min'ss's' zzzz", "HH'h'mm'min'ss's' z", "HH:mm:ss", "HH:mm"], $FIRSTDAYOFWEEK$:6, $WEEKENDRANGE$:[5, 6], $FIRSTWEEKCUTOFFDAY$:5};
+$goog$i18n$DateTimeSymbols$$ = {$ERAS$:["BC", "AD"], $ERANAMES$:["Before Christ", "Anno Domini"], $NARROWMONTHS$:"JFMAMJJASOND".split(""), $STANDALONENARROWMONTHS$:"JFMAMJJASOND".split(""), $MONTHS$:"January February March April May June July August September October November December".split(" "), $STANDALONEMONTHS$:"January February March April May June July August September October November December".split(" "), $SHORTMONTHS$:"Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec".split(" "), $STANDALONESHORTMONTHS$:"Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec".split(" "), 
+$WEEKDAYS$:"Sunday Monday Tuesday Wednesday Thursday Friday Saturday".split(" "), $STANDALONEWEEKDAYS$:"Sunday Monday Tuesday Wednesday Thursday Friday Saturday".split(" "), $SHORTWEEKDAYS$:"Sun Mon Tue Wed Thu Fri Sat".split(" "), $STANDALONESHORTWEEKDAYS$:"Sun Mon Tue Wed Thu Fri Sat".split(" "), $NARROWWEEKDAYS$:"SMTWTFS".split(""), $STANDALONENARROWWEEKDAYS$:"SMTWTFS".split(""), $SHORTQUARTERS$:["Q1", "Q2", "Q3", "Q4"], $QUARTERS$:["1st quarter", "2nd quarter", "3rd quarter", "4th quarter"], 
+$AMPMS$:["AM", "PM"], $DATEFORMATS$:["EEEE, MMMM d, y", "MMMM d, y", "MMM d, y", "M/d/yy"], $TIMEFORMATS$:["h:mm:ss a zzzz", "h:mm:ss a z", "h:mm:ss a", "h:mm a"], $FIRSTDAYOFWEEK$:6, $WEEKENDRANGE$:[5, 6], $FIRSTWEEKCUTOFFDAY$:5};
 // Input 146
 // Input 147
 // Input 148
@@ -8807,7 +8806,7 @@ $JSCompiler_prototypeAlias$$.$enterView$ = function $$JSCompiler_prototypeAlias$
 $JSCompiler_prototypeAlias$$.$onChangePassword_$ = function $$JSCompiler_prototypeAlias$$$$onChangePassword_$$($e$$156_password2$$1$$) {
   var $current_password$$ = $e$$156_password2$$1$$.target.$getCurrentPassword$(), $password$$2$$ = $e$$156_password2$$1$$.target.$getPassword$();
   $e$$156_password2$$1$$ = $e$$156_password2$$1$$.target.$getNewPassword$();
-  $goog$string$isEmpty$$($current_password$$) ? this.$app_$.$showDialog$("A senha n\u00e3o pode ser em branco") : $goog$string$isEmpty$$($password$$2$$) || 8 > $password$$2$$.length ? this.$app_$.$showDialog$("A nova senha precisa ter no m\u00ednimo 8 caracteres") : $password$$2$$ !== $e$$156_password2$$1$$ ? this.$app_$.$showDialog$("As senhas n\u00e3o conferem") : this.dispatchEvent("change_password");
+  $goog$string$isEmpty$$($current_password$$) ? this.$app_$.$showDialog$("\u5bc6\u7801\u4e0d\u80fd\u4e3a\u7a7a") : $goog$string$isEmpty$$($password$$2$$) || 8 > $password$$2$$.length ? this.$app_$.$showDialog$("\u65b0\u7684\u5bc6\u7801\u957f\u5ea6\u81f3\u5c11\u4e3a8\u4f4d") : $password$$2$$ !== $e$$156_password2$$1$$ ? this.$app_$.$showDialog$("\u4e24\u6b21\u8f93\u5165\u7684\u5bc6\u7801\u4e0d\u4e00\u81f4") : this.dispatchEvent("change_password");
 };
 $JSCompiler_prototypeAlias$$.$getCurrentPassword$ = function $$JSCompiler_prototypeAlias$$$$getCurrentPassword$$() {
   return this.$change_password_$.$getCurrentPassword$();
@@ -8896,7 +8895,7 @@ $bitex$view$SetNewPasswordView$$.prototype.$enterDocument$ = function $$bitex$vi
   $JSCompiler_StaticMethods_listen$$(this.$getHandler$(), $goog$dom$getElement$$("id_btn_set_new_password"), "click", function($e$$166$$) {
     $e$$166$$.stopPropagation();
     $e$$166$$.preventDefault();
-    $goog$string$isEmpty$$(this.$getToken$()) ? this.$app_$.$showDialog$("C\u00f3digo de confirma\u00e7\u00e3o inv\u00e1lido") : $goog$string$isEmpty$$(this.$getPassword$()) || 8 > this.$getPassword$().length ? this.$app_$.$showDialog$("A senha precisa ter no m\u00ednimo 8 caracteres") : this.$getPassword$() !== $goog$dom$forms$getValue$$($goog$dom$getElement$$("id_set_new_password_password2")) ? this.$app_$.$showDialog$("As senhas n\u00e3o conferem") : this.dispatchEvent("set_new_pwd");
+    $goog$string$isEmpty$$(this.$getToken$()) ? this.$app_$.$showDialog$("\u9a8c\u8bc1\u7801\u9519\u8bef") : $goog$string$isEmpty$$(this.$getPassword$()) || 8 > this.$getPassword$().length ? this.$app_$.$showDialog$("\u5bc6\u7801\u957f\u5ea6\u81f3\u5c11\u4e3a8\u4f4d") : this.$getPassword$() !== $goog$dom$forms$getValue$$($goog$dom$getElement$$("id_set_new_password_password2")) ? this.$app_$.$showDialog$("\u4e24\u6b21\u8f93\u5165\u7684\u5bc6\u7801\u4e0d\u4e00\u81f4") : this.dispatchEvent("set_new_pwd");
   }, this);
 };
 // Input 153
@@ -8988,41 +8987,41 @@ $goog$json$Serializer$$.prototype.serializeArray = function $$goog$json$Serializ
 // Input 155
 function $bitex$ui$Customers$$($opt_domHelper$$34$$) {
   this.$selected_customer_$ = null;
-  $bitex$ui$DataGrid$$.call(this, {title:"Clientes", rowClassFn:this.$getRowClass$, columns:[{property:"Username", label:"Username", sortable:!1, classes:function() {
+  $bitex$ui$DataGrid$$.call(this, {title:"\u7528\u6237", rowClassFn:this.$getRowClass$, columns:[{property:"Username", label:"\u7528\u6237\u540d", sortable:!1, classes:function() {
     return $bitex$ui$Customers$CSS_CLASS$$ + "-username";
-  }}, {property:"Email", label:"Email", sortable:!1, classes:function() {
+  }}, {property:"Email", label:"Email\u5730\u5740", sortable:!1, classes:function() {
     return $bitex$ui$Customers$CSS_CLASS$$ + "-email";
-  }}, {property:"Verified", label:"Verificado", sortable:!1, formatter:function($s$$45$$) {
+  }}, {property:"Verified", label:"\u9a8c\u8bc1\u7684", sortable:!1, formatter:function($s$$45$$) {
     switch($s$$45$$) {
       case 0:
-        return "N\u00e3o";
+        return "\u5426";
       case 1:
-        return "Pendente";
+        return "\u7b49\u5f85\u4e2d";
       case 2:
-        return "Andamento";
+        return "\u6b63\u5728\u5904\u7406\u4e2d";
       case 3:
-        return "Sim - N\u00edvel I";
+        return "\u662f - \u7b49\u7ea7 I";
       case 4:
-        return "Sim - N\u00edvel II";
+        return "\u662f - \u7b49\u7ea7 II";
       case 5:
-        return "Sim - N\u00edvel III";
+        return "\u662f - \u7b49\u7ea7 III";
       case 6:
-        return "Sim - N\u00edvel IV";
+        return "\u662f - \u7b49\u7ea7 IV";
     }
   }, classes:function() {
     return $bitex$ui$Customers$CSS_CLASS$$ + "-verified";
-  }}, {property:"TwoFactorEnabled", label:"2FA", sortable:!1, formatter:function($s$$46$$) {
-    return $s$$46$$ ? "Sim" : "N\u00e3o";
+  }}, {property:"TwoFactorEnabled", label:"\u4e8c\u91cd\u9a8c\u8bc1", sortable:!1, formatter:function($s$$46$$) {
+    return $s$$46$$ ? "\u662f" : "\u5426";
   }, classes:function() {
     return $bitex$ui$Customers$CSS_CLASS$$ + "-two-steps";
-  }}, {property:"LastLogin", label:"\u00daltimo login", sortable:!1, classes:function() {
+  }}, {property:"LastLogin", label:"\u4e0a\u6b21\u767b\u5f55", sortable:!1, classes:function() {
     return $bitex$ui$Customers$CSS_CLASS$$ + "-last-login";
-  }}, {property:"ID", label:"A\u00e7\u00f5es", sortable:!0, formatter:function($id$$13$$, $row_set_obj$$4$$) {
+  }}, {property:"ID", label:"\u64cd\u4f5c", sortable:!0, formatter:function($id$$13$$, $row_set_obj$$4$$) {
     var $data_row$$2$$ = $goog$json$serialize$$($row_set_obj$$4$$);
-    return $goog$dom$createDom$$("button", {"class":"btn btn-mini btn-primary btn-deposit", "data-row":$data_row$$2$$}, "detalhes");
+    return $goog$dom$createDom$$("button", {"class":"btn btn-mini btn-primary btn-deposit", "data-row":$data_row$$2$$}, "\u8be6\u60c5");
   }, classes:function() {
     return $bitex$ui$Customers$CSS_CLASS$$ + "-last-login";
-  }}], showSearch:!0, searchPlaceholder:"Username ou email...", wrapperHeight:600, buttonFilters:[{label:"Todos", value:"all"}, {label:"N\u00e3o", value:0}, {label:"Pendente", value:1}, {label:"Andamento", value:2}, {label:"Sim - N\u00edvel I", value:3}, {label:"Sim - N\u00edvel II", value:4}, {label:"Sim - N\u00edvel III", value:5}]}, $opt_domHelper$$34$$);
+  }}], showSearch:!0, searchPlaceholder:"\u7528\u6237\u540d\u6216email\u5730\u5740...", wrapperHeight:600, buttonFilters:[{label:"\u6240\u6709", value:"all"}, {label:"\u5426", value:0}, {label:"\u7b49\u5f85\u4e2d", value:1}, {label:"\u6b63\u5728\u5904\u7406\u4e2d", value:2}, {label:"\u662f - \u7b49\u7ea7 I", value:3}, {label:"\u662f - \u7b49\u7ea7 II", value:4}, {label:"\u662f - \u7b49\u7ea7 III", value:5}]}, $opt_domHelper$$34$$);
 }
 $goog$inherits$$($bitex$ui$Customers$$, $bitex$ui$DataGrid$$);
 var $bitex$ui$Customers$CSS_CLASS$$ = "customers";
@@ -9070,8 +9069,8 @@ $JSCompiler_prototypeAlias$$.$getBaseCssClass$ = function $$JSCompiler_prototype
   return "order-book";
 };
 $JSCompiler_prototypeAlias$$.$createDom$ = function $$JSCompiler_prototypeAlias$$$$createDom$$() {
-  var $el$$109_title$$10$$ = "COMPRA", $columns$$6$$ = ["Comprador", "Quantidade", "Pre\u00e7o"];
-  this.$side_$ == $bitex$ui$OrderBook$Side$SELL$$ && ($el$$109_title$$10$$ = "VENDA", $columns$$6$$ = ["Pre\u00e7o", "Quantidade", "Vendedor"]);
+  var $el$$109_title$$10$$ = "\u4e70\u5165", $columns$$6$$ = ["\u4e70\u5165\u8005", "\u6570\u91cf", "\u4ef7\u683c"];
+  this.$side_$ == $bitex$ui$OrderBook$Side$SELL$$ && ($el$$109_title$$10$$ = "\u5356\u51fa", $columns$$6$$ = ["\u4ef7\u683c", "\u6570\u91cf", "\u5356\u51fa\u8005"]);
   $el$$109_title$$10$$ = $goog$soy$renderAsElement$$($bitex$ui$OrderBook$templates$OrderBook$$, {title:$el$$109_title$$10$$, $columns$:$columns$$6$$});
   this.$decorateInternal$($el$$109_title$$10$$);
 };
@@ -9408,9 +9407,9 @@ function $bitex$ui$DepositWithdrawButtonGroup$templates$DepositWithdrawButtonGro
   for (var $buttonListLen6$$ = $buttonList6_opt_data$$50$$.length, $buttonIndex6$$ = 0;$buttonIndex6$$ < $buttonListLen6$$;$buttonIndex6$$++) {
     var $buttonData6$$ = $buttonList6_opt_data$$50$$[$buttonIndex6$$], $output$$44$$ = $output$$44$$ + ('<button class="btn btn-default btn-mini text-center" data-currency="' + $soy$$0$0escapeHtml$$($buttonData6$$.currency) + '" data-action="' + $soy$$0$0escapeHtml$$($buttonData6$$.mode) + '">');
     if ("deposit" == $buttonData6$$.mode) {
-      var $MSG_UNNAMED_39$$1_MSG_UNNAMED_41$$1$$ = "Depositar " + $soy$$0$0escapeHtml$$($buttonData6$$.currencyDescription), $output$$44$$ = $output$$44$$ + ('<h2 class="icon-download-alt"> ' + $soy$$0$0escapeHtml$$($buttonData6$$.currencySign) + "</h2><br>" + $MSG_UNNAMED_39$$1_MSG_UNNAMED_41$$1$$)
+      var $MSG_UNNAMED_39$$1_MSG_UNNAMED_41$$1$$ = "Deposit " + $soy$$0$0escapeHtml$$($buttonData6$$.currencyDescription), $output$$44$$ = $output$$44$$ + ('<h2 class="icon-download-alt"> ' + $soy$$0$0escapeHtml$$($buttonData6$$.currencySign) + "</h2><br>" + $MSG_UNNAMED_39$$1_MSG_UNNAMED_41$$1$$)
     } else {
-      $MSG_UNNAMED_39$$1_MSG_UNNAMED_41$$1$$ = "Sacar " + $soy$$0$0escapeHtml$$($buttonData6$$.currencyDescription), $output$$44$$ += '<h2 class="icon-upload-alt"> ' + $soy$$0$0escapeHtml$$($buttonData6$$.currencySign) + "</h2><br>" + $MSG_UNNAMED_39$$1_MSG_UNNAMED_41$$1$$;
+      $MSG_UNNAMED_39$$1_MSG_UNNAMED_41$$1$$ = "Withdraw " + $soy$$0$0escapeHtml$$($buttonData6$$.currencyDescription), $output$$44$$ += '<h2 class="icon-upload-alt"> ' + $soy$$0$0escapeHtml$$($buttonData6$$.currencySign) + "</h2><br>" + $MSG_UNNAMED_39$$1_MSG_UNNAMED_41$$1$$;
     }
     $output$$44$$ += "</button>&nbsp;";
   }
@@ -9449,10 +9448,10 @@ function $bitex$ui$DepositList$$($crypto_currencies_def$$, $opt_broker_mode$$1_s
   !0 === $opt_broker_mode$$1_show_customers$$1$$ && ($broker_mode$$1$$ = $opt_broker_mode$$1_show_customers$$1$$);
   $opt_broker_mode$$1_show_customers$$1$$ = !1;
   !0 === $grid_columns$$3_opt_show_customers$$1$$ && ($opt_broker_mode$$1_show_customers$$1$$ = $grid_columns$$3_opt_show_customers$$1$$);
-  $grid_columns$$3_opt_show_customers$$1$$ = [{property:"Created", label:"Data/Hora", sortable:!1, classes:function() {
+  $grid_columns$$3_opt_show_customers$$1$$ = [{property:"Created", label:"\u65e5\u671f/\u65f6\u95f4", sortable:!1, classes:function() {
     return $bitex$ui$DepositList$CSS_CLASS$$ + "-created";
-  }}, {property:"Status", label:"Situa\u00e7\u00e3o", sortable:!1, formatter:function($s$$47$$, $rowSet$$8$$) {
-    var $progress_message$$ = "Em andamento...", $crypto_currency_def_label_class_text$$1_number_of_necessary_confirmations$$ = null;
+  }}, {property:"Status", label:"\u72b6\u6001", sortable:!1, formatter:function($s$$47$$, $rowSet$$8$$) {
+    var $progress_message$$ = "\u6b63\u5728\u5904\u7406...", $crypto_currency_def_label_class_text$$1_number_of_necessary_confirmations$$ = null;
     if ("CRY" == $rowSet$$8$$.Type && ($crypto_currency_def_label_class_text$$1_number_of_necessary_confirmations$$ = $goog$array$find$$($crypto_currencies_def$$, function($c$$9$$) {
       if ($c$$9$$.CurrencyCode == $rowSet$$8$$.Currency) {
         return!0;
@@ -9465,29 +9464,29 @@ function $bitex$ui$DepositList$$($crypto_currencies_def$$, $opt_broker_mode$$1_s
         }
       }));
       null != $confirmation_info_array_number_of_confirmations$$ && ($crypto_currency_def_label_class_text$$1_number_of_necessary_confirmations$$ = $confirmation_info_array_number_of_confirmations$$[2], $confirmation_info_array_number_of_confirmations$$ = 0, $goog$isDef$$($rowSet$$8$$.Data) && $goog$isDef$$($rowSet$$8$$.Data.Confirmations) && ($confirmation_info_array_number_of_confirmations$$ = $rowSet$$8$$.Data.Confirmations), $progress_message$$ = $confirmation_info_array_number_of_confirmations$$ + 
-      (" de " + ($crypto_currency_def_label_class_text$$1_number_of_necessary_confirmations$$ + " confirma\u00e7\u00f5es")));
+      (" of " + ($crypto_currency_def_label_class_text$$1_number_of_necessary_confirmations$$ + "\u786e\u8ba4\u6570")));
     }
     $crypto_currency_def_label_class_text$$1_number_of_necessary_confirmations$$ = function($s$$48$$) {
       switch($s$$48$$) {
         case "0":
-          return["", "N\u00e3o confirmado"];
+          return["", "\u672a\u786e\u8ba4\u7684"];
         case "1":
-          return["warning", "Pendente"];
+          return["warning", "\u7b49\u5f85\u4e2d"];
         case "2":
           return["info", $progress_message$$];
         case "4":
-          return["success", "Completado"];
+          return["success", "\u5df2\u5b8c\u6210"];
         case "8":
-          return["important", "Cancelado"];
+          return["important", "\u5df2\u53d6\u6d88"];
       }
       return["", ""];
     }($s$$47$$);
     return $goog$dom$createDom$$("span", ["label", "label-" + $crypto_currency_def_label_class_text$$1_number_of_necessary_confirmations$$[0]], $crypto_currency_def_label_class_text$$1_number_of_necessary_confirmations$$[1]);
   }, classes:function() {
     return $bitex$ui$DepositList$CSS_CLASS$$ + "-status";
-  }}, {property:"Value", label:"Valor", sortable:!1, classes:function() {
+  }}, {property:"Value", label:"\u91d1\u989d", sortable:!1, classes:function() {
     return $bitex$ui$DepositList$CSS_CLASS$$ + "-value";
-  }}, {property:"ControlNumber", label:"N\u00famero de controle", sortable:!1, formatter:function($value$$185$$, $rowSet$$9$$) {
+  }}, {property:"ControlNumber", label:"\u63a7\u5236\u7801", sortable:!1, formatter:function($value$$185$$, $rowSet$$9$$) {
     switch($rowSet$$9$$.Type) {
       case "CRY":
         var $top_el$$ = $goog$dom$createDom$$("div");
@@ -9522,9 +9521,9 @@ function $bitex$ui$DepositList$$($crypto_currencies_def$$, $opt_broker_mode$$1_s
     }
   }, classes:function() {
     return $bitex$ui$DepositList$CSS_CLASS$$ + "-method";
-  }}, {property:"Data", label:"Detalhes", sortable:!1, formatter:function($value$$186$$, $rowSet$$10$$) {
-    var $btn_qr$$1_data_row$$3$$ = $goog$json$serialize$$($rowSet$$10$$), $btn_view$$ = $goog$dom$createDom$$("a", {"class":"btn btn-mini btn-info btn-deposit-view", href:$opt_rest_url$$ + "/get_deposit?deposit_id=" + $rowSet$$10$$.DepositID, target:"_blank"}, "ver", " ", $goog$dom$createDom$$("i", ["icon-white", "icon-eye-open"])), $btn_qr$$1_data_row$$3$$ = $goog$dom$createDom$$("a", {"class":"btn btn-mini btn-info btn-deposit-view-qr", href:"#", "data-action":"SHOW_QR", "data-row":$btn_qr$$1_data_row$$3$$}, 
-    "QR", " ", $goog$dom$createDom$$("i", ["icon-white", "icon-qrcode"]));
+  }}, {property:"Data", label:"\u8be6\u60c5", sortable:!1, formatter:function($value$$186$$, $rowSet$$10$$) {
+    var $btn_qr$$1_data_row$$3$$ = $goog$json$serialize$$($rowSet$$10$$), $btn_view$$ = $goog$dom$createDom$$("a", {"class":"btn btn-mini btn-info btn-deposit-view", href:$opt_rest_url$$ + "/get_deposit?deposit_id=" + $rowSet$$10$$.DepositID, target:"_blank"}, "\u67e5\u770b", " ", $goog$dom$createDom$$("i", ["icon-white", "icon-eye-open"])), $btn_qr$$1_data_row$$3$$ = $goog$dom$createDom$$("a", {"class":"btn btn-mini btn-info btn-deposit-view-qr", href:"#", "data-action":"SHOW_QR", "data-row":$btn_qr$$1_data_row$$3$$}, 
+    "qr", " ", $goog$dom$createDom$$("i", ["icon-white", "icon-qrcode"]));
     switch($rowSet$$10$$.Type) {
       case "CRY":
         switch($rowSet$$10$$.Status) {
@@ -9562,13 +9561,13 @@ function $bitex$ui$DepositList$$($crypto_currencies_def$$, $opt_broker_mode$$1_s
   }, classes:function() {
     return $bitex$ui$DepositList$CSS_CLASS$$ + "-details";
   }}];
-  $opt_broker_mode$$1_show_customers$$1$$ && $grid_columns$$3_opt_show_customers$$1$$.push({property:"Username", label:"Username", sortable:!1, classes:function() {
+  $opt_broker_mode$$1_show_customers$$1$$ && $grid_columns$$3_opt_show_customers$$1$$.push({property:"Username", label:"\u7528\u6237\u540d", sortable:!1, classes:function() {
     return $bitex$ui$DepositList$CSS_CLASS$$ + "-username";
   }});
-  $broker_mode$$1$$ ? $grid_columns$$3_opt_show_customers$$1$$.push({property:"DepositID", label:"A\u00e7\u00f5es", sortable:!1, formatter:function($value$$187$$, $rowSet$$11$$) {
-    var $btn_show_receipt_broker_data_row$$4$$ = $goog$json$serialize$$($rowSet$$11$$), $btn_cancel$$1$$ = $goog$dom$createDom$$("a", {"class":"btn btn-mini btn-danger btn-deposit-cancel", href:"#", "data-action":"CANCEL", "data-row":$btn_show_receipt_broker_data_row$$4$$}, "cancelar", " ", $goog$dom$createDom$$("i", ["icon-white", "icon-remove"])), $btn_progress$$1$$ = $goog$dom$createDom$$("a", {"class":"btn btn-mini btn-info btn-deposit-progress", href:"#", "data-action":"PROGRESS", "data-row":$btn_show_receipt_broker_data_row$$4$$}, 
-    "Em progresso", " ", $goog$dom$createDom$$("i", ["icon-white", "icon-refresh"])), $btn_complete$$1$$ = $goog$dom$createDom$$("a", {"class":"btn btn-mini btn-success btn-deposit-complete", href:"#", "data-action":"COMPLETE", "data-row":$btn_show_receipt_broker_data_row$$4$$}, "Completar", " ", $goog$dom$createDom$$("i", ["icon-white", "icon-ok"])), $btn_show_receipt_broker_data_row$$4$$ = $goog$dom$createDom$$("a", {"class":"btn btn-mini btn-success btn-deposit-show-receipt", "data-action":"SHOW_RECEIPT", 
-    "data-row":$btn_show_receipt_broker_data_row$$4$$}, $goog$dom$createDom$$("i", ["icon-white", "icon-file"]));
+  $broker_mode$$1$$ ? $grid_columns$$3_opt_show_customers$$1$$.push({property:"DepositID", label:"\u64cd\u4f5c", sortable:!1, formatter:function($value$$187$$, $rowSet$$11$$) {
+    var $btn_show_receipt_broker_data_row$$4$$ = $goog$json$serialize$$($rowSet$$11$$), $btn_cancel$$1$$ = $goog$dom$createDom$$("a", {"class":"btn btn-mini btn-danger btn-deposit-cancel", href:"#", "data-action":"CANCEL", "data-row":$btn_show_receipt_broker_data_row$$4$$}, "\u53d6\u6d88", " ", $goog$dom$createDom$$("i", ["icon-white", "icon-remove"])), $btn_progress$$1$$ = $goog$dom$createDom$$("a", {"class":"btn btn-mini btn-info btn-deposit-progress", href:"#", "data-action":"PROGRESS", "data-row":$btn_show_receipt_broker_data_row$$4$$}, 
+    "\u6b63\u5728\u5904\u7406\u4e2d", " ", $goog$dom$createDom$$("i", ["icon-white", "icon-refresh"])), $btn_complete$$1$$ = $goog$dom$createDom$$("a", {"class":"btn btn-mini btn-success btn-deposit-complete", href:"#", "data-action":"COMPLETE", "data-row":$btn_show_receipt_broker_data_row$$4$$}, "\u5904\u7406\u5df2\u5b8c\u6210", " ", $goog$dom$createDom$$("i", ["icon-white", "icon-ok"])), $btn_show_receipt_broker_data_row$$4$$ = $goog$dom$createDom$$("a", {"class":"btn btn-mini btn-success btn-deposit-show-receipt", 
+    "data-action":"SHOW_RECEIPT", "data-row":$btn_show_receipt_broker_data_row$$4$$}, $goog$dom$createDom$$("i", ["icon-white", "icon-file"]));
     switch($rowSet$$11$$.Type) {
       case "CRY":
         switch($rowSet$$11$$.Status) {
@@ -9601,8 +9600,8 @@ function $bitex$ui$DepositList$$($crypto_currencies_def$$, $opt_broker_mode$$1_s
     }
   }, classes:function() {
     return $bitex$ui$DepositList$CSS_CLASS$$ + "-actions";
-  }}) : $grid_columns$$3_opt_show_customers$$1$$.push({property:"DepositID", label:"A\u00e7\u00f5es", sortable:!1, formatter:function($value$$188$$, $rowSet$$12$$) {
-    var $btn_show_receipt_data_row$$5$$ = $goog$json$serialize$$($rowSet$$12$$), $btn_upload$$ = $goog$dom$createDom$$("a", {"class":"btn btn-mini btn-success btn-deposit-upload", "data-action":"UPLOAD", "data-row":$btn_show_receipt_data_row$$5$$}, "enviar comprovante", " ", $goog$dom$createDom$$("i", ["icon-white", "icon-file"])), $btn_show_receipt_data_row$$5$$ = $goog$dom$createDom$$("a", {"class":"btn btn-mini btn-success btn-deposit-show-receipt", "data-action":"SHOW_RECEIPT", "data-row":$btn_show_receipt_data_row$$5$$}, 
+  }}) : $grid_columns$$3_opt_show_customers$$1$$.push({property:"DepositID", label:"\u64cd\u4f5c", sortable:!1, formatter:function($value$$188$$, $rowSet$$12$$) {
+    var $btn_show_receipt_data_row$$5$$ = $goog$json$serialize$$($rowSet$$12$$), $btn_upload$$ = $goog$dom$createDom$$("a", {"class":"btn btn-mini btn-success btn-deposit-upload", "data-action":"UPLOAD", "data-row":$btn_show_receipt_data_row$$5$$}, "\u53d1\u9001\u6536\u636e", " ", $goog$dom$createDom$$("i", ["icon-white", "icon-file"])), $btn_show_receipt_data_row$$5$$ = $goog$dom$createDom$$("a", {"class":"btn btn-mini btn-success btn-deposit-show-receipt", "data-action":"SHOW_RECEIPT", "data-row":$btn_show_receipt_data_row$$5$$}, 
     $goog$dom$createDom$$("i", ["icon-white", "icon-file"]));
     switch($rowSet$$12$$.Type) {
       case "CRY":
@@ -9638,7 +9637,8 @@ function $bitex$ui$DepositList$$($crypto_currencies_def$$, $opt_broker_mode$$1_s
     return $bitex$ui$DepositList$CSS_CLASS$$ + "-actions";
   }});
   this.$selected_deposit_$ = null;
-  $bitex$ui$DataGrid$$.call(this, {rowIDFn:this.$getRowId$, rowClassFn:this.$getRowClass$, columns:$grid_columns$$3_opt_show_customers$$1$$, title:"Dep\u00f3sitos", showSearch:!0, searchPlaceholder:"Pesquisar ...", wrapperHeight:600, buttonFilters:[{label:"Todos", value:"all"}, {label:"N\u00e3o confirmado", value:"0"}, {label:"Pendente", value:"1"}, {label:"Em andamento...", value:"2"}, {label:"Completado", value:"4"}, {label:"Cancelado", value:"8"}]}, $opt_domHelper$$39$$);
+  $bitex$ui$DataGrid$$.call(this, {rowIDFn:this.$getRowId$, rowClassFn:this.$getRowClass$, columns:$grid_columns$$3_opt_show_customers$$1$$, title:"\u5145\u503c", showSearch:!0, searchPlaceholder:"\u641c\u7d22 ...", wrapperHeight:600, buttonFilters:[{label:"\u6240\u6709", value:"all"}, {label:"\u672a\u786e\u8ba4\u7684", value:"0"}, {label:"\u7b49\u5f85\u4e2d", value:"1"}, {label:"\u6b63\u5728\u5904\u7406...", value:"2"}, {label:"\u5df2\u5b8c\u6210", value:"4"}, {label:"\u5df2\u53d6\u6d88", value:"8"}]}, 
+  $opt_domHelper$$39$$);
 }
 $goog$inherits$$($bitex$ui$DepositList$$, $bitex$ui$DataGrid$$);
 var $bitex$ui$DepositList$CSS_CLASS$$ = "deposit-list";
@@ -9767,7 +9767,7 @@ $JSCompiler_prototypeAlias$$.$onDepositListTableClick_$ = function $$JSCompiler_
 };
 $JSCompiler_prototypeAlias$$.$valuePriceFormatter_$ = function $$JSCompiler_prototypeAlias$$$$valuePriceFormatter_$$($value$$189$$, $rowSet$$13$$) {
   var $formatted_paid_value_paid_value$$ = $rowSet$$13$$.PaidValue, $priceCurrency$$3$$ = $rowSet$$13$$.Currency, $currency_description$$ = this.$app_$.$getCurrencyDescription$($priceCurrency$$3$$), $formatted_value$$ = this.$app_$.$formatCurrency$($value$$189$$ / 1E8, $priceCurrency$$3$$);
-  return 0 === $value$$189$$ ? 0 === $formatted_paid_value_paid_value$$ ? "-" : $goog$dom$createDom$$("abbr", {title:$currency_description$$}, this.$app_$.$formatCurrency$($formatted_paid_value_paid_value$$ / 1E8, $priceCurrency$$3$$)) : 0 < $formatted_paid_value_paid_value$$ && $formatted_paid_value_paid_value$$ != $value$$189$$ ? ($formatted_paid_value_paid_value$$ = this.$app_$.$formatCurrency$($formatted_paid_value_paid_value$$ / 1E8, $priceCurrency$$3$$), $goog$dom$createDom$$("abbr", {title:"declarado / depositado em " + 
+  return 0 === $value$$189$$ ? 0 === $formatted_paid_value_paid_value$$ ? "-" : $goog$dom$createDom$$("abbr", {title:$currency_description$$}, this.$app_$.$formatCurrency$($formatted_paid_value_paid_value$$ / 1E8, $priceCurrency$$3$$)) : 0 < $formatted_paid_value_paid_value$$ && $formatted_paid_value_paid_value$$ != $value$$189$$ ? ($formatted_paid_value_paid_value$$ = this.$app_$.$formatCurrency$($formatted_paid_value_paid_value$$ / 1E8, $priceCurrency$$3$$), $goog$dom$createDom$$("abbr", {title:"\u7533\u62a5\u7684\u63d0\u73b0/\u5b9e\u9645\u6536\u5230\u7684\u63d0\u73b0 " + 
   $currency_description$$}, $formatted_value$$ + " / " + $formatted_paid_value_paid_value$$)) : $goog$dom$createDom$$("abbr", {title:$currency_description$$}, $formatted_value$$);
 };
 $JSCompiler_prototypeAlias$$.$onDepositListTableRequestData_$ = function $$JSCompiler_prototypeAlias$$$$onDepositListTableRequestData_$$($conn$$5_e$$177$$) {
@@ -9856,19 +9856,19 @@ $JSCompiler_prototypeAlias$$.$enterDocument$ = function $$JSCompiler_prototypeAl
   }, this);
 };
 $JSCompiler_prototypeAlias$$.$orderFormatter_$ = function $$JSCompiler_prototypeAlias$$$$orderFormatter_$$($value$$190$$, $rowSet$$14$$) {
-  var $MSG_ORDER_MANAGER_DESC_PARTIAL_BOUGHT_qtyCurrency$$ = this.$app_$.$getQtyCurrencyFromSymbol$($rowSet$$14$$.Symbol), $orderQty$$ = this.$app_$.$formatCurrency$($rowSet$$14$$.OrderQty / 1E8, $MSG_ORDER_MANAGER_DESC_PARTIAL_BOUGHT_qtyCurrency$$, !0), $MSG_ORDER_MANAGER_DESC_SOLD_cumQty$$ = this.$app_$.$formatCurrency$($rowSet$$14$$.CumQty / 1E8, $MSG_ORDER_MANAGER_DESC_PARTIAL_BOUGHT_qtyCurrency$$, !0), $MSG_ORDER_MANAGER_DESC_PARTIAL_BOUGHT_qtyCurrency$$ = "Comprado " + ($MSG_ORDER_MANAGER_DESC_SOLD_cumQty$$ + 
-  (" de " + $orderQty$$)), $MSG_ORDER_MANAGER_DESC_PARTIAL_SOLD$$ = "Vendido " + ($MSG_ORDER_MANAGER_DESC_SOLD_cumQty$$ + (" de " + $orderQty$$)), $MSG_ORDER_MANAGER_DESC_BOUGHT$$ = "Comprado " + $MSG_ORDER_MANAGER_DESC_SOLD_cumQty$$, $MSG_ORDER_MANAGER_DESC_SOLD_cumQty$$ = "Vendido " + $MSG_ORDER_MANAGER_DESC_SOLD_cumQty$$;
+  var $MSG_ORDER_MANAGER_DESC_PARTIAL_BOUGHT_qtyCurrency$$ = this.$app_$.$getQtyCurrencyFromSymbol$($rowSet$$14$$.Symbol), $orderQty$$ = this.$app_$.$formatCurrency$($rowSet$$14$$.OrderQty / 1E8, $MSG_ORDER_MANAGER_DESC_PARTIAL_BOUGHT_qtyCurrency$$, !0), $MSG_ORDER_MANAGER_DESC_SOLD_cumQty$$ = this.$app_$.$formatCurrency$($rowSet$$14$$.CumQty / 1E8, $MSG_ORDER_MANAGER_DESC_PARTIAL_BOUGHT_qtyCurrency$$, !0), $MSG_ORDER_MANAGER_DESC_PARTIAL_BOUGHT_qtyCurrency$$ = "\u5df2\u4e70\u5230 " + ($MSG_ORDER_MANAGER_DESC_SOLD_cumQty$$ + 
+  (" of " + $orderQty$$)), $MSG_ORDER_MANAGER_DESC_PARTIAL_SOLD$$ = "\u5df2\u5356\u51fa " + ($MSG_ORDER_MANAGER_DESC_SOLD_cumQty$$ + (" of " + $orderQty$$)), $MSG_ORDER_MANAGER_DESC_BOUGHT$$ = "\u5df2\u4e70\u5230 " + $MSG_ORDER_MANAGER_DESC_SOLD_cumQty$$, $MSG_ORDER_MANAGER_DESC_SOLD_cumQty$$ = "\u5df2\u5356\u51fa " + $MSG_ORDER_MANAGER_DESC_SOLD_cumQty$$;
   switch($rowSet$$14$$.OrdStatus) {
     case "-":
     ;
     case "0":
-      return "1" == $rowSet$$14$$.Side ? "Comprando " + $orderQty$$ : "Vendendo " + $orderQty$$;
+      return "1" == $rowSet$$14$$.Side ? "\u6b63\u5728\u8d2d\u4e70 " + $orderQty$$ : "\u6b63\u5728\u5356\u51fa " + $orderQty$$;
     case "1":
       return "1" == $rowSet$$14$$.Side ? $MSG_ORDER_MANAGER_DESC_PARTIAL_BOUGHT_qtyCurrency$$ : $MSG_ORDER_MANAGER_DESC_PARTIAL_SOLD$$;
     case "2":
       return "1" == $rowSet$$14$$.Side ? $MSG_ORDER_MANAGER_DESC_BOUGHT$$ : $MSG_ORDER_MANAGER_DESC_SOLD_cumQty$$;
     case "4":
-      return 0 == $rowSet$$14$$.CumQty ? "1" == $rowSet$$14$$.Side ? "Cancelada a ordem de compra de " + $orderQty$$ : "Cancelada a ordem de venda de " + $orderQty$$ : 0 < $rowSet$$14$$.CumQty && $rowSet$$14$$.CumQty < $orderQty$$ ? "1" == $rowSet$$14$$.Side ? $MSG_ORDER_MANAGER_DESC_PARTIAL_BOUGHT_qtyCurrency$$ : $MSG_ORDER_MANAGER_DESC_PARTIAL_SOLD$$ : "1" == $rowSet$$14$$.Side ? $MSG_ORDER_MANAGER_DESC_BOUGHT$$ : $MSG_ORDER_MANAGER_DESC_SOLD_cumQty$$;
+      return 0 == $rowSet$$14$$.CumQty ? "1" == $rowSet$$14$$.Side ? "\u53d6\u6d88\u7684\u8d2d\u4e70\u8ba2\u5355 " + $orderQty$$ : "\u53d6\u6d88\u7684\u5356\u51fa\u8ba2\u5355 " + $orderQty$$ : 0 < $rowSet$$14$$.CumQty && $rowSet$$14$$.CumQty < $orderQty$$ ? "1" == $rowSet$$14$$.Side ? $MSG_ORDER_MANAGER_DESC_PARTIAL_BOUGHT_qtyCurrency$$ : $MSG_ORDER_MANAGER_DESC_PARTIAL_SOLD$$ : "1" == $rowSet$$14$$.Side ? $MSG_ORDER_MANAGER_DESC_BOUGHT$$ : $MSG_ORDER_MANAGER_DESC_SOLD_cumQty$$;
     case "8":
       return $rowSet$$14$$.OrdRejReason;
   }
@@ -9876,17 +9876,17 @@ $JSCompiler_prototypeAlias$$.$orderFormatter_$ = function $$JSCompiler_prototype
 $JSCompiler_prototypeAlias$$.$simpleStatusFormatter_$ = function $$JSCompiler_prototypeAlias$$$$simpleStatusFormatter_$$($value$$191$$, $rowSet$$15$$) {
   switch($value$$191$$) {
     case "-":
-      return "Enviando...";
+      return "\u6b63\u5728\u53d1\u9001...";
     case "0":
-      return "1" == $rowSet$$15$$.Side ? "Aguardando vendedores" : "Aguardando compradores";
+      return "1" == $rowSet$$15$$.Side ? "\u6b63\u5728\u7b49\u5f85\u5356\u51fa\u8005" : "\u6b63\u5728\u7b49\u5f85\u8d2d\u4e70\u8005";
     case "1":
-      return "1" == $rowSet$$15$$.Side ? "Comprado parcialmente" : "Vendido parcialmente";
+      return "1" == $rowSet$$15$$.Side ? "\u90e8\u5206\u8d2d\u4e70" : "\u90e8\u5206\u5356\u51fa";
     case "2":
-      return "Finalizado";
+      return "\u6210\u4ea4\u7684";
     case "4":
-      return 0 == $rowSet$$15$$.CumQty ? "Cancelado" : "Finalizado";
+      return 0 == $rowSet$$15$$.CumQty ? "\u5df2\u53d6\u6d88" : "\u6210\u4ea4\u7684";
     case "8":
-      return "Rejeitado";
+      return "Rejected";
   }
 };
 $JSCompiler_prototypeAlias$$.$avgPriceFormatter_$ = function $$JSCompiler_prototypeAlias$$$$avgPriceFormatter_$$($value$$192$$, $rowSet$$16$$) {
@@ -10521,10 +10521,10 @@ $JSCompiler_prototypeAlias$$.$sendRawMessage$ = function $$JSCompiler_prototypeA
     try {
       this.$ws_$.send($msg$$64$$), this.dispatchEvent(new $bitex$api$BitExEvent$$("sent_raw_message", $msg$$64$$));
     } catch ($s$$49$$) {
-      this.dispatchEvent(new $bitex$api$BitExEvent$$("error_message", {MsgType:"ERROR", Description:"Exce\u00e7\u00e3o", Detail:$s$$49$$.toLocaleString()}));
+      this.dispatchEvent(new $bitex$api$BitExEvent$$("error_message", {MsgType:"ERROR", Description:"\u5f02\u5e38", Detail:$s$$49$$.toLocaleString()}));
     }
   } else {
-    this.dispatchEvent(new $bitex$api$BitExEvent$$("error_message", {MsgType:"ERROR", Description:"Erro", Detail:"N\u00e3o est\u00e1 conectado ao servidor"}));
+    this.dispatchEvent(new $bitex$api$BitExEvent$$("error_message", {MsgType:"ERROR", Description:"\u9519\u8bef", Detail:"\u4e0e\u670d\u52a1\u5668\u8fde\u63a5\u4e2d\u65ad"}));
   }
 };
 function $JSCompiler_StaticMethods_sendMessage$$($JSCompiler_StaticMethods_sendMessage$self$$, $msg$$65$$) {
@@ -10589,11 +10589,11 @@ BitEx.prototype.removeEventListener = $bitex$api$BitEx$$.prototype.removeEventLi
 function $bitex$ui$RankingViewTable$$($opt_domHelper$$42$$) {
   $bitex$ui$DataGrid$$.call(this, {rowIDFn:this.$getRowId$, columns:[{property:"Rank", label:"#", sortable:!1, classes:function() {
     return $bitex$ui$RankingViewTable$CSS_CLASS$$ + "-rank";
-  }}, {property:"Trader", label:"User", sortable:!1, classes:function() {
+  }}, {property:"Trader", label:"\u4ea4\u6613\u8005", sortable:!1, classes:function() {
     return $bitex$ui$RankingViewTable$CSS_CLASS$$ + "-trader";
-  }}, {property:"Broker", label:"Corretora", sortable:!1, classes:function() {
+  }}, {property:"Broker", label:"\u4ee3\u7406\u4eba", sortable:!1, classes:function() {
     return $bitex$ui$RankingViewTable$CSS_CLASS$$ + "-broker";
-  }}, {property:"Amount", label:"Quantidade de BTC", sortable:!1, formatter:function($value$$195$$) {
+  }}, {property:"Amount", label:"\u6bd4\u7279\u5e01\u6570\u91cf", sortable:!1, formatter:function($value$$195$$) {
     return app.$formatCurrency$($value$$195$$ / 1E8, "BTC", !0);
   }, classes:function() {
     return $bitex$ui$RankingViewTable$CSS_CLASS$$ + "-amount";
@@ -10659,7 +10659,7 @@ $bitex$view$ForgotPasswordView$$.prototype.$enterDocument$ = function $$bitex$vi
   $JSCompiler_StaticMethods_listen$$(this.$getHandler$(), $goog$dom$getElement$$("id_btn_forgot_password"), "click", function($e$$196$$) {
     $e$$196$$.stopPropagation();
     $e$$196$$.preventDefault();
-    $goog$dom$forms$getValue$$($goog$dom$getElement$$("id_forgot_password_email")).match(/^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/) ? this.dispatchEvent("recover_pwd") : ($goog$dom$getElement$$("id_forgot_password_email").focus(), this.$app_$.$showDialog$("Endere\u00e7o de email inv\u00e1lido"));
+    $goog$dom$forms$getValue$$($goog$dom$getElement$$("id_forgot_password_email")).match(/^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/) ? this.dispatchEvent("recover_pwd") : ($goog$dom$getElement$$("id_forgot_password_email").focus(), this.$app_$.$showDialog$("\u65e0\u6548\u7684\u90ae\u7bb1\u5730\u5740"));
   }, this);
 };
 $bitex$view$ForgotPasswordView$$.prototype.$getEmail$ = function $$bitex$view$ForgotPasswordView$$$$$getEmail$$() {
@@ -10790,30 +10790,30 @@ $JSCompiler_prototypeAlias$$.$onWithdrawListReponse_$ = function $$JSCompiler_pr
 };
 // Input 177
 function $bitex$ui$LedgerActivity$$($button_filters$$, $pseudoNameFunction$$, $opt_broker_mode$$2$$, $opt_domHelper$$46$$) {
-  $bitex$ui$DataGrid$$.call(this, {title:"Livro cont\u00e1bil", showSearch:!0, searchPlaceholder:"Pesquisar ...", buttonFilters:$button_filters$$, rowClassFn:this.$getRowClass$, columns:[{property:"Created", label:"Data/Hora", sortable:!1, classes:function() {
+  $bitex$ui$DataGrid$$.call(this, {title:"\u603b\u5e10", showSearch:!0, searchPlaceholder:"\u6b63\u5728\u641c\u7d22 ...", buttonFilters:$button_filters$$, rowClassFn:this.$getRowClass$, columns:[{property:"Created", label:"\u65e5\u671f/\u65f6\u95f4", sortable:!1, classes:function() {
     return $bitex$ui$LedgerActivity$CSS_CLASS$$ + "-date-time";
-  }}, {property:"Currency", label:"Moeda", sortable:!1, classes:function() {
+  }}, {property:"Currency", label:"\u73b0\u91d1", sortable:!1, classes:function() {
     return $bitex$ui$LedgerActivity$CSS_CLASS$$ + "-currency";
-  }}, {property:"Description", label:"Descri\u00e7\u00e3o", sortable:!1, formatter:function($s$$50$$) {
+  }}, {property:"Description", label:"\u63cf\u8ff0", sortable:!1, formatter:function($s$$50$$) {
     switch($s$$50$$) {
       case "B":
-        return "B\u00f4nus";
+        return "\u5956\u52b1";
       case "D":
-        return "Dep\u00f3sito";
+        return "\u5145\u503c";
       case "DF":
-        return "Comiss\u00e3o no dep\u00f3sito";
+        return "\u5145\u503c\u624b\u7eed\u8d39";
       case "W":
-        return "Saque";
+        return "\u63d0\u73b0";
       case "WF":
-        return "Comiss\u00e3o no saque";
+        return "\u63d0\u73b0\u624b\u7eed\u8d39";
       case "T":
-        return "Trade";
+        return "\u4ea4\u6613";
       case "TF":
-        return "Comiss\u00e3o no trade";
+        return "\u4ea4\u6613\u624b\u7eed\u8d39";
     }
   }, classes:function() {
     return $bitex$ui$LedgerActivity$CSS_CLASS$$ + "-description";
-  }}, {property:"PayeeID", label:"Contraparte", sortable:!1, formatter:function($s$$51$$, $rowSet$$21$$) {
+  }}, {property:"PayeeID", label:"\u6536\u6b3e\u4eba", sortable:!1, formatter:function($s$$51$$, $rowSet$$21$$) {
     if (null != $rowSet$$21$$.PayeeName) {
       return $rowSet$$21$$.PayeeName;
     }
@@ -10835,9 +10835,9 @@ function $bitex$ui$LedgerActivity$$($button_filters$$, $pseudoNameFunction$$, $o
     }
   }, classes:function() {
     return $bitex$ui$DepositList$CSS_CLASS$$ + "-payee";
-  }}, {property:"Amount", label:"Valor", sortable:!1, classes:function() {
+  }}, {property:"Amount", label:"\u6570\u91cf", sortable:!1, classes:function() {
     return $bitex$ui$LedgerActivity$CSS_CLASS$$ + "-amount";
-  }}, {property:"Balance", label:"Saldo", sortable:!1, classes:function() {
+  }}, {property:"Balance", label:"\u4f59\u989d", sortable:!1, classes:function() {
     return $bitex$ui$LedgerActivity$CSS_CLASS$$ + "-balance";
   }}]}, $opt_domHelper$$46$$);
 }
@@ -10884,9 +10884,9 @@ $JSCompiler_prototypeAlias$$.$destroyComponents_$ = function $$JSCompiler_protot
 $JSCompiler_prototypeAlias$$.$recreateComponents_$ = function $$JSCompiler_prototypeAlias$$$$recreateComponents_$$() {
   var $handler$$94$$ = this.$getHandler$(), $model$$37$$ = this.$app_$.$model_$;
   this.$destroyComponents_$();
-  var $button_filters$$1$$ = [{label:"Todas as moedas", value:"all"}];
+  var $button_filters$$1$$ = [{label:"\u6240\u6709\u8d27\u5e01", value:"all"}];
   $model$$37$$.get("IsBroker") ? ($button_filters$$1$$ = [], $goog$array$forEach$$($model$$37$$.get("Profile").BrokerCurrencies, function($currency_code$$6$$) {
-    $button_filters$$1$$.push({label:"Meus clientes:" + this.$app_$.$getCurrencyDescription$($currency_code$$6$$), value:$goog$json$serialize$$({currency:$currency_code$$6$$, broker_id:$model$$37$$.get("UserID")})});
+    $button_filters$$1$$.push({label:"\u6211\u7684\u5ba2\u6237:" + this.$app_$.$getCurrencyDescription$($currency_code$$6$$), value:$goog$json$serialize$$({currency:$currency_code$$6$$, broker_id:$model$$37$$.get("UserID")})});
   }, this), $goog$isDefAndNotNull$$($model$$37$$.get("Profile").Accounts) && $goog$object$forEach$$($model$$37$$.get("Profile").Accounts, function($account_data$$, $account_name$$) {
     $goog$array$forEach$$($model$$37$$.get("Profile").BrokerCurrencies, function($currency_code$$7$$) {
       $button_filters$$1$$.push({label:$account_name$$ + ":" + this.$app_$.$getCurrencyDescription$($currency_code$$7$$), value:$goog$json$serialize$$({currency:$currency_code$$7$$, account_id:$account_data$$[0]})});
@@ -11110,7 +11110,7 @@ $JSCompiler_prototypeAlias$$.$onBtnUserFeesClick_$ = function $$JSCompiler_proto
   null != $buy_fee$$1$$ && ($buy_fee$$1$$ = $fmt$$9$$.format($buy_fee$$1$$ / 100));
   null != $sell_fee$$1$$ && ($sell_fee$$1$$ = $fmt$$9$$.format($sell_fee$$1$$ / 100));
   $dlg_content_selectedCustomer$$4_userFeesDialog$$ = $bitex$templates$UserFeesDialogContent$$({id:"id_user_fees", $buy_fee$:$buy_fee$$1$$, $sell_fee$:$sell_fee$$1$$});
-  $dlg_content_selectedCustomer$$4_userFeesDialog$$ = this.$app_$.$showDialog$($dlg_content_selectedCustomer$$4_userFeesDialog$$, "Definir taxas deste usu\u00e1rio", $bootstrap$Dialog$ButtonSet$createOkCancel$$());
+  $dlg_content_selectedCustomer$$4_userFeesDialog$$ = this.$app_$.$showDialog$($dlg_content_selectedCustomer$$4_userFeesDialog$$, "\u8bbe\u7f6e\u5ba2\u6237\u624b\u7eed\u8d39", $bootstrap$Dialog$ButtonSet$createOkCancel$$());
   null != $buy_fee$$1$$ ? ($goog$dom$getElement$$("id_user_fees_buy_fee").disabled = !1, $goog$dom$getElement$$("id_user_fees_broker_buy_fee").checked = !1, $goog$dom$forms$setValue$$($goog$dom$getElement$$("id_user_fees_buy_fee"), $buy_fee$$1$$)) : ($goog$dom$getElement$$("id_user_fees_buy_fee").disabled = !0, $goog$dom$getElement$$("id_user_fees_broker_buy_fee").checked = !0, $goog$dom$forms$setValue$$($goog$dom$getElement$$("id_user_fees_buy_fee"), "None"));
   null != $sell_fee$$1$$ ? ($goog$dom$getElement$$("id_user_fees_sell_fee").disabled = !1, $goog$dom$getElement$$("id_user_fees_broker_sell_fee").checked = !1, $goog$dom$forms$setValue$$($goog$dom$getElement$$("id_user_fees_sell_fee"), $sell_fee$$1$$)) : ($goog$dom$getElement$$("id_user_fees_sell_fee").disabled = !0, $goog$dom$getElement$$("id_user_fees_broker_sell_fee").checked = !0, $goog$dom$forms$setValue$$($goog$dom$getElement$$("id_user_fees_sell_fee"), "None"));
   var $handler$$99$$ = this.$getHandler$();
@@ -11167,7 +11167,7 @@ $JSCompiler_prototypeAlias$$.$onAccountOverviewHeaderClick_$ = function $$JSComp
         this.dispatchEvent("update_profile");
         break;
       case "SET_VERIFIED":
-        var $data_action$$2_dlg_content$$1_element$$205$$ = $bitex$templates$EnterVerificationDataDialogContent$$({$clientID$:$selectedCustomer$$6$$.ID}), $dlg$$ = this.$app_$.$showDialog$($data_action$$2_dlg_content$$1_element$$205$$, "Informe dados de verifica\u00e7\u00e3o", $bootstrap$Dialog$ButtonSet$createOkCancel$$());
+        var $data_action$$2_dlg_content$$1_element$$205$$ = $bitex$templates$EnterVerificationDataDialogContent$$({$clientID$:$selectedCustomer$$6$$.ID}), $dlg$$ = this.$app_$.$showDialog$($data_action$$2_dlg_content$$1_element$$205$$, "\u8bf7\u8f93\u5165\u9a8c\u8bc1\u6570\u636e", $bootstrap$Dialog$ButtonSet$createOkCancel$$());
         $JSCompiler_StaticMethods_listen$$($e$$218_handler$$100$$, $dlg$$, $goog$ui$Dialog$EventType$SELECT$$, function($e$$219_verification_data$$1$$) {
           "ok" == $e$$219_verification_data$$1$$.key && ($e$$219_verification_data$$1$$.preventDefault(), $e$$219_verification_data$$1$$.stopPropagation(), $e$$219_verification_data$$1$$ = $bitex$util$getFormAsJSON$$($goog$dom$getFirstElementChild$$($dlg$$.$getContentElement$())), null == $e$$219_verification_data$$1$$.VerificationData || $goog$string$isEmpty$$($e$$219_verification_data$$1$$.VerificationData) || (this.$client_id_$ = $goog$string$toNumber$$($e$$219_verification_data$$1$$.ClientID), 
           this.$verification_data_$ = $e$$219_verification_data$$1$$.VerificationData, this.$verification_level_$ = 3, this.dispatchEvent("set_verified"), $dlg$$.$dispose$()));
@@ -11238,7 +11238,7 @@ $JSCompiler_prototypeAlias$$.$priceFormatter_$ = function $$JSCompiler_prototype
 $JSCompiler_prototypeAlias$$.$valuePriceFormatter_$ = function $$JSCompiler_prototypeAlias$$$$valuePriceFormatter_$$($value$$212$$, $rowSet$$25$$) {
   var $formatted_paid_value$$1_paid_value$$1$$ = $rowSet$$25$$.PaidValue, $priceCurrency$$10$$ = $rowSet$$25$$.Currency, $currency_description$$3$$ = this.$app_$.$getCurrencyDescription$($priceCurrency$$10$$), $formatted_value$$1$$ = this.$app_$.$formatCurrency$($value$$212$$ / 1E8, $priceCurrency$$10$$);
   return 0 === $value$$212$$ ? 0 === $formatted_paid_value$$1_paid_value$$1$$ ? "-" : $goog$dom$createDom$$("abbr", {title:$currency_description$$3$$}, this.$app_$.$formatCurrency$($formatted_paid_value$$1_paid_value$$1$$ / 1E8, $priceCurrency$$10$$)) : 0 < $formatted_paid_value$$1_paid_value$$1$$ && $formatted_paid_value$$1_paid_value$$1$$ != $value$$212$$ ? ($formatted_paid_value$$1_paid_value$$1$$ = this.$app_$.$formatCurrency$($formatted_paid_value$$1_paid_value$$1$$ / 1E8, $priceCurrency$$10$$), 
-  $goog$dom$createDom$$("abbr", {title:"declarado / depositado em " + $currency_description$$3$$}, $formatted_value$$1$$ + " / " + $formatted_paid_value$$1_paid_value$$1$$)) : $goog$dom$createDom$$("abbr", {title:$currency_description$$3$$}, $formatted_value$$1$$);
+  $goog$dom$createDom$$("abbr", {title:"\u7533\u660e\u7684\u63d0\u73b0\u91d1\u989d/\u5b9e\u9645\u6536\u5230\u7684\u63d0\u73b0\u91d1\u989d " + $currency_description$$3$$}, $formatted_value$$1$$ + " / " + $formatted_paid_value$$1_paid_value$$1$$)) : $goog$dom$createDom$$("abbr", {title:$currency_description$$3$$}, $formatted_value$$1$$);
 };
 $JSCompiler_prototypeAlias$$.$onWithdrawListReponse_$ = function $$JSCompiler_prototypeAlias$$$$onWithdrawListReponse_$$($e$$226_msg$$74$$) {
   null != this.$withdraw_list_table_$ && ($e$$226_msg$$74$$ = $e$$226_msg$$74$$.data, $JSCompiler_StaticMethods_setResultSet$$(this.$withdraw_list_table_$, $e$$226_msg$$74$$.WithdrawListGrp, $e$$226_msg$$74$$.Columns));
@@ -11290,7 +11290,7 @@ function $bitex$ui$RemittancesBox$templates$RemittancesBoxCurrency$$($opt_data$$
   return'<tr><td style="padding: 4px;"><strong>' + $soy$$0$0escapeHtml$$($opt_data$$53$$.$remittance_pair$[1]) + '</strong></td><td style="padding: 4px;"><span id="' + $soy$$0$0escapeHtml$$($opt_data$$53$$.id) + "_" + $soy$$0$0escapeHtml$$($opt_data$$53$$.$remittance_pair$[0]) + '_buy"  data-blink-class="md-blink"></span><span> / <span><span id="' + $soy$$0$0escapeHtml$$($opt_data$$53$$.id) + "_" + $soy$$0$0escapeHtml$$($opt_data$$53$$.$remittance_pair$[0]) + '_sell" data-blink-class="md-blink"></span></td></tr>';
 }
 function $bitex$ui$RemittancesBox$templates$RemittancesBox$$($opt_data$$55$$) {
-  for (var $JSCompiler_temp_const$$134$$ = "", $JSCompiler_temp_const$$133$$ = '<div id="' + $soy$$0$0escapeHtml$$($opt_data$$55$$.id) + '" class="remittance-box"><table class="table table-bordered table-condensed remittance-box-table"><thead><tr><td colspan="2"><strong>Cota\u00e7\u00f5es para remessas via BTC</strong></td></tr></thead><tbody class="remittance-box-content">', $output$$inline_1230$$ = "", $remittance_pairList15$$inline_1231$$ = $opt_data$$55$$.$remittance_pairs$, $remittance_pairListLen15$$inline_1232$$ = 
+  for (var $JSCompiler_temp_const$$134$$ = "", $JSCompiler_temp_const$$133$$ = '<div id="' + $soy$$0$0escapeHtml$$($opt_data$$55$$.id) + '" class="remittance-box"><table class="table table-bordered table-condensed remittance-box-table"><thead><tr><td colspan="2"><strong>Be your own Remittance Service</strong></td></tr></thead><tbody class="remittance-box-content">', $output$$inline_1230$$ = "", $remittance_pairList15$$inline_1231$$ = $opt_data$$55$$.$remittance_pairs$, $remittance_pairListLen15$$inline_1232$$ = 
   $remittance_pairList15$$inline_1231$$.length, $remittance_pairIndex15$$inline_1233$$ = 0;$remittance_pairIndex15$$inline_1233$$ < $remittance_pairListLen15$$inline_1232$$;$remittance_pairIndex15$$inline_1233$$++) {
     $output$$inline_1230$$ += $bitex$ui$RemittancesBox$templates$RemittancesBoxCurrency$$({id:$opt_data$$55$$.id, $remittance_pair$:$remittance_pairList15$$inline_1231$$[$remittance_pairIndex15$$inline_1233$$]});
   }
@@ -11455,7 +11455,7 @@ $JSCompiler_prototypeAlias$$.$enterDocument$ = function $$JSCompiler_prototypeAl
     $goog$array$forEach$$($model$$42$$.get("Broker").BrokerCurrencies, function($currency$$18$$) {
       $accounts$$[0].currencies.push({currency:$currency$$18$$, balance:0, formattedBalance:this.$app_$.$formatCurrency$(0, $currency$$18$$, !0), showDeposit:!0, showWithdraw:!0});
     }, this);
-    $model$$42$$.get("IsBroker") && ($accounts$$.push({brokerID:$model$$42$$.get("Profile").BrokerID, brokerName:"Meus clientes", clientID:$model$$42$$.get("UserID"), currencies:[]}), $goog$array$forEach$$($model$$42$$.get("Profile").BrokerCurrencies, function($currency$$19$$) {
+    $model$$42$$.get("IsBroker") && ($accounts$$.push({brokerID:$model$$42$$.get("Profile").BrokerID, brokerName:"\u6211\u7684\u5ba2\u6237", clientID:$model$$42$$.get("UserID"), currencies:[]}), $goog$array$forEach$$($model$$42$$.get("Profile").BrokerCurrencies, function($currency$$19$$) {
       $accounts$$[1].currencies.push({currency:$currency$$19$$, balance:0, formattedBalance:this.$app_$.$formatCurrency$(0, $currency$$19$$, !0), showDeposit:!1, showWithdraw:!1});
     }, this), $goog$isDefAndNotNull$$($model$$42$$.get("Profile").Accounts) && $goog$object$forEach$$($model$$42$$.get("Profile").Accounts, function($account_data$$1$$, $account_name$$1$$) {
       $accounts$$.push({brokerID:$model$$42$$.get("Profile").BrokerID, brokerName:$account_name$$1$$, clientID:$account_data$$1$$[0], currencies:[]});
@@ -11513,7 +11513,7 @@ $JSCompiler_prototypeAlias$$.$getSymbol$ = function $$JSCompiler_prototypeAlias$
 // Input 184
 function $bitex$ui$market_view_table$templates$MarketViewTable$$($instList30_opt_data$$56$$) {
   var $output$$47$$;
-  $output$$47$$ = "" + ('<div class="row-fluid"><div class="span12"><table id="' + $soy$$0$0escapeHtml$$($instList30_opt_data$$56$$.id) + '_table" class="table table-bordered table-condensed"><thead><tr><th> Par</th><th> \u00daltimo </th><th> Compra </th><th> Venda </th><th> Volume (BTC) </th><th> Volume </th><th> Alta </th><th> Baixa </th></tr></thead><tbody>');
+  $output$$47$$ = "" + ('<div class="row-fluid"><div class="span12"><table id="' + $soy$$0$0escapeHtml$$($instList30_opt_data$$56$$.id) + '_table" class="table table-bordered table-condensed"><thead><tr><th> \u4e00\u5bf9</th><th> \u4e0a\u6b21\u4ea4\u6613 </th><th> \u4e70\u5165 </th><th> \u5356\u51fa </th><th> \u4ea4\u6613\u91cf (BTC) </th><th> \u4ea4\u6613\u91cf </th><th> \u9ad8 </th><th> \u4f4e </th></tr></thead><tbody>');
   $instList30_opt_data$$56$$ = $instList30_opt_data$$56$$.$instruments$;
   for (var $instListLen30$$ = $instList30_opt_data$$56$$.length, $instIndex30$$ = 0;$instIndex30$$ < $instListLen30$$;$instIndex30$$++) {
     var $instData30$$ = $instList30_opt_data$$56$$[$instIndex30$$];
@@ -11596,45 +11596,45 @@ $JSCompiler_prototypeAlias$$.$setSymbol$ = function $$JSCompiler_prototypeAlias$
 // Input 188
 var $goog$date$relative$fullDateFormatter_$$, $goog$date$relative$shortTimeFormatter_$$;
 function $goog$date$relative$getMessage_$$($delta$$6$$, $future$$1$$, $unit$$1$$) {
-  return $future$$1$$ || 0 != $unit$$1$$ ? $future$$1$$ && 0 == $unit$$1$$ ? 1 == $delta$$6$$ ? "em " + ($delta$$6$$ + " minuto") : "em " + ($delta$$6$$ + " minutos") : $future$$1$$ || 1 != $unit$$1$$ ? $future$$1$$ && 1 == $unit$$1$$ ? 1 == $delta$$6$$ ? "em " + ($delta$$6$$ + " hora") : "em " + ($delta$$6$$ + " horas") : $future$$1$$ || 2 != $unit$$1$$ ? $future$$1$$ && 2 == $unit$$1$$ ? 1 == $delta$$6$$ ? "em " + ($delta$$6$$ + " dia") : "em " + ($delta$$6$$ + " dias") : "" : 1 == $delta$$6$$ ? 
-  $delta$$6$$ + " dia atr\u00e1s" : $delta$$6$$ + " dias atr\u00e1s" : 1 == $delta$$6$$ ? $delta$$6$$ + " hora atr\u00e1s" : $delta$$6$$ + " horas atr\u00e1s" : 1 == $delta$$6$$ ? $delta$$6$$ + " minuto atr\u00e1s" : $delta$$6$$ + " minutos atr\u00e1s";
+  return $future$$1$$ || 0 != $unit$$1$$ ? $future$$1$$ && 0 == $unit$$1$$ ? 1 == $delta$$6$$ ? "in " + ($delta$$6$$ + " \u4e00\u5206\u949f") : "in " + ($delta$$6$$ + " \u51e0\u5206\u949f") : $future$$1$$ || 1 != $unit$$1$$ ? $future$$1$$ && 1 == $unit$$1$$ ? 1 == $delta$$6$$ ? "in " + ($delta$$6$$ + " \u5c0f\u65f6") : "in " + ($delta$$6$$ + " \u51e0\u5c0f\u65f6") : $future$$1$$ || 2 != $unit$$1$$ ? $future$$1$$ && 2 == $unit$$1$$ ? 1 == $delta$$6$$ ? "in " + ($delta$$6$$ + " \u4e00\u5929") : "in " + 
+  ($delta$$6$$ + " \u51e0\u5929") : "" : 1 == $delta$$6$$ ? $delta$$6$$ + " \u4e00\u5929" : $delta$$6$$ + " \u51e0\u5929" : 1 == $delta$$6$$ ? $delta$$6$$ + " \u4e00\u5c0f\u65f6" : $delta$$6$$ + " \u51e0\u5c0f\u65f6" : 1 == $delta$$6$$ ? $delta$$6$$ + "  \u4e00\u5206\u949f" : $delta$$6$$ + " \u51e0\u5206\u949f";
 }
 ;
 // Input 189
 function $bitex$ui$TradeHistory$$($pseudoNameFunction$$1$$, $opt_blinkDelay$$3$$, $opt_domHelper$$54$$) {
-  $bitex$ui$DataGrid$$.call(this, {title:"\u00daltimos trades", rowIDFn:this.$getRowId$, rowClassFn:this.$getRowClass$, columns:[{property:"Market", label:"Mercado", sortable:!1, formatter:function($s$$52$$) {
+  $bitex$ui$DataGrid$$.call(this, {title:"\u4e0a\u6b21\u4ea4\u6613", rowIDFn:this.$getRowId$, rowClassFn:this.$getRowClass$, columns:[{property:"Market", label:"\u5e02\u573a", sortable:!1, formatter:function($s$$52$$) {
     size_currency = $s$$52$$.substring(0, 3);
     price_currency = $s$$52$$.substring(3);
     return size_currency + " / " + price_currency;
   }, classes:function() {
     return $bitex$ui$TradeHistory$CSS_CLASS$$ + "-market";
-  }}, {property:"Side", label:"Lado", sortable:!1, formatter:function($s$$53$$) {
+  }}, {property:"Side", label:"\u4fa7\u8fb9", sortable:!1, formatter:function($s$$53$$) {
     switch($s$$53$$) {
       case "1":
-        return "Compra";
+        return "\u4e70";
       case "2":
-        return "Venda";
+        return "\u5356";
     }
     return "";
   }, classes:function() {
     return $bitex$ui$TradeHistory$CSS_CLASS$$ + "-side";
-  }}, {property:"Price", label:"Pre\u00e7o", sortable:!1, formatter:function($value$$213$$) {
+  }}, {property:"Price", label:"\u4ef7\u683c", sortable:!1, formatter:function($value$$213$$) {
     return($value$$213$$ / 1E8).toFixed(8);
   }, classes:function() {
     return $bitex$ui$TradeHistory$CSS_CLASS$$ + "-price";
-  }}, {property:"Size", label:"Montante", sortable:!1, formatter:function($value$$214$$) {
+  }}, {property:"Size", label:"\u5927\u5c0f", sortable:!1, formatter:function($value$$214$$) {
     return($value$$214$$ / 1E8).toFixed(8);
   }, classes:function() {
     return $bitex$ui$TradeHistory$CSS_CLASS$$ + "-size";
-  }}, {property:"Buyer", label:"Comprador", sortable:!1, formatter:function($s$$54$$, $rowSet$$26$$) {
+  }}, {property:"Buyer", label:"\u8d2d\u4e70\u8005", sortable:!1, formatter:function($s$$54$$, $rowSet$$26$$) {
     return null != $rowSet$$26$$.BuyerUsername ? $rowSet$$26$$.BuyerUsername : $pseudoNameFunction$$1$$($s$$54$$);
   }, classes:function() {
     return $bitex$ui$TradeHistory$CSS_CLASS$$ + "-buyer";
-  }}, {property:"Seller", label:"Vendedor", sortable:!1, formatter:function($s$$55$$, $rowSet$$27$$) {
+  }}, {property:"Seller", label:"\u5356\u51fa\u8005", sortable:!1, formatter:function($s$$55$$, $rowSet$$27$$) {
     return null != $rowSet$$27$$.SellerUsername ? $rowSet$$27$$.SellerUsername : $pseudoNameFunction$$1$$($s$$55$$);
   }, classes:function() {
     return $bitex$ui$TradeHistory$CSS_CLASS$$ + "-seller";
-  }}, {property:"Created", label:"Data/Hora", sortable:!1, formatter:function($s$$56$$, $rowSet$$28$$) {
+  }}, {property:"Created", label:"\u65e5\u671f/\u5c0f\u65f6", sortable:!1, formatter:function($s$$56$$, $rowSet$$28$$) {
     var $JSCompiler_temp$$inline_1553_date$$inline_1548$$ = $rowSet$$28$$.Timestamp, $dateMs$$inline_1551$$ = $JSCompiler_temp$$inline_1553_date$$inline_1548$$.getTime(), $future$$inline_1573_now$$inline_1571_relativeDate$$inline_1552$$;
     $future$$inline_1573_now$$inline_1571_relativeDate$$inline_1552$$ = $goog$now$$();
     var $delta$$inline_1572_midnight$$inline_1574$$ = Math.floor(($future$$inline_1573_now$$inline_1571_relativeDate$$inline_1552$$ - $dateMs$$inline_1551$$) / 6E4);
@@ -11922,8 +11922,8 @@ $JSCompiler_prototypeAlias$$.$getHandler$ = function $$JSCompiler_prototypeAlias
 };
 function $bitex$app$BlinkTrade$validateBitcoinAddress_$$($el$$117_elValue$$8$$, $MSG_BITEX_ERROR_VALIDATE_REQUIRED_condition$$19$$, $minLength$$2$$, $MSG_BITEX_ERROR_VALIDATE_BTC_ADDRESS_caption$$26$$) {
   if (!$MSG_BITEX_ERROR_VALIDATE_REQUIRED_condition$$19$$ || eval($MSG_BITEX_ERROR_VALIDATE_REQUIRED_condition$$19$$)) {
-    $MSG_BITEX_ERROR_VALIDATE_REQUIRED_condition$$19$$ = "O campo " + ($MSG_BITEX_ERROR_VALIDATE_BTC_ADDRESS_caption$$26$$ + " \u00e9 de preenchimento obrigat\u00f3rio");
-    $MSG_BITEX_ERROR_VALIDATE_BTC_ADDRESS_caption$$26$$ += " n\u00e3o \u00e9 um endere\u00e7o v\u00e1lido";
+    $MSG_BITEX_ERROR_VALIDATE_REQUIRED_condition$$19$$ = $MSG_BITEX_ERROR_VALIDATE_BTC_ADDRESS_caption$$26$$ + " \u662f\u5fc5\u987b\u7684";
+    $MSG_BITEX_ERROR_VALIDATE_BTC_ADDRESS_caption$$26$$ += " \u4e0d\u662f\u6709\u6548\u7684\u5730\u5740";
     $el$$117_elValue$$8$$ = $goog$dom$forms$getValue$$($el$$117_elValue$$8$$);
     if (null == $el$$117_elValue$$8$$ || $goog$string$isEmpty$$($el$$117_elValue$$8$$)) {
       throw $MSG_BITEX_ERROR_VALIDATE_REQUIRED_condition$$19$$;
@@ -12164,14 +12164,14 @@ $JSCompiler_prototypeAlias$$.$onBitexRawMessageLogger_$ = function $$JSCompiler_
 $JSCompiler_prototypeAlias$$.$onBitexWithdrawConfirmationResponse_$ = function $$JSCompiler_prototypeAlias$$$$onBitexWithdrawConfirmationResponse_$$($e$$264$$) {
   var $msg$$88$$ = $e$$264$$.data;
   if (null == $msg$$88$$.Status || "1" != $msg$$88$$.Status) {
-    this.$showNotification$("error", "C\u00f3digo de confirma\u00e7\u00e3o inv\u00e1lido!"), this.$onBitexWithdrawResponse_$($e$$264$$);
+    this.$showNotification$("error", "\u65e0\u6548\u7684\u786e\u8ba4\u6807\u8bb0\uff01"), this.$onBitexWithdrawResponse_$($e$$264$$);
   }
 };
 $JSCompiler_prototypeAlias$$.$onBitexWithdrawResponse_$ = function $$JSCompiler_prototypeAlias$$$$onBitexWithdrawResponse_$$($dlg_content$$2_e$$265_withdrawConfirmationDialog$$) {
   var $msg$$89$$ = $dlg_content$$2_e$$265_withdrawConfirmationDialog$$.data;
   if (this.$model_$.get("Profile").NeedWithdrawEmail) {
     $dlg_content$$2_e$$265_withdrawConfirmationDialog$$ = this.$model_$.get("TwoFactorEnabled") ? $bitex$templates$GoogleAuthenticationCodeDialogContent$$() : $bitex$templates$WithdrawConfirmationDialogContent$$();
-    $dlg_content$$2_e$$265_withdrawConfirmationDialog$$ = this.$showDialog$($dlg_content$$2_e$$265_withdrawConfirmationDialog$$, "Confirmar", $bootstrap$Dialog$ButtonSet$createOkCancel$$());
+    $dlg_content$$2_e$$265_withdrawConfirmationDialog$$ = this.$showDialog$($dlg_content$$2_e$$265_withdrawConfirmationDialog$$, "\u786e\u8ba4", $bootstrap$Dialog$ButtonSet$createOkCancel$$());
     var $form_element$$ = $goog$dom$getFirstElementChild$$($dlg_content$$2_e$$265_withdrawConfirmationDialog$$.$getContentElement$()), $withdraw_confirmation_uniform$$ = new $uniform$Uniform$$;
     $withdraw_confirmation_uniform$$.$decorate$($form_element$$);
     $JSCompiler_StaticMethods_listen$$(this.$getHandler$(), $dlg_content$$2_e$$265_withdrawConfirmationDialog$$, $goog$ui$Dialog$EventType$SELECT$$, function($e$$266_withdraw_confirmation_data$$) {
@@ -12188,7 +12188,7 @@ function $JSCompiler_StaticMethods_connectBitEx$$($JSCompiler_StaticMethods_conn
   try {
     $JSCompiler_StaticMethods_connectBitEx$self$$.$conn_$.open($JSCompiler_StaticMethods_connectBitEx$self$$.$wss_url_$);
   } catch ($e$$267$$) {
-    var $JSCompiler_object_inline_error_code_1404_output$$inline_1300$$ = "WebSocket: " + $e$$267$$, $JSCompiler_object_inline_error_code_1404_output$$inline_1300$$ = "" + ('<p class="lead">' + $soy$$0$0escapeHtml$$("Erro conectando ao servidor. Parece que o seu navegador n\u00e3o suporta WebSockets!") + '</p><dl class="dl-horizontal"><dt>C\u00f3digo do erro</dt><dd>' + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_error_code_1404_output$$inline_1300$$) + "</dd></dl>");
+    var $JSCompiler_object_inline_error_code_1404_output$$inline_1300$$ = "WebSocket: " + $e$$267$$, $JSCompiler_object_inline_error_code_1404_output$$inline_1300$$ = "" + ('<p class="lead">' + $soy$$0$0escapeHtml$$("\u65e0\u6cd5\u4e0e\u670d\u52a1\u5668\u5efa\u7acb\u8fde\u63a5. \u4f60\u7684\u6d4f\u89c8\u5668\u9700\u8981\u652f\u6301 WebSockets.") + '</p><dl class="dl-horizontal"><dt>\u9519\u8bef</dt><dd>' + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_error_code_1404_output$$inline_1300$$) + "</dd></dl>");
     $JSCompiler_StaticMethods_connectBitEx$self$$.$showDialog$($JSCompiler_object_inline_error_code_1404_output$$inline_1300$$, void 0, $bootstrap$Dialog$ButtonSet$createYesNoCancel$$());
   }
 }
@@ -12225,7 +12225,7 @@ $JSCompiler_prototypeAlias$$.$onUserChangePassword_$ = function $$JSCompiler_pro
 $JSCompiler_prototypeAlias$$.$onChangePasswordResponse_$ = function $$JSCompiler_prototypeAlias$$$$onChangePasswordResponse_$$($e$$274_msg$$90$$) {
   $e$$274_msg$$90$$ = $e$$274_msg$$90$$.data;
   if ($e$$274_msg$$90$$.NeedSecondFactor) {
-    var $dlg_$$ = this.$showDialog$($bitex$templates$GoogleAuthenticationCodeDialogContent$$(), "Autentica\u00e7\u00e3o em duas etapas", $bootstrap$Dialog$ButtonSet$createOkCancel$$()), $gauth_uniform$$ = new $uniform$Uniform$$;
+    var $dlg_$$ = this.$showDialog$($bitex$templates$GoogleAuthenticationCodeDialogContent$$(), "\u4e8c\u91cd\u9a8c\u8bc1", $bootstrap$Dialog$ButtonSet$createOkCancel$$()), $gauth_uniform$$ = new $uniform$Uniform$$;
     $gauth_uniform$$.$decorate$($goog$dom$getFirstElementChild$$($dlg_$$.$getContentElement$()));
     $JSCompiler_StaticMethods_listen$$(this.$getHandler$(), $dlg_$$, $goog$ui$Dialog$EventType$SELECT$$, function($e$$275_second_factor$$) {
       if ("ok" == $e$$275_second_factor$$.key) {
@@ -12243,7 +12243,7 @@ $JSCompiler_prototypeAlias$$.$onChangePasswordResponse_$ = function $$JSCompiler
       }
     });
   } else {
-    "MSG_SUCCESS_PASSWORD_CHANGE" == $e$$274_msg$$90$$.UserStatusText ? this.$showDialog$("Senha alterada!", "Sucesso") : this.$showDialog$($e$$274_msg$$90$$.UserStatusText);
+    "MSG_SUCCESS_PASSWORD_CHANGE" == $e$$274_msg$$90$$.UserStatusText ? this.$showDialog$("\u5bc6\u7801\u5df2\u4fee\u6539\uff01", "\u6210\u529f\u4ea4\u6613") : this.$showDialog$($e$$274_msg$$90$$.UserStatusText);
   }
 };
 $JSCompiler_prototypeAlias$$.$onUserChangeMarket_$ = function $$JSCompiler_prototypeAlias$$$$onUserChangeMarket_$$($e$$276_symbol$$18$$) {
@@ -12259,16 +12259,16 @@ $JSCompiler_prototypeAlias$$.$onBitexDepositMethodsResponse_$ = function $$JSCom
 };
 $JSCompiler_prototypeAlias$$.$onBitexPasswordChangedOk_$ = function $$JSCompiler_prototypeAlias$$$$onBitexPasswordChangedOk_$$($e$$278_msg$$92$$) {
   $e$$278_msg$$92$$ = $e$$278_msg$$92$$.data;
-  "MSG_SUCCESS_PASSWORD_CHANGE" == $e$$278_msg$$92$$.UserStatusText ? this.$showDialog$("Senha alterada!", "Sucesso") : this.$showDialog$($e$$278_msg$$92$$.UserStatusText, "Sucesso");
+  "MSG_SUCCESS_PASSWORD_CHANGE" == $e$$278_msg$$92$$.UserStatusText ? this.$showDialog$("\u5bc6\u7801\u5df2\u4fee\u6539\uff01", "\u6210\u529f\u4ea4\u6613") : this.$showDialog$($e$$278_msg$$92$$.UserStatusText, "\u6210\u529f\u4ea4\u6613");
   this.$router_$.$setView$("signin");
 };
 $JSCompiler_prototypeAlias$$.$onBitexPasswordChangedError_$ = function $$JSCompiler_prototypeAlias$$$$onBitexPasswordChangedError_$$($e$$279$$) {
-  "MSG_CHANGE_PASSWORD_INVALID_SECURITY_CODE" == $e$$279$$.data.UserStatusText ? this.$showDialog$("C\u00f3digo de seguran\u00e7a inv\u00e1lido.", "Erro") : this.$showDialog$("Ocorreu um erro no servidor durante a altera\u00e7\u00e3o de sua senha.", "Erro");
+  "MSG_CHANGE_PASSWORD_INVALID_SECURITY_CODE" == $e$$279$$.data.UserStatusText ? this.$showDialog$("\u65e0\u6548\u7684\u5b89\u5168\u9a8c\u8bc1\u7801.", "\u9519\u8bef") : this.$showDialog$("\u5145\u503c\u5bc6\u7801\u9519\u8bef", "\u9519\u8bef");
 };
 $JSCompiler_prototypeAlias$$.$onBitexWithdrawIncrementalUpdate_$ = function $$JSCompiler_prototypeAlias$$$$onBitexWithdrawIncrementalUpdate_$$($e$$280_msg$$94$$) {
   $e$$280_msg$$94$$ = $e$$280_msg$$94$$.data;
-  var $MSG_WITHDRAW_NOTIFICATION_USER_UNCONFIRMED_TITLE$$ = "Criado pedido de saque [" + ($e$$280_msg$$94$$.WithdrawID + "] "), $MSG_WITHDRAW_NOTIFICATION_USER_CONFIRMED_TITLE$$ = "Pedido de saque [" + ($e$$280_msg$$94$$.WithdrawID + "] confirmado"), $MSG_WITHDRAW_NOTIFICATION_USER_PROGRESS_TITLE$$ = "Pedido de saque [" + ($e$$280_msg$$94$$.WithdrawID + "] em andamento"), $MSG_WITHDRAW_NOTIFICATION_USER_COMPLETE_TITLE$$ = "Pedido de saque [" + ($e$$280_msg$$94$$.WithdrawID + "] completado"), $MSG_WITHDRAW_NOTIFICATION_USER_CANCEL_TITLE$$ = 
-  "Pedido de saque [" + ($e$$280_msg$$94$$.WithdrawID + "] cancelado"), $formatted_value$$2$$ = this.$formatCurrency$($e$$280_msg$$94$$.Amount / 1E8, $e$$280_msg$$94$$.Currency), $notification_type_title$$;
+  var $MSG_WITHDRAW_NOTIFICATION_USER_UNCONFIRMED_TITLE$$ = "\u53d1\u8d77\u7684\u63d0\u73b0 [" + ($e$$280_msg$$94$$.WithdrawID + "] "), $MSG_WITHDRAW_NOTIFICATION_USER_CONFIRMED_TITLE$$ = "\u63d0\u73b0 [" + ($e$$280_msg$$94$$.WithdrawID + "] \u5df2\u786e\u8ba4"), $MSG_WITHDRAW_NOTIFICATION_USER_PROGRESS_TITLE$$ = "\u63d0\u73b0 [" + ($e$$280_msg$$94$$.WithdrawID + "]\u6b63\u5728\u5904\u7406"), $MSG_WITHDRAW_NOTIFICATION_USER_COMPLETE_TITLE$$ = "\u63d0\u73b0 [" + ($e$$280_msg$$94$$.WithdrawID + "] \u5df2\u7ecf\u5b8c\u6210"), 
+  $MSG_WITHDRAW_NOTIFICATION_USER_CANCEL_TITLE$$ = "\u63d0\u73b0 [" + ($e$$280_msg$$94$$.WithdrawID + "] \u5df2\u7ecf\u53d6\u6d88"), $formatted_value$$2$$ = this.$formatCurrency$($e$$280_msg$$94$$.Amount / 1E8, $e$$280_msg$$94$$.Currency), $notification_type_title$$;
   switch($e$$280_msg$$94$$.Status) {
     case "0":
       $notification_type_title$$ = ["warning", $MSG_WITHDRAW_NOTIFICATION_USER_UNCONFIRMED_TITLE$$];
@@ -12297,8 +12297,8 @@ $JSCompiler_prototypeAlias$$.$onBitexVerifyCustomerUpdate_$ = function $$JSCompi
   this.$model_$.set("IsVerified", 1 < $e$$281_profile$$2$$.Verified);
   this.$model_$.set("IsMissingVerification", 0 == $e$$281_profile$$2$$.Verified);
   this.$model_$.set("IsAccountBlocked", 0 > $e$$281_profile$$2$$.Verified);
-  $MSG_ACCOUNT_VERIFIED_CONTENT_msg$$95$$ = "Sua conta foi verificada no n\u00edvel " + ($e$$281_profile$$2$$.Verified - 2);
-  0 == $old_verified$$ && 1 == $e$$281_profile$$2$$.Verified ? (this.$router_$.$setView$("offerbook"), this.$showNotification$("success", "Verifica\u00e7\u00e3o:", "Enviada para a corretora.")) : 2 == $e$$281_profile$$2$$.Verified ? this.$showNotification$("success", "Verifica\u00e7\u00e3o:", "Em andamento.") : 3 <= $e$$281_profile$$2$$.Verified && this.$showNotification$("success", "Verifica\u00e7\u00e3o:", $MSG_ACCOUNT_VERIFIED_CONTENT_msg$$95$$);
+  $MSG_ACCOUNT_VERIFIED_CONTENT_msg$$95$$ = "\u4f60\u7684\u8d26\u6237\u5df2\u7ecf\u88ab\u9a8c\u8bc1. \u7b49\u7ea7 - " + ($e$$281_profile$$2$$.Verified - 2);
+  0 == $old_verified$$ && 1 == $e$$281_profile$$2$$.Verified ? (this.$router_$.$setView$("offerbook"), this.$showNotification$("success", "\u9a8c\u8bc1\uff1a", "\u53d1\u9001\u7ed9\u4ee3\u7406\u7684")) : 2 == $e$$281_profile$$2$$.Verified ? this.$showNotification$("success", "\u9a8c\u8bc1\uff1a", "\u6b63\u5728\u5904\u7406.") : 3 <= $e$$281_profile$$2$$.Verified && this.$showNotification$("success", "\u9a8c\u8bc1\uff1a", $MSG_ACCOUNT_VERIFIED_CONTENT_msg$$95$$);
 };
 $JSCompiler_prototypeAlias$$.$onBitexOrderListResponse_$ = function $$JSCompiler_prototypeAlias$$$$onBitexOrderListResponse_$$($e$$282$$) {
   var $msg$$96$$ = $e$$282$$.data;
@@ -12353,18 +12353,18 @@ $JSCompiler_prototypeAlias$$.$onBitexExecutionReport_$ = function $$JSCompiler_p
   $JSCompiler_StaticMethods_processExecutionReport_$$(this, $bodyElem$$inline_1312_e$$283_msg$$97$$);
   var $MSG_ORDER_EXECUTION_TITLE_NOTIFICATION_order_id$$1_soundElem$$inline_1313$$ = $bodyElem$$inline_1312_e$$283_msg$$97$$.OrderID;
   null != $MSG_ORDER_EXECUTION_TITLE_NOTIFICATION_order_id$$1_soundElem$$inline_1313$$ || ($MSG_ORDER_EXECUTION_TITLE_NOTIFICATION_order_id$$1_soundElem$$inline_1313$$ = $bodyElem$$inline_1312_e$$283_msg$$97$$.ClOrdID);
-  var $MSG_ORDER_EXECUTION_TITLE_NOTIFICATION_order_id$$1_soundElem$$inline_1313$$ = "Ordem " + ($MSG_ORDER_EXECUTION_TITLE_NOTIFICATION_order_id$$1_soundElem$$inline_1313$$ + " "), $MSG_NOTIFICATION_ORDER_REJECTED_isHTML5$$inline_1311_paramElem$$inline_1314$$ = "rejeitado - " + $bodyElem$$inline_1312_e$$283_msg$$97$$.OrdRejReason, $should_beep$$ = !1;
+  var $MSG_ORDER_EXECUTION_TITLE_NOTIFICATION_order_id$$1_soundElem$$inline_1313$$ = "\u8ba2\u5355 " + ($MSG_ORDER_EXECUTION_TITLE_NOTIFICATION_order_id$$1_soundElem$$inline_1313$$ + " "), $MSG_NOTIFICATION_ORDER_REJECTED_isHTML5$$inline_1311_paramElem$$inline_1314$$ = "rejected - " + $bodyElem$$inline_1312_e$$283_msg$$97$$.OrdRejReason, $should_beep$$ = !1;
   switch($bodyElem$$inline_1312_e$$283_msg$$97$$.ExecType) {
     case "1":
       $should_beep$$ = !0;
-      this.$showNotification$("success", $MSG_ORDER_EXECUTION_TITLE_NOTIFICATION_order_id$$1_soundElem$$inline_1313$$, "executada parcialmente");
+      this.$showNotification$("success", $MSG_ORDER_EXECUTION_TITLE_NOTIFICATION_order_id$$1_soundElem$$inline_1313$$, "\u90e8\u5206\u6210\u4ea4");
       break;
     case "2":
       $should_beep$$ = !0;
-      this.$showNotification$("success", $MSG_ORDER_EXECUTION_TITLE_NOTIFICATION_order_id$$1_soundElem$$inline_1313$$, "executada");
+      this.$showNotification$("success", $MSG_ORDER_EXECUTION_TITLE_NOTIFICATION_order_id$$1_soundElem$$inline_1313$$, "\u5df2\u6210\u4ea4");
       break;
     case "4":
-      this.$showNotification$("success", $MSG_ORDER_EXECUTION_TITLE_NOTIFICATION_order_id$$1_soundElem$$inline_1313$$, "cancelada");
+      this.$showNotification$("success", $MSG_ORDER_EXECUTION_TITLE_NOTIFICATION_order_id$$1_soundElem$$inline_1313$$, "\u5df2\u53d6\u6d88");
       break;
     case "8":
       this.$showNotification$("error", $MSG_ORDER_EXECUTION_TITLE_NOTIFICATION_order_id$$1_soundElem$$inline_1313$$, $MSG_NOTIFICATION_ORDER_REJECTED_isHTML5$$inline_1311_paramElem$$inline_1314$$);
@@ -12484,7 +12484,7 @@ function $JSCompiler_StaticMethods_showWithdrawalDialog$$($JSCompiler_StaticMeth
   }, $JSCompiler_StaticMethods_showWithdrawalDialog$self$$);
   var $balance_key$$5_dialogContent_dlg$$2_method_element_id$$ = $goog$string$getRandomString$$(), $withdraw_amount_element_id$$ = $goog$string$getRandomString$$(), $fixed_fee_element_id$$ = $goog$string$getRandomString$$(), $percent_fee_element_id$$ = $goog$string$getRandomString$$(), $total_fees_element_id$$ = $goog$string$getRandomString$$(), $net_value_element_id$$ = $goog$string$getRandomString$$(), $fmt$$11_withdrawal_form_el$$ = new $goog$i18n$NumberFormat$$(1), $balance_key$$5_dialogContent_dlg$$2_method_element_id$$ = 
   $bitex$templates$DepositWithdrawDialogContent$$({$fmt$:$fmt$$11_withdrawal_form_el$$, $side$:"client", $currency$:$currency$$38$$, $verificationLevel$:$JSCompiler_StaticMethods_showWithdrawalDialog$self$$.$model_$.get("Profile").Verified, $currencySign$:$JSCompiler_StaticMethods_showWithdrawalDialog$self$$.$getCurrencySign$($currency$$38$$), methods:$user_verified_withdraw_methods$$, $methodID$:$balance_key$$5_dialogContent_dlg$$2_method_element_id$$, $showFeeDataEntry$:!1, $amountID$:$withdraw_amount_element_id$$, 
-  $fixedFeeID$:$fixed_fee_element_id$$, $percentFeeID$:$percent_fee_element_id$$, $totalFeesID$:$total_fees_element_id$$, $netValueID$:$net_value_element_id$$, $hideNetAmount$:!1}), $balance_key$$5_dialogContent_dlg$$2_method_element_id$$ = $JSCompiler_StaticMethods_showWithdrawalDialog$self$$.$showDialog$($balance_key$$5_dialogContent_dlg$$2_method_element_id$$, "Pedido de saque em " + $JSCompiler_StaticMethods_showWithdrawalDialog$self$$.$getCurrencyDescription$($currency$$38$$), $bootstrap$Dialog$ButtonSet$createOkCancel$$()), 
+  $fixedFeeID$:$fixed_fee_element_id$$, $percentFeeID$:$percent_fee_element_id$$, $totalFeesID$:$total_fees_element_id$$, $netValueID$:$net_value_element_id$$, $hideNetAmount$:!1}), $balance_key$$5_dialogContent_dlg$$2_method_element_id$$ = $JSCompiler_StaticMethods_showWithdrawalDialog$self$$.$showDialog$($balance_key$$5_dialogContent_dlg$$2_method_element_id$$, $JSCompiler_StaticMethods_showWithdrawalDialog$self$$.$getCurrencyDescription$($currency$$38$$) + " \u63d0\u73b0", $bootstrap$Dialog$ButtonSet$createOkCancel$$()), 
   $handler$$110$$ = $JSCompiler_StaticMethods_showWithdrawalDialog$self$$.$getHandler$(), $fmt$$11_withdrawal_form_el$$ = $goog$dom$getFirstElementChild$$($balance_key$$5_dialogContent_dlg$$2_method_element_id$$.$getContentElement$()), $withdrawal_uniform$$ = new $uniform$Uniform$$;
   $withdrawal_uniform$$.$decorate$($fmt$$11_withdrawal_form_el$$);
   $goog$array$forEach$$($value_fmt$$10_withdraw_methods$$2$$, function($withdraw_method$$1$$) {
@@ -12505,7 +12505,7 @@ function $JSCompiler_StaticMethods_showWithdrawalDialog$$($JSCompiler_StaticMeth
         }, this), $e$$289$$.stopPropagation(), $e$$289$$.preventDefault();
       } else {
         if ($error_list$$7_withdraw_data$$ = $JSCompiler_StaticMethods_getAsJSON$$($withdrawal_uniform$$), 0 > $error_list$$7_withdraw_data$$.Amount) {
-          this.$showNotification$("error", "Quantidade inv\u00e1lida"), $e$$289$$.stopPropagation(), $e$$289$$.preventDefault();
+          this.$showNotification$("error", "\u65e0\u6548\u7684\u63d0\u73b0\u6570\u989d"), $e$$289$$.stopPropagation(), $e$$289$$.preventDefault();
         } else {
           var $net_amount_value$$ = parseInt($goog$dom$forms$getValue$$($goog$dom$getElement$$($error_list$$7_withdraw_data$$.Method + "_" + $net_value_element_id$$ + "_value")), 10);
           $error_list$$7_withdraw_data$$.Fees = $goog$dom$getTextContent$$($goog$dom$getElement$$($error_list$$7_withdraw_data$$.Method + "_" + $total_fees_element_id$$));
@@ -12529,7 +12529,7 @@ $JSCompiler_prototypeAlias$$.$onUpdateProfile_$ = function $$JSCompiler_prototyp
 };
 $JSCompiler_prototypeAlias$$.$onUserFileView_$ = function $$JSCompiler_prototypeAlias$$$$onUserFileView_$$($e$$292_file_view_dialog_content$$) {
   $e$$292_file_view_dialog_content$$ = '<img src="' + $soy$$0$0escapeHtml$$($e$$292_file_view_dialog_content$$.target.$file_name_$) + '" style="width:500px"/>';
-  this.$showDialog$($e$$292_file_view_dialog_content$$, "Visualizar", $bootstrap$Dialog$ButtonSet$createOk$$());
+  this.$showDialog$($e$$292_file_view_dialog_content$$, "\u67e5\u770b", $bootstrap$Dialog$ButtonSet$createOk$$());
 };
 $JSCompiler_prototypeAlias$$.$onBrokerSetUserAsVerified_$ = function $$JSCompiler_prototypeAlias$$$$onBrokerSetUserAsVerified_$$($e$$293$$) {
   var $request_id$$ = $e$$293$$.target.$request_id_$, $client_id$$4$$ = $e$$293$$.target.$getClientID$();
@@ -12543,7 +12543,7 @@ $JSCompiler_prototypeAlias$$.$onBrokerProcessWithdraw_$ = function $$JSCompiler_
   $e$$294_handler$$111$$ = this.$getHandler$();
   var $feeDialogContent_formatted_amount_model$$46$$ = this.$model_$, $method_element_id$$1$$ = $goog$string$getRandomString$$(), $cancelWithdrawDlg_cancel_reason_dialog_content_dialogContent$$1_withdraw_amount_element_id$$1$$ = $goog$string$getRandomString$$(), $fixed_fee_element_id$$1$$ = $goog$string$getRandomString$$(), $percent_fee_element_id$$1$$ = $goog$string$getRandomString$$(), $total_fees_element_id$$1$$ = $goog$string$getRandomString$$(), $net_value_element_id$$1$$ = $goog$string$getRandomString$$();
   if ("CANCEL" === $action$$5$$) {
-    var $cancelWithdrawDlg_cancel_reason_dialog_content_dialogContent$$1_withdraw_amount_element_id$$1$$ = $bitex$templates$CancelWithdrawDialogContent$$(), $cancelWithdrawDlg_cancel_reason_dialog_content_dialogContent$$1_withdraw_amount_element_id$$1$$ = this.$showDialog$($cancelWithdrawDlg_cancel_reason_dialog_content_dialogContent$$1_withdraw_amount_element_id$$1$$, "Cancelar pedido de saque", $bootstrap$Dialog$ButtonSet$createOkCancel$$()), $select_reason_el$$ = $goog$dom$getElement$$("id_select_reason"), 
+    var $cancelWithdrawDlg_cancel_reason_dialog_content_dialogContent$$1_withdraw_amount_element_id$$1$$ = $bitex$templates$CancelWithdrawDialogContent$$(), $cancelWithdrawDlg_cancel_reason_dialog_content_dialogContent$$1_withdraw_amount_element_id$$1$$ = this.$showDialog$($cancelWithdrawDlg_cancel_reason_dialog_content_dialogContent$$1_withdraw_amount_element_id$$1$$, "\u53d6\u6d88\u63d0\u73b0", $bootstrap$Dialog$ButtonSet$createOkCancel$$()), $select_reason_el$$ = $goog$dom$getElement$$("id_select_reason"), 
     $reason_el$$1$$ = $goog$dom$getElement$$("id_custom_reason_text");
     $JSCompiler_StaticMethods_listen$$($e$$294_handler$$111$$, $select_reason_el$$, "change", function() {
       var $reason_id$$1$$ = $goog$string$toNumber$$($goog$dom$forms$getValue$$($select_reason_el$$));
@@ -12564,7 +12564,7 @@ $JSCompiler_prototypeAlias$$.$onBrokerProcessWithdraw_$ = function $$JSCompiler_
   } else {
     if ("PROGRESS" === $action$$5$$) {
       var $feeDialogContent_formatted_amount_model$$46$$ = this.$formatCurrency$($withdraw_data$$1$$.Amount / 1E8, $withdraw_data$$1$$.Currency), $feeDialogContent_formatted_amount_model$$46$$ = $bitex$templates$FeesForm$$({$amount$:$withdraw_data$$1$$.Amount, $formattedAmount$:$feeDialogContent_formatted_amount_model$$46$$, $currency$:$withdraw_data$$1$$.Currency, $currencySign$:this.$getCurrencySign$($withdraw_data$$1$$.Currency), $amountID$:$cancelWithdrawDlg_cancel_reason_dialog_content_dialogContent$$1_withdraw_amount_element_id$$1$$, 
-      $fixedFeeID$:$fixed_fee_element_id$$1$$, $percentFeeID$:$percent_fee_element_id$$1$$, $totalFeesID$:$total_fees_element_id$$1$$, $netValueID$:$net_value_element_id$$1$$, $fixedFee$:$valueFormatter$$3$$.format($withdraw_data$$1$$.FixedFee / 1E8), $percentFee$:$valueFormatter$$3$$.format($withdraw_data$$1$$.PercentFee)}), $feeDlg$$ = this.$showDialog$($feeDialogContent_formatted_amount_model$$46$$, "Marcar pedido de saque de " + (this.$getCurrencyDescription$($withdraw_data$$1$$.Currency) + " em andamento"), 
+      $fixedFeeID$:$fixed_fee_element_id$$1$$, $percentFeeID$:$percent_fee_element_id$$1$$, $totalFeesID$:$total_fees_element_id$$1$$, $netValueID$:$net_value_element_id$$1$$, $fixedFee$:$valueFormatter$$3$$.format($withdraw_data$$1$$.FixedFee / 1E8), $percentFee$:$valueFormatter$$3$$.format($withdraw_data$$1$$.PercentFee)}), $feeDlg$$ = this.$showDialog$($feeDialogContent_formatted_amount_model$$46$$, "Set " + (this.$getCurrencyDescription$($withdraw_data$$1$$.Currency) + "\u63d0\u73b0\u6b63\u5728\u5904\u7406"), 
       $bootstrap$Dialog$ButtonSet$createOkCancel$$());
       this.$doCalculateFees_$($cancelWithdrawDlg_cancel_reason_dialog_content_dialogContent$$1_withdraw_amount_element_id$$1$$, $fixed_fee_element_id$$1$$, $percent_fee_element_id$$1$$, $withdraw_data$$1$$.Currency, $total_fees_element_id$$1$$, $net_value_element_id$$1$$, !0, !1, !0, !0, !1, !0);
       $JSCompiler_StaticMethods_listen$$($e$$294_handler$$111$$, new $goog$events$InputHandler$$($goog$dom$getElement$$($cancelWithdrawDlg_cancel_reason_dialog_content_dialogContent$$1_withdraw_amount_element_id$$1$$)), "input", $goog$bind$$(this.$doCalculateFees_$, this, $cancelWithdrawDlg_cancel_reason_dialog_content_dialogContent$$1_withdraw_amount_element_id$$1$$, $fixed_fee_element_id$$1$$, $percent_fee_element_id$$1$$, $withdraw_data$$1$$.Currency, $total_fees_element_id$$1$$, $net_value_element_id$$1$$, 
@@ -12589,8 +12589,8 @@ $JSCompiler_prototypeAlias$$.$onBrokerProcessWithdraw_$ = function $$JSCompiler_
     } else {
       if ("COMPLETE" === $action$$5$$) {
         var $cancelWithdrawDlg_cancel_reason_dialog_content_dialogContent$$1_withdraw_amount_element_id$$1$$ = $bitex$templates$DepositWithdrawDialogContent$$({$side$:"broker", $currency$:$withdraw_data$$1$$.Currency, $currencySign$:this.$getCurrencySign$($withdraw_data$$1$$.Currency), $force_method$:$withdraw_data$$1$$.Method, $amount$:$withdraw_data$$1$$.Amount, methods:$feeDialogContent_formatted_amount_model$$46$$.get("Profile").WithdrawStructure[$withdraw_data$$1$$.Currency], $methodID$:$method_element_id$$1$$, 
-        $showFeeDataEntry$:!1, $amountID$:$cancelWithdrawDlg_cancel_reason_dialog_content_dialogContent$$1_withdraw_amount_element_id$$1$$, $fixedFeeID$:$fixed_fee_element_id$$1$$, $percentFeeID$:$percent_fee_element_id$$1$$, $totalFeesID$:$total_fees_element_id$$1$$, $netValueID$:$net_value_element_id$$1$$, $hideNetAmount$:!1}), $dlg$$3$$ = this.$showDialog$($cancelWithdrawDlg_cancel_reason_dialog_content_dialogContent$$1_withdraw_amount_element_id$$1$$, "Confirmar pedido de saque de " + this.$getCurrencyDescription$($withdraw_data$$1$$.Currency), 
-        $bootstrap$Dialog$ButtonSet$createOkCancel$$());
+        $showFeeDataEntry$:!1, $amountID$:$cancelWithdrawDlg_cancel_reason_dialog_content_dialogContent$$1_withdraw_amount_element_id$$1$$, $fixedFeeID$:$fixed_fee_element_id$$1$$, $percentFeeID$:$percent_fee_element_id$$1$$, $totalFeesID$:$total_fees_element_id$$1$$, $netValueID$:$net_value_element_id$$1$$, $hideNetAmount$:!1}), $dlg$$3$$ = this.$showDialog$($cancelWithdrawDlg_cancel_reason_dialog_content_dialogContent$$1_withdraw_amount_element_id$$1$$, "Confirm " + (this.$getCurrencyDescription$($withdraw_data$$1$$.Currency) + 
+        " \u63d0\u73b0"), $bootstrap$Dialog$ButtonSet$createOkCancel$$());
         $JSCompiler_StaticMethods_listen$$($e$$294_handler$$111$$, $dlg$$3$$, $goog$ui$Dialog$EventType$SELECT$$, function($broker_withdraw_data_e$$298$$) {
           "ok" == $broker_withdraw_data_e$$298$$.key && ($broker_withdraw_data_e$$298$$ = $bitex$util$getFormAsJSON$$($goog$dom$getFirstElementChild$$($dlg$$3$$.$getContentElement$())), delete $broker_withdraw_data_e$$298$$.Amount, this.$conn_$.$processWithdraw$($request_id$$1$$, $action$$5$$, $withdraw_data$$1$$.WithdrawID, void 0, void 0, $broker_withdraw_data_e$$298$$));
         }, this);
@@ -12599,8 +12599,8 @@ $JSCompiler_prototypeAlias$$.$onBrokerProcessWithdraw_$ = function $$JSCompiler_
   }
 };
 $JSCompiler_prototypeAlias$$.$onUserOrderEntry_$ = function $$JSCompiler_prototypeAlias$$$$onUserOrderEntry_$$($confirmDialogContent_dlgConfirm_e$$299$$) {
-  var $MSG_INSUFFICIENT_BALANCE_DEPOSIT_BUTTON_CAPTION_MSG_SEND_ORDER_NOTIFICATION_CONTENT_option_buttons_side_msg$$ = "COMPRA";
-  "2" == $confirmDialogContent_dlgConfirm_e$$299$$.target.$getSide$() && ($MSG_INSUFFICIENT_BALANCE_DEPOSIT_BUTTON_CAPTION_MSG_SEND_ORDER_NOTIFICATION_CONTENT_option_buttons_side_msg$$ = "VENDA");
+  var $MSG_INSUFFICIENT_BALANCE_DEPOSIT_BUTTON_CAPTION_MSG_SEND_ORDER_NOTIFICATION_CONTENT_option_buttons_side_msg$$ = "\u8d2d\u4e70";
+  "2" == $confirmDialogContent_dlgConfirm_e$$299$$.target.$getSide$() && ($MSG_INSUFFICIENT_BALANCE_DEPOSIT_BUTTON_CAPTION_MSG_SEND_ORDER_NOTIFICATION_CONTENT_option_buttons_side_msg$$ = "\u5356\u51fa");
   if (!this.$model_$.get("IsBroker")) {
     var $balance_needed_to_send_the_order$$, $balance_currency$$;
     "1" == $confirmDialogContent_dlgConfirm_e$$299$$.target.$getSide$() ? ($balance_currency$$ = this.$getPriceCurrencyFromSymbol$($confirmDialogContent_dlgConfirm_e$$299$$.target.$getSymbol$()), $balance_needed_to_send_the_order$$ = parseInt($confirmDialogContent_dlgConfirm_e$$299$$.target.$getPrice$() * $confirmDialogContent_dlgConfirm_e$$299$$.target.$getAmount$() / 1E8, 10)) : "2" == $confirmDialogContent_dlgConfirm_e$$299$$.target.$getSide$() && ($balance_currency$$ = this.$getQtyCurrencyFromSymbol$($confirmDialogContent_dlgConfirm_e$$299$$.target.$getSymbol$()), 
@@ -12610,9 +12610,9 @@ $JSCompiler_prototypeAlias$$.$onUserOrderEntry_$ = function $$JSCompiler_prototy
       var $instructions$$ = [{Timeout:60, Filter:{PaidValue:$amount$$6$$}, Msg:{MsgType:"D", ClOrdID:"" + (new Date).getTime() + ".L", Symbol:$confirmDialogContent_dlgConfirm_e$$299$$.target.$getSymbol$(), Side:$confirmDialogContent_dlgConfirm_e$$299$$.target.$getSide$(), OrdType:"2", Price:$confirmDialogContent_dlgConfirm_e$$299$$.target.$getPrice$(), OrderQty:$confirmDialogContent_dlgConfirm_e$$299$$.target.$getAmount$(), BrokerID:$confirmDialogContent_dlgConfirm_e$$299$$.target.$getBrokerID$()}}];
       $confirmDialogContent_dlgConfirm_e$$299$$ = $bitex$templates$InsufficientFundsContentDialog$$({$currencyDescription$:this.$getCurrencyDescription$($balance_currency$$), $balanceKey$:$broker_id$$15$$ + ":" + $client_id$$5$$ + "_" + $balance_currency$$, $depositFormattedBalance$:this.$formatCurrency$($JSCompiler_StaticMethods_getDepositedAmount$$(this, $balance_currency$$) / 1E8, $balance_currency$$, !0), $lockedFormattedBalance$:this.$formatCurrency$($JSCompiler_StaticMethods_getLockedAmount$$(this, 
       $balance_currency$$) / 1E8, $balance_currency$$, !0), $availableFormattedBalance$:this.$formatCurrency$($user_available_balance_for_trading$$ / 1E8, $balance_currency$$, !0)});
-      $MSG_INSUFFICIENT_BALANCE_DEPOSIT_BUTTON_CAPTION_MSG_SEND_ORDER_NOTIFICATION_CONTENT_option_buttons_side_msg$$ = "Depositar " + this.$formatCurrency$($amount$$6$$ / 1E8, $balance_currency$$, !0);
+      $MSG_INSUFFICIENT_BALANCE_DEPOSIT_BUTTON_CAPTION_MSG_SEND_ORDER_NOTIFICATION_CONTENT_option_buttons_side_msg$$ = "\u5145\u503c " + this.$formatCurrency$($amount$$6$$ / 1E8, $balance_currency$$, !0);
       $MSG_INSUFFICIENT_BALANCE_DEPOSIT_BUTTON_CAPTION_MSG_SEND_ORDER_NOTIFICATION_CONTENT_option_buttons_side_msg$$ = (new $bootstrap$Dialog$ButtonSet$$).$addButton$({key:"deposit", caption:$MSG_INSUFFICIENT_BALANCE_DEPOSIT_BUTTON_CAPTION_MSG_SEND_ORDER_NOTIFICATION_CONTENT_option_buttons_side_msg$$}, !0, !0).$addButton$($goog$ui$Dialog$ButtonSet$DefaultButtons$CANCEL$$, !1, !0);
-      $confirmDialogContent_dlgConfirm_e$$299$$ = this.$showDialog$($confirmDialogContent_dlgConfirm_e$$299$$, "Fundos insuficientes", $MSG_INSUFFICIENT_BALANCE_DEPOSIT_BUTTON_CAPTION_MSG_SEND_ORDER_NOTIFICATION_CONTENT_option_buttons_side_msg$$);
+      $confirmDialogContent_dlgConfirm_e$$299$$ = this.$showDialog$($confirmDialogContent_dlgConfirm_e$$299$$, "\u4f59\u989d\u4e0d\u8db3", $MSG_INSUFFICIENT_BALANCE_DEPOSIT_BUTTON_CAPTION_MSG_SEND_ORDER_NOTIFICATION_CONTENT_option_buttons_side_msg$$);
       $JSCompiler_StaticMethods_listen$$(this.$getHandler$(), $confirmDialogContent_dlgConfirm_e$$299$$, $goog$ui$Dialog$EventType$SELECT$$, function($e$$300_formatted_amount$$1$$) {
         "deposit" == $e$$300_formatted_amount$$1$$.key && ($e$$300_formatted_amount$$1$$.preventDefault(), $e$$300_formatted_amount$$1$$.stopPropagation(), $e$$300_formatted_amount$$1$$ = (new $bitex$primitives$Price$$($amount$$6$$, this.$currency_info_$[$balance_currency$$].$pip$)).format(), $JSCompiler_StaticMethods_showDepositDialog$$(this, $balance_currency$$, ($amount$$6$$ / 1E8).toFixed(8), $e$$300_formatted_amount$$1$$, !1, $instructions$$));
       }, this);
@@ -12621,16 +12621,16 @@ $JSCompiler_prototypeAlias$$.$onUserOrderEntry_$ = function $$JSCompiler_prototy
   }
   $MSG_INSUFFICIENT_BALANCE_DEPOSIT_BUTTON_CAPTION_MSG_SEND_ORDER_NOTIFICATION_CONTENT_option_buttons_side_msg$$ += " " + (this.$formatCurrency$($confirmDialogContent_dlgConfirm_e$$299$$.target.$getAmount$() / 1E8, this.$getQtyCurrencyFromSymbol$($confirmDialogContent_dlgConfirm_e$$299$$.target.$getSymbol$()), !0) + (" @ " + this.$formatCurrency$($confirmDialogContent_dlgConfirm_e$$299$$.target.$getPrice$() / 1E8, this.$getPriceCurrencyFromSymbol$($confirmDialogContent_dlgConfirm_e$$299$$.target.$getSymbol$()), 
   !0)));
-  this.$showNotification$("info", "Enviando ordem...", $MSG_INSUFFICIENT_BALANCE_DEPOSIT_BUTTON_CAPTION_MSG_SEND_ORDER_NOTIFICATION_CONTENT_option_buttons_side_msg$$);
+  this.$showNotification$("info", "\u6b63\u5728\u63d0\u4ea4\u7684\u8ba2\u5355...", $MSG_INSUFFICIENT_BALANCE_DEPOSIT_BUTTON_CAPTION_MSG_SEND_ORDER_NOTIFICATION_CONTENT_option_buttons_side_msg$$);
   $JSCompiler_StaticMethods_sendLimitedOrder$$(this.$conn_$, $confirmDialogContent_dlgConfirm_e$$299$$.target.$getSymbol$(), $confirmDialogContent_dlgConfirm_e$$299$$.target.$getAmount$(), $confirmDialogContent_dlgConfirm_e$$299$$.target.$getPrice$(), $confirmDialogContent_dlgConfirm_e$$299$$.target.$getSide$(), $confirmDialogContent_dlgConfirm_e$$299$$.target.$getBrokerID$(), $confirmDialogContent_dlgConfirm_e$$299$$.target.$getClientID$());
 };
 $JSCompiler_prototypeAlias$$.$onUserCancelOrder_$ = function $$JSCompiler_prototypeAlias$$$$onUserCancelOrder_$$($e$$301$$) {
-  null != $e$$301$$.target.$client_order_id_$ ? this.$showNotification$("info", "Cancelando ordem...", ":" + $e$$301$$.target.$client_order_id_$) : this.$showNotification$("info", "Cancelando ordem...", ":" + $e$$301$$.target.$order_id_$);
+  null != $e$$301$$.target.$client_order_id_$ ? this.$showNotification$("info", "\u6b63\u5728\u53d6\u6d88\u8ba2\u5355...", ":" + $e$$301$$.target.$client_order_id_$) : this.$showNotification$("info", "\u6b63\u5728\u53d6\u6d88\u8ba2\u5355...", ":" + $e$$301$$.target.$order_id_$);
   this.$conn_$.$cancelOrder$($e$$301$$.target.$client_order_id_$, $e$$301$$.target.$order_id_$);
 };
 $JSCompiler_prototypeAlias$$.$onShowReceipt_$ = function $$JSCompiler_prototypeAlias$$$$onShowReceipt_$$($e$$302_receiptData$$) {
   $e$$302_receiptData$$ = $e$$302_receiptData$$.target.$receipt_data_$;
-  var $MSG_SHOW_DEPOSIT_RECEIPT_DIALOG_TITLE$$ = "Comprovante " + $e$$302_receiptData$$.SubmissionID;
+  var $MSG_SHOW_DEPOSIT_RECEIPT_DIALOG_TITLE$$ = "\u63d0\u4ea4 " + $e$$302_receiptData$$.SubmissionID;
   this.$showDialog$($bitex$templates$DepositReceiptDialogContent$$({$depositReceiptList$:$e$$302_receiptData$$.DepositReceipt}), $MSG_SHOW_DEPOSIT_RECEIPT_DIALOG_TITLE$$, $bootstrap$Dialog$ButtonSet$createOk$$());
 };
 $JSCompiler_prototypeAlias$$.$onUpdateProfileResponse_$ = function $$JSCompiler_prototypeAlias$$$$onUpdateProfileResponse_$$($e$$303$$) {
@@ -12639,7 +12639,7 @@ $JSCompiler_prototypeAlias$$.$onUpdateProfileResponse_$ = function $$JSCompiler_
 $JSCompiler_prototypeAlias$$.$onSuggestTrustedAddress_$ = function $$JSCompiler_prototypeAlias$$$$onSuggestTrustedAddress_$$($MSG_ENABLE_INSTANT_DEPOSIT_DIALOG_TITLE_e$$304$$) {
   var $msg$$102$$ = $MSG_ENABLE_INSTANT_DEPOSIT_DIALOG_TITLE_e$$304$$.data;
   if (this.$model_$.get("IsVerified")) {
-    $MSG_ENABLE_INSTANT_DEPOSIT_DIALOG_TITLE_e$$304$$ = "Ativar dep\u00f3sito isntant\u00e2neo em " + (this.$getCurrencyDescription$($msg$$102$$.Currency) + "?");
+    $MSG_ENABLE_INSTANT_DEPOSIT_DIALOG_TITLE_e$$304$$ = "\u542f\u7528 " + (this.$getCurrencyDescription$($msg$$102$$.Currency) + " \u79d2\u51b2\u529f\u80fd\uff1f");
     var $dlg$$5$$ = this.$showDialog$($bitex$templates$ConfirmTrustedAddressContentDialog$$({data:$msg$$102$$}), $MSG_ENABLE_INSTANT_DEPOSIT_DIALOG_TITLE_e$$304$$, $bootstrap$Dialog$ButtonSet$createYesNoCancel$$());
     $JSCompiler_StaticMethods_listen$$(this.$getHandler$(), $dlg$$5$$, $goog$ui$Dialog$EventType$SELECT$$, function($address_label_el_e$$305$$) {
       if ("yes" == $address_label_el_e$$305$$.key) {
@@ -12655,7 +12655,7 @@ $JSCompiler_prototypeAlias$$.$onSuggestTrustedAddress_$ = function $$JSCompiler_
   }
 };
 $JSCompiler_prototypeAlias$$.$onUserShowQr_$ = function $$JSCompiler_prototypeAlias$$$$onUserShowQr_$$($e$$306_handler$$114$$) {
-  var $qrData$$ = $e$$306_handler$$114$$.target.$qr_data_$, $MSG_SHOW_QR_CURRENCY_DEPOSIT_DIALOG_TITLE$$ = "Depositar " + this.$getCurrencyDescription$($qrData$$.Currency), $dialog_title$$ = "Sacar " + this.$getCurrencyDescription$($qrData$$.Currency);
+  var $qrData$$ = $e$$306_handler$$114$$.target.$qr_data_$, $MSG_SHOW_QR_CURRENCY_DEPOSIT_DIALOG_TITLE$$ = this.$getCurrencyDescription$($qrData$$.Currency) + " \u5145\u503c", $dialog_title$$ = this.$getCurrencyDescription$($qrData$$.Currency) + " \u63d0\u73b0";
   "DEPOSIT" === $e$$306_handler$$114$$.target.$qr_data_verb_$ && ($dialog_title$$ = $MSG_SHOW_QR_CURRENCY_DEPOSIT_DIALOG_TITLE$$);
   var $dlg$$6$$ = this.$showDialog$($bitex$templates$CryptoCurrencyQRContentDialog$$({data:$qrData$$}), $dialog_title$$, (new $bootstrap$Dialog$ButtonSet$$).$addButton$($goog$ui$Dialog$ButtonSet$DefaultButtons$CANCEL$$, !1, !0));
   $e$$306_handler$$114$$ = this.$getHandler$();
@@ -12737,7 +12737,7 @@ $JSCompiler_prototypeAlias$$.$onProcessDeposit_$ = function $$JSCompiler_prototy
   var $deposit_data$$1$$ = $e$$310_handler$$115$$.target.$getDepositData$(), $request_id$$2$$ = $e$$310_handler$$115$$.target.$request_id_$, $action$$6$$ = $e$$310_handler$$115$$.target.$getDepositAction$();
   $e$$310_handler$$115$$ = this.$getHandler$();
   if ("CANCEL" === $action$$6$$) {
-    var $cancelWithdrawDlg$$1_cancel_reason_dialog_content$$1_total_fees_element_id$$2$$ = $bitex$templates$CancelDepositDialogContent$$(), $cancelWithdrawDlg$$1_cancel_reason_dialog_content$$1_total_fees_element_id$$2$$ = this.$showDialog$($cancelWithdrawDlg$$1_cancel_reason_dialog_content$$1_total_fees_element_id$$2$$, "Cancelar dep\u00f3sito", $bootstrap$Dialog$ButtonSet$createOkCancel$$()), $select_reason_el$$1$$ = $goog$dom$getElement$$("id_select_reason"), $reason_el$$2$$ = $goog$dom$getElement$$("id_custom_reason_text");
+    var $cancelWithdrawDlg$$1_cancel_reason_dialog_content$$1_total_fees_element_id$$2$$ = $bitex$templates$CancelDepositDialogContent$$(), $cancelWithdrawDlg$$1_cancel_reason_dialog_content$$1_total_fees_element_id$$2$$ = this.$showDialog$($cancelWithdrawDlg$$1_cancel_reason_dialog_content$$1_total_fees_element_id$$2$$, "\u53d6\u6d88\u5145\u503c", $bootstrap$Dialog$ButtonSet$createOkCancel$$()), $select_reason_el$$1$$ = $goog$dom$getElement$$("id_select_reason"), $reason_el$$2$$ = $goog$dom$getElement$$("id_custom_reason_text");
     $JSCompiler_StaticMethods_listen$$($e$$310_handler$$115$$, $select_reason_el$$1$$, "change", function() {
       var $reason_id$$3$$ = $goog$string$toNumber$$($goog$dom$forms$getValue$$($select_reason_el$$1$$));
       $goog$style$showElement$$($reason_el$$2$$, 0 === $reason_id$$3$$);
@@ -12766,7 +12766,7 @@ $JSCompiler_prototypeAlias$$.$onProcessDeposit_$ = function $$JSCompiler_prototy
         "CRY" == $deposit_data$$1$$.Type && ($confirmDepositDlg_confirm_deposit_dialog_content_control_number$$ = $deposit_data$$1$$.Data.InputAddress);
         $confirmDepositDlg_confirm_deposit_dialog_content_control_number$$ = $bitex$templates$BrokerConfirmDepositContent$$({$id_value$:$paid_value_element_id$$, $fixedFeeID$:$fixed_fee_element_id$$3$$, $percentFeeID$:$percent_fee_element_id$$3$$, $totalFeesID$:$cancelWithdrawDlg$$1_cancel_reason_dialog_content$$1_total_fees_element_id$$2$$, $netValueID$:$net_value_element_id$$2$$, $controlNumber$:$confirmDepositDlg_confirm_deposit_dialog_content_control_number$$, $currencySign$:this.$getCurrencySign$($deposit_data$$1$$.Currency), 
         value:$valueFormatter$$5$$.format($deposit_data$$1$$.Value / 1E8), $percentFee$:$valueFormatter$$5$$.format($deposit_data$$1$$.PercentFee), $fixedFee$:$valueFormatter$$5$$.format($deposit_data$$1$$.FixedFee / 1E8)});
-        $confirmDepositDlg_confirm_deposit_dialog_content_control_number$$ = this.$showDialog$($confirmDepositDlg_confirm_deposit_dialog_content_control_number$$, "Confirmar dep\u00f3sito", $bootstrap$Dialog$ButtonSet$createOkCancel$$());
+        $confirmDepositDlg_confirm_deposit_dialog_content_control_number$$ = this.$showDialog$($confirmDepositDlg_confirm_deposit_dialog_content_control_number$$, "\u786e\u8ba4\u5145\u503c", $bootstrap$Dialog$ButtonSet$createOkCancel$$());
         this.$doCalculateFees_$($paid_value_element_id$$, $fixed_fee_element_id$$3$$, $percent_fee_element_id$$3$$, $deposit_data$$1$$.Currency, $cancelWithdrawDlg$$1_cancel_reason_dialog_content$$1_total_fees_element_id$$2$$, $net_value_element_id$$2$$, !1, !1, !0, !1, !0, !0);
         $JSCompiler_StaticMethods_listen$$($e$$310_handler$$115$$, new $goog$events$InputHandler$$($goog$dom$getElement$$($paid_value_element_id$$)), "input", $goog$bind$$(this.$doCalculateFees_$, this, $paid_value_element_id$$, $fixed_fee_element_id$$3$$, $percent_fee_element_id$$3$$, $deposit_data$$1$$.Currency, $cancelWithdrawDlg$$1_cancel_reason_dialog_content$$1_total_fees_element_id$$2$$, $net_value_element_id$$2$$, !1, !1, !0, !1, !0, !0));
         $JSCompiler_StaticMethods_listen$$($e$$310_handler$$115$$, new $goog$events$InputHandler$$($goog$dom$getElement$$($percent_fee_element_id$$3$$)), "input", $goog$bind$$(this.$doCalculateFees_$, this, $paid_value_element_id$$, $fixed_fee_element_id$$3$$, $percent_fee_element_id$$3$$, $deposit_data$$1$$.Currency, $cancelWithdrawDlg$$1_cancel_reason_dialog_content$$1_total_fees_element_id$$2$$, $net_value_element_id$$2$$, !1, !1, !0, !1, !0, !0));
@@ -12796,7 +12796,7 @@ $JSCompiler_prototypeAlias$$.$onProcessDeposit_$ = function $$JSCompiler_prototy
 function $JSCompiler_StaticMethods_showDepositDialog$$($JSCompiler_StaticMethods_showDepositDialog$self$$, $currency$$41$$, $opt_amount$$1$$, $opt_formatted_amount$$, $MSG_CURRENCY_DEPOSIT_DIALOG_TITLE_opt_switch_view$$, $opt_instructions$$1$$) {
   var $handler$$116$$ = $JSCompiler_StaticMethods_showDepositDialog$self$$.$getHandler$(), $user_verification_level$$1$$ = $JSCompiler_StaticMethods_showDepositDialog$self$$.$model_$.get("Profile").Verified;
   !1 !== $MSG_CURRENCY_DEPOSIT_DIALOG_TITLE_opt_switch_view$$ && $JSCompiler_StaticMethods_showDepositDialog$self$$.$setView$("deposit");
-  $MSG_CURRENCY_DEPOSIT_DIALOG_TITLE_opt_switch_view$$ = "Depositar " + $JSCompiler_StaticMethods_showDepositDialog$self$$.$getCurrencyDescription$($currency$$41$$);
+  $MSG_CURRENCY_DEPOSIT_DIALOG_TITLE_opt_switch_view$$ = $JSCompiler_StaticMethods_showDepositDialog$self$$.$getCurrencyDescription$($currency$$41$$) + " \u5145\u503c";
   if ($JSCompiler_StaticMethods_showDepositDialog$self$$.$isCryptoCurrency$($currency$$41$$)) {
     var $confirmDialogContent$$1_dialogContent$$2_method_element_id$$2$$ = $bitex$templates$ConfirmDepositCryptoCurrencyContentDialog$$({$currencydescription$:$JSCompiler_StaticMethods_showDepositDialog$self$$.$getCurrencyDescription$($currency$$41$$)}), $dlgConfirm$$1$$ = $JSCompiler_StaticMethods_showDepositDialog$self$$.$showDialog$($confirmDialogContent$$1_dialogContent$$2_method_element_id$$2$$, $MSG_CURRENCY_DEPOSIT_DIALOG_TITLE_opt_switch_view$$, $bootstrap$Dialog$ButtonSet$createYesNoCancel$$());
     $JSCompiler_StaticMethods_listen$$($handler$$116$$, $dlgConfirm$$1$$, $goog$ui$Dialog$EventType$SELECT$$, function($e$$314_request_id$$3$$) {
@@ -12890,7 +12890,7 @@ $JSCompiler_prototypeAlias$$.$onUserEnableTwoFactor_$ = function $$JSCompiler_pr
   this.$conn_$.$enableTwoFactor$(!0, $secret$$3$$, $code$$7$$, void 0, $req_id$$);
   $JSCompiler_StaticMethods_listenOnce$$(this.$getHandler$(), this.$conn_$, "two_factor_secret." + $req_id$$, function($e$$326_msg$$105$$) {
     $e$$326_msg$$105$$ = $e$$326_msg$$105$$.data;
-    $has_code$$ && !$e$$326_msg$$105$$.TwoFactorEnabled && this.$showDialog$("C\u00f3digo inv\u00e1lido. Por favor, confirme se o hor\u00e1rio do seu telefone celular est\u00e1 em sincronia perfeita com o hor\u00e1rio correto, incluindo os segundos.");
+    $has_code$$ && !$e$$326_msg$$105$$.TwoFactorEnabled && this.$showDialog$("\u9519\u8bef\u7684\u53e3\u4ee4\u9a8c\u8bc1\u7801\uff0c\u8bf7\u786e\u8ba4\u5728\u4f7f\u7528 Google Authenticator\u5e76\u4e14\u624b\u673a\u5df2\u7ecf\u8054\u7f51");
   }, this);
 };
 $JSCompiler_prototypeAlias$$.$onUserDisableTwoFactor_$ = function $$JSCompiler_prototypeAlias$$$$onUserDisableTwoFactor_$$() {
@@ -13037,7 +13037,7 @@ $JSCompiler_prototypeAlias$$.$onUserLoginError_$ = function $$JSCompiler_prototy
   this.$model_$.set("UserID", "");
   this.$model_$.set("Username", "");
   if ($e$$333_msg$$107$$.NeedSecondFactor) {
-    var $dlg_$$1$$ = this.$showDialog$($bitex$templates$GoogleAuthenticationCodeDialogContent$$(), "Autentica\u00e7\u00e3o em 2 passos - Google Authenticator", $bootstrap$Dialog$ButtonSet$createOkCancel$$()), $gauth_uniform$$1$$ = new $uniform$Uniform$$;
+    var $dlg_$$1$$ = this.$showDialog$($bitex$templates$GoogleAuthenticationCodeDialogContent$$(), "\u4e8c\u91cd\u9a8c\u8bc1", $bootstrap$Dialog$ButtonSet$createOkCancel$$()), $gauth_uniform$$1$$ = new $uniform$Uniform$$;
     $gauth_uniform$$1$$.$decorate$($goog$dom$getFirstElementChild$$($dlg_$$1$$.$getContentElement$()));
     $JSCompiler_StaticMethods_listen$$(this.$getHandler$(), $dlg_$$1$$, $goog$ui$Dialog$EventType$SELECT$$, function($e$$334_second_factor$$1$$) {
       if ("ok" == $e$$334_second_factor$$1$$.key) {
@@ -13051,19 +13051,19 @@ $JSCompiler_prototypeAlias$$.$onUserLoginError_$ = function $$JSCompiler_prototy
     var $user_status_text$$ = $e$$333_msg$$107$$.UserStatusText;
     switch($e$$333_msg$$107$$.UserStatusText) {
       case "MSG_LOGIN_ERROR_INVALID_PASSWORD":
-        $user_status_text$$ = "Senha inv\u00e1lida";
+        $user_status_text$$ = "\u5bc6\u7801\u9519\u8bef";
         break;
       case "MSG_LOGIN_ERROR_INVALID_USERNAME_OR_PASSWORD":
-        $user_status_text$$ = "Nome de usu\u00e1rio ou senha inv\u00e1lidos";
+        $user_status_text$$ = "\u7528\u6237\u540d\u6216\u8005\u5bc6\u7801\u9519\u8bef";
         break;
       case "MSG_LOGIN_ERROR_INVALID_SECOND_STEP":
-        $user_status_text$$ = "C\u00f3digo de autentica\u00e7\u00e3o do google authenticator inv\u00e1lido";
+        $user_status_text$$ = "\u4e8c\u91cd\u9a8c\u8bc1\u7801\u9519\u8bef";
         break;
       case "MSG_LOGIN_ERROR_INVALID_BROKER":
-        $user_status_text$$ = "Corretora inv\u00e1lida";
+        $user_status_text$$ = "\u4ee3\u7406\u4eba\u9519\u8bef";
         break;
       case "MSG_LOGIN_ERROR_USERNAME_ALREADY_TAKEN":
-        $user_status_text$$ = "Nome de usu\u00e1rio ou email j\u00e1 est\u00e3o em uso.";
+        $user_status_text$$ = "\u7528\u6237\u540d\u6216\u8005\u90ae\u7bb1\u5df2\u7ecf\u88ab\u6ce8\u518c\u8fc7";
     }
     this.$showDialog$($user_status_text$$);
   }
@@ -13227,10 +13227,10 @@ $JSCompiler_prototypeAlias$$.$onBrokerListResponse_$ = function $$JSCompiler_pro
     }, this);
     switch($broker_info$$9$$.SignupLabel) {
       case "{MSG_BROKER_APPLY}":
-        $broker_info$$9$$.SignupLabel = "Aplicar para ser corretora";
+        $broker_info$$9$$.SignupLabel = "\u7533\u8bf7\u6210\u4e3a\u4ee3\u7406";
         break;
       case "{MSG_NOTIFY_NEW_BROKER}":
-        $broker_info$$9$$.SignupLabel = "Me avise quando uma nova corretora aparecer em minha area.";
+        $broker_info$$9$$.SignupLabel = "\u6211\u6240\u5728\u533a\u57df\u6709\u65b0\u4ee3\u7406\u65f6\u901a\u77e5\u6211";
     }
     $broker_info$$9$$ = $JSCompiler_StaticMethods_adjustBrokerData_$$(this, $broker_info$$9$$);
     $broker_list$$3$$.push($broker_info$$9$$);
@@ -13280,15 +13280,15 @@ $JSCompiler_prototypeAlias$$.$onConnectionError_$ = function $$JSCompiler_protot
   $goog$dom$classes$remove$$(document.body, "ws-connected", "bitex-logged");
   $goog$dom$classes$remove$$(document.body, "bitex-broker");
   $goog$dom$classes$remove$$(document.body, "bitex-non-broker");
-  this.$showNotification$("error", "Erro", "com a conex\u00e3o");
+  this.$showNotification$("error", "\u9519\u8bef", "\u6b63\u5728\u68c0\u67e5\u8fde\u63a5\u95ee\u9898.");
   this.$router_$.$setView$("start");
 };
 $JSCompiler_prototypeAlias$$.$onConnectionErrorMessage_$ = function $$JSCompiler_prototypeAlias$$$$onConnectionErrorMessage_$$($e$$346_msg$$111$$) {
   $e$$346_msg$$111$$ = $e$$346_msg$$111$$.data;
-  this.$showNotification$("error", "Mensagem do servidor:", $e$$346_msg$$111$$.Description + " - " + $e$$346_msg$$111$$.Detail, this.$error_message_alert_timeout_$);
+  this.$showNotification$("error", "\u670d\u52a1\u5668\u4fe1\u606f:", $e$$346_msg$$111$$.Description + " - " + $e$$346_msg$$111$$.Detail, this.$error_message_alert_timeout_$);
 };
 $JSCompiler_prototypeAlias$$.$showDialog$ = function $$JSCompiler_prototypeAlias$$$$showDialog$$($content$$24$$, $opt_title$$5_title$$11$$, $buttonSet$$3_opt_button_set$$) {
-  $opt_title$$5_title$$11$$ = $opt_title$$5_title$$11$$ || "Erro";
+  $opt_title$$5_title$$11$$ = $opt_title$$5_title$$11$$ || "\u9519\u8bef";
   $buttonSet$$3_opt_button_set$$ = $buttonSet$$3_opt_button_set$$ || $bootstrap$Dialog$ButtonSet$createOk$$();
   null != this.$dialog_$ && (this.$dialog_$.$dispose$(), this.$dialog_$ = null);
   this.$dialog_$ = new $bootstrap$Dialog$$;
@@ -13319,7 +13319,7 @@ $JSCompiler_prototypeAlias$$.$showNotification$ = function $$JSCompiler_prototyp
 };
 function $JSCompiler_StaticMethods_registerAlgorithmInstance$$($JSCompiler_StaticMethods_registerAlgorithmInstance$self$$, $algo_instance_id$$3$$) {
   var $handler$$120$$ = $JSCompiler_StaticMethods_registerAlgorithmInstance$self$$.$getHandler$();
-  $JSCompiler_StaticMethods_registerAlgorithmInstance$self$$.$showNotification$("info", "iniciando algor\u00edtimo ...");
+  $JSCompiler_StaticMethods_registerAlgorithmInstance$self$$.$showNotification$("info", "\u542f\u7528\u7b97\u6cd5 ....");
   $JSCompiler_StaticMethods_listen$$($handler$$120$$, $JSCompiler_StaticMethods_registerAlgorithmInstance$self$$.$model_$, "model_set" + $algo_instance_id$$3$$ + "_params", $JSCompiler_StaticMethods_registerAlgorithmInstance$self$$.$onAlgoParams_$);
   $JSCompiler_StaticMethods_listen$$($handler$$120$$, $JSCompiler_StaticMethods_registerAlgorithmInstance$self$$.$model_$, "model_set" + $algo_instance_id$$3$$ + "_status", $JSCompiler_StaticMethods_registerAlgorithmInstance$self$$.$onAlgoStatusChange_$);
   var $params$$14$$ = $JSCompiler_StaticMethods_registerAlgorithmInstance$self$$.$model_$.get($algo_instance_id$$3$$ + "_params"), $algo$$ = $JSCompiler_StaticMethods_registerAlgorithmInstance$self$$.$model_$.get($algo_instance_id$$3$$ + "_algo"), $symbol$$22$$ = $JSCompiler_StaticMethods_registerAlgorithmInstance$self$$.$model_$.get($algo_instance_id$$3$$ + "_symbol"), $algo_definition$$1$$ = $JSCompiler_StaticMethods_registerAlgorithmInstance$self$$.$model_$.get($algo_instance_id$$3$$ + "_definition"), 
@@ -13335,7 +13335,7 @@ function $JSCompiler_StaticMethods_registerAlgorithmInstance$$($JSCompiler_Stati
   $goog$object$forEach$$($locked_balance_broker$$, function($balance$$6$$, $currency$$47$$) {
     $balance_broker$$1$$[$currency$$47$$ + "_locked"] = $balance$$6$$;
   }, $JSCompiler_StaticMethods_registerAlgorithmInstance$self$$);
-  var $algo_permissions$$ = $algo_definition$$1$$.permissions, $deposited_balance_broker_dlg$$8_open_orders_index$$ = $JSCompiler_StaticMethods_registerAlgorithmInstance$self$$.$showDialog$($bitex$templates$AlgoPermissionsDialogContent$$({$permissions$:$algo_permissions$$}), "Autorizar algor\u00edtimo", (new $bootstrap$Dialog$ButtonSet$$).$addButton$($goog$ui$Dialog$ButtonSet$DefaultButtons$YES$$, !0).$addButton$($goog$ui$Dialog$ButtonSet$DefaultButtons$NO$$, !1, !0));
+  var $algo_permissions$$ = $algo_definition$$1$$.permissions, $deposited_balance_broker_dlg$$8_open_orders_index$$ = $JSCompiler_StaticMethods_registerAlgorithmInstance$self$$.$showDialog$($bitex$templates$AlgoPermissionsDialogContent$$({$permissions$:$algo_permissions$$}), "\u6388\u6743\u7a0b\u5e8f\u6267\u884c", (new $bootstrap$Dialog$ButtonSet$$).$addButton$($goog$ui$Dialog$ButtonSet$DefaultButtons$YES$$, !0).$addButton$($goog$ui$Dialog$ButtonSet$DefaultButtons$NO$$, !1, !0));
   $JSCompiler_StaticMethods_listen$$($handler$$120$$, $deposited_balance_broker_dlg$$8_open_orders_index$$, $goog$ui$Dialog$EventType$SELECT$$, function($algo_sandbox_blobURL_e$$349$$) {
     if ("yes" == $algo_sandbox_blobURL_e$$349$$.key) {
       $algo_sandbox_blobURL_e$$349$$ = ["var context = {\n", '  "algo_instance_id": "' + $algo_instance_id$$3$$ + '",\n', '  "wss_url": "' + this.$wss_url_$ + '",\n', '  "symbol": "' + $symbol$$22$$.$symbol$ + '",\n', '  "open_orders": ' + $goog$json$serialize$$($open_orders$$1$$) + ",\n", '  "balance": ' + $goog$json$serialize$$($balance_broker$$1$$) + ",\n", '  "algo_definition": ' + $goog$json$serialize$$($algo_definition$$1$$) + "\n", "};\n", "\n", "\n", $algo$$, "\n", "\n", "var f,l=this;function m(a){return void 0!==a}\n", 
@@ -13377,8 +13377,8 @@ function $JSCompiler_StaticMethods_registerAlgorithmInstance$$($JSCompiler_Stati
       $JSCompiler_StaticMethods_listen$$($handler$$120$$, $worker$$3$$, "message", function($e$$350$$) {
         $e$$350$$ = $e$$350$$.$event_$;
         if ("create" != $e$$350$$.data.rep && "start" != $e$$350$$.data.rep && "params" != $e$$350$$.data.rep && "error" != $e$$350$$.data.rep && "terminate" != $e$$350$$.data.rep && "stop" != $e$$350$$.data.rep && 0 > $goog$array$indexOf$$($algo_permissions$$, $e$$350$$.data.rep)) {
-          "2" == this.$model_$.get($e$$350$$.data.instance + "_status") && this.$model_$.set($e$$350$$.data.instance + "_status", "3"), this.$showNotification$("error", "O algor\u00edtimo tentou executar uma opera\u00e7\u00e3o ilegal", $e$$350$$.data.rep), this.$model_$.set($e$$350$$.data.instance + "_status", "0"), $running_algorithms$$3$$ = this.$model_$.get("RunningAlgorithms"), $goog$object$remove$$($running_algorithms$$3$$, $e$$350$$.data.instance), this.$model_$.set("RunningAlgorithms", $running_algorithms$$3$$)
-          ;
+          "2" == this.$model_$.get($e$$350$$.data.instance + "_status") && this.$model_$.set($e$$350$$.data.instance + "_status", "3"), this.$showNotification$("error", "\u7a0b\u5e8f\u65e0\u6cd5\u6267\u884c\u4e86\u4e00\u4e2a\u9519\u8bef\u64cd\u4f5c", $e$$350$$.data.rep), this.$model_$.set($e$$350$$.data.instance + "_status", "0"), $running_algorithms$$3$$ = this.$model_$.get("RunningAlgorithms"), $goog$object$remove$$($running_algorithms$$3$$, $e$$350$$.data.instance), this.$model_$.set("RunningAlgorithms", 
+          $running_algorithms$$3$$);
         } else {
           switch($e$$350$$.data.rep) {
             case "create":
@@ -13400,7 +13400,7 @@ function $JSCompiler_StaticMethods_registerAlgorithmInstance$$($JSCompiler_Stati
             ;
             case "stop":
               "2" == this.$model_$.get($e$$350$$.data.instance + "_status") && this.$model_$.set($e$$350$$.data.instance + "_status", "3");
-              null != $e$$350$$.data.error && this.$showNotification$("error", "Erro durante a execu\u00e7\u00e3o do algor\u00edtimo", $e$$350$$.data.error);
+              null != $e$$350$$.data.error && this.$showNotification$("error", "\u9519\u8bef\u7684\u7b97\u6cd5", $e$$350$$.data.error);
               this.$model_$.set($e$$350$$.data.instance + "_status", "0");
               $running_algorithms$$3$$ = this.$model_$.get("RunningAlgorithms");
               $goog$object$remove$$($running_algorithms$$3$$, $e$$350$$.data.instance);
@@ -13421,7 +13421,7 @@ function $JSCompiler_StaticMethods_registerAlgorithmInstance$$($JSCompiler_Stati
 }
 $JSCompiler_prototypeAlias$$.$onAlgoStatusChange_$ = function $$JSCompiler_prototypeAlias$$$$onAlgoStatusChange_$$($e$$351$$) {
   var $algo_instance_id$$4$$ = $e$$351$$.key.substr(0, $e$$351$$.key.length - 7);
-  "3" == $e$$351$$.data && (this.$showNotification$("info", "Parando algor\u00edtimo...."), this.$model_$.get("RunningAlgorithms")[$algo_instance_id$$4$$].worker.postMessage({req:"stop"}));
+  "3" == $e$$351$$.data && (this.$showNotification$("info", "\u505c\u6b62\u7b97\u6cd5 ...."), this.$model_$.get("RunningAlgorithms")[$algo_instance_id$$4$$].worker.postMessage({req:"stop"}));
 };
 $JSCompiler_prototypeAlias$$.$onAlgoParams_$ = function $$JSCompiler_prototypeAlias$$$$onAlgoParams_$$($e$$352_parameters$$) {
   var $algo_instance_id$$5$$ = $e$$352_parameters$$.key.substr(0, $e$$352_parameters$$.key.length - 7);
