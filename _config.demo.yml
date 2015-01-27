@@ -1,14 +1,14 @@
 # Site settings
-url: "https://testnet.blinktrade.com"
-#url: "//localhost:4000"   # activate this to test on your localhost
+# url: "https://testnet.blinktrade.com"
+url: "//localhost:4000"   # activate this to test on your localhost
 author: "BlinkTrade"
 baseurl: ""
 deploy_version: "HEAD"
 
-exchange: "demo"
-exchange_logo: "demo"
+exchange: "foxbit"
+exchange_logo: "foxbit"
 
-default_country_code: "US"
+default_country_code: "BR"
 blinktrade_broker_id: 5  # 5 is the id for the demo backend. Don't change that if you don't understand what you doing.
 
 #blinktrade_backend_api: "api.blinktrade.com"
@@ -23,7 +23,7 @@ zopim_key: "2SSNIzvxy8fBypKoZJ0pI43tUoNCv8os"
 markdown: kramdown
 
 
-languages: ["en_US", "es", "pt_BR", "ro"]
+languages: ["en_US","es", "pt_BR", "ro"]
 
 exclude:     [ "jsdev", "LICENSE", "README.md", "config.rb", "deploy.sh", "build_javascript.sh" ]
 source:      .
