@@ -5865,7 +5865,7 @@ function $bitex$ui$OrderManager$$($grid_columns_simple_opt_mode$$1$$, $opt_openO
     return null != $row_set_obj$$2$$ && ($attributes$$2$$["data-order-id"] = $row_set_obj$$2$$.OrderID, 0 == $row_set_obj$$2$$.LeavesQty) ? "" : $goog$dom$createDom$$("a", $attributes$$2$$, "cancel");
   }, classes:function() {
     return $bitex$ui$OrderManager$CSS_CLASS$$ + "-actions";
-  }}], title:"My orders", showSearch:!1, buttonFilters:[{label:"Open", value:"leaves_qty gt 0"}, {label:"Filled", value:"cum_qty gt 0"}, {label:"Cancelled", value:"cxl_qty gt 0"}, {label:"All", value:"all"}]};
+  }}], title:"My orders", showSearch:!1, buttonFilters:[{label:"Open", value:"leaves_qty ne 0"}, {label:"Filled", value:"cum_qty ne 0"}, {label:"Cancelled", value:"cxl_qty ne 0"}, {label:"All", value:"all"}]};
   $opt_openOrdersTitle$$ && ($opt_blinkDelay$$1_options$$10$$.title = "My open orders");
   "simple" == this.$mode_$ && ($opt_blinkDelay$$1_options$$10$$.columns = $grid_columns_simple_opt_mode$$1$$);
   $bitex$ui$DataGrid$$.call(this, $opt_blinkDelay$$1_options$$10$$, $opt_domHelper$$11$$);
@@ -13016,7 +13016,7 @@ $JSCompiler_prototypeAlias$$.$onUserLoginOk_$ = function $$JSCompiler_prototypeA
   this.$conn_$.$requestDepositMethods$();
   this.$router_$.$setView$("offerbook");
   this.$model_$.set("FinishedInitialOpenOrdersRequest", !1);
-  this.$conn_$.$requestOrderList$(this.$open_orders_request_id_$, 0, 100, ["leaves_qty gt 0"]);
+  this.$conn_$.$requestOrderList$(this.$open_orders_request_id_$, 0, 100, ["leaves_qty ne 0"]);
 };
 $JSCompiler_prototypeAlias$$.$onUserLoginError_$ = function $$JSCompiler_prototypeAlias$$$$onUserLoginError_$$($e$$333_msg$$107$$) {
   $goog$dom$classes$add$$(document.body, "bitex-not-logged");
