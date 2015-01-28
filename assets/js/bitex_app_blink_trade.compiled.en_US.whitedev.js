@@ -5865,7 +5865,7 @@ function $bitex$ui$OrderManager$$($grid_columns_simple_opt_mode$$1$$, $opt_openO
     return null != $row_set_obj$$2$$ && ($attributes$$2$$["data-order-id"] = $row_set_obj$$2$$.OrderID, 0 == $row_set_obj$$2$$.LeavesQty) ? "" : $goog$dom$createDom$$("a", $attributes$$2$$, "cancel");
   }, classes:function() {
     return $bitex$ui$OrderManager$CSS_CLASS$$ + "-actions";
-  }}], title:"My orders", showSearch:!1, buttonFilters:[{label:"Open", value:"0,1"}, {label:"Filled", value:"1,2,4"}, {label:"Cancelled", value:"4"}, {label:"All", value:"all"}]};
+  }}], title:"My orders", showSearch:!1, buttonFilters:[{label:"Open", value:"leaves_qty gt 0"}, {label:"Filled", value:"cum_qty gt 0"}, {label:"Cancelled", value:"cxl_qty gt 0"}, {label:"All", value:"all"}]};
   $opt_openOrdersTitle$$ && ($opt_blinkDelay$$1_options$$10$$.title = "My open orders");
   "simple" == this.$mode_$ && ($opt_blinkDelay$$1_options$$10$$.columns = $grid_columns_simple_opt_mode$$1$$);
   $bitex$ui$DataGrid$$.call(this, $opt_blinkDelay$$1_options$$10$$, $opt_domHelper$$11$$);
@@ -6121,9 +6121,8 @@ $JSCompiler_prototypeAlias$$.$onExecutionReport_$ = function $$JSCompiler_protot
 $JSCompiler_prototypeAlias$$.$onOrderManagerRequestData_$ = function $$JSCompiler_prototypeAlias$$$$onOrderManagerRequestData_$$($e$$84_filter$$8$$) {
   var $page$$ = $e$$84_filter$$8$$.options.Page, $limit$$ = $e$$84_filter$$8$$.options.Limit;
   $e$$84_filter$$8$$ = $e$$84_filter$$8$$.options.Filter;
-  var $order_status_list$$ = ["0", "1", "2", "4"];
-  "0,1" == $e$$84_filter$$8$$ ? ($order_status_list$$ = ["0", "1"], $e$$84_filter$$8$$ = void 0) : "1,2,4" == $e$$84_filter$$8$$ ? ($order_status_list$$ = ["1", "2", "4"], $e$$84_filter$$8$$ = ["cum_qty gt 0"]) : "4" == $e$$84_filter$$8$$ && ($order_status_list$$ = ["4"], $e$$84_filter$$8$$ = void 0);
-  this.$app_$.$conn_$.$requestOrderList$(this.$request_order_id_$, $page$$, $limit$$, $order_status_list$$, $e$$84_filter$$8$$);
+  $e$$84_filter$$8$$ = "all" == $e$$84_filter$$8$$ ? [] : [$e$$84_filter$$8$$];
+  this.$app_$.$conn_$.$requestOrderList$(this.$request_order_id_$, $page$$, $limit$$, $e$$84_filter$$8$$);
 };
 $JSCompiler_prototypeAlias$$.$onOrderListResponse_$ = function $$JSCompiler_prototypeAlias$$$$onOrderListResponse_$$($e$$85_msg$$15$$) {
   null != this.$order_manager_table_$ && ($e$$85_msg$$15$$ = $e$$85_msg$$15$$.data, $JSCompiler_StaticMethods_setResultSet$$(this.$order_manager_table_$, $e$$85_msg$$15$$.OrdListGrp, $e$$85_msg$$15$$.Columns));
@@ -9910,9 +9909,8 @@ $JSCompiler_prototypeAlias$$.$onExecutionReport_$ = function $$JSCompiler_protot
 $JSCompiler_prototypeAlias$$.$onOrderManagerRequestData_$ = function $$JSCompiler_prototypeAlias$$$$onOrderManagerRequestData_$$($e$$184_filter$$11$$) {
   var $page$$3$$ = $e$$184_filter$$11$$.options.Page, $limit$$4$$ = $e$$184_filter$$11$$.options.Limit;
   $e$$184_filter$$11$$ = $e$$184_filter$$11$$.options.Filter;
-  var $order_status_list$$1$$ = ["0", "1", "2", "4"];
-  "0,1" == $e$$184_filter$$11$$ ? ($order_status_list$$1$$ = ["0", "1"], $e$$184_filter$$11$$ = void 0) : "1,2,4" == $e$$184_filter$$11$$ ? ($order_status_list$$1$$ = ["1", "2", "4"], $e$$184_filter$$11$$ = ["cum_qty gt 0"]) : "4" == $e$$184_filter$$11$$ && ($order_status_list$$1$$ = ["4"], $e$$184_filter$$11$$ = void 0);
-  this.$app_$.$conn_$.$requestOrderList$(this.$request_order_id_$, $page$$3$$, $limit$$4$$, $order_status_list$$1$$, $e$$184_filter$$11$$);
+  $e$$184_filter$$11$$ = "all" == $e$$184_filter$$11$$ ? [] : [$e$$184_filter$$11$$];
+  this.$app_$.$conn_$.$requestOrderList$(this.$request_order_id_$, $page$$3$$, $limit$$4$$, $e$$184_filter$$11$$);
 };
 $JSCompiler_prototypeAlias$$.$onOrderListResponse_$ = function $$JSCompiler_prototypeAlias$$$$onOrderListResponse_$$($e$$185_msg$$24$$) {
   null != this.$order_manager_table_$ && ($e$$185_msg$$24$$ = $e$$185_msg$$24$$.data, $JSCompiler_StaticMethods_setResultSet$$(this.$order_manager_table_$, $e$$185_msg$$24$$.OrdListGrp, $e$$185_msg$$24$$.Columns));
@@ -10357,9 +10355,9 @@ $JSCompiler_prototypeAlias$$.$confirmWithdraw$ = function $$JSCompiler_prototype
   null != $opt_secondFactor$$ && ($msg$$37$$.SecondFactor = $opt_secondFactor$$);
   $JSCompiler_StaticMethods_sendMessage$$(this, $msg$$37$$);
 };
-$JSCompiler_prototypeAlias$$.$requestWithdrawList$ = function $$JSCompiler_prototypeAlias$$$$requestWithdrawList$$($opt_requestId_requestId$$1$$, $msg$$38_opt_page$$, $opt_limit$$1$$, $opt_status$$, $opt_clientID$$3$$, $opt_filter$$) {
+$JSCompiler_prototypeAlias$$.$requestWithdrawList$ = function $$JSCompiler_prototypeAlias$$$$requestWithdrawList$$($opt_requestId_requestId$$1$$, $msg$$38_opt_page$$, $opt_limit$$1$$, $opt_status$$1$$, $opt_clientID$$3$$, $opt_filter$$) {
   $opt_requestId_requestId$$1$$ = $opt_requestId_requestId$$1$$ || parseInt(1E7 * Math.random(), 10);
-  $msg$$38_opt_page$$ = {MsgType:"U26", WithdrawListReqID:$opt_requestId_requestId$$1$$, Page:$msg$$38_opt_page$$ || 0, PageSize:$opt_limit$$1$$ || 100, StatusList:$opt_status$$ || ["1", "2"]};
+  $msg$$38_opt_page$$ = {MsgType:"U26", WithdrawListReqID:$opt_requestId_requestId$$1$$, Page:$msg$$38_opt_page$$ || 0, PageSize:$opt_limit$$1$$ || 100, StatusList:$opt_status$$1$$ || ["1", "2"]};
   null != $opt_clientID$$3$$ && $goog$isNumber$$($opt_clientID$$3$$) && ($msg$$38_opt_page$$.ClientID = $opt_clientID$$3$$);
   null != $opt_filter$$ && 0 < $opt_filter$$.length && ($msg$$38_opt_page$$.Filter = $opt_filter$$);
   $JSCompiler_StaticMethods_sendMessage$$(this, $msg$$38_opt_page$$);
@@ -10372,9 +10370,9 @@ function $JSCompiler_StaticMethods_updateUserProfile$$($JSCompiler_StaticMethods
   $JSCompiler_StaticMethods_sendMessage$$($JSCompiler_StaticMethods_updateUserProfile$self$$, $fields_msg$$39$$);
   return $requestId$$2$$;
 }
-$JSCompiler_prototypeAlias$$.$requestDepositList$ = function $$JSCompiler_prototypeAlias$$$$requestDepositList$$($opt_requestId$$2_requestId$$3$$, $msg$$40_opt_page$$1$$, $opt_limit$$2$$, $opt_status$$1$$, $opt_clientID$$4$$, $opt_filter$$1$$) {
+$JSCompiler_prototypeAlias$$.$requestDepositList$ = function $$JSCompiler_prototypeAlias$$$$requestDepositList$$($opt_requestId$$2_requestId$$3$$, $msg$$40_opt_page$$1$$, $opt_limit$$2$$, $opt_status$$2$$, $opt_clientID$$4$$, $opt_filter$$1$$) {
   $opt_requestId$$2_requestId$$3$$ = $opt_requestId$$2_requestId$$3$$ || parseInt(1E7 * Math.random(), 10);
-  $msg$$40_opt_page$$1$$ = {MsgType:"U30", DepositListReqID:$opt_requestId$$2_requestId$$3$$, Page:$msg$$40_opt_page$$1$$ || 0, PageSize:$opt_limit$$2$$ || 100, StatusList:$opt_status$$1$$ || ["1", "2"]};
+  $msg$$40_opt_page$$1$$ = {MsgType:"U30", DepositListReqID:$opt_requestId$$2_requestId$$3$$, Page:$msg$$40_opt_page$$1$$ || 0, PageSize:$opt_limit$$2$$ || 100, StatusList:$opt_status$$2$$ || ["1", "2"]};
   null != $opt_clientID$$4$$ && $goog$isNumber$$($opt_clientID$$4$$) && ($msg$$40_opt_page$$1$$.ClientID = $opt_clientID$$4$$);
   null != $opt_filter$$1$$ && 0 < $opt_filter$$1$$.length && ($msg$$40_opt_page$$1$$.Filter = $opt_filter$$1$$);
   $JSCompiler_StaticMethods_sendMessage$$(this, $msg$$40_opt_page$$1$$);
@@ -10399,16 +10397,16 @@ $JSCompiler_prototypeAlias$$.$requestLedgerList$ = function $$JSCompiler_prototy
   $JSCompiler_StaticMethods_sendMessage$$(this, $msg$$44_opt_page$$4$$);
   return $opt_requestId$$6_requestId$$7$$;
 };
-$JSCompiler_prototypeAlias$$.$requestBrokerList$ = function $$JSCompiler_prototypeAlias$$$$requestBrokerList$$($opt_requestId$$7_requestId$$8$$, $opt_country$$1$$, $msg$$45_opt_page$$5$$, $opt_limit$$6$$, $opt_status$$2$$) {
+$JSCompiler_prototypeAlias$$.$requestBrokerList$ = function $$JSCompiler_prototypeAlias$$$$requestBrokerList$$($opt_requestId$$7_requestId$$8$$, $opt_country$$1$$, $msg$$45_opt_page$$5$$, $opt_limit$$6$$, $opt_status$$3$$) {
   $opt_requestId$$7_requestId$$8$$ = $opt_requestId$$7_requestId$$8$$ || parseInt(1E7 * Math.random(), 10);
-  $msg$$45_opt_page$$5$$ = {MsgType:"U28", BrokerListReqID:$opt_requestId$$7_requestId$$8$$, Page:$msg$$45_opt_page$$5$$ || 0, PageSize:$opt_limit$$6$$ || 100, StatusList:$opt_status$$2$$ || ["1"]};
+  $msg$$45_opt_page$$5$$ = {MsgType:"U28", BrokerListReqID:$opt_requestId$$7_requestId$$8$$, Page:$msg$$45_opt_page$$5$$ || 0, PageSize:$opt_limit$$6$$ || 100, StatusList:$opt_status$$3$$ || ["1"]};
   null != $opt_country$$1$$ && ($msg$$45_opt_page$$5$$.Country = $opt_country$$1$$);
   $JSCompiler_StaticMethods_sendMessage$$(this, $msg$$45_opt_page$$5$$);
   return $opt_requestId$$7_requestId$$8$$;
 };
-$JSCompiler_prototypeAlias$$.$requestCustomerList$ = function $$JSCompiler_prototypeAlias$$$$requestCustomerList$$($opt_requestId$$8_requestId$$9$$, $opt_filter_country$$, $opt_filter_state$$, $opt_filter_username_or_email$$, $msg$$46_opt_page$$6$$, $opt_limit$$7$$, $opt_status$$3$$, $opt_sort_column$$, $opt_sort_direction$$) {
+$JSCompiler_prototypeAlias$$.$requestCustomerList$ = function $$JSCompiler_prototypeAlias$$$$requestCustomerList$$($opt_requestId$$8_requestId$$9$$, $opt_filter_country$$, $opt_filter_state$$, $opt_filter_username_or_email$$, $msg$$46_opt_page$$6$$, $opt_limit$$7$$, $opt_status$$4$$, $opt_sort_column$$, $opt_sort_direction$$) {
   $opt_requestId$$8_requestId$$9$$ = $opt_requestId$$8_requestId$$9$$ || parseInt(1E7 * Math.random(), 10);
-  $msg$$46_opt_page$$6$$ = {MsgType:"B2", CustomerListReqID:$opt_requestId$$8_requestId$$9$$, Page:$msg$$46_opt_page$$6$$ || 0, PageSize:$opt_limit$$7$$ || 100, StatusList:$opt_status$$3$$ || [0, 1, 2, 3, 4, 5]};
+  $msg$$46_opt_page$$6$$ = {MsgType:"B2", CustomerListReqID:$opt_requestId$$8_requestId$$9$$, Page:$msg$$46_opt_page$$6$$ || 0, PageSize:$opt_limit$$7$$ || 100, StatusList:$opt_status$$4$$ || [0, 1, 2, 3, 4, 5]};
   null != $opt_filter_country$$ && ($msg$$46_opt_page$$6$$.Country = $opt_filter_country$$);
   null != $opt_filter_state$$ && ($msg$$46_opt_page$$6$$.State = $opt_filter_state$$);
   null != $opt_filter_username_or_email$$ && ($msg$$46_opt_page$$6$$.ClientID = $opt_filter_username_or_email$$);
@@ -10475,9 +10473,9 @@ $JSCompiler_prototypeAlias$$.$requestSecurityList$ = function $$JSCompiler_proto
 $JSCompiler_prototypeAlias$$.$signUp$ = function $$JSCompiler_prototypeAlias$$$$signUp$$($username$$9$$, $password$$5$$, $email$$3$$, $state$$21$$, $country_code$$2$$, $broker$$8$$, $opt_requestId$$18$$) {
   $JSCompiler_StaticMethods_sendMessage$$(this, {MsgType:"U0", UserReqID:$opt_requestId$$18$$ || parseInt(1E7 * Math.random(), 10), Username:$username$$9$$, Password:$password$$5$$, Email:$email$$3$$, State:$state$$21$$, CountryCode:$country_code$$2$$, BrokerID:$broker$$8$$});
 };
-$JSCompiler_prototypeAlias$$.$requestOrderList$ = function $$JSCompiler_prototypeAlias$$$$requestOrderList$$($opt_requestId$$19_requestId$$20$$, $msg$$59_opt_page$$7$$, $opt_limit$$8$$, $opt_status$$4$$, $opt_filter$$5$$) {
+$JSCompiler_prototypeAlias$$.$requestOrderList$ = function $$JSCompiler_prototypeAlias$$$$requestOrderList$$($opt_requestId$$19_requestId$$20$$, $msg$$59_opt_page$$7$$, $opt_limit$$8$$, $opt_filter$$5$$) {
   $opt_requestId$$19_requestId$$20$$ = $opt_requestId$$19_requestId$$20$$ || parseInt(1E7 * Math.random(), 10);
-  $msg$$59_opt_page$$7$$ = {MsgType:"U4", OrdersReqID:$opt_requestId$$19_requestId$$20$$, Page:$msg$$59_opt_page$$7$$ || 0, PageSize:$opt_limit$$8$$ || 100, StatusList:$opt_status$$4$$ || ["0", "1"]};
+  $msg$$59_opt_page$$7$$ = {MsgType:"U4", OrdersReqID:$opt_requestId$$19_requestId$$20$$, Page:$msg$$59_opt_page$$7$$ || 0, PageSize:$opt_limit$$8$$ || 100};
   null != $opt_filter$$5$$ && ($msg$$59_opt_page$$7$$.Filter = $opt_filter$$5$$);
   $JSCompiler_StaticMethods_sendMessage$$(this, $msg$$59_opt_page$$7$$);
   return $opt_requestId$$19_requestId$$20$$;
