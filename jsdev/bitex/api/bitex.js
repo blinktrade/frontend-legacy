@@ -1059,12 +1059,10 @@ bitex.api.BitEx.prototype.requestLedgerList = function(opt_requestId, opt_page, 
   var requestId = opt_requestId || parseInt( 1e7 * Math.random() , 10 );
   var page = opt_page || 0;
   var limit = opt_limit || 100;
-  var operation_list = ['C','D'];
 
   var msg = {
     'MsgType': 'U34',
     'LedgerListReqID': requestId,
-    'OperationList': operation_list,
     'Page': page,
     'PageSize': limit
   };
