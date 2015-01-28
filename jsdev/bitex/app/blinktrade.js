@@ -3219,7 +3219,7 @@ bitex.app.BlinkTrade.prototype.onUserLoginOk_ = function(e) {
 
   // Request Open Orders
   this.getModel().set('FinishedInitialOpenOrdersRequest',  false);
-  this.conn_.requestOrderList(this.open_orders_request_id_ , 0, 100, [ "leaves_qty gt 0" ] );
+  this.conn_.requestOrderList(this.open_orders_request_id_ , 0, 100, [ "leaves_qty ne 0" ] );
 };
 
 /**
