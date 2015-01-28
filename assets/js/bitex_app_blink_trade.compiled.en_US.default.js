@@ -13022,7 +13022,7 @@ $JSCompiler_prototypeAlias$$.$onUserLoginOk_$ = function $$JSCompiler_prototypeA
   this.$conn_$.$requestDepositMethods$();
   this.$router_$.$setView$("offerbook");
   this.$model_$.set("FinishedInitialOpenOrdersRequest", !1);
-  this.$conn_$.$requestOrderList$(this.$open_orders_request_id_$, 0, 100, ["0", "1"]);
+  this.$conn_$.$requestOrderList$(this.$open_orders_request_id_$, 0, 100, ["leaves_qty gt 0"]);
 };
 $JSCompiler_prototypeAlias$$.$onUserLoginError_$ = function $$JSCompiler_prototypeAlias$$$$onUserLoginError_$$($e$$333_msg$$107$$) {
   $goog$dom$classes$add$$(document.body, "bitex-not-logged");
