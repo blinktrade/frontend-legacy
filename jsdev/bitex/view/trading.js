@@ -528,13 +528,6 @@ bitex.view.TradingView.prototype.onOrderManagerRequestData_ = function(e) {
   var page = e.options['Page'];
   var limit = e.options['Limit'];
   var filter = e.options['Filter'];
-
-  if (filter == 'all') {
-    filter = [];
-  } else {
-    filter = [filter];
-  }
-
   var conn = this.getApplication().getBitexConnection();
   conn.requestOrderList(this.request_order_id_, page, limit, filter );
 };

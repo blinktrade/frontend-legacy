@@ -1455,13 +1455,12 @@ bitex.api.BitEx.prototype.signUp = function(username, password, email, state, co
  * @param {number=} opt_requestId. Defaults to random generated number
  * @param {number=} opt_page. Defaults to 0
  * @param {number=} opt_limit. Defaults to 100
- * @param {Object=} opt_filter.
+ * @param {Array.<string>=} opt_filter.
  */
 bitex.api.BitEx.prototype.requestOrderList = function(opt_requestId, opt_page, opt_limit, opt_filter){
   var requestId = opt_requestId || parseInt( 1e7 * Math.random() , 10 );
   var page = opt_page || 0;
   var limit = opt_limit || 100;
-  var status = opt_status || ['0', '1'];
 
   var msg = {
     'MsgType': 'U4',
