@@ -292,9 +292,9 @@ bitex.ui.OrderManager = function(opt_mode, opt_openOrdersTitle, opt_blinkDelay, 
     'title': MSG_ORDER_MANAGER_TABLE_TITLE,
     'showSearch': false,
     'buttonFilters': [
-      { 'label': MSG_ORDER_MANAGER_TABLE_BUTTON_FILTER_OPEN_ORDERS, 'value': 'leaves_qty ne 0'},
-      { 'label': MSG_ORDER_MANAGER_TABLE_BUTTON_FILTER_FILLED,      'value': 'cum_qty ne 0'},
-      { 'label': MSG_ORDER_MANAGER_TABLE_BUTTON_FILTER_CANCELED,    'value': 'cxl_qty ne 0'},
+      { 'label': MSG_ORDER_MANAGER_TABLE_BUTTON_FILTER_OPEN_ORDERS, 'value': 'has_leaves_qty eq 1'},
+      { 'label': MSG_ORDER_MANAGER_TABLE_BUTTON_FILTER_FILLED,      'value': 'has_cum_qty eq 1'},
+      { 'label': MSG_ORDER_MANAGER_TABLE_BUTTON_FILTER_CANCELED,    'value': 'has_cxl_qty eq 1'},
       { 'label': MSG_ORDER_MANAGER_TABLE_BUTTON_FILTER_ALL,         'value': 'all'}
     ]
   };
