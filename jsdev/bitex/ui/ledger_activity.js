@@ -6,7 +6,7 @@ goog.require('bitex.ui.DataGrid');
 goog.require('goog.ui.registry');
 
 goog.require('goog.dom.TagName');
-
+goog.require('bitex.util');
 
 /**
  * @desc Column ID of the Ledger Activity
@@ -75,7 +75,11 @@ bitex.ui.LedgerActivity = function(button_filters, pseudoNameFunction, opt_broke
       'property': 'Created',
       'label': MSG_LEDGER_ACTIVITY_TABLE_COLUMN_DATE_TIME,
       'sortable': false,
-      'classes': function() { return goog.getCssName(bitex.ui.LedgerActivity.CSS_CLASS, 'date-time'); }
+      'classes': function() { return goog.getCssName(bitex.ui.LedgerActivity.CSS_CLASS, 'date-time'); },
+      'formatter' : function(s, rowSet) {
+        var dt = new Date(bitex.util.convertServerUTCDateTimeStrToTimestamp( s.substr(0,10), s.substr(11)));
+        return dt.toLocaleDateString() + ' ' + dt.toLocaleTimeString();
+      }
     },{
       'property': 'Currency',
       'label': MSG_LEDGER_ACTIVITY_TABLE_COLUMN_CURRENCY,

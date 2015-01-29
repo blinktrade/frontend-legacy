@@ -527,9 +527,9 @@ bitex.view.TradingView.prototype.onExecutionReport_ = function(e){
 bitex.view.TradingView.prototype.onOrderManagerRequestData_ = function(e) {
   var page = e.options['Page'];
   var limit = e.options['Limit'];
-
+  var filter = e.options['Filter'];
   var conn = this.getApplication().getBitexConnection();
-  conn.requestOrderList(this.request_order_id_, page, limit, ['0', '1', '2', '4'] );
+  conn.requestOrderList(this.request_order_id_, page, limit, filter );
 };
 
 
