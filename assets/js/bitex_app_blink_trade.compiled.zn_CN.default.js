@@ -5865,7 +5865,7 @@ function $bitex$ui$OrderManager$$($grid_columns_simple_opt_mode$$1$$, $opt_openO
     return null != $row_set_obj$$2$$ && ($attributes$$2$$["data-order-id"] = $row_set_obj$$2$$.OrderID, 0 == $row_set_obj$$2$$.LeavesQty) ? "" : $goog$dom$createDom$$("a", $attributes$$2$$, "\u53d6\u6d88");
   }, classes:function() {
     return $bitex$ui$OrderManager$CSS_CLASS$$ + "-actions";
-  }}], title:"\u6211\u7684\u8ba2\u5355", showSearch:!1, buttonFilters:[{label:"Open", value:"0,1"}, {label:"Filled", value:"1,2,4"}, {label:"Cancelled", value:"4"}, {label:"All", value:"all"}]};
+  }}], title:"\u6211\u7684\u8ba2\u5355", showSearch:!1, buttonFilters:[{label:"Open", value:"has_leaves_qty eq 1"}, {label:"Filled", value:"has_cum_qty eq 1"}, {label:"Cancelled", value:"has_cxl_qty eq 1"}, {label:"All", value:"all"}]};
   $opt_openOrdersTitle$$ && ($opt_blinkDelay$$1_options$$10$$.title = "\u6211\u7684\u6302\u5355");
   "simple" == this.$mode_$ && ($opt_blinkDelay$$1_options$$10$$.columns = $grid_columns_simple_opt_mode$$1$$);
   $bitex$ui$DataGrid$$.call(this, $opt_blinkDelay$$1_options$$10$$, $opt_domHelper$$11$$);
@@ -6118,12 +6118,8 @@ $JSCompiler_prototypeAlias$$.$onExecutionReport_$ = function $$JSCompiler_protot
   $JSCompiler_StaticMethods_getId$$(this.$order_manager_table_$) + "_" + $client_order_id$$inline_635_e$$83_el$$inline_637_execution_report_msg$$1_rowId$$inline_636$$, $client_order_id$$inline_635_e$$83_el$$inline_637_execution_report_msg$$1_rowId$$inline_636$$ = $goog$dom$getElement$$($client_order_id$$inline_635_e$$83_el$$inline_637_execution_report_msg$$1_rowId$$inline_636$$), null != $client_order_id$$inline_635_e$$83_el$$inline_637_execution_report_msg$$1_rowId$$inline_636$$ && $goog$dom$removeNode$$($client_order_id$$inline_635_e$$83_el$$inline_637_execution_report_msg$$1_rowId$$inline_636$$)) : 
   $JSCompiler_StaticMethods_insertOrUpdateRecord$$(this.$order_manager_table_$, $client_order_id$$inline_635_e$$83_el$$inline_637_execution_report_msg$$1_rowId$$inline_636$$));
 };
-$JSCompiler_prototypeAlias$$.$onOrderManagerRequestData_$ = function $$JSCompiler_prototypeAlias$$$$onOrderManagerRequestData_$$($e$$84_filter$$8$$) {
-  var $page$$ = $e$$84_filter$$8$$.options.Page, $limit$$ = $e$$84_filter$$8$$.options.Limit;
-  $e$$84_filter$$8$$ = $e$$84_filter$$8$$.options.Filter;
-  var $order_status_list$$ = ["0", "1", "2", "4"];
-  "0,1" == $e$$84_filter$$8$$ ? ($order_status_list$$ = ["0", "1"], $e$$84_filter$$8$$ = void 0) : "1,2,4" == $e$$84_filter$$8$$ ? ($order_status_list$$ = ["1", "2", "4"], $e$$84_filter$$8$$ = ["cum_qty gt 0"]) : "4" == $e$$84_filter$$8$$ && ($order_status_list$$ = ["4"], $e$$84_filter$$8$$ = void 0);
-  this.$app_$.$conn_$.$requestOrderList$(this.$request_order_id_$, $page$$, $limit$$, $order_status_list$$, $e$$84_filter$$8$$);
+$JSCompiler_prototypeAlias$$.$onOrderManagerRequestData_$ = function $$JSCompiler_prototypeAlias$$$$onOrderManagerRequestData_$$($e$$84$$) {
+  this.$app_$.$conn_$.$requestOrderList$(this.$request_order_id_$, $e$$84$$.options.Page, $e$$84$$.options.Limit, $e$$84$$.options.Filter);
 };
 $JSCompiler_prototypeAlias$$.$onOrderListResponse_$ = function $$JSCompiler_prototypeAlias$$$$onOrderListResponse_$$($e$$85_msg$$15$$) {
   null != this.$order_manager_table_$ && ($e$$85_msg$$15$$ = $e$$85_msg$$15$$.data, $JSCompiler_StaticMethods_setResultSet$$(this.$order_manager_table_$, $e$$85_msg$$15$$.OrdListGrp, $e$$85_msg$$15$$.Columns));
@@ -9913,12 +9909,8 @@ $JSCompiler_prototypeAlias$$.$onCancelOrder_$ = function $$JSCompiler_prototypeA
 $JSCompiler_prototypeAlias$$.$onExecutionReport_$ = function $$JSCompiler_prototypeAlias$$$$onExecutionReport_$$($e$$183$$) {
   null != this.$order_manager_table_$ && $JSCompiler_StaticMethods_insertOrUpdateRecord$$(this.$order_manager_table_$, $e$$183$$.data);
 };
-$JSCompiler_prototypeAlias$$.$onOrderManagerRequestData_$ = function $$JSCompiler_prototypeAlias$$$$onOrderManagerRequestData_$$($e$$184_filter$$11$$) {
-  var $page$$3$$ = $e$$184_filter$$11$$.options.Page, $limit$$4$$ = $e$$184_filter$$11$$.options.Limit;
-  $e$$184_filter$$11$$ = $e$$184_filter$$11$$.options.Filter;
-  var $order_status_list$$1$$ = ["0", "1", "2", "4"];
-  "0,1" == $e$$184_filter$$11$$ ? ($order_status_list$$1$$ = ["0", "1"], $e$$184_filter$$11$$ = void 0) : "1,2,4" == $e$$184_filter$$11$$ ? ($order_status_list$$1$$ = ["1", "2", "4"], $e$$184_filter$$11$$ = ["cum_qty gt 0"]) : "4" == $e$$184_filter$$11$$ && ($order_status_list$$1$$ = ["4"], $e$$184_filter$$11$$ = void 0);
-  this.$app_$.$conn_$.$requestOrderList$(this.$request_order_id_$, $page$$3$$, $limit$$4$$, $order_status_list$$1$$, $e$$184_filter$$11$$);
+$JSCompiler_prototypeAlias$$.$onOrderManagerRequestData_$ = function $$JSCompiler_prototypeAlias$$$$onOrderManagerRequestData_$$($e$$184$$) {
+  this.$app_$.$conn_$.$requestOrderList$(this.$request_order_id_$, $e$$184$$.options.Page, $e$$184$$.options.Limit, $e$$184$$.options.Filter);
 };
 $JSCompiler_prototypeAlias$$.$onOrderListResponse_$ = function $$JSCompiler_prototypeAlias$$$$onOrderListResponse_$$($e$$185_msg$$24$$) {
   null != this.$order_manager_table_$ && ($e$$185_msg$$24$$ = $e$$185_msg$$24$$.data, $JSCompiler_StaticMethods_setResultSet$$(this.$order_manager_table_$, $e$$185_msg$$24$$.OrdListGrp, $e$$185_msg$$24$$.Columns));
@@ -10397,7 +10389,7 @@ $JSCompiler_prototypeAlias$$.$requestTradeHistory$ = function $$JSCompiler_proto
 };
 $JSCompiler_prototypeAlias$$.$requestLedgerList$ = function $$JSCompiler_prototypeAlias$$$$requestLedgerList$$($opt_requestId$$6_requestId$$7$$, $msg$$44_opt_page$$4$$, $opt_limit$$5$$, $opt_brokerID$$, $opt_clientID$$7$$, $opt_currency$$2$$, $opt_filter$$4$$) {
   $opt_requestId$$6_requestId$$7$$ = $opt_requestId$$6_requestId$$7$$ || parseInt(1E7 * Math.random(), 10);
-  $msg$$44_opt_page$$4$$ = {MsgType:"U34", LedgerListReqID:$opt_requestId$$6_requestId$$7$$, OperationList:["C", "D"], Page:$msg$$44_opt_page$$4$$ || 0, PageSize:$opt_limit$$5$$ || 100};
+  $msg$$44_opt_page$$4$$ = {MsgType:"U34", LedgerListReqID:$opt_requestId$$6_requestId$$7$$, Page:$msg$$44_opt_page$$4$$ || 0, PageSize:$opt_limit$$5$$ || 100};
   null != $opt_brokerID$$ && $goog$isNumber$$($opt_brokerID$$) && ($msg$$44_opt_page$$4$$.BrokerID = $opt_brokerID$$);
   null != $opt_clientID$$7$$ && $goog$isNumber$$($opt_clientID$$7$$) && ($msg$$44_opt_page$$4$$.ClientID = $opt_clientID$$7$$);
   null != $opt_currency$$2$$ && !$goog$string$isEmpty$$($opt_currency$$2$$) && ($msg$$44_opt_page$$4$$.Currency = $opt_currency$$2$$);
@@ -10481,9 +10473,9 @@ $JSCompiler_prototypeAlias$$.$requestSecurityList$ = function $$JSCompiler_proto
 $JSCompiler_prototypeAlias$$.$signUp$ = function $$JSCompiler_prototypeAlias$$$$signUp$$($username$$9$$, $password$$5$$, $email$$3$$, $state$$21$$, $country_code$$2$$, $broker$$8$$, $opt_requestId$$18$$) {
   $JSCompiler_StaticMethods_sendMessage$$(this, {MsgType:"U0", UserReqID:$opt_requestId$$18$$ || parseInt(1E7 * Math.random(), 10), Username:$username$$9$$, Password:$password$$5$$, Email:$email$$3$$, State:$state$$21$$, CountryCode:$country_code$$2$$, BrokerID:$broker$$8$$});
 };
-$JSCompiler_prototypeAlias$$.$requestOrderList$ = function $$JSCompiler_prototypeAlias$$$$requestOrderList$$($opt_requestId$$19_requestId$$20$$, $msg$$59_opt_page$$7$$, $opt_limit$$8$$, $opt_status$$4$$, $opt_filter$$5$$) {
+$JSCompiler_prototypeAlias$$.$requestOrderList$ = function $$JSCompiler_prototypeAlias$$$$requestOrderList$$($opt_requestId$$19_requestId$$20$$, $msg$$59_opt_page$$7$$, $opt_limit$$8$$, $opt_filter$$5$$) {
   $opt_requestId$$19_requestId$$20$$ = $opt_requestId$$19_requestId$$20$$ || parseInt(1E7 * Math.random(), 10);
-  $msg$$59_opt_page$$7$$ = {MsgType:"U4", OrdersReqID:$opt_requestId$$19_requestId$$20$$, Page:$msg$$59_opt_page$$7$$ || 0, PageSize:$opt_limit$$8$$ || 100, StatusList:$opt_status$$4$$ || ["0", "1"]};
+  $msg$$59_opt_page$$7$$ = {MsgType:"U4", OrdersReqID:$opt_requestId$$19_requestId$$20$$, Page:$msg$$59_opt_page$$7$$ || 0, PageSize:$opt_limit$$8$$ || 100};
   null != $opt_filter$$5$$ && ($msg$$59_opt_page$$7$$.Filter = $opt_filter$$5$$);
   $JSCompiler_StaticMethods_sendMessage$$(this, $msg$$59_opt_page$$7$$);
   return $opt_requestId$$19_requestId$$20$$;
@@ -10758,13 +10750,13 @@ $JSCompiler_prototypeAlias$$.$onWithdrawListTableRequestData_$ = function $$JSCo
   $conn$$10_e$$198$$ = this.$app_$.$conn_$;
   var $model$$36$$ = this.$app_$.$model_$, $clientID$$1$$ = void 0;
   $model$$36$$.get("IsBroker") && !this.$is_requests_from_customers_$ && ($clientID$$1$$ = $model$$36$$.get("UserID"));
-  var $status$$11$$ = ["1", "2", "4", "8"];
+  var $status$$10$$ = ["1", "2", "4", "8"];
   null != $filter$$13$$ && $goog$array$forEach$$($filter$$13$$, function($f$$50$$, $idx_filter$$2$$) {
-    if (0 <= $goog$array$indexOf$$($status$$11$$, $f$$50$$)) {
-      return $status$$11$$ = [$f$$50$$], $goog$array$removeAt$$($filter$$13$$, $idx_filter$$2$$), !0;
+    if (0 <= $goog$array$indexOf$$($status$$10$$, $f$$50$$)) {
+      return $status$$10$$ = [$f$$50$$], $goog$array$removeAt$$($filter$$13$$, $idx_filter$$2$$), !0;
     }
   }, this);
-  $conn$$10_e$$198$$.$requestWithdrawList$(this.$request_id_$, $page$$13$$, $limit$$14$$, $status$$11$$, $clientID$$1$$, $filter$$13$$);
+  $conn$$10_e$$198$$.$requestWithdrawList$(this.$request_id_$, $page$$13$$, $limit$$14$$, $status$$10$$, $clientID$$1$$, $filter$$13$$);
 };
 $JSCompiler_prototypeAlias$$.$onUserCancelWithdraw_$ = function $$JSCompiler_prototypeAlias$$$$onUserCancelWithdraw_$$() {
   this.$withdraw_action_$ = "CANCEL";
@@ -10792,10 +10784,13 @@ $JSCompiler_prototypeAlias$$.$onWithdrawListReponse_$ = function $$JSCompiler_pr
 function $bitex$ui$LedgerActivity$$($button_filters$$, $pseudoNameFunction$$, $opt_broker_mode$$2$$, $opt_domHelper$$46$$) {
   $bitex$ui$DataGrid$$.call(this, {title:"\u603b\u5e10", showSearch:!0, searchPlaceholder:"\u6b63\u5728\u641c\u7d22 ...", buttonFilters:$button_filters$$, rowClassFn:this.$getRowClass$, columns:[{property:"Created", label:"\u65e5\u671f/\u65f6\u95f4", sortable:!1, classes:function() {
     return $bitex$ui$LedgerActivity$CSS_CLASS$$ + "-date-time";
+  }, formatter:function($dt_s$$50$$) {
+    $dt_s$$50$$ = new Date($bitex$util$convertServerUTCDateTimeStrToTimestamp$$($dt_s$$50$$.substr(0, 10), $dt_s$$50$$.substr(11)));
+    return $dt_s$$50$$.toLocaleDateString() + " " + $dt_s$$50$$.toLocaleTimeString();
   }}, {property:"Currency", label:"\u73b0\u91d1", sortable:!1, classes:function() {
     return $bitex$ui$LedgerActivity$CSS_CLASS$$ + "-currency";
-  }}, {property:"Description", label:"\u63cf\u8ff0", sortable:!1, formatter:function($s$$50$$) {
-    switch($s$$50$$) {
+  }}, {property:"Description", label:"\u63cf\u8ff0", sortable:!1, formatter:function($s$$51$$) {
+    switch($s$$51$$) {
       case "B":
         return "\u5956\u52b1";
       case "D":
@@ -10813,11 +10808,11 @@ function $bitex$ui$LedgerActivity$$($button_filters$$, $pseudoNameFunction$$, $o
     }
   }, classes:function() {
     return $bitex$ui$LedgerActivity$CSS_CLASS$$ + "-description";
-  }}, {property:"PayeeID", label:"\u6536\u6b3e\u4eba", sortable:!1, formatter:function($s$$51$$, $rowSet$$21$$) {
-    if (null != $rowSet$$21$$.PayeeName) {
-      return $rowSet$$21$$.PayeeName;
+  }}, {property:"PayeeID", label:"\u6536\u6b3e\u4eba", sortable:!1, formatter:function($s$$52$$, $rowSet$$22$$) {
+    if (null != $rowSet$$22$$.PayeeName) {
+      return $rowSet$$22$$.PayeeName;
     }
-    switch($rowSet$$21$$.Description) {
+    switch($rowSet$$22$$.Description) {
       case "B":
       ;
       case "DF":
@@ -10831,7 +10826,7 @@ function $bitex$ui$LedgerActivity$$($button_filters$$, $pseudoNameFunction$$, $o
       case "TF":
         return "";
       default:
-        return $pseudoNameFunction$$($s$$51$$);
+        return $pseudoNameFunction$$($s$$52$$);
     }
   }, classes:function() {
     return $bitex$ui$DepositList$CSS_CLASS$$ + "-payee";
@@ -10904,12 +10899,12 @@ $JSCompiler_prototypeAlias$$.$recreateComponents_$ = function $$JSCompiler_proto
   $JSCompiler_StaticMethods_setColumnFormatter$$(this.$ledger_table_$, "Amount", this.$amountFormatter_$, this);
   $JSCompiler_StaticMethods_setColumnFormatter$$(this.$ledger_table_$, "Balance", this.$balanceFormatter_$, this);
 };
-$JSCompiler_prototypeAlias$$.$amountFormatter_$ = function $$JSCompiler_prototypeAlias$$$$amountFormatter_$$($value$$209$$, $rowSet$$22$$) {
-  "D" == $rowSet$$22$$.Operation && ($value$$209$$ *= -1);
-  return this.$app_$.$formatCurrency$($value$$209$$ / 1E8, $rowSet$$22$$.Currency);
+$JSCompiler_prototypeAlias$$.$amountFormatter_$ = function $$JSCompiler_prototypeAlias$$$$amountFormatter_$$($value$$209$$, $rowSet$$23$$) {
+  "D" == $rowSet$$23$$.Operation && ($value$$209$$ *= -1);
+  return this.$app_$.$formatCurrency$($value$$209$$ / 1E8, $rowSet$$23$$.Currency);
 };
-$JSCompiler_prototypeAlias$$.$balanceFormatter_$ = function $$JSCompiler_prototypeAlias$$$$balanceFormatter_$$($value$$210$$, $rowSet$$23$$) {
-  return this.$app_$.$formatCurrency$($value$$210$$ / 1E8, $rowSet$$23$$.Currency);
+$JSCompiler_prototypeAlias$$.$balanceFormatter_$ = function $$JSCompiler_prototypeAlias$$$$balanceFormatter_$$($value$$210$$, $rowSet$$24$$) {
+  return this.$app_$.$formatCurrency$($value$$210$$ / 1E8, $rowSet$$24$$.Currency);
 };
 $JSCompiler_prototypeAlias$$.$onLedgerTableRequestData_$ = function $$JSCompiler_prototypeAlias$$$$onLedgerTableRequestData_$$($e$$204_filters_param$$) {
   var $page$$14$$ = $e$$204_filters_param$$.options.Page, $limit$$15$$ = $e$$204_filters_param$$.options.Limit;
@@ -11231,12 +11226,12 @@ $JSCompiler_prototypeAlias$$.$onWithdrawListTableRequestData_$ = function $$JSCo
   var $selectedCustomer$$7$$ = this.$app_$.$model_$.get("SelectedCustomer");
   this.$app_$.$conn_$.$requestWithdrawList$(this.$request_id_$, $page$$16$$, $limit$$17$$, ["1", "2", "4", "8"], $selectedCustomer$$7$$.ID, $e$$225_filter$$16$$);
 };
-$JSCompiler_prototypeAlias$$.$priceFormatter_$ = function $$JSCompiler_prototypeAlias$$$$priceFormatter_$$($value$$211$$, $rowSet$$24$$) {
-  var $priceCurrency$$9$$ = $rowSet$$24$$.Currency;
+$JSCompiler_prototypeAlias$$.$priceFormatter_$ = function $$JSCompiler_prototypeAlias$$$$priceFormatter_$$($value$$211$$, $rowSet$$25$$) {
+  var $priceCurrency$$9$$ = $rowSet$$25$$.Currency;
   return 0 === $value$$211$$ ? "-" : $goog$dom$createDom$$("abbr", {title:this.$app_$.$getCurrencyDescription$($priceCurrency$$9$$)}, this.$app_$.$formatCurrency$($value$$211$$ / 1E8, $priceCurrency$$9$$));
 };
-$JSCompiler_prototypeAlias$$.$valuePriceFormatter_$ = function $$JSCompiler_prototypeAlias$$$$valuePriceFormatter_$$($value$$212$$, $rowSet$$25$$) {
-  var $formatted_paid_value$$1_paid_value$$1$$ = $rowSet$$25$$.PaidValue, $priceCurrency$$10$$ = $rowSet$$25$$.Currency, $currency_description$$3$$ = this.$app_$.$getCurrencyDescription$($priceCurrency$$10$$), $formatted_value$$1$$ = this.$app_$.$formatCurrency$($value$$212$$ / 1E8, $priceCurrency$$10$$);
+$JSCompiler_prototypeAlias$$.$valuePriceFormatter_$ = function $$JSCompiler_prototypeAlias$$$$valuePriceFormatter_$$($value$$212$$, $rowSet$$26$$) {
+  var $formatted_paid_value$$1_paid_value$$1$$ = $rowSet$$26$$.PaidValue, $priceCurrency$$10$$ = $rowSet$$26$$.Currency, $currency_description$$3$$ = this.$app_$.$getCurrencyDescription$($priceCurrency$$10$$), $formatted_value$$1$$ = this.$app_$.$formatCurrency$($value$$212$$ / 1E8, $priceCurrency$$10$$);
   return 0 === $value$$212$$ ? 0 === $formatted_paid_value$$1_paid_value$$1$$ ? "-" : $goog$dom$createDom$$("abbr", {title:$currency_description$$3$$}, this.$app_$.$formatCurrency$($formatted_paid_value$$1_paid_value$$1$$ / 1E8, $priceCurrency$$10$$)) : 0 < $formatted_paid_value$$1_paid_value$$1$$ && $formatted_paid_value$$1_paid_value$$1$$ != $value$$212$$ ? ($formatted_paid_value$$1_paid_value$$1$$ = this.$app_$.$formatCurrency$($formatted_paid_value$$1_paid_value$$1$$ / 1E8, $priceCurrency$$10$$), 
   $goog$dom$createDom$$("abbr", {title:"\u7533\u660e\u7684\u63d0\u73b0\u91d1\u989d/\u5b9e\u9645\u6536\u5230\u7684\u63d0\u73b0\u91d1\u989d " + $currency_description$$3$$}, $formatted_value$$1$$ + " / " + $formatted_paid_value$$1_paid_value$$1$$)) : $goog$dom$createDom$$("abbr", {title:$currency_description$$3$$}, $formatted_value$$1$$);
 };
@@ -11602,14 +11597,14 @@ function $goog$date$relative$getMessage_$$($delta$$6$$, $future$$1$$, $unit$$1$$
 ;
 // Input 189
 function $bitex$ui$TradeHistory$$($pseudoNameFunction$$1$$, $opt_blinkDelay$$3$$, $opt_domHelper$$54$$) {
-  $bitex$ui$DataGrid$$.call(this, {title:"\u4e0a\u6b21\u4ea4\u6613", rowIDFn:this.$getRowId$, rowClassFn:this.$getRowClass$, columns:[{property:"Market", label:"\u5e02\u573a", sortable:!1, formatter:function($s$$52$$) {
-    size_currency = $s$$52$$.substring(0, 3);
-    price_currency = $s$$52$$.substring(3);
+  $bitex$ui$DataGrid$$.call(this, {title:"\u4e0a\u6b21\u4ea4\u6613", rowIDFn:this.$getRowId$, rowClassFn:this.$getRowClass$, columns:[{property:"Market", label:"\u5e02\u573a", sortable:!1, formatter:function($s$$53$$) {
+    size_currency = $s$$53$$.substring(0, 3);
+    price_currency = $s$$53$$.substring(3);
     return size_currency + " / " + price_currency;
   }, classes:function() {
     return $bitex$ui$TradeHistory$CSS_CLASS$$ + "-market";
-  }}, {property:"Side", label:"\u4fa7\u8fb9", sortable:!1, formatter:function($s$$53$$) {
-    switch($s$$53$$) {
+  }}, {property:"Side", label:"\u4fa7\u8fb9", sortable:!1, formatter:function($s$$54$$) {
+    switch($s$$54$$) {
       case "1":
         return "\u4e70";
       case "2":
@@ -11626,16 +11621,16 @@ function $bitex$ui$TradeHistory$$($pseudoNameFunction$$1$$, $opt_blinkDelay$$3$$
     return($value$$214$$ / 1E8).toFixed(8);
   }, classes:function() {
     return $bitex$ui$TradeHistory$CSS_CLASS$$ + "-size";
-  }}, {property:"Buyer", label:"\u8d2d\u4e70\u8005", sortable:!1, formatter:function($s$$54$$, $rowSet$$26$$) {
-    return null != $rowSet$$26$$.BuyerUsername ? $rowSet$$26$$.BuyerUsername : $pseudoNameFunction$$1$$($s$$54$$);
+  }}, {property:"Buyer", label:"\u8d2d\u4e70\u8005", sortable:!1, formatter:function($s$$55$$, $rowSet$$27$$) {
+    return null != $rowSet$$27$$.BuyerUsername ? $rowSet$$27$$.BuyerUsername : $pseudoNameFunction$$1$$($s$$55$$);
   }, classes:function() {
     return $bitex$ui$TradeHistory$CSS_CLASS$$ + "-buyer";
-  }}, {property:"Seller", label:"\u5356\u51fa\u8005", sortable:!1, formatter:function($s$$55$$, $rowSet$$27$$) {
-    return null != $rowSet$$27$$.SellerUsername ? $rowSet$$27$$.SellerUsername : $pseudoNameFunction$$1$$($s$$55$$);
+  }}, {property:"Seller", label:"\u5356\u51fa\u8005", sortable:!1, formatter:function($s$$56$$, $rowSet$$28$$) {
+    return null != $rowSet$$28$$.SellerUsername ? $rowSet$$28$$.SellerUsername : $pseudoNameFunction$$1$$($s$$56$$);
   }, classes:function() {
     return $bitex$ui$TradeHistory$CSS_CLASS$$ + "-seller";
-  }}, {property:"Created", label:"\u65e5\u671f/\u5c0f\u65f6", sortable:!1, formatter:function($s$$56$$, $rowSet$$28$$) {
-    var $JSCompiler_temp$$inline_1553_date$$inline_1548$$ = $rowSet$$28$$.Timestamp, $dateMs$$inline_1551$$ = $JSCompiler_temp$$inline_1553_date$$inline_1548$$.getTime(), $future$$inline_1573_now$$inline_1571_relativeDate$$inline_1552$$;
+  }}, {property:"Created", label:"\u65e5\u671f/\u5c0f\u65f6", sortable:!1, formatter:function($s$$57$$, $rowSet$$29$$) {
+    var $JSCompiler_temp$$inline_1553_date$$inline_1548$$ = $rowSet$$29$$.Timestamp, $dateMs$$inline_1551$$ = $JSCompiler_temp$$inline_1553_date$$inline_1548$$.getTime(), $future$$inline_1573_now$$inline_1571_relativeDate$$inline_1552$$;
     $future$$inline_1573_now$$inline_1571_relativeDate$$inline_1552$$ = $goog$now$$();
     var $delta$$inline_1572_midnight$$inline_1574$$ = Math.floor(($future$$inline_1573_now$$inline_1571_relativeDate$$inline_1552$$ - $dateMs$$inline_1551$$) / 6E4);
     $future$$inline_1573_now$$inline_1571_relativeDate$$inline_1552$$ = !1;
@@ -13026,7 +13021,7 @@ $JSCompiler_prototypeAlias$$.$onUserLoginOk_$ = function $$JSCompiler_prototypeA
   this.$conn_$.$requestDepositMethods$();
   this.$router_$.$setView$("offerbook");
   this.$model_$.set("FinishedInitialOpenOrdersRequest", !1);
-  this.$conn_$.$requestOrderList$(this.$open_orders_request_id_$, 0, 100, ["0", "1"]);
+  this.$conn_$.$requestOrderList$(this.$open_orders_request_id_$, 0, 100, ["has_leaves_qty eq 1"]);
 };
 $JSCompiler_prototypeAlias$$.$onUserLoginError_$ = function $$JSCompiler_prototypeAlias$$$$onUserLoginError_$$($e$$333_msg$$107$$) {
   $goog$dom$classes$add$$(document.body, "bitex-not-logged");
