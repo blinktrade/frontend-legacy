@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // Input 0
 var $JSCompiler_prototypeAlias$$, $goog$global$$ = this;
 function $goog$exportPath_$$($name$$54$$, $opt_object$$) {
@@ -13440,3 +13441,5 @@ BlinkTradeApp.prototype.getPriceCurrencyFromSymbol = $bitex$app$BlinkTrade$$.pro
 BlinkTradeApp.prototype.setView = $bitex$app$BlinkTrade$$.prototype.$setView$;
 BlinkTradeApp.prototype.run = $bitex$app$BlinkTrade$$.prototype.$run$;
 
+=======
+>>>>>>> foxbit

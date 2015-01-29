@@ -10,49 +10,53 @@
   * @param? button_filters
   */
 {template .DataGrid}
-  <div {if $id}id="{$id}"{/if}  class="fuelux {if $base_class}{$base_class}{/if}" style="width:100%;">
-    <table class="table table-bordered datagrid datagrid-stretch-header">
+  <div {if $id}id="{$id}"{/if}  class="fuelux {if $base_class}{$base_class}{/if} col-md-12 no-padding" style="width:100%;">
+    <table class="ls-table ls-table-striped datagrid datagrid-stretch-header">
       <thead>
         <tr>
           <th colspan="4" {if not $title and not $show_search}style="display: none;"{/if}>
-            <span class="datagrid-header-title"  {if not $title}style="display: none;"{/if} ><strong>{$title}</strong></span>
-
-            <div class="datagrid-header-left" {if not $show_search}style="display: none;"{/if}>
-                <div class="input-append search datagrid-search">
-                  <input type="text" class="input-medium" placeholder="{$search_placeholder}">
-                  <button type="button" class="btn"><i class="icon-search"></i></button>
+          
+            <header class="ls-info-header">
+            <h2 class="ls-title-3 ls-ico-text">
+                <span class="datagrid-header-title"  {if not $title}style="display: none;"{/if} ><strong>{$title}</strong></span>
+            </h2>
+            </header>
+            <div class="datagrid-header-left col-md-12" {if not $show_search}style="display: none;"{/if}>
+                <div class="ls-input-group col-md-3 no-padding search datagrid-search">
+                  <input type="text" style="height:initial" class="col-md-8" placeholder="{$search_placeholder}">
+                  <button type="button" style="line-height:initial" class="ls-btn col-md-4"><i class="ls-ico-search"></i></button>
                 </div>
-            </div>
 
-            <div class="datagrid-header-right">
-              {if $button_filters}
-                <div class="select filter datagrid-filter" data-resize="auto">
-                  <button type="button" data-toggle="dropdown" class="btn dropdown-toggle">
-                    {foreach $button in $button_filters}
-                      {if isFirst($button)}
-                        <span class="dropdown-label" style="width: 111px;">{$button['label']}</span>
-                      {/if}
-                    {/foreach}
-                    <span class="caret"></span>
-                  </button>
-                  <ul class="dropdown-menu">
-                    {foreach $button in $button_filters}
-                      <li data-value="{$button['value']}"><a href="#">{$button['label']}</a></li>
-                    {/foreach}
-                  </ul>
+                <div class="datagrid-header-right">
+                {if $button_filters}
+                    <div class="select filter datagrid-filter" data-resize="auto">
+                    <button type="button" data-toggle="dropdown" class="ls-btn-primary dropdown-toggle">
+                        {foreach $button in $button_filters}
+                        {if isFirst($button)}
+                            <span class="dropdown-label" style="min-width: 111px;color:white">{$button['label']}</span>
+                        {/if}
+                        {/foreach}
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        {foreach $button in $button_filters}
+                        <li data-value="{$button['value']}"><a href="#">{$button['label']}</a></li>
+                        {/foreach}
+                    </ul>
+                    </div>
+                {/if}
                 </div>
-              {/if}
             </div>
           </th>
         </tr>
       </thead>
     </table>
     <div class="datagrid-stretch-wrapper" style="height:{if $wrapper_height}{$wrapper_height}{else}360{/if}px;">
-      <table class="table table-bordered datagrid">
+      <table class="ls-table ls-table-striped datagrid">
         <tbody></tbody>
       </table>
     </div>
-    <table class="table table-bordered datagrid datagrid-stretch-footer">
+    <table class="ls-table ls-table-striped ls-bg-header datagrid datagrid-stretch-footer">
       <tfoot>
       <tr>
         <th colspan="4">
@@ -66,9 +70,9 @@
           </div>
           <div class="datagrid-footer-right" style="visibility: visible;">
             <div class="grid-pager">
-              <button type="button" class="btn grid-refresh"><i class="icon-repeat"></i></button>
-              <button type="button" class="btn grid-prevpage"><i class="icon-chevron-left"></i></button>
-              <button type="button" class="btn grid-nextpage"><i class="icon-chevron-right"></i></button>
+              <button type="button" class="ls-btn grid-refresh"><i class="flaticon-refresh56"></i></button>
+              <button type="button" class="ls-btn grid-prevpage"><i class="ls-ico-chevron-left"></i></button>
+              <button type="button" class="ls-btn grid-nextpage"><i class="ls-ico-chevron-right"></i></button>
             </div>
           </div>
         </th>

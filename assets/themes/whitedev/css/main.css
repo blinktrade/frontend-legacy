@@ -1,0 +1,284 @@
+/* @import url('stylesheets/grid.css'); */
+/* @import url('../fonts/flaticon.css'); */
+
+
+
+::-webkit-scrollbar {
+    width: 13px;
+}
+::-webkit-scrollbar-track {
+	background: #EEE;
+}
+::-webkit-scrollbar-thumb {
+    background: #333 url(images/dots.png);
+	background-repeat:no-repeat;
+	background-position:center;
+	background-size:5px;
+}
+
+/* top */
+.youraccount h5{
+	font-family: 'Axis', Arial;
+}
+.ls-menu a{
+	font-weight: 300;
+}
+.ls-sidebar{
+	background: #444;
+}
+.ls-theme-orange .ls-menu li{
+	border: none;
+}
+.ls-menu{
+	background: #444 url(../images/blur.png) center no-repeat;
+	background-size: 300%;
+}
+/* FONTES*/
+@font-face{
+	font-family: "Axis";
+	src:url(../fonts/axis.otf);
+}
+.ls-box{
+	border-radius: 0 !important;
+}
+.youraccount strong,.b{ 
+	color: #E8683E;
+}
+a:hover:not(.ls-btn),a:focus,a{
+	text-decoration: none !important;
+	border-bottom-width:0 !important;
+}
+*,*:hover,*:focus{
+	outline: 0 !important; 
+}
+.youraccount [class^="flaticon-"]:before{
+	margin-left: 0 !important;
+}
+.ls-menu{
+	overflow-y: scroll;
+}
+
+/* mudar os botoes */
+
+.ls-btn{
+	border: 2px #E8683E solid !important;
+	border-radius:50px !important;
+	text-transform: uppercase;
+	font-family: "Axis", Arial;
+	transition:.3s;
+	border: none;
+}
+.ls-btn-lg{
+	padding: 15px 45px;
+}
+.ls-input-text, input[type="color"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="email"], input[type="month"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="time"], input[type="url"], input[type="week"], input[type="text"], textarea{
+	border: 2px #DDD solid !important;
+	border-radius:50px !important;
+	box-shadow: none !important;
+
+	font-family: "Axis",Arial;
+	color: #E8683E !important;
+}
+.ls-prefix-group input{
+	border-radius: 0 50px 50px 0 !important;
+	border-left: none !important;
+}
+.ls-label-text-prefix{
+	border-radius: 50px 0  0 50px !important;
+}
+[class*="ls-btn"]{
+	border-radius: 50px !important;
+}
+/* ajuste para telas móveis */
+@media (max-width: 768px){
+	.ls-brand-name{
+		display: none;
+	}
+	.ls-theme-orange .ls-topbar{
+		background: #E8683E url(images/logo-1.svg) center center no-repeat !important;
+		background-size: 30px;
+	}
+}
+
+
+/* ajuste de tela média */
+@media screen and (max-width: 1200px) and (min-width: 768px){
+	.youraccount{
+		display: none;
+	}
+	.ls-sidebar:hover .youraccount{
+		display: block;
+	}
+
+}
+.no-padding{
+	padding: 0 !important;
+}
+.ls-table{
+	table-layout: auto;
+}
+
+.ls-notification-links{
+    padding-top:20px;
+}
+
+
+
+/* changes */
+.start{
+    position:relative;
+    width:100%;
+    height:100%;
+    top:40px;
+    right:0;
+    left:0;
+    z-index:1;
+    background-color:#444;
+}
+.start .ls-brand-name{
+    padding: 40px 20px;
+}
+
+ul.start-links{
+    list-style:none;
+    margin-top:15px;
+}
+ul.start-links li{
+    display:inline-block;
+}
+ul.start-links a{
+    color: #E8683E;
+}
+ul.ls-footer-list li{
+    width:initial;
+    vertical-align:initial;
+}
+
+.ls-language{
+    padding-left: 30px;
+    padding-right: 30px;
+    background: #DEDEDE;
+    height: 60px;
+}
+
+.ls-language a{
+    color: #555;
+}
+
+.ls-language .ls-dropdown-nav{
+    border:none;
+    border-radius:0px;
+    margin-top:22px;
+    margin-left:-30px
+}
+
+.ls-language nav ul a {
+    background: #222;
+    padding: 15px 20px!important;
+    color:#888!important;
+    -ms-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    -webkit-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+}
+.ls-language nav ul a:hover {
+    color: white!important;
+    padding-left:25px!important;
+}
+footer{
+
+}
+
+/* fuelux override */
+.fuelux .dropdown-menu > li > a:hover,
+.fuelux .dropdown-menu > li > a:focus,
+.fuelux .dropdown-submenu:hover > a,
+.fuelux .dropdown-submenu:focus > a{
+    background-color: #E8683E;
+    background-image: none;
+}
+
+.fuelux a.ls-btn-success {
+    color:black;
+}
+.fuelux a.ls-btn-primary {
+    color:white;
+}
+.fuelux a.ls-btn-danger{
+    color:#D75553;
+}
+.fuelux a.ls-btn-danger:hover{
+    color:white;
+}
+.fuelux .label{
+    padding: 7px;
+    width: 100%;
+    font-weight: 500;
+    text-align: center;
+    text-transform: uppercase;
+}
+.withdraw-list-details-td-key{
+    width:53%;
+    text-align: right!important;
+}
+.withdraw-list-details > table {
+    width : 100%;
+}
+
+/* accordion */
+.accordion-heading a{
+    color:#E8683E;
+}
+.accordion-toggle{
+    display:block;
+}
+.collapse{
+    height:0;
+    overflow:hidden;
+}
+
+/* Bitex Classes */
+.bitex-broker .bitex-display-if-broker {
+  display: block;
+}
+.bitex-non-broker .bitex-display-if-broker {
+  display: none;
+}
+.bitex-broker .bitex-display-if-non-broker {
+  display: none;
+}
+.bitex-non-broker .bitex-display-if-non-broker {
+  display: block;
+}
+
+.bitex-logged .bitex-display-if-logged {
+  display: block;
+}
+
+.ws-connected .bitex-display-if-ws-connected {
+  display: block;
+}
+
+.bitex-not-logged .bitex-hide-if-logged {
+  display: block;
+}
+
+.ws-not-connected .bitex-hide-if-ws-connected {
+  display: inline;
+}
+
+.bitex-not-logged .bitex-display-if-logged {
+  display: none;
+}
+
+.bitex-logged .bitex-hide-if-logged {
+  display: none;
+}
+
+.ws-connected .bitex-hide-if-ws-connected {
+  display: none;
+}
+
+.ws-not-connected .bitex-display-if-ws-connected {
+  display: none;
+}
