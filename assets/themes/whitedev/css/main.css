@@ -1,6 +1,8 @@
 /* @import url('stylesheets/grid.css'); */
 /* @import url('../fonts/flaticon.css'); */
 
+
+
 ::-webkit-scrollbar {
     width: 13px;
 }
@@ -124,7 +126,7 @@ a:hover:not(.ls-btn),a:focus,a{
 
 /* changes */
 .start{
-    position:fixed;
+    position:relative;
     width:100%;
     height:100%;
     top:40px;
@@ -150,6 +152,38 @@ ul.start-links a{
 ul.ls-footer-list li{
     width:initial;
     vertical-align:initial;
+}
+
+.ls-language{
+    padding-left: 30px;
+    padding-right: 30px;
+    background: #DEDEDE;
+    height: 60px;
+}
+
+.ls-language a{
+    color: #555;
+}
+
+.ls-language .ls-dropdown-nav{
+    border:none;
+    border-radius:0px;
+    margin-top:22px;
+    margin-left:-30px
+}
+
+.ls-language nav ul a {
+    background: #222;
+    padding: 15px 20px!important;
+    color:#888!important;
+    -ms-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    -webkit-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+}
+.ls-language nav ul a:hover {
+    color: white!important;
+    padding-left:25px!important;
 }
 footer{
 

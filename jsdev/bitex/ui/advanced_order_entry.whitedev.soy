@@ -96,15 +96,13 @@
             {/if}
         />
     </div>
-    <div class="col-md-6">
-        <button id="{$id}_action" class="ls-btn ls-btn-lg col-md-5 ls-float-right {if $side != 1}ls-btn-danger{/if}">
-        {if $side == 1}
-            {msg desc="Buy button in Order Entry"}BUY{/msg}
-        {else}
-            {msg desc="Sell button in Order Entry"}SELL{/msg}
-        {/if}
-        </button>
-    </div>
+    <button id="{$id}_action" class="ls-btn ls-btn-lg col-md-5 ls-float-right {if $side != 1}ls-btn-danger{/if}">
+    {if $side == 1}
+        {msg desc="Buy button in Order Entry"}BUY{/msg}
+    {else}
+        {msg desc="Sell button in Order Entry"}SELL{/msg}
+    {/if}
+    </button>
     </div>
   </form>
 {/template}

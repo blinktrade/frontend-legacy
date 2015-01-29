@@ -113,6 +113,24 @@
             </div>
         </div>
     </div>
+    <div class="ls-language ls-notification-topbar ls-notification-links">
+      <div data-ls-module="dropdown" class="ls-dropdown">
+          <a href="#" class="ls-ico-earth" role="button" class="dropdown-toggle" data-toggle="dropdown">{{ site.lang|upcase }} <b class="caret"></b></a>
+          <nav class="ls-dropdown-nav ls-user-menu" aria-hidden="true">
+            <ul>
+            {% for lang in site.languages %}
+              {% if  lang != site.lang  %}
+                {% if forloop.first %}
+                  <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ site.url }}{{ site.baseurl_root }}/">{{ lang|upcase }}</a></li>
+                {% else %}
+                  <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ site.url }}{{ site.baseurl_root }}/{{lang}}">{{ lang|upcase }}</a></li>
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+            </ul>
+          </nav>
+      </div>
+    </div>
     <div class="ls-notification-topbar ls-notification-links">
         <div class="ls-alerts-list" role="alert">
             <a href="">
@@ -126,7 +144,9 @@
             <a href="" data-switch-view="faq" class="ls-ico-help"></a>
         </div>
     </div>
-    <span class="ls-show-sidebar ls-ico-menu"></span>
+    <div class="bitex-display-if-logged">
+        <span class="ls-show-sidebar ls-ico-menu"></span>
+    </div>
 
     <a href="" data-switch-view="trading" class="ls-go-next"><span class="ls-text">Voltar à lista de serviços</span></a>
   </div>
@@ -168,20 +188,6 @@
             <li class="bitex-hide-if-logged"><a href="" data-switch-view="signup">{% t views.toolbar.signup %}</a></li>
             {% endif %}
 
-            <li class="dropdown">
-              <a id="drop1" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">{{ site.lang|upcase }} <b class="caret"></b></a>
-              <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
-              {% for lang in site.languages %}
-                {% if  lang != site.lang  %}
-                  {% if forloop.first %}
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ site.url }}{{ site.baseurl_root }}/">{{ lang|upcase }}</a></li>
-                  {% else %}
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ site.url }}{{ site.baseurl_root }}/{{lang}}">{{ lang|upcase }}</a></li>
-                  {% endif %}
-                {% endif %}
-              {% endfor %}
-              </ul>
-            </li>
 
             {% if page.load_application %}
             <li>
