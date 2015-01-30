@@ -1264,10 +1264,15 @@ bitex.app.BlinkTrade.prototype.onBitexExecutionReport_ = function(e) {
 
   this.processExecutionReport_(msg);
 
+  var order_id = msg['OrderID'];
+  if (!goog.isDefAndNotNull(order_id)) {
+    order_id = msg['ClOrdID'];
+  }
+
   /**
    * @desc - execution report title notification message
    */
-  var MSG_ORDER_EXECUTION_TITLE_NOTIFICATION = goog.getMsg("Order {$id} ", {id: msg['OrderID']} );
+  var MSG_ORDER_EXECUTION_TITLE_NOTIFICATION = goog.getMsg("Order {$id} ", {id: order_id} );
 
   /**
    * @desc - Partially filled notification message
@@ -1289,11 +1294,15 @@ bitex.app.BlinkTrade.prototype.onBitexExecutionReport_ = function(e) {
    */
   var MSG_NOTIFICATION_ORDER_REJECTED = goog.getMsg('rejected - {$err}', {err:msg['OrdRejReason']});
 
+  var should_beep = false;
+
   switch( msg['ExecType'] ) {
     case '1':  //Partial Execution
+      should_beep = true;
       this.showNotification('success', MSG_ORDER_EXECUTION_TITLE_NOTIFICATION, MSG_NOTIFICATION_ORDER_PARTIALLY_FILLED);
       break;
     case '2':  //Execution
+      should_beep = true;
       this.showNotification('success', MSG_ORDER_EXECUTION_TITLE_NOTIFICATION, MSG_NOTIFICATION_ORDER_FILLED);
       break;
     case '4':  //Offer Cancelled
@@ -1302,6 +1311,10 @@ bitex.app.BlinkTrade.prototype.onBitexExecutionReport_ = function(e) {
     case '8':  //Offer Rejected
       this.showNotification('error', MSG_ORDER_EXECUTION_TITLE_NOTIFICATION, MSG_NOTIFICATION_ORDER_REJECTED);
       break;
+  }
+
+  if (should_beep) {
+    bitex.util.playSound('/assets/res/beep.wav'); 
   }
 };
 
@@ -1465,14 +1478,20 @@ bitex.app.BlinkTrade.prototype.getBalance = function(currency, type, opt_clientI
 
 
 
-
-
 /**
  * @param {goog.events.Event} e
  * @private
  */
 bitex.app.BlinkTrade.prototype.onUserWithdrawRequest_ = function(e){
   var currency = e.target.getCurrency();
+  this.showWithdrawalDialog(currency); 
+};
+
+
+/**
+ * @param {string} currency
+ */
+bitex.app.BlinkTrade.prototype.showWithdrawalDialog = function(currency){
 
   this.setView('withdraw');
 
@@ -2073,11 +2092,10 @@ bitex.app.BlinkTrade.prototype.onUserOrderEntry_ = function(e){
   /**
    * @desc notification for send order request
    */
-  var MSG_SEND_ORDER_NOTIFICATION_CONTENT = goog.getMsg('{$side} {$amount} {$symbol}  @ {$price}', {
+  var MSG_SEND_ORDER_NOTIFICATION_CONTENT = goog.getMsg('{$side} {$amount} @ {$price}', {
     side: side_msg,
-    amount: e.target.getAmount(),
-    symbol: e.target.getSymbol(),
-    price: e.target.getPrice()
+    amount: this.formatCurrency( e.target.getAmount()/1e8,  this.getQtyCurrencyFromSymbol(e.target.getSymbol()) , true) ,
+    price: this.formatCurrency( e.target.getPrice()/1e8,  this.getPriceCurrencyFromSymbol(e.target.getSymbol()) , true) 
   });
 
   this.showNotification( 'info', MSG_SEND_ORDER_NOTIFICATION_TITLE,MSG_SEND_ORDER_NOTIFICATION_CONTENT );
@@ -2235,6 +2253,7 @@ bitex.app.BlinkTrade.prototype.onUserUploadReceipt_ = function(e){
     return;
   }
 
+
   var upload_form_url =  broker['UploadForm'];
   upload_form_url = upload_form_url.replace('{{UserID}}', model.get('UserID'));
   upload_form_url = upload_form_url.replace('{{Username}}', model.get('Username'));
@@ -2244,6 +2263,11 @@ bitex.app.BlinkTrade.prototype.onUserUploadReceipt_ = function(e){
   upload_form_url = upload_form_url.replace('{{DepositMethod}}', deposit_data['DepositMethodName']);
   upload_form_url = upload_form_url.replace('{{ControlNumber}}', deposit_data['ControlNumber']);
   upload_form_url = upload_form_url.replace('{{DepositID}}', deposit_data['DepositID']);
+  upload_form_url = upload_form_url.replace('{{Value}}',  deposit_data['Value']);
+  try {
+    var formmatted_value = this.formatCurrency( deposit_data['Value']/1e8, deposit_data['Currency']  , true);
+    upload_form_url = upload_form_url.replace('{{FormattedValue}}',  formmatted_value );
+  } catch (e) {}
 
 
   var form_src = upload_form_url;
@@ -2977,6 +3001,29 @@ bitex.app.BlinkTrade.prototype.onBodyClick_ =function(e){
       model.set(model_set_element.getAttribute('data-key'),model_set_element.getAttribute('data-value'));
     }
   }
+
+  var action_element = goog.dom.getAncestor(e.target, function(node) {
+    if (goog.isFunction(node.getAttribute) && goog.isDefAndNotNull(node.getAttribute('data-action'))) {
+      return true;
+    }
+  }, true ); 
+  if (goog.isDefAndNotNull(action_element)) {
+    var action = action_element.getAttribute('data-action');
+    var param1;
+    switch(action) {
+      case 'deposit':
+        param1 = action_element.getAttribute('data-currency');
+        this.showDepositDialog(param1);
+        break;
+      case 'withdraw':
+        param1 = action_element.getAttribute('data-currency');
+        this.showWithdrawalDialog(param1);
+        break;
+    }
+    e.preventDefault();
+    e.stopPropagation();
+    return;
+  }
 };
 
 /**
@@ -3172,7 +3219,7 @@ bitex.app.BlinkTrade.prototype.onUserLoginOk_ = function(e) {
 
   // Request Open Orders
   this.getModel().set('FinishedInitialOpenOrdersRequest',  false);
-  this.conn_.requestOrderList(this.open_orders_request_id_ , 0, 100, ['0', '1'] );
+  this.conn_.requestOrderList(this.open_orders_request_id_ , 0, 100, [ "has_leaves_qty eq 1" ] );
 };
 
 /**

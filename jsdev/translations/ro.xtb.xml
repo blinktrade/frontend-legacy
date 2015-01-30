@@ -456,8 +456,8 @@
     <translation id="1172621097575866779" key="MSG_CANCEL_ORDER_NOTIFICATION_TITLE" source="bitex/app/blinktrade.js" desc="notification for order cancel request">Se anulează comanda...</translation>
     <translation id="8749545027873374962" key="MSG_SHOW_DEPOSIT_RECEIPT_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="Crypto Currency Withdraw deposit title">Depunerea <ph name="submissionid" /></translation>
     <translation id="3193148586780403406" key="MSG_ENABLE_INSTANT_DEPOSIT_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="Enable instant deposit dialog title">Activare depunere instant <ph name="currency" />?</translation>
-    <translation id="6127304771554563659" key="MSG_SHOW_QR_CURRENCY_DEPOSIT_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="Crypto Currency Withdraw deposit title"><ph name="currency" /> depunere</translation>
-    <translation id="2225738943455464187" key="MSG_SHOW_QR_CURRENCY_WITHDRAW_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="Crypto Currency Withdraw withdraw title"><ph name="currency" /> retragere</translation>
+    <translation id="6127304771554563659" key="MSG_SHOW_QR_CURRENCY_DEPOSIT_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="Crypto Currency Withdraw deposit title">Depunere <ph name="currency" /></translation>
+    <translation id="2225738943455464187" key="MSG_SHOW_QR_CURRENCY_WITHDRAW_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="Crypto Currency Withdraw withdraw title">Retragere <ph name="currency" /></translation>
     <translation id="3830167277314814271" key="MSG_DEPOSIT_CANCEL_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="Cancel Deposit dialog title">Anulează depunere</translation>
     <translation id="7496906925365343434" key="MSG_DLG_TITLE_GET_DEPOSIT_PAID_VALUE" source="bitex/app/blinktrade.js" desc="Dialog title to get deposit paid value">Confirmă depunerea</translation>
     <translation id="5545270625797886732" key="MSG_CURRENCY_DEPOSIT_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="Crypto Currency Withdraw accordion title"><ph name="currency" /> depunere</translation>
@@ -500,4 +500,18 @@
     <translation id="1814724116698926674" key="MSG_IEXXY1PQWR66" source="bitex/ui/locked_balance_display.whitedev.soy.js" desc="Shown above the order book bids">Ai cumpara un total de </translation>
     <translation id="2009521355879650921" key="MSG_E220FG7VIOQT" source="bitex/ui/locked_balance_display.whitedev.soy.js" desc="Shown above the order book asks">Sunteți de vânzare-un total de </translation>
     <translation id="7218151867789789318" key="MSG_6AG0B90II0OT" source="bitex/ui/advanced_order_entry.default.soy.js" desc="Available label inside the advanced order entry">disponibil: </translation>
+
+  <translation id="8313612406650159075" key="MSG_1BLVJ36UNO6JM" source="bitex/ui/remittance_box.ander.soy.js" desc="Remittance box title">Ratele de schimb pentru remitențelor prin BTC</translation>
+  <translation id="4533562336782718491" key="MSG_ORDER_MANAGER_STATUS_REJECTED" source="bitex/ui/order_manager.js" desc="Order Manager Status description">Respins</translation>
+  <translation id="2895444975656495031" key="MSG_4MGN8UC3K8LO" source="bitex/ui/deposit_withdraw_button_group.default.soy.js" desc="Button caption label on deposit button in the deposit view">Depunere <ph name="xxx" /></translation>
+  <translation id="2588823457200182588" key="MSG_1SCTJOGOHM5T7" source="bitex/ui/deposit_withdraw_button_group.default.soy.js" desc="Button caption label on withdraw button in the withdraw view">Retragere <ph name="xxx" /></translation>
+  <translation id="4299469740453109915" key="MSG_ORDER_MANAGER_SIMPLE_STATUS_REJECTED" source="bitex/view/trading.js" desc="Order Status message on Simple Order Manager">Respins</translation>
+  <translation id="6936423882009760858" key="MSG_NOTIFICATION_ORDER_REJECTED" source="bitex/app/blinktrade.js" desc="- Rejected notification message">respins - <ph name="err" /></translation>
+  <translation id="1320132447258696985" key="MSG_SEND_ORDER_NOTIFICATION_CONTENT" source="bitex/app/blinktrade.js" desc="notification for send order request"><ph name="side" /> <ph name="amount" /> @ <ph name="price" /></translation>
+
+  <translation id="48064117622974440" key="MSG_ORDER_MANAGER_TABLE_BUTTON_FILTER_ALL" source="bitex/ui/order_manager.js" desc="All option on the Orders filters">Toate</translation>
+  <translation id="7516325200367950709" key="MSG_ORDER_MANAGER_TABLE_BUTTON_FILTER_OPEN_ORDERS" source="bitex/ui/order_manager.js" desc="Open Orders option on the Orders filters">Open</translation>
+  <translation id="8851988874979947901" key="MSG_ORDER_MANAGER_TABLE_BUTTON_FILTER_FILLED" source="bitex/ui/order_manager.js" desc="Open Orders option on the Orders filters">Completat</translation>
+  <translation id="8668270496213170877" key="MSG_ORDER_MANAGER_TABLE_BUTTON_FILTER_CANCELED" source="bitex/ui/order_manager.js" desc="Cancelled option on the Orders filters">Anulat</translation>
+
 </translationbundle>
