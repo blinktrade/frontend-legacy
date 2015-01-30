@@ -118,7 +118,7 @@ bitex.view.AccountActivityView.prototype.onAccountActivityTableRequestData_ = fu
   var limit = e.options['Limit'];
 
   var conn = this.getApplication().getBitexConnection();
-  conn.requestOrderList(this.request_order_id_, page, limit, ['1', '2'] );
+  conn.requestOrderList(this.request_order_id_, page, limit, ["cum_qty ne 0"]);
 };
 
 
