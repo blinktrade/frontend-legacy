@@ -17,7 +17,7 @@ goog.require('goog.dom.classes');
  */
 bitex.ui.RemittanceBox = function(opt_domHelper) {
   goog.ui.Component.call(this, opt_domHelper);
-  this.setModel([]);
+  this.setModel( [ [ "USD",  "BitstampUSD" ] ]);
 
   this.last_best_bid_ = {'USD':0};
   this.last_best_ask_ = {'USD':0};
@@ -65,13 +65,25 @@ bitex.ui.RemittanceBox.prototype.decorateInternal = function(element) {
 };
 
 bitex.ui.RemittanceBox.prototype.clearCurrencies = function() {
-  this.setModel([]);
+  this.setModel( [ ]);
+
+  var currency_record = [ "USD",  "BitstampUSD" ];
+  this.getModel().push(currency_record);
+
   var table_tbody_el =
     goog.dom.getElementsByTagNameAndClass( goog.dom.TagName.TBODY,
                                            undefined,
                                            goog.dom.getElement(this.makeId('remittance_box')))[0];
 
   goog.dom.removeChildren(table_tbody_el);
+
+  var wrapper = this.getDomHelper().createElement('tbody');
+  wrapper.innerHTML = bitex.ui.RemittancesBox.templates.RemittancesBoxCurrency({
+    id: this.makeId('remittance_box'),
+    remittance_pair: currency_record
+  });
+  goog.dom.appendChild( table_tbody_el, wrapper.firstChild );
+
 };
 
 bitex.ui.RemittanceBox.prototype.addCurrency = function(currency) {
@@ -116,6 +128,12 @@ bitex.ui.RemittanceBox.prototype.onPusherOpen_ = function() {
 
 bitex.ui.RemittanceBox.prototype.onPusherClose_ = function() {
   this.application_.stop('Problems with pusher');
+  goog.Timer.callOnce(function(){
+    this.ws_pusher_ = new WebSocket('wss://ws.pusherapp.com/app/de504dc5763aeef9ff52?protocol=7&client=js&version=2.1.6&flash=false');
+    this.ws_pusher_.onopen = goog.bind(this.onPusherOpen_, this);
+    this.ws_pusher_.onmessage = goog.bind(this.onPusherMessage_, this);
+    this.ws_pusher_.onclose = goog.bind(this.onPusherClose_, this);
+  }, 1000, this);
 };
 
 bitex.ui.RemittanceBox.prototype.onPusherMessage_ = function (e) {
@@ -183,13 +201,18 @@ bitex.ui.RemittanceBox.prototype.calculateQuotes_ = function() {
     var currency_record_code = currency_record[0];
 
     var from_currency = currency_record_code[0] + currency_record_code[1] + currency_record_code[2];
-    var to_currency = currency_record_code[6] + currency_record_code[7] + currency_record_code[8];
+    var buy_quote  =  this.last_best_bid_[from_currency] / 1e8;
+    var sell_quote  =  this.last_best_ask_[from_currency] / 1e8;
+    if (currency_record_code.length >= 9) {
+      var to_currency = currency_record_code[6] + currency_record_code[7] + currency_record_code[8];
+
+      try {
+        buy_quote  =  this.last_best_bid_[to_currency] / this.last_best_ask_[from_currency];
+        sell_quote =  this.last_best_ask_[to_currency] / this.last_best_bid_[from_currency];
+      } catch(e) {}
+    }
 
     try {
-      var buy_quote  =  this.last_best_bid_[to_currency] / this.last_best_ask_[from_currency];
-      var sell_quote =  this.last_best_ask_[to_currency] / this.last_best_bid_[from_currency];
-
-
       var buy_el = goog.dom.getElement(this.makeId('remittance_box_' + currency_record_code + '_buy'));
       var sell_el = goog.dom.getElement(this.makeId('remittance_box_' + currency_record_code + '_sell'));
 
@@ -201,10 +224,10 @@ bitex.ui.RemittanceBox.prototype.calculateQuotes_ = function() {
           var buy_blink_delay = buy_el.getAttribute('data-blink-delay') || 700;
           buy_blink_delay = parseInt(buy_blink_delay, 10);
 
-          goog.dom.classes.add( buy_el,  buy_blink_class );
-          goog.Timer.callOnce( function(){
-            goog.dom.classes.remove( buy_el,  buy_blink_class );
-          }, buy_blink_delay , this);
+          goog.dom.classes.add(buy_el, buy_blink_class);
+          goog.Timer.callOnce(function () {
+            goog.dom.classes.remove(buy_el, buy_blink_class);
+          }, buy_blink_delay, this);
         }
       }
 
@@ -216,14 +239,12 @@ bitex.ui.RemittanceBox.prototype.calculateQuotes_ = function() {
           var sell_blink_delay = sell_el.getAttribute('data-blink-delay') || 700;
           sell_blink_delay = parseInt(sell_blink_delay, 10);
 
-          goog.dom.classes.add( sell_el,  sell_blink_class );
-          goog.Timer.callOnce( function(){
-            goog.dom.classes.remove( sell_el,  sell_blink_class );
-          }, sell_blink_delay , this);
+          goog.dom.classes.add(sell_el, sell_blink_class);
+          goog.Timer.callOnce(function () {
+            goog.dom.classes.remove(sell_el, sell_blink_class);
+          }, sell_blink_delay, this);
         }
       }
-    } catch(e) {}
-
-
+    } catch (e){}
   }, this);
 };
