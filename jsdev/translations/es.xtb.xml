@@ -507,4 +507,8 @@
   <translation id="4299469740453109915" key="MSG_ORDER_MANAGER_SIMPLE_STATUS_REJECTED" source="bitex/view/trading.js" desc="Order Status message on Simple Order Manager">Rechazado</translation>
   <translation id="6936423882009760858" key="MSG_NOTIFICATION_ORDER_REJECTED" source="bitex/app/blinktrade.js" desc="- Rejected notification message">rechazado - <ph name="err" /></translation>
   <translation id="1320132447258696985" key="MSG_SEND_ORDER_NOTIFICATION_CONTENT" source="bitex/app/blinktrade.js" desc="notification for send order request"><ph name="side" /> <ph name="amount" /> @ <ph name="price" /></translation>
+  <translation id="48064117622974440" key="MSG_ORDER_MANAGER_TABLE_BUTTON_FILTER_ALL" source="bitex/ui/order_manager.js" desc="All option on the Orders filters">Todas</translation>
+  <translation id="7516325200367950709" key="MSG_ORDER_MANAGER_TABLE_BUTTON_FILTER_OPEN_ORDERS" source="bitex/ui/order_manager.js" desc="Open Orders option on the Orders filters">Abiertas</translation>
+  <translation id="8851988874979947901" key="MSG_ORDER_MANAGER_TABLE_BUTTON_FILTER_FILLED" source="bitex/ui/order_manager.js" desc="Open Orders option on the Orders filters">Ejecutadas</translation>
+  <translation id="8668270496213170877" key="MSG_ORDER_MANAGER_TABLE_BUTTON_FILTER_CANCELED" source="bitex/ui/order_manager.js" desc="Cancelled option on the Orders filters">Canceladas</translation>
 </translationbundle>

@@ -36,6 +36,12 @@ exchanges:
     description:  Compre e venda bitcoins na Romênia
     keywords: Compra e venda de bitcoins na Romênia, bolsa de bitcoins na Romênia, venda bitcoins na Romênia, compre bitcoins na Romênia
     lead: Compre e venda bitcoins na Romênia
+  yuanbit:
+    title: YuanBit.com - Compre e venda bitcoins na China
+    description: Compre e venda bitcoins na China
+    keywords: Compra e venda de bitcoins na China, bolsa de bitcoins na China, venda bitcoins na China, compre bitcoins na China
+    lead: Compre e venda bitcoins na China
+
 views:
   toolbar:
     faq: Ajuda
