@@ -465,7 +465,7 @@
   */
 {template .YourAccountSummary}
     {foreach $account in $accounts}
-    <table class="account-summary-table{if not isFirst($account)} ls-table ls-table-bordered{/if}" style="width:100%;" >
+    <table class="account-summary-table" style="width:100%;border-bottom:1px solid #eee;margin-top:15px;" >
         <tbody>
 
       <tr id="id_account_summary_{$account['brokerID']}"
@@ -605,7 +605,7 @@
       <img src="https://chart.googleapis.com/chart?cht=qr&chs=200x200&chl=bitcoin%3A{$deposit_message['Data']['InputAddress']}{if $amount}%3Famount%3D{$amount}{/if}"/>
     </div>
     {if $hasInstantDepositsEnabled}
-      <div class="alert alert-block">
+      <div class="">
         {msg desc="Instant deposit warning"}
           Your account has instant deposits enabled. In case you intentionally try to do a "double spending" attack,
           your account will be frozen, even if your double spending attack is not successful.
@@ -652,7 +652,7 @@
       {msg desc="confirm trusted address dialog msg"}Only enable it if you have the private key for this address.{/msg}
     </h4>
 
-    <div class="alert alert-block">
+    <div>
       <h4>{msg desc="confirm trusted address dialog msg"}Always remember what happened at MtGox{/msg}</h4>
       {msg desc="confirm trusted address dialog msg"}
         Never ever under any circumstances leave your Bitcoins deposited at any Exchange,
@@ -891,12 +891,11 @@
       {/if}
     {/if}
 
-    <hr>
     
     <div class="withdraw-methods">
      {if length($methods) == 0 }
         {if $verificationLevel <= 2}
-          <div class="alert alert-warning text-left">
+          <div>
             {msg desc="Error message when the user is not yet verified."}
               Due to anti-money laundry international laws and government regulations,
               deposits/withdrawals in the local currency are only available to verified customers.<br/>
@@ -904,10 +903,11 @@
             {/msg}
           </div>
           {if $verificationLevel == 0}
-            <a href="" data-switch-view="verification">{msg desc="get verified message"} Verify your account {/msg}</a>
+            <hr>
+            <a href="" class="ls-btn ls-btn-primary" data-switch-view="verification">{msg desc="get verified message"} Verify your account {/msg}</a>
           {/if}
         {else}
-          <div class="alert alert-danger text-center">
+          <div class="text-center">
             {msg desc="Error message when the brokers doesn't have deposit methods"}We are not accepting deposits at this moment. We sorry for the inconvenience.{/msg}
           </div>
         {/if}

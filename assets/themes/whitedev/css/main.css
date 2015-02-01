@@ -10,7 +10,7 @@
 	background: #EEE;
 }
 ::-webkit-scrollbar-thumb {
-    background: #333 url(images/dots.png);
+    background: #333 url(../images/dots.png);
 	background-repeat:no-repeat;
 	background-position:center;
 	background-size:5px;
@@ -23,18 +23,22 @@
 .ls-menu a{
 	font-weight: 300;
     height: auto;
+    padding-top:13px;
+    padding-bottom:13px;
+    padding-left:60px;
 }
 .ls-sidebar{
-	background: #444;
-    overflow-y: auto;
+    width:280px;
+    background: #444;
 }
 .ls-theme-orange .ls-menu li{
-	border: none;
+    border: none;
 }
 .ls-menu{
-	background: #444 url(../images/blur.png) center no-repeat;
-	background-size: 300%;
-    height:auto;
+    background: #444 url(../images/blur.png) center no-repeat;
+    background-size: 200%;
+    height: calc(100% - 500px)!important;
+    margin-top:-20px!important;
 }
 /* FONTES*/
 @font-face{
@@ -92,12 +96,14 @@ a:hover:not(.ls-btn),a:focus,a{
 [class*="ls-btn"]{
 	border-radius: 50px !important;
 }
+.ls-sidebar-visible .ls-topbar, .ls-sidebar-visible .ls-main{
+    transform: translate(280px, 0);
+    -moz-transform: translate(280px, 0);
+    -ms-transform: translate(280px, 0);
+    -webkit-transform: translate(280px, 0);
+}
 
 @media(min-width: 768px){
-    .ls-menu{
-        height:auto!important;
-        overflow-y:auto!important;
-    }
     .ls-title-intro{
         margin-bottom:0px!important;
     }
@@ -105,6 +111,9 @@ a:hover:not(.ls-btn),a:focus,a{
 
 /* ajuste para telas móveis */
 @media (max-width: 768px){
+    .ls-sidebar{
+        width:280px;
+    }
 	.ls-brand-name{
 		display: none;
 	}
@@ -115,14 +124,7 @@ a:hover:not(.ls-btn),a:focus,a{
         height:25px!important;
     }
     .ls-menu{
-        overflow-y: auto;
-        height: auto;
-    }
-    .ls-user-mobile{
-        position:relative!important;
-    }
-    .ls-sidebar .ls-user-account.ls-active {
-        position:absolute!important;
+        overflow-y: scroll;
     }
     .footer-align {
         margin-left: 10px!important;
@@ -139,9 +141,22 @@ a:hover:not(.ls-btn),a:focus,a{
 
 /* ajuste de tela média */
 @media screen and (max-width: 1200px) and (min-width: 768px){
-	.youraccount{
-		display: none;
-	}
+    .ls-sidebar{
+        width:60px;
+    }
+    .ls-sidebar:hover{
+        width:280px;
+    }
+    .ls-sidebar .ls-brand-name {
+        width:280px;
+    }
+    .ls-menu{
+        width:280px;
+    }
+
+    .youraccount{
+        display: none;
+    }
     .ls-footer{
         height:auto!important;
     }
@@ -150,16 +165,6 @@ a:hover:not(.ls-btn),a:focus,a{
     }
     .footer-align {
         margin-left: 60px!important;
-    }
-    .ls-sidebar{
-        overflow-y:hidden;
-    }
-    .ls-sidebar:hover{
-        overflow-y:auto;
-    }
-    .ls-menu{
-        overflow-y: auto;
-        height: auto;
     }
     .alert{
         margin-left:80px!important;
@@ -200,12 +205,24 @@ body{
     right:0;
     left:0;
     z-index:1;
-    background-color:#444;
-}
-.start .ls-brand-name{
-    padding: 40px 20px;
 }
 
+.login-input input{
+    margin-bottom:10px;
+}
+
+.ls-brand-name{
+    padding:12px!important;
+}
+.start .ls-brand-name{
+    padding: 25px 20px!important;
+    border-top: 1px solid #F7F7F7;
+}
+.active{
+    background-color: #E8683E;
+    border-color: #B07200;
+    color:white;
+}
 
 ul.start-links{
     list-style:none;
@@ -286,6 +303,11 @@ footer{
     display:block
 }
 
+#id_order_book_ask_content .ls-table td,
+#id_order_book_bid_content .ls-table td {
+    padding:7px;
+}
+
 /* fuelux override */
 .fuelux .dropdown-menu > li > a:hover,
 .fuelux .dropdown-menu > li > a:focus,
@@ -345,7 +367,7 @@ footer{
 
 .alert{
     margin-top:10px;
-    margin-left:280px;
+    margin-left:300px;
     margin-right:20px;
     margin-bottom:0px;
     width: auto;

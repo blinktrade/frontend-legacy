@@ -23,65 +23,66 @@
 
 
     <div class="row">
-    <div class="col-md-6">
-            <span>{msg desc="Amount label in Advanced Order Entry"}Amount:{/msg}</span>
+      <div class="col-md-6">
+        <span>{msg desc="Amount label in Advanced Order Entry"}Amount:{/msg}</span>
+      </div>
+      <div class="col-md-6">
+          <div class="ls-prefix-group">
+            <b class="ls-label-text-prefix">฿</b>
+            <input id="{$id}_amount"
+                    name="amount"
+                    type="text"
+                    class="input-block-level"
+                    data-uniform-label="{msg desc="Advanced Order Entry Label"}Amount{/msg}"
+                    data-uniform-validators="validateNumber; required"
+                    data-uniform-type="number"
+                    data-uniform-filters="positive_number"
+                    value=""
+                    required/>
+          </div>
+      </div>
     </div>
-    <div class="col-md-6">
-        <div class="ls-prefix-group">
-        <b class="ls-label-text-prefix">฿</b>
-        <input id="{$id}_amount"
-                name="amount"
-                type="text"
-                class="input-block-level"
-                data-uniform-label="{msg desc="Advanced Order Entry Label"}Amount{/msg}"
-                data-uniform-validators="validateNumber; required"
-                data-uniform-type="number"
-                data-uniform-filters="positive_number"
-                value=""
-                required/>
-        </div>
-    </div>
-    </div>
-    <hr>
     <div class="row">
+        <hr>
         <div class="col-md-6">
-            <span>{msg desc="'Price per label' in Order Entry"}Price per {/msg}<span class="advanced-order-entry-amount-sign">{$amount_currency_symbol}</span>:</span></div>
-    <div class="col-md-6">
-        <div class="ls-prefix-group">
-            <span id="{$id}_price_sign" class="add-on advanced-order-entry-price-sign ls-label-text-prefix">{$price_currency_symbol}</span>
-        <input id="{$id}_price"
-                name="price"
-                type="text"
-                class="input-block-level"
-                data-uniform-label="{msg desc="Advanced Order Entry Label"}Price{/msg}"
-                data-uniform-validators="validateNumber; required"
-                data-uniform-type="number"
-                data-uniform-filters="positive_number"
-                required/>
+            <span>{msg desc="'Price per label' in Order Entry"}Price per {/msg}<span class="advanced-order-entry-amount-sign">{$amount_currency_symbol}</span>:</span>
+        </div>
+        <div class="col-md-6">
+            <div class="ls-prefix-group">
+                <span id="{$id}_price_sign" class="add-on advanced-order-entry-price-sign ls-label-text-prefix">{$price_currency_symbol}</span>
+                <input id="{$id}_price"
+                    name="price"
+                    type="text"
+                    class="input-block-level"
+                    data-uniform-label="{msg desc="Advanced Order Entry Label"}Price{/msg}"
+                    data-uniform-validators="validateNumber; required"
+                    data-uniform-type="number"
+                    data-uniform-filters="positive_number"
+                    required/>
+            </div>
         </div>
     </div>
-    </div>
-    <hr>
     <div class="row">
-    <div class="col-md-6"><span>{msg desc="Total label in Order Entry"}Total:{/msg}</span>
-    </div>
-    <div class="col-md-6">
-        <div class="ls-prefix-group">
-            <span class="add-on advanced-order-entry-price-sign ls-label-text-prefix">{$price_currency_symbol}</span>
-        <input id="{$id}_total"
-                name="total"
-                type="text"
-                class="input-block-level"
-                data-uniform-label="{msg desc="Advanced Order Entry Label"}Total{/msg}"
-                data-uniform-validators="validateNumber; required"
-                data-uniform-type="number"
-                data-uniform-filters="positive_number"
-                required/>
+        <hr>
+        <div class="col-md-6"><span>{msg desc="Total label in Order Entry"}Total:{/msg}</span>
+        </div>
+        <div class="col-md-6">
+            <div class="ls-prefix-group">
+                <span class="add-on advanced-order-entry-price-sign ls-label-text-prefix">{$price_currency_symbol}</span>
+                <input id="{$id}_total"
+                    name="total"
+                    type="text"
+                    class="input-block-level"
+                    data-uniform-label="{msg desc="Advanced Order Entry Label"}Total{/msg}"
+                    data-uniform-validators="validateNumber; required"
+                    data-uniform-type="number"
+                    data-uniform-filters="positive_number"
+                    required/>
+            </div>
         </div>
     </div>
-    </div>
     <hr>
-    <div class="row">
+    <div class="row-fluid">
     <div class="col-md-6">
       {if $is_broker }
         <input id="{$id}_client_id"
