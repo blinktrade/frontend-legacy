@@ -1,8 +1,9 @@
 # Site settings
 # url: "https://testnet.foxbit.exchange"
-url: "//localhost:4000"
+url: "http://cesardeazevedo.github.io"
+# url: "//localhost:4000"
 author: "BlinkTrade"
-baseurl: ""
+baseurl: "/frontend"
 deploy_version: "HEAD"
 
 exchange: "foxbit"

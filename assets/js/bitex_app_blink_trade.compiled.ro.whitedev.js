@@ -7780,7 +7780,7 @@ function $bitex$ui$AdvancedOrderEntry$templates$AdvancedOrderEntry$$($opt_data$$
   '_available_value" class="bitex-model" data-model-key="available_balance_' + $soy$$0$0escapeHtml$$($opt_data$$44$$.$broker_id$) + ":" + $soy$$0$0escapeHtml$$($opt_data$$44$$.$client_id$) + "_" + $soy$$0$0escapeHtml$$($opt_data$$44$$.$price_currency_code$) + '" style="display:none"></span>' + (1 == $opt_data$$44$$.$side$ ? '<span id="' + $soy$$0$0escapeHtml$$($opt_data$$44$$.id) + '_available" class="bitex-model" data-model-key="formatted_available_balance_' + $soy$$0$0escapeHtml$$($opt_data$$44$$.$broker_id$) + 
   ":" + $soy$$0$0escapeHtml$$($opt_data$$44$$.$client_id$) + "_" + $soy$$0$0escapeHtml$$($opt_data$$44$$.$price_currency_code$) + '" data-blink-class="balance-info-blink"></span>' : '<span id="' + $soy$$0$0escapeHtml$$($opt_data$$44$$.id) + '_available" class="bitex-model" data-model-key="formatted_available_balance_' + $soy$$0$0escapeHtml$$($opt_data$$44$$.$broker_id$) + ":" + $soy$$0$0escapeHtml$$($opt_data$$44$$.$client_id$) + "_" + $soy$$0$0escapeHtml$$($opt_data$$44$$.$amount_currency_code$) + 
   '" data-blink-class="balance-info-blink"></span>') + "</div>");
-  $output$$38$$ += '</div><button id="' + $soy$$0$0escapeHtml$$($opt_data$$44$$.id) + '_action" class="ls-btn ls-btn-lg col-md-5 ls-float-right ' + (1 != $opt_data$$44$$.$side$ ? "ls-btn-danger" : "") + '">';
+  $output$$38$$ += '</div><button id="' + $soy$$0$0escapeHtml$$($opt_data$$44$$.id) + '_action" class="ls-btn col-md-5 ls-float-right ' + (1 != $opt_data$$44$$.$side$ ? "ls-btn-danger" : "") + '">';
   $output$$38$$ = 1 == $opt_data$$44$$.$side$ ? $output$$38$$ + "CUMP\u0102R\u0102" : $output$$38$$ + "VINDE";
   return $output$$38$$ + "</button></div></form>";
 }
