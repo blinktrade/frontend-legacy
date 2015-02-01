@@ -34,7 +34,7 @@
 
 
                 <td>
-                    <div class="btn-group">
+                    <div class="col-md-6" style="text-align:center">
                         <button class="ls-btn btn-mini btn-success withdraw-methods-action-edit withdraw-method-action">{msg desc="Method edit action"}edit{/msg}</button>
                         <button class="ls-btn btn-mini btn-danger withdraw-methods-action-delete withdraw-method-action">{msg desc="Method delete action"}delete{/msg}</button>
                     </div>
@@ -50,11 +50,12 @@
           {msg desc="Cancel withdraw_structure button "}Cancel{/msg}
         </button>
       </div>
-      <div class="withdraw-methods-show-when-clean-state btn-group pull-right ">
-        <a class="ls-btn ls-btn-primary ls-btn-small dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-white icon-plus"></i> {msg desc="Add withdraw method"}Add withdraw method{/msg}</a>
-          <ul class="dropdown-menu">
+
+      <div data-ls-module="dropdown" class="withdraw-methods-show-when-clean-state ls-dropdown ls-float-right col-md-6">
+        <a class="ls-btn ls-btn-primary ls-btn-small dropdown-toggle" role="combobox" aria-expanded="false" href="#"><span class="icon-white icon-plus"></span> {msg desc="Add withdraw method"}Add withdraw method{/msg}</a>
+          <ul class="ls-dropdown-nav" aria-hidden="true">
             {foreach $curr in $currencies}
-              <li><a href="" data-withdraw-currency="{$curr['code']}" class="withdraw-methods-action-add withdraw-method-action" >{$curr['description']}</a></li>
+              <li><a href="#" data-withdraw-currency="{$curr['code']}" class="withdraw-methods-action-add withdraw-method-action" >{$curr['description']}</a></li>
             {/foreach}
           </ul>
       </div>

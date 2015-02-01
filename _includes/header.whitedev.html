@@ -97,7 +97,7 @@
 
         <!-- Dropdown com detalhes da conta de usuário -->
         <div class="bitex-display-if-logged">
-            <div data-ls-module="dropdown" class="bitex-display-if-logged ls-dropdown ls-user-account"  >
+            <div data-ls-module="dropdown" class="ls-dropdown ls-user-account">
                     <a href="" class="ls-ico-user">
                         <span class="bitex-model ls-name" data-model-key="DisplayName"></span>
                         (<span class="bitex-model" data-model-key="PseudoName"></span>)
@@ -113,6 +113,7 @@
             </div>
         </div>
     </div>
+    <!-- Dropdown language -->
     <div class="ls-language ls-notification-topbar ls-notification-links">
       <div data-ls-module="dropdown" class="ls-dropdown">
           <a href="#" class="ls-ico-earth" role="button" class="dropdown-toggle" data-toggle="dropdown">{{ site.lang|upcase }} <b class="caret"></b></a>
@@ -148,16 +149,16 @@
         <span class="ls-show-sidebar ls-ico-menu"></span>
     </div>
 
-    <a href="" data-switch-view="trading" class="ls-go-next"><span class="ls-text">Voltar à lista de serviços</span></a>
+    <a href="" data-switch-view="trading" class="ls-go-next"></a>
   </div>
 
 
     <!-- Nome do produto/marca -->
-    <span class="ls-show-notifications ls-ico-question"></span></div>
+    <!-- <span class="ls-show-notifications ls-ico-question"></span></div> -->
   </div>
 
 
-    <div id="id_notifications" class="notifications top-right" style="z-index: 9000;"></div>
+  <div id="id_notifications" class="notifications top-right"></div>
 
     <script src="{{ site.url }}{{ site.baseurl }}/assets/themes/whitedev/javascripts/jquery.min.js" type="text/javascript"></script>
     <script src="{{ site.url }}{{ site.baseurl }}/assets/themes/whitedev/javascripts/system.js" type="text/javascript"></script>

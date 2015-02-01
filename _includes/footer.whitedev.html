@@ -1,23 +1,65 @@
-<footer class="ls-footer" role="contentinfo" style="z-index:1;{% if bitex-display-if-logged == 'block' %} {% else %} width:80%;left:8%;text-align:right;{% endif %} ">
-      <nav class="ls-footer-menu">
-        <ul class="ls-footer-list">
-            {% if page.load_application %}
-            <li>
-                <a href="" data-switch-view="admin">admin</a>
-                <a href="#">Latency: <span class="bitex-model" data-model-key="latency">0</span> ms</a>
-            </li>
-            <li><a href="#">Version: {{ site.deploy_version }}</a></li>
-            {% endif %}
-            <li><a href="http://blinktrade.com/" target="_blank">© 2014 BlinkTrade Inc</a></li>
-            <li><a href="https://github.com/blinktrade/" target="_blank">Proudly 100% open source <span class="bitex-model" data-model-key="JSVersion"></span></a></li>
-            <li><a href="http://nytm.org/made-in-nyc/" target="_blank">Made with <span style="color: #d11f0d;font-size: 19px;">♥</span> in NYC</a></li>
-        </ul>
-        <p>
-          {% if page.load_application %}
-          {% endif %}
-        </p>
-      </div>
+<div class="bitex-display-if-logged">
+    <div style="margin-left: 265px;" class="footer-align">
+        <footer class="ls-footer" role="contentinfo">
+            <nav class="ls-footer-menu">
+                <div class="ls-footer-list col-md-12">
+                    <div class="row">
+                        {% if page.load_application %}
+                        <div class="col-md-2 ls-footer-item">
+                            <a href="" data-switch-view="admin">admin</a>
+                        </div>
+                        <div class="col-md-2 ls-footer-item">
+                            <a href="#">Latency: <span class="bitex-model" data-model-key="latency">0</span> ms</a>
+                        </div>
+                        <div class="col-md-2 ls-footer-item">
+                            <a href="#">Version: {{ site.deploy_version }}</a>
+                        </div>
+                        {% endif %}
+                        <div class="col-md-2 ls-footer-item">
+                            <a href="http://blinktrade.com/" target="_blank">© 2014 BlinkTrade Inc</a>
+                        </div>
+                        <div class="col-md-2 ls-footer-item">
+                            <a href="https://github.com/blinktrade/" target="_blank">Proudly 100% open source <span class="bitex-model" data-model-key="JSVersion"></span></a>
+                        </div>
+                        <div class="col-md-2 ls-footer-item">
+                            <a href="http://nytm.org/made-in-nyc/" target="_blank">Made with <span style="color: #d11f0d;font-size: 19px;">♥</span> in NYC</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </footer>
+    </div>
+</div>
+<div class="bitex-hide-if-logged">
+    <footer class="ls-footer" role="contentinfo" style="margin-top:50px;">
+        <nav class="ls-footer-menu">
+            <div class="ls-footer-list col-md-12">
+                <div class="row">
+                  {% if page.load_application %}
+                  <div class="col-md-2 ls-footer-item">
+                    <a href="" data-switch-view="admin">admin</a>
+                  </div>
+                  <div class="col-md-2 ls-footer-item">
+                    <a href="#">Latency: <span class="bitex-model" data-model-key="latency">0</span> ms</a>
+                  </div>
+                  <div class="col-md-2 ls-footer-item">
+                    <a href="#">Version: {{ site.deploy_version }}</a>
+                  </div>
+                  {% endif %}
+                  <div class="col-md-2 ls-footer-item">
+                      <a href="http://blinktrade.com/" target="_blank">© 2014 BlinkTrade Inc</a>
+                  </div>
+                  <div class="col-md-2 ls-footer-item">
+                      <a href="https://github.com/blinktrade/" target="_blank">Proudly 100% open source <span class="bitex-model" data-model-key="JSVersion"></span></a>
+                  </div>
+                  <div class="col-md-2 ls-footer-item">
+                      <a href="http://nytm.org/made-in-nyc/" target="_blank">Made with <span style="color: #d11f0d;font-size: 19px;">♥</span> in NYC</a>
+                  </div>
+                </div>
+            </div>
+        </nav>
     </footer>
+</div>
 
 
     {% if page.load_application %}

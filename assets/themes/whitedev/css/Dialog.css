@@ -76,43 +76,33 @@
 
 .modal {
     background-color: #fff;
-    border-radius: 15px;
+    border-radius: 4px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.7);
     overflow: hidden;
     display: table;
     width: 50%;
     top: 50%;
     z-index: 99999;
     position: fixed;
-    border: 3px solid rgba(0, 0, 0, 0.35);
 }
 
 .modal > .modal-header {
-    margin-top: 20px;
-    padding-left:30px;
-    padding-right:30px;
-    padding-bottom:30px;
-    padding-top:10px;
-    border-bottom: 1px solid #E8683E;
+    padding:20px;
+    border-bottom: 1px solid #eee;
     cursor: move;
 }
 
 .modal > .modal-header > a.close {
     position:absolute;
-    margin-top: -10px;
+    background:none;
     right: 20px;
-    font-size: 30px;
-    font-weight: 100;
-    color: #E8683E;
-    padding-left: 9px;
-    padding-right: 9px;
-    padding-top: 2px;
-    padding-bottom: 2px;
-    border-radius: 40px;
-    transition: .2s;
+    font-size: 20px;
+    font-weight: bold;
+    color: #212121;
+    opacity: 0.3;
 }
 .modal > .modal-header > a.close:hover {
-    background: #D7D7D7;
-    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.1);
+    opacity: 1;
 }
 
 
@@ -121,11 +111,9 @@
 }
 
 .modal > .modal-footer {
-    background-color: #eee;
     padding:20px;
+    border-top: 1px solid #EEE;
     text-align:right;
-    border-bottom-left-radius:15px;
-    border-bottom-right-radius:15px;
 }
 .modal > .modal-footer > .btn{
     border: 2px #E8683E solid !important;
@@ -156,7 +144,7 @@
 }
 
 .modal-bg {
-    background-color: rgba(255,255,255,0.6);
+    background-color: rgba(0,0,0,0.7);
     opacity: 1 !important;
     -ms-filter: none;
     -webkit-filter: none;

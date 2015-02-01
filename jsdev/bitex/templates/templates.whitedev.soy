@@ -256,7 +256,7 @@
                 {msg desc="Wallet section subtitle on Broker view"}Wallets{/msg}
             </h2>
           </header>
-          <table class="ls-table ls-table-striped">
+          <table class="ls-table ls-table-striped" style="table-layout:fixed">
             <thead>
               <tr>
                 <th>{msg desc="Coin  column on Broker wallet table"}Coin{/msg}</th>
@@ -465,7 +465,7 @@
   */
 {template .YourAccountSummary}
     {foreach $account in $accounts}
-      <table class="account-summary-table" style="width:100%;" >
+    <table class="account-summary-table{if not isFirst($account)} ls-table ls-table-bordered{/if}" style="width:100%;" >
         <tbody>
 
       <tr id="id_account_summary_{$account['brokerID']}"
@@ -473,7 +473,7 @@
           data-key="SelectedBrokerID"
           data-value="{$account['brokerID']}"
           {if length($accounts) <= 1 or length($account['currencies']) == 0 }style="display:none;"{/if}>
-            <td colspan="3"><strong>{$account['brokerName']}</strong></td>
+            <td colspan="3"><h4>{$account['brokerName']}</h4></td>
       </tr>
 
       {foreach $currency_info in $account['currencies']}
@@ -592,7 +592,7 @@
   * @param? formattedAmount
   */
 {template .DepositCryptoCurrencyContentDialog}
-  <div class="row-fluid" data-deposit-status="prepare">
+  <div class="row-fluid" data-deposit-status="prepare" style="text-align:center">
     <h4 class="text-center">
       {$deposit_message['Data']['InputAddress'] }
     </h4>
@@ -620,7 +620,7 @@
   * @param data
   */
 {template .CryptoCurrencyQRContentDialog}
-  <div class="row-fluid" data-deposit-status="prepare">
+  <div class="row-fluid" data-deposit-status="prepare" style="text-align:center">
     <h4 class="text-center">
       {$data['Wallet']}
     </h4>

@@ -22,9 +22,11 @@
 }
 .ls-menu a{
 	font-weight: 300;
+    height: auto;
 }
 .ls-sidebar{
 	background: #444;
+    overflow-y: auto;
 }
 .ls-theme-orange .ls-menu li{
 	border: none;
@@ -32,6 +34,7 @@
 .ls-menu{
 	background: #444 url(../images/blur.png) center no-repeat;
 	background-size: 300%;
+    height:auto;
 }
 /* FONTES*/
 @font-face{
@@ -89,13 +92,44 @@ a:hover:not(.ls-btn),a:focus,a{
 [class*="ls-btn"]{
 	border-radius: 50px !important;
 }
+
+@media(min-width: 768px){
+    .ls-menu{
+        height:auto!important;
+        overflow-y:auto!important;
+    }
+}
+
 /* ajuste para telas móveis */
 @media (max-width: 768px){
 	.ls-brand-name{
 		display: none;
 	}
+    .ls-footer{
+        height:auto;
+    }
+    .ls-footer-item{
+        height:25px!important;
+    }
+    .ls-menu{
+        overflow-y: auto;
+        height: auto;
+    }
+    .ls-user-mobile{
+        position:relative!important;
+    }
+    .ls-sidebar .ls-user-account.ls-active {
+        position:absolute!important;
+        top:130px;
+    }
+    .footer-align {
+        margin-left: 10px!important;
+    }
+    .alert{
+        margin-left:20px!important;
+    }
 	.ls-theme-orange .ls-topbar{
-		background: #E8683E url(images/logo-1.svg) center center no-repeat !important;
+		background: #E8683E url(../images/logo-1.svg) center center no-repeat !important;
 		background-size: 30px;
 	}
 }
@@ -106,6 +140,28 @@ a:hover:not(.ls-btn),a:focus,a{
 	.youraccount{
 		display: none;
 	}
+    .ls-footer{
+        height:auto!important;
+    }
+    .ls-footer-item{
+        height:25px!important;
+    }
+    .footer-align {
+        margin-left: 60px!important;
+    }
+    .ls-sidebar{
+        overflow-y:hidden;
+    }
+    .ls-sidebar:hover{
+        overflow-y:auto;
+    }
+    .ls-menu{
+        overflow-y: auto;
+        height: auto;
+    }
+    .alert{
+        margin-left:80px!important;
+    }
 	.ls-sidebar:hover .youraccount{
 		display: block;
 	}
@@ -125,11 +181,20 @@ a:hover:not(.ls-btn),a:focus,a{
 
 
 /* changes */
+
+body{
+    padding-top:60px;
+}
+
+.ls-main{
+    height:auto;
+    padding-top:0px;
+}
+
 .start{
     position:relative;
     width:100%;
     height:100%;
-    top:40px;
     right:0;
     left:0;
     z-index:1;
@@ -186,7 +251,36 @@ ul.ls-footer-list li{
     padding-left:25px!important;
 }
 footer{
+    height:150px;
+}
 
+.ul-form{
+    list-style:none
+}
+.ul-form li{
+    display: table;
+    width: 100%;
+    margin-bottom:20px;
+}
+.ul-form li label{
+    width: 20%;
+    display: table-cell;
+}
+
+.md-blink,
+.md-blink > td,
+.order-manager-blink td,
+.balance-info-blink td,
+.order-book-blink td {
+  background: #FFECC9!important;
+}
+
+.order-book-qty, .order-book-price {
+    cursor: crosshair;
+}
+
+.open .ls-dropdown-nav{
+    display:block
 }
 
 /* fuelux override */
@@ -235,6 +329,54 @@ footer{
 .collapse{
     height:0;
     overflow:hidden;
+}
+
+/* alert */
+
+.notifications{
+    position:absolute;
+    top:5%;
+    right:0px;
+    z-index:9000;
+}
+
+.alert{
+    margin-top:10px;
+    margin-left:280px;
+    margin-right:20px;
+    margin-bottom:0px;
+    width: auto;
+    border-radius:50px;
+    padding: 10px;
+    font-weight: normal;
+}
+.alert-success{
+    background-color:#B2E1B3;
+}
+.alert-success a{
+    color: #388F39;
+}
+.alert-error{
+    background-color:#E1B2B2;
+    color: #8F3838;
+}
+.alert-error a{
+    color: #8F3838;
+}
+.alert .close{
+    border: none;
+    background: none;
+    padding: 5px;
+    font-size: 20px;
+    float: none;
+    font-family: 'Helvetica';
+    font-weight: bold;
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+.alert .close:hover{
+    opacity: 1;
 }
 
 /* Bitex Classes */

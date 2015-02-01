@@ -10,6 +10,8 @@
   * @param amount_currency_symbol
   * @param price_currency_symbol
   * @param client_id
+  * @param amount_currency_code
+  * @param price_currency_code
   */
 {template .AdvancedOrderEntry}
   <form id="{$id}" class="col-md-6 ls-box advanced-order-entry" data-uniform-control-holder-class="uniform-control-holder">
@@ -81,20 +83,37 @@
     <hr>
     <div class="row">
     <div class="col-md-6">
+      {if $is_broker }
         <input id="{$id}_client_id"
             name="client_id"
             type="text"
-            value="{if $client_id}{$client_id}{/if}"
             class="input-block-level"
             label="{msg desc="Client ID label in Order Entry"}Client ID{/msg}"
             data-uniform-label="{msg desc="Advanced Order Entry Label"}Client ID{/msg}"
-            {if $is_broker}
-                data-uniform-validators="required"
-            {else}
-                style="display:none"
-                disabled
-            {/if}
-        />
+            data-uniform-validators="required"/>
+        {else}
+
+          <div id="{$id}_available_badge" class="text-block" style="margin-top: 10px;cursor: pointer;">
+            {msg desc="Available label inside the advanced order entry"}Available: {/msg}
+            <span id="{$id}_available_value"
+                  class="bitex-model"
+                  data-model-key="available_balance_{$broker_id}:{$client_id}_{$price_currency_code}"
+                  style="display:none"></span>
+
+              {if $side == 1}
+                <span id="{$id}_available"
+                      class="bitex-model"
+                      data-model-key="formatted_available_balance_{$broker_id}:{$client_id}_{$price_currency_code}"
+                      data-blink-class="balance-info-blink"></span>
+              {else}
+                <span id="{$id}_available"
+                      class="bitex-model"
+                      data-model-key="formatted_available_balance_{$broker_id}:{$client_id}_{$amount_currency_code}"
+                      data-blink-class="balance-info-blink"></span>
+              {/if}
+          </div>
+
+        {/if}
     </div>
     <button id="{$id}_action" class="ls-btn ls-btn-lg col-md-5 ls-float-right {if $side != 1}ls-btn-danger{/if}">
     {if $side == 1}
