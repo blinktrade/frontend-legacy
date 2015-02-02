@@ -3082,6 +3082,8 @@ bitex.app.BlinkTrade.prototype.onUserLoginOk_ = function(e) {
   this.getModel().set('IsMissingVerification', msg['Profile']['Verified'] == 0);
   this.getModel().set('IsAccountBlocked', msg['Profile']['Verified'] < 0);
 
+
+
   var broker_currencies = new goog.structs.Set();
   var allowed_markets = {};
   var user_brokers = {};
@@ -3118,6 +3120,9 @@ bitex.app.BlinkTrade.prototype.onUserLoginOk_ = function(e) {
     }
   }
   this.getModel().set('Profile',  profile);
+  this.getModel().set('ShowMMP', (this.getModel().get('IsBroker') || this.getModel().get('Profile')['IsMarketMaker'] ));
+
+
   if (msg['IsBroker'] ) {
     this.getModel().set('SelectedBrokerID', this.getModel().get('Profile')['BrokerID']);
   } else if (goog.isDefAndNotNull(msg['Broker'])) {
@@ -3592,12 +3597,13 @@ bitex.app.BlinkTrade.prototype.onSecurityList_ =   function(e) {
       is_crypto : currency['IsCrypto'],
       number_of_decimals: currency['NumberOfDecimals']
     };
-
   }, this);
 
   var symbols = [];
   goog.array.forEach(msg['Instruments'], function( instrument) {
     var symbol = instrument['Symbol'];
+
+
 
     this.all_markets_[symbol]  = {
       'symbol': symbol,
@@ -3699,6 +3705,19 @@ bitex.app.BlinkTrade.prototype.adjustBrokerData_ = function(broker_info) {
   broker_info['AllowedMarkets'] = allowed_markets;
   broker_info['FormattedTransactionFeeBuy'] = percent_fmt.format(broker_info['TransactionFeeBuy'] / 10000);
   broker_info['FormattedTransactionFeeSell'] = percent_fmt.format(broker_info['TransactionFeeSell'] / 10000);
+
+  goog.object.forEach(allowed_markets, function(market, symbol) {
+    this.currency_info_[ 'MMP.' + symbol ] = {
+      code: 'MMP.' + symbol,
+      format: '#,##0.00;(#,##0.00)',
+      human_format: '#,##0.00;(#,##0.00)',
+      description : 'Points',
+      sign : 'P',
+      pip : 1,
+      is_crypto : false,
+      number_of_decimals: 2
+    };
+  }, this);
 
   return broker_info;
 };

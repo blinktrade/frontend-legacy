@@ -71,11 +71,15 @@ bitex.view.SideBarView.prototype.onSelectedBroker_ = function(e){
     }
 
     if (goog.isDefAndNotNull(this.remittance_box_)){
-      goog.array.forEach(model.get('Broker')['BrokerCurrencies'], function(currency) {
-        if (!this.getApplication().isCryptoCurrency(currency)){
-          this.remittance_box_.addCurrency(currency);
-        }
-      }, this);
+      var broker = model.get('Broker');
+      if (goog.isDefAndNotNull(broker)){
+        goog.array.forEach(broker['BrokerCurrencies'], function(currency) {
+          if (!this.getApplication().isCryptoCurrency(currency)){
+            this.remittance_box_.addCurrency(currency);
+          }
+        }, this);
+
+      }
     }
   }
 };
@@ -97,6 +101,7 @@ bitex.view.SideBarView.prototype.decorateInternal = function(element) {
 bitex.view.SideBarView.prototype.enterDocument = function() {
   goog.base(this, 'enterDocument');
   var handler = this.getHandler();
+  var app = this.getApplication();
   var model = this.getApplication().getModel();
   var conn = this.getApplication().getBitexConnection();
   this.market_data_subscription_id_ = parseInt( 1e7 * Math.random() , 10 );
@@ -126,6 +131,18 @@ bitex.view.SideBarView.prototype.enterDocument = function() {
       });
     }, this);
 
+    goog.object.forEach(model.get('Broker')['AllowedMarkets'], function(market, symbol) {
+      if (model.get('ShowMMP')) {
+        accounts[0]['currencies'].push({
+          'currency': 'MMP.' + symbol,
+          'balance':0,
+          'formattedBalance': this.getApplication().formatCurrency(0, 'MMP.' + symbol, true),
+          'showDeposit': false,
+          'showWithdraw': false
+        });
+      }
+    }, this);
+
     /**
      * @desc My customers account balance label
      */
@@ -147,6 +164,17 @@ bitex.view.SideBarView.prototype.enterDocument = function() {
           'showWithdraw': false
         });
       },this);
+
+      goog.object.forEach(model.get('Profile')['AllowedMarkets'], function(market, symbol) {
+        accounts[1]['currencies'].push({
+          'currency': 'MMP.' + symbol,
+          'balance':0,
+          'formattedBalance': this.getApplication().formatCurrency(0, 'MMP.' + symbol, true),
+          'showDeposit': false,
+          'showWithdraw': false
+        });
+      }, this);
+
 
       if (goog.isDefAndNotNull( model.get('Profile')['Accounts'] )) {
         goog.object.forEach( model.get('Profile')['Accounts'], function(account_data, account_name) {

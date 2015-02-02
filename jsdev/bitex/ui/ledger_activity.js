@@ -75,11 +75,7 @@ bitex.ui.LedgerActivity = function(button_filters, pseudoNameFunction, opt_broke
       'property': 'Created',
       'label': MSG_LEDGER_ACTIVITY_TABLE_COLUMN_DATE_TIME,
       'sortable': false,
-      'classes': function() { return goog.getCssName(bitex.ui.LedgerActivity.CSS_CLASS, 'date-time'); },
-      'formatter' : function(s, rowSet) {
-        var dt = new Date(bitex.util.convertServerUTCDateTimeStrToTimestamp( s.substr(0,10), s.substr(11)));
-        return dt.toLocaleDateString() + ' ' + dt.toLocaleTimeString();
-      }
+      'classes': function() { return goog.getCssName(bitex.ui.LedgerActivity.CSS_CLASS, 'date-time'); }
     },{
       'property': 'Currency',
       'label': MSG_LEDGER_ACTIVITY_TABLE_COLUMN_CURRENCY,
@@ -120,6 +116,10 @@ bitex.ui.LedgerActivity = function(button_filters, pseudoNameFunction, opt_broke
          */
         var MSG_LEDGER_TRADE_FEE_DESCRIPTION = goog.getMsg('Fee on trade');
 
+        /**
+         * @desc Market maker point description on ledger activity
+         */
+        var MSG_LEDGER_MMP_DESCRIPTION = goog.getMsg('Point');
 
         /**
          * @desc Ledger trade  description
@@ -141,6 +141,8 @@ bitex.ui.LedgerActivity = function(button_filters, pseudoNameFunction, opt_broke
             return MSG_LEDGER_TRADE_DESCRIPTION;
           case 'TF':
             return MSG_LEDGER_TRADE_FEE_DESCRIPTION;
+          case 'P':
+            return MSG_LEDGER_MMP_DESCRIPTION;
         }
       },
       'classes': function() { return goog.getCssName(bitex.ui.LedgerActivity.CSS_CLASS, 'description'); }
@@ -159,6 +161,7 @@ bitex.ui.LedgerActivity = function(button_filters, pseudoNameFunction, opt_broke
             case 'W':
             case 'WF':
             case 'TF':
+            case 'P':
               return '';
             default:
               return pseudoNameFunction(s);
