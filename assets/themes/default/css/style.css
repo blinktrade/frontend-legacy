@@ -220,6 +220,10 @@ ul.parsley-error-list li {
   line-height: 2px;
 }
 
+.order-book-drag td {
+  border-top-color: red;
+} 
+
 
 .order-book-row {
   font-size: 14px;
@@ -230,6 +234,17 @@ ul.parsley-error-list li {
 .order-book-qty,
 .order-book-price {
  cursor: crosshair; 
+}
+
+.order-book-movable td.order-book-price,
+.order-book-movable td.order-book-qty {
+  cursor: move;
+}
+
+.order-book-drag-order {
+  background-color: red;
+  padding: 5px;
+  cursor: move;
 }
 
 .md-blink,
