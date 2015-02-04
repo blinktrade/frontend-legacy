@@ -456,8 +456,9 @@ bitex.app.BlinkTrade.prototype.run = function(host_api) {
   handler.listen(this.views_, bitex.view.View.EventType.CHANGE_BROKER, this.onUserChangeBroker_ );
 
   handler.listen(this.views_, bitex.ui.AdvancedOrderEntry.EventType.SUBMIT, this.onUserOrderEntry_ );
-  handler.listen(this.views_, bitex.view.View.EventType.CANCEL_ORDER, this.onUserCancelOrder_ );
   handler.listen(this.views_, bitex.ui.SimpleOrderEntry.EventType.SUBMIT, this.onUserOrderEntry_ );
+  handler.listen(this.views_, bitex.view.View.EventType.CANCEL_ORDER, this.onUserCancelOrder_ );
+  handler.listen(this.views_, bitex.view.View.EventType.CANCEL_REPLACE_ORDER, this.onUserCancelReplaceOrder_ );
 
   handler.listen(this.views_, bitex.view.View.EventType.MARKET_DATA_SUBSCRIBE, this.onUserMarketDataSubscribe_);
   handler.listen(this.views_, bitex.view.View.EventType.MARKET_DATA_UNSUBSCRIBE, this.onUserMarketDataUnsubscribe_);
@@ -2124,6 +2125,21 @@ bitex.app.BlinkTrade.prototype.onUserCancelOrder_ = function(e){
     this.showNotification('info', MSG_CANCEL_ORDER_NOTIFICATION_TITLE, ':' + e.target.getOrderId() );
   }
   this.conn_.cancelOrder(e.target.getClientOrderId(), e.target.getOrderId());
+};
+
+/**
+ * @param {goog.events.Event} e
+ * @private
+ */
+bitex.app.BlinkTrade.prototype.onUserCancelReplaceOrder_ = function(e) {
+  this.conn_.cancelOrder(e.target.getClientOrderId(), e.target.getOrderId());
+
+  this.conn_.sendLimitedOrder(e.target.getSymbol(),
+                              e.target.getAmount(),
+                              e.target.getPrice(),
+                              e.target.getSide(),
+                              e.target.getBrokerID(),
+                              e.target.getClientID());
 };
 
 /**
