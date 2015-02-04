@@ -30,7 +30,7 @@ load_application:       True
         (<span class="bitex-model" data-model-key="PseudoName"></span>)
     </a>
 
-    <nav class="ls-dropdown-nav ls-user-menu" aria-hidden="true">
+    <nav class="ls-dropdown-nav ls-user-menu ls-user-menu-mobile" aria-hidden="true">
         <ul>
             <li><a href="" data-switch-view="profile" role="option">{% t views.sidebar.my_profile %}</a></li>
             <li><a href="" data-switch-view="trading" role="option">{% t views.sidebar.trading %}</a></li>
@@ -44,7 +44,22 @@ load_application:       True
 
 
     <div class="bitex-display-if-non-broker">
-        <h1 data-switch-view="offerbook" class="ls-brand-name"><a href="#" data-switch-view="offerbook"><img data-switch-view="offerbook" src="{{ site.url }}{{ site.baseurl }}/assets/themes/whitedev/images/logo-1.svg"><!-- Foxbit --></a></h1>
+        <h1 data-switch-view="offerbook" class="ls-brand-name">
+            <a href="#" data-switch-view="offerbook">
+                {% case site.exchange %}
+                    {% when 'foxbit' %}
+                        <img data-switch-view="offerbook" src="{{ site.url }}{{ site.baseurl }}/assets/themes/whitedev/images/logo-1.svg">
+                    {% when 'surbitcoin' %}
+                        <img data-switch-view="offerbook" src="{{ site.url }}{{ site.baseurl }}/assets/themes/whitedev/images/brand-surbitcoin.svg">
+                    {% when 'urdubit' %}
+                        <img data-switch-view="offerbook" src="{{ site.url }}{{ site.baseurl }}/assets/themes/whitedev/images/brand-urdubit.svg">
+                    {% when 'romaniabex' %}
+                        <img data-switch-view="offerbook" src="{{ site.url }}{{ site.baseurl }}/assets/themes/whitedev/images/brand-romaniabex.svg">
+                    {% when 'chilebit' %}
+                        <img data-switch-view="offerbook" src="{{ site.url }}{{ site.baseurl }}/assets/themes/whitedev/images/brand-chilebit.png">
+                {% endcase %}
+            </a>
+        </h1>
     </div>
 
     <div id="account_balance" class="ls-box youraccount">
@@ -102,10 +117,9 @@ load_application:       True
     <div class="bitex-view-content">
       <div class="bitex-hide-if-logged bitex-view-content" style="text-align: center;">
         <div class="start" style="">
-        <h1 class="ls-brand-name"><a href="#"><img src="{{ site.url }}{{ site.baseurl }}/assets/themes/whitedev/images/logo-1.svg"></a></h1>
             <div class="ls-box">
                     <br>
-                    <img src="{{ site.baseurl }}/assets/exchange_logos/{{ site.exchange_logo }}_landing_page_logo.png" style="">
+                    <img src="{{ site.baseurl }}/assets/exchange_logos/{{ site.exchange_logo }}_landing_page_logo.png" style="max-width:70%;">
                     <h1 class="ls-title-intro">
                         {% case site.exchange %}
                         {% when 'chilebit' %}

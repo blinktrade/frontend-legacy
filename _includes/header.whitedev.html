@@ -79,11 +79,23 @@
 
     {% if page.load_application %}
     <link href="{{ site.url }}{{ site.baseurl }}/assets/themes/whitedev/css/Dialog.css" rel="stylesheet">
-    <link href="{{ site.baseurl }}/assets/themes/whitedev/fonts/flaticon.css" rel="stylesheet">
-    <link href="{{ site.baseurl }}/assets/themes/whitedev/stylesheets/grid.css" rel="stylesheet">
+    <link href="{{ site.url }}{{ site.baseurl }}/assets/themes/whitedev/fonts/flaticon.css" rel="stylesheet">
+    <link href="{{ site.url }}{{ site.baseurl }}/assets/themes/whitedev/stylesheets/grid.css" rel="stylesheet">
     <link href="{{ site.url }}{{ site.baseurl }}/assets/themes/default/css/fuelux.css" rel="stylesheet">
     <link href="{{ site.url }}{{ site.baseurl }}/assets/themes/default/css/default.uni-form.css" rel="stylesheet">
     <link href="{{ site.url }}{{ site.baseurl }}/assets/themes/whitedev/css/main.css" rel="stylesheet">
+
+    {% case site.exchange %}
+      {% when 'surbitcoin' %}
+        <link href="{{ site.url }}{{ site.baseurl }}/assets/themes/whitedev/css/main.surbitcoin.css" rel="stylesheet">
+      {% when 'urdubit' %}
+        <link href="{{ site.url }}{{ site.baseurl }}/assets/themes/whitedev/css/main.urdubit.css" rel="stylesheet">
+      {% when 'romaniabex' %}
+        <link href="{{ site.url }}{{ site.baseurl }}/assets/themes/whitedev/css/main.romaniabex.css" rel="stylesheet">
+      {% when 'chilebit' %}
+        <link href="{{ site.url }}{{ site.baseurl }}/assets/themes/whitedev/css/main.chilebit.css" rel="stylesheet">
+
+    {% endcase %}
     <script data-cfasync="false" src="{{ site.url }}{{ site.baseurl }}/assets/js/bitex_app_blink_trade.compiled.{{site.lang}}.whitedev.js?v={{ site.deploy_version }}" type="text/javascript"></script>
 
     {% endif %}
@@ -102,7 +114,7 @@
                         <span class="bitex-model ls-name" data-model-key="DisplayName"></span>
                         (<span class="bitex-model" data-model-key="PseudoName"></span>)
                     </a>
-                    <nav class="ls-dropdown-nav ls-user-menu" aria-hidden="true">
+                    <nav class="ls-dropdown-nav ls-user-menu ls-user-menu-header" aria-hidden="true">
                         <ul>
                         <li><a href="" data-switch-view="profile" role="option">{% t views.sidebar.my_profile %}</a></li>
                         <li><a href="" data-switch-view="trading" role="option">{% t views.sidebar.trading %}</a></li>
@@ -135,7 +147,7 @@
     <div class="ls-notification-topbar ls-notification-links">
         <div class="ls-alerts-list" role="alert">
             <a href="">
-                <button id="id_button_connect_ws" class="bitex-hide-if-ws-connected btn-link ls-btn" style="margin-top:-5px;margin-right:20px">
+                <button id="id_button_connect_ws" class="bitex-hide-if-ws-connected btn-link ls-btn" style="">
                     {% t views.toolbar.connect %} 
                     <!-- <i class="icon-white icon-repeat"></i> -->
                 </button>

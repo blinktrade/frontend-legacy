@@ -1,7 +1,3 @@
-/* @import url('stylesheets/grid.css'); */
-/* @import url('../fonts/flaticon.css'); */
-
-
 
 ::-webkit-scrollbar {
     width: 13px;
@@ -38,7 +34,6 @@
     background: #444 url(../images/blur.png) center no-repeat;
     background-size: 200%;
     height: calc(100% - 500px)!important;
-    margin-top:-20px!important;
 }
 /* FONTES*/
 @font-face{
@@ -218,7 +213,7 @@ body{
     padding: 25px 20px!important;
     border-top: 1px solid #F7F7F7;
 }
-.active{
+.active, .active:hover{
     background-color: #E8683E;
     border-color: #B07200;
     color:white;
@@ -329,6 +324,10 @@ footer{
 .fuelux a.ls-btn-danger:hover{
     color:white;
 }
+.fuelux .label-important, .fuelux .badge-important{
+    background-color: #D75553!important;
+}
+
 .fuelux .label{
     padding: 7px;
     width: 100%;
@@ -409,7 +408,18 @@ footer{
     opacity: 1;
 }
 
+.flaticon-download164,
+.flaticon-upload119{
+    cursor:pointer;
+}
+
 /* Bitex Classes */
+#id_button_connect_ws{
+    position:absolute;
+    top:65px;
+    right: 10px;
+}
+
 .bitex-broker .bitex-display-if-broker {
   display: block;
 }
