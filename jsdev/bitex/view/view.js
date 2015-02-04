@@ -45,6 +45,7 @@ bitex.view.View.EventType = {
 
   SEND_ORDER: 'send_order',
   CANCEL_ORDER: 'cancel_order',
+  CANCEL_REPLACE_ORDER:'cancel_replace_order',
 
   REQUEST_WITHDRAW: 'request_withdraw',
   CONFIRM_WITHDRAW: 'confirm_withdraw',
