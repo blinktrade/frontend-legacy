@@ -75,6 +75,9 @@ bitex.ui.LedgerActivity = function(button_filters, pseudoNameFunction, opt_broke
       'property': 'Created',
       'label': MSG_LEDGER_ACTIVITY_TABLE_COLUMN_DATE_TIME,
       'sortable': false,
+      'formatter': function(s, rowSet) {
+        return  bitex.util.convertServerUTCDateTimeStrToTimestamp(s.substr(0, 10), s.substr(11)).toLocaleString();
+      },
       'classes': function() { return goog.getCssName(bitex.ui.LedgerActivity.CSS_CLASS, 'date-time'); }
     },{
       'property': 'Currency',

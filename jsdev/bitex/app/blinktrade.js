@@ -1525,12 +1525,31 @@ bitex.app.BlinkTrade.prototype.showWithdrawalDialog = function(currency){
 
   var user_verification_level = this.getModel().get('Profile')['Verified'];
 
+  var user_withdrawal_percent_fee = this.getModel().get('Profile')['WithdrawPercentFee'];
+  if (goog.isDefAndNotNull(user_withdrawal_percent_fee)) {
+    user_withdrawal_percent_fee = parseFloat(user_withdrawal_percent_fee);
+  }
+
+  var user_withdrawal_fixed_fee = this.getModel().get('Profile')['WithdrawFixedFee'];
+  if (goog.isDefAndNotNull(user_withdrawal_fixed_fee)) {
+    user_withdrawal_fixed_fee = parseFloat(user_withdrawal_fixed_fee);
+  }
+
+
   var balance_key = 'available_balance_' +
       this.getModel().get('Broker')['BrokerID'] + ':' + this.getModel().get('UserID') + '_' + currency;
   var user_balance = parseInt(this.getModel().get(balance_key,0), 10);
 
   var user_verified_withdraw_methods = [];
   goog.array.forEach(withdraw_methods, function(withdrawal_method){
+    if (goog.isDefAndNotNull(user_withdrawal_percent_fee)) {
+      withdrawal_method['percent_fee'] = user_withdrawal_percent_fee;
+    }
+
+    if (goog.isDefAndNotNull(user_withdrawal_fixed_fee)) {
+      withdrawal_method['fixed_fee'] = user_withdrawal_fixed_fee;
+    }
+
     var withdrawal_limit;
     var withdrawal_limit_index;
     for (withdrawal_limit_index = user_verification_level; withdrawal_limit_index>=0;withdrawal_limit_index--) {

@@ -151,17 +151,6 @@ bitex.view.SideBarView.prototype.enterDocument = function() {
       }
     }, this);
 
-    /*
-    accounts[0]['currencies'].push({
-      'currency': MSG_MY_CUSTOMERS_ACCOUNT_PORTFOLIO_LABEL,
-      'currency_key': 'PORTFOLIO',
-      'balance':0,
-      'formattedBalance': "",
-      'showDeposit': false,
-      'showWithdraw': false
-    });
-    */
-
 
     /**
      * @desc My customers account balance label
@@ -191,7 +180,7 @@ bitex.view.SideBarView.prototype.enterDocument = function() {
       goog.object.forEach(model.get('Profile')['AllowedMarkets'], function(market, symbol) {
         accounts[1]['currencies'].push({
           'currency': 'MMP.' + symbol,
-          'currency_key':currency,
+          'currency_key': 'MMP.' + symbol,
           'balance':0,
           'formattedBalance': this.getApplication().formatCurrency(0, 'MMP.' + symbol, true),
           'showDeposit': false,
