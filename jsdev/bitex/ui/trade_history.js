@@ -6,8 +6,7 @@ goog.require('goog.object');
 goog.require('goog.Timer');
 
 goog.require('bitex.ui.DataGrid');
-
-goog.require('goog.date.relative');
+goog.require('bitex.util');
 
 /**
  * @desc Column Market Pair
@@ -129,7 +128,7 @@ bitex.ui.TradeHistory = function( pseudoNameFunction, opt_blinkDelay,opt_domHelp
       'label': MSG_TRADE_HISTORY_COLUMN_CREATED,
       'sortable': false,
       'formatter': function(s, rowSet) {
-        return goog.date.relative.getDateString(rowSet['Timestamp']);
+        return  bitex.util.convertServerUTCDateTimeStrToTimestamp(s.substr(0, 10), s.substr(11)).toLocaleString();
       },
       'classes': function() { return goog.getCssName(bitex.ui.TradeHistory.CSS_CLASS, 'created');}
     }

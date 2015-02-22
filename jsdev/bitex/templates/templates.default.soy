@@ -466,41 +466,39 @@
             <strong>{$currency_info['currency']}</strong>
           </td>
 
-          <td style="padding: 4px;{if not isFirst($currency_info) }border-top: 0;{/if}">
+          <td style="padding: 4px;{if not isFirst($currency_info) }border-top: 0;{/if}" {if not $currency_info['showDeposit'] and not $currency_info['showWithdraw'] }colspan="2"{/if} >
             <span class="bitex-model"
-               data-model-key="formatted_balance_{$account['brokerID']}:{$account['clientID']}_{$currency_info['currency']}"
-               data-blink-class="balance-info-blink">{$currency_info['formattedBalance']}
+               data-model-key="formatted_balance_{$account['brokerID']}:{$account['clientID']}_{$currency_info['currency_key']}"
+               data-blink-class="balance-info-blink">{if $currency_info['formattedBalance']} {$currency_info['formattedBalance']}{/if}
             </span>
-            <abbr title="{msg desc="Unconfirmed deposits"}Unconfirmed deposits from your confirmed addresses{/msg}">
+            <abbr title="{msg desc="Unconfirmed deposits"}Unconfirmed deposits{/msg}">
               <em>
                  <span class="bitex-model"
-                    data-model-key="formatted_position_{$account['brokerID']}:{$account['clientID']}_{$currency_info['currency']}"
+                    data-model-key="formatted_position_{$account['brokerID']}:{$account['clientID']}_{$currency_info['currency_key']}"
                     data-blink-class="balance-info-blink"></span>
-               </em>
+              </em>
             </abbr>
 
          </td>
+         {if $currency_info['showDeposit'] and  $currency_info['showWithdraw']}
           <td style="padding: 4px;border-left:0;{if not isFirst($currency_info) }border-top: 0;{/if}">
-            {if $currency_info['showDeposit'] and  $currency_info['showWithdraw']}
-              <div class="btn-group">
-            {/if}
+            <div class="btn-group">
 
-            {if $currency_info['showDeposit'] }
-              <button class="btn btn-mini" data-action="deposit" data-currency="{$currency_info['currency']}">
-                <i data-action="deposit" data-currency="{$currency_info['currency']}" class="icon-download-alt"></i>
-              </button>
-            {/if}
-            {if $currency_info['showWithdraw'] }
-              <button class="btn btn-mini" data-action="withdraw" data-currency="{$currency_info['currency']}">
-                <i data-action="withdraw" data-currency="{$currency_info['currency']}" class="icon-upload-alt"></i>
-              </button>
-            {/if}
+              {if $currency_info['showDeposit'] }
+                <button class="btn btn-mini" data-action="deposit" data-currency="{$currency_info['currency']}">
+                  <i data-action="deposit" data-currency="{$currency_info['currency']}" class="icon-download-alt"></i>
+                </button>
+              {/if}
+              {if $currency_info['showWithdraw'] }
+                <button class="btn btn-mini" data-action="withdraw" data-currency="{$currency_info['currency']}">
+                  <i data-action="withdraw" data-currency="{$currency_info['currency']}" class="icon-upload-alt"></i>
+                </button>
+              {/if}
 
-            {if $currency_info['showDeposit'] and  $currency_info['showWithdraw']}
-              </div>
-            {/if}
-
+            </div>
           </td>
+          {/if}
+
         </tr>
       {/foreach}
 

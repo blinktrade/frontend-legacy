@@ -106,6 +106,12 @@ bitex.view.SideBarView.prototype.enterDocument = function() {
   var conn = this.getApplication().getBitexConnection();
   this.market_data_subscription_id_ = parseInt( 1e7 * Math.random() , 10 );
 
+  /**
+   * @desc Portfolio caption on the accounts view
+   */
+  var MSG_MY_CUSTOMERS_ACCOUNT_PORTFOLIO_LABEL = goog.getMsg('PORTFOLIO');
+
+
   handler.listen( conn ,
                   bitex.api.BitEx.EventType.SECURITY_STATUS + '.' + this.market_data_subscription_id_,
                   this.onBitexSecurityStatus_ );
@@ -124,6 +130,7 @@ bitex.view.SideBarView.prototype.enterDocument = function() {
     goog.array.forEach(model.get('Broker')['BrokerCurrencies'], function(currency) {
       accounts[0]['currencies'].push({
         'currency':currency,
+        'currency_key':currency,
         'balance':0,
         'formattedBalance': this.getApplication().formatCurrency(0,currency, true),
         'showDeposit': true,
@@ -135,6 +142,7 @@ bitex.view.SideBarView.prototype.enterDocument = function() {
       if (model.get('ShowMMP')) {
         accounts[0]['currencies'].push({
           'currency': 'MMP.' + symbol,
+          'currency_key': 'MMP.' + symbol,
           'balance':0,
           'formattedBalance': this.getApplication().formatCurrency(0, 'MMP.' + symbol, true),
           'showDeposit': false,
@@ -143,10 +151,13 @@ bitex.view.SideBarView.prototype.enterDocument = function() {
       }
     }, this);
 
+
     /**
      * @desc My customers account balance label
      */
     var MSG_MY_CUSTOMERS_ACCOUNT_BALANCE_LABEL = goog.getMsg('My customers');
+
+
 
     if (model.get('IsBroker')) {
       accounts.push({
@@ -158,6 +169,7 @@ bitex.view.SideBarView.prototype.enterDocument = function() {
       goog.array.forEach(model.get('Profile')['BrokerCurrencies'], function(currency) {
         accounts[1]['currencies'].push({
           'currency':currency,
+          'currency_key':currency,
           'balance':0,
           'formattedBalance': this.getApplication().formatCurrency(0,currency, true),
           'showDeposit': false,
@@ -168,13 +180,13 @@ bitex.view.SideBarView.prototype.enterDocument = function() {
       goog.object.forEach(model.get('Profile')['AllowedMarkets'], function(market, symbol) {
         accounts[1]['currencies'].push({
           'currency': 'MMP.' + symbol,
+          'currency_key': 'MMP.' + symbol,
           'balance':0,
           'formattedBalance': this.getApplication().formatCurrency(0, 'MMP.' + symbol, true),
           'showDeposit': false,
           'showWithdraw': false
         });
       }, this);
-
 
       if (goog.isDefAndNotNull( model.get('Profile')['Accounts'] )) {
         goog.object.forEach( model.get('Profile')['Accounts'], function(account_data, account_name) {
@@ -188,6 +200,7 @@ bitex.view.SideBarView.prototype.enterDocument = function() {
           goog.array.forEach(model.get('Profile')['BrokerCurrencies'], function(currency) {
             accounts[accounts.length-1]['currencies'].push({
                'currency':currency,
+               'currency_key':currency,
                'balance':0,
                'formattedBalance': this.getApplication().formatCurrency(0,currency, true),
                'showDeposit': false,
