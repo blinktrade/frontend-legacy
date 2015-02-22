@@ -17,13 +17,15 @@ goog.require('goog.events.EventTarget');
 
 /**
  * @constructor
+ * @param {number} opt_browser_finger_print
  * @extends {goog.events.EventTarget}
  */
-bitex.api.BitEx = function(){
+bitex.api.BitEx = function( opt_browser_finger_print  ){
   goog.base(this);
 
-  this.currency_info_       = null;
-  this.all_markets_         = null;
+  this.currency_info_         = null;
+  this.all_markets_           = null;
+  this.browser_finger_print_  = opt_browser_finger_print;
 
 
   this.ws_ = new goog.net.WebSocket(true);
@@ -42,6 +44,12 @@ bitex.app.BitEx.prototype.currency_info_;
  * @private
  */
 bitex.app.BitEx.prototype.all_markets_;
+
+/**
+ * @type {number}
+ * @private
+ */
+bitex.app.BitEx.prototype.browser_finger_print_;
 
 /**
  * @type {goog.net.WebSocket}
@@ -696,7 +704,7 @@ bitex.api.BitEx.prototype.close = function(){
  * @param {string=} opt_second_factor
  * @param {number=} opt_request_id
  */
-bitex.api.BitEx.prototype.login = function(brokerID,username, password, opt_second_factor,opt_request_id ){
+bitex.api.BitEx.prototype.login = function(brokerID, username, password, opt_second_factor, opt_request_id ){
   var reqId = opt_request_id || parseInt(Math.random() * 1000000, 10);
   var msg = {
     'MsgType': 'BE',
@@ -747,6 +755,7 @@ bitex.api.BitEx.prototype.enableTwoFactor = function(enable, opt_secret, opt_cod
 
 
 /**
+ * @param {string} brokerID
  * @param {string} email
  * @param {number} opt_request_id
  */
@@ -1656,6 +1665,9 @@ bitex.api.BitEx.prototype.sendRawMessage  = function(msg) {
  * @param {Object} msg
  */
 bitex.api.BitEx.prototype.sendMessage  = function(msg) {
+  if (goog.isDefAndNotNull(this.browser_finger_print_)) {
+    msg['FingerPrint'] = this.browser_finger_print_;
+  }
   this.sendRawMessage(JSON.stringify(msg));
 };
 

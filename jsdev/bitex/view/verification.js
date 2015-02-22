@@ -39,6 +39,8 @@ bitex.view.VerificationView.prototype.enterView = function() {
   verification_form_url = verification_form_url.replace('{{BrokerID}}', model.get('Broker')['BrokerID']);
   verification_form_url = verification_form_url.replace('{{BrokerUsername}}', model.get('Broker')['ShortName']);
   verification_form_url = verification_form_url.replace('{{Email}}', model.get('Email'));
+  verification_form_url = verification_form_url.replace('{{FingerPrint}}',  this.getApplication().getFingerPrint());
+
   if (goog.isDefAndNotNull(model.get('Profile')['State'])) {
     verification_form_url = verification_form_url.replace('{{State}}', model.get('Profile')['State'] );
   }
