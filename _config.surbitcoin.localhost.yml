@@ -1,5 +1,5 @@
 # Site settings
-url: "//localhost:4000"   # activate this to test on your localhost
+url: "//localhost"   # activate this to test on your localhost
 author: "BlinkTrade"
 baseurl: ""
 deploy_version: "HEAD"

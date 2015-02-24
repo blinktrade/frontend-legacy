@@ -115,9 +115,14 @@ bitex.app.BlinkTrade = function(broker_id, opt_default_country, opt_default_stat
   this.error_message_alert_timeout_ = 5000;
 
   try {
+    this.finger_print_ = bitex.util.getBrowserFingerPrint();
+  } catch (e) {}
+
+
+  try {
     this.router_  = new bitex.app.UrlRouter( this, '', 'start');
     this.model_   = new bitex.model.Model(document.body);
-    this.conn_    = new bitex.api.BitEx();
+    this.conn_    = new bitex.api.BitEx(this.finger_print_);
     this.views_   = new goog.ui.Component();
   } catch ( error) {
     this.showDialog(error);
@@ -133,6 +138,7 @@ bitex.app.BlinkTrade = function(broker_id, opt_default_country, opt_default_stat
   if (goog.isDefAndNotNull(opt_default_state)) {
     this.model_.set('DefaultState', opt_default_state);
   }
+
 
   this.open_orders_request_id_ = parseInt( 1e7 * Math.random() , 10 );
 
@@ -158,6 +164,13 @@ bitex.app.BlinkTrade.prototype.router_;
  * @private
  */
 bitex.app.BlinkTrade.prototype.model_;
+
+
+/**
+ * @type {number}
+ * @private
+ */
+bitex.app.BlinkTrade.prototype.finger_print_;
 
 /**
  * @type {string}
@@ -293,7 +306,7 @@ bitex.app.BlinkTrade.validateBitcoinAddress_ = function(el, condition, minLength
     throw MSG_BITEX_ERROR_VALIDATE_BTC_ADDRESS;
   }
 
-}
+};
 
 /**
  * @param {string} host_api
@@ -456,8 +469,9 @@ bitex.app.BlinkTrade.prototype.run = function(host_api) {
   handler.listen(this.views_, bitex.view.View.EventType.CHANGE_BROKER, this.onUserChangeBroker_ );
 
   handler.listen(this.views_, bitex.ui.AdvancedOrderEntry.EventType.SUBMIT, this.onUserOrderEntry_ );
-  handler.listen(this.views_, bitex.view.View.EventType.CANCEL_ORDER, this.onUserCancelOrder_ );
   handler.listen(this.views_, bitex.ui.SimpleOrderEntry.EventType.SUBMIT, this.onUserOrderEntry_ );
+  handler.listen(this.views_, bitex.view.View.EventType.CANCEL_ORDER, this.onUserCancelOrder_ );
+  handler.listen(this.views_, bitex.view.View.EventType.CANCEL_REPLACE_ORDER, this.onUserCancelReplaceOrder_ );
 
   handler.listen(this.views_, bitex.view.View.EventType.MARKET_DATA_SUBSCRIBE, this.onUserMarketDataSubscribe_);
   handler.listen(this.views_, bitex.view.View.EventType.MARKET_DATA_UNSUBSCRIBE, this.onUserMarketDataUnsubscribe_);
@@ -533,6 +547,14 @@ bitex.app.BlinkTrade.prototype.onUpdateAvailableBalance_  = function(e) {
     }, this);
   }, this);
 };
+
+/**
+ * @returns {number}
+ */
+bitex.app.BlinkTrade.prototype.getFingerPrint = function(){
+  return this.finger_print_;
+};
+
 
 /**
  * @param {bitex.model.ModelEvent} e
@@ -644,6 +666,10 @@ bitex.app.BlinkTrade.prototype.onUpdateBalance_ = function(e) {
         } catch(e){}
 
         var balance_key = 'balance_' + broker_id + ':' + account_id + '_'  + currency;
+        if (this.getApplication().isCryptoCurrency(currency)) {
+
+        }
+
         this.getModel().set( balance_key , balance );
 
         balance = new bitex.primitives.Price(balance, this.getCurrencyPip(currency)  ).floor();
@@ -1499,12 +1525,31 @@ bitex.app.BlinkTrade.prototype.showWithdrawalDialog = function(currency){
 
   var user_verification_level = this.getModel().get('Profile')['Verified'];
 
+  var user_withdrawal_percent_fee = this.getModel().get('Profile')['WithdrawPercentFee'];
+  if (goog.isDefAndNotNull(user_withdrawal_percent_fee)) {
+    user_withdrawal_percent_fee = parseFloat(user_withdrawal_percent_fee);
+  }
+
+  var user_withdrawal_fixed_fee = this.getModel().get('Profile')['WithdrawFixedFee'];
+  if (goog.isDefAndNotNull(user_withdrawal_fixed_fee)) {
+    user_withdrawal_fixed_fee = parseFloat(user_withdrawal_fixed_fee);
+  }
+
+
   var balance_key = 'available_balance_' +
       this.getModel().get('Broker')['BrokerID'] + ':' + this.getModel().get('UserID') + '_' + currency;
   var user_balance = parseInt(this.getModel().get(balance_key,0), 10);
 
   var user_verified_withdraw_methods = [];
   goog.array.forEach(withdraw_methods, function(withdrawal_method){
+    if (goog.isDefAndNotNull(user_withdrawal_percent_fee)) {
+      withdrawal_method['percent_fee'] = user_withdrawal_percent_fee;
+    }
+
+    if (goog.isDefAndNotNull(user_withdrawal_fixed_fee)) {
+      withdrawal_method['fixed_fee'] = user_withdrawal_fixed_fee;
+    }
+
     var withdrawal_limit;
     var withdrawal_limit_index;
     for (withdrawal_limit_index = user_verification_level; withdrawal_limit_index>=0;withdrawal_limit_index--) {
@@ -1774,6 +1819,13 @@ bitex.app.BlinkTrade.prototype.onBrokerProcessWithdraw_ = function(e){
   } else if (action === 'PROGRESS') {
     var formatted_amount = this.formatCurrency(withdraw_data['Amount']/1e8, withdraw_data['Currency'] );
 
+    var fixed_fee = valueFormatter.format(withdraw_data['FixedFee']/1e8);
+    var percent_fee = valueFormatter.format(withdraw_data['PercentFee']);
+    if ( this.getModel().get('Profile')['IsMarketMaker']) {
+      fixed_fee = 0;
+      percent_fee = 0;
+    }
+
     var feeDialogContent = bitex.templates.FeesForm({
        amount: withdraw_data['Amount'],
        formattedAmount: formatted_amount,
@@ -1784,8 +1836,8 @@ bitex.app.BlinkTrade.prototype.onBrokerProcessWithdraw_ = function(e){
        percentFeeID: percent_fee_element_id,
        totalFeesID: total_fees_element_id,
        netValueID: net_value_element_id,
-       fixedFee: valueFormatter.format(withdraw_data['FixedFee']/1e8),
-       percentFee: valueFormatter.format(withdraw_data['PercentFee'])
+       fixedFee: fixed_fee,
+       percentFee: percent_fee
     });
 
     /**
@@ -2130,6 +2182,21 @@ bitex.app.BlinkTrade.prototype.onUserCancelOrder_ = function(e){
  * @param {goog.events.Event} e
  * @private
  */
+bitex.app.BlinkTrade.prototype.onUserCancelReplaceOrder_ = function(e) {
+  this.conn_.cancelOrder(e.target.getClientOrderId(), e.target.getOrderId());
+
+  this.conn_.sendLimitedOrder(e.target.getSymbol(),
+                              e.target.getAmount(),
+                              e.target.getPrice(),
+                              e.target.getSide(),
+                              e.target.getBrokerID(),
+                              e.target.getClientID());
+};
+
+/**
+ * @param {goog.events.Event} e
+ * @private
+ */
 bitex.app.BlinkTrade.prototype.onShowReceipt_ = function(e){
   var receiptData = e.target.getReceiptData();
 
@@ -2264,6 +2331,7 @@ bitex.app.BlinkTrade.prototype.onUserUploadReceipt_ = function(e){
   upload_form_url = upload_form_url.replace('{{ControlNumber}}', deposit_data['ControlNumber']);
   upload_form_url = upload_form_url.replace('{{DepositID}}', deposit_data['DepositID']);
   upload_form_url = upload_form_url.replace('{{Value}}',  deposit_data['Value']);
+  upload_form_url = upload_form_url.replace('{{FingerPrint}}',  this.finger_print_ );
   try {
     var formmatted_value = this.formatCurrency( deposit_data['Value']/1e8, deposit_data['Currency']  , true);
     upload_form_url = upload_form_url.replace('{{FormattedValue}}',  formmatted_value );
@@ -3118,6 +3186,9 @@ bitex.app.BlinkTrade.prototype.onUserLoginOk_ = function(e) {
     }
   }
   this.getModel().set('Profile',  profile);
+  this.getModel().set('ShowMMP', (this.getModel().get('IsBroker') || this.getModel().get('Profile')['IsMarketMaker'] ));
+
+
   if (msg['IsBroker'] ) {
     this.getModel().set('SelectedBrokerID', this.getModel().get('Profile')['BrokerID']);
   } else if (goog.isDefAndNotNull(msg['Broker'])) {
@@ -3592,12 +3663,13 @@ bitex.app.BlinkTrade.prototype.onSecurityList_ =   function(e) {
       is_crypto : currency['IsCrypto'],
       number_of_decimals: currency['NumberOfDecimals']
     };
-
   }, this);
 
   var symbols = [];
   goog.array.forEach(msg['Instruments'], function( instrument) {
     var symbol = instrument['Symbol'];
+
+
 
     this.all_markets_[symbol]  = {
       'symbol': symbol,
@@ -3699,6 +3771,19 @@ bitex.app.BlinkTrade.prototype.adjustBrokerData_ = function(broker_info) {
   broker_info['AllowedMarkets'] = allowed_markets;
   broker_info['FormattedTransactionFeeBuy'] = percent_fmt.format(broker_info['TransactionFeeBuy'] / 10000);
   broker_info['FormattedTransactionFeeSell'] = percent_fmt.format(broker_info['TransactionFeeSell'] / 10000);
+
+  goog.object.forEach(allowed_markets, function(market, symbol) {
+    this.currency_info_[ 'MMP.' + symbol ] = {
+      code: 'MMP.' + symbol,
+      format: '#,##0.00;(#,##0.00)',
+      human_format: '#,##0.00;(#,##0.00)',
+      description : 'Points',
+      sign : 'P',
+      pip : 1,
+      is_crypto : false,
+      number_of_decimals: 2
+    };
+  }, this);
 
   return broker_info;
 };
