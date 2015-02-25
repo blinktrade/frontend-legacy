@@ -722,7 +722,8 @@ bitex.api.BitEx.prototype.login = function(brokerID, username, password, opt_sec
     'UserReqTyp': '1',
     'UserAgent': userAgent,
     'UserAgentLanguage': userAgentLanguage,
-    'UserAgentTimezoneOffset': userAgentTimezoneOffset
+    'UserAgentTimezoneOffset': userAgentTimezoneOffset,
+    'UserAgentPlatform': goog.global.navigator.platform
   };
   if (goog.isDefAndNotNull(opt_second_factor)) {
     msg['SecondFactor'] = opt_second_factor;
@@ -1470,7 +1471,8 @@ bitex.api.BitEx.prototype.signUp = function(username, password, email, state, co
     'BrokerID': broker,
     'UserAgent': userAgent,
     'UserAgentLanguage': userAgentLanguage,
-    'UserAgentTimezoneOffset': userAgentTimezoneOffset
+    'UserAgentTimezoneOffset': userAgentTimezoneOffset,
+    'UserAgentPlatform': goog.global.navigator.platform
   };
   this.sendMessage(msg);
 };
