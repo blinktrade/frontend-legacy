@@ -710,7 +710,7 @@ bitex.api.BitEx.prototype.login = function(brokerID, username, password, opt_sec
   var reqId = opt_request_id || parseInt(Math.random() * 1000000, 10);
 
   var userAgent = goog.userAgent.getUserAgentString();
-  var userAgentLanguage = goog.global.navigator.language();
+  var userAgentLanguage = goog.global.navigator.language;
   var userAgentTimezoneOffset = new Date().getTimezoneOffset();
 
   var msg = {
