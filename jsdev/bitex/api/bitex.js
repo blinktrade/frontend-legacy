@@ -1457,7 +1457,7 @@ bitex.api.BitEx.prototype.signUp = function(username, password, email, state, co
   var requestId = opt_requestId || parseInt( 1e7 * Math.random() , 10 );
 
   var userAgent = goog.userAgent.getUserAgentString();
-  var userAgentLanguage = goog.global.navigator.language();
+  var userAgentLanguage = goog.global.navigator.language;
   var userAgentTimezoneOffset = new Date().getTimezoneOffset();
 
   var msg = {
