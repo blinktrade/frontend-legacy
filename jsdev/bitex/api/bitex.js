@@ -15,6 +15,8 @@ goog.require('goog.events');
 goog.require('goog.events.Event');
 goog.require('goog.events.EventTarget');
 
+goog.require('goog.userAgent');
+
 /**
  * @constructor
  * @param {number} opt_browser_finger_print
@@ -706,13 +708,22 @@ bitex.api.BitEx.prototype.close = function(){
  */
 bitex.api.BitEx.prototype.login = function(brokerID, username, password, opt_second_factor, opt_request_id ){
   var reqId = opt_request_id || parseInt(Math.random() * 1000000, 10);
+
+  var userAgent = goog.userAgent.getUserAgentString();
+  var userAgentLanguage = goog.global.navigator.language();
+  var userAgentTimezoneOffset = new Date().getTimezoneOffset();
+
   var msg = {
     'MsgType': 'BE',
     'UserReqID': reqId,
     'BrokerID': brokerID,
     'Username': username,
     'Password': password,
-    'UserReqTyp': '1'
+    'UserReqTyp': '1',
+    'UserAgent': userAgent,
+    'UserAgentLanguage': userAgentLanguage,
+    'UserAgentTimezoneOffset': userAgentTimezoneOffset,
+    'UserAgentPlatform': goog.global.navigator.platform
   };
   if (goog.isDefAndNotNull(opt_second_factor)) {
     msg['SecondFactor'] = opt_second_factor;
@@ -1444,6 +1455,11 @@ bitex.api.BitEx.prototype.requestSecurityList = function(opt_requestId){
  */
 bitex.api.BitEx.prototype.signUp = function(username, password, email, state, country_code, broker, opt_requestId) {
   var requestId = opt_requestId || parseInt( 1e7 * Math.random() , 10 );
+
+  var userAgent = goog.userAgent.getUserAgentString();
+  var userAgentLanguage = goog.global.navigator.language();
+  var userAgentTimezoneOffset = new Date().getTimezoneOffset();
+
   var msg = {
     'MsgType': 'U0',
     'UserReqID': requestId,
@@ -1452,7 +1468,11 @@ bitex.api.BitEx.prototype.signUp = function(username, password, email, state, co
     'Email': email,
     'State': state,
     'CountryCode': country_code,
-    'BrokerID': broker
+    'BrokerID': broker,
+    'UserAgent': userAgent,
+    'UserAgentLanguage': userAgentLanguage,
+    'UserAgentTimezoneOffset': userAgentTimezoneOffset,
+    'UserAgentPlatform': goog.global.navigator.platform
   };
   this.sendMessage(msg);
 };
