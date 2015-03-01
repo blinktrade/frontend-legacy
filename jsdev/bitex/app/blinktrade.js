@@ -446,7 +446,6 @@ bitex.app.BlinkTrade.prototype.run = function(host_api) {
   handler.listen( this.conn_,bitex.api.BitEx.EventType.WITHDRAW_RESPONSE, this.onBitexWithdrawResponse_);
   handler.listen( this.conn_,bitex.api.BitEx.EventType.WITHDRAW_CONFIRMATION_RESPONSE, this.onBitexWithdrawConfirmationResponse_);
 
-  handler.listen( this.conn_, bitex.api.BitEx.EventType.SUGGEST_TRUSTED_ADDRESS_PUBLISH, this.onSuggestTrustedAddress_);
   handler.listen( this.conn_, bitex.api.BitEx.EventType.UPDATE_PROFILE_RESPONSE, this.onUpdateProfileResponse_);
 
 
@@ -2223,48 +2222,6 @@ bitex.app.BlinkTrade.prototype.onUpdateProfileResponse_ = function(e) {
   model.set('SelectedCustomer', new_profile);
 };
 
-/**
- * @param {bitex.api.BitExEvent} e
- * @private
- */
-bitex.app.BlinkTrade.prototype.onSuggestTrustedAddress_ = function(e){
-  var msg = e.data;
-
-  var model = this.getModel();
-  if (!model.get('IsVerified')) {
-    return;
-  }
-
-  /**
-   * @desc Enable instant deposit dialog title
-   */
-  var MSG_ENABLE_INSTANT_DEPOSIT_DIALOG_TITLE =
-      goog.getMsg('Enable {$currency} instant deposit?', {currency :  this.getCurrencyDescription(msg['Currency']) });
-
-
-  var dlg =  this.showDialog(bitex.templates.ConfirmTrustedAddressContentDialog( {data: msg } ),
-                             MSG_ENABLE_INSTANT_DEPOSIT_DIALOG_TITLE,
-                             bootstrap.Dialog.ButtonSet.createYesNoCancel());
-
-  var handler = this.getHandler();
-  handler.listen(dlg, goog.ui.Dialog.EventType.SELECT, function(e) {
-    if (e.key == 'yes') {
-      e.preventDefault();
-      e.stopPropagation();
-
-      var address_label_el = goog.dom.getElementByClass('confirm-trusted-address-label', dlg.getContentElement());
-      var label;
-
-      if (goog.isDefAndNotNull(address_label_el)){
-        label = goog.dom.forms.getValue(address_label_el);
-      }
-
-      this.conn_.confirmTrustedAddressRequest( msg['Address'], msg['Currency'], label );
-    }
-
-    dlg.dispose();
-  }, this);
-};
 
 /**
  * @param {goog.events.Event} e
