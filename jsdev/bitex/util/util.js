@@ -155,7 +155,7 @@ bitex.util.convertServerUTCDateTimeStrToTimestamp = function(ymd_string, opt_tim
   var timestamp = new Date();
   var create_date_parts = ymd_string.split('-');
   timestamp.setUTCFullYear(create_date_parts[0]);
-  timestamp.setUTCMonth(create_date_parts[1]);
+  timestamp.setUTCMonth( parseInt(create_date_parts[1], 10) - 1);
   timestamp.setUTCDate(create_date_parts[2]);
 
   if (opt_time_string) {
