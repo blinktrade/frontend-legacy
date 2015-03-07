@@ -4,6 +4,12 @@ goog.provide('bitex.util.PriceAmountCalculatorVerb');
 goog.require('goog.math.Long');
 goog.require('goog.crypt');
 goog.require('goog.crypt.Sha256');
+goog.require('goog.crypt.hash32');
+
+goog.require('goog.userAgent');
+goog.require('goog.userAgent.jscript');
+goog.require('goog.storage.mechanism.HTML5SessionStorage');
+goog.require('goog.storage.mechanism.HTML5LocalStorage');
 
 bitex.util.generateGUID = function() {
   function s4() {
@@ -13,6 +19,74 @@ bitex.util.generateGUID = function() {
   }
   return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
       s4() + '-' + s4() + s4() + s4();
+};
+
+
+/**
+ * returns the browser fingerprint
+ * @returns {number}
+ */
+bitex.util.getBrowserFingerPrint = function() {
+  var keys = [];
+  keys.push(goog.userAgent.getUserAgentString());
+  keys.push(goog.global.screen.colorDepth);
+  keys.push(goog.global.navigator.language);
+  if (goog.isArray(goog.global.navigator["languages"])) {
+    keys.push(goog.global.navigator["languages"].join('x'));
+  } else {
+    keys.push(typeof undefined);
+  }
+  var resolution = (goog.global.screen.height > goog.global.screen.width)
+                ? [goog.global.screen.height, goog.global.screen.width]
+                : [goog.global.screen.width, goog.global.screen.height];
+  keys.push(resolution.join('x'));
+  keys.push(new Date().getTimezoneOffset());
+  keys.push(new goog.storage.mechanism.HTML5SessionStorage().isAvailable());
+  keys.push(new goog.storage.mechanism.HTML5LocalStorage().isAvailable());
+  keys.push(!!goog.global.indexedDB);
+  if(document.body){
+    keys.push(typeof(goog.global.document.body.addBehavior));
+  } else {
+    keys.push(typeof undefined);
+  }
+  keys.push(typeof(goog.global.window.openDatabase));
+  keys.push(goog.global.navigator["cpuClass"]);
+  keys.push(goog.global.navigator.platform);
+  keys.push(goog.global.navigator["doNotTrack"]);
+
+  var plugin_key_list = [];
+  goog.array.forEach(goog.global.navigator.plugins, function(p) {
+    var mime_types = [];
+    goog.array.forEach(p, function(mt) {
+       mime_types.push([mt.type, mt.suffixes].join('~') );
+    });
+    plugin_key_list.push([p.name, p.description, mime_types.join(',')].join('::'));
+  });
+  keys.push(plugin_key_list.join(';'));
+
+  var canvas_el = goog.dom.createElement(goog.dom.TagName.CANVAS);
+  if (  !!(canvas_el.getContext && canvas_el.getContext('2d')) ) {
+    var ctx = canvas_el.getContext('2d');
+    var txt = 'http://valve.github.io';
+    ctx.textBaseline = "top";
+    ctx.font = "14px 'Arial'";
+    ctx.textBaseline = "alphabetic";
+    ctx.fillStyle = "#f60";
+    ctx.fillRect(125,1,62,20);
+    ctx.fillStyle = "#069";
+    ctx.fillText(txt, 2, 15);
+    ctx.fillStyle = "rgba(102, 204, 0, 0.7)";
+    ctx.fillText(txt, 4, 17);
+    keys.push(canvas_el.toDataURL());
+  }
+  var sha256 = new goog.crypt.Sha256();
+  sha256.update( keys.join('###'));
+
+  var finger_print = goog.crypt.hash32.encodeByteArray(sha256.digest());
+  if (finger_print < 0) {
+    finger_print *= -1;
+  }
+  return finger_print;
 };
 
 /**
@@ -81,7 +155,7 @@ bitex.util.convertServerUTCDateTimeStrToTimestamp = function(ymd_string, opt_tim
   var timestamp = new Date();
   var create_date_parts = ymd_string.split('-');
   timestamp.setUTCFullYear(create_date_parts[0]);
-  timestamp.setUTCMonth(create_date_parts[1]);
+  timestamp.setUTCMonth( parseInt(create_date_parts[1], 10) - 1);
   timestamp.setUTCDate(create_date_parts[2]);
 
   if (opt_time_string) {
@@ -168,13 +242,13 @@ bitex.util.getFormAsJSON = function(element){
  */
 bitex.util.getPseudoName = function(user_id) {
   var list_of_101_animal_names = [
-    'Os',    'Oso',    'Cow',    'Pig',    'Dog',    'Cat',    'Rat',    'Fox',    'Ram',    'Bat',
+    'Os',    'Oso',    'Cow',    'Gnu',    'Ema',    'Cat',    'Rat',    'Fox',    'Ram',    'Bat',
     'Owl',   'Oca',    'Ruc',    'Pop',    'Gos',    'Oie',    'Pie',    'Coq',    'Pic',    'Kuh',
     'Wal',   'Hai',    'Pfau',   'Toro',   'Hund',   'Paon',   'Gall',   'Lula',   'Loro',   'Drac',
     'Gato',  'Rata',   'Llop',   'Vaca',   'Rato',   'Sapo',   'Lobo',   'Urso',   'Puma',   'Orca',
     'Peru',  'Rato',   'Galo',   'Lynx',   'Hawk',   'Pony',   'Frog',   'Wolf',   'Goat',   'Lion',
     'Seal',  'Bear',   'Bull',   'Deer',   'Puma',   'Orca',   'Pavo',   'Swan',   'Cerf',   'Gallo',
-    'Pulpo', 'Ostra',  'Pombo',  'Touro',  'Veado',  'Cabra',  'Poney',  'Porco',  'Ganso',  'Corvo',
+    'Pulpo', 'Ostra',  'Pombo',  'Touro',  'Veado',  'Cabra',  'Poney',  'Foca',   'Ganso',  'Corvo',
     'Hiena', 'Bison',  'Cobra',  'Tigre',  'Polvo',  'Zebra',  'Goose',  'Raven',  'Sloth',  'Viper',
     'Whale', 'Lemur',  'Mouse',  'Skunk',  'Hyena',  'Bison',  'Camel',  'Crock',  'Eagle',  'Snake',
     'Otter', 'Tiger',  'Zebra',  'Horse',  'Rhino',  'Hippo',  'Shark',  'Koala',  'Huhn',   'Katze',

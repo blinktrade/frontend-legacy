@@ -6,6 +6,7 @@ goog.require('bitex.ui.DataGrid');
 goog.require('goog.ui.registry');
 
 goog.require('goog.dom.TagName');
+goog.require('bitex.util');
 
 /**
  * @desc Column ID of the Deposit List
@@ -109,6 +110,9 @@ bitex.ui.DepositList = function( crypto_currencies_def, opt_broker_mode, opt_sho
       'property': 'Created',
       'label': MSG_DEPOSIT_TABLE_COLUMN_CREATED,
       'sortable': false,
+      'formatter': function(s, rowSet) {
+        return  bitex.util.convertServerUTCDateTimeStrToTimestamp(s.substr(0, 10), s.substr(11)).toLocaleString();
+      },
       'classes': function() { return goog.getCssName(bitex.ui.DepositList.CSS_CLASS, 'created'); }
     },{
       'property': 'Status',

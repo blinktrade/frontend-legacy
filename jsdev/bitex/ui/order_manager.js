@@ -7,6 +7,7 @@ goog.require('goog.object');
 goog.require('bitex.ui.DataGrid');
 goog.require('goog.ui.registry');
 
+goog.require('bitex.util');
 goog.require('goog.dom.TagName');
 
 
@@ -131,11 +132,13 @@ bitex.ui.OrderManager = function(opt_mode, opt_openOrdersTitle, opt_blinkDelay, 
 
   var grid_columns_simple = [
     {
-      'property': 'OrderID',
-      'label': MSG_ORDER_MANAGER_ACTIVITY_TABLE_COLUMN_ID,
+      'property': 'OrderDate',
+      'label': MSG_ORDER_MANAGER_ACTIVITY_TABLE_COLUMN_ORDER_DATE,
       'sortable': false,
-      'formatter': function(s, rowSet) { return rowSet['ClOrdID']},
-      'classes': function() { return goog.getCssName(bitex.ui.OrderManager.CSS_CLASS, 'order-id'); }
+      'formatter': function(s, rowSet) {
+        return  bitex.util.convertServerUTCDateTimeStrToTimestamp(s.substr(0, 10), s.substr(11)).toLocaleString();
+      },
+      'classes': function() { return goog.getCssName(bitex.ui.OrderManager.CSS_CLASS, 'order-date'); }
     },{
       'property': 'Side',
       'label': MSG_ORDER_MANAGER_ACTIVITY_TABLE_COLUMN_DESCRIPTION,
@@ -181,11 +184,14 @@ bitex.ui.OrderManager = function(opt_mode, opt_openOrdersTitle, opt_blinkDelay, 
   ];
 
   var grid_columns_advanced = [
-    {
-      'property': 'OrderID',
-      'label': MSG_ORDER_MANAGER_ACTIVITY_TABLE_COLUMN_ID,
+     {
+      'property': 'OrderDate',
+      'label': MSG_ORDER_MANAGER_ACTIVITY_TABLE_COLUMN_ORDER_DATE,
       'sortable': false,
-      'classes': function() { return goog.getCssName(bitex.ui.OrderManager.CSS_CLASS, 'order-id'); }
+      'formatter': function(s, rowSet) {
+        return  bitex.util.convertServerUTCDateTimeStrToTimestamp(s.substr(0, 10), s.substr(11)).toLocaleString();
+      },
+      'classes': function() { return goog.getCssName(bitex.ui.OrderManager.CSS_CLASS, 'order-date'); }
     },{
       'property': 'OrdStatus',
       'label': MSG_ORDER_MANAGER_ACTIVITY_TABLE_COLUMN_STATUS,

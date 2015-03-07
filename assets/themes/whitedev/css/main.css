@@ -33,7 +33,7 @@
 .ls-menu{
     background: #444 url(../images/blur.png) center no-repeat;
     background-size: 200%;
-    height: calc(100% - 500px)!important;
+    height: calc(100% - 400px)!important;
 }
 /* FONTES*/
 @font-face{
@@ -56,8 +56,16 @@ a:hover:not(.ls-btn),a:focus,a{
 .youraccount [class^="flaticon-"]:before{
 	margin-left: 0 !important;
 }
+.youraccount{
+  padding-right: 0;
+}
 .ls-menu{
-	overflow-y: scroll;
+    margin-top: -20px!important;
+	overflow-y: auto;
+}
+#id_account_summary_content{
+    max-height:200px;
+    overflow-y: auto;
 }
 
 /* mudar os botoes */
@@ -91,21 +99,29 @@ a:hover:not(.ls-btn),a:focus,a{
 [class*="ls-btn"]{
 	border-radius: 50px !important;
 }
-.ls-sidebar-visible .ls-topbar, .ls-sidebar-visible .ls-main{
-    transform: translate(280px, 0);
-    -moz-transform: translate(280px, 0);
-    -ms-transform: translate(280px, 0);
-    -webkit-transform: translate(280px, 0);
-}
 
 @media(min-width: 768px){
     .ls-title-intro{
         margin-bottom:0px!important;
     }
+    .ls-footer-item{
+        height:25px!important;
+    }
 }
 
 /* ajuste para telas móveis */
 @media (max-width: 768px){
+
+    .ls-sidebar{
+        -moz-transform: translate(-100%, 0);
+        -ms-transform: translate(-100%, 0);
+        -webkit-transform: translate(-100%, 0);
+        transform: translate(-100%, 0);
+    }
+    #id_account_summary_content{
+        max-height:90px;
+        overflow-y: auto;
+    }
     .ls-sidebar{
         width:280px;
     }
@@ -114,12 +130,6 @@ a:hover:not(.ls-btn),a:focus,a{
 	}
     .ls-footer{
         height:auto;
-    }
-    .ls-footer-item{
-        height:25px!important;
-    }
-    .ls-menu{
-        overflow-y: scroll;
     }
     .footer-align {
         margin-left: 10px!important;
@@ -155,14 +165,8 @@ a:hover:not(.ls-btn),a:focus,a{
     .ls-footer{
         height:auto!important;
     }
-    .ls-footer-item{
-        height:25px!important;
-    }
     .footer-align {
         margin-left: 60px!important;
-    }
-    .alert{
-        margin-left:80px!important;
     }
 	.ls-sidebar:hover .youraccount{
 		display: block;
@@ -191,6 +195,14 @@ body{
 .ls-main{
     height:auto;
     padding-top:0px;
+}
+
+
+.ls-sidebar-visible .ls-topbar, .ls-sidebar-visible .ls-main{
+    transform: translate(280px, 0);
+    -moz-transform: translate(280px, 0);
+    -ms-transform: translate(280px, 0);
+    -webkit-transform: translate(280px, 0);
 }
 
 .start{
@@ -232,6 +244,12 @@ ul.start-links a{
 ul.ls-footer-list li{
     width:initial;
     vertical-align:initial;
+}
+.ls-footer-item a{
+    padding:0px!important;
+}
+.ls-footer-list{
+    width:100%!important;
 }
 
 .ls-language{
@@ -365,9 +383,8 @@ footer{
 }
 
 .alert{
+    margin-left:10px;
     margin-top:10px;
-    margin-left:300px;
-    margin-right:20px;
     margin-bottom:0px;
     width: auto;
     border-radius:50px;
@@ -418,6 +435,10 @@ footer{
     position:absolute;
     top:65px;
     right: 10px;
+}
+
+.market-view-table-selected td{
+  background: #FFECC9!important;
 }
 
 .bitex-broker .bitex-display-if-broker {

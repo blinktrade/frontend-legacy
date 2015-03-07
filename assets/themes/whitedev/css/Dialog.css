@@ -79,11 +79,14 @@
     border-radius: 4px;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.7);
     overflow: hidden;
-    display: table;
+    display: block;
     width: 50%;
     top: 50%;
     z-index: 99999;
     position: fixed;
+    overflow: auto;
+    max-height: 100%;
+    max-width: 100%;
 }
 
 .modal > .modal-header {
@@ -107,7 +110,8 @@
 
 
 .modal > .modal-body {
-    padding: 25px
+    padding: 25px;
+    overflow: auto;
 }
 
 .modal > .modal-footer {
