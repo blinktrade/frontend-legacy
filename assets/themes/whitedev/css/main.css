@@ -323,6 +323,14 @@ footer{
     cursor: crosshair;
 }
 
+.order-book-drag td{
+    border-top:3px solid #B2E1B3;
+}
+
+.order-book-movable td{
+    cursor: move;
+}
+
 .open .ls-dropdown-nav{
     display:block
 }
