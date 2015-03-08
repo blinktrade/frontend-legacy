@@ -222,7 +222,7 @@ load_application:       True
       </div>
     </div>
 
-      <footer class="ls-footer col-md-12" role="contentinfo" style="margin-bottom:50px;margin-left:20px;">
+      <footer class="ls-footer col-md-12" role="contentinfo" style="margin-left:20px;">
           <nav class="ls-footer-menu">
               <div class="ls-footer-list col-md-12">
                   <div class="row">
@@ -253,7 +253,7 @@ load_application:       True
   </main>
 </div>
 
-  <div id="start" class="row-fluid bitex-view bitex-view-admin">
+  <div id="start" class="row-fluid bitex-view bitex-view-admin min-height-view">
 
     <div class="bitex-view-content">
       <div class="bitex-hide-if-logged bitex-view-content" style="text-align: center;">
@@ -313,7 +313,7 @@ load_application:       True
     </div>
   </div>
 
-  <div id="faq" class="container bitex-view" style="margin-top:20px">
+  <div id="faq" class="container bitex-view min-height-view" style="margin-top:20px;">
     <div class="page-header">
       <h1 class="bitex-view-title">{% t views.faq.title %}</h1>
     </div>
@@ -345,7 +345,7 @@ load_application:       True
   </div>
 
   <!-- signup page-->
-  <div id="signup" class="container bitex-view" style="margin-top:20px;">
+  <div id="signup" class="container bitex-view min-height-view" style="margin-top:20px;">
     <div class="page-header ls-title-4">
       <h1 class="bitex-view-title">{% t views.signup.title %}</h1>
     </div>
@@ -410,7 +410,7 @@ load_application:       True
   </div>
 
   <!-- signin page-->
-  <div id="signin" class="container bitex-view" style="margin-top:20px">
+  <div id="signin" class="container bitex-view" style="margin-top:20px;min-height:85%">
     <div class="page-header">
       <h1 class="bitex-view-title">{% t views.signin.title %}</h1>
     </div>
@@ -437,7 +437,7 @@ load_application:       True
     </div>
   </div>
 
-  <div id="forgot_password" class="container bitex-view" style="margin-top:20px">
+  <div id="forgot_password" class="container bitex-view min-height-view" style="margin-top:20px">
     <div class="page-header">
       <h1 class="bitex-view-title">{% t views.forgot_password.title %}</h1>
     </div>
@@ -456,7 +456,34 @@ load_application:       True
     </div>
   </div>
 
-  <div id="set_new_password" class="page  row bitex-view">
+  <div id="themes" class="bitex-view container min-height-view" style="margin-top:20px;">
+    <div class="page-header ls-title-4">
+        <h1 class="bitex-view-title">Themes</h1>
+    </div>
+    <br>
+    <p>Choose a Theme</p>
+    <hr>
+    <div class="bitex-view-content">
+        <div class="row" style="text-align:center">
+            <div class="col-md-6">
+                <a href="{{ site.url}}{{ site.baseurl}}/themes/default/">
+                    <img src="{{ site.url}}{{ site.baseurl }}/assets/exchange_logos/thumb-themes/default-theme.jpg" alt="Default Theme" class="thumb-theme">
+                    <hr>
+                    <h3 class="ls-title-4">Default Theme</h3>
+                </a>
+            </div>
+            <div class="col-md-6">
+                <a href="{{ site.url}}{{ site.baseurl}}/themes/whitedev/">
+                    <img src="{{ site.url}}{{ site.baseurl }}/assets/exchange_logos/thumb-themes/whitedev-theme.jpg" alt="Whitedev Theme" class="thumb-theme">
+                    <hr>
+                    <h3 class="ls-title-4">Whitedev</h3>
+                </a>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <div id="set_new_password" class="page  row bitex-view min-height-view">
     <div class="page-header">
       <h1 class="bitex-view-title">{% t views.set_new_password.title %}</h1>
     </div>
@@ -493,7 +520,7 @@ load_application:       True
     </div>
   </div>
   <div class="bitex-hide-if-logged">
-      <footer class="ls-footer col-md-12" role="contentinfo" style="margin-bottom:50px;margin-left:20px;">
+      <footer class="ls-footer col-md-12" role="contentinfo" style="margin-left:20px;">
           <nav class="ls-footer-menu">
               <div class="ls-footer-list col-md-12">
                   <div class="row">
@@ -504,12 +531,15 @@ load_application:       True
                     <div class="col-md-2 ls-footer-item">
                       <a href="#">Latency: <span class="bitex-model" data-model-key="latency">0</span> ms</a>
                     </div>
-                    <div class="col-md-2 ls-footer-item">
+                    <div class="col-md-1 ls-footer-item">
                       <a href="#">Version: {{ site.deploy_version }}</a>
                     </div>
                     {% endif %}
                     <div class="col-md-2 ls-footer-item">
                         <a href="http://blinktrade.com/" target="_blank">© 2014 BlinkTrade Inc</a>
+                    </div>
+                    <div class="col-md-1 ls-footer-item">
+                        <a href="#themes">Themes</a>
                     </div>
                     <div class="col-md-2 ls-footer-item">
                         <a href="https://github.com/blinktrade/" target="_blank">Proudly 100% open source <span class="bitex-model" data-model-key="JSVersion"></span></a>

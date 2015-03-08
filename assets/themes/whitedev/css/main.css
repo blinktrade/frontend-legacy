@@ -112,6 +112,9 @@ a:hover:not(.ls-btn),a:focus,a{
 /* ajuste para telas móveis */
 @media (max-width: 768px){
 
+    .zopim{
+        display:none;
+    }
     .ls-sidebar{
         -moz-transform: translate(-100%, 0);
         -ms-transform: translate(-100%, 0);
@@ -212,6 +215,14 @@ body{
     right:0;
     left:0;
     z-index:1;
+}
+
+.min-height-view{
+    min-height: calc(100% - 150px);
+}
+
+.thumb-theme{
+    box-shadow: 0px 0px 7px #808080;
 }
 
 .login-input input{
