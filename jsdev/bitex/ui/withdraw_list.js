@@ -220,10 +220,10 @@ bitex.ui.WithdrawList = function( methodDescriptionObj, opt_broker_mode,  opt_sh
                 goog.dom.createDom('td', goog.getCssName(bitex.ui.WithdrawList.CSS_CLASS, 'details-td-key'), MSG_WITHDRAW_BROKER_RECEIPT_COLUMN ),
                 goog.dom.createDom('td', goog.getCssName(bitex.ui.WithdrawList.CSS_CLASS, 'details-td-value'),
                   goog.dom.createDom('a', {
-                    'class':'btn btn-mini btn-primary',
+                    'class':'ls-btn ls-btn-primary',
                     'target':'_blank',
                     'href': data['Link']
-                  }, MSG_WITHDRAW_BROKER_RECEIPT_BUTTON_LABEL,' ' ,goog.dom.createDom( 'i', ['icon-white', 'icon-eye-open'] )
+                  }, MSG_WITHDRAW_BROKER_RECEIPT_BUTTON_LABEL,' ' ,goog.dom.createDom( 'i', ['icon-white', 'ls-ico-eye'] )
                 ) ))) ;
           }
         }
@@ -248,11 +248,11 @@ bitex.ui.WithdrawList = function( methodDescriptionObj, opt_broker_mode,  opt_sh
                 var MSG_WITHDRAW_TABLE_DETAILS_COLUMN_BTN_QR  = goog.getMsg('qr');
 
                 var btn_qr = goog.dom.createDom( 'a', {
-                  'class':'btn btn-mini btn-info btn-withdraw-list-qr',
+                  'class':'ls-btn ls-btn-primary btn-withdraw-list-qr',
                   'href':'#',
                   'data-action':'SHOW_QR',
                   'data-row': goog.json.serialize( rowSet )
-                },MSG_WITHDRAW_TABLE_DETAILS_COLUMN_BTN_QR,' ' , goog.dom.createDom( 'i', ['icon-white', 'icon-qrcode']));
+                },MSG_WITHDRAW_TABLE_DETAILS_COLUMN_BTN_QR,' ' , goog.dom.createDom( 'i', ['icon-white', 'ls-ico-qrcode']));
 
                 goog.dom.appendChild(element, goog.dom.createDom('tr', goog.getCssName(bitex.ui.WithdrawList.CSS_CLASS, 'details-tr'),
                     goog.dom.createDom('td', goog.getCssName(bitex.ui.WithdrawList.CSS_CLASS, 'details-td-key'), MSG_WITHDRAW_TABLE_WALLET_KEY ),
@@ -369,10 +369,10 @@ bitex.ui.WithdrawList = function( methodDescriptionObj, opt_broker_mode,  opt_sh
              }
 
              var btn_blockchain = goog.dom.createDom( 'a', {
-               'class':'btn btn-mini btn-info btn-btc-blockchain',
+               'class':'ls-btn ls-btn-primary btn-btc-blockchain',
                'href': block_explorer + '/tx/' + data['TransactionID'],
                'target':'_blank'
-             },MSG_WITHDRAW_TABLE_DETAILS_COLUMN_BTN_BLOCKCHAIN,' ' ,goog.dom.createDom( 'i', ['icon-white', 'icon-share-alt']));
+             },MSG_WITHDRAW_TABLE_DETAILS_COLUMN_BTN_BLOCKCHAIN,' ' ,goog.dom.createDom( 'i', ['icon-white', 'ls-ico-chevron-right']));
 
              goog.dom.appendChild(element, goog.dom.createDom('tr', goog.getCssName(bitex.ui.WithdrawList.CSS_CLASS, 'details-tr'),
                                                               goog.dom.createDom('td', goog.getCssName(bitex.ui.WithdrawList.CSS_CLASS, 'details-td-key'), MSG_WITHDRAW_TABLE_DETAILS_COLUMN_TRANSACTION_ID ),
@@ -418,7 +418,7 @@ bitex.ui.WithdrawList = function( methodDescriptionObj, opt_broker_mode,  opt_sh
         var MSG_WITHDRAW_TABLE_COLUMN_ACTION_CANCEL = goog.getMsg('Cancel');
 
         var btn_cancel = goog.dom.createDom( 'button',
-                                             { 'class':'btn btn-mini btn-danger btn-withdraw-cancel', 'data-row': data_row},
+                                             { 'class':'ls-btn ls-btn-danger btn-withdraw-cancel', 'data-row': data_row},
                                              MSG_WITHDRAW_TABLE_COLUMN_ACTION_CANCEL );
 
         /**
@@ -427,7 +427,7 @@ bitex.ui.WithdrawList = function( methodDescriptionObj, opt_broker_mode,  opt_sh
         var MSG_WITHDRAW_TABLE_COLUMN_ACTION_PROGRESS = goog.getMsg('Set in progress');
 
         var btn_progress = goog.dom.createDom( 'button',
-                                               { 'class':'btn btn-mini btn-primary btn-withdraw-progress', 'data-row': data_row},
+                                               { 'class':'ls-btn ls-btn-primary btn-withdraw-progress', 'data-row': data_row},
                                                MSG_WITHDRAW_TABLE_COLUMN_ACTION_PROGRESS );
 
 
@@ -437,7 +437,7 @@ bitex.ui.WithdrawList = function( methodDescriptionObj, opt_broker_mode,  opt_sh
         var MSG_WITHDRAW_TABLE_COLUMN_ACTION_COMPLETE = goog.getMsg('Set as complete');
 
         var btn_complete = goog.dom.createDom( 'button',
-                                               { 'class':'btn btn-mini btn-success btn-withdraw-complete', 'data-row': data_row},
+                                               { 'class':'ls-btn ls-btn-success btn-withdraw-complete', 'data-row': data_row},
                                                MSG_WITHDRAW_TABLE_COLUMN_ACTION_COMPLETE );
 
         switch(row_set_obj['Status']){

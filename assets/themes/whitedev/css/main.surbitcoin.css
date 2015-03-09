@@ -1,0 +1,76 @@
+/* 
+ * pallete
+ * Blue   : #281DB8
+ * Yellow : #F6D036
+ * Red    : #CD1931
+ */
+
+.ls-menu{
+    background:none;
+}
+.ls-user-account .ls-user-menu-header, .ls-language nav ul a{
+    background:#eee!important;
+}
+
+.modal > .modal-footer > .btn-primary,
+.ls-theme-orange .ls-btn-primary, .active, .active:hover{
+    background-color: #281DB8;
+    border-color: #281DB8!important;
+    color:white!important;
+}
+
+.modal > .modal-footer > .btn-primary,
+.ls-theme-orange .ls-btn-primary:hover, .ls-btn-primary:focus{
+    background-color: #281DB8!important;
+    border-color: #281DB8!important;
+}
+.ls-btn, .modal > .modal-footer > .btn{
+    border: 2px solid #281DB8!important;
+}
+.ls-theme-orange [class*="ls-go"],
+.ls-theme-orange .ls-dropdown ul a:focus, .ls-theme-orange .ls-dropdown ul a:hover{
+    background:#281DB8!important;
+}
+
+.ls-input-text,
+.ls-theme-orange .ls-topbar .ls-alerts-list [class^="ls-ico"],
+.youraccount strong, .b,
+.ls-theme-orange .ls-info-header [class*="ls-title"],
+.ls-txt a,
+ul.start-links a,
+input[type],
+textarea{
+    color: #281DB8!important;
+}
+
+.ls-theme-orange .ls-table.ls-bg-header thead{
+    background-color:#281DB8;
+}
+
+@media (max-width: 768px){
+    .ls-theme-orange .ls-topbar{
+        background: #CD1931 url(../images/brand-surbitcoin-p.svg) center center no-repeat !important;
+        background-size:30px;
+    }
+}
+
+.ls-theme-orange .ls-brand-name,
+.fuelux .label-important, .fuelux .badge-important,
+.ls-btn-danger:hover, .ls-btn-danger:focus, .ls-btn-danger.ls-active{
+    background:#CD1931!important;
+    background-color:#CD1931!important;
+}
+.ls-btn-danger, .ls-theme-orange .ls-table tbody a:not([class*="ls-btn"]){
+    color:#CD1931!important;
+}
+.ls-btn-danger:hover, .ls-topbar .ls-ico-menu:before, .ls-topbar .ls-show-notifications:before{
+    color:white!important;
+}
+
+.md-blink,
+.md-blink > td,
+.order-manager-blink td,
+.balance-info-blink td,
+.order-book-blink td {
+  background: #F6D036!important;
+}
