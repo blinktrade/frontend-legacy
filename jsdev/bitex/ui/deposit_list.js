@@ -254,17 +254,17 @@ bitex.ui.DepositList = function( crypto_currencies_def, opt_broker_mode, opt_sho
         var MSG_DEPOSIT_TABLE_DETAILS_COLUMN_BTN_TRANSACTION  = goog.getMsg('blockchain');
 
         var btn_view = goog.dom.createDom( 'a', {
-          'class':'btn btn-mini btn-info btn-deposit-view',
+          'class':'ls-btn ls-btn-primary btn-deposit-view',
           'href': opt_rest_url + '/get_deposit?deposit_id=' + rowSet['DepositID'],
           'target':'_blank'
-        },MSG_DEPOSIT_TABLE_DETAILS_COLUMN_BTN_VIEW,' ' ,goog.dom.createDom( 'i', ['icon-white', 'icon-eye-open']));
+        },MSG_DEPOSIT_TABLE_DETAILS_COLUMN_BTN_VIEW,' ' ,goog.dom.createDom( 'i', ['icon-white', 'ls-ico-eye']));
 
         var btn_qr = goog.dom.createDom( 'a', {
-          'class':'btn btn-mini btn-info btn-deposit-view-qr',
+          'class':'ls-btn ls-btn-primary btn-deposit-view-qr',
           'href':'#',
           'data-action':'SHOW_QR',
           'data-row': data_row
-        },MSG_DEPOSIT_TABLE_DETAILS_COLUMN_BTN_QR,' ' , goog.dom.createDom( 'i', ['icon-white', 'icon-qrcode']));
+        },MSG_DEPOSIT_TABLE_DETAILS_COLUMN_BTN_QR,' ' , goog.dom.createDom( 'i', ['icon-white', 'ls-ico-qrcode']));
 
 
         switch (rowSet['Type'] ) {
@@ -340,31 +340,31 @@ bitex.ui.DepositList = function( crypto_currencies_def, opt_broker_mode, opt_sho
         var data_row = goog.json.serialize( rowSet );
 
         var btn_cancel = goog.dom.createDom( 'a', {
-          'class':'btn btn-mini btn-danger btn-deposit-cancel',
+          'class':'ls-btn ls-btn-danger btn-deposit-cancel',
           'href':'#',
           'data-action':'CANCEL',
           'data-row': data_row
         },MSG_DEPOSIT_TABLE_DETAILS_COLUMN_BTN_CANCEL,' ', goog.dom.createDom( 'i', ['icon-white', 'icon-remove']));
 
         var btn_progress = goog.dom.createDom( 'a', {
-          'class':'btn btn-mini btn-info btn-deposit-progress',
+          'class':'ls-btn ls-btn-primary btn-deposit-progress',
           'href':'#',
           'data-action':'PROGRESS',
           'data-row': data_row
         },MSG_DEPOSIT_TABLE_COLUMN_ACTION_PROGRESS,' ', goog.dom.createDom( 'i', ['icon-white', 'icon-refresh']));
 
         var btn_complete = goog.dom.createDom( 'a', {
-          'class':'btn btn-mini btn-success btn-deposit-complete',
+          'class':'ls-btn ls-btn-success btn-deposit-complete',
           'href':'#',
           'data-action':'COMPLETE',
           'data-row': data_row
         },MSG_DEPOSIT_TABLE_COLUMN_ACTION_COMPLETE,' ', goog.dom.createDom( 'i', ['icon-white', 'icon-ok']));
 
         var btn_show_receipt_broker = goog.dom.createDom( 'a', {
-          'class':'btn btn-mini btn-success btn-deposit-show-receipt',
+          'class':'ls-btn ls-btn-success btn-deposit-show-receipt',
           'data-action':'SHOW_RECEIPT',
           'data-row': data_row
-        }, goog.dom.createDom( 'i', ['icon-white', 'icon-file']));
+        }, goog.dom.createDom( 'i', ['icon-white', 'ls-ico-text']));
 
         switch (rowSet['Type'] ) {
           case 'CRY':
@@ -414,16 +414,16 @@ bitex.ui.DepositList = function( crypto_currencies_def, opt_broker_mode, opt_sho
 
 
         var btn_upload = goog.dom.createDom( 'a', {
-          'class':'btn btn-mini btn-success btn-deposit-upload',
+          'class':'ls-btn ls-btn-success btn-deposit-upload',
           'data-action':'UPLOAD',
           'data-row': data_row
-        },MSG_DEPOSIT_TABLE_DETAILS_COLUMN_BTN_UPLOAD, ' ' ,goog.dom.createDom( 'i', ['icon-white', 'icon-file']));
+        },MSG_DEPOSIT_TABLE_DETAILS_COLUMN_BTN_UPLOAD, ' ' ,goog.dom.createDom( 'i', ['icon-white', 'ls-ico-text']));
 
         var btn_show_receipt = goog.dom.createDom( 'a', {
-          'class':'btn btn-mini btn-success btn-deposit-show-receipt',
+          'class':'ls-btn ls-btn-success btn-deposit-show-receipt',
           'data-action':'SHOW_RECEIPT',
           'data-row': data_row
-        }, goog.dom.createDom( 'i', ['icon-white', 'icon-file']));
+        }, goog.dom.createDom( 'i', ['icon-white', 'ls-ico-text']));
 
 
         switch (rowSet['Type'] ) {

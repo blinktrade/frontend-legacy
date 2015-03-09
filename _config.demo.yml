@@ -1,12 +1,12 @@
 # Site settings
 url: "https://testnet.blinktrade.com"
-#url: "//localhost:4000"   # activate this to test on your localhost
+# url: "//localhost:4000"   # activate this to test on your localhost
 author: "BlinkTrade"
 baseurl: ""
 deploy_version: "HEAD"
 
-exchange: "demo"
-exchange_logo: "demo"
+exchange: "foxbit"
+exchange_logo: "foxbit"
 
 default_country_code: "US"
 blinktrade_broker_id: 5  # 5 is the id for the demo backend. Don't change that if you don't understand what you doing.
