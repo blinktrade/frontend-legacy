@@ -3,7 +3,7 @@
 /**
   */
 {template .ProfileViewChangePasswordPlaceHolder}
-  <div class="span6 well"></div>
+  <div class="col-md-6"></div>
 {/template}
 
 /**
@@ -158,142 +158,161 @@
   */
 {template .BrokerView}
   {if $show_title}
-  <div class="section-title">
-    <h3>{msg desc="Title for the Broker view"}My broker{/msg}</h3>
+  <div class="container-fluid">
+    <h1 class="ls-title-intro ls-ico-info">{msg desc="Title for the Broker view"}My broker{/msg}</h3>
   </div>
   {/if}
 
   <div class="content">
     {if $msg_broker['BrokerID'] == -1 }
     {else}
-      <address>
-        <strong>{$msg_broker['BusinessName']}</strong><br/>
-        {$msg_broker['Address']}<br/>
-        {$msg_broker['City']}, {$msg_broker['State']} {$msg_broker['ZipCode']} - {$msg_broker['Country']}<br/>
-        {if $msg_broker['PhoneNumber1']}
-          <abbr title="{msg desc="label in broker general information table"}Phone{/msg}">{msg desc="label in broker general information table"}P:{/msg}</abbr>{$msg_broker['PhoneNumber1']} {if $msg_broker['PhoneNumber2']}, {$msg_broker['PhoneNumber2']}{/if}<br/>
-        {/if}
-        {if $msg_broker['Skype']}
-          Skype: {$msg_broker['Skype']}<br/>
-        {/if}
-        <a href="mailto:{$msg_broker['Email']}" target="_blank">{$msg_broker['Email']}</a>
-      </address>
-
-      {if $msg_broker['BrokerID'] > 0 }
-        <div class="row-fluid">
-          <div class="span3">
-            <h4>
-              {msg desc="Allowed markets section subtitle on broker view"}Markets{/msg}
-            </h4>
+    <div class="col-md-6">
+      <div class="ls-box ls-board-box">
+        <header class="ls-info-header">
+            <h2 class="ls-title-3 ls-ico-user">My broker</h2>
+        </header>
+        <p class="ls-txt">
+            <strong>{$msg_broker['BusinessName']}</strong><br/>
+            {$msg_broker['Address']}<br/>
+            {$msg_broker['City']}, {$msg_broker['State']} {$msg_broker['ZipCode']} - {$msg_broker['Country']}<br/>
+            {if $msg_broker['PhoneNumber1']}
+            <abbr title="{msg desc="label in broker general information table"}Phone{/msg}">{msg desc="label in broker general information table"}P:{/msg}</abbr>{$msg_broker['PhoneNumber1']} {if $msg_broker['PhoneNumber2']}, {$msg_broker['PhoneNumber2']}{/if}<br/>
+            {/if}
+            {if $msg_broker['Skype']}
+            Skype: {$msg_broker['Skype']}<br/>
+            {/if}
+            <a href="mailto:{$msg_broker['Email']}" target="_blank">{$msg_broker['Email']}</a>
+        </p>
+        <hr>
+        {if $msg_broker['BrokerID'] > 0 }
+            <h3>
+            {msg desc="Allowed markets section subtitle on broker view"}Markets{/msg}
+            </h3>
             {foreach $allowed_market in keys($msg_broker['AllowedMarkets'])}
-              <div class="row-fluid">
-                <div class="span12">
-                  { $msg_broker['AllowedMarkets'][$allowed_market]['description']}
-                </div>
-              </div>
+              <p>{ $msg_broker['AllowedMarkets'][$allowed_market]['description']}</p>
             {/foreach}
+        {/if}
+      </div>
+    </div>
+
+      <div class="col-md-6">
+          <div class="ls-box ls-board-box">
+        {if $msg_broker['BrokerID'] >= 0 }
+            {if length($msg_broker['FeeStructure']) > 0 }
+            <header class="ls-info-header">
+                <h2 class="ls-title-3 ls-ico-star">{msg desc="Fee section subtitle on Broker view"}Fees{/msg}</h2>
+            </header>
+
+            <table class="ls-table ls-table-striped">
+                <thead>
+                <tr>
+                    <th>{msg desc="Operation column on Broker fees table"}Operation{/msg}</th>
+                    <th>{msg desc="Fees column on Broker fees table"}Fee{/msg}</th>
+                    <th>{msg desc="Terms column on Broker fees table"}Terms{/msg}</th>
+                </tr>
+                </thead>
+                <tbody>
+                {if not $msg_broker['IsBrokerHub'] }
+                    {if $msg_broker['FormattedTransactionFeeBuy'] == $msg_broker['FormattedTransactionFeeSell']}
+                    <tr>
+                        <td>{msg desc="label in broker fees table"}Trade fee{/msg}</td>
+                        <td>{$msg_broker['FormattedTransactionFeeBuy']}</td>
+                        <td></td>
+                    </tr>
+                    {else}
+                    <tr>
+                        <td>{msg desc="label in broker fees table"}Trade fee - Buy side{/msg}</td>
+                        <td>{$msg_broker['FormattedTransactionFeeBuy']}</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>{msg desc="label in broker fees table"}Trade fee - Sell side{/msg}</td>
+                        <td>{$msg_broker['FormattedTransactionFeeSell']} %</td>
+                        <td></td>
+                    </tr>
+                    {/if}
+                {/if}
+                {foreach $fee in $msg_broker['FeeStructure']}
+                    <tr>
+                    <td>{$fee['Operation']}</td>
+                    <td>{$fee['Fee']}</td>
+                    <td>{$fee['Terms']}</td>
+                    </tr>
+                {/foreach}
+                </tbody>
+            </table>
           </div>
         </div>
+        {/if}
       {/if}
 
-      {if $msg_broker['BrokerID'] >= 0 }
-        {if length($msg_broker['FeeStructure']) > 0 }
-          <h4>
-            {msg desc="Fee section subtitle on Broker view"}Fees{/msg}
-          </h4>
-
-          <table class="table table-bordered">
+      <div class="ls-clearfix"></div> 
+      {if not $msg_broker['IsBrokerHub'] }
+      <div class="col-md-12">
+        <hr>
+        <div class="ls-box ls-board-box">
+          <header class="ls-info-header">
+            <h2 class="ls-title-3 ls-ico-qrcode">
+                {msg desc="Wallet section subtitle on Broker view"}Wallets{/msg}
+            </h2>
+          </header>
+          <table class="ls-table ls-table-striped" style="table-layout:fixed">
             <thead>
               <tr>
-                <th>{msg desc="Operation column on Broker fees table"}Operation{/msg}</th>
-                <th>{msg desc="Fees column on Broker fees table"}Fee{/msg}</th>
-                <th>{msg desc="Terms column on Broker fees table"}Terms{/msg}</th>
+                <th>{msg desc="Coin  column on Broker wallet table"}Coin{/msg}</th>
+                <th>{msg desc="type  column on Broker wallet table"}Type{/msg}</th>
+                <th>{msg desc="address column type on Broker wallet table"}Address{/msg}</th>
+                <th>{msg desc="multisig column type on Broker wallet table"}Multi signature{/msg}</th>
+                <th>{msg desc="managed by column on Broker wallet table"}Managed by{/msg}</th>
               </tr>
             </thead>
             <tbody>
-              {if not $msg_broker['IsBrokerHub'] }
-                {if $msg_broker['FormattedTransactionFeeBuy'] == $msg_broker['FormattedTransactionFeeSell']}
+              {foreach $crypto_currencies in $msg_broker['CryptoCurrencies']}
+                {foreach $wallets in $crypto_currencies['Wallets'] }
                   <tr>
-                    <td>{msg desc="label in broker fees table"}Trade fee{/msg}</td>
-                    <td>{$msg_broker['FormattedTransactionFeeBuy']}</td>
-                    <td></td>
+                    <td>{$crypto_currencies['CurrencyDescription']}</td>
+                    <td>{$wallets['type'] }</td>
+                    <td>
+                    {if $crypto_currencies['CurrencyCode'] == 'BTC' }
+                      {switch $wallets['address'][0]}
+                        {case 'm','n','2','9','c'}
+                          <a href="https://test-insight.bitpay.com/address/{$wallets['address']}/" target="_blank">{$wallets['address'] }</a>
+                        {default}
+                          <a href="https://blockchain.info/address/{$wallets['address']}/" target="_blank">{$wallets['address'] }</a>
+                      {/switch}
+                    {else}
+                      {$wallets['address'] }
+                    {/if}
+                    </td>
+                    <td>
+                      {if $wallets['multisig']}
+                        {msg desc="Multisig true"}Yes{/msg}
+                      {else}
+                        {msg desc="Multisig false"}No{/msg}
+                      {/if}
+                    </td>
+                    <td>{$wallets['managed_by'] }</td>
                   </tr>
-                {else}
-                  <tr>
-                    <td>{msg desc="label in broker fees table"}Trade fee - Buy side{/msg}</td>
-                    <td>{$msg_broker['FormattedTransactionFeeBuy']}</td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td>{msg desc="label in broker fees table"}Trade fee - Sell side{/msg}</td>
-                    <td>{$msg_broker['FormattedTransactionFeeSell']} %</td>
-                    <td></td>
-                  </tr>
-                {/if}
-              {/if}
-              {foreach $fee in $msg_broker['FeeStructure']}
-                <tr>
-                  <td>{$fee['Operation']}</td>
-                  <td>{$fee['Fee']}</td>
-                  <td>{$fee['Terms']}</td>
-                </tr>
+                {/foreach}
               {/foreach}
             </tbody>
           </table>
-        {/if}
+        </div>
+      </div>
       {/if}
 
-      {if not $msg_broker['IsBrokerHub'] }
-        <h4>
-          {msg desc="Wallet section subtitle on Broker view"}Wallets{/msg}
-        </h4>
-        <table class="table table-bordered">
-          <thead>
-            <tr>
-              <th>{msg desc="Coin  column on Broker wallet table"}Coin{/msg}</th>
-              <th>{msg desc="type  column on Broker wallet table"}Type{/msg}</th>
-              <th>{msg desc="address column type on Broker wallet table"}Address{/msg}</th>
-              <th>{msg desc="multisig column type on Broker wallet table"}Multi signature{/msg}</th>
-              <th>{msg desc="managed by column on Broker wallet table"}Managed by{/msg}</th>
-            </tr>
-          </thead>
-          <tbody>
-            {foreach $crypto_currencies in $msg_broker['CryptoCurrencies']}
-              {foreach $wallets in $crypto_currencies['Wallets'] }
-                <tr>
-                  <td>{$crypto_currencies['CurrencyDescription']}</td>
-                  <td>{$wallets['type'] }</td>
-                  <td>
-                  {if $crypto_currencies['CurrencyCode'] == 'BTC' }
-                    {switch $wallets['address'][0]}
-                      {case 'm','n','2','9','c'}
-                        <a href="https://test-insight.bitpay.com/address/{$wallets['address']}/" target="_blank">{$wallets['address'] }</a>
-                      {default}
-                        <a href="https://blockchain.info/address/{$wallets['address']}/" target="_blank">{$wallets['address'] }</a>
-                    {/switch}
-                  {else}
-                    {$wallets['address'] }
-                  {/if}
-                  </td>
-                  <td>
-                    {if $wallets['multisig']}
-                      {msg desc="Multisig true"}Yes{/msg}
-                    {else}
-                      {msg desc="Multisig false"}No{/msg}
-                    {/if}
-                  </td>
-                  <td>{$wallets['managed_by'] }</td>
-                </tr>
-              {/foreach}
-            {/foreach}
-          </tbody>
-        </table>
-      {/if}
 
-      <h4>
-        {msg desc="Terms of service section subtitle on Broker view"}Terms of service{/msg}
-      </h4>
-      <iframe style="width:100%;height:400px;" src="{$msg_broker['TosUrl']}"></iframe>
+      <div class="col-md-12">
+          <hr>
+          <div class="ls-box ls-board-box">
+              <header class="ls-info-header">
+              <h2 class="ls-title-3 ls-ico-text">
+                  {msg desc="Terms of service section subtitle on Broker view"}Terms of service{/msg}
+              </h2>
+              </header>
+              <iframe style="width:100%;height:400px;border:none" src="{$msg_broker['TosUrl']}"></iframe>
+          </div>
+      </div>
     {/if}
   </div>
 
@@ -445,9 +464,8 @@
   * @param accounts
   */
 {template .YourAccountSummary}
-  <h6>{msg desc="Your account label in the right side bar"}Your account{/msg}</h6>
     {foreach $account in $accounts}
-      <table class="table table-bordered account-summary-table" >
+    <table class="account-summary-table" style="width:100%;border-bottom:1px solid #eee;margin-top:15px;" >
         <tbody>
 
       <tr id="id_account_summary_{$account['brokerID']}"
@@ -455,17 +473,17 @@
           data-key="SelectedBrokerID"
           data-value="{$account['brokerID']}"
           {if length($accounts) <= 1 or length($account['currencies']) == 0 }style="display:none;"{/if}>
-            <td colspan="3"><strong>{$account['brokerName']}</strong></td>
+            <td colspan="3"><h4>{$account['brokerName']}</h4></td>
       </tr>
 
       {foreach $currency_info in $account['currencies']}
         <tr>
 
-          <td style="padding: 4px;{if not isFirst($currency_info) }border-top: 0;{/if}">
+          <td style="{if not isFirst($currency_info) }border-top: 0;{/if}">
             <strong>{$currency_info['currency']}</strong>
           </td>
 
-          <td style="padding: 4px;{if not isFirst($currency_info) }border-top: 0;{/if}">
+          <td style="text-align: right;{if not isFirst($currency_info) }border-top: 0;{/if}">
             <span class="bitex-model"
                data-model-key="formatted_balance_{$account['brokerID']}:{$account['clientID']}_{$currency_info['currency']}"
                data-blink-class="balance-info-blink">{$currency_info['formattedBalance']}
@@ -479,20 +497,20 @@
             </abbr>
 
          </td>
-          <td style="padding: 4px;border-left:0;{if not isFirst($currency_info) }border-top: 0;{/if}">
+          <td style="text-align: right;border-left:0;{if not isFirst($currency_info) }border-top: 0;{/if}">
             {if $currency_info['showDeposit'] and  $currency_info['showWithdraw']}
               <div class="btn-group">
             {/if}
 
             {if $currency_info['showDeposit'] }
-              <button class="btn btn-mini" data-action="deposit" data-currency="{$currency_info['currency']}">
-                <i data-action="deposit" data-currency="{$currency_info['currency']}" class="icon-download-alt"></i>
-              </button>
+              <a class="flaticon-download164 b" data-action="deposit" data-currency="{$currency_info['currency']}">
+                <!-- <i data-action="deposit" data-currency="{$currency_info['currency']}" class="icon-download-alt"></i> -->
+              </a>
             {/if}
             {if $currency_info['showWithdraw'] }
-              <button class="btn btn-mini" data-action="withdraw" data-currency="{$currency_info['currency']}">
-                <i data-action="withdraw" data-currency="{$currency_info['currency']}" class="icon-upload-alt"></i>
-              </button>
+              <a class="flaticon-upload119 b" data-action="withdraw" data-currency="{$currency_info['currency']}">
+                <!-- <i data-action="withdraw" data-currency="{$currency_info['currency']}" class="icon-upload-alt"></i> -->
+              </a>
             {/if}
 
             {if $currency_info['showDeposit'] and  $currency_info['showWithdraw']}
@@ -513,7 +531,7 @@
   * @param? action
   */
 {template .AccountBalances}
-  <table class="table table-striped" style="width: 350px">
+  <table class="ls-table ls-table-striped ls-bg-header" style="width: 350px">
     <tbody>
       {foreach $currency in $currencies}
       <tr>
@@ -574,7 +592,7 @@
   * @param? formattedAmount
   */
 {template .DepositCryptoCurrencyContentDialog}
-  <div class="row-fluid" data-deposit-status="prepare">
+  <div class="row-fluid" data-deposit-status="prepare" style="text-align:center">
     <h4 class="text-center">
       {$deposit_message['Data']['InputAddress'] }
     </h4>
@@ -587,7 +605,7 @@
       <img src="https://chart.googleapis.com/chart?cht=qr&chs=200x200&chl=bitcoin%3A{$deposit_message['Data']['InputAddress']}{if $amount}%3Famount%3D{$amount}{/if}"/>
     </div>
     {if $hasInstantDepositsEnabled}
-      <div class="alert alert-block">
+      <div class="">
         {msg desc="Instant deposit warning"}
           Your account has instant deposits enabled. In case you intentionally try to do a "double spending" attack,
           your account will be frozen, even if your double spending attack is not successful.
@@ -602,7 +620,7 @@
   * @param data
   */
 {template .CryptoCurrencyQRContentDialog}
-  <div class="row-fluid" data-deposit-status="prepare">
+  <div class="row-fluid" data-deposit-status="prepare" style="text-align:center">
     <h4 class="text-center">
       {$data['Wallet']}
     </h4>
@@ -634,7 +652,7 @@
       {msg desc="confirm trusted address dialog msg"}Only enable it if you have the private key for this address.{/msg}
     </h4>
 
-    <div class="alert alert-block">
+    <div>
       <h4>{msg desc="confirm trusted address dialog msg"}Always remember what happened at MtGox{/msg}</h4>
       {msg desc="confirm trusted address dialog msg"}
         Never ever under any circumstances leave your Bitcoins deposited at any Exchange,
@@ -661,7 +679,7 @@
       {msg desc="Insufficient funds title"}You don't have enough funds for this operation.{/msg}
     </p>
     <!-- {$currencyDescription} -->
-    <table class="table table-bordered">
+    <table class="ls-table ls-table-striped ls-bg-header">
 
       <tr>
         <td>{msg desc="Your account label on Insufficient Balance message"}Your Account{/msg}</td>
@@ -873,10 +891,11 @@
       {/if}
     {/if}
 
+    
     <div class="withdraw-methods">
      {if length($methods) == 0 }
         {if $verificationLevel <= 2}
-          <div class="alert alert-warning text-left">
+          <div>
             {msg desc="Error message when the user is not yet verified."}
               Due to anti-money laundry international laws and government regulations,
               deposits/withdrawals in the local currency are only available to verified customers.<br/>
@@ -884,10 +903,11 @@
             {/msg}
           </div>
           {if $verificationLevel == 0}
-            <a href="" data-switch-view="verification">{msg desc="get verified message"} Verify your account {/msg}</a>
+            <hr>
+            <a href="" class="ls-btn ls-btn-primary" data-switch-view="verification">{msg desc="get verified message"} Verify your account {/msg}</a>
           {/if}
         {else}
-          <div class="alert alert-danger text-center">
+          <div class="text-center">
             {msg desc="Error message when the brokers doesn't have deposit methods"}We are not accepting deposits at this moment. We sorry for the inconvenience.{/msg}
           </div>
         {/if}
@@ -897,11 +917,13 @@
           {if $method['method'] == $force_method}
 
             {if $side == 'client'}
-              <div class="control-group">
-                <label class="control-label">{msg desc="amount"}Amount{/msg}</label>
+              <div class="ls-prefix-group">
+                <label class="ls-label-text-prefix">
+                      {msg desc="amount"}Amount{/msg}
+                      <span class="">{$currencySign}</span>
+                </label>
                 <div class="controls">
                   <div class="input-prepend">
-                    <span class="add-on">{$currencySign}</span>
                     <input id="{$method['method']}_{$amountID}"
                         data-uniform-validators="required; validateNumber {if $method['limits'][$verificationLevel]['enabled']} {if $method['limits'][$verificationLevel]['min']}; validateMin {$method['limits'][$verificationLevel]['formatted_min_value'] }{/if}{if $method['limits'][$verificationLevel]['max']}; validateMax {$method['limits'][$verificationLevel]['formatted_max_value'] } {/if} {/if}"
                         data-uniform-type="number"
@@ -934,48 +956,38 @@
 
             {foreach $field in $method['fields'] }
               {if $field['side'] == $side}
-                <div class="control-group">
-                  <label class="control-label">{$field['label']}</label>
-                  <div class="controls">
-                    <input class="withdraw-field"
+                <div class="ls-prefix-group">
+                  <label class="ls-label-text-prefix">{$field['label']}</label>
+                  <input class="withdraw-field"
                             data-uniform-validators="{$field['validator']}" type="{$field['type']}"
                             name="{$field['name']}"
                             label="{$field['placeholder']}"
                             value="{$field['value']}"/>
-                  </div>
                 </div>
               {/if}
             {/foreach}
             {if $side == 'client'}
               <div class="control-group" style="margin-bottom: 5px;">
-                <div class="controls">
-                  <label>{$method['disclaimer']}</label>
+                  <label class="control-label">{$method['disclaimer']}</label>
                   <input id="{$method['method']}_{$percentFeeID}" type="hidden" value="{$method['percent_fee']}">
                   <input id="{$method['method']}_{$fixedFeeID}" type="hidden" value="{$method['fixed_fee']}">
-                </div>
               </div>
 
-              <div class="control-group">
-                <label class="control-label">{msg desc="Fee percentage label"}Fees:{/msg}</label>
-                <div class="controls">
-                  <label id="{$method['method']}_{$totalFeesID}" class="control-label" style="text-align: left;"></label>
-                </div>
+              <div class="ls-prefix-group">
+                <label class="ls-label-text-prefix">{msg desc="Fee percentage label"}Fees:{/msg}</label>
+                <label id="{$method['method']}_{$totalFeesID}" class="control-label" style="text-align: left;"></label>
               </div>
 
               <div class="control-group" {if $hideNetAmount} style="display:none;" {/if} >
                 <label class="control-label">{msg desc="Net amount"}Net amount{/msg}</label>
-                <div class="controls">
-                  <label id="{$method['method']}_{$netValueID}" class="control-label" style="text-align: left;"></label>
-                  <input id="{$method['method']}_{$netValueID}_value" type="hidden" value="">
-                </div>
+                <label id="{$method['method']}_{$netValueID}" class="control-label" style="text-align: left;"></label>
+                <input id="{$method['method']}_{$netValueID}_value" type="hidden" value="">
               </div>
 
             {else}
               {if $side == 'broker'}
-                <div class="control-group" style="margin-bottom: 5px;">
-                  <div class="controls">
-                    <label>{$method['disclaimer']}</label>
-                  </div>
+                <div class="ls-prefix-group" style="margin-bottom: 5px;">
+                    <label class="ls-label-text-prefix">{$method['disclaimer']}</label>
                 </div>
                 {if $showFeeDataEntry}
                   {call .FeesFormControls}
@@ -995,75 +1007,68 @@
           <div class="withdraw-method" data-withdraw-method="{$method['method']}" style="{if not isFirst($method)}display:none;{/if}" >
 
             {if $side == 'client'}
-              <div class="control-group">
-                <label class="control-label">{msg desc="amount"}Amount{/msg}</label>
-                <div class="controls">
-                  <div class="input-prepend">
-                    <span class="add-on">{$currencySign}</span>
-                    <input id="{$method['method']}_{$amountID}"
-                        data-uniform-validators="required; validateNumber {if $method['limits'][$verificationLevel]['enabled']} {if $method['limits'][$verificationLevel]['min']}; validateMin {$method['limits'][$verificationLevel]['formatted_min_value'] }{/if}{if $method['limits'][$verificationLevel]['max']}; validateMax {$method['limits'][$verificationLevel]['formatted_max_value'] } {/if} {/if}"
-                        data-uniform-type="number"
-                        data-uniform-filters="positive_number"
-                        value="{if $formattedAmount}{$formattedAmount}{/if}"
-                        type="text"
-                        class="withdraw-field input-small"
-                        size="16"
-                        name="Amount" {if not isFirst($method)}disabled{/if}>
-                  </div>
-                  {if $method['limits'][$verificationLevel]['enabled']}
-                    <div>
-                      <em>
-                        <small>
-                          {if $method['limits'][$verificationLevel]['max']}
-                            {msg desc="amount help block"} Available: {$method['limits'][$verificationLevel]['formatted_max'] }{/msg}
-                            <br>
-                          {/if}
-                          {if $method['limits'][$verificationLevel]['min']}
-                            {msg desc="amount help block"} Minimum: {$method['limits'][$verificationLevel]['formatted_min'] } per transaction.  {/msg}
-                          {/if}
-                        </small>
-                      </em>
-                    </div>
-                  {/if}
-                </div>
+              <div class="ls-prefix-group">
+                <label class="ls-label-text-prefix">
+                      {msg desc="amount"}Amount{/msg}
+                      <span class="">{$currencySign}</span>
+                </label>
+                <input id="{$method['method']}_{$amountID}"
+                    data-uniform-validators="required; validateNumber {if $method['limits'][$verificationLevel]['enabled']} {if $method['limits'][$verificationLevel]['min']}; validateMin {$method['limits'][$verificationLevel]['formatted_min_value'] }{/if}{if $method['limits'][$verificationLevel]['max']}; validateMax {$method['limits'][$verificationLevel]['formatted_max_value'] } {/if} {/if}"
+                    data-uniform-type="number"
+                    data-uniform-filters="positive_number"
+                    value="{if $formattedAmount}{$formattedAmount}{/if}"
+                    type="text"
+                    class="withdraw-field input-small"
+                    size="16"
+                    name="Amount" {if not isFirst($method)}disabled{/if}>
+                {if $method['limits'][$verificationLevel]['enabled']}
+                {/if}
+              </div>
+              <div>
+                  <em>
+                  <small>
+                      {if $method['limits'][$verificationLevel]['max']}
+                      {msg desc="amount help block"} Available: {$method['limits'][$verificationLevel]['formatted_max'] }{/msg}
+                      <br>
+                      {/if}
+                      {if $method['limits'][$verificationLevel]['min']}
+                      {msg desc="amount help block"} Minimum: {$method['limits'][$verificationLevel]['formatted_min'] } per transaction.  {/msg}
+                      {/if}
+                  </small>
+                  </em>
               </div>
             {/if}
 
+            <hr>
             <div class="control-group" style="margin-bottom: 5px;">
-              <div class="controls">
-                <label>{$method['disclaimer']}</label>
-                <input id="{$method['method']}_{$percentFeeID}" type="hidden" value="{$method['percent_fee']}">
-                <input id="{$method['method']}_{$fixedFeeID}" type="hidden" value="{$method['fixed_fee']}">
-              </div>
+              <label class="control-label">{$method['disclaimer']}</label>
+              <input id="{$method['method']}_{$percentFeeID}" type="hidden" value="{$method['percent_fee']}">
+              <input id="{$method['method']}_{$fixedFeeID}" type="hidden" value="{$method['fixed_fee']}">
             </div>
             <div class="control-group">
               <label class="control-label">{msg desc="Fee percentage label"}Fees:{/msg}</label>
-              <div class="controls">
-                <label id="{$method['method']}_{$totalFeesID}" class="control-label" style="text-align: left;"></label>
-              </div>
+              <label id="{$method['method']}_{$totalFeesID}" class="control-label" style="text-align: left;"></label>
             </div>
 
+            <br>
             <div class="control-group" {if $hideNetAmount} style="display:none;" {/if}>
               <label class="control-label">{msg desc="Net amount"}Net amount{/msg}</label>
-              <div class="controls">
-                <label id="{$method['method']}_{$netValueID}" class="control-label broker-confirm-deposit-net-amount" style="text-align: left;"></label>
-                <input id="{$method['method']}_{$netValueID}_value" type="hidden" value="">
-              </div>
+              <label id="{$method['method']}_{$netValueID}" class="control-label broker-confirm-deposit-net-amount" style="text-align: left;"></label>
+              <input id="{$method['method']}_{$netValueID}_value" type="hidden" value="">
             </div>
 
             {foreach $field in $method['fields'] }
               {if $field['side'] == $side}
-                <div class="control-group">
-                  <label class="control-label">{$field['label']}</label>
-                  <div class="controls">
-                    <input class="withdraw-field"
+                <br>
+                <div class="ls-prefix-group">
+                  <label class="ls-label-text-prefix">{$field['label']}</label>
+                  <input class="withdraw-field"
                            data-uniform-validators="{$field['validator']}"
                            type="{$field['type']}"
                            name="{$field['name']}"
                            label="{$field['placeholder']}"
                            value="{$field['value']}"
                            {if not isFirst($method)}disabled{/if} />
-                  </div>
                 </div>
               {/if}
             {/foreach}
@@ -1089,7 +1094,7 @@
   * @param sell_fee
   */
 {template .YourFeesBalances}
-  <table class="table table-striped table-condensed">
+  <table class="ls-table ls-table-striped ls-bg-header">
     <tbody>
       <tr>
         <td>
@@ -1133,7 +1138,7 @@
   * @param currencies
   */
 {template .YourAccountBalances}
-  <table class="table table-striped" style="width: 350px">
+  <table class="ls-table ls-table-striped ls-bg-header" style="width: 350px">
     <tbody>
       {foreach $currency in $currencies}
       <tr>
@@ -1173,10 +1178,10 @@
 {template .AccountOverviewHeaderWithDrawEmailData}
     {if $msg_customer_detail['NeedWithdrawEmail'] }
       <span class="label label-success">{msg desc="label on  overview header"}Enabled{/msg}</span> <a
-        href="#" class="btn btn-primary btn-mini" data-action="SET_WITHDRAW_EMAIL" data-row="{$msg_customer_detail['ID']}">{msg desc="label on  overview header"}Disable{/msg}</a>
+        href="#" class="ls-btn ls-btn-primary btn-mini" data-action="SET_WITHDRAW_EMAIL" data-row="{$msg_customer_detail['ID']}">{msg desc="label on  overview header"}Disable{/msg}</a>
     {else}
       <span class="label label-important">{msg desc="label on  overview header"}Disabled{/msg}</span> <a
-        href="#" class="btn btn-primary btn-mini" data-action="SET_WITHDRAW_EMAIL" data-row="{$msg_customer_detail['ID']}">{msg desc="label on  overview header"}Enabled{/msg}</a>
+        href="#" class="ls-btn ls-btn-primary btn-mini" data-action="SET_WITHDRAW_EMAIL" data-row="{$msg_customer_detail['ID']}">{msg desc="label on  overview header"}Enabled{/msg}</a>
     {/if}
 {/template}
 
@@ -1186,7 +1191,7 @@
 {template .AccountOverviewHeaderTwoFactors}
     {if $msg_customer_detail['TwoFactorEnabled'] }
       <span class="label label-success">{msg desc="label on  overview header"}Enabled{/msg}</span>
-      <a href="#" class="btn btn-primary btn-mini" data-action="SET_TWO_FACTOR" data-row="{$msg_customer_detail['ID']}">{msg desc="label on  overview header"}Disable{/msg}</a>
+      <a href="#" class="ls-btn ls-btn-primary btn-mini" data-action="SET_TWO_FACTOR" data-row="{$msg_customer_detail['ID']}">{msg desc="label on  overview header"}Disable{/msg}</a>
     {else}
       <span class="label label-important">{msg desc="label on  overview header"}Disabled{/msg}</span>
     {/if}
@@ -1197,64 +1202,66 @@
   * @param msg_customer_detail
   */
 {template .AccountOverviewHeader}
-  <table class="table table-striped table-condensed account-overview-table" style="width: 350px">
-    <tbody>
-      <tr>
-        <td><strong>{msg desc="label on overview header"}ID{/msg}</strong></td>
-        <td>{$msg_customer_detail['ID']}</td>
-      </tr>
-      <tr>
-        <td><strong>{msg desc="label on  overview header"}Username{/msg}</strong></td>
-        <td>{$msg_customer_detail['Username']}</td>
-      </tr>
-      <tr>
-         <td><strong>{msg desc="label on  overview header"}Email{/msg}</strong></td>
-         <td>{$msg_customer_detail['Email']}</td>
-      </tr>
-      <tr>
-         <td><strong>{msg desc="label on  overview header"}State{/msg}</strong></td>
-         <td>{$msg_customer_detail['State']}</td>
-      </tr>
-      <tr>
-         <td><strong>{msg desc="label on  overview header"}Country{/msg}</strong></td>
-         <td>{$msg_customer_detail['CountryCode']}</td>
-      </tr>
-      <tr>
-         <td><strong>{msg desc="label on  overview header"}Last login{/msg}</strong></td>
-         <td>{$msg_customer_detail['LastLogin']}</td>
-      </tr>
-      <tr>
-         <td><strong>{msg desc="label on  overview header"}Is verified{/msg}</strong></td>
-         <td class="account-overview-val account-overview-verified">
-          {call .AccountOverviewHeaderVerified}
-            {param msg_customer_detail: $msg_customer_detail /}
-          {/call}
-         </td>
-      </tr>
+    <table class="ls-table ls-table-striped ls-bg-header account-overview-table">
+        <tbody>
+        <tr>
+            <td><strong>{msg desc="label on overview header"}ID{/msg}</strong></td>
+            <td colspan="2">{$msg_customer_detail['ID']}</td>
+        </tr>
+        <tr>
+            <td><strong>{msg desc="label on  overview header"}Username{/msg}</strong></td>
+            <td>{$msg_customer_detail['Username']}</td>
+        </tr>
+        <tr>
+            <td><strong>{msg desc="label on  overview header"}Email{/msg}</strong></td>
+            <td>{$msg_customer_detail['Email']}</td>
+        </tr>
+        <tr>
+            <td><strong>{msg desc="label on  overview header"}State{/msg}</strong></td>
+            <td>{$msg_customer_detail['State']}</td>
+        </tr>
+        <tr>
+            <td><strong>{msg desc="label on  overview header"}Country{/msg}</strong></td>
+            <td>{$msg_customer_detail['CountryCode']}</td>
+        </tr>
+        <tr>
+            <td><strong>{msg desc="label on  overview header"}Last login{/msg}</strong></td>
+            <td>{$msg_customer_detail['LastLogin']}</td>
+        </tr>
+        <tr>
+            <td><strong>{msg desc="label on  overview header"}Is verified{/msg}</strong></td>
+            <td colspan="2" class="account-overview-val account-overview-verified">
+                <b class="ls-tab-primary">
+                    {call .AccountOverviewHeaderVerified}
+                        {param msg_customer_detail: $msg_customer_detail /}
+                    {/call}
+                </b>
+            </td>
+        </tr>
 
-      <tr>
-         <td><strong>{msg desc="label on  overview header"}Has two step authentication{/msg}</strong></td>
-         <td class="account-overview-val account-overview-two-factors" >
-          {call .AccountOverviewHeaderTwoFactors}
-            {param msg_customer_detail: $msg_customer_detail /}
-          {/call}
-         </td>
-      </tr>
-      <tr>
-         <td><strong>{msg desc="label on  overview header"}Registration date{/msg}</strong></td>
-         <td>{$msg_customer_detail['Created']}</td>
-      </tr>
-      <tr>
-         <td><strong>{msg desc="label on  overview header"}Needs email confirmation on withdraw{/msg}</strong></td>
-         <td class="account-overview-val account-overview-withdraw-email">
-          {call .AccountOverviewHeaderWithDrawEmailData}
-            {param msg_customer_detail: $msg_customer_detail /}
-          {/call}
-         </td>
-      </tr>
+        <tr>
+            <td><strong>{msg desc="label on  overview header"}Has two step authentication{/msg}</strong></td>
+            <td class="account-overview-val account-overview-two-factors" >
+            {call .AccountOverviewHeaderTwoFactors}
+                {param msg_customer_detail: $msg_customer_detail /}
+            {/call}
+            </td>
+        </tr>
+        <tr>
+            <td><strong>{msg desc="label on  overview header"}Registration date{/msg}</strong></td>
+            <td>{$msg_customer_detail['Created']}</td>
+        </tr>
+        <tr>
+            <td><strong>{msg desc="label on  overview header"}Needs email confirmation on withdraw{/msg}</strong></td>
+            <td class="account-overview-val account-overview-withdraw-email">
+            {call .AccountOverviewHeaderWithDrawEmailData}
+                {param msg_customer_detail: $msg_customer_detail /}
+            {/call}
+            </td>
+        </tr>
 
-    </tbody>
-  </table>
+        </tbody>
+    </table>
 {/template}
 
 
@@ -1262,49 +1269,55 @@
   * @param msg_customer_detail
   */
 {template .AccountOverviewUser}
-  <table class="table table-striped table-condensed account-overview-table" style="width: 350px">
-    <tbody>
-      <tr>
-        <td><strong>{msg desc="label on overview header"}ID{/msg}</strong></td>
-        <td>{$msg_customer_detail['ID']}</td>
-      </tr>
-      <tr>
-        <td><strong>{msg desc="label on  overview header"}Username{/msg}</strong></td>
-        <td>{$msg_customer_detail['Username']}</td>
-      </tr>
-      <tr>
-         <td><strong>{msg desc="label on  overview header"}Email{/msg}</strong></td>
-         <td>{$msg_customer_detail['Email']}</td>
-      </tr>
-      <tr>
-         <td><strong>{msg desc="label on  overview header"}State{/msg}</strong></td>
-         <td>{$msg_customer_detail['State']}</td>
-      </tr>
-      <tr>
-         <td><strong>{msg desc="label on  overview header"}Country{/msg}</strong></td>
-         <td>{$msg_customer_detail['CountryCode']}</td>
-      </tr>
-      <tr>
-         <td><strong>{msg desc="label on  overview header"}Is verified{/msg}</strong></td>
-         <td class="account-overview-val account-overview-verified">
-            {switch $msg_customer_detail['Verified'] }
-              {case 0}
-                <span class="label label-important">{msg desc="label on  overview header"}No{/msg}</span>
-              {case 1}
-                <span class="label label-important">{msg desc="label on  overview header"}Pending{/msg}</span>
-              {case 2}
-                <span class="label label-success">{msg desc="label on  overview header"}Yes{/msg}</span>
-              {case 3}
-                <span class="label label-success">{msg desc="label on  overview header"}Yes - Level II{/msg}</span>
-              {case 4}
-                <span class="label label-success">{msg desc="label on  overview header"}Yes - Level III{/msg}</span>
-              {case 5}
-                <span class="label label-success">{msg desc="label on  overview header"}Yes - Level IV{/msg}</span>
-            {/switch}
-         </td>
-      </tr>
-    </tbody>
-  </table>
+
+  <div class="ls-box ls-board-box">
+    <header class="ls-info-header">
+        <h2 class="ls-title-3 ls-ico-user">Details</h2>
+    </header>
+    <table class="ls-table ls-table-striped ls-bg-header account-overview-table">
+        <tbody>
+        <tr>
+            <td><strong>{msg desc="label on overview header"}ID{/msg}</strong></td>
+            <td>{$msg_customer_detail['ID']}</td>
+        </tr>
+        <tr>
+            <td><strong>{msg desc="label on  overview header"}Username{/msg}</strong></td>
+            <td>{$msg_customer_detail['Username']}</td>
+        </tr>
+        <tr>
+            <td><strong>{msg desc="label on  overview header"}Email{/msg}</strong></td>
+            <td>{$msg_customer_detail['Email']}</td>
+        </tr>
+        <tr>
+            <td><strong>{msg desc="label on  overview header"}State{/msg}</strong></td>
+            <td>{$msg_customer_detail['State']}</td>
+        </tr>
+        <tr>
+            <td><strong>{msg desc="label on  overview header"}Country{/msg}</strong></td>
+            <td>{$msg_customer_detail['CountryCode']}</td>
+        </tr>
+        <tr>
+            <td><strong>{msg desc="label on  overview header"}Is verified{/msg}</strong></td>
+            <td class="account-overview-val account-overview-verified">
+                {switch $msg_customer_detail['Verified'] }
+                {case 0}
+                    <b class="ls-tag-primary label label-important">{msg desc="label on  overview header"}No{/msg}</b>
+                {case 1}
+                    <b class="ls-tag-primary label label-important">{msg desc="label on  overview header"}Pending{/msg}</b>
+                {case 2}
+                    <b class="ls-tag-primary label label-success">{msg desc="label on  overview header"}Yes{/msg}</b>
+                {case 3}
+                    <b class="ls-tag-primary label label-success">{msg desc="label on  overview header"}Yes - Level II{/msg}</b>
+                {case 4}
+                    <b class="ls-tag-primary label label-success">{msg desc="label on  overview header"}Yes - Level III{/msg}</b>
+                {case 5}
+                    <b class="ls-tag-primary label label-success">{msg desc="label on  overview header"}Yes - Level IV{/msg}</b>
+                {/switch}
+            </td>
+        </tr>
+        </tbody>
+    </table>
+  </div>
 {/template}
 
 
@@ -1399,7 +1412,7 @@
   */
 {template .DataGrid}
   <div {if $id}id="{$id}"{/if}  class="fuelux {if $base_class}{$base_class}{/if}" style="width:100%;">
-    <table class="table table-bordered datagrid datagrid-stretch-header">
+    <table class="ls-table ls-table-bordered ls-bg-header datagrid datagrid-stretch-header">
       <thead>
         <tr>
           <th colspan="4" {if not $title and not $show_search}style="display: none;"{/if}>
@@ -1436,11 +1449,11 @@
       </thead>
     </table>
     <div class="datagrid-stretch-wrapper" style="height:{if $wrapper_height}{$wrapper_height}{else}360{/if}px;">
-      <table class="table table-bordered datagrid">
+      <table class="ls-table ls-table-bordered ls-bg-header datagrid">
         <tbody></tbody>
       </table>
     </div>
-    <table class="table table-bordered datagrid datagrid-stretch-footer">
+    <table class="ls-table ls-table-striped ls-bg-header datagrid datagrid-stretch-footer">
       <tfoot>
       <tr>
         <th colspan="4">

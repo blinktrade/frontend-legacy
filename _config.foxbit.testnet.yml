@@ -1,7 +1,7 @@
 # Site settings
 url: "https://testnet.foxbit.exchange"
 author: "BlinkTrade"
-baseurl: ""
+baseurl: "/frontend"
 deploy_version: "HEAD"
 
 exchange: "foxbit"
