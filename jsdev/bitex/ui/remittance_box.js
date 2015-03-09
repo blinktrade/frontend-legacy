@@ -17,7 +17,7 @@ goog.require('goog.dom.classes');
  */
 bitex.ui.RemittanceBox = function(opt_domHelper) {
   goog.ui.Component.call(this, opt_domHelper);
-  this.setModel( [ [ "USD",  "BitstampUSD" ] ]);
+  this.setModel( [ [ "USD",  "CoinsetterUSD" ] ]);
 
   this.last_best_bid_ = {'USD':0};
   this.last_best_ask_ = {'USD':0};
@@ -36,9 +36,18 @@ bitex.ui.RemittanceBox.prototype.last_best_ask_;
 
 
 /**
+ * @type {Socket}
+ */
+bitex.ui.RemittanceBox.prototype.coinsetter_io_socket_;
+
+
+/**
  * @type {string}
  */
 bitex.ui.RemittanceBox.CSS_CLASS = goog.getCssName('remittance-box');
+
+
+
 
 /** @inheritDoc */
 bitex.ui.RemittanceBox.prototype.getCssClass = function() {
@@ -67,7 +76,7 @@ bitex.ui.RemittanceBox.prototype.decorateInternal = function(element) {
 bitex.ui.RemittanceBox.prototype.clearCurrencies = function() {
   this.setModel( [ ]);
 
-  var currency_record = [ "USD",  "BitstampUSD" ];
+  var currency_record = [ "USD",  "CoinsetterUSD" ];
   this.getModel().push(currency_record);
 
   var table_tbody_el =
@@ -116,52 +125,26 @@ bitex.ui.RemittanceBox.prototype.logger_ =
 bitex.ui.RemittanceBox.prototype.enterDocument = function() {
   goog.base(this, 'enterDocument');
 
-  this.ws_pusher_ = new WebSocket('wss://ws.pusherapp.com/app/de504dc5763aeef9ff52?protocol=7&client=js&version=2.1.6&flash=false');
-  this.ws_pusher_.onopen = goog.bind(this.onPusherOpen_, this);
-  this.ws_pusher_.onmessage = goog.bind(this.onPusherMessage_, this);
-  this.ws_pusher_.onclose = goog.bind(this.onPusherClose_, this);
-};
-
-bitex.ui.RemittanceBox.prototype.onPusherOpen_ = function() {
-  this.ws_pusher_.send( JSON.stringify({"event":"pusher:subscribe","data":{"channel":"order_book"}}));
-};
-
-bitex.ui.RemittanceBox.prototype.onPusherClose_ = function() {
-  this.application_.stop('Problems with pusher');
-  goog.Timer.callOnce(function(){
-    this.ws_pusher_ = new WebSocket('wss://ws.pusherapp.com/app/de504dc5763aeef9ff52?protocol=7&client=js&version=2.1.6&flash=false');
-    this.ws_pusher_.onopen = goog.bind(this.onPusherOpen_, this);
-    this.ws_pusher_.onmessage = goog.bind(this.onPusherMessage_, this);
-    this.ws_pusher_.onclose = goog.bind(this.onPusherClose_, this);
-  }, 1000, this);
-};
-
-bitex.ui.RemittanceBox.prototype.onPusherMessage_ = function (e) {
-  var msg = JSON.parse(e.data);
-  switch(msg["event"]) {
-    case 'pusher:error':
-      this.stop( msg["data"]["message"] );
-      break;
-    case 'pusher_internal:subscription_succeeded':
-      if (msg["channel"] == "order_book") {
-        this.bitstamp_order_book_channel_subscription_ = true;
-      }
-      break;
-    case 'data':
-        switch(msg["channel"]){
-          case "order_book":
-            this.onBitStampOrderBookData(JSON.parse(msg["data"]));
-            return;
-        }
-  }
+  this.coinsetter_io_socket_ = io.connect("https://plug.coinsetter.com:3000");
+  this.coinsetter_io_socket_.on('connect',goog.bind(this.onCoinsetterConnect_, this) );
+  this.coinsetter_io_socket_.on('ticker', goog.bind(this.onCoinsetterTicker_, this) );
 };
 
 /**
- * @param {Object.<string, Array.<Array.<number>>> } order_book
+ * @private
  */
-bitex.ui.RemittanceBox.prototype.onBitStampOrderBookData = function(order_book) {
-  var best_bid = parseInt(parseFloat(order_book['bids'][0][0]) * 1e8, 10);
-  var best_ask = parseInt(parseFloat(order_book['asks'][0][0]) * 1e8, 10);
+bitex.ui.RemittanceBox.prototype.onCoinsetterConnect_ = function() {
+  this.coinsetter_io_socket_.emit('ticker room', '');
+};
+
+/**
+ *
+ * @param {Object} data
+ * @private
+ */
+bitex.ui.RemittanceBox.prototype.onCoinsetterTicker_ = function(data) {
+  var best_bid = parseInt(parseFloat(data['bid']['price']) * 1e8, 10);
+  var best_ask = parseInt(parseFloat(data['ask']['price']) * 1e8, 10);
 
   if (this.last_best_bid_['USD'] !=  best_bid) {
     this.last_best_bid_['USD'] = best_bid;
