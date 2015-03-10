@@ -198,7 +198,7 @@ bitex.ui.DepositList = function( crypto_currencies_def, opt_broker_mode, opt_sho
 
             if (rowSet['Currency'] == 'BTC') {
 
-              var blockchain_address = 'https://blockchain.info/address/'  + rowSet['Data']['InputAddress'];
+              var blockchain_address = 'https://insight.bitpay.com/address/'  + rowSet['Data']['InputAddress'];
               switch (rowSet['Data']['InputAddress'][0]) {
                 case 'm':
                 case 'n':
