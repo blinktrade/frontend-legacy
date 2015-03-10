@@ -48,7 +48,7 @@
 }
 a:hover:not(.ls-btn),a:focus,a{
 	text-decoration: none !important;
-	border-bottom-width:0 !important;
+	/*border-bottom-width:0 !important;*/
 }
 *,*:hover,*:focus{
 	outline: 0 !important; 
@@ -70,7 +70,7 @@ a:hover:not(.ls-btn),a:focus,a{
 
 /* mudar os botoes */
 
-.ls-btn{
+.ls-btn, .fuelux .btn{
 	border: 2px #E8683E solid !important;
 	border-radius:50px !important;
 	text-transform: uppercase;
@@ -349,18 +349,62 @@ footer{
     background-image: none;
 }
 
-.fuelux a.ls-btn-success {
-    color:black;
+.fuelux .btn {
+  -moz-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  border: 1px solid #b2b2b2;
+  padding: 6px 11px 7px;
+  border-radius: 4px;
+  background-color: white;
+  display: inline-block;
+  font-size: 13px;
+  line-height: 1.42857;
+  text-decoration: none;
+  text-align: center;
+  white-space: normal;
+  color: black;
+  cursor: pointer;
+  vertical-align: top;
+  font-weight: normal;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
-.fuelux a.ls-btn-primary {
-    color:white;
+.fuelux .btn:hover, .btn:active{
+  border-color: #cccccc;
+  background: #e5e5e5;
+  -moz-box-shadow: inset 0 3px 5px rgba(0,0,0,0.05);
+  -webkit-box-shadow: inset 0 3px 5px rgba(0,0,0,0.05);
+  box-shadow: inset 0 3px 5px rgba(0,0,0,0.05);
 }
-.fuelux a.ls-btn-danger{
-    color:#D75553;
+
+.fuelux a.btn-success {
+    color:black!important;
 }
-.fuelux a.ls-btn-danger:hover{
-    color:white;
+.fuelux a.btn-success > .icon-white{
+    color:black!important;
 }
+
+.fuelux a.btn-info {
+	background: #E8683E;
+    color:white!important;
+}
+.fuelux a.btn-info:hover{
+  background: #E8683E;
+  border-color: #7e5200;
+}
+
+.fuelux .btn-danger{
+    color:#D75553!important;
+}
+.fuelux .btn-danger:hover{
+  background: #d75553;
+  border-color: #c14c4a;
+  color:white!important;
+}
+
 .fuelux .label-important, .fuelux .badge-important{
     background-color: #D75553!important;
 }

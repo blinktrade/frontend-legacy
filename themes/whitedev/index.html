@@ -233,12 +233,15 @@ load_application:       True
                     <div class="col-md-2 ls-footer-item">
                       <a href="#">Latency: <span class="bitex-model" data-model-key="latency">0</span> ms</a>
                     </div>
-                    <div class="col-md-2 ls-footer-item">
+                    <div class="col-md-1 ls-footer-item">
                       <a href="#">Version: {{ site.deploy_version }}</a>
                     </div>
                     {% endif %}
                     <div class="col-md-2 ls-footer-item">
                         <a href="http://blinktrade.com/" target="_blank">© 2014 BlinkTrade Inc</a>
+                    </div>
+                    <div class="col-md-1 ls-footer-item">
+                        <a href="#themes">Themes</a>
                     </div>
                     <div class="col-md-2 ls-footer-item">
                         <a href="https://github.com/blinktrade/" target="_blank">Proudly 100% open source <span class="bitex-model" data-model-key="JSVersion"></span></a>
@@ -456,32 +459,6 @@ load_application:       True
     </div>
   </div>
 
-  <div id="themes" class="bitex-view container min-height-view" style="margin-top:20px;">
-    <div class="page-header ls-title-4">
-        <h1 class="bitex-view-title">Themes</h1>
-    </div>
-    <br>
-    <p>Choose a Theme</p>
-    <hr>
-    <div class="bitex-view-content">
-        <div class="row" style="text-align:center">
-            <div class="col-md-6">
-                <a href="{{ site.url}}{{ site.baseurl}}/themes/default/">
-                    <img src="{{ site.url}}{{ site.baseurl }}/assets/exchange_logos/thumb-themes/default-theme.jpg" alt="Default Theme" class="thumb-theme">
-                    <hr>
-                    <h3 class="ls-title-4">Default Theme</h3>
-                </a>
-            </div>
-            <div class="col-md-6">
-                <a href="{{ site.url}}{{ site.baseurl}}/themes/whitedev/">
-                    <img src="{{ site.url}}{{ site.baseurl }}/assets/exchange_logos/thumb-themes/whitedev-theme.jpg" alt="Whitedev Theme" class="thumb-theme">
-                    <hr>
-                    <h3 class="ls-title-4">Whitedev</h3>
-                </a>
-            </div>
-        </div>
-    </div>
-  </div>
 
   <div id="set_new_password" class="page  row bitex-view min-height-view">
     <div class="page-header">
