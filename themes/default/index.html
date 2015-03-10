@@ -50,6 +50,29 @@ load_application:       True
     </div>
   </div>
 
+  <div id="themes" class="bitex-view container page">
+    <div class="page-header ls-title-4">
+        <h1 class="bitex-view-title">Themes</h1>
+    </div>
+    <p>Choose a Theme</p>
+    <hr>
+    <div class="bitex-view-content">
+        <div class="row" style="text-align:center">
+            <div class="span6">
+                <a href="{{ site.url}}{{ site.baseurl}}/themes/default/">
+                    <img src="{{ site.url}}{{ site.baseurl }}/assets/exchange_logos/thumb-themes/default-theme.jpg" alt="Default Theme">
+                    <h3>Default Theme</h3>
+                </a>
+            </div>
+            <div class="span6">
+                <a href="{{ site.url}}{{ site.baseurl}}/themes/whitedev/">
+                    <img src="{{ site.url}}{{ site.baseurl }}/assets/exchange_logos/thumb-themes/whitedev-theme.jpg" alt="Whitedev Theme">
+                    <h3>Whitedev</h3>
+                </a>
+            </div>
+        </div>
+    </div>
+  </div>
   <div id="faq" class="page row-fluid bitex-view">
     <div class="page-header">
       <h1 class="bitex-view-title">{% t views.faq.title %}</h1>
@@ -79,27 +102,13 @@ load_application:       True
       </h3>
     </div>
   </div>
-  <div id="themes" class="bitex-view container page" style="margin-top:20px;">
-    <div class="page-header ls-title-4">
-        <h1 class="bitex-view-title">Themes</h1>
+  <div id="market" class="page row bitex-view">
+    <div class="row-fluid">
+      <div class="page-header">
+        <h2 class="bitex-view-title">{% t views.market.title %}</h2>
+      </div>
     </div>
-    <p>Choose a Theme</p>
-    <hr>
     <div class="bitex-view-content">
-        <div class="row" style="text-align:center">
-            <div class="span6">
-                <a href="{{ site.url}}{{ site.baseurl}}/themes/default/">
-                    <img src="{{ site.url}}{{ site.baseurl }}/assets/exchange_logos/thumb-themes/default-theme.jpg" alt="Default Theme">
-                    <h3>Default Theme</h3>
-                </a>
-            </div>
-            <div class="span6">
-                <a href="{{ site.url}}{{ site.baseurl}}/themes/whitedev/">
-                    <img src="{{ site.url}}{{ site.baseurl }}/assets/exchange_logos/thumb-themes/whitedev-theme.jpg" alt="Whitedev Theme">
-                    <h3>Whitedev</h3>
-                </a>
-            </div>
-        </div>
     </div>
   </div>
 
@@ -627,15 +636,6 @@ load_application:       True
     </div>
   </div>
 
-  <div id="market" class="page row bitex-view">
-    <div class="row-fluid">
-      <div class="page-header">
-        <h2 class="bitex-view-title">{% t views.market.title %}</h2>
-      </div>
-    </div>
-    <div class="bitex-view-content">
-    </div>
-  </div>
 
 <!-- div.container -->
 </div>
