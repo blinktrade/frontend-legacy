@@ -198,7 +198,7 @@ bitex.ui.DepositList = function( crypto_currencies_def, opt_broker_mode, opt_sho
 
             if (rowSet['Currency'] == 'BTC') {
 
-              var blockchain_address = 'https://blockchain.info/address/'  + rowSet['Data']['InputAddress'];
+              var blockchain_address = 'https://insight.bitpay.com/address/'  + rowSet['Data']['InputAddress'];
               switch (rowSet['Data']['InputAddress'][0]) {
                 case 'm':
                 case 'n':
@@ -347,7 +347,7 @@ bitex.ui.DepositList = function( crypto_currencies_def, opt_broker_mode, opt_sho
         },MSG_DEPOSIT_TABLE_DETAILS_COLUMN_BTN_CANCEL,' ', goog.dom.createDom( 'i', ['icon-white', 'icon-remove']));
 
         var btn_progress = goog.dom.createDom( 'a', {
-          'class':'btn btn-mini btn-info btn-deposit-progress',
+          'class':'btn btn-mini btn-deposit-progress',
           'href':'#',
           'data-action':'PROGRESS',
           'data-row': data_row
