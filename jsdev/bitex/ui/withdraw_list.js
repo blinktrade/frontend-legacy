@@ -358,7 +358,7 @@ bitex.ui.WithdrawList = function( methodDescriptionObj, opt_broker_mode,  opt_sh
               */
              var MSG_WITHDRAW_TABLE_DETAILS_COLUMN_BTN_BLOCKCHAIN  = goog.getMsg('blockchain');
 
-             var block_explorer = 'https://blockchain.info';
+             var block_explorer = 'https://insight.bitpay.com';
              switch (rowSet['Data']['Wallet'][0]) {
                case 'm':
                case 'n':
