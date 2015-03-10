@@ -1,0 +1,550 @@
+
+::-webkit-scrollbar {
+    width: 13px;
+}
+::-webkit-scrollbar-track {
+	background: #EEE;
+}
+::-webkit-scrollbar-thumb {
+    background: #333 url(../images/dots.png);
+	background-repeat:no-repeat;
+	background-position:center;
+	background-size:5px;
+}
+
+/* top */
+.youraccount h5{
+	font-family: 'Axis', Arial;
+}
+.ls-menu a{
+	font-weight: 300;
+    height: auto;
+    padding-top:13px;
+    padding-bottom:13px;
+    padding-left:60px;
+}
+.ls-sidebar{
+    width:280px;
+    background: #444;
+}
+.ls-theme-orange .ls-menu li{
+    border: none;
+}
+.ls-menu{
+    background: #444 url(../images/blur.png) center no-repeat;
+    background-size: 200%;
+    height: calc(100% - 400px)!important;
+}
+/* FONTES*/
+@font-face{
+	font-family: "Axis";
+	src:url(../fonts/axis.otf);
+}
+.ls-box{
+	border-radius: 0 !important;
+}
+.youraccount strong,.b{ 
+	color: #E8683E;
+}
+a:hover:not(.ls-btn),a:focus,a{
+	text-decoration: none !important;
+	/*border-bottom-width:0 !important;*/
+}
+*,*:hover,*:focus{
+	outline: 0 !important; 
+}
+.youraccount [class^="flaticon-"]:before{
+	margin-left: 0 !important;
+}
+.youraccount{
+  padding-right: 0;
+}
+.ls-menu{
+    margin-top: -20px!important;
+	overflow-y: auto;
+}
+#id_account_summary_content{
+    max-height:200px;
+    overflow-y: auto;
+}
+
+/* mudar os botoes */
+
+.ls-btn, .fuelux .btn{
+	border: 2px #E8683E solid !important;
+	border-radius:50px !important;
+	text-transform: uppercase;
+	font-family: "Axis", Arial;
+	transition:.3s;
+	border: none;
+}
+.ls-btn-lg{
+	padding: 15px 45px;
+}
+.ls-input-text, input[type="color"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="email"], input[type="month"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="time"], input[type="url"], input[type="week"], input[type="text"], textarea{
+	border: 2px #DDD solid !important;
+	border-radius:50px !important;
+	box-shadow: none !important;
+
+	font-family: "Axis",Arial;
+	color: #E8683E !important;
+}
+.ls-prefix-group input{
+	border-radius: 0 50px 50px 0 !important;
+	border-left: none !important;
+}
+.ls-label-text-prefix{
+	border-radius: 50px 0  0 50px !important;
+}
+[class*="ls-btn"]{
+	border-radius: 50px !important;
+}
+
+@media(min-width: 768px){
+    .ls-title-intro{
+        margin-bottom:0px!important;
+    }
+    .ls-footer-item{
+        height:25px!important;
+    }
+}
+
+/* ajuste para telas móveis */
+@media (max-width: 768px){
+
+    .zopim{
+        display:none;
+    }
+    .ls-sidebar{
+        -moz-transform: translate(-100%, 0);
+        -ms-transform: translate(-100%, 0);
+        -webkit-transform: translate(-100%, 0);
+        transform: translate(-100%, 0);
+    }
+    #id_account_summary_content{
+        max-height:90px;
+        overflow-y: auto;
+    }
+    .ls-sidebar{
+        width:280px;
+    }
+	.ls-brand-name{
+		display: none;
+	}
+    .ls-footer{
+        height:auto;
+    }
+    .footer-align {
+        margin-left: 10px!important;
+    }
+    .alert{
+        margin-left:20px!important;
+    }
+	.ls-theme-orange .ls-topbar{
+		background: #E8683E url(../images/logo-1.svg) center center no-repeat !important;
+		background-size: 30px;
+	}
+}
+
+
+/* ajuste de tela média */
+@media screen and (max-width: 1200px) and (min-width: 768px){
+    .ls-sidebar{
+        width:60px;
+    }
+    .ls-sidebar:hover{
+        width:280px;
+    }
+    .ls-sidebar .ls-brand-name {
+        width:280px;
+    }
+    .ls-menu{
+        width:280px;
+    }
+
+    .youraccount{
+        display: none;
+    }
+    .ls-footer{
+        height:auto!important;
+    }
+    .footer-align {
+        margin-left: 60px!important;
+    }
+	.ls-sidebar:hover .youraccount{
+		display: block;
+	}
+
+}
+.no-padding{
+	padding: 0 !important;
+}
+.ls-table{
+	table-layout: auto;
+}
+
+.ls-notification-links{
+    padding-top:20px;
+}
+
+
+
+/* changes */
+
+body{
+    padding-top:60px;
+}
+
+.ls-main{
+    height:auto;
+    padding-top:0px;
+}
+
+
+.ls-sidebar-visible .ls-topbar, .ls-sidebar-visible .ls-main{
+    transform: translate(280px, 0);
+    -moz-transform: translate(280px, 0);
+    -ms-transform: translate(280px, 0);
+    -webkit-transform: translate(280px, 0);
+}
+
+.start{
+    position:relative;
+    width:100%;
+    height:100%;
+    right:0;
+    left:0;
+    z-index:1;
+}
+
+.min-height-view{
+    min-height: calc(100% - 150px);
+}
+
+.thumb-theme{
+    box-shadow: 0px 0px 7px #808080;
+}
+
+.login-input input{
+    margin-bottom:10px;
+}
+
+.ls-brand-name{
+    padding:12px!important;
+}
+.start .ls-brand-name{
+    padding: 25px 20px!important;
+    border-top: 1px solid #F7F7F7;
+}
+.active, .active:hover{
+    background-color: #E8683E;
+    border-color: #B07200;
+    color:white;
+}
+
+ul.start-links{
+    list-style:none;
+    margin-top:15px;
+}
+ul.start-links li{
+    display:inline-block;
+}
+ul.start-links a{
+    color: #E8683E;
+}
+ul.ls-footer-list li{
+    width:initial;
+    vertical-align:initial;
+}
+.ls-footer-item a{
+    padding:0px!important;
+}
+.ls-footer-list{
+    width:100%!important;
+}
+
+.ls-language{
+    padding-left: 30px;
+    padding-right: 30px;
+    background: #DEDEDE;
+    height: 60px;
+}
+
+.ls-language a{
+    color: #555;
+}
+
+.ls-language .ls-dropdown-nav{
+    border:none;
+    border-radius:0px;
+    margin-top:22px;
+    margin-left:-30px
+}
+
+.ls-language nav ul a {
+    background: #222;
+    padding: 15px 20px!important;
+    color:#888!important;
+    -ms-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    -webkit-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+}
+.ls-language nav ul a:hover {
+    color: white!important;
+    padding-left:25px!important;
+}
+footer{
+    height:120px;
+}
+
+.ul-form{
+    list-style:none
+}
+.ul-form li{
+    display: table;
+    width: 100%;
+    margin-bottom:20px;
+}
+.ul-form li label{
+    width: 20%;
+    display: table-cell;
+}
+
+.md-blink,
+.md-blink > td,
+.order-manager-blink td,
+.balance-info-blink td,
+.order-book-blink td {
+  background: #FFECC9!important;
+}
+
+.order-book-qty, .order-book-price {
+    cursor: crosshair;
+}
+
+.order-book-drag td{
+    border-top:3px solid #B2E1B3;
+}
+
+.order-book-movable td{
+    cursor: move;
+}
+
+.open .ls-dropdown-nav{
+    display:block
+}
+
+#id_order_book_ask_content .ls-table td,
+#id_order_book_bid_content .ls-table td {
+    padding:7px;
+}
+
+/* fuelux override */
+.fuelux .dropdown-menu > li > a:hover,
+.fuelux .dropdown-menu > li > a:focus,
+.fuelux .dropdown-submenu:hover > a,
+.fuelux .dropdown-submenu:focus > a{
+    background-color: #E8683E;
+    background-image: none;
+}
+
+.fuelux .btn {
+  -moz-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  border: 1px solid #b2b2b2;
+  padding: 6px 11px 7px;
+  border-radius: 4px;
+  background-color: white;
+  display: inline-block;
+  font-size: 13px;
+  line-height: 1.42857;
+  text-decoration: none;
+  text-align: center;
+  white-space: normal;
+  color: black;
+  cursor: pointer;
+  vertical-align: top;
+  font-weight: normal;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+.fuelux .btn:hover, .btn:active{
+  border-color: #cccccc;
+  background: #e5e5e5;
+  -moz-box-shadow: inset 0 3px 5px rgba(0,0,0,0.05);
+  -webkit-box-shadow: inset 0 3px 5px rgba(0,0,0,0.05);
+  box-shadow: inset 0 3px 5px rgba(0,0,0,0.05);
+}
+
+.fuelux a.btn-success {
+    color:black!important;
+}
+.fuelux a.btn-success > .icon-white{
+    color:black!important;
+}
+
+.fuelux a.btn-info {
+	background: #E8683E;
+    color:white!important;
+}
+.fuelux a.btn-info:hover{
+  background: #E8683E;
+  border-color: #7e5200;
+}
+
+.fuelux .btn-danger{
+    color:#D75553!important;
+}
+.fuelux .btn-danger:hover{
+  background: #d75553;
+  border-color: #c14c4a;
+  color:white!important;
+}
+
+.fuelux .label-important, .fuelux .badge-important{
+    background-color: #D75553!important;
+}
+
+.fuelux .label{
+    padding: 7px;
+    width: 100%;
+    font-weight: 500;
+    text-align: center;
+    text-transform: uppercase;
+}
+.withdraw-list-details-td-key{
+    width:53%;
+    text-align: right!important;
+}
+.withdraw-list-details > table {
+    width : 100%;
+}
+
+/* accordion */
+.accordion-heading a{
+    color:#E8683E;
+}
+.accordion-toggle{
+    display:block;
+}
+.collapse{
+    height:0;
+    overflow:hidden;
+}
+
+/* alert */
+
+.notifications{
+    position:absolute;
+    top:5%;
+    right:0px;
+    z-index:9000;
+}
+
+.alert{
+    margin-left:10px;
+    margin-top:10px;
+    margin-bottom:0px;
+    width: auto;
+    border-radius:50px;
+    padding: 10px;
+    font-weight: normal;
+    background-color: #B3DAED;
+}
+.alert a{
+    color: #2881AC;
+}
+
+.alert-success{
+    background-color:#B2E1B3;
+}
+.alert-success a{
+    color: #388F39;
+}
+.alert-error{
+    background-color:#E1B2B2;
+    color: #8F3838;
+}
+.alert-error a{
+    color: #8F3838;
+}
+.alert .close{
+    border: none;
+    background: none;
+    padding: 5px;
+    font-size: 20px;
+    float: none;
+    font-family: 'Helvetica';
+    font-weight: bold;
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+.alert .close:hover{
+    opacity: 1;
+}
+
+.flaticon-download164,
+.flaticon-upload119{
+    cursor:pointer;
+}
+
+/* Bitex Classes */
+#id_button_connect_ws{
+    position:absolute;
+    top:65px;
+    right: 10px;
+}
+
+.market-view-table-selected td{
+  background: #FFECC9!important;
+}
+
+.bitex-broker .bitex-display-if-broker {
+  display: block;
+}
+.bitex-non-broker .bitex-display-if-broker {
+  display: none;
+}
+.bitex-broker .bitex-display-if-non-broker {
+  display: none;
+}
+.bitex-non-broker .bitex-display-if-non-broker {
+  display: block;
+}
+
+.bitex-logged .bitex-display-if-logged {
+  display: block;
+}
+
+.ws-connected .bitex-display-if-ws-connected {
+  display: block;
+}
+
+.bitex-not-logged .bitex-hide-if-logged {
+  display: block;
+}
+
+.ws-not-connected .bitex-hide-if-ws-connected {
+  display: inline;
+}
+
+.bitex-not-logged .bitex-display-if-logged {
+  display: none;
+}
+
+.bitex-logged .bitex-hide-if-logged {
+  display: none;
+}
+
+.ws-connected .bitex-hide-if-ws-connected {
+  display: none;
+}
+
+.ws-not-connected .bitex-display-if-ws-connected {
+  display: none;
+}

@@ -6,8 +6,8 @@
   */
 {template .RemittancesBoxCurrency}
   <tr>
-    <td style="padding: 4px;border-top: 0;"><strong>{$remittance_pair[1]}</strong></td>
-    <td style="padding: 4px;border-top: 0;">
+    <td style=""><strong>{$remittance_pair[1]}</strong></td>
+    <td style="">
       <span id="{$id}_{$remittance_pair[0]}_buy"  data-blink-class="md-blink"></span>
       <span> / <span>
       <span id="{$id}_{$remittance_pair[0]}_sell" data-blink-class="md-blink"></span>
@@ -35,11 +35,11 @@
   */
 {template .RemittancesBox}
   <div id="{$id}" class="remittance-box">
-    <table class="table table-bordered table-condensed remittance-box-table">
+    <table class="ls-table remittance-box-table">
       <thead>
         <tr>
           <td colspan="2">
-            <strong>{msg desc="Remittance box title"}Be your own Remittance Service{/msg}</strong>
+            <h4>{msg desc="Remittance box title"}Be your own Remittance Service{/msg}</h4>
           </td>
         </tr>
       </thead>
