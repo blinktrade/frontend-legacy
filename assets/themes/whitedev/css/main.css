@@ -387,19 +387,19 @@ footer{
     color:black!important;
 }
 
-.fuelux a.btn-primary {
+.fuelux a.btn-info {
 	background: #E8683E;
     color:white!important;
 }
-.fuelux a.btn-primary:hover{
+.fuelux a.btn-info:hover{
   background: #E8683E;
   border-color: #7e5200;
 }
 
-.fuelux a.btn-danger{
+.fuelux .btn-danger{
     color:#D75553!important;
 }
-.fuelux a.btn-danger:hover{
+.fuelux .btn-danger:hover{
   background: #d75553;
   border-color: #c14c4a;
   color:white!important;

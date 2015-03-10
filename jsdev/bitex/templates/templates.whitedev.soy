@@ -101,48 +101,54 @@
 {template .BrokerConfirmDepositContent}
   <form class="form-horizontal broker-confirm-deposit">
     <div class="control-group">
-      <label class="control-label">{msg desc="Control number label"}Control number{/msg}</label>
+      <label class="ls-title-5">{msg desc="Control number label"}Control number{/msg}</label>
+	  <br />
       <div class="controls">
         <label class="control-label" style="text-align: left;">{$controlNumber}</label>
       </div>
     </div>
     <div class="control-group">
-      <label class="control-label">{msg desc="Amount label"}Amount paid{/msg}</label>
+	  <hr>
+      <label class="ls-title-5" style="margin-left:5px">{msg desc="Amount label"}Amount paid{/msg}</label>
       <div class="controls">
-        <div class="input-prepend">
-          <span class="add-on">{$currencySign}</span>
+        <div class="ls-prefix-group">
+          <span class="ls-label-text-prefix">{$currencySign}</span>
           <input id="{$id_value}" type="text" class="input-small" size="16" name="PaidValue" value="{$value}">
         </div>
       </div>
     </div>
     <div class="control-group">
-      <label class="control-label">{msg desc="Fee percentage label"}Fees:{/msg}</label>
+      <hr>
+      <label class="ls-title-5" style="margin-left:5px">{msg desc="Fee percentage label"}Fees:{/msg}</label>
       <div class="controls">
-        <div class="row-fluid">
-          <div class="span4">
-            <div class="input-append">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="ls-prefix-group">
+              <span class="ls-label-text-prefix">%</span>
               <input id="{$percentFeeID}" type="text" class="input-mini" size="16" name="Fee" value="{$percentFee}">
-              <span class="add-on">%</span>
             </div>
           </div>
 
-          <div class="span4">
+          <div class="col-md-4">
             <div class="input-prepend">
               <span class="add-on">{$currencySign}</span>
               <input id="{$fixedFeeID}" type="text" class="input-mini" size="16" name="Fee" value="{$fixedFee}">
             </div>
           </div>
 
-          <div class="span4">
+          <div class="col-md-4">
             <label id="{$totalFeesID}" class="control-label broker-confirm-deposit-fee" style="text-align: left;"></label>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="control-group">
-      <label class="control-label">{msg desc="Net amount"}Net amount{/msg}</label>
-      <div class="controls">
+    <div class="col-md-12">
+	  <br />
+	  <div class="col-md-4">
+	    <label class="control-label">{msg desc="Net amount"}Net amount{/msg}</label>
+	  </div>
+	  <div class="col-md-4">
         <label id="{$netValueID}" class="control-label broker-confirm-deposit-net-amount" style="text-align: left;"></label>
         <input id="{$netValueID}_value" type="hidden" value="">
       </div>
@@ -757,31 +763,32 @@
   */
 {template .FeesFormControls}
 <div class="control-group">
-  <label class="control-label">{msg desc="Fee label"}Fees:{/msg}</label>
+  <hr>
+  <label class="ls-title-5" style="margin-left:20px">{msg desc="Fee label"}Fees:{/msg}</label>
   <div class="controls">
     <div class="row-fluid">
-      <div class="span3">
-        <div class="input-append">
-          <input id="{$percentFeeID}" type="text" class="input-mini" size="16"  style="width: 40px;" name="PercentFee" value="{$percentFee}">
-          <span class="add-on">%</span>
+      <div class="col-md-3">
+        <div class="ls-prefix-group">
+          <span class="ls-label-text-prefix">%</span>
+          <input id="{$percentFeeID}" type="text" class="input-mini" size="16"  name="PercentFee" value="{$percentFee}">
         </div>
         <span style="font-style: italic;">{msg desc="Fee percentage label"}Percent fee{/msg}</span>
       </div>
 
-      <div class="span1" style="margin-top: 4px;margin-bottom: -4px;">
+      <div class="col-md-1" style="margin-top: 4px;margin-bottom: -4px;">
           <span style="font-weight: bold;">+</span>
       </div>
-      <div class="span3">
-        <div class="input-prepend">
-          <span class="add-on">{$currencySign}</span>
-          <input id="{$fixedFeeID}" type="text" class="input-mini" size="16" style="width: 40px;" name="FixedFee" value="{$fixedFee}">
+      <div class="col-md-3">
+        <div class="ls-prefix-group">
+          <span class="ls-label-text-prefix">{$currencySign}</span>
+          <input id="{$fixedFeeID}" type="text" class="input-mini" size="16" name="FixedFee" value="{$fixedFee}">
         </div>
         <span style="font-style: italic;">{msg desc="Fee fixed label"}Fixed fee{/msg}</span>
       </div>
-      <div class="span1" style="margin-top: 4px;margin-bottom: -4px;">
+      <div class="col-md-1" style="margin-top: 4px;margin-bottom: -4px;">
           <span style="font-weight: bold;">=</span>
       </div>
-      <div class="span4">
+      <div class="col-md-4">
         <label id="{$totalFeesID}" class="control-label" style="text-align: left;"></label>
       </div>
     </div>
