@@ -166,7 +166,7 @@ bitex.ui.OrderManager = function(opt_mode, opt_openOrdersTitle, opt_blinkDelay, 
       'label': MSG_ORDER_MANAGER_ACTIVITY_TABLE_COLUMN_ACTIONS,
       'sortable': false,
       'formatter': function(id, row_set_obj){
-        var classes = "ls-btn ls-btn-danger";
+        var classes = "btn btn-mini btn-danger";
         var attributes = { 'class':classes, 'data-action':'cancel', 'data-client-order-id': id } ;
 
         if ( goog.isDefAndNotNull(row_set_obj) ) {
@@ -245,7 +245,7 @@ bitex.ui.OrderManager = function(opt_mode, opt_openOrdersTitle, opt_blinkDelay, 
       'label': MSG_ORDER_MANAGER_ACTIVITY_TABLE_COLUMN_ACTIONS,
       'sortable': false,
       'formatter': function(id, row_set_obj){
-        var classes = "ls-btn ls-btn-danger";
+        var classes = "btn btn-mini btn-danger";
         var attributes = { 'class':classes, 'data-action':'cancel', 'data-client-order-id': id } ;
 
         if ( goog.isDefAndNotNull(row_set_obj) ) {
