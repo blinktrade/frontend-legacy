@@ -4,36 +4,37 @@
  * @param id
  */
 {template .AlgorithmSelector}
-<form id="{$id}_form" class="algo-selector form-horizontal well" >
-  <div class="control-group">
-    <label class="control-label" for="{$id}_filename">{msg desc="Algorithm input label"}Algorithm{/msg}</label>
-    <div class="controls">
-      <div class="input-append" data-original-title="" title="">
-        <input id="{$id}_filename" type="text" class="input-xxlarge" disabled="disabled" />
+<form id="{$id}_form" class="algo-selector row-fluid" >
+  <div class="col-md-12">
+    <div class="ls-box col-md-6">
+      <div class="ls-prefix-group col-md-6" data-original-title="" title="">
+        <b class="ls-label-text-prefix" style="width:50%;">
+            <input id="{$id}_filename" style="height:10px;background-color:#FBFBFB;border:0px!important;" type="text" class="input-xxlarge" disabled="disabled" />
+        </b>
+        <input id="{$id}_btn_clear" type="button" class="ls-btn ls-btn-primary" style="display:none;" value="{msg desc="Clear button on algo selector"}Clear{/msg}" />
 
-        <button id="{$id}_btn_clear" type="button" class="btn btn-default" style="display:none;">
-          <span class="glyphicon glyphicon-remove"></span> {msg desc="Clear button on algo selector"}Clear{/msg}
-        </button>
-
-        <div id="{$id}_btn_browse_container" class="btn btn-default" style=" position: relative;  overflow: hidden;  margin: 0px;">
-              <span class="glyphicon glyphicon-folder-open"></span>
-              <span id="{$id}_btn_browse" style="margin-left:2px">{msg desc="Browse button on algo selector"}Browse{/msg}</span>
-              <input id="{$id}_file" type="file" accept=".algo" style=" position: absolute;
-                                                                                   top: 0;
-                                                                                   right: 0;
-                                                                                   margin: 0;
-                                                                                   padding: 0;
-                                                                                   font-size: 20px;
-                                                                                   cursor: pointer;
-                                                                                   opacity: 0;
-                                                                                   filter: alpha(opacity=0);" />
-        </div>
+        <input id="{$id}_btn_browse_container" style="margin-left:0px" value='{msg desc="Browse button on algo selector"}Browse{/msg}' type="button" class="ls-btn ls-btn-primary" />
+        <input id="{$id}_file" type="file" accept=".algo" style=" position: absolute;
+                                                                            top: 0;
+                                                                            right: 0;
+                                                                            margin: 0;
+                                                                            padding: 0;
+                                                                            font-size: 20px;
+                                                                            cursor: pointer;
+                                                                            opacity: 0;
+                                                                            filter: alpha(opacity=0);" />
       </div>
-      <a href="https://github.com/blinktrade/algorithm-trading/" target="_blank">
-        {msg desc="Help message that appears bellow the algorithm trading input box on the algorithm trading view"}Understand how the algorithm trading works{/msg}
-      </a>
+      <div class="ls-clearfix"></div>
+      <hr>
+      <small>
+          <a href="https://github.com/blinktrade/algorithm-trading/" target="_blank">
+              {msg desc="Help message that appears bellow the algorithm trading input box on the algorithm trading view"}Understand how the algorithm trading works{/msg}
+          </a>
+      </small>
     </div>
   </div>
 </form>
+<hr>
+
 
 {/template}

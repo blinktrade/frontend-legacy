@@ -9,6 +9,7 @@ goog.require('goog.debug.Logger');
 goog.require('goog.events.Event');
 goog.require('goog.i18n.NumberFormat');
 goog.require('goog.dom.classes');
+goog.require('goog.net.WebSocket');
 
 /**
  * @param {goog.dom.DomHelper=} opt_domHelper
@@ -17,10 +18,13 @@ goog.require('goog.dom.classes');
  */
 bitex.ui.RemittanceBox = function(opt_domHelper) {
   goog.ui.Component.call(this, opt_domHelper);
-  this.setModel( [ [ "USD",  "BitstampUSD" ] ]);
+  this.setModel( [ [ "USD",  "BitfinexUSD" ] ]);
 
   this.last_best_bid_ = {'USD':0};
   this.last_best_ask_ = {'USD':0};
+
+  this.ws_ = new goog.net.WebSocket(true);
+
 };
 goog.inherits(bitex.ui.RemittanceBox, goog.ui.Component);
 
@@ -36,9 +40,18 @@ bitex.ui.RemittanceBox.prototype.last_best_ask_;
 
 
 /**
+ * @type {goog.net.WebSocket}
+ */
+bitex.ui.RemittanceBox.prototype.ws_ = null;
+
+
+/**
  * @type {string}
  */
 bitex.ui.RemittanceBox.CSS_CLASS = goog.getCssName('remittance-box');
+
+
+
 
 /** @inheritDoc */
 bitex.ui.RemittanceBox.prototype.getCssClass = function() {
@@ -67,7 +80,7 @@ bitex.ui.RemittanceBox.prototype.decorateInternal = function(element) {
 bitex.ui.RemittanceBox.prototype.clearCurrencies = function() {
   this.setModel( [ ]);
 
-  var currency_record = [ "USD",  "BitstampUSD" ];
+  var currency_record = [ "USD",  "BitfinexUSD" ];
   this.getModel().push(currency_record);
 
   var table_tbody_el =
@@ -116,62 +129,79 @@ bitex.ui.RemittanceBox.prototype.logger_ =
 bitex.ui.RemittanceBox.prototype.enterDocument = function() {
   goog.base(this, 'enterDocument');
 
-  this.ws_pusher_ = new WebSocket('wss://ws.pusherapp.com/app/de504dc5763aeef9ff52?protocol=7&client=js&version=2.1.6&flash=false');
-  this.ws_pusher_.onopen = goog.bind(this.onPusherOpen_, this);
-  this.ws_pusher_.onmessage = goog.bind(this.onPusherMessage_, this);
-  this.ws_pusher_.onclose = goog.bind(this.onPusherClose_, this);
+  var handler = this.getHandler();
+  handler.listen( this.ws_, goog.net.WebSocket.EventType.CLOSED, this.onBitfinexClose_ );
+  handler.listen( this.ws_, goog.net.WebSocket.EventType.MESSAGE, this.onBitfinexMessage_ );
+  handler.listen( this.ws_, goog.net.WebSocket.EventType.ERROR, this.onBitfinexError_ );
+  handler.listen( this.ws_, goog.net.WebSocket.EventType.OPENED, this.onBitfinexOpen_ );
+  this.ws_.open("wss://ws.bitfinex.com:3333/websocket");
 };
 
-bitex.ui.RemittanceBox.prototype.onPusherOpen_ = function() {
-  this.ws_pusher_.send( JSON.stringify({"event":"pusher:subscribe","data":{"channel":"order_book"}}));
-};
 
-bitex.ui.RemittanceBox.prototype.onPusherClose_ = function() {
-  this.application_.stop('Problems with pusher');
-  goog.Timer.callOnce(function(){
-    this.ws_pusher_ = new WebSocket('wss://ws.pusherapp.com/app/de504dc5763aeef9ff52?protocol=7&client=js&version=2.1.6&flash=false');
-    this.ws_pusher_.onopen = goog.bind(this.onPusherOpen_, this);
-    this.ws_pusher_.onmessage = goog.bind(this.onPusherMessage_, this);
-    this.ws_pusher_.onclose = goog.bind(this.onPusherClose_, this);
-  }, 1000, this);
-};
-
-bitex.ui.RemittanceBox.prototype.onPusherMessage_ = function (e) {
-  var msg = JSON.parse(e.data);
-  switch(msg["event"]) {
-    case 'pusher:error':
-      this.stop( msg["data"]["message"] );
-      break;
-    case 'pusher_internal:subscription_succeeded':
-      if (msg["channel"] == "order_book") {
-        this.bitstamp_order_book_channel_subscription_ = true;
-      }
-      break;
-    case 'data':
-        switch(msg["channel"]){
-          case "order_book":
-            this.onBitStampOrderBookData(JSON.parse(msg["data"]));
-            return;
-        }
-  }
+/** @inheritDoc */
+bitex.ui.RemittanceBox.prototype.exitDocument = function(){
+  goog.base(this, 'exitDocument');
+  this.timer_.stop();
+  this.ws_.close();
 };
 
 /**
- * @param {Object.<string, Array.<Array.<number>>> } order_book
+ * @private
  */
-bitex.ui.RemittanceBox.prototype.onBitStampOrderBookData = function(order_book) {
-  var best_bid = parseInt(parseFloat(order_book['bids'][0][0]) * 1e8, 10);
-  var best_ask = parseInt(parseFloat(order_book['asks'][0][0]) * 1e8, 10);
-
-  if (this.last_best_bid_['USD'] !=  best_bid) {
-    this.last_best_bid_['USD'] = best_bid;
-  }
-
-
-  if ( this.last_best_ask_['USD'] !=  best_ask ) {
-    this.last_best_ask_['USD'] = best_ask;
-  }
+bitex.ui.RemittanceBox.prototype.onBitfinexError_ = function() {
+  this.last_best_bid_['USD'] = undefined;
+  this.last_best_ask_['USD'] = undefined;
   this.calculateQuotes_();
+};
+
+/**
+ * @private
+ */
+bitex.ui.RemittanceBox.prototype.onBitfinexClose_ = function() {
+  this.last_best_bid_['USD'] = undefined;
+  this.last_best_ask_['USD'] = undefined;
+  this.calculateQuotes_();
+};
+
+
+/**
+ * @private
+ */
+bitex.ui.RemittanceBox.prototype.onBitfinexOpen_ = function() {
+  // Subscribe
+
+};
+
+/**
+ * @param {goog.net.WebSocket.MessageEvent} e
+ * @private
+ */
+bitex.ui.RemittanceBox.prototype.onBitfinexMessage_ = function(e) {
+  console.log('BitFinex: ' + e.message);
+  var msg = JSON.parse(e.message);
+
+  if (msg.length > 0) {
+    if (msg[0].length > 1) {
+      if (msg[0][0] == 'client_connected') {
+        this.ws_.send('["websocket_rails.subscribe",{"id":333,"data":{"channel":"ticker"}}]');
+      } else if (msg[0][0] == 'websocket_rails.ping') {
+        this.ws_.send('["websocket_rails.pong",{"id":' + parseInt(Math.random() * 10000, 10) + ',"data":{}}]');
+      } else if (msg[0][0] == 'ticker.new') {
+        var data = msg[0][1]['data'];
+        if (data['pair'] == 'BTCUSD') {
+          var best_bid = parseInt(parseFloat(data['buying']) * 1e8, 10);
+          var best_ask = parseInt(parseFloat(data['selling']) * 1e8, 10);
+          if (this.last_best_bid_['USD'] !=  best_bid) {
+            this.last_best_bid_['USD'] = best_bid;
+          }
+          if ( this.last_best_ask_['USD'] !=  best_ask ) {
+            this.last_best_ask_['USD'] = best_ask;
+          }
+          this.calculateQuotes_();
+        }
+      }
+    }
+  }
 };
 
 /**

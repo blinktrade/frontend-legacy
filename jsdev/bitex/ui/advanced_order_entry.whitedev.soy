@@ -10,9 +10,11 @@
   * @param amount_currency_symbol
   * @param price_currency_symbol
   * @param client_id
+  * @param amount_currency_code
+  * @param price_currency_code
   */
 {template .AdvancedOrderEntry}
-  <form id="{$id}" class="well span6 advanced-order-entry" data-uniform-control-holder-class="uniform-control-holder">
+  <form id="{$id}" class="col-md-6 ls-box advanced-order-entry" data-uniform-control-holder-class="uniform-control-holder">
     <input id="{$id}_symbol" type="hidden" name="symbol" value="{$symbol}">
     <input id="{$id}_side" type="hidden" name="side" value="{$side}">
     <input id="{$id}_type" type="hidden" name="type" value="{$type}">
@@ -20,83 +22,107 @@
     <input id="{$id}_broker_id" type="hidden" name="broker_id" value="{$broker_id}">
 
 
-    <div class="row-fluid uniform-control-holder">
-      <div class="span5"> <span>{msg desc="Amount label in Advanced Order Entry"}Amount:{/msg}</span>
+    <div class="row">
+      <div class="col-md-6">
+        <span>{msg desc="Amount label in Advanced Order Entry"}Amount:{/msg}</span>
       </div>
-      <div class="span6">
-        <div class="input-prepend input-block-level"><span id="{$id}_amount_sign" class="add-on advanced-order-entry-amount-sign">{$amount_currency_symbol}</span>
-          <input id="{$id}_amount"
-                 name="amount"
-                 type="text"
-                 class="input-block-level"
-                 data-uniform-label="{msg desc="Advanced Order Entry Label"}Amount{/msg}"
-                 data-uniform-validators="validateNumber; required"
-                 data-uniform-type="number"
-                 data-uniform-filters="positive_number"
-                 value=""
-                 required/>
-        </div>
-      </div>
-    </div>
-    <div class="row-fluid uniform-control-holder">
-      <div class="span5"> <span>{msg desc="'Price per label' in Order Entry"}Price per {/msg}<span class="advanced-order-entry-amount-sign">{$amount_currency_symbol}</span>:</span></div>
-      <div class="span6">
-        <div class="input-prepend input-block-level"><span id="{$id}_price_sign" class="add-on advanced-order-entry-price-sign">{$price_currency_symbol}</span>
-          <input id="{$id}_price"
-                 name="price"
-                 type="text"
-                 class="input-block-level"
-                 data-uniform-label="{msg desc="Advanced Order Entry Label"}Price{/msg}"
-                 data-uniform-validators="validateNumber; required"
-                 data-uniform-type="number"
-                 data-uniform-filters="positive_number"
-                 required/>
-        </div>
+      <div class="col-md-6">
+          <div class="ls-prefix-group">
+            <b class="ls-label-text-prefix">฿</b>
+            <input id="{$id}_amount"
+                    name="amount"
+                    type="text"
+                    class="input-block-level"
+                    data-uniform-label="{msg desc="Advanced Order Entry Label"}Amount{/msg}"
+                    data-uniform-validators="validateNumber; required"
+                    data-uniform-type="number"
+                    data-uniform-filters="positive_number"
+                    value=""
+                    required/>
+          </div>
       </div>
     </div>
-    <div class="row-fluid uniform-control-holder">
-      <div class="span5"><span>{msg desc="Total label in Order Entry"}Total:{/msg}</span>
-      </div>
-      <div class="span6">
-        <div class="input-prepend input-block-level"><span class="add-on advanced-order-entry-price-sign">{$price_currency_symbol}</span>
-          <input id="{$id}_total"
-                 name="total"
-                 type="text"
-                 class="input-block-level"
-                 data-uniform-label="{msg desc="Advanced Order Entry Label"}Total{/msg}"
-                 data-uniform-validators="validateNumber; required"
-                 data-uniform-type="number"
-                 data-uniform-filters="positive_number"
-                 required/>
+    <div class="row">
+        <hr>
+        <div class="col-md-6">
+            <span>{msg desc="'Price per label' in Order Entry"}Price per {/msg}<span class="advanced-order-entry-amount-sign">{$amount_currency_symbol}</span>:</span>
         </div>
-      </div>
+        <div class="col-md-6">
+            <div class="ls-prefix-group">
+                <span id="{$id}_price_sign" class="add-on advanced-order-entry-price-sign ls-label-text-prefix">{$price_currency_symbol}</span>
+                <input id="{$id}_price"
+                    name="price"
+                    type="text"
+                    class="input-block-level"
+                    data-uniform-label="{msg desc="Advanced Order Entry Label"}Price{/msg}"
+                    data-uniform-validators="validateNumber; required"
+                    data-uniform-type="number"
+                    data-uniform-filters="positive_number"
+                    required/>
+            </div>
+        </div>
     </div>
-    <div class="row-fluid uniform-control-holder">
-      <div class="span5">
+    <div class="row">
+        <hr>
+        <div class="col-md-6"><span>{msg desc="Total label in Order Entry"}Total:{/msg}</span>
+        </div>
+        <div class="col-md-6">
+            <div class="ls-prefix-group">
+                <span class="add-on advanced-order-entry-price-sign ls-label-text-prefix">{$price_currency_symbol}</span>
+                <input id="{$id}_total"
+                    name="total"
+                    type="text"
+                    class="input-block-level"
+                    data-uniform-label="{msg desc="Advanced Order Entry Label"}Total{/msg}"
+                    data-uniform-validators="validateNumber; required"
+                    data-uniform-type="number"
+                    data-uniform-filters="positive_number"
+                    required/>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row-fluid">
+    <div class="col-md-6">
+      {if $is_broker }
         <input id="{$id}_client_id"
-              name="client_id"
-              type="text"
-              value="{if $client_id}{$client_id}{/if}"
-              class="input-block-level"
-              label="{msg desc="Client ID label in Order Entry"}Client ID{/msg}"
-              data-uniform-label="{msg desc="Advanced Order Entry Label"}Client ID{/msg}"
-              {if $is_broker}
-                data-uniform-validators="required"
+            name="client_id"
+            type="text"
+            class="input-block-level"
+            label="{msg desc="Client ID label in Order Entry"}Client ID{/msg}"
+            data-uniform-label="{msg desc="Advanced Order Entry Label"}Client ID{/msg}"
+            data-uniform-validators="required"/>
+        {else}
+
+          <div id="{$id}_available_badge" class="text-block" style="margin-top: 10px;cursor: pointer;">
+            {msg desc="Available label inside the advanced order entry"}Available: {/msg}
+            <span id="{$id}_available_value"
+                  class="bitex-model"
+                  data-model-key="available_balance_{$broker_id}:{$client_id}_{$price_currency_code}"
+                  style="display:none"></span>
+
+              {if $side == 1}
+                <span id="{$id}_available"
+                      class="bitex-model"
+                      data-model-key="formatted_available_balance_{$broker_id}:{$client_id}_{$price_currency_code}"
+                      data-blink-class="balance-info-blink"></span>
               {else}
-                style="display:none"
-                disabled
+                <span id="{$id}_available"
+                      class="bitex-model"
+                      data-model-key="formatted_available_balance_{$broker_id}:{$client_id}_{$amount_currency_code}"
+                      data-blink-class="balance-info-blink"></span>
               {/if}
-        />
-      </div>
-      <div class="span5">
-        <button id="{$id}_action" class="btn {if $side == 1}btn-success{else}btn-danger{/if} btn-execution">
-          {if $side == 1}
-            {msg desc="Buy button in Order Entry"}BUY{/msg}
-          {else}
-            {msg desc="Sell button in Order Entry"}SELL{/msg}
-          {/if}
-        </button>
-      </div>
+          </div>
+
+        {/if}
+    </div>
+    <button id="{$id}_action" class="ls-btn col-md-5 ls-float-right {if $side != 1}ls-btn-danger{/if}">
+    {if $side == 1}
+        {msg desc="Buy button in Order Entry"}BUY{/msg}
+    {else}
+        {msg desc="Sell button in Order Entry"}SELL{/msg}
+    {/if}
+    </button>
     </div>
   </form>
 {/template}
