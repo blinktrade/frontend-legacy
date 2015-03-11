@@ -12,7 +12,8 @@ else
   LANG=$1
 fi
 
-if [ $# -eq 1 ]; then
+if [ $# -eq 0 ]; then
+  echo "No argument given, assuming theme 'default'"
   THEME=default
 else
   THEME=$2
