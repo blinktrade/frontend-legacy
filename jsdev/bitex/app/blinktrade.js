@@ -77,6 +77,7 @@ goog.require('bitex.view.MarketView');
 goog.require('bitex.view.LedgerView');
 goog.require('bitex.view.ProfileView');
 goog.require('bitex.view.RankingView');
+goog.require('bitex.view.APIView');
 
 goog.require('uniform.Uniform');
 goog.require('uniform.Meta');               // Switch according to the test($MODULE_NAME$)
@@ -345,6 +346,7 @@ bitex.app.BlinkTrade.prototype.run = function(host_api) {
   var sideBarView         = new bitex.view.SideBarView(this);
   var ledgerView          = new bitex.view.LedgerView(this);
   var profileView         = new bitex.view.ProfileView(this);
+  var apiView             = new bitex.view.APIView(this);
   var brokerApplicationView= new bitex.view.NullView(this);
 
   this.views_.addChild( toolBarView         );
@@ -370,6 +372,7 @@ bitex.app.BlinkTrade.prototype.run = function(host_api) {
   this.views_.addChild( marketView          );
   this.views_.addChild( rankingView         );
   this.views_.addChild( ledgerView          );
+  this.views_.addChild( apiView             );
   this.views_.addChild( profileView          , false);
   this.views_.addChild( brokerApplicationView);
 
@@ -406,6 +409,7 @@ bitex.app.BlinkTrade.prototype.run = function(host_api) {
   this.router_.addView( '(ranking)'                     , rankingView         );
   this.router_.addView( '(ledger)'                      , ledgerView          );
   this.router_.addView( '(profile)'                     , profileView         );
+  this.router_.addView( '(api)'                         , apiView             );
   this.router_.addView( '(broker_application)'          , brokerApplicationView);
 
   var handler = this.getHandler();

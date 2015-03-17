@@ -145,6 +145,10 @@ views:
   algotrading:
     title: Algorithm Trading
 
+  api:
+    title: API Keys
+    new_api_key: Nova API Key
+
   settings:
     title: Configurações
 
@@ -174,5 +178,6 @@ views:
     withdraw: Saques
     verification: Verificar a sua conta
     support: Suporte e Sugestões
+    api: API
     logout: Sair
     algotrading: Algo Trading
