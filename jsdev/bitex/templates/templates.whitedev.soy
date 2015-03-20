@@ -392,7 +392,7 @@
   <form class="form-horizontal" data-deposit-status="prepare" data-uniform-control-holder-class="control-group">
     <fieldset>
       <div class="control-group">
-        <label>
+        <label class="col-md-6" style="padding-top:8px">
           {msg desc="Google Authenticator code dialog label"}Google Authenticator code:{/msg}
         </label>
         <input name="token"
@@ -923,14 +923,13 @@
         {if $force_method}
           {if $method['method'] == $force_method}
 
+          <ul class="ul-form">
             {if $side == 'client'}
-              <div class="ls-prefix-group">
-                <label class="ls-label-text-prefix">
+              <li>
+                <label>
                       {msg desc="amount"}Amount{/msg}
                       <span class="">{$currencySign}</span>
                 </label>
-                <div class="controls">
-                  <div class="input-prepend">
                     <input id="{$method['method']}_{$amountID}"
                         data-uniform-validators="required; validateNumber {if $method['limits'][$verificationLevel]['enabled']} {if $method['limits'][$verificationLevel]['min']}; validateMin {$method['limits'][$verificationLevel]['formatted_min_value'] }{/if}{if $method['limits'][$verificationLevel]['max']}; validateMax {$method['limits'][$verificationLevel]['formatted_max_value'] } {/if} {/if}"
                         data-uniform-type="number"
@@ -940,7 +939,6 @@
                         size="16"
                         value="{if $formattedAmount}{$formattedAmount}{/if}"
                         name="Amount">
-                  </div>
                   {if $method['limits'][$verificationLevel]['enabled']}
                     <div>
                       <em>
@@ -956,46 +954,44 @@
                       </em>
                     </div>
                   {/if}
-                </div>
-              </div>
+              </li>
             {/if}
-
 
             {foreach $field in $method['fields'] }
               {if $field['side'] == $side}
-                <div class="ls-prefix-group">
-                  <label class="ls-label-text-prefix">{$field['label']}</label>
+                <li>
+                  <label >{$field['label']}</label>
                   <input class="withdraw-field"
                             data-uniform-validators="{$field['validator']}" type="{$field['type']}"
                             name="{$field['name']}"
                             label="{$field['placeholder']}"
                             value="{$field['value']}"/>
-                </div>
+                </li>
               {/if}
             {/foreach}
             {if $side == 'client'}
-              <div class="control-group" style="margin-bottom: 5px;">
+                <li>
                   <label class="control-label">{$method['disclaimer']}</label>
                   <input id="{$method['method']}_{$percentFeeID}" type="hidden" value="{$method['percent_fee']}">
                   <input id="{$method['method']}_{$fixedFeeID}" type="hidden" value="{$method['fixed_fee']}">
-              </div>
+              </li>
 
-              <div class="ls-prefix-group">
-                <label class="ls-label-text-prefix">{msg desc="Fee percentage label"}Fees:{/msg}</label>
+              <li>
+                <label>{msg desc="Fee percentage label"}Fees:{/msg}</label>
                 <label id="{$method['method']}_{$totalFeesID}" class="control-label" style="text-align: left;"></label>
-              </div>
+              </li>
 
-              <div class="control-group" {if $hideNetAmount} style="display:none;" {/if} >
+              <li {if $hideNetAmount} style="display:none;" {/if} >
                 <label class="control-label">{msg desc="Net amount"}Net amount{/msg}</label>
                 <label id="{$method['method']}_{$netValueID}" class="control-label" style="text-align: left;"></label>
                 <input id="{$method['method']}_{$netValueID}_value" type="hidden" value="">
-              </div>
+              </li>
 
             {else}
               {if $side == 'broker'}
-                <div class="ls-prefix-group" style="margin-bottom: 5px;">
-                    <label class="ls-label-text-prefix">{$method['disclaimer']}</label>
-                </div>
+                <li style="margin-bottom: 5px;">
+                    <label>{$method['disclaimer']}</label>
+                </li>
                 {if $showFeeDataEntry}
                   {call .FeesFormControls}
                     {param currencySign: $currencySign /}
@@ -1010,13 +1006,14 @@
               {/if}
             {/if}
           {/if}
+        </ul>
         {else}
           <div class="withdraw-method" data-withdraw-method="{$method['method']}" style="{if not isFirst($method)}display:none;{/if}" >
+            <ul class="ul-form">
 
             {if $side == 'client'}
-              <div class="ls-prefix-group">
-                <label class="ls-label-text-prefix">
-                      {msg desc="amount"}Amount{/msg}
+            <li>
+            <label> {msg desc="amount"}Amount{/msg}
                       <span class="">{$currencySign}</span>
                 </label>
                 <input id="{$method['method']}_{$amountID}"
@@ -1030,7 +1027,8 @@
                     name="Amount" {if not isFirst($method)}disabled{/if}>
                 {if $method['limits'][$verificationLevel]['enabled']}
                 {/if}
-              </div>
+              </li>
+              </ul>
               <div>
                   <em>
                   <small>
@@ -1064,11 +1062,12 @@
               <input id="{$method['method']}_{$netValueID}_value" type="hidden" value="">
             </div>
 
+            <ul class="ul-form">
             {foreach $field in $method['fields'] }
               {if $field['side'] == $side}
-                <br>
-                <div class="ls-prefix-group">
-                  <label class="ls-label-text-prefix">{$field['label']}</label>
+                <li>
+                  <br>
+                  <label>{$field['label']}</label>
                   <input class="withdraw-field"
                            data-uniform-validators="{$field['validator']}"
                            type="{$field['type']}"
@@ -1076,9 +1075,10 @@
                            label="{$field['placeholder']}"
                            value="{$field['value']}"
                            {if not isFirst($method)}disabled{/if} />
-                </div>
+                </li>
               {/if}
             {/foreach}
+            </ul>
           </div>
         {/if}
      {/foreach}

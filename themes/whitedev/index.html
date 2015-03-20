@@ -460,39 +460,35 @@ load_application:       True
   </div>
 
 
-  <div id="set_new_password" class="page  row bitex-view min-height-view">
+  <div id="set_new_password" class="container bitex-view min-height-view" style="margin-top:20px;">
     <div class="page-header">
       <h1 class="bitex-view-title">{% t views.set_new_password.title %}</h1>
     </div>
+    <hr>
     <div class="bitex-view-content">
       <form accept-charset="UTF-8" class="form-horizontal" id="redefine_new_password_form" method="post">
-        <div class="control-group">
-          <label for="id_set_new_password_token"
-                 class="control-label">{% t views.set_new_password.security_code %}</label>
-          <div class="controls">
-            <input id="id_set_new_password_token" name="Email" size="30" type="text" placeholder="" />
-            <p class="help-block">{% t views.set_new_password.security_code_help %}</p>
-          </div>
-        </div>
-
-        <div class="control-group">
-          <label for="id_set_new_password_password" class="control-label">{% t views.set_new_password.new_password %}</label>
-          <div class="controls">
-            <input id="id_set_new_password_password" name="Password" size="30" type="password" />
-            <p class="help-block">{% t views.set_new_password.new_password_help %}</p>
-          </div>
-        </div>
-
-        <div class="control-group">
-              <label for="id_set_new_password_password2" class="control-label">{% t views.set_new_password.confirm_password %}</label>
-          <div class="controls">
-            <input id="id_set_new_password_password2" name="Password2" size="30" type="password" />
-          </div>
-        </div>
-
-        <div class="actions">
-          <input id="id_btn_set_new_password" class="btn btn-primary" name="commit" type="submit" value="{% t views.set_new_password.set_new_password_button_label %}">
-        </div>
+        <ul class="ul-form">
+            <li>
+                <label for="id_set_new_password_token" class="control-label">{% t views.set_new_password.security_code %}</label>
+                <input id="id_set_new_password_token" name="Email" size="30" type="text" placeholder="" />
+                <br>
+                <small class="help-block">{% t views.set_new_password.security_code_help %}</small>
+            </li>
+            <li>
+                <label for="id_set_new_password_password" class="control-label">{% t views.set_new_password.new_password %}</label>
+                <input id="id_set_new_password_password" name="Password" size="30" type="password" />
+                <br>
+                <small class="help-block">{% t views.set_new_password.new_password_help %}</small>
+            </li>
+            <li>
+                <label for="id_set_new_password_password2" class="control-label">{% t views.set_new_password.confirm_password %}</label>
+                <input id="id_set_new_password_password2" name="Password2" size="30" type="password" />
+            </li>
+            <li>
+                <label class="control-label"></label>
+                <input id="id_btn_set_new_password" class="ls-btn ls-btn-primary" name="commit" type="submit" value="{% t views.set_new_password.set_new_password_button_label %}">
+            </li>
+        </ul>
       </form>
     </div>
   </div>
