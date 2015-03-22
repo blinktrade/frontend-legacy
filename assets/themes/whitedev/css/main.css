@@ -340,6 +340,10 @@ footer{
     padding:7px;
 }
 
+.flaticon-refresh56{
+    margin-left: -20px!important;
+}
+
 /* fuelux override */
 .fuelux .dropdown-menu > li > a:hover,
 .fuelux .dropdown-menu > li > a:focus,
