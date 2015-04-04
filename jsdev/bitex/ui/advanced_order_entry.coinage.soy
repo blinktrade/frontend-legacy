@@ -1,0 +1,148 @@
+{namespace bitex.ui.AdvancedOrderEntry.templates}
+
+/**
+  * @param id
+  * @param symbol
+  * @param side
+  * @param type
+  * @param is_broker
+  * @param broker_id
+  * @param amount_currency_symbol
+  * @param price_currency_symbol
+  * @param client_id
+  * @param amount_currency_code
+  * @param price_currency_code
+  */
+{template .AdvancedOrderEntry}
+<form id="{$id}" class="order__cell order-entry" data-uniform-control-holder-class="uniform-control-holder">
+    <input id="{$id}_symbol" type="hidden" name="symbol" value="{$symbol}">
+    <input id="{$id}_side" type="hidden" name="side" value="{$side}">
+    <input id="{$id}_type" type="hidden" name="type" value="{$type}">
+    <input id="{$id}_is_broker" type="hidden" value="{$is_broker}">
+    <input id="{$id}_broker_id" type="hidden" name="broker_id" value="{$broker_id}">
+
+    <!-- .order-form -->
+    <div class="order-form">
+        <!-- .order-form__head -->
+        <header class="order-form__head">
+            <h4 class="order-form__title">
+                <i class="glyphicon glyphicon-shopping-cart"></i> {if $side == 1}{msg desc="Buy button in Order Entry"}Buy{/msg}{else}{msg desc="Sell button in Order Entry"}Sell{/msg}{/if} BTC
+            </h4>
+
+            <div id="{$id}_available_badge" class="order-form__balance">
+               <span id="{$id}_available_value"
+                     class="bitex-model"
+                     data-model-key="available_balance_{$broker_id}:{$client_id}_{$price_currency_code}"
+                     style="display:none">
+               </span>
+
+               {msg desc="Available label inside the advanced order entry"}Available:{/msg}&nbsp;
+
+                {if $side == 1}
+                  <strong id="{$id}_available"
+                        class="bitex-model"
+                        data-model-key="formatted_available_balance_{$broker_id}:{$client_id}_{$price_currency_code}"
+                        data-blink-class="balance-info-blink"></strong>
+                {else}
+                  <strong id="{$id}_available"
+                        class="bitex-model"
+                        data-model-key="formatted_available_balance_{$broker_id}:{$client_id}_{$amount_currency_code}"
+                        data-blink-class="balance-info-blink"></strong>
+                {/if}
+            </div>
+        </header>
+        <!-- /.order-form__head -->
+
+        <!-- .order-form__mid -->
+        <div class="order-form__mid">
+            <!-- .form-group -->
+            <div class="form-group uniform-control-holder">
+                <label for="{$id}_amount" class="order-form__label order-entry-label">{msg desc="Amount label in Advanced Order Entry"}Amount:{/msg}</label>
+                <div class="input-group">
+                    <input id="{$id}_amount"
+                           name="amount"
+                           type="text"
+                           placeholder="0"
+                           class="form-control order-entry-data"
+                           data-uniform-label="{msg desc="Advanced Order Entry Label"}Amount{/msg}"
+                           data-uniform-validators="validateNumber; required"
+                           data-uniform-type="number"
+                           data-uniform-filters="positive_number"
+                           value=""
+                           required />
+                    <div id="{$id}_amount_sign" id="{$id}_amount_sign" class="input-group-addon advanced-order-entry-amount-sign">{$amount_currency_symbol}</div>
+                </div>
+            </div>
+            <!-- /.form-group -->
+
+            <!-- .form-group -->
+            <div class="form-group uniform-control-holder">
+                <label for="{$id}_price" class="order-form__label order-entry-label">{msg desc="'Price per label' in Order Entry"}Price per:{/msg}</label>
+                <div class="input-group">
+                    <input id="{$id}_price"
+                           name="price"
+                           type="text"
+                           placeholder="0.00"
+                           class="form-control order-entry-data"
+                           data-uniform-label="{msg desc="Advanced Order Entry Label"}Price{/msg}"
+                           data-uniform-validators="validateNumber; required"
+                           data-uniform-type="number"
+                           data-uniform-filters="positive_number"
+                           required />
+                    <div id="{$id}_price_sign" class="input-group-addon advanced-order-entry-price-sign">{$price_currency_symbol}</div>
+                </div>
+            </div>
+            <!-- /.form-group -->
+        </div>
+        <!-- /.order-form__mid -->
+
+        <!-- .order-form__bot -->
+        <footer class="order-form__bot">
+            <div class="order-form__total uniform-control-holder" style="padding-right: 10px; width: 60%;">
+                <label for="{$id}_total" class="order-form__label order-entry-label">{msg desc="Total label in Order Entry"}Total:{/msg}</label>
+                <div class="input-group">
+                    <input id="{$id}_total"
+                           style="text-align: right;"
+                           name="total"
+                           type="text"
+                           class="form-control"
+                           data-uniform-label="{msg desc="Advanced Order Entry Label"}Total{/msg}"
+                           data-uniform-validators="validateNumber; required"
+                           data-uniform-type="number"
+                           data-uniform-filters="positive_number"
+                           required/>
+                    <div id="{$id}_price_sign" class="input-group-addon advanced-order-entry-price-sign">{$price_currency_symbol}</div>
+                </div>
+            </div>
+
+            <div class="order-form__action" style="padding-left: 10px; width: 40%;">
+                <input id="{$id}_client_id"
+                       name="client_id"
+                       type="text"
+                       value="{if $client_id}{$client_id}{/if}"
+                       class="form-control"
+                       label="{msg desc="Client ID label in Order Entry"}Client ID{/msg}"
+                       data-uniform-label="{msg desc="Advanced Order Entry Label"}Client ID{/msg}"
+                       {if $is_broker}
+                         data-uniform-validators="required"
+                       {else}
+                         style="display:none"
+                         disabled
+                       {/if}
+                />
+
+                <button id="{$id}_action" type="submit" class="btn btn-lg {if $side == 1}btn-success{else}btn-danger{/if} btn-execution" style="display: block; width: 100%;">
+                  {if $side == 1}
+                    {msg desc="Buy button in Order Entry"}BUY{/msg}
+                  {else}
+                    {msg desc="Sell button in Order Entry"}SELL{/msg}
+                  {/if}
+                </button>
+            </div>
+        </footer>
+        <!-- /.order-form__bot -->
+    </div>
+    <!-- /.order-form -->
+</form>
+{/template}
+
