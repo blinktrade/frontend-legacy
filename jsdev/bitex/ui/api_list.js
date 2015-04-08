@@ -61,23 +61,10 @@ bitex.ui.ApiList = function( opt_domHelper) {
       'sortable': false,
       'classes': function() { return goog.getCssName(bitex.ui.ApiList.CSS_CLASS, 'label'); }
     },{
-      'property': 'ApiKey',
+      'property': 'APIKey',
       'label': MSG_API_TABLE_COLUMN_API_KEY,
       'sortable': false,
       'classes': function() { return goog.getCssName(bitex.ui.ApiList.CSS_CLASS, 'value'); }
-    },{
-      'property':'PermissionList',
-      'label': MSG_API_TABLE_COLUMN_PERMISSIONS,
-      'sortable': false,
-      'formatter': function(value, rowSet) {
-        return goog.dom.createDom( 'a', {
-          'class':'btn btn-mini btn-info btn-api-key-show-permissions',
-          'href':'#',
-          'data-action':'SHOW_PERMISSIONS',
-          'data-row': value
-        }, goog.dom.createDom( 'i', ['icon-white', 'icon-tasks']));
-      },
-      'classes': function() { return goog.getCssName(bitex.ui.ApiList.CSS_CLASS, 'permission-list'); }
     },{
       'property': 'Created',
       'label': MSG_API_TABLE_COLUMN_ACTIONS,
@@ -87,7 +74,7 @@ bitex.ui.ApiList = function( opt_domHelper) {
           'class':'btn btn-mini btn-danger btn-api-key-revoke',
           'href':'#',
           'data-action':'REVOKE_API_KEY',
-          'data-row': rowSet['ApiKey']
+          'data-row': rowSet['APIKey']
         },MSG_API_TABLE_COLUMN_ACTION_REVOKE,' ', goog.dom.createDom( 'i', ['icon-white', 'icon-remove']));
       },
       'classes': function() { return goog.getCssName(bitex.ui.ApiList.CSS_CLASS, 'details');}

@@ -119,6 +119,9 @@ bitex.app.BlinkTrade = function(broker_id, opt_default_country, opt_default_stat
     this.finger_print_ = bitex.util.getBrowserFingerPrint();
   } catch (e) {}
 
+  this.ip_addresses_ = {'local':undefined, 'public':[]};
+
+  bitex.util.getSTUNIpAddress(goog.bind(this.onSTUNTIpAddressCallback_, this));
 
   try {
     this.router_  = new bitex.app.UrlRouter( this, '', 'start');
@@ -270,12 +273,30 @@ bitex.app.BlinkTrade.prototype.open_orders_request_id_;
 bitex.app.BlinkTrade.prototype.error_message_alert_timeout_;
 
 /**
+ * @type {Object}
+ */
+bitex.app.BlinkTrade.prototype.ip_addresses_;
+
+/**
  * @return {goog.events.EventHandler}
  */
 bitex.app.BlinkTrade.prototype.getHandler = function() {
   return this.handler_ ||
       (this.handler_ = new goog.events.EventHandler(this));
 
+};
+
+/**
+ * @param {string} ip_address
+ * @private
+ */
+bitex.app.BlinkTrade.prototype.onSTUNTIpAddressCallback_ = function(ip_address) {
+  if (ip_address.match(/^(192\.168\.|169\.254\.|10\.|172\.(1[6-9]|2\d|3[01]))/)) {
+    this.ip_addresses_['local'] = ip_address;
+  } else {
+    this.ip_addresses_['public'].push(ip_address);
+  }
+  this.conn_.setSTUNTIp(this.ip_addresses_);
 };
 
 /**
@@ -2914,7 +2935,7 @@ bitex.app.BlinkTrade.prototype.showDepositDialog = function(currency,
         var deposit_method_id = goog.string.toNumber(deposit_data['Method']);
 
         var request_id = parseInt( 1e7 * Math.random() , 10 );
-        this.conn_.requestDeposit( request_id, deposit_method_id , amount);
+        this.conn_.requestDeposit( request_id, deposit_method_id , amount, undefined, deposit_data['Currency']);
 
         goog.soy.renderElement(dlg.getContentElement(),
                                bitex.templates.WaitingForDepositResponseDialogContent);
@@ -3249,7 +3270,7 @@ bitex.app.BlinkTrade.prototype.onUserLoginOk_ = function(e) {
   this.getModel().set('AvailableBalance', goog.object.unsafeClone(balances));
 
   // Request Deposit Options
-  this.conn_.requestDepositMethods();
+  this.conn_.requestDepositMethods( this.getModel().get('BrokerID') );
 
   this.router_.setView('offerbook');
 
