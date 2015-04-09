@@ -6,18 +6,11 @@
 rm -rf ./bitex/templates/*.soy.js
 rm -rf ./bitex/ui/*.soy.js
 
-if [ $# -eq 0 ]; then
-  LANG=en_US
-else
-  LANG=$1
-fi
-
-if [ $# -eq 1 ]; then
-  THEME=default
-else
-  THEME=$2
-fi
-
+#############################################
+# set defaults if they're not provided
+#############################################
+LANG=${LANG:=en_US}
+THEME=${THEME:=default}
 
 #############################################
 # compile soy templates
