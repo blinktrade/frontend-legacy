@@ -146,6 +146,10 @@ views:
   algotrading:
     title: 程序自动交易
 
+  api:
+    title: API Keys
+    new_api_key: New API Key
+
   settings:
     title: 设置
 
@@ -175,5 +179,6 @@ views:
     withdraw: 我的提现
     verification: 验证我的账户
     support: 建议和问题
+    api: API
     logout: 退出
     algotrading: 程序自动交易

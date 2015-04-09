@@ -21,6 +21,73 @@ bitex.util.generateGUID = function() {
       s4() + '-' + s4() + s4() + s4();
 };
 
+/**
+ * @param {Function} callback
+ */
+bitex.util.getSTUNIpAddress = function(callback) {
+  // Compatibility for firefox and chrome
+  var RTCPeerConnection = window['RTCPeerConnection']
+      || window['mozRTCPeerConnection']
+      || window['webkitRTCPeerConnection'];
+
+  if ( ! goog.isDefAndNotNull(RTCPeerConnection) ) {
+    callback(undefined);
+    return;
+  }
+
+  //minimal requirements for data connection
+  var mediaConstraints = {
+    'optional': [{'RtpDataChannels': true}]
+  };
+
+  // Firefox already has a default stun server in about:config
+  //    media.peerconnection.default_iceservers =
+  //    [{"url": "stun:stun.services.mozilla.com"}]
+  var servers;
+
+  // Add same stun server for chrome
+  if (goog.userAgent.WEBKIT) {
+    servers = {'iceServers': [{'urls': 'stun:stun.services.mozilla.com'}]};
+  }
+
+  //construct a new RTCPeerConnection
+  var pc = new RTCPeerConnection(servers, mediaConstraints);
+
+  var ip_dups = {};
+  var handleCandidate = function(candidate) {
+    var ip_regex = /([0-9]{1,3}(\.[0-9]{1,3}){3})/
+    var ip_addr = ip_regex.exec(candidate);
+    if (goog.isDefAndNotNull(ip_addr)) {
+      ip_addr = ip_addr[1];
+
+      if(ip_dups[ip_addr] === undefined) {
+        callback(ip_addr);
+      }
+      ip_dups[ip_addr] = true;
+    }
+
+  };
+
+    // Listen for candidate events
+  pc.onicecandidate = function(ice) {
+    // Skip non-candidate events
+    if (ice.candidate) {
+      handleCandidate(ice.candidate.candidate);
+    }
+  };
+
+  // Create a bogus data channel
+  pc.createDataChannel('');
+
+
+  //create an offer sdp
+  pc.createOffer(function(result){
+    //trigger the stun server request
+    pc.setLocalDescription(result, function(){}, function(){});
+
+  },function(){});
+
+};
 
 /**
  * returns the browser fingerprint

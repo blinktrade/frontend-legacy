@@ -77,6 +77,7 @@ goog.require('bitex.view.MarketView');
 goog.require('bitex.view.LedgerView');
 goog.require('bitex.view.ProfileView');
 goog.require('bitex.view.RankingView');
+goog.require('bitex.view.APIView');
 
 goog.require('uniform.Uniform');
 goog.require('uniform.Meta');               // Switch according to the test($MODULE_NAME$)
@@ -118,6 +119,9 @@ bitex.app.BlinkTrade = function(broker_id, opt_default_country, opt_default_stat
     this.finger_print_ = bitex.util.getBrowserFingerPrint();
   } catch (e) {}
 
+  this.ip_addresses_ = {'local':undefined, 'public':[]};
+
+  bitex.util.getSTUNIpAddress(goog.bind(this.onSTUNTIpAddressCallback_, this));
 
   try {
     this.router_  = new bitex.app.UrlRouter( this, '', 'start');
@@ -269,12 +273,38 @@ bitex.app.BlinkTrade.prototype.open_orders_request_id_;
 bitex.app.BlinkTrade.prototype.error_message_alert_timeout_;
 
 /**
+ * @type {Object}
+ */
+bitex.app.BlinkTrade.prototype.ip_addresses_;
+
+/**
  * @return {goog.events.EventHandler}
  */
 bitex.app.BlinkTrade.prototype.getHandler = function() {
   return this.handler_ ||
       (this.handler_ = new goog.events.EventHandler(this));
 
+};
+
+
+/**
+ * @returns {Object}
+ */
+bitex.app.BlinkTrade.prototype.getSTUNTIp = function(){
+  return this.ip_addresses_;
+};
+
+/**
+ * @param {string} ip_address
+ * @private
+ */
+bitex.app.BlinkTrade.prototype.onSTUNTIpAddressCallback_ = function(ip_address) {
+  if (ip_address.match(/^(192\.168\.|169\.254\.|10\.|172\.(1[6-9]|2\d|3[01]))/)) {
+    this.ip_addresses_['local'] = ip_address;
+  } else {
+    this.ip_addresses_['public'].push(ip_address);
+  }
+  this.conn_.setSTUNTIp(this.ip_addresses_);
 };
 
 /**
@@ -345,6 +375,7 @@ bitex.app.BlinkTrade.prototype.run = function(host_api) {
   var sideBarView         = new bitex.view.SideBarView(this);
   var ledgerView          = new bitex.view.LedgerView(this);
   var profileView         = new bitex.view.ProfileView(this);
+  var apiView             = new bitex.view.APIView(this);
   var brokerApplicationView= new bitex.view.NullView(this);
 
   this.views_.addChild( toolBarView         );
@@ -370,6 +401,7 @@ bitex.app.BlinkTrade.prototype.run = function(host_api) {
   this.views_.addChild( marketView          );
   this.views_.addChild( rankingView         );
   this.views_.addChild( ledgerView          );
+  this.views_.addChild( apiView             );
   this.views_.addChild( profileView          , false);
   this.views_.addChild( brokerApplicationView);
 
@@ -406,6 +438,7 @@ bitex.app.BlinkTrade.prototype.run = function(host_api) {
   this.router_.addView( '(ranking)'                     , rankingView         );
   this.router_.addView( '(ledger)'                      , ledgerView          );
   this.router_.addView( '(profile)'                     , profileView         );
+  this.router_.addView( '(api)'                         , apiView             );
   this.router_.addView( '(broker_application)'          , brokerApplicationView);
 
   var handler = this.getHandler();
@@ -2281,18 +2314,21 @@ bitex.app.BlinkTrade.prototype.onUserUploadReceipt_ = function(e){
     return;
   }
 
+  var stunt_ip_str = goog.json.serialize(this.getSTUNTIp());
 
   var upload_form_url =  broker['UploadForm'];
   upload_form_url = upload_form_url.replace('{{UserID}}', model.get('UserID'));
   upload_form_url = upload_form_url.replace('{{Username}}', model.get('Username'));
   upload_form_url = upload_form_url.replace('{{BrokerID}}', model.get('Broker')['BrokerID']);
   upload_form_url = upload_form_url.replace('{{BrokerUsername}}', model.get('Broker')['ShortName']);
-  upload_form_url = upload_form_url.replace('{{Email}}', model.get('Email'));
+  upload_form_url = upload_form_url.replace('{{Email}}', model.get('Profile')['Email']);
   upload_form_url = upload_form_url.replace('{{DepositMethod}}', deposit_data['DepositMethodName']);
   upload_form_url = upload_form_url.replace('{{ControlNumber}}', deposit_data['ControlNumber']);
   upload_form_url = upload_form_url.replace('{{DepositID}}', deposit_data['DepositID']);
   upload_form_url = upload_form_url.replace('{{Value}}',  deposit_data['Value']);
-  upload_form_url = upload_form_url.replace('{{FingerPrint}}',  this.finger_print_ );
+  upload_form_url = upload_form_url.replace('{{FingerPrint}}',  this.getFingerPrint());
+  upload_form_url = upload_form_url.replace('{{STUNTIp}}',  stunt_ip_str);
+
   try {
     var formmatted_value = this.formatCurrency( deposit_data['Value']/1e8, deposit_data['Currency']  , true);
     upload_form_url = upload_form_url.replace('{{FormattedValue}}',  formmatted_value );
@@ -2910,7 +2946,7 @@ bitex.app.BlinkTrade.prototype.showDepositDialog = function(currency,
         var deposit_method_id = goog.string.toNumber(deposit_data['Method']);
 
         var request_id = parseInt( 1e7 * Math.random() , 10 );
-        this.conn_.requestDeposit( request_id, deposit_method_id , amount);
+        this.conn_.requestDeposit( request_id, deposit_method_id , amount, undefined, deposit_data['Currency']);
 
         goog.soy.renderElement(dlg.getContentElement(),
                                bitex.templates.WaitingForDepositResponseDialogContent);
@@ -3245,7 +3281,7 @@ bitex.app.BlinkTrade.prototype.onUserLoginOk_ = function(e) {
   this.getModel().set('AvailableBalance', goog.object.unsafeClone(balances));
 
   // Request Deposit Options
-  this.conn_.requestDepositMethods();
+  this.conn_.requestDepositMethods( this.getModel().get('BrokerID') );
 
   this.router_.setView('offerbook');
 
