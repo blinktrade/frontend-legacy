@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml">
+<head>
+  <meta charset="utf-8">
+  {% case site.exchange %}
+    {% when 'chilebit' %}
+      <title>{% t exchanges.chilebit.title %}</title>
+    {% when 'surbitcoin' %}
+      <title>{% t exchanges.surbitcoin.title %}</title>
+    {% when 'urdubit' %}
+      <title>{% t exchanges.urdubit.title %}</title>
+    {% when 'foxbit' %}
+      <title>{% t exchanges.foxbit.title %}</title>
+    {% when 'romaniabex' %}
+      <title>{% t exchanges.romaniabex.title %}</title>
+    {% else %}
+      <title>{% t exchanges.demo.title %}</title>
+  {% endcase %}
+
+  <!-- Meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="{{ site.author }}">
+
+  {% case site.exchange %}
+    {% when 'chilebit' %}
+      <meta name="description" content="{% t exchanges.chilebit.description %}">
+      <meta name="keywords" content="{% t exchanges.chilebit.keywords %}">
+      <meta property="og:title" content="{% t exchanges.chilebit.title %}">
+      <meta property="og:description" content="{% t exchanges.chilebit.description %}">
+    {% when 'surbitcoin' %}
+      <meta name="description" content="{% t exchanges.surbitcoin.description %}">
+      <meta name="keywords" content="{% t exchanges.surbitcoin.keywords %}">
+      <meta property="og:title" content="{% t exchanges.surbitcoin.title %}">
+      <meta property="og:description" content="{% t exchanges.surbitcoin.description %}">
+    {% when 'urdubit' %}
+      <meta name="description" content="{% t exchanges.urdubit.description %}">
+      <meta name="keywords" content="{% t exchanges.urdubit.keywords %}">
+      <meta property="og:title" content="{% t exchanges.urdubit.title %}">
+      <meta property="og:description" content="{% t exchanges.urdubit.description %}">
+    {% when 'foxbit' %}
+      <meta name="description" content="{% t exchanges.foxbit.description %}">
+      <meta name="keywords" content="{% t exchanges.foxbit.keywords %}">
+      <meta property="og:title" content="{% t exchanges.foxbit.title %}">
+      <meta property="og:description" content="{% t exchanges.foxbit.description %}">
+    {% when 'romaniabex' %}
+      <meta name="description" content="{% t exchanges.romaniabex.description %}">
+      <meta name="keywords" content="{% t exchanges.romaniabex.keywords %}">
+      <meta property="og:title" content="{% t exchanges.romaniabex.title %}">
+      <meta property="og:description" content="{% t exchanges.romaniabex.description %}">
+    {% else %}
+      <meta name="description" content="{% t exchanges.demo.description %}">
+      <meta name="keywords" content="{% t exchanges.demo.keywords %}">
+      <meta property="og:title" content="{% t exchanges.demo.title %}">
+      <meta property="og:description" content="{% t exchanges.demo.description %}">
+  {% endcase %}
+
+  <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
+  <meta property="og:url" content="{{ site.url }}{{ site.baseurl }}{% if page.url != '/index.html' %}{{ page.url }}{% endif %}">
+  <meta property="og:image" content="{{ site.url }}{{ site.baseurl }}/assets/exchange_logos/{{ site.exchange_logo }}_social_network_share.png">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="{{ site.baseurl }}/assets/exchange_logos/{{ site.exchange_logo }}_favicon.ico">
+  <link rel="icon" href="{{ site.baseurl }}/assets/exchange_logos/{{ site.exchange_logo }}_favicon.ico" type="image/x-icon">
+
+  <!-- Feed -->
+  <link rel="alternate" type="application/rss+xml" href="{{ site.url }}{{ site.baseurl }}/feed.xml">
+
+  <meta charset="utf-8">
+
+  <link rel="canonical" href="{{ site.url }}{{ site.baseurl }}{% if page.url != '/index.html' %}{{ page.url }}{% endif %}"/>
+  <script type="text/javascript" src="//apis.google.com/js/plusone.js"></script>
+
+  {% if page.load_application %}
+  <link href="{{ site.url }}{{ site.baseurl }}/assets/themes/default/css/fuelux.css" rel="stylesheet">
+  <link href="{{ site.url }}{{ site.baseurl }}/assets/themes/default/css/style-new.css?v={{ site.deploy_version }}" rel="stylesheet">
+  <link href="{{ site.url }}{{ site.baseurl }}/assets/themes/coinage/css/coinage.css?v={{ site.deploy_version }}" rel="stylesheet">
+  <script data-cfasync="false" src="{{ site.url }}{{ site.baseurl }}/assets/js/bitex_app_blink_trade.compiled.{{site.lang}}.coinage.js?v={{ site.deploy_version }}" type="text/javascript"></script>
+  {% endif %}
+</head>
+<body class="{% if page.body_classes %} {{ page.body_classes }} {% endif %}">
+  <!-- .navbar -->
+  <nav id="id_toolbar" class="navbar navbar-inverse navbar-static-top">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+        {% if page.load_application %}
+        <a class="navbar-brand" href="#" data-switch-view="offerbook">
+            <img style="float:left; margin-right:10px;" alt="Brand" width="20" height="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAMAAAC7IEhfAAAA81BMVEX///9VPnxWPXxWPXxWPXxWPXxWPXxWPXz///9hSYT6+vuFc6BXPn37+vz8+/z9/f2LeqWMe6aOfqiTg6uXiK5bQ4BZQX9iS4VdRYFdRYJfSINuWI5vWY9xXJF0YJR3Y5Z4ZZd5ZZd6Z5h9apq0qcW1qsW1q8a6sMqpnLyrn76tocCvpMGwpMJoUoprVYxeRoJjS4abjLGilLemmbrDutDFvdLPx9nX0eDa1OLb1uPd1+Td2OXe2eXh3Ofj3+nk4Orl4evp5u7u7PLv7fPx7/T08vb08/f19Pf29Pj39vn6+fuEcZ9YP35aQn/8/P1ZQH5fR4PINAOdAAAAB3RSTlMAIWWOw/P002ipnAAAAPhJREFUeF6NldWOhEAUBRvtRsfdfd3d3e3/v2ZPmGSWZNPDqScqqaSBSy4CGJbtSi2ubRkiwXRkBo6ZdJIApeEwoWMIS1JYwuZCW7hc6ApJkgrr+T/eW1V9uKXS5I5GXAjW2VAV9KFfSfgJpk+w4yXhwoqwl5AIGwp4RPgdK3XNHD2ETYiwe6nUa18f5jYSxle4vulw7/EtoCdzvqkPv3bn7M0eYbc7xFPXzqCrRCgH0Hsm/IjgTSb04W0i7EGjz+xw+wR6oZ1MnJ9TWrtToEx+4QfcZJ5X6tnhw+nhvqebdVhZUJX/oFcKvaTotUcvUnY188ue/n38AunzPPE8yg7bAAAAAElFTkSuQmCC">
+          <!--img data-switch-view="offerbook" class="logo__img" src="{{ site.baseurl }}/assets/exchange_logos/{{ site.exchange_logo }}_toolbar_logo.png" style="
+                height: 30px;
+                margin-top: -10px;
+                margin-bottom: -10px;
+            "-->
+            BlinkTrade
+        </a>
+        {% endif %}
+      </div>
+
+      {% if page.load_application %}
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="bitex-display-if-logged">
+              <!-- .balance -->
+              <div class="balance" id="id_account_summary_content">
+              </div>
+              <!-- /.balance -->
+          </li>
+          <li class="bitex-hide-if-logged">
+            <a data-switch-view="market" href="#market" title="{% t views.toolbar.market %}">
+                <i class="glyphicon glyphicon-stats"></i> {% t views.toolbar.market %}
+            </a>
+          </li>
+          <li class="bitex-hide-if-logged">
+            <a href="#" data-switch-view="signin">
+                <i class="glyphicon glyphicon-user"></i> {% t views.toolbar.signin %}
+            </a>
+          </li>
+          <li class="bitex-hide-if-logged">
+            <a href="#" data-switch-view="signup">
+                <i class="glyphicon glyphicon-log-in"></i> {% t views.toolbar.signup %}
+            </a>
+          </li>
+          <li>
+            <a href="#" data-switch-view="faq">
+                <i class="glyphicon glyphicon-question-sign"></i> {% t views.toolbar.faq %}
+            </a>
+          </li>
+          <li class="bitex-display-if-logged dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                <i class="glyphicon glyphicon-user"></i> <span class="bitex-model bitex-view-title" data-model-key="DisplayName"></span> <small>(<span class="bitex-model bitex-view-title" data-model-key="PseudoName"></span>)</small> <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+                <li>
+                    <a href="#" data-switch-view="profile">
+                       <i class="glyphicon glyphicon-user"></i> {% t views.sidebar.my_profile %}
+                    </a>
+                </li>
+                <li>
+                    <a href="#" data-switch-view="my_broker">
+                       <i class="glyphicon glyphicon-search"></i> {% t views.sidebar.my_broker %}
+                    </a>
+                </li>
+                <li class="bitex-display-if-broker">
+                  <a href="#" data-switch-view="deposit_requests">
+                    <i class="glyphicon glyphicon-plus-sign"></i> {% t views.sidebar.deposit_requests %}
+                  </a>
+                </li>
+                <li class="bitex-display-if-broker">
+                  <a href="#" data-switch-view="withdraw_requests">
+                    <i class="glyphicon glyphicon-minus-sign"></i> {% t views.sidebar.withdraw_requests %}
+                  </a>
+                </li>
+                <li>
+                    <a href="#" data-switch-view="deposit">
+                       <i class="glyphicon glyphicon-plus"></i> {% t views.sidebar.deposit %}
+                    </a>
+                </li>
+                <li>
+                    <a href="#" data-switch-view="withdraw">
+                       <i class="glyphicon glyphicon-minus"></i> {% t views.sidebar.withdraw %}
+                    </a>
+                </li>
+              <li class="divider"></li>
+              <li>
+                  <a href="javascript:location.reload();">
+                      <i class="glyphicon glyphicon-off"></i> {% t views.sidebar.logout %}
+                  </a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                <i class="glyphicon glyphicon-globe"></i> Language <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+              {% for lang in site.languages %}
+                {% if  lang != site.lang  %}
+                  {% if forloop.first %}
+                    <li><a href="{{ site.url }}{{ site.baseurl_root }}/themes/coinage/">{{ lang|upcase }}</a></li>
+                  {% else %}
+                    <li><a href="{{ site.url }}{{ site.baseurl_root }}/{{lang}}/themes/coinage/">{{ lang|upcase }}</a></li>
+                  {% endif %}
+                {% endif %}
+              {% endfor %}
+            </ul>
+          </li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+      {% endif %}
+    </div><!-- /.container-fluid -->
+  </nav>
+  <!-- /.navbar -->
+
+<!-- .head -->
+<header class="head" style="display:none;">
+  <!-- .wrapper -->
+  <div class="wrapper">
+    <!-- .layout -->
+    <div class="layout layout--full">
+      <div class="layout__item two-tenths portable--one-whole">
+        <!-- .logo -->
+        {% if page.load_application %}
+        <a href="#" class="logo brand-face" data-switch-view="offerbook" style="padding-top: 0px;">
+        </a>
+        {% else %}
+          <a class="logo brand-face" href="{{ site.baseurl }}/" title="">
+            <img src="{{ site.baseurl }}/assets/exchange_logos/{{ site.exchange_logo }}_toolbar_logo.png" alt="" class="logo__img" style="
+                height: 30px;
+                margin-top: -10px;
+                margin-bottom: -10px;
+            />
+          </a>
+        {% endif %}
+        <!-- /.logo -->
+
+        <div id="js--head-btn" class="head__btn">
+            <img src="/assets/themes/default/img/head-btn.png" />
+        </div>
+      </div>
+
+      {% if page.load_application %}
+      <div class="layout__item eight-tenths portable--one-whole">
+        <!-- .head__nav -->
+        <div id="menu" class="head__nav">
+          <!-- .layout -->
+          <div class="layout layout--full">
+            <nav class="layout__item eight-tenths portable--one-whole">
+              <!-- .head__nav-left -->
+              <ul class="head__nav-left">
+                <li class="bitex-display-if-logged">
+                  <!--li-->
+                  <span>
+
+                      <i class="icon-user"></i> <span class="bitex-model bitex-view-title" data-model-key="DisplayName"></span>
+                  </span>
+
+                  <!-- .head-dropdown -->
+                  <ul class="head-dropdown">
+                    <li>
+                      <a href="#profile" title="Profile" data-switch-view="profile">
+                        {% t views.sidebar.my_profile %}
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#my_broker" title="Broker info" data-switch-view="my_broker">
+                        {% t views.sidebar.my_broker %}
+                      </a>
+                    </li>
+                    <li class="bitex-display-if-broker">
+                      <a href="#customers" title="Customers" data-switch-view="customers">
+                        {% t views.sidebar.customers %}
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" data-switch-view="deposit">
+                        {% t views.sidebar.deposit %}
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" data-switch-view="withdraw">
+                        {% t views.sidebar.withdraw %}
+                      </a>
+                    </li>
+                  </ul>
+                  <!-- /.head-dropdown -->
+                </li>
+                <li class="bitex-display-if-logged">
+                  <a href="#offerbook" data-switch-view="offerbook">
+                    <i class="icon-book"></i> {% t views.sidebar.offerbook %}
+                  </a>
+                </li>
+                <li class="bitex-display-if-logged">
+                  <a href="#trading" title="{% t views.sidebar.trading %}" data-switch-view="trading">
+                    <i class="icon-random"></i> {% t views.sidebar.trading %}
+                  </a>
+                </li>
+                <li class="bitex-display-if-logged">
+                  <a href="#algotrading" title="{% t views.sidebar.algotrading %}" data-switch-view="algotrading">
+                    <i class="icon-cog"></i> {% t views.sidebar.algotrading %}
+                  </a>
+                </li>
+
+                <li class="bitex-display-if-logged">
+                  <a href="#ledger" title="{% t views.sidebar.ledger %}" data-switch-view="ledger">
+                    <i class="icon-list"></i> {% t views.sidebar.ledger %}
+                  </a>
+                </li>
+                <li>
+                  <a data-switch-view="market" href="#market" title="{% t views.toolbar.market %}">
+                    <i class="icon-bar-chart"></i> {% t views.toolbar.market %}
+                  </a>
+                </li>
+                <li class="bitex-hide-if-logged">
+                  <a data-switch-view="signup" href="#signup" title="{% t views.toolbar.signup %}">
+                    <i class="icon-signin"></i> {% t views.toolbar.signup %}
+                  </a>
+                </li>
+              </ul>
+              <!-- /.head__nav-left -->
+            </nav>
+
+            <nav class="layout__item two-tenths portable--one-whole cf">
+              <!-- .head__nav-right -->
+              <ul class="head__nav-right">
+                <li >
+                  <span>{{ site.lang|upcase }}</span>
+                  <ul class="head-dropdown head-dropdown--right">
+                  {% for lang in site.languages %}
+                    {% if  lang != site.lang  %}
+                      {% if forloop.first %}
+                        <li><a tabindex="-1" href="{{ site.url }}{{ site.baseurl_root }}/themes/coinage/">{{ lang|upcase }}</a></li>
+                      {% else %}
+                        <li><a tabindex="-1" href="{{ site.url }}{{ site.baseurl_root }}/{{lang}}/themes/coinage/">{{ lang|upcase }}</a></li>
+                      {% endif %}
+                    {% endif %}
+                  {% endfor %}
+                  </ul>
+                </li>
+
+                <li class="bitex-hide-if-ws-connected">
+                    <a href="#" id="id_button_connect_ws">
+                        <i class="icon-white icon-repeat"></i> Connect
+                    </a>
+                </li>
+
+                <li class="head__nav-last-item bitex-hide-if-logged">
+                  <a data-switch-view="signin" href="#signin" title="{% t views.toolbar.signin %}">
+                    <i class="icon-power-off"></i> {% t views.toolbar.signin %}
+                  </a>
+                </li>
+
+                <li class="head__nav-last-item bitex-display-if-logged">
+                  <a href="javascript:location.reload()">
+                    <i class="icon-power-off"></i>
+                  </a>
+                </li>
+              </ul>
+              <!-- /.head__nav-right -->
+            </nav>
+          </div>
+          <!-- /.layout -->
+        </div>
+        <!-- /.head__nav -->
+      </div>
+      {% endif %}
+    </div>
+    <!-- /.layout -->
+  </div>
+  <!-- /.wrapper -->
+</header>
+<!-- /.head -->

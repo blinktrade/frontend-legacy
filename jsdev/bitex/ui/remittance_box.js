@@ -177,7 +177,6 @@ bitex.ui.RemittanceBox.prototype.onBitfinexOpen_ = function() {
  * @private
  */
 bitex.ui.RemittanceBox.prototype.onBitfinexMessage_ = function(e) {
-  console.log('BitFinex: ' + e.message);
   var msg = JSON.parse(e.message);
 
   if (msg.length > 0) {
