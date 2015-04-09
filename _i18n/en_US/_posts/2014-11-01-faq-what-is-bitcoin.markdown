@@ -1,9 +1,9 @@
 ---
 layout:     post
-title:      "What is Bitcoin?"
+title:      "Ce este Bitcoin?"
 date:       2014-11-01 00:01:00
 categories: en_US faq
 ---
 
-Bitcoin is a open source P2P digital network created in 2009 by pseudonymous author Satoshi Nakamoto. The protocol allows the user to send, store and receive value at a significant low cost and in a short matter of time. Bitcoin avoids the need for central authorities and issuers.
+Bitcoin este o rețea open source, peer2peer, digitală creată în 2009 de către autorul pseudoanonim Satoshi Nakamoto. Protocolul permite utilizatorilor să trimită, păstreze și primească valoare, la costuri semnificativ mai mici și într-un interval de timp scurt. Bitcoin elimină nevoia de o autoritate centrală.
 
