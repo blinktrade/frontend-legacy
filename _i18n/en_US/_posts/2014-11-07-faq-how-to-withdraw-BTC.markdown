@@ -1,8 +1,8 @@
 ---
 layout:     post
-title:      "How to withdraw BTC?"
+title:      "Cum pot retrage BTC?"
 date:       2014-11-07 00:11:00
-categories: en_US faq
+categories: ro faq
 ---
 
-When you want to receive bitcoins all you have to do is request a withdrawal on the main menu. You will have to specify the amount and provide the public key in which you want those btc to be sent. Please take your time to introduce the btc address correctly as bitcoin transactions are irreversible.
+Când doriți să primiți Bitcoin, tot ce trebuie să faceți este să cereți o retragere din meniul principal. Va trebui să specificați sumă și să furnizați cheia publică(adresa) unde vrei Bitcoinii trimiși. Atenție la introducerea adresei, tranzacțiile Bitcoin sunt ireversibile.
