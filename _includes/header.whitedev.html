@@ -172,6 +172,7 @@
   <div></div>
   </div>
 
+<div class="bitex-display-if-logged">
 <aside id='id_sidebar' class="ls-sidebar span3 sidebar bitex-view
                                             bitex-view-profile
                                             bitex-view-trading
@@ -267,6 +268,7 @@
     </nav>
 
 </aside>
+</div>
         <div class="bitex-display-if-logged ls-main container-fluid" style="min-height:initial">
             <div class="alert | bitex-model" style="display: none" data-model-key="IsMissingVerification" data-model-action="show_element">
                 <table>
@@ -306,44 +308,3 @@
             </div>
         </div>
 
-  <div id="themes" class="bitex-view container min-height-view" style="margin-top:20px;">
-    <div class="page-header ls-title-4">
-        <h1 class="bitex-view-title">Themes</h1>
-    </div>
-    <br>
-    <p>Choose a Theme</p>
-    <hr>
-    <div class="bitex-view-content">
-        <div class="row" style="text-align:center">
-            <div class="col-md-6">
-                <a href="{{ site.url}}{{ site.baseurl}}/themes/default/">
-                    <img src="{{ site.url}}{{ site.baseurl }}/assets/exchange_logos/thumb-themes/default-theme.jpg" alt="Default Theme" class="thumb-theme">
-                    <hr>
-                    <h3 class="ls-title-4">Default Theme</h3>
-                </a>
-            </div>
-            <div class="col-md-6">
-                <a href="{{ site.url}}{{ site.baseurl}}/themes/whitedev/">
-                    <img src="{{ site.url}}{{ site.baseurl }}/assets/exchange_logos/thumb-themes/whitedev-theme.jpg" alt="Whitedev Theme" class="thumb-theme">
-                    <hr>
-                    <h3 class="ls-title-4">Whitedev</h3>
-                </a>
-            </div>
-        </div>
-    </div>
-  </div>
-
-  <div id="market" class="container-fluid bitex-view" style="margin-bottom:20px;">
-    <div class="row-fluid">
-      <div class="page-header ls-title-4">
-        <h1>{% t views.market.title %}</h1>
-      </div>
-    </div>
-    <div class="bitex-view-content">
-    </div>
-  </div>
-
-  <div class="bitex-display-if-logged">
-   <main class="ls-main">
-
-    <div class="container-fluid">

@@ -1,0 +1,93 @@
+{namespace bitex.ui.SimpleOrderEntry.templates}
+
+/**
+ * @param id
+ * @param currency_symbol
+ * @param crypto_currency_symbol
+ * @param cryptocurrencydescription
+ * @param side
+ * @param formatted_fee
+ */
+{template .SimpleOrderEntry}
+<form id="{$id}" class="order__cell">
+    <!-- .order-form -->
+    <div class="order-form">
+        <!-- .order-form__head -->
+        <header class="order-form__head">
+            <h4 class="order-form__title">
+                <i class="glyphicon glyphicon-shopping-cart"></i> {if $side == 1}{msg desc="Buy button in Order Entry"}Buy{/msg}{else}{msg desc="Sell button in Order Entry"}Sell{/msg}{/if} BTC
+            </h4>
+        </header>
+        <!-- /.order-form__head -->
+
+        <!-- .order-form__mid -->
+        <div class="order-form__mid">
+            <!-- .form-group -->
+            <div class="form-group uniform-control-holder">
+                <div class="input-group">
+                    <label for="{$id}_qty" class="order-form__label">
+                        {if $side == 1}
+                          {msg desc="I want to buy"}I want to buy:{/msg}
+                        {else}
+                          {msg desc="I want to sell"}I want to sell:{/msg}
+                        {/if}
+                        <span class="add-on"></span>
+                    </label>
+                    <input id="{$id}_qty"
+                           name="qty"
+                           data-uniform-label="{msg desc="I want to sell"}Quantity{/msg}"
+                           class="form-control"
+                           data-uniform-validators="validateNumber; required"
+                           data-uniform-type="number"
+                           data-uniform-filters="positive_number"
+                           type="text"
+                           required/>
+                    <div id="{$id}_amount_sign" id="{$id}_amount_sign" class="input-group-addon  simple-order-entry-price-sign">{$crypto_currency_symbol}</div>
+                </div>
+            </div>
+            <!-- /.form-group -->
+
+            <!-- .form-group -->
+            <div class="form-group uniform-control-holder">
+                <div class="input-group">
+                    <label for="{$id}_total" class="order-form__label">
+                        {msg desc="for a total of"} for a total of:{/msg}
+                    </label>
+
+                    <input id="{$id}_total"
+                           name="total"
+                           data-uniform-label="{msg desc="I want to sell"}Total{/msg}"
+                           class="form-control"
+                           data-uniform-validators="validateNumber; required"
+                           data-uniform-type="number"
+                           data-uniform-filters="positive_number"
+                           type="text" required/>
+                    <div id="{$id}_amount_sign" id="{$id}_amount_sign" class="input-group-addon simple-order-entry-price-sign">{$currency_symbol}</div>
+                </div>
+            </div>
+            <!-- /.form-group -->
+        </div>
+        <!-- /.order-form__mid -->
+
+        <!-- .order-form__bot -->
+        <footer class="order-form__bot">
+            <div class="order-form__total uniform-control-holder" style="padding-right: 10px; width: 60%;">
+                {msg desc="Fee label on simple order entry"}Fee{/msg} ( {$formatted_fee} ): <span id="{$id}_fee"></span>
+                <br />
+                {msg desc="Price per crypto currency label on simple order entry"}Price per {$cryptocurrencydescription}:{/msg}
+                <strong><span id="{$id}_avg_price"></span></strong>
+            </div>
+
+            <div class="order-form__action" style="padding-left: 10px; width: 40%;">
+                {if $side == 1}
+                  <button id="{$id}_action_simple" class="btn btn-lg btn-success" style="display: block; width: 100%;">{msg desc="Buy button in Order Entry"}BUY{/msg}</button>
+                {else}
+                  <button id="{$id}_action_simple" class="btn btn-lg btn-danger" style="display: block; width: 100%;">{msg desc="Buy button in Order Entry"}SELL{/msg}</button>
+                {/if}
+            </div>
+        </footer>
+        <!-- /.order-form__bot -->
+    </div>
+    <!-- /.order-form -->
+</form>
+{/template}
