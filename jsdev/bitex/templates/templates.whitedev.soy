@@ -875,9 +875,9 @@
 
     {if not $force_method}
       {if length($methods) > 1}
-        <div class="control-group">
-          <label class="control-label">{msg desc="method"}Method{/msg}</label>
-          <div class="controls">
+        <ul class="ul-form">
+          <li>
+            <label class="control-label">{msg desc="method"}Method{/msg}</label>
             <select id="{$methodID}" name="Method" class="withdraw-method-selector">
               {foreach $method in $methods }
                <option {if isFirst($method)}selected{/if} value="{$method['method']}"
@@ -886,8 +886,8 @@
                     data-fixed-fee="{$method['method']}_{$fixedFeeID}">{$method['description']}</option>
               {/foreach}
             </select>
-          </div>
-        </div>
+          </li>
+        </ul>
       {else}
         {foreach $method in $methods }
           <input  id="{$methodID}" type="hidden" name="Method"  value="{$method['method']}"
