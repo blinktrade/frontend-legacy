@@ -70,10 +70,7 @@
   <link rel="canonical" href="{{ site.url }}{{ site.baseurl }}{% if page.url != '/index.html' %}{{ page.url }}{% endif %}"/>
   <script type="text/javascript" src="//apis.google.com/js/plusone.js"></script>
 
-  <!--link href="{{ site.url }}{{ site.baseurl }}/assets/themes/default/css/font-awesome.min.css" rel="stylesheet"-->
-
   {% if page.load_application %}
-  <!--link href="/assets/themes/default/css/Dialog.css" rel="stylesheet"-->
   <link href="{{ site.url }}{{ site.baseurl }}/assets/themes/default/css/fuelux.css" rel="stylesheet">
   <link href="{{ site.url }}{{ site.baseurl }}/assets/themes/default/css/style-new.css?v={{ site.deploy_version }}" rel="stylesheet">
   <link href="{{ site.url }}{{ site.baseurl }}/assets/themes/coinage/css/coinage.css?v={{ site.deploy_version }}" rel="stylesheet">
@@ -114,6 +111,11 @@
               <div class="balance" id="id_account_summary_content">
               </div>
               <!-- /.balance -->
+          </li>
+          <li class="bitex-hide-if-logged">
+            <a data-switch-view="market" href="#market" title="{% t views.toolbar.market %}">
+                <i class="glyphicon glyphicon-stats"></i> {% t views.toolbar.market %}
+            </a>
           </li>
           <li class="bitex-hide-if-logged">
             <a href="#" data-switch-view="signin">
