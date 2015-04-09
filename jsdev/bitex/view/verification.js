@@ -33,17 +33,24 @@ bitex.view.VerificationView.prototype.enterView = function() {
     return;
   }
 
+  var stunt_ip_str = goog.json.serialize(this.getApplication().getSTUNTIp());
+
   var verification_form_url =  broker['VerificationForm'];
   verification_form_url = verification_form_url.replace('{{UserID}}', model.get('UserID'));
   verification_form_url = verification_form_url.replace('{{Username}}', model.get('Username'));
   verification_form_url = verification_form_url.replace('{{BrokerID}}', model.get('Broker')['BrokerID']);
   verification_form_url = verification_form_url.replace('{{BrokerUsername}}', model.get('Broker')['ShortName']);
-  verification_form_url = verification_form_url.replace('{{Email}}', model.get('Email'));
+  verification_form_url = verification_form_url.replace('{{Email}}', model.get('Profile')['Email']);
   verification_form_url = verification_form_url.replace('{{FingerPrint}}',  this.getApplication().getFingerPrint());
+  verification_form_url = verification_form_url.replace('{{STUNTIp}}',  stunt_ip_str);
+
 
   if (goog.isDefAndNotNull(model.get('Profile')['State'])) {
     verification_form_url = verification_form_url.replace('{{State}}', model.get('Profile')['State'] );
+  } else {
+    verification_form_url = verification_form_url.replace('{{State}}', "");
   }
+
   var form_src = verification_form_url;
 
   var verificationIFrameForm = goog.dom.getElement("JotFormIFrame");

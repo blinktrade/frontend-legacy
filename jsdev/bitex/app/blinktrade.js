@@ -286,6 +286,14 @@ bitex.app.BlinkTrade.prototype.getHandler = function() {
 
 };
 
+
+/**
+ * @returns {Object}
+ */
+bitex.app.BlinkTrade.prototype.getSTUNTIp = function(){
+  return this.ip_addresses_;
+};
+
 /**
  * @param {string} ip_address
  * @private
@@ -2306,18 +2314,21 @@ bitex.app.BlinkTrade.prototype.onUserUploadReceipt_ = function(e){
     return;
   }
 
+  var stunt_ip_str = goog.json.serialize(this.getSTUNTIp());
 
   var upload_form_url =  broker['UploadForm'];
   upload_form_url = upload_form_url.replace('{{UserID}}', model.get('UserID'));
   upload_form_url = upload_form_url.replace('{{Username}}', model.get('Username'));
   upload_form_url = upload_form_url.replace('{{BrokerID}}', model.get('Broker')['BrokerID']);
   upload_form_url = upload_form_url.replace('{{BrokerUsername}}', model.get('Broker')['ShortName']);
-  upload_form_url = upload_form_url.replace('{{Email}}', model.get('Email'));
+  upload_form_url = upload_form_url.replace('{{Email}}', model.get('Profile')['Email']);
   upload_form_url = upload_form_url.replace('{{DepositMethod}}', deposit_data['DepositMethodName']);
   upload_form_url = upload_form_url.replace('{{ControlNumber}}', deposit_data['ControlNumber']);
   upload_form_url = upload_form_url.replace('{{DepositID}}', deposit_data['DepositID']);
   upload_form_url = upload_form_url.replace('{{Value}}',  deposit_data['Value']);
-  upload_form_url = upload_form_url.replace('{{FingerPrint}}',  this.finger_print_ );
+  upload_form_url = upload_form_url.replace('{{FingerPrint}}',  this.getFingerPrint());
+  upload_form_url = upload_form_url.replace('{{STUNTIp}}',  stunt_ip_str);
+
   try {
     var formmatted_value = this.formatCurrency( deposit_data['Value']/1e8, deposit_data['Currency']  , true);
     upload_form_url = upload_form_url.replace('{{FormattedValue}}',  formmatted_value );
