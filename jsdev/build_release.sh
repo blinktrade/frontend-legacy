@@ -6,18 +6,11 @@
 rm -rf ./bitex/templates/*.soy.js
 rm -rf ./bitex/ui/*.soy.js
 
-if [ $# -eq 0 ]; then
-  LANG=en_US
-else
-  LANG=$1
-fi
-
-if [ $# -eq 1 ]; then
-  THEME=default
-else
-  THEME=$2
-fi
-
+#############################################
+# set defaults if they're not provided
+#############################################
+LANG=${LANG:=en_US}
+THEME=${THEME:=default}
 
 #############################################
 # compile soy templates
@@ -118,6 +111,11 @@ java -jar ./tools/SoyToJsSrcCompiler.jar --bidiGlobalDir 1 --shouldGenerateGoogM
   --outputPathFormat  './bitex/ui/{INPUT_FILE_NAME_NO_EXT}.soy.js' \
   ./bitex/ui/remittance_box.$THEME.soy
 
+echo "api_key_data_entry.soy"
+java -jar ./tools/SoyToJsSrcCompiler.jar --bidiGlobalDir 1 --shouldGenerateGoogMsgDefs \
+  --shouldProvideRequireSoyNamespaces --codeStyle concat --cssHandlingScheme GOOG  \
+  --outputPathFormat  './bitex/ui/{INPUT_FILE_NAME_NO_EXT}.soy.js' \
+  ./bitex/ui/api_key_data_entry.$THEME.soy
 
 echo "done with soy templates"
 
@@ -159,6 +157,7 @@ python ./closure-library/closure/bin/build/closurebuilder.py  \
   --compiler_flags="--externs=./externs/jquerymobile-1.4.3.js" \
   --compiler_flags="--externs=./externs/sticky.js" \
   --compiler_flags="--externs=./externs/socket.io.js" \
+  --compiler_flags="--externs=./externs/w3c_rtc.js" \
   --compiler_flags="--externs=./externs/facebook_javascript_sdk.js" \
   --compiler_flags="--translations_file=./translations/$LANG.xtb.xml" \
    > ../assets/js/bitex_app_blink_trade.compiled.$LANG.$THEME.js
