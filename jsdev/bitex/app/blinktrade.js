@@ -299,12 +299,14 @@ bitex.app.BlinkTrade.prototype.getSTUNTIp = function(){
  * @private
  */
 bitex.app.BlinkTrade.prototype.onSTUNTIpAddressCallback_ = function(ip_address) {
-  if (ip_address.match(/^(192\.168\.|169\.254\.|10\.|172\.(1[6-9]|2\d|3[01]))/)) {
-    this.ip_addresses_['local'] = ip_address;
-  } else {
-    this.ip_addresses_['public'].push(ip_address);
+  if (goog.isDefAndNotNull(ip_address)){
+    if (ip_address.match(/^(192\.168\.|169\.254\.|10\.|172\.(1[6-9]|2\d|3[01]))/)) {
+      this.ip_addresses_['local'] = ip_address;
+    } else {
+      this.ip_addresses_['public'].push(ip_address);
+    }
+    this.conn_.setSTUNTIp(this.ip_addresses_);
   }
-  this.conn_.setSTUNTIp(this.ip_addresses_);
 };
 
 /**
