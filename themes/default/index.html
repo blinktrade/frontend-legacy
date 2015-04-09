@@ -448,7 +448,17 @@ load_application:       True
       </div>
 
 
+      <div id="api" class="bitex-view">
+        <div class="section-title">
+          <h3 class="bitex-view-title">{% t views.api.title %}</h3>
+        </div>
+        <div class="content bitex-view-content">
+          <div id="id_api_button_group" class="row-fluid text-right" style="margin-bottom:20px">
+            <a id="id_btn_new_api_key" class="btn btn-primary"><i class="icon-plus "> {% t views.api.new_api_key %}</i></a>
+          </div>
 
+        </div>
+      </div>
 
       <div id="settings" class="bitex-view">
         <div class="section-title">
@@ -510,6 +520,7 @@ load_application:       True
                                                 bitex-view-ledger
                                                 bitex-view-settings
                                                 bitex-view-algotrading
+                                                bitex-view-api
                                                 bitex-view-my_broker
                                                 bitex-view-verification">
       <h3><span class="bitex-model bitex-view-title" data-model-key="DisplayName"></span></h3>
@@ -592,6 +603,11 @@ load_application:       True
           <li style="">
             <a href="" data-switch-view="faq">
               <i data-switch-view="faq" class="icon-question"></i> {% t views.sidebar.support %}</a>
+          </li>
+
+          <li style="">
+            <a href="" data-switch-view="api">
+              <i data-switch-view="api" class="icon-globe"></i> {% t views.sidebar.api %}</a>
           </li>
 
           <li>
