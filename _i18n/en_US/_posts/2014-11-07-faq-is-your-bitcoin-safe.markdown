@@ -1,24 +1,23 @@
 ---
 layout:     post
-title:      "Is your bitcoin safe?"
+title:      "Sunt Bitcoinii mei în siguranță?"
 date:       2014-11-07 00:12:00
-categories: en_US faq
+categories: ro faq
 ---
 
-Our main concern is to allow traders to interact within a safe environment. Bitcoins are stored in a multisignature cold storage wallet and away from the servers of the exchange. So even though if the server of the exchange has been hacked the bitcoins are out of the reach of the bad boys.
+Scopul nostru principal este de a oferii trader-ilor un mediu sigur în care să interacționeze. Bitcoinii sunt stocani într-un portofel rece cu semnături multiple (multisignature cold storage wallet). Chiar dacă server-ul sau exchange-ul ar fi compromise Bitcoinii nu pot ajunge la băieții răi.
 
-The multisignature wallet requires 2 out of 3 signatures in order to be able to move the bitcoins.
- the exchange operator holds one of the 3 keys. The other 2 are held by BlinkTrade and a mediator who will take part of the process in case there is a dispute between the exchange operator and BlinkTrade.
+Portofelul cu semnături multiple(multisignature) necesită 2 din 3 semnături pentru a muta Bitcoinii. Operatorul exchange-ului deține una din cele 3 chei. Celelalte două sunt deținute de BlinkTrade și un mediator, care va lua parte la proces, în cazul în care ar exista o dispută între operator și BlinkTrade.
 
-This means that even though a hacker compromises the servers of the exchange, he will also have to compromise the servers of BlinkTrade to be able to take the bitcoins. The odds are extremely low for that to happen.
+Chiar dacă un hack-er ar compromite serverele exchange-ului, ar trebui să compromită și serverele BlinkTrade pentru a-și putea însuși Bitcoinii. Șansele ca așa ceva să se întâmple sunt infime.
 
-Each time the bitcoins have to be moved from the multisignature wallet to the hot wallet (which is connected to the internet for processing fast withdrawals) BlinkTrade will previously verify the system and perform a proof of solvency of the bitcoins.
-In other words, every time the bitcoins are moved from multisignature cold storage to hot storage, we perform a complete check of the system.
+De ficare dată când Bitcoini sunt mutați din portofelul cu semnături multiple pe un portofel cald(care este conectat la internet pentru a procesa retrageri rapid) BlinkTrade verifică sistemul și efectuează o dovadă de solvabilitate a bitcoinilor. 
+ Cu alte cuvinte de fiecare data când Bitcoinii sunt mutați din portofelul cu semnături multiple rece(neconectat la internet) în portofelul cald(conectat la internet), efectuăm o verificare completă a sistemului.
 
-The hot wallet is kept in the servers of blockchain.info and we only keep a small amount of bitcoins to be able to cover the operations of the day.
-Further more, all the safety measures of the hot wallet are run by blockchain.info
+Portofelele calde sunt stocate pe serverele blockchain.info și păstrăm doar cantități mici de bitcoin pentru a efectuă operațiuni de zi cu zi. 
+Mai mult, toate măsurile de siguranță ale portofelelor calde sunt întreținute de blockchain.info 
 
-No exchange in the world is 100% secure. So even though we perform all the security measures, we don’t want to create a bitcoin pot of gold that will challenge hackers to try to compromise the exchange.
+Nici un exchange din lume nu este 100% sigur. Cu toate măsurile noastre de siguranță nu vrem să creăm o comoară de bitcoin, care ar provoca hack-eri să încerce să compromită exchange-ul.
 
-We encourage the users to only deposit their bitcoins when they are going to sell them, and not using the exchange to bank on their bitcoins. The safest procedure is to always hold your bitcoins in your wallet until you want to trade them.
+Încurajăm toți utilizatori să își depoziteze Bitcoinii doar când au de gând să îi schimbe, și să nu folosească exchange-ul că o bancă. Cea mai sigură metodă este să va țineți Bitcoini în portofelul personal până când aveți de gând să îi schimbați.
 
