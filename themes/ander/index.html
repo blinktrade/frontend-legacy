@@ -137,6 +137,12 @@ load_application:       True
   </div>
   <!-- /#market -->
 
+  <!-- /#themes -->
+  <div id="themes" class="bitex-view">
+  
+  </div>
+  <!-- #themes -->
+
   <!-- #signin -->
   <div id="signin" class="page bitex-view">
     <!-- .page__head -->
@@ -321,6 +327,7 @@ load_application:       True
                                               bitex-view-settings
                                               bitex-view-algotrading
                                               bitex-view-my_broker
+                                              bitex-view-api
                                               bitex-view-verification">
                 <!-- .sidebar__head -->
                 <div class="sidebar__head">
@@ -369,6 +376,12 @@ load_application:       True
                                 <i class="icon-check"></i> {% t views.sidebar.verification %}
                               </a>
                             </li>
+                            <li id="api_menu_id">
+                              <a href="api" data-switch-view="api">
+                                <i class="icon-globe"></i> {% t views.sidebar.api %}
+                              </a>
+                            </li>
+
                             <li>
                               <a href="" data-switch-view="faq">
                                 <i data-switch-view="faq" class="icon-question"></i> {% t views.sidebar.support %}</a>
@@ -535,6 +548,25 @@ load_application:       True
               <div id="id_ledger_balances_container"></div>
 
               <div id="id_ledger_list"></div>
+            </div>
+            <!-- /.page__body -->
+          </div>
+          <!-- /#ledger -->
+
+
+          <!-- #ledger -->
+          <div id="api" class="bitex-view">
+            <!-- .page__head -->
+            <header class="page__head section-title">
+              <h3 class="page__title beta bitex-view-title">{% t views.api.title %}</h3>
+            </header>
+            <!-- /.page__head -->
+
+            <!-- .page__body -->
+            <div class="page__body bitex-view-content">
+              <div id="id_api_button_group"></div>
+
+              <div id="id_api_list"></div>
             </div>
             <!-- /.page__body -->
           </div>

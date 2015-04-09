@@ -141,6 +141,10 @@ views:
   ledger:
     title: Registru
 
+  api:
+    title: API Keys
+    new_api_key: New API Key
+
   algotrading:
     title: Tranzacționarea algoritmică
 
@@ -173,5 +177,6 @@ views:
     withdraw: Retragerile mele
     verification: Verificați-va contul
     support: Sugestii & Support
+    api: API
     logout: Delogare
     algotrading: Algo Trading

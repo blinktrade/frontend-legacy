@@ -112,6 +112,10 @@ a:hover:not(.ls-btn),a:focus,a{
 /* ajuste para telas móveis */
 @media (max-width: 768px){
 
+    .modal{
+        width:90%;
+    }
+
     .zopim{
         display:none;
     }
@@ -307,7 +311,7 @@ footer{
     margin-bottom:20px;
 }
 .ul-form li label{
-    width: 20%;
+    width: 35%;
     display: table-cell;
 }
 
@@ -338,6 +342,10 @@ footer{
 #id_order_book_ask_content .ls-table td,
 #id_order_book_bid_content .ls-table td {
     padding:7px;
+}
+
+.flaticon-refresh56{
+    margin-left: -20px!important;
 }
 
 /* fuelux override */

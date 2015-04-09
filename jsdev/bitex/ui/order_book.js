@@ -553,7 +553,7 @@ bitex.ui.OrderBook.prototype.deleteOrder = function( index) {
  */
 bitex.ui.OrderBook.prototype.updateOrder = function( index, qty) {
   var dom = this.getDomHelper();
-  
+
   var formatter = new goog.i18n.NumberFormat( this.qtyCurrencyDef_.format, this.qtyCurrencyDef_.code );
   formatted_qty = formatter.format(qty/1e8);
 
@@ -620,7 +620,7 @@ bitex.ui.OrderBook.prototype.insertOrder = function( index, id, price, qty, user
   if (username === this.username_ || broker === this.username_ ){
     userNameEl = dom.createDom('td', undefined,
                    dom.createDom( 'a', { 'class':'btn-cancel-order text-error', 'href':'', 'data-order-id':id },
-                     dom.createDom( 'i', { 'class':'icon-remove', 'style':'line-height: 2px;', 'data-order-id':id}, '  ' + username )));
+                     dom.createDom( 'i', { 'class':'glyphicon glyphicon-remove', 'data-order-id':id }), ' ' + username));
   } else {
     userNameEl = dom.createDom( 'td', goog.getCssName(this.getBaseCssClass(), 'username'), username);
   }

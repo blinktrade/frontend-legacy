@@ -1,0 +1,51 @@
+{namespace bitex.ui.OrderBook.templates}
+
+/**
+  * @param title
+  * @param columns
+  */
+{template .OrderBook}
+<div class="orders">
+    <!-- .orders__head -->
+    <header class="orders__head">
+        <h4 class="orders__title">{$title}</h4>
+
+        <div class="orders__status">
+            Buying: <strong>BRL 496.90</strong>
+        </div>
+    </header>
+    <!-- /.orders__head -->
+
+    <!-- .orders__body -->
+    <div class="orders__body">
+        <!-- .table-responsive -->
+        <div class="table-responsive">
+            <!-- .orders-table -->
+            <table class="orders-table table">
+                <thead>
+                    <tr>
+                        {foreach $column in $columns}
+                          <th>{$column}</th>
+                        {/foreach}
+                    </tr>
+                </thead>
+
+                <tbody>
+                </tbody>
+            </table>
+            <!-- /.orders-table -->
+        </div>
+        <!-- /.table-responsive -->
+    </div>
+    <!-- /.orders__body -->
+</div>
+{/template}
+
+/**
+  *
+  */
+{template .OrderBookDragOrder}
+  <div class="order-book-drag-order">
+     {msg desc="Caption shown when user is drag & dropping an order in the order book"}Cancel/Replace Order{/msg}
+  </div>
+{/template}

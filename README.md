@@ -81,10 +81,12 @@ You'll have access to the website at `localhost:4000` :D
 IE 11+ ✔ | Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ |
 
 
-## How build the  javascript application
+## How build the javascript application
+The defaults are US english (en_US) and the default theme ('default'), but can be overriden.
+To build the british english version with a custom theme:
 ```sh
 $ cd ./jsdev 
-$ sh build_release.sh  en_US default # build the english version with the default theme.
+$ LANG=en_GB THEME=custom sh build_release.sh
 ```
 
 ## File Structure
