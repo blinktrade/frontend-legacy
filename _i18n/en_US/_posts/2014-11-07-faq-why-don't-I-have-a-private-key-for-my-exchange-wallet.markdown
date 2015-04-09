@@ -1,8 +1,8 @@
 ---
 layout:     post
-title:      "why don't I have a private key for my exchange wallet?"
+title:      "De ce nu am o cheie privată a portofelului meu din exchange?"
 date:       2014-11-07 00:13:00
-categories: en_US faq
+categories: ro faq
 ---
 
-Our principle is that the bitcoins deposited in the exchange are there to be exchanged for your local currency. In consequence, to guarantee safety and speed in the trade, the exchange operator keeps possession of deposits either in FIAT and in BTC.
+Principiul nostru este că Bitcoinii sunt depozitați în exchange pentru a fi schimbați în monedă locală. În consecință pentru a garanta siguranța și viteza tranzacționării, operatorul exchange-ului are posesia depozitărilor fie în Fiat sau BTC.
