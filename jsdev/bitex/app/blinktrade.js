@@ -1412,7 +1412,7 @@ bitex.app.BlinkTrade.prototype.onBitexPositionResponse_ = function(e) {
       var position_key = 'position_' + broker + ':' + clientID + '_'  + currency;
       this.getModel().set( position_key , position );
 
-      if (position){
+      if ( goog.isDefAndNotNull(position) ){
         this.getModel().set('formatted_' + position_key, this.formatCurrency(position, currency, true));
       } else {
         this.getModel().set('formatted_' + position_key, '');
@@ -1696,6 +1696,13 @@ bitex.app.BlinkTrade.prototype.showWithdrawalDialog = function(currency){
         e.stopPropagation();
         e.preventDefault();
       } else {
+          try {
+            var position_key = 'position_' +
+                this.getModel().get('Broker')['BrokerID'] + ':' + this.getModel().get('UserID') + '_' + currency;
+            var position = this.getModel().get( position_key);
+            console.log(position);
+          } catch (e){}
+
           var withdraw_data = withdrawal_uniform.getAsJSON();
 
           var amount = withdraw_data['Amount'];
@@ -2471,6 +2478,16 @@ bitex.app.BlinkTrade.prototype.doCalculateFees_ = function(amount_element_id,
 
     var net_amount_element_value_id = opt_net_amount_element_id + '_value';
     goog.dom.forms.setValue(goog.dom.getElement(net_amount_element_value_id), net_amount);
+
+    var net_amount_element_validator_id = opt_net_amount_element_id + '_validator';
+    if (goog.isDefAndNotNull(goog.dom.getElement(net_amount_element_validator_id))){
+      var validatorFormatter = new goog.i18n.NumberFormat( goog.i18n.NumberFormat.Format.DECIMAL);
+      validatorFormatter.setMaximumFractionDigits(8);
+      validatorFormatter.setMinimumFractionDigits(2);
+
+      goog.dom.forms.setValue(goog.dom.getElement(net_amount_element_validator_id),
+          validatorFormatter.format(net_amount/1e8));
+    }
   }
 
   return [ amount, percent_fee_value, fixed_fee_value, net_amount ];

@@ -170,9 +170,9 @@
     </div>
 
     <div class="control-group">
-      <label class="control-label">{msg desc="Net amount"}Net amount{/msg}</label>
+      <label class="control-label net-amount">{msg desc="Net amount"}Net amount{/msg}</label>
       <div class="controls">
-        <label id="{$netValueID}" class="control-label broker-confirm-deposit-net-amount" style="text-align: left;"></label>
+        <label id="{$netValueID}" class="control-label net-amount broker-confirm-deposit-net-amount" style="text-align: left;"></label>
         <input id="{$netValueID}_value" type="hidden" value="">
       </div>
     </div>
@@ -798,9 +798,9 @@
 </div>
 
 <div class="control-group" style="{if $hideNetValueID}display:none{/if}">
-  <label class="control-label">{msg desc="Net amount"}Net amount{/msg}</label>
+  <label class="control-label net-amount">{msg desc="Net amount"}Net amount{/msg}</label>
   <div class="controls">
-    <label id="{$netValueID}" class="control-label" style="text-align: left;"></label>
+    <label id="{$netValueID}" class="control-label net-amount" style="text-align: left;"></label>
     <input id="{$netValueID}_value" type="hidden" value="">
   </div>
 </div>
@@ -990,10 +990,14 @@
               </div>
 
               <div class="control-group" {if $hideNetAmount} style="display:none;" {/if} >
-                <label class="control-label">{msg desc="Net amount"}Net amount{/msg}</label>
+                <label class="control-label net-amount">{msg desc="Net amount"}Net amount{/msg}</label>
                 <div class="controls">
-                  <label id="{$method['method']}_{$netValueID}" class="control-label" style="text-align: left;"></label>
+                  <label id="{$method['method']}_{$netValueID}" class="control-label net-amount" style="text-align: left;"></label>
                   <input id="{$method['method']}_{$netValueID}_value" type="hidden" value="">
+                  <input id="{$method['method']}_{$netValueID}_validator" type="hidden" value=""
+                      data-uniform-validators="required; validateNumber {if $method['limits'][$verificationLevel]['enabled']} {if $method['limits'][$verificationLevel]['min']}; validateMin {$method['limits'][$verificationLevel]['formatted_min_value'] }{/if}{if $method['limits'][$verificationLevel]['max']}; validateMax {$method['limits'][$verificationLevel]['formatted_max_value'] } {/if} {/if}"
+                      data-uniform-type="number"
+                      data-uniform-filters="positive_number">
                 </div>
               </div>
 
@@ -1071,10 +1075,14 @@
             </div>
 
             <div class="control-group" {if $hideNetAmount} style="display:none;" {/if}>
-              <label class="control-label">{msg desc="Net amount"}Net amount{/msg}</label>
+              <label class="control-label net-amount">{msg desc="Net amount"}Net amount{/msg}</label>
               <div class="controls">
-                <label id="{$method['method']}_{$netValueID}" class="control-label broker-confirm-deposit-net-amount" style="text-align: left;"></label>
+                <label id="{$method['method']}_{$netValueID}" class="control-label net-amount broker-confirm-deposit-net-amount" style="text-align: left;"></label>
                 <input id="{$method['method']}_{$netValueID}_value" type="hidden" value="">
+                <input id="{$method['method']}_{$netValueID}_validator" type="hidden" value=""
+                    data-uniform-validators="required; validateNumber {if $method['limits'][$verificationLevel]['enabled']} {if $method['limits'][$verificationLevel]['min']}; validateMin {$method['limits'][$verificationLevel]['formatted_min_value'] }{/if}{if $method['limits'][$verificationLevel]['max']}; validateMax {$method['limits'][$verificationLevel]['formatted_max_value'] } {/if} {/if}"
+                    data-uniform-type="number"
+                    data-uniform-filters="positive_number">
               </div>
             </div>
 
