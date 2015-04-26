@@ -7,7 +7,7 @@ goog.require('goog.style');
 
 goog.require('goog.dom.classes');
 
-goog.require('bootstrap.Dialog');
+goog.require('bitex.ui.Dialog');
 goog.require('goog.i18n.NumberFormat');
 
 /**
@@ -228,9 +228,9 @@ bitex.ui.WithdrawMethods.prototype.onActionEdit_ = function(){
   var MSG_EDIT_WITHDRAW_METHOD_DIALOG_TITLE = goog.getMsg('Edit withdraw method');
 
 
-  var buttonSet = bootstrap.Dialog.ButtonSet.createOkCancel();
+  var buttonSet = bitex.ui.Dialog.ButtonSet.createOkCancel();
 
-  var dialog_ = new bootstrap.Dialog();
+  var dialog_ = new bitex.ui.Dialog();
   dialog_.setTitle(MSG_EDIT_WITHDRAW_METHOD_DIALOG_TITLE);
   dialog_.addChild(withdraw_method_editor, true);
   dialog_.setButtonSet(buttonSet);
@@ -324,9 +324,9 @@ bitex.ui.WithdrawMethods.prototype.onAddField_ = function(e) {
                                       'method': '',
                                       'percent_fee': ''
                                     });
-    var buttonSet = bootstrap.Dialog.ButtonSet.createOkCancel();
+    var buttonSet = bitex.ui.Dialog.ButtonSet.createOkCancel();
 
-    var dialog_ = new bootstrap.Dialog();
+    var dialog_ = new bitex.ui.Dialog();
     dialog_.setTitle(MSG_ADD_WITHDRAW_METHOD_DIALOG_TITLE);
     dialog_.addChild(withdraw_method_editor, true);
     dialog_.setButtonSet(buttonSet);

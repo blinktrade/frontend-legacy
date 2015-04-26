@@ -988,7 +988,9 @@
                 <input id="{$method['method']}_{$netValueID}_validator" type="hidden" value=""
                     data-uniform-validators="required; validateNumber {if $method['limits'][$verificationLevel]['enabled']} {if $method['limits'][$verificationLevel]['min']}; validateMin {$method['limits'][$verificationLevel]['formatted_min_value'] }{/if}{if $method['limits'][$verificationLevel]['max']}; validateMax {$method['limits'][$verificationLevel]['formatted_max_value'] } {/if} {/if}"
                     data-uniform-type="number"
-                    data-uniform-filters="positive_number">
+                    class="withdraw-field"
+                    data-uniform-filters="positive_number"
+                    {if not isFirst($method)}disabled{/if}>
               </li>
 
             {else}
@@ -1067,7 +1069,9 @@
               <input id="{$method['method']}_{$netValueID}_validator" type="hidden" value=""
                   data-uniform-validators="required; validateNumber {if $method['limits'][$verificationLevel]['enabled']} {if $method['limits'][$verificationLevel]['min']}; validateMin {$method['limits'][$verificationLevel]['formatted_min_value'] }{/if}{if $method['limits'][$verificationLevel]['max']}; validateMax {$method['limits'][$verificationLevel]['formatted_max_value'] } {/if} {/if}"
                   data-uniform-type="number"
-                  data-uniform-filters="positive_number">
+                  class="withdraw-field"
+                  data-uniform-filters="positive_number"
+                  {if not isFirst($method)}disabled{/if}>
             </div>
 
             <ul class="ul-form">
