@@ -917,6 +917,12 @@
                         <label class="modal-form__label">{msg desc="Net amount"}Net amount{/msg}:</label>
                         <label id="{$method['method']}_{$netValueID}" class="control-label" style="text-align: left;"></label>
                         <input id="{$method['method']}_{$netValueID}_value" type="hidden" value="">
+                        <input id="{$method['method']}_{$netValueID}_validator" type="hidden" value=""
+                            data-uniform-validators="required; validateNumber {if $method['limits'][$verificationLevel]['enabled']} {if $method['limits'][$verificationLevel]['min']}; validateMin {$method['limits'][$verificationLevel]['formatted_min_value'] }{/if}{if $method['limits'][$verificationLevel]['max']}; validateMax {$method['limits'][$verificationLevel]['formatted_max_value'] } {/if} {/if}"
+                            data-uniform-type="number"
+                            class="withdraw-field"
+                            data-uniform-filters="positive_number"
+                            {if not isFirst($method)}disabled{/if}>
                     </div>
                 {else}
                     {if $side == 'broker'}
@@ -978,6 +984,12 @@
                     <label class="modal-form__label">{msg desc="Net amount"}Net amount{/msg}:</label>
                     <label id="{$method['method']}_{$netValueID}" class="control-label broker-confirm-deposit-net-amount" style="text-align: left;"></label>
                     <input id="{$method['method']}_{$netValueID}_value" type="hidden" value="">
+                    <input id="{$method['method']}_{$netValueID}_validator" type="hidden" value=""
+                        data-uniform-validators="required; validateNumber {if $method['limits'][$verificationLevel]['enabled']} {if $method['limits'][$verificationLevel]['min']}; validateMin {$method['limits'][$verificationLevel]['formatted_min_value'] }{/if}{if $method['limits'][$verificationLevel]['max']}; validateMax {$method['limits'][$verificationLevel]['formatted_max_value'] } {/if} {/if}"
+                        data-uniform-type="number"
+                        class="withdraw-field"
+                        data-uniform-filters="positive_number"
+                        {if not isFirst($method)}disabled{/if}>
                 </div>
 
                 {foreach $field in $method['fields'] }

@@ -1,0 +1,20 @@
+{namespace bitex.ui.Dialog.templates}
+
+/**
+  * @param id
+  * @param title
+  */
+{template .Dialog}
+<div id="{$id}" class="modal in" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <a class="close" href="javascript:;">×</a>
+        <h4 class="modal-title" >{$title}</h4>
+      </div>
+      <div class="modal-body"></div>
+      <div class="modal-footer"></div>
+    </div>
+  </div>
+</div>
+{/template}
