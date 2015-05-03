@@ -117,6 +117,13 @@ java -jar ./tools/SoyToJsSrcCompiler.jar --bidiGlobalDir 1 --shouldGenerateGoogM
   --outputPathFormat  './bitex/ui/{INPUT_FILE_NAME_NO_EXT}.soy.js' \
   ./bitex/ui/api_key_data_entry.$THEME.soy
 
+
+echo "dialog.soy"
+java -jar ./tools/SoyToJsSrcCompiler.jar --bidiGlobalDir 1 --shouldGenerateGoogMsgDefs \
+  --shouldProvideRequireSoyNamespaces --codeStyle concat --cssHandlingScheme GOOG  \
+  --outputPathFormat  './bitex/ui/{INPUT_FILE_NAME_NO_EXT}.soy.js' \
+  ./bitex/ui/dialog.$THEME.soy
+
 echo "done with soy templates"
 
 ## Messages - Uncomment this to generate the translation file
