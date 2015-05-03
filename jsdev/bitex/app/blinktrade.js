@@ -767,8 +767,7 @@ bitex.app.BlinkTrade.prototype.onBitexWithdrawConfirmationResponse_ = function(e
 bitex.app.BlinkTrade.prototype.onBitexWithdrawResponse_ = function(e) {
   var msg = e.data;
 
-  if ( this.getModel().get('Profile')['NeedWithdrawEmail'] ) {
-
+  if (msg['Status'] == "0" &&  this.getModel().get('Profile')['NeedWithdrawEmail'] ) {
       var dlg_content;
       if (this.getModel().get('TwoFactorEnabled')) {
         dlg_content = bitex.templates.GoogleAuthenticationCodeDialogContent();
