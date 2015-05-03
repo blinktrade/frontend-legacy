@@ -3,7 +3,6 @@ goog.require('bitex.view.View');
 goog.require('bitex.ui.ApiList');
 goog.require('bitex.ui.APIKeyDataEntry');
 
-goog.require('bootstrap.Dialog');
 goog.require('bitex.templates');
 
 /**

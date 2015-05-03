@@ -612,3 +612,9 @@ keyframes notification {
   -ms-user-select: none;
   user-select: none;
 }
+
+.net-amount {
+  font-weight: bold;
+  color: #b94a48;
+}
+
