@@ -115,7 +115,11 @@ bitex.model.Model.prototype.updateDom = function() {
         // TODO: make sure this also works with value attribute
         current_value = goog.dom.getTextContent(el);
         if (current_value !== value) {
-          goog.dom.setTextContent( el, value );
+          if (goog.isDefAndNotNull(value)) {
+            goog.dom.setTextContent( el, value );
+          } else {
+            goog.dom.setTextContent( el, '' );
+          }
         }
       } else if (model_action == 'show_element') {
         current_value = goog.style.isElementShown(el);

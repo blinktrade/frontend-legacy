@@ -1,7 +1,7 @@
 goog.provide('bitex.view.AccountOverview');
 
 goog.require('bitex.view.View');
-
+goog.require('bitex.ui.Dialog');
 goog.require('bitex.ui.WithdrawList');
 goog.require('bitex.ui.DepositList');
 goog.require('bitex.templates');
@@ -697,7 +697,7 @@ bitex.view.AccountOverview.prototype.onBtnUserFeesClick_ = function(e) {
 
   var userFeesDialog = this.getApplication().showDialog(dlg_content,
                                                    MSG_USER_FEES_DIALOG_TITLE,
-                                                   bootstrap.Dialog.ButtonSet.createOkCancel());
+                                                   bitex.ui.Dialog.ButtonSet.createOkCancel());
 
   if (goog.isDefAndNotNull(buy_fee)) {
     goog.dom.getElement('id_user_fees_buy_fee').disabled = false;
@@ -880,7 +880,7 @@ bitex.view.AccountOverview.prototype.onAccountOverviewHeaderClick_ = function(e)
 
         var dlg = this.getApplication().showDialog(dlg_content,
                                                    MSG_VERIFICATION_DATA_DIALOG_TITLE,
-                                                   bootstrap.Dialog.ButtonSet.createOkCancel());
+                                                   bitex.ui.Dialog.ButtonSet.createOkCancel());
         handler.listen(dlg, goog.ui.Dialog.EventType.SELECT, function(e) {
           if (e.key == 'ok') {
             e.preventDefault();
