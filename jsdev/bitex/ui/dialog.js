@@ -66,6 +66,11 @@ bitex.ui.Dialog.prototype.createDom = function() {
   this.setBackgroundElementOpacity(this.getBackgroundElementOpacity());
 };
 
+bitex.ui.Dialog.prototype.onShow = function(){
+  goog.base(this, 'onShow');
+  this.getElement().style.display = 'block';
+};
+
 /**
  * @suppress {accessControls}
  * @param {number} opacity
