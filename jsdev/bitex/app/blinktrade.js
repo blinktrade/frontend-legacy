@@ -1017,16 +1017,17 @@ bitex.app.BlinkTrade.prototype.onBitexDepositMethodsResponse_ = function(e) {
     var percent_fee = deposit_method['PercentFee'];
     var fixed_fee = deposit_method['FixedFee'];
     var deposit_limits = deposit_method['DepositLimits'];
+    var user_receipt_url = deposit_method['UserReceiptURL'];
 
-    deposit_methods.push( { id:deposit_method_id,
+    deposit_methods.push({ id:deposit_method_id,
                            description:description,
                            disclaimer:disclaimer,
                            type: type,
                            currency:currency,
                            percent_fee: percent_fee,
                            fixed_fee: fixed_fee,
-                           deposit_limits: deposit_limits
-                         } );
+                           deposit_limits: deposit_limits,
+                           user_receipt_url: user_receipt_url});
   });
 
   this.getModel().set('DepositMethods', deposit_methods);
@@ -2243,6 +2244,13 @@ bitex.app.BlinkTrade.prototype.onUserCancelReplaceOrder_ = function(e) {
  */
 bitex.app.BlinkTrade.prototype.onShowReceipt_ = function(e){
   var receiptData = e.target.getReceiptData();
+  var depositDetailTemplateData = [];
+  goog.object.forEach( e.target.getReceiptData(), function( data, k ) {
+    if (k != 'DepositReceipt' && k != 'SubmissionID') {
+      depositDetailTemplateData.push ( { "key": k, "value": data  }  );
+    }
+  }, this);
+  
 
   /**
    * @desc Crypto Currency Withdraw deposit title
@@ -2250,8 +2258,8 @@ bitex.app.BlinkTrade.prototype.onShowReceipt_ = function(e){
   var MSG_SHOW_DEPOSIT_RECEIPT_DIALOG_TITLE =
       goog.getMsg("Submission {$submissionid}", { submissionid : receiptData['SubmissionID'] });
 
-
-  var dlg =  this.showDialog(bitex.templates.DepositReceiptDialogContent({depositReceiptList:receiptData['DepositReceipt']}),
+  var dlg =  this.showDialog(bitex.templates.DepositDetailDialogContent({ depositDetailData:depositDetailTemplateData,
+                                                                          depositReceiptList:receiptData['DepositReceipt']}),
                              MSG_SHOW_DEPOSIT_RECEIPT_DIALOG_TITLE,
                              bitex.ui.Dialog.ButtonSet.createOk());
 };
@@ -2324,7 +2332,16 @@ bitex.app.BlinkTrade.prototype.onUserUploadReceipt_ = function(e){
 
   var stunt_ip_str = goog.json.serialize(this.getSTUNTIp());
 
+  var deposit_method = goog.array.find(this.getModel().get('DepositMethods'), function(dm){
+    return (dm.id == deposit_data['DepositMethodID']);
+  });
+
+
   var upload_form_url =  broker['UploadForm'];
+  if (deposit_method) {
+    upload_form_url = deposit_method.user_receipt_url;
+  }
+
   upload_form_url = upload_form_url.replace('{{UserID}}', model.get('UserID'));
   upload_form_url = upload_form_url.replace('{{Username}}', model.get('Username'));
   upload_form_url = upload_form_url.replace('{{BrokerID}}', model.get('Broker')['BrokerID']);

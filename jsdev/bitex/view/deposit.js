@@ -299,10 +299,7 @@ bitex.view.DepositView.prototype.onDepositListTableClick_ = function(e) {
         this.dispatchEvent(bitex.view.View.EventType.SHOW_QR);
         break;
       case 'SHOW_RECEIPT':
-        this.receipt_data_ = {
-          'SubmissionID': this.data_['Data']['SubmissionID'],
-          'DepositReceipt': this.data_['Data']['DepositReceipt']
-        };
+        this.receipt_data_ = goog.object.unsafeClone(this.data_['Data']);
         this.dispatchEvent(bitex.view.View.EventType.SHOW_RECEIPT);
         break;
       case 'UPLOAD':
