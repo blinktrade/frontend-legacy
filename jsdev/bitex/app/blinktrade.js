@@ -2244,15 +2244,13 @@ bitex.app.BlinkTrade.prototype.onUserCancelReplaceOrder_ = function(e) {
  */
 bitex.app.BlinkTrade.prototype.onShowReceipt_ = function(e){
   var receiptData = e.target.getReceiptData();
-
-  /*
-  {
-    "agencia":"0___",
-    "SubmissionID":"308980273331515693",
-    "DepositReceipt":["https://www.jotformpro.com/uploads/pinhopro/51512792127958/308980273331515693/Screen Shot 2015-05-12 at 20.50.40.png"],
-    "documento":"0______"
-  }
-   */
+  var depositDetailTemplateData = [];
+  goog.object.forEach( e.target.getReceiptData(), function( data, k ) {
+    if (k != 'DepositReceipt' && k != 'SubmissionID') {
+      depositDetailTemplateData.push ( { "key": k, "value": data  }  );
+    }
+  }, this);
+  
 
   /**
    * @desc Crypto Currency Withdraw deposit title
@@ -2260,8 +2258,8 @@ bitex.app.BlinkTrade.prototype.onShowReceipt_ = function(e){
   var MSG_SHOW_DEPOSIT_RECEIPT_DIALOG_TITLE =
       goog.getMsg("Submission {$submissionid}", { submissionid : receiptData['SubmissionID'] });
 
-
-  var dlg =  this.showDialog(bitex.templates.DepositReceiptDialogContent({depositReceiptList:receiptData['DepositReceipt']}),
+  var dlg =  this.showDialog(bitex.templates.DepositDetailDialogContent({ depositDetailData:depositDetailTemplateData,
+                                                                          depositReceiptList:receiptData['DepositReceipt']}),
                              MSG_SHOW_DEPOSIT_RECEIPT_DIALOG_TITLE,
                              bitex.ui.Dialog.ButtonSet.createOk());
 };
