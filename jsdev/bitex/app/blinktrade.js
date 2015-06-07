@@ -2250,7 +2250,24 @@ bitex.app.BlinkTrade.prototype.onShowReceipt_ = function(e){
       depositDetailTemplateData.push ( { "key": k, "value": data  }  );
     }
   }, this);
-  
+ 
+  var depositReceiptTemplateData = [];
+  goog.array.forEach(e.target.getReceiptData()['DepositReceipt'], function(url) {
+    var is_pdf = goog.string.caseInsensitiveEndsWith(url, 'pdf');
+    var is_txt = goog.string.caseInsensitiveEndsWith(url, 'txt');
+ 
+    var data = {
+      'url': url,
+      'type': 'image'
+    };
+    if (is_pdf) {
+      data['type'] = 'pdf';
+    } else if (is_txt) {
+      data['type'] = 'txt';
+    } 
+    depositReceiptTemplateData.push(data);
+  }, this); 
+  console.log (depositReceiptTemplateData) ;
 
   /**
    * @desc Crypto Currency Withdraw deposit title
@@ -2259,7 +2276,7 @@ bitex.app.BlinkTrade.prototype.onShowReceipt_ = function(e){
       goog.getMsg("Submission {$submissionid}", { submissionid : receiptData['SubmissionID'] });
 
   var dlg =  this.showDialog(bitex.templates.DepositDetailDialogContent({ depositDetailData:depositDetailTemplateData,
-                                                                          depositReceiptList:receiptData['DepositReceipt']}),
+                                                                          depositReceiptList:depositReceiptTemplateData}),
                              MSG_SHOW_DEPOSIT_RECEIPT_DIALOG_TITLE,
                              bitex.ui.Dialog.ButtonSet.createOk());
 };

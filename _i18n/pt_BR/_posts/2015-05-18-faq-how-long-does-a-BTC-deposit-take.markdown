@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Quanto tempo leva a confirmação de um depósito em bitcoins?"
-date:   2015-18-05 00:00:00
+date:   2015-05-18 00:00:00
 categories: pt_BR faq
 ---
 
