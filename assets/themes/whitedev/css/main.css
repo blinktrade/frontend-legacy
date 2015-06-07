@@ -33,7 +33,7 @@
 .ls-menu{
     background: #444 url(../images/blur.png) center no-repeat;
     background-size: 200%;
-    height: calc(100% - 400px)!important;
+    height: calc(100% - 360px)!important;
 }
 /* FONTES*/
 @font-face{
@@ -116,6 +116,10 @@ a:hover:not(.ls-btn),a:focus,a{
         width:90%;
     }
 
+    .row-padding-mobile{
+        padding: 10px;
+    }
+
     .zopim{
         display:none;
     }
@@ -151,6 +155,13 @@ a:hover:not(.ls-btn),a:focus,a{
 }
 
 
+/* ajuste de tela média */
+@media(max-width:992px){
+
+    .row-padding-mobile{
+        padding: 10px;
+    }
+}
 /* ajuste de tela média */
 @media screen and (max-width: 1200px) and (min-width: 768px){
     .ls-sidebar{
