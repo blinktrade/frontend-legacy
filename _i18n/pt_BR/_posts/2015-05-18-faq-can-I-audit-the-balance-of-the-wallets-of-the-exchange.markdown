@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Como posso auditar o saldo de bitcoins das carteiras da FoxBit?"
-date:   2015-18-05 00:00:00
+date:   2015-05-18 00:00:00
 categories: pt_BR faq
 ---
 

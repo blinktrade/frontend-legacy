@@ -39,3 +39,83 @@
      {msg desc="Caption shown when user is drag & dropping an order in the order book"}Cancel/Replace Order{/msg}
   </div>
 {/template}
+
+
+/**
+  * @param qty
+  */
+{template .OrderBookOrderQtyEl}
+  <td class="order-book-qty">{$qty}</td>
+{/template}
+
+
+/**
+  * @param price
+  * @param side
+  */
+{template .OrderBookOrderPriceEl}
+  <td class="order-book-price {if $side=='0'}order-book-right{else}order-book-left{/if}">{$price}</td>
+{/template}
+
+/**
+  * @param username
+  * @param side
+  * @param? orderId
+  */
+{template .OrderBookOrderUsernameEl}
+  {if $orderId}
+    <td class="order-book-username {if $side=='0'}order-book-left{else}order-book-right{/if}">
+      <a href="" class="btn-cancel-order text-error" data-order-id="{$orderId}">
+        {if $side=='0'}
+          <i class="icon-remove" data-order-id="{$orderId}" style="line-height:2px;"></i>
+          {sp}{$username}
+        {else}
+          {$username}{sp}
+          <i class="icon-remove" data-order-id="{$orderId}" style="line-height:2px;"></i>
+        {/if}
+      </a>
+    </td>
+  {else}
+    <td class="order-book-username {if $side=='0'}order-book-left{else}order-book-right{/if}">{$username}</td>
+  {/if}
+{/template}
+
+/**
+  * @param username
+  * @param qty
+  * @param price
+  * @param side
+  * @param? orderId
+  */
+{template .OrderBookOrderRow}
+  <tr class="order-book-row">
+    {if $side=='0'}
+      {call .OrderBookOrderUsernameEl}
+        {param username: $username /}
+        {param side: $side /}
+        {param orderId: $orderId /}
+      {/call}
+      {call .OrderBookOrderQtyEl}
+        {param qty: $qty /}
+      {/call}
+      {call .OrderBookOrderPriceEl}
+        {param price: $price /}
+        {param side: $side /}
+      {/call}
+    {else}
+      {call .OrderBookOrderPriceEl}
+        {param price: $price /}
+        {param side: $side /}
+      {/call}
+      {call .OrderBookOrderQtyEl}
+        {param qty: $qty /}
+      {/call}
+      {call .OrderBookOrderUsernameEl}
+        {param username: $username /}
+        {param side: $side /}
+        {param orderId: $orderId /}
+      {/call}
+    {/if}
+  </tr>
+{/template}
+
