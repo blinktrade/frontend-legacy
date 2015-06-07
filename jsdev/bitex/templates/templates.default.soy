@@ -121,16 +121,22 @@
         <tr>
           <td>Recibo:</td>
           <td>
-          {foreach $receipt_url in $depositReceiptList}
-            <a href="{{$receipt_url}}" target="_blank">{msg desc="Download picture link on deposit receipt dialog content"}Download{/msg}</a>{sp}
+          {foreach $receipt in $depositReceiptList}
+            <a href="{{$receipt['url']}}" target="_blank">{msg desc="Download picture link on deposit receipt dialog content"}Download{/msg}</a>{sp}
           {/foreach}
           </td>
         </tr>
 
-        {foreach $receipt_url in $depositReceiptList}
+        {foreach $receipt in $depositReceiptList}
           <tr>
             <td colspan="2">
-              <img width="100%" src="{{$receipt_url}}"/>
+              {if $receipt['type'] == 'image' }
+                <img width="100%" src="{{$receipt['url']}}"/>
+              {else}
+                {if $receipt['type'] == 'pdf' }
+                  <iframe src="https://docs.google.com/gview?url={{$receipt['url']}}&embedded=true" style="width:515px; height:300px;" frameborder="0" />
+                {/if}
+              {/if}
             </td>
           </tr>
         {/foreach}
