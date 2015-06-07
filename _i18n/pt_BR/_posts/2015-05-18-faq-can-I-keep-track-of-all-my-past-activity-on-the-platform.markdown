@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Como posso controlar toda a minha atividade na plataforma?"
-date:   2015-18-05 00:00:00
+date:   2015-05-18 00:00:00
 categories: pt_BR faq
 ---
 
