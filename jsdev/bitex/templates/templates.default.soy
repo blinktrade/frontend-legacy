@@ -104,6 +104,40 @@
   <img src="{$filename}" style="width:500px"/>
 {/template}
 
+/**
+  * @param depositDetailData
+  * @param depositReceiptList
+  */
+{template .DepositDetailDialogContent}
+  <table class="table table-bordered table-condensed">
+    <tbody>
+      {foreach $data in $depositDetailData}
+        <tr>
+          <td>{{$data['key']}}{sp}:</td>
+          <td>{{$data['value']}}</td>
+        </tr>
+      {/foreach}
+      {if $depositReceiptList} 
+        <tr>
+          <td>Recibo:</td>
+          <td>
+          {foreach $receipt_url in $depositReceiptList}
+            <a href="{{$receipt_url}}" target="_blank">{msg desc="Download picture link on deposit receipt dialog content"}Download{/msg}</a>{sp}
+          {/foreach}
+          </td>
+        </tr>
+
+        {foreach $receipt_url in $depositReceiptList}
+          <tr>
+            <td colspan="2">
+              <img width="100%" src="{{$receipt_url}}"/>
+            </td>
+          </tr>
+        {/foreach}
+      {/if}
+    </tbody>
+  </table>
+{/template}
 
 /**
   * @param depositReceiptList
