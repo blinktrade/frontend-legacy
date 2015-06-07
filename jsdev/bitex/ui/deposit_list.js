@@ -253,11 +253,20 @@ bitex.ui.DepositList = function( crypto_currencies_def, opt_broker_mode, opt_sho
          */
         var MSG_DEPOSIT_TABLE_DETAILS_COLUMN_BTN_TRANSACTION  = goog.getMsg('blockchain');
 
-        var btn_view = goog.dom.createDom( 'a', {
-          'class':'btn btn-mini btn-info btn-deposit-view',
-          'href': opt_rest_url + '/get_deposit?deposit_id=' + rowSet['DepositID'],
-          'target':'_blank'
-        },MSG_DEPOSIT_TABLE_DETAILS_COLUMN_BTN_VIEW,' ' ,goog.dom.createDom( 'i', ['icon-white', 'icon-eye-open']));
+        var btn_view;
+        if (goog.object.containsKey(rowSet, 'Data') && goog.object.containsKey(rowSet['Data'], 'DepositReceipt' ) ) {
+          btn_view = goog.dom.createDom( 'a', {
+              'class':'btn btn-mini btn-success btn-deposit-show-receipt',
+              'data-action':'SHOW_RECEIPT',
+              'data-row': data_row
+            },MSG_DEPOSIT_TABLE_DETAILS_COLUMN_BTN_VIEW, ' ',goog.dom.createDom( 'i', ['icon-white', 'icon-file']));
+        } else {
+          btn_view = goog.dom.createDom( 'a', {
+            'class':'btn btn-mini btn-info btn-deposit-view',
+            'href': opt_rest_url + '/get_deposit?deposit_id=' + rowSet['DepositID'],
+            'target':'_blank'
+          },MSG_DEPOSIT_TABLE_DETAILS_COLUMN_BTN_VIEW,' ' ,goog.dom.createDom( 'i', ['icon-white', 'icon-eye-open']));
+        }
 
         var btn_qr = goog.dom.createDom( 'a', {
           'class':'btn btn-mini btn-info btn-deposit-view-qr',
@@ -286,7 +295,6 @@ bitex.ui.DepositList = function( crypto_currencies_def, opt_broker_mode, opt_sho
             switch( rowSet['Status'] ) {
               case '0':
               case '1':
-                return goog.dom.createDom('div', 'btn-group',[btn_view]);
               case '2':
               case '4':
               case '8':
@@ -360,12 +368,6 @@ bitex.ui.DepositList = function( crypto_currencies_def, opt_broker_mode, opt_sho
           'data-row': data_row
         },MSG_DEPOSIT_TABLE_COLUMN_ACTION_COMPLETE,' ', goog.dom.createDom( 'i', ['icon-white', 'icon-ok']));
 
-        var btn_show_receipt_broker = goog.dom.createDom( 'a', {
-          'class':'btn btn-mini btn-success btn-deposit-show-receipt',
-          'data-action':'SHOW_RECEIPT',
-          'data-row': data_row
-        }, goog.dom.createDom( 'i', ['icon-white', 'icon-file']));
-
         switch (rowSet['Type'] ) {
           case 'CRY':
             switch( rowSet['Status'] ) {
@@ -386,9 +388,9 @@ bitex.ui.DepositList = function( crypto_currencies_def, opt_broker_mode, opt_sho
               case '0':
                 return goog.dom.createDom('div', 'btn-group',[btn_cancel, btn_progress]);
               case '1':
-                return goog.dom.createDom('div', 'btn-group',[btn_show_receipt_broker,btn_cancel, btn_progress]);
+                return goog.dom.createDom('div', 'btn-group',[btn_cancel, btn_progress]);
               case '2':
-                return goog.dom.createDom('div', 'btn-group',[btn_show_receipt_broker,btn_cancel, btn_complete]);
+                return goog.dom.createDom('div', 'btn-group',[btn_cancel, btn_complete]);
               case '4':
                 return goog.dom.createDom('div', 'btn-group',[btn_cancel]);
               case '8':
@@ -419,13 +421,6 @@ bitex.ui.DepositList = function( crypto_currencies_def, opt_broker_mode, opt_sho
           'data-row': data_row
         },MSG_DEPOSIT_TABLE_DETAILS_COLUMN_BTN_UPLOAD, ' ' ,goog.dom.createDom( 'i', ['icon-white', 'icon-file']));
 
-        var btn_show_receipt = goog.dom.createDom( 'a', {
-          'class':'btn btn-mini btn-success btn-deposit-show-receipt',
-          'data-action':'SHOW_RECEIPT',
-          'data-row': data_row
-        }, goog.dom.createDom( 'i', ['icon-white', 'icon-file']));
-
-
         switch (rowSet['Type'] ) {
           case 'CRY':
             switch( rowSet['Status'] ) {
@@ -443,7 +438,6 @@ bitex.ui.DepositList = function( crypto_currencies_def, opt_broker_mode, opt_sho
               case '0':
                 return goog.dom.createDom('div', 'btn-group',[btn_upload]);
               case '1':
-                return goog.dom.createDom('div', 'btn-group',[btn_show_receipt]);
               case '2':
               case '4':
               case '8':

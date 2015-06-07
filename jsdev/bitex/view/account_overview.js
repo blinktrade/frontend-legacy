@@ -958,10 +958,7 @@ bitex.view.AccountOverview.prototype.onDepositListTableClick_ = function(e) {
 
     switch( data_action ) {
       case 'SHOW_RECEIPT':
-        this.receipt_data_ = {
-          'SubmissionID': this.data_['Data']['SubmissionID'],
-          'DepositReceipt': this.data_['Data']['DepositReceipt']
-        };
+        this.receipt_data_ = goog.object.unsafeClone(this.deposit_data_['Data']);
         this.dispatchEvent(bitex.view.View.EventType.SHOW_RECEIPT);
         break;
       case 'SHOW_QR':
