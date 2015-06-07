@@ -613,40 +613,24 @@ bitex.ui.OrderBook.prototype.insertOrder = function( index, id, price, qty, user
   }
   formatted_price = price_formatter.format(price/1e8);
 
-  var priceEl = dom.createDom( 'td', goog.getCssName(this.getBaseCssClass(), 'price') , formatted_price);
-  var qtyEl = dom.createDom( 'td', goog.getCssName(this.getBaseCssClass(), 'qty'), formatted_qty);
-
-  var userNameEl;
+  var orderId = null;
   if (username === this.username_ || broker === this.username_ ){
-    userNameEl = dom.createDom('td', undefined,
-                   dom.createDom( 'a', { 'class':'btn-cancel-order text-error', 'href':'', 'data-order-id':id },
-                     dom.createDom( 'i', { 'class':'glyphicon glyphicon-remove', 'data-order-id':id }), ' ' + username));
-  } else {
-    userNameEl = dom.createDom( 'td', goog.getCssName(this.getBaseCssClass(), 'username'), username);
+    orderId = id;
   }
+  var tmpWrapper = dom.createDom( goog.dom.TagName.TABLE, undefined,dom.createDom( goog.dom.TagName.TBODY ));
+  tmpWrapper.innerHTML = bitex.ui.OrderBook.templates.OrderBookOrderRow({
+    username: username,
+    qty: formatted_qty,
+    price: formatted_price,
+    side: this.side_,
+    orderId: orderId 
+  });
 
-  var td_list;
-  if (this.side_ ==  bitex.ui.OrderBook.Side.BUY) {
-    goog.dom.classes.add( userNameEl, goog.getCssName(this.getBaseCssClass(), 'left') );
-    goog.dom.classes.add( priceEl   , goog.getCssName(this.getBaseCssClass(), 'right') );
-
-    td_list = [ userNameEl, qtyEl, priceEl ];
-
-  } else {
-    goog.dom.classes.add( userNameEl, goog.getCssName(this.getBaseCssClass(), 'right') );
-    goog.dom.classes.add( priceEl   , goog.getCssName(this.getBaseCssClass(), 'left') );
-
-    td_list = [ priceEl, qtyEl, userNameEl];
-  }
-
-  var tr_properties = {
-    'data-order-id':  id,
-    'class': goog.getCssName(this.getBaseCssClass(), 'row')
-  };
+  var rowEl = tmpWrapper.firstChild.firstChild;
+  rowEl.setAttribute('data-order-id', id);
 
   var row_elements = dom.getChildren(this.bodyEl_ );
   var cumulative_qty = qty;
-  var rowEl = dom.createDom( 'tr', tr_properties , td_list );
   if (username == this.username_ ) {
     goog.dom.classes.add( rowEl, goog.getCssName(this.getBaseCssClass(), 'movable') );
   }
