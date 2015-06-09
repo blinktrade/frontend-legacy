@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE translationbundle>
-<translationbundle lang="en_US">
+<translationbundle lang="vi">
 	<translation id="1389515633492806757" key="MSG_ERROR_VALIDATE_REQUIRED" source="uniform/validators.js" desc="Error Validade Required in Validators"><ph name="c" /> is required</translation>
 	<translation id="7102101605595770439" key="MSG_ERROR_VALIDATE_MIN_LENGTH" source="uniform/validators.js" desc="Error validate min lenght"><ph name="c" /> should be at least <ph name="d" /> characters long</translation>
 	<translation id="6348943748292426048" key="MSG_ERROR_VALIDATE_EMAIL" source="uniform/validators.js" desc="Error validate email"><ph name="c" /> is not a valid email address</translation>
@@ -20,10 +20,10 @@
 	<translation id="809733713639455683" key="MSG_O87TQJIX2UZ5" source="bitex/ui/advanced_order_entry.default.soy.js" desc="Advanced Order Entry Label">Total</translation>
 	<translation id="181130720802757221" key="MSG_WXTUNGE1VT3D" source="bitex/templates/templates.default.soy.js" desc="Fees column on Broker fees table">Fee</translation>
 	<translation id="5355070080237014607" key="MSG_1MQI4SA73D8AW" source="bitex/ui/simple_order_entry.default.soy.js" desc="Price per crypto currency label on simple order entry">Price per <ph name="cryptocurrencydescription" /> :</translation>
-	<translation id="8172338706844804389" key="MSG_K9LULBYKWMJ7" source="bitex/ui/simple_order_entry.default.soy.js" desc="I want to buy">I want to buy</translation>
-	<translation id="8327902367537937123" key="MSG_12X65RWLHZBEY" source="bitex/ui/simple_order_entry.default.soy.js" desc="I want to sell">I want to sell</translation>
-	<translation id="3651657292914060363" key="MSG_KWV196J2UUA4" source="bitex/ui/advanced_order_entry.default.soy.js" desc="Buy button in Order Entry">BUY</translation>
-	<translation id="8514996864346613029" key="MSG_AV2PS5CS32JW" source="bitex/ui/advanced_order_entry.default.soy.js" desc="Sell button in Order Entry">SELL</translation>
+	<translation id="8172338706844804389" key="MSG_K9LULBYKWMJ7" source="bitex/ui/simple_order_entry.default.soy.js" desc="I want to buy">Tôi muốn mua</translation>
+	<translation id="8327902367537937123" key="MSG_12X65RWLHZBEY" source="bitex/ui/simple_order_entry.default.soy.js" desc="I want to sell">Tôi muốn bán</translation>
+	<translation id="3651657292914060363" key="MSG_KWV196J2UUA4" source="bitex/ui/advanced_order_entry.default.soy.js" desc="Buy button in Order Entry">MUA</translation>
+	<translation id="8514996864346613029" key="MSG_AV2PS5CS32JW" source="bitex/ui/advanced_order_entry.default.soy.js" desc="Sell button in Order Entry">BÁN</translation>
 	<translation id="8503046849884819597" key="MSG_NO_LIQUIDITY_ERROR" source="bitex/ui/simple_order_entry.js" desc="no orders available to provide market liquidity ( simple order entry )">  ** No liquidity to complete this transaction **</translation>
 	<translation id="7316534912521851165" key="MSG_ACCOUNT_ACTIVITY_TABLE_COLUMN_ID" source="bitex/ui/account_activity.js" desc="Column ID of the Account Activity">ID</translation>
 	<translation id="4596462729935529657" key="MSG_ACCOUNT_ACTIVITY_TABLE_COLUMN_SIDE" source="bitex/ui/account_activity.js" desc="Column Side of the Account Activity">Side</translation>
@@ -40,7 +40,7 @@
 	<translation id="9031595279213129125" key="MSG_H9PUZYZDIKU0" source="bitex/templates/templates.default.soy.js" desc="Fee percentage label">Fees:</translation>
 	<translation id="7746178583637852614" key="MSG_TJ6EOXYE7AYM" source="bitex/templates/templates.default.soy.js" desc="Net amount">Net amount</translation>
 	<translation id="7325004207525327143" key="MSG_JOQKUAHI9O8Z" source="bitex/templates/templates.default.soy.js" desc="Title for the Broker view">My broker</translation>
-	<translation id="4207630095317176089" key="MSG_1TI4K0AT1GKPJ" source="bitex/templates/templates.default.soy.js" desc="Terms of service section subtitle on Broker view">Terms of service</translation>
+	<translation id="4207630095317176089" key="MSG_1TI4K0AT1GKPJ" source="bitex/templates/templates.default.soy.js" desc="Terms of service section subtitle on Broker view">Điều khoản sử dụng</translation>
 	<translation id="6241362437101811864" key="MSG_K0BWX8ZXUB0" source="bitex/templates/templates.default.soy.js" desc="label in broker general information table">Phone</translation>
 	<translation id="6440404554676146532" key="MSG_1UH38TH122H29" source="bitex/templates/templates.default.soy.js" desc="label in broker general information table">P:</translation>
 	<translation id="4569609450753675511" key="MSG_60G2HW0XAKG8" source="bitex/templates/templates.default.soy.js" desc="Allowed markets section subtitle on broker view">Markets</translation>
@@ -56,8 +56,8 @@
 	<translation id="5714718516006897600" key="MSG_1219FO7E8ULLB" source="bitex/templates/templates.default.soy.js" desc="address column type on Broker wallet table">Address</translation>
 	<translation id="4071144265295964083" key="MSG_1XN85A4YLEY8G" source="bitex/templates/templates.default.soy.js" desc="multisig column type on Broker wallet table">Multi signature</translation>
 	<translation id="7237446587342347580" key="MSG_F4XF6NK22X4Q" source="bitex/templates/templates.default.soy.js" desc="managed by column on Broker wallet table">Managed by</translation>
-	<translation id="3219846053255481787" key="MSG_FM2FZS6QI2N4" source="bitex/templates/templates.default.soy.js" desc="label on  overview header">Yes</translation>
-	<translation id="7907083975474294998" key="MSG_1JD3NFU15V9AM" source="bitex/templates/templates.default.soy.js" desc="label on  overview header">No</translation>
+	<translation id="3219846053255481787" key="MSG_FM2FZS6QI2N4" source="bitex/templates/templates.default.soy.js" desc="label on  overview header">Vâng</translation>
+	<translation id="7907083975474294998" key="MSG_1JD3NFU15V9AM" source="bitex/templates/templates.default.soy.js" desc="label on  overview header">Không</translation>
 	<translation id="5782827863726068258" key="MSG_1DYYK9TR87JQJ" source="bitex/templates/templates.default.soy.js" desc="Cancel deposit dialog message">Enter a reason for cancelling the deposit</translation>
 	<translation id="1515846462569840062" key="MSG_8WFOH488KP13" source="bitex/templates/templates.default.soy.js" desc="Cancel withdraw reason label">Reason:</translation>
 	<translation id="6322608065353913931" key="MSG_1CAITBR77XGOQ" source="bitex/templates/templates.default.soy.js" desc="reason for cancelling withdraw">Other</translation>
@@ -96,9 +96,9 @@
 	<translation id="7002857163766404326" key="MSG_1KZDXYE7T9WW3" source="bitex/templates/templates.default.soy.js" desc="Your orders label on Insufficient Balance message">Your Orders</translation>
 	<translation id="931507532455670598" key="MSG_1J59MK2EUE6L8" source="bitex/templates/templates.default.soy.js" desc="Your orders label on Insufficient Balance message">Total available</translation>
 	<translation id="7052588298085485478" key="MSG_MJXPDX1V126N" source="bitex/templates/templates.default.soy.js" desc="Insufficient funds instructions">Please either deposit funds or cancel some of your other orders.</translation>
-	<translation id="6207025395398401184" key="MSG_13DG075E8DH1Z" source="bitex/templates/templates.default.soy.js" desc="deposit done dialog msg"> IMPORTANT! </translation>
+	<translation id="6207025395398401184" key="MSG_13DG075E8DH1Z" source="bitex/templates/templates.default.soy.js" desc="deposit done dialog msg"> QUAN TRỌNG! </translation>
 	<translation id="6230961676697847120" key="MSG_15SUJB6LVKL3I" source="bitex/templates/templates.default.soy.js" desc="deposit done dialog msg"> We will generate a unique <ph name="currencydescription" /> address that will be valid only for this transaction.</translation>
-	<translation id="4201264960981533498" key="MSG_MCK4HY50H7IZ" source="bitex/templates/templates.default.soy.js" desc="deposit done dialog msg"> Did you understand? </translation>
+	<translation id="4201264960981533498" key="MSG_MCK4HY50H7IZ" source="bitex/templates/templates.default.soy.js" desc="deposit done dialog msg"> Bạn có hiểu không? </translation>
 	<translation id="2008896170758128959" key="MSG_WICIL6TF2590" source="bitex/ui/withdraw_method_editor.default.soy.js" desc="Percent fee placeholder">Percent fee</translation>
 	<translation id="2925869653895846815" key="MSG_KI0JICLKMNY6" source="bitex/ui/withdraw_method_editor.default.soy.js" desc="Fixed fee placeholder">Fixed fee</translation>
 	<translation id="7596956893714928425" key="MSG_1AYETW7WU9M0P" source="bitex/templates/templates.default.soy.js" desc="requested amount">Requested Amount</translation>
@@ -124,8 +124,8 @@
 	<translation id="8522139956960745264" key="MSG_AGWNR5YK9XF7" source="bitex/templates/templates.default.soy.js" desc="label on overview header">ID</translation>
 	<translation id="949352526049501059" key="MSG_PMQSSS7RI4XV" source="bitex/templates/templates.default.soy.js" desc="label on  overview header">Username</translation>
 	<translation id="399592666245557274" key="MSG_3KNCLOUVBZCV" source="bitex/templates/templates.default.soy.js" desc="label on  overview header">Email</translation>
-	<translation id="6370859361488001706" key="MSG_1204HGYLUZCLP" source="bitex/templates/templates.default.soy.js" desc="label on  overview header">State</translation>
-	<translation id="596098600072292359" key="MSG_1OBYIKS27AZS7" source="bitex/templates/templates.default.soy.js" desc="label on  overview header">Country</translation>
+	<translation id="6370859361488001706" key="MSG_1204HGYLUZCLP" source="bitex/templates/templates.default.soy.js" desc="label on  overview header">Tỉnh</translation>
+	<translation id="596098600072292359" key="MSG_1OBYIKS27AZS7" source="bitex/templates/templates.default.soy.js" desc="label on  overview header">Nước</translation>
 	<translation id="5548651012300896145" key="MSG_3SQE9YFDPF94" source="bitex/templates/templates.default.soy.js" desc="label on  overview header">Last login</translation>
 	<translation id="1896707324061878880" key="MSG_1KN31F8F5HA3B" source="bitex/templates/templates.default.soy.js" desc="label on  overview header">Is verified</translation>
 	<translation id="7314299300012997412" key="MSG_5YORQEJAT9GA" source="bitex/templates/templates.default.soy.js" desc="label on  overview header">Has two step authentication</translation>
@@ -159,8 +159,8 @@
 	<translation id="8913382455121937812" key="MSG_ORDER_MANAGER_ACTIVITY_TABLE_COLUMN_VOLUME" source="bitex/ui/order_manager.js" desc="Column Volume Price of the Order Manager">Total</translation>
 	<translation id="3817231532322370617" key="MSG_ORDER_MANAGER_ACTIVITY_TABLE_COLUMN_ORDER_DATE" source="bitex/ui/order_manager.js" desc="Column Order Date of the Order Manager">Date/Time</translation>
 	<translation id="3836894406109783409" key="MSG_ORDER_MANAGER_ACTIVITY_TABLE_COLUMN_ACTIONS" source="bitex/ui/order_manager.js" desc="Column Actions of the Order Manager">Actions</translation>
-	<translation id="7722135284111067856" key="MSG_ORDER_MANAGER_ACTIVITY_TABLE_COLUMN_SIDE_BUY" source="bitex/ui/order_manager.js" desc="Column Buy Side of the Order Manager">Buy</translation>
-	<translation id="7520832174525310563" key="MSG_ORDER_MANAGER_ACTIVITY_TABLE_COLUMN_SIDE_SELL" source="bitex/ui/order_manager.js" desc="Column Sell Side of the Order Manager">Sell</translation>
+	<translation id="7722135284111067856" key="MSG_ORDER_MANAGER_ACTIVITY_TABLE_COLUMN_SIDE_BUY" source="bitex/ui/order_manager.js" desc="Column Buy Side of the Order Manager">Mua</translation>
+	<translation id="7520832174525310563" key="MSG_ORDER_MANAGER_ACTIVITY_TABLE_COLUMN_SIDE_SELL" source="bitex/ui/order_manager.js" desc="Column Sell Side of the Order Manager">Bán</translation>
 	<translation id="4412485952244158331" key="MSG_ORDER_MANAGER_ACTION_CANCEL_ORDER" source="bitex/ui/order_manager.js" desc="cancel order button on order manager component">cancel</translation>
 	<translation id="7162031888993773085" key="MSG_ORDER_MANAGER_TABLE_TITLE" source="bitex/ui/order_manager.js" desc="Order manager table tittle">My orders</translation>
 	<translation id="1870802805868998314" key="MSG_ORDER_MANAGER_TABLE_TITLE_OPEN_ORDERS" source="bitex/ui/order_manager.js" desc="Order manager table tittle">My open orders</translation>
@@ -175,8 +175,8 @@
 	<translation id="7854072836235506525" key="MSG_ALGO_RUNNER_BUTTON_LABEL_UPDATE" source="bitex/ui/algorithm_runner.js" desc="button label on algorithm runner">Update</translation>
 	<translation id="7703512510139353899" key="MSG_ALGO_RUNNER_BUTTON_LABEL_STOP" source="bitex/ui/algorithm_runner.js" desc="button label on algorithm runner">Stop</translation>
 	<translation id="7177053093764741524" key="MSG_ALGO_RUNNER_BUTTON_LABEL_STOPPING" source="bitex/ui/algorithm_runner.js" desc="button label on algorithm runner">Stoping...</translation>
-	<translation id="7705296218752521647" key="MSG_ALGORITHM_TRADING_ORDER_MANAGER_DESC_BUY" source="bitex/view/algorithm_trading.js" desc="Order Status message on Simple Order Manager">BUY</translation>
-	<translation id="2490936650116283493" key="MSG_ALGORITHM_TRADING_ORDER_MANAGER_DESC_SELL" source="bitex/view/algorithm_trading.js" desc="Order Status message on Simple Order Manager">SELL</translation>
+	<translation id="7705296218752521647" key="MSG_ALGORITHM_TRADING_ORDER_MANAGER_DESC_BUY" source="bitex/view/algorithm_trading.js" desc="Order Status message on Simple Order Manager">MUA</translation>
+	<translation id="2490936650116283493" key="MSG_ALGORITHM_TRADING_ORDER_MANAGER_DESC_SELL" source="bitex/view/algorithm_trading.js" desc="Order Status message on Simple Order Manager">BÁN</translation>
 	<translation id="5569075025651153272" key="MSG_ALGORITHM_TRADING_ORDER_MANAGER_SIMPLE_STATUS_PENDING" source="bitex/view/algorithm_trading.js" desc="Order Status message on Simple Order Manager">PENDING</translation>
 	<translation id="2285446735611509965" key="MSG_ALGORITHM_TRADING_ORDER_MANAGER_SIMPLE_STATUS_NEW" source="bitex/view/algorithm_trading.js" desc="Order Status message on Simple Order Manager">NEW</translation>
 	<translation id="7593496629365575482" key="MSG_ALGORITHM_TRADING_ORDER_MANAGER_SIMPLE_STATUS_PARTIAL_FILL" source="bitex/view/algorithm_trading.js" desc="Order Status message on Simple Order Manager">PARTIAL</translation>
@@ -414,8 +414,8 @@
 	<translation id="7629602828709204610" key="MSG_TRADE_HISTORY_COLUMN_SIZE" source="bitex/ui/trade_history.js" desc="Column Size">Size</translation>
 	<translation id="789666974085016595" key="MSG_TRADE_HISTORY_COLUMN_BUYER" source="bitex/ui/trade_history.js" desc="Column Buyer">Buyer</translation>
 	<translation id="4019947527190654168" key="MSG_TRADE_HISTORY_COLUMN_SELLER" source="bitex/ui/trade_history.js" desc="Column Seller">Seller</translation>
-	<translation id="9186597034539830374" key="MSG_TRADE_HISTORY_COLUMN_SIDE_BUY" source="bitex/ui/trade_history.js" desc="Column Side Buy">Buy</translation>
-	<translation id="6927559644053892614" key="MSG_TRADE_HISTORY_COLUMN_SIDE_SELL" source="bitex/ui/trade_history.js" desc="Column Side Sell">Sell</translation>
+	<translation id="9186597034539830374" key="MSG_TRADE_HISTORY_COLUMN_SIDE_BUY" source="bitex/ui/trade_history.js" desc="Column Side Buy">Mua</translation>
+	<translation id="6927559644053892614" key="MSG_TRADE_HISTORY_COLUMN_SIDE_SELL" source="bitex/ui/trade_history.js" desc="Column Side Sell">Bán</translation>
 	<translation id="3706778100100763851" key="MSG_TRADE_HISTORY_TABLE_TITLE" source="bitex/ui/trade_history.js" desc="last trades table title">Last trades</translation>
 	<translation id="3255834482463686890" key="MSG_SUCCESS_PASSWORD_CHANGE" source="bitex/app/blinktrade.js" desc="Password changed message">Password changed!</translation>
 	<translation id="2296265795818731255" key="MSG_BITEX_PASSWORD_CHANGED_OK_TITLE" source="bitex/app/blinktrade.js" desc="Password Chanced with success dialog title">Success</translation>
@@ -448,8 +448,8 @@
 	<translation id="654854339816380160" key="MSG_WITHDRAW_IN_PROGRESS_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="Crypto Currency Withdraw accordion title">Set <ph name="currency" /> withdrawal in progress</translation>
 	<translation id="7091694946380763121" key="MSG_CURRENCY_BROKER_WITHDRAW_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="Crypto Currency Withdraw accordion title">Confirm <ph name="currency" /> withdrawal</translation>
 	<translation id="8436234120443762929" key="MSG_SEND_ORDER_NOTIFICATION_TITLE" source="bitex/app/blinktrade.js" desc="notification for send order request">Sending order...</translation>
-	<translation id="8109791583857100985" key="MSG_SEND_ORDER_NOTIFICATION_SIDE_BUY" source="bitex/app/blinktrade.js" desc="notification for send order request">BUY</translation>
-	<translation id="7239404401522699867" key="MSG_SEND_ORDER_NOTIFICATION_SIDE_SELL" source="bitex/app/blinktrade.js" desc="notification for send order request">SELL</translation>
+	<translation id="8109791583857100985" key="MSG_SEND_ORDER_NOTIFICATION_SIDE_BUY" source="bitex/app/blinktrade.js" desc="notification for send order request">Mua</translation>
+	<translation id="7239404401522699867" key="MSG_SEND_ORDER_NOTIFICATION_SIDE_SELL" source="bitex/app/blinktrade.js" desc="notification for send order request">Bán</translation>
 	<translation id="5705341812052053984" key="MSG_INSUFFICIENT_BALANCE_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="dialog shown when the user doesn't have enough funds to buy/sell">Insufficient funds</translation>
 	<translation id="1295461643444648993" key="MSG_INSUFFICIENT_BALANCE_DEPOSIT_BUTTON_CAPTION" source="bitex/app/blinktrade.js" desc="dialog shown when the user doesn't have enough funds to buy/sell">Deposit <ph name="amount" /></translation>
 	<translation id="6742747885899253010" key="MSG_SEND_ORDER_NOTIFICATION_CONTENT" source="bitex/app/blinktrade.js" desc="notification for send order request"><ph name="side" /> <ph name="amount" /> <ph name="symbol" />  @ <ph name="price" /></translation>
@@ -479,9 +479,9 @@
 	<translation id="4118429264222709574" key="MSG_STOPPING_ALGORITHM_NOTIFICATION" source="bitex/app/blinktrade.js" desc="starting algorithm notification message">stopping algorithm ....</translation>
 	<translation id="1176226235922874140" key="MSG_10VPB9YX8J6WS" source="bitex/templates/templates.whitedev.soy.js" desc="get verified message">You can verify your account by clicking in <ph name="startLink" />Verify your account<ph name="endLink" /></translation>
 	<translation id="7813032440507104493" key="MSG_1MACHCKNU1JY1" source="bitex/ui/simple_order_entry.ander.soy.js" desc="for a total of"> for a total of <ph name="currencySymbol" /></translation>
-	<translation id="7267136620269436936" key="MSG_1RPYGJ9BS7J35" source="bitex/ui/simple_order_entry.ander.soy.js" desc="I want to buy">I want to buy <ph name="cryptoCurrencySymbol" /></translation>
-	<translation id="7886698491564141760" key="MSG_1TLJJKCN7PV4R" source="bitex/ui/advanced_order_entry.ander.soy.js" desc="Buy button in Order Entry">Buy</translation>
-	<translation id="1541278227797186113" key="MSG_4WNOZ44AEDTA" source="bitex/ui/advanced_order_entry.ander.soy.js" desc="Sell button in Order Entry">Sell</translation>
+	<translation id="7267136620269436936" key="MSG_1RPYGJ9BS7J35" source="bitex/ui/simple_order_entry.ander.soy.js" desc="I want to buy">Tôi muốn mua <ph name="cryptoCurrencySymbol" /></translation>
+	<translation id="7886698491564141760" key="MSG_1TLJJKCN7PV4R" source="bitex/ui/advanced_order_entry.ander.soy.js" desc="Buy button in Order Entry">Mua</translation>
+	<translation id="1541278227797186113" key="MSG_4WNOZ44AEDTA" source="bitex/ui/advanced_order_entry.ander.soy.js" desc="Sell button in Order Entry">Bán</translation>
 	<translation id="5496301359111680367" key="MSG_1X2TPBHY1EURU" source="bitex/templates/templates.default.soy.js" desc="Algorithm trading request permmissions dialog content">This algorithm is requesting your permission to:</translation>
 	<translation id="6530343992702578628" key="MSG_1ARB1GYVJ1DLV" source="bitex/templates/templates.default.soy.js" desc="Permission in Algo Permissions Dialog"> Show notifications</translation>
 	<translation id="7733437359068728634" key="MSG_1KVAZDW3C356W" source="bitex/templates/templates.default.soy.js" desc="Permission in Algo Permissions Dialog"> See your balances</translation>
@@ -518,7 +518,7 @@
 	<translation id="1137238780418297731" key="MSG_17NIA3XHCTE27" source="bitex/templates/templates.soy.js" desc="Warning message on the API Key created dialog description">Warning! </translation>
 	<translation id="6164095401672004694" key="MSG_1QSLANFXG4TP2" source="bitex/templates/templates.soy.js" desc="Warning message on the API Key created dialog description">The API secret and password will never be displayed again. Make sure you have saved it before closing this window.</translation>
 	<translation id="6569879323367838729" key="MSG_KY1G1MI46QJ8" source="bitex/templates/templates.soy.js" desc="Unconfirmed deposits">Unconfirmed deposits</translation>
-	<translation id="5640944158779972001" key="MSG_IS0MGL5W1XEC" source="bitex/ui/order_book.soy.js" desc="Caption shown when user is drag dropping an order in the order book">Cancel/Replace Order</translation>
+	<translation id="5640944158779972001" key="MSG_IS0MGL5W1XEC" source="bitex/ui/order_book.soy.js" desc="Caption shown when user is drag dropping an order in the order book">Cancel / Replace Order</translation>
 	<translation id="2889461479049773702" key="MSG_10XTT3Z48GDSL" source="bitex/ui/api_key_data_entry.soy.js" desc="API Key Data Entry form legend">Create API Key</translation>
 	<translation id="4306381736970197948" key="MSG_1EAVEL1ZINXQ8" source="bitex/ui/api_key_data_entry.soy.js" desc="Permissions clear all button on the API Key Data Entry form">Clear all</translation>
 	<translation id="6278595378594370526" key="MSG_1VZUCED70NV74" source="bitex/ui/api_key_data_entry.soy.js" desc="Permissions select all button on the API Key Data Entry form">Select all</translation>

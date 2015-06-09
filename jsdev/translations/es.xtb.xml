@@ -518,7 +518,7 @@
 	<translation id="1137238780418297731" key="MSG_17NIA3XHCTE27" source="bitex/templates/templates.soy.js" desc="Warning message on the API Key created dialog description">Warning! </translation>
 	<translation id="6164095401672004694" key="MSG_1QSLANFXG4TP2" source="bitex/templates/templates.soy.js" desc="Warning message on the API Key created dialog description">The API secret and password will never be displayed again. Make sure you have saved it before closing this window.</translation>
 	<translation id="6569879323367838729" key="MSG_KY1G1MI46QJ8" source="bitex/templates/templates.soy.js" desc="Unconfirmed deposits">Unconfirmed deposits</translation>
-	<translation id="5640944158779972001" key="MSG_IS0MGL5W1XEC" source="bitex/ui/order_book.soy.js" desc="Caption shown when user is drag & dropping an order in the order book">Cancel/Replace Order</translation>
+	<translation id="5640944158779972001" key="MSG_IS0MGL5W1XEC" source="bitex/ui/order_book.soy.js" desc="Caption shown when user is drag dropping an order in the order book">Cancel/Replace Order</translation>
 	<translation id="2889461479049773702" key="MSG_10XTT3Z48GDSL" source="bitex/ui/api_key_data_entry.soy.js" desc="API Key Data Entry form legend">Create API Key</translation>
 	<translation id="4306381736970197948" key="MSG_1EAVEL1ZINXQ8" source="bitex/ui/api_key_data_entry.soy.js" desc="Permissions clear all button on the API Key Data Entry form">Clear all</translation>
 	<translation id="6278595378594370526" key="MSG_1VZUCED70NV74" source="bitex/ui/api_key_data_entry.soy.js" desc="Permissions select all button on the API Key Data Entry form">Select all</translation>
