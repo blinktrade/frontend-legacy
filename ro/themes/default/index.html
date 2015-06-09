@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml">
+  <head>
+    <meta charset="utf-8">
+    
+        <title>BlinkDemo - Exchange de Bitcoin Open Source</title>
+    
+
+    <!-- Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="BlinkTrade">
+
+    
+        <meta name="description" content="Exchange de Bitcoin Open Source site demo">
+        <meta name="keywords" content="bitcoin, bitcoin exchange, open source bitcoin exchange, bitcoin trading plataform, open source bitcoin trading plataforma">
+        <meta property="og:title" content="BlinkDemo - Exchange de Bitcoin Open Source">
+        <meta property="og:description" content="Exchange de Bitcoin Open Source site demo">
+    
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bitcoinvietnamexchange.github.io/exchange/ro/themes/default/index.html">
+    <meta property="og:image" content="https://bitcoinvietnamexchange.github.io/exchange/ro/assets/exchange_logos/bitcoinvietnam_social_network_share.png">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="https://bitcoinvietnamexchange.github.io/exchange/ro/assets/exchange_logos/bitcoinvietnam_favicon.ico">
+    <link rel="icon" href="https://bitcoinvietnamexchange.github.io/exchange/ro/assets/exchange_logos/bitcoinvietnam_favicon.ico" type="image/x-icon">
+
+    <!-- Feed -->
+    <link rel="alternate" type="application/rss+xml" href="https://bitcoinvietnamexchange.github.io/exchange/ro/feed.xml">
+
+    <meta charset="utf-8">
+
+    <link rel="canonical" href="https://bitcoinvietnamexchange.github.io/exchange/ro/themes/default/index.html"/>
+    <script type="text/javascript" src="//apis.google.com/js/plusone.js"></script>
+
+    <!--Bootstrap-->
+    <link href="https://bitcoinvietnamexchange.github.io/exchange/ro/assets/themes/default/css/bootstrap-combined.min.css" rel="stylesheet">
+    <link href="https://bitcoinvietnamexchange.github.io/exchange/ro/assets/themes/default/css/font-awesome.min.css" rel="stylesheet">
+
+    
+    <link href="https://bitcoinvietnamexchange.github.io/exchange/ro/assets/themes/default/css/Dialog.css" rel="stylesheet">
+    <link href="https://bitcoinvietnamexchange.github.io/exchange/ro/assets/themes/default/css/fuelux.css" rel="stylesheet">
+    <link href="https://bitcoinvietnamexchange.github.io/exchange/ro/assets/themes/default/css/default.uni-form.css" rel="stylesheet">
+    <link href="https://bitcoinvietnamexchange.github.io/exchange/ro/assets/themes/default/css/style.css?v=f345dc8" rel="stylesheet">
+    <script data-cfasync="false" src="https://bitcoinvietnamexchange.github.io/exchange/ro/assets/js/bitex_app_blink_trade.compiled.ro.default.js?v=f345dc8" type="text/javascript"></script>
+    
+  </head>
+  <body class=" ws-not-connected bitex-not-logged active-view-start ">
+
+    <div id="id_toolbar" class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+
+          
+          <a href="#" class="brand" data-switch-view="offerbook">
+            <img data-switch-view="offerbook" src="https://bitcoinvietnamexchange.github.io/exchange/ro/assets/exchange_logos/bitcoinvietnam_toolbar_logo.png" style="
+                height: 30px;
+                margin-top: -10px;
+                margin-bottom: -10px;
+            ">
+          </a>
+          
+
+          <ul class="nav navbar-nav pull-right">
+            
+            <li><a href="" data-switch-view="faq">Întrebări frecvente</a></li>
+            <li class="bitex-display-if-logged"><a href="" data-switch-view="offerbook">Tranzacționare</a></li>
+            <li><a href="" data-switch-view="market">Piață</a></li>
+            <li class="bitex-hide-if-logged"><a href="" data-switch-view="signin">Autentificare</a></li>
+            <li class="bitex-hide-if-logged"><a href="" data-switch-view="signup">Cont nou</a></li>
+            
+
+            <li class="dropdown">
+              <a id="drop1" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">RO <b class="caret"></b></a>
+              <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+              
+                
+                  
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="https://bitcoinvietnamexchange.github.io/exchange/">VI</a></li>
+                  
+                
+              
+                
+                  
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="https://bitcoinvietnamexchange.github.io/exchange/en_US">EN_US</a></li>
+                  
+                
+              
+                
+                  
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="https://bitcoinvietnamexchange.github.io/exchange/es">ES</a></li>
+                  
+                
+              
+                
+                  
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="https://bitcoinvietnamexchange.github.io/exchange/pt_BR">PT_BR</a></li>
+                  
+                
+              
+                
+              
+                
+                  
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="https://bitcoinvietnamexchange.github.io/exchange/zn_CN">ZN_CN</a></li>
+                  
+                
+              
+              </ul>
+            </li>
+
+            
+            <li>
+              <button id="id_button_connect_ws" class="bitex-hide-if-ws-connected btn-link"
+                      style="padding: 6px 15px 10px;">Autentificare <i class="icon-white icon-repeat"></i></button>
+            </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="clearfix" style="padding: 30px;"></div>
+
+    <div id="id_notifications" class="notifications top-right" style="z-index: 9000;"></div>
+
+
+
+
+<!-- div.container -->
+<div class="container">
+  <!-- landing page-->
+  <div id="start" class="page  row-fluid bitex-view bitex-view-admin">
+    <header class="jumbotron">
+      <img src="/exchange/ro/assets/exchange_logos/bitcoinvietnam_landing_page_logo.png" style="">
+      <p class="lead bitex-view-title bitex-view-title">
+        
+            Urmăriți exchange-ul nostru open source în acțiune
+          
+      </p>
+    </header>
+
+    <div class="bitex-view-content">
+      <div class="row bitex-hide-if-logged bitex-view-content" style="text-align: center;">
+        <form action="" class="form-inline">
+          <div class="row-fluid">
+            <label for="id_landing_username">Nume utilizator:</label>
+            <input class="focus" id="id_landing_username" placeholder="" size="30" type="text">
+            <label for="id_landing_password">Parola:</label>
+            <input id="id_landing_password" placeholder="" size="30"  type="password">
+            <button id="id_landing_signin" class="btn btn-primary">Autentificare</button>
+          </div>
+          <div class="clearfix" style="height: 20px"></div>
+          <div class="row-fluid">
+            <span class="text-center">
+              <a href="" class="btn btn-success btn-large" data-switch-view="signup">Cont nou</a>
+            </span>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div id="faq" class="page row-fluid bitex-view">
+    <div class="page-header">
+      <h1 class="bitex-view-title">Întrebări frecvente</h1>
+    </div>
+
+    <div class="bitex-view-content">
+      <div class="accordion">
+        
+        <div class="accordion-group">
+          <div class="accordion-heading">
+            <a class="accordion-toggle collapsed">
+              Ce este Bitcoin?
+            </a>
+          </div>
+          <div class="accordion-body collapse ">
+            <div class="accordion-inner">
+              <p>Bitcoin este o rețea open source, peer2peer, digitală creată în 2009 de către autorul pseudoanonim Satoshi Nakamoto. Protocolul permite utilizatorilor să trimită, păstreze și primească valoare, la costuri semnificativ mai mici și într-un interval de timp scurt. Bitcoin elimină nevoia de o autoritate centrală.</p>
+
+            </div>
+          </div>
+        </div>
+        
+        <div class="accordion-group">
+          <div class="accordion-heading">
+            <a class="accordion-toggle collapsed">
+              Exchange-ul cumpără/vinde Bitcoin direct?
+            </a>
+          </div>
+          <div class="accordion-body collapse ">
+            <div class="accordion-inner">
+              <p>Nu. Noi oferim un serviciu. Gândiți-va la exchange ca eBay, noi doar oferim un serviciu unde puteți găsii vânzători sau cumpărători.</p>
+
+<p>Tot ceea ce facem este să oferim un mediu sigur și simplu pentru a tranzacționa cu alți utilizatori.</p>
+
+<p>Noi garantăm că cumpărătorul primește Bitcoini și vânzătorul banii, la prețul stabilit.</p>
+
+            </div>
+          </div>
+        </div>
+        
+        <div class="accordion-group">
+          <div class="accordion-heading">
+            <a class="accordion-toggle collapsed">
+              Cum pot devenii trader?
+            </a>
+          </div>
+          <div class="accordion-body collapse ">
+            <div class="accordion-inner">
+              <p>Deschiderea unui cont de tranzactionare la Exchange este ușor, rapid și gratuit. Faceți clic pe “Înregistrează-te”, completați formularul și conectați-vă.  După ce vă conectați, operatorul Exchange-ul vă va cere numele, adresa și documente. După ce documentele au fost verificate de operator, veți putea cumpără/vinde Bitcoin.</p>
+
+            </div>
+          </div>
+        </div>
+        
+        <div class="accordion-group">
+          <div class="accordion-heading">
+            <a class="accordion-toggle collapsed">
+              Cum depozitez bani(fiat) în contul meu?
+            </a>
+          </div>
+          <div class="accordion-body collapse ">
+            <div class="accordion-inner">
+              <p>În meniul principal, apăsați pe “Depozit monedă locală” și va apărea o fereastră nouă. You will have to specify the amount of FIAT you want to deposit in order to buy bitcoins. Va trebui să specificați cantitatea de FIAT pe care doriți să o depozitați, pentru a cumpără Bitcoin. Țineți cont că există taxă de depozitare. Pentru o depozitare de 800 lei cu o taxa de 1.5%, veți avea 788 lei creditați către contul dumneavoastră.</p>
+
+            </div>
+          </div>
+        </div>
+        
+        <div class="accordion-group">
+          <div class="accordion-heading">
+            <a class="accordion-toggle collapsed">
+              Sunt Bitcoinii mei în siguranță?
+            </a>
+          </div>
+          <div class="accordion-body collapse ">
+            <div class="accordion-inner">
+              <p>Scopul nostru principal este de a oferii trader-ilor un mediu sigur în care să interacționeze. Bitcoinii sunt stocani într-un portofel rece cu semnături multiple (multisignature cold storage wallet). Chiar dacă server-ul sau exchange-ul ar fi compromise Bitcoinii nu pot ajunge la băieții răi.</p>
+
+<p>Portofelul cu semnături multiple(multisignature) necesită 2 din 3 semnături pentru a muta Bitcoinii. Operatorul exchange-ului deține una din cele 3 chei. Celelalte două sunt deținute de BlinkTrade și un mediator, care va lua parte la proces, în cazul în care ar exista o dispută între operator și BlinkTrade.</p>
+
+<p>Chiar dacă un hack-er ar compromite serverele exchange-ului, ar trebui să compromită și serverele BlinkTrade pentru a-și putea însuși Bitcoinii. Șansele ca așa ceva să se întâmple sunt infime.</p>
+
+<p>De ficare dată când Bitcoini sunt mutați din portofelul cu semnături multiple pe un portofel cald(care este conectat la internet pentru a procesa retrageri rapid) BlinkTrade verifică sistemul și efectuează o dovadă de solvabilitate a bitcoinilor. 
+ Cu alte cuvinte de fiecare data când Bitcoinii sunt mutați din portofelul cu semnături multiple rece(neconectat la internet) în portofelul cald(conectat la internet), efectuăm o verificare completă a sistemului.</p>
+
+<p>Portofelele calde sunt stocate pe serverele blockchain.info și păstrăm doar cantități mici de bitcoin pentru a efectuă operațiuni de zi cu zi. 
+Mai mult, toate măsurile de siguranță ale portofelelor calde sunt întreținute de blockchain.info </p>
+
+<p>Nici un exchange din lume nu este 100% sigur. Cu toate măsurile noastre de siguranță nu vrem să creăm o comoară de bitcoin, care ar provoca hack-eri să încerce să compromită exchange-ul.</p>
+
+<p>Încurajăm toți utilizatori să își depoziteze Bitcoinii doar când au de gând să îi schimbe, și să nu folosească exchange-ul că o bancă. Cea mai sigură metodă este să va țineți Bitcoini în portofelul personal până când aveți de gând să îi schimbați.</p>
+
+            </div>
+          </div>
+        </div>
+        
+        <div class="accordion-group">
+          <div class="accordion-heading">
+            <a class="accordion-toggle collapsed">
+              De ce nu am o cheie privată a portofelului meu din exchange?
+            </a>
+          </div>
+          <div class="accordion-body collapse ">
+            <div class="accordion-inner">
+              <p>Principiul nostru este că Bitcoinii sunt depozitați în exchange pentru a fi schimbați în monedă locală. În consecință pentru a garanta siguranța și viteza tranzacționării, operatorul exchange-ului are posesia depozitărilor fie în Fiat sau BTC.</p>
+
+            </div>
+          </div>
+        </div>
+        
+      </div>
+
+      <h3>
+      <a href="" class="bitex-support-link" target="_blank">
+        <i class="icon-envelope"></i> Contactati-ne în cazul în care nu ați găsit răspunsul la întrebările dumneavoastră</a>
+      </h3>
+    </div>
+  </div>
+
+  <!-- signup page-->
+  <div id="signup" class="page  row-fluid bitex-view">
+    <div class="page-header">
+      <h1 class="bitex-view-title">Creează cont nou</h1>
+    </div>
+    <p>Deja ai cont? <a href="#" data-switch-view="signin">Autentificare</a>.</p>
+
+    <div class="bitex-view-content">
+      <form action="" accept-charset="UTF-8" class="form-horizontal" id="new_user" method="post">
+        <div class="control-group">
+          <label class="control-label">Nume utilizator</label>
+
+          <div class="controls">
+            <input id="id_signup_username" name="Username" size="30" type="text" placeholder="">
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label class="control-label">Adresa Email</label>
+
+          <div class="controls">
+            <input id="id_signup_email" name="Email" size="30" type="text" placeholder="ex.: joe@doe.ro">
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label class="control-label">Parola</label>
+
+          <div class="controls">
+            <input id="id_signup_password" name="Password" size="30" type="password">
+            <p class="help-block">Cel puțin 8 caractere</p>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label class="control-label">Confirmați parola</label>
+          <div class="controls">
+            <input id="id_signup_password2" name="Password2" size="30" type="password">
+          </div>
+        </div>
+
+        <div class="control-group" style="">
+          <label class="control-label">Țara</label>
+          <div class="controls">
+            <select id="id_signup_country" name="country"></select>
+          </div>
+        </div>
+
+        <div id="id_signup_state_group" class="control-group" style="display: none">
+          <label class="control-label">Județul</label>
+          <div class="controls">
+            <select id="id_signup_state" name="state"></select>
+          </div>
+        </div>
+
+        <div class="control-group" style="display: none;">
+          <label class="control-label">Agent</label>
+          <div class="controls">
+            <select id="id_signup_broker" name="broker"></select>
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label"></label>
+          <div class="controls">
+            <div id="signup_broker_details"></div>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label class="control-label">Termeni și condiții</label>
+          <div class="controls">
+            <label class="checkbox">
+              <input id="user_agreed_tos" name="" type="checkbox" checked>Sunt de acord cu termenii și condițiile serviciului
+            </label>
+          </div>
+        </div>
+      </form>
+
+      <div class="control-group">
+        <div class="controls">
+          <button id="id_btn_signup" class="btn btn-primary">Crează cont nou</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- signin page-->
+  <div id="signin" class="page  row-fluid bitex-view">
+    <div class="page-header">
+      <h1 class="bitex-view-title">Autentificare</h1>
+    </div>
+    <p>Nu ai cont? <a href="#" data-switch-view="signup">Crează cont nou</a></p>
+
+    <div class="bitex-view-content">
+      <form accept-charset="UTF-8" action="" method="post">
+        <div class="clearfix">
+          <label for="id_username">Nume utilizator</label>
+
+          <div class="input">
+            <input autocapitalize="off" autocorrect="off" id="id_username" name="username" type="text" placeholder=""></div>
+        </div>
+        <div class="clearfix">
+          <label for="id_password">Parola</label>
+          <div class="input">
+            <input id="id_password" placeholder="" name="password" type="password">
+          </div>
+        </div>
+        <p><a href="#" data-switch-view="forgot_password">Ați uitat parola?</a></p>
+
+        <div class="actions">
+          <input id="id_btn_login" class="btn btn-primary" name="commit" type="submit" value="Autentificare">
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="forgot_password" class="page row bitex-view">
+    <div class="page-header">
+      <h1 class="bitex-view-title">Recuperare parolă</h1>
+    </div>
+    <div class="bitex-view-content">
+      <form accept-charset="UTF-8" action="" method="post">
+        <div class="clearfix">
+          <label for="id_forgot_password_email">Email</label>
+
+          <div class="input">
+            <input autocapitalize="off" autocorrect="off" id="id_forgot_password_email" name="email" type="text" placeholder="">
+          </div>
+        </div>
+        <div class="actions">
+          <input id="id_btn_forgot_password" class="btn btn-primary" name="commit" type="submit" value="Recuperează parola">
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="set_new_password" class="page  row bitex-view">
+    <div class="page-header">
+      <h1 class="bitex-view-title">Setați parolă nouă</h1>
+    </div>
+    <div class="bitex-view-content">
+      <form accept-charset="UTF-8" class="form-horizontal" id="redefine_new_password_form" method="post">
+        <div class="control-group">
+          <label for="id_set_new_password_token"
+                 class="control-label">Cod de securitate</label>
+          <div class="controls">
+            <input id="id_set_new_password_token" name="Email" size="30" type="text" placeholder="" />
+            <p class="help-block">Codul de securitate a fost trimis pe adresa dumneavoastră de email.</p>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label for="id_set_new_password_password" class="control-label">Parolă nouă</label>
+          <div class="controls">
+            <input id="id_set_new_password_password" name="Password" size="30" type="password" />
+            <p class="help-block">Cel puțin 8 caractere</p>
+          </div>
+        </div>
+
+        <div class="control-group">
+              <label for="id_set_new_password_password2" class="control-label">Confirmați parola</label>
+          <div class="controls">
+            <input id="id_set_new_password_password2" name="Password2" size="30" type="password" />
+          </div>
+        </div>
+
+        <div class="actions">
+          <input id="id_btn_set_new_password" class="btn btn-primary" name="commit" type="submit" value="Resetați parola">
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="bitex-display-if-logged">
+    <div class="alert | bitex-model" style="display: none" data-model-key="IsMissingVerification" data-model-action="show_element">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <a href="" data-switch-view="verification"> You have not submitted your documents. Vă rugăm să confirmați indentitatea. </a>
+    </div>
+
+    <div class="alert alert-success | bitex-model" style="display: none" data-model-key="TwoFactorEnabled" data-model-action="hide_element">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <a href="" data-switch-view="profile"> Puteți crește securitatea contului dvs. prin activarea autentificare în doi pasi. </a>
+    </div>
+
+    <div class="alert alert-error | bitex-model" style="display: none" data-model-key="IsAccountBlocked" data-model-action="show_element">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <a href="" data-switch-view="faq"> Contul nostru a fost oprit de către administrator, vă rugăm să contactați echipa de suport. </a>
+    </div>
+  </div>
+
+  <div class="page row-fluid bitex-display-if-logged">
+    <div class="span9">
+      <div id="profile" class="bitex-view">
+        <div class="section-title">
+          <h3 class="bitex-view-title">Profilul meu</h3>
+        </div>
+        <div id="profile_content" class="">
+          <div id="account_overview_user_id"></div>
+        </div>
+
+        <div class="content bitex-view-content">
+
+          <div class="well span6">
+            <div class="section-title">
+              <h3 class="bitex-view-title">Autentificare cu doi factori (2FA)</h3>
+            </div>
+
+            <div id="id_enable_two_factor_div" class="form-horizontal ">
+
+              <div class="control-group">
+                <label class="control-label">Cheie</label>
+
+                <div class="controls">
+                  <span id='secret' class="bitex-model" data-model-key="TwoFactorSecret"></span>
+                </div>
+              </div>
+
+              <div class="control-group">
+                <div class="controls">
+                  <img id="id_secret_qr" style="width: 100%; margin-top: -30px" src="">
+                </div>
+              </div>
+
+              <div class="control-group">
+                <label class="control-label">Codul de autenficare</label>
+
+                <div class="controls">
+                  <input id="id_second_step_verification"
+                         type="text"
+                         class="input-block-level" pattern="\d+"
+                         title="Cod generat de Google Authenticatior"
+                         placeholder="Ex. 555555" required>
+                </div>
+              </div>
+            </div>
+            <button id="id_btn_enable_two_factor" class="btn btn-primary">Activați</button>
+            <button id="id_btn_disable_two_factor" class="btn btn-danger">Dezactivați</button>
+          </div>
+
+        </div>
+      </div>
+
+      <div id="trading" class="bitex-view">
+        <div class="section-title">
+          <h3 class="bitex-view-title">Cumpără sau Vinde</h3>
+        </div>
+        <div class="bitex-view-content">
+          <div id="trading_order_entry_content" class="row-fluid"></div>
+          <div id="id_trading_well"></div>
+        </div>
+      </div>
+
+      <div id="algotrading" class="bitex-view">
+        <div class="section-title">
+          <h3 class="bitex-view-title">Tranzacționarea algoritmică</h3>
+        </div>
+        <div class="bitex-view-content"></div>
+      </div>
+
+
+      <div id="offerbook" class="bitex-view">
+        <div class="section-title">
+          <h3 class="bitex-view-title">Registrul de comenzi</h3>
+        </div>
+        <div class="bitex-view-content">
+          <div id="offer_book_order_entry_content" class="row-fluid"></div>
+          <div class="well">
+            <div class="row-fluid">
+              <div class="btn-group pull-right">
+                <div class="btn btn-mini | btn-show-cum-qty">A acumulat</div>
+                <div class="btn btn-mini | btn-show-fees ">Taxe</div>
+              </div>
+            </div>
+            <div class="row-fluid">
+              <div id="id_order_book_bid_content" class="span6"></div>
+              <div id="id_order_book_ask_content" class="span6"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="customers" class="bitex-view">
+        <div class="section-title">
+          <h3 class="bitex-view-title">Clienții mei</h3>
+        </div>
+        <div id="id_customers_well"></div>
+      </div>
+
+      <div id="my_broker" class="bitex-view">
+        <div class="bitex-view-title"></div>
+        <div class="bitex-view-content"></div>
+      </div>
+
+      <div id="account_overview" class="bitex-view">
+        <div class="section-title">
+          <h3 class="bitex-view-title">Prezentare generală a contului</h3>
+        </div>
+        <div class="content bitex-view-content">
+          <div class="row-fluid">
+            <div class="span6">
+              <div id="account_overview_header_id"></div>
+            </div>
+            <div class="span6">
+              <div id="account_overview_fees_id">
+                <div id="account_overview_fees_balances_id"></div>
+                <button id="id_btn_user_fees" class="btn btn-primary btn-small pull-right" style="margin-bottom: 10px;">Setați taxele pentru utilizator</button>
+              </div>
+              <div id="account_overview_verify_data_id"></div>
+              <div id="account_overview_balances_id"></div>
+            </div>
+          </div>
+          <div class="bitex-account-overview-view-content"></div>
+        </div>
+      </div>
+
+      <div id="withdraw" class="bitex-view">
+        <div class="section-title">
+          <h3 class="bitex-view-title">Retragerile mele</h3>
+        </div>
+        <div class="content bitex-view-content">
+          <div id="id_withdraw_button_group" class="row-fluid text-right" style="margin-bottom:20px" ></div>
+          <div id="id_user_balances_well"></div>
+
+          <div id="id_withdraw_list"></div>
+        </div>
+      </div>
+
+      <div id="withdraw_requests" class="bitex-view">
+        <div class="section-title">
+          <h3 class="bitex-view-title">Solicitări de retragere</h3>
+        </div>
+        <div class="content bitex-view-content">
+          <div id="id_withdraw_request_list"></div>
+        </div>
+      </div>
+
+      <div id="deposit" class="bitex-view">
+        <div class="section-title">
+          <h3 class="bitex-view-title">Depunerile mele</h3>
+        </div>
+        <div class="content bitex-view-content">
+          <div id="id_deposit_button_group" class="row-fluid text-right" style="margin-bottom:20px" ></div>
+          <div id="id_deposit_balances_container"></div>
+
+          <div id="id_deposit_list"></div>
+        </div>
+      </div>
+
+      <div id="deposit_requests" class="bitex-view">
+        <div class="section-title">
+          <h3 class="bitex-view-title">Solicitări de depunere</h3>
+        </div>
+        <div class="content bitex-view-content">
+          <div id="id_deposit_request_list"></div>
+        </div>
+      </div>
+
+      <div id="ledger" class="bitex-view">
+        <div class="section-title">
+          <h3 class="bitex-view-title">Registru</h3>
+        </div>
+        <div class="content bitex-view-content">
+          <div id="id_ledger_balances_container"></div>
+          <div id="id_ledger_list"></div>
+        </div>
+      </div>
+
+
+      <div id="api" class="bitex-view">
+        <div class="section-title">
+          <h3 class="bitex-view-title">API Keys</h3>
+        </div>
+        <div class="content bitex-view-content">
+          <div id="id_api_button_group" class="row-fluid text-right" style="margin-bottom:20px">
+            <a id="id_btn_new_api_key" class="btn btn-primary"><i class="icon-plus "> New API Key</i></a>
+          </div>
+
+        </div>
+      </div>
+
+      <div id="settings" class="bitex-view">
+        <div class="section-title">
+          <h3 class="bitex-view-title">Setări</h3>
+        </div>
+        <div class="bitex-view-content"></div>
+      </div>
+
+      <div id="verification" class="bitex-view">
+        <div class="section-title">
+          <h3 class="bitex-view-title">Verificare cont</h3>
+        </div>
+        <div class="bitex-view-content">
+          <iframe id="JotFormIFrame"
+                  onload="window.parent.scrollTo(0,0)"
+                  allowtransparency="true"
+                  src=""
+                  frameborder="0"
+                  style="width:100%; height:1550px; border:none;"
+                  scrolling="no"></iframe>
+          <script type="text/javascript">
+            window.handleIFrameMessage = function (e) {
+              var args = e.data.split(":");
+              var iframe = document.getElementById("JotFormIFrame");
+              if (!iframe)
+                return;
+              switch (args[0]) {
+                case "scrollIntoView":
+                  iframe.scrollIntoView();
+                  break;
+                case "setHeight":
+                  if (args[1] > 0) {
+                    iframe.style.height = ( parseInt(args[1], 10) + 200 ) +
+                        "px";
+                  }
+                  break;
+              }
+            };
+            if (window.addEventListener) {
+              window.addEventListener("message", handleIFrameMessage, false);
+            } else if (window.attachEvent) {
+              window.attachEvent("onmessage", handleIFrameMessage);
+            }
+          </script>
+        </div>
+      </div>
+    </div>
+
+    <div id="id_sidebar" class="span3 sidebar bitex-view
+                                                bitex-view-profile
+                                                bitex-view-trading
+                                                bitex-view-offerbook
+                                                bitex-view-customers
+                                                bitex-view-account_overview
+                                                bitex-view-withdraw
+                                                bitex-view-withdraw_requests
+                                                bitex-view-deposit
+                                                bitex-view-deposit_requests
+                                                bitex-view-ledger
+                                                bitex-view-settings
+                                                bitex-view-algotrading
+                                                bitex-view-api
+                                                bitex-view-my_broker
+                                                bitex-view-verification">
+      <h3><span class="bitex-model bitex-view-title" data-model-key="DisplayName"></span></h3>
+
+      <div class="bitex-view-content">
+        <div id="account_balance" style="">
+
+          <form class="form-inline">
+            <label class="control-label" for="id_instrument_1">Moneda de schimb :</label>
+            <select id="id_instrument_1">
+              <option></option>
+            </select>
+          </form>
+
+          <div id="id_account_summary_content" class=""></div>
+        </div>
+
+        <div id="id_remittance_box" class=""></div>
+
+        <h6>Meniu</h6>
+        <ul class="nav nav-list">
+          <li style="">
+            <a href="" data-switch-view="profile">
+              <i data-switch-view="profile" class="icon-user"></i> Profilul meu</a>
+          </li>
+          <li style="">
+            <a href="" data-switch-view="my_broker">
+              <i data-switch-view="my_broker" class="icon-search"></i> Despre exchange</a></li>
+
+          <li>
+            <a href="" data-switch-view="trading">
+              <i data-switch-view="trading" class="icon-random"></i> Cumpără sau Vinde</a>
+          </li>
+
+          <li>
+            <a href="" data-switch-view="offerbook">
+              <i data-switch-view="offerbook" class="icon-book"></i> Registrul de comenzi</a>
+          </li>
+
+          <li style="">
+            <a href="" data-switch-view="algotrading">
+              <i data-switch-view="algotrading" class="icon-cog"></i> Algo Trading</a>
+          </li>
+
+          <li style="">
+            <a href="" data-switch-view="ledger">
+              <i data-switch-view="ledger" class="icon-list"></i> Registru</a>
+          </li>
+
+          <li style="" class="bitex-display-if-broker">
+            <a href="" data-switch-view="customers">
+              <i data-switch-view="customers" class="icon-user"></i> Clienți mei</a>
+          </li>
+
+          <li style="" class="bitex-display-if-broker">
+            <a href="" data-switch-view="deposit_requests">
+              <i data-switch-view="deposit_requests" class="icon-plus"></i> Cerere de depunere</a>
+          </li>
+
+          <li style="" class="bitex-display-if-broker">
+            <a href="" data-switch-view="withdraw_requests">
+              <i data-switch-view="withdraw_requests" class="icon-minus"></i> Cerere de retragere</a>
+          </li>
+
+          <li style="">
+            <a href="" data-switch-view="deposit">
+              <i data-switch-view="deposit" class="icon-plus"></i> Depunerile mele</a>
+          </li>
+
+          <li style="">
+            <a href="" data-switch-view="withdraw">
+              <i data-switch-view="withdraw" class="icon-minus"></i> Retragerile mele</a>
+          </li>
+
+          <li style="" class="bitex-display-if-non-broker" id="verification_menu_id">
+            <a href="" data-switch-view="verification">
+              <i data-switch-view="verification" class="icon-check"></i> Verificați-va contul</a>
+          </li>
+
+          <li style="">
+            <a href="" data-switch-view="faq">
+              <i data-switch-view="faq" class="icon-question"></i> Sugestii & Support</a>
+          </li>
+
+          <li style="">
+            <a href="" data-switch-view="api">
+              <i data-switch-view="api" class="icon-globe"></i> API</a>
+          </li>
+
+          <li>
+            <a href="javascript:location.reload()">
+              <i class="icon-signout"></i> Delogare</a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <div id="market" class="page row bitex-view">
+    <div class="row-fluid">
+      <div class="page-header">
+        <h2 class="bitex-view-title">Market</h2>
+      </div>
+    </div>
+    <div class="bitex-view-content">
+    </div>
+  </div>
+
+  <div id="themes" class="bitex-view container page">
+    <div class="page-header ls-title-4">
+        <h1 class="bitex-view-title">Themes</h1>
+    </div>
+    <p>Choose a Theme</p>
+    <hr>
+    <div class="bitex-view-content">
+        <div class="row" style="text-align:center">
+            <div class="span4">
+                <a href="https://bitcoinvietnamexchange.github.io/exchange/ro/themes/default/">
+                    <img src="https://bitcoinvietnamexchange.github.io/exchange/ro/assets/exchange_logos/thumb-themes/default-theme.jpg" alt="Default Theme">
+                    <h3>Default Theme</h3>
+                </a>
+            </div>
+            <div class="span4">
+                <a href="https://bitcoinvietnamexchange.github.io/exchange/ro/themes/ander/">
+                    <img src="https://bitcoinvietnamexchange.github.io/exchange/ro/assets/exchange_logos/thumb-themes/ander-theme.jpg" alt="Ander Theme">
+                    <h3>Ander</h3>
+                </a>
+            </div>
+            <div class="span4">
+                <a href="https://bitcoinvietnamexchange.github.io/exchange/ro/themes/whitedev/">
+                    <img src="https://bitcoinvietnamexchange.github.io/exchange/ro/assets/exchange_logos/thumb-themes/whitedev-theme.jpg" alt="Whitedev Theme">
+                    <h3>Whitedev</h3>
+                </a>
+            </div>
+        </div>
+    </div>
+  </div>
+<!-- div.container -->
+</div>
+
+
+    <footer class="footer">
+      <div class="container">
+        <p>
+          
+          <a href="" data-switch-view="admin">admin</a> |
+          Latency: <span class="bitex-model" data-model-key="latency">0</span> ms |
+          Version: f345dc8 |
+          
+          <a href="http://blinktrade.com/" target="_blank">© 2014 BlinkTrade Inc</a>
+          | <a href="#themes">Themes</a>
+          | <a href="https://github.com/blinktrade/" target="_blank">Proudly 100% open source <span class="bitex-model" data-model-key="JSVersion"></span></a>
+          | <a href="http://nytm.org/made-in-nyc/" target="_blank">Made with <span style="color: #d11f0d;font-size: 19px;">♥</span> in NYC</a>
+        </p>
+      </div>
+    </footer>
+
+
+    
+    <script data-cfasync="false" type="text/javascript">
+      var _app;  // global application object
+      (function(){
+        var broker_id = 3;
+        var country_code = "VN";
+        var blinktrade_api = "api.testnet.blinktrade.com";
+
+        _app = new BlinkTradeApp(broker_id, country_code );
+        _app.run(blinktrade_api);
+      })();
+    </script>
+    
+
+    
+    <script data-cfasync="false" type="text/javascript">
+      (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+          (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+      })(window, document, 'script', '//www.google-analytics.com/analytics.js', '_gat');
+
+      _gat('create', 'UA-53856711-1', 'auto');
+      _gat('send', 'pageview');
+
+    </script>
+    
+
+    
+    <!--Start of Zopim Live Chat Script-->
+    <script data-cfasync="false" type="text/javascript">
+      window.$zopim||(function(d,s){var z=$zopim=function(c){z._.push(c)},$=z.s=
+          d.createElement(s),e=d.getElementsByTagName(s)[0];z.set=function(o){z.set.
+          _.push(o)};z._=[];z.set._=[];$.async=!0;$.setAttribute('charset','utf-8');
+        $.src='https://v2.zopim.com/?2SSNIzvxy8fBypKoZJ0pI43tUoNCv8os';z.t=+new Date;$.
+            type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
+    </script>
+    <!--End of Zopim Live Chat Script-->
+    
+
+    
+    <script type='text/javascript'>
+      (function() {
+        var s = document.createElement('script');
+        s.type = 'text/javascript';
+        s.async = true;
+        s.src = '//d3a5udlxrolr3e.cloudfront.net/resource/chat.js';
+        var x = document.getElementsByTagName('script')[0];
+        x.parentNode.insertBefore(s, x);
+      })();
+
+      window.embeddedChatAsyncInit = function() {
+        embeddedChat.init("4296");
+      }
+
+    </script>
+    
+
+
+  </body>
+</html>

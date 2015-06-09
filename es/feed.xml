@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title></title>
+        <description></description>
+        <link>https://bitcoinvietnamexchange.github.io/exchange/es/</link>
+        <atom:link href="https://bitcoinvietnamexchange.github.io/exchange/es/feed.xml" rel="self" type="application/rss+xml" />
+
+        
+        <item>
+            <title>¿Porque se publica el nombre de usuario en el libro de ordenes?</title>
+            <description>&lt;p&gt;Asignamos un nombre aleatorio para cada cuenta individual. El nombre puede ser algo así como: Rhino_899009&lt;/p&gt;
+
+&lt;p&gt;Así, en lugar de publicar la identidad real del usuario, estamos publicando un nombre ficticio.&lt;/p&gt;
+
+&lt;p&gt;Esto protege la privacidad, siempre y cuando el usuario no haga publico el vinculo entre su nombre real y el nombre aleatorio. Es responsabilidad del usuario la proteccion de su identidad.&lt;/p&gt;
+
+&lt;p&gt;¿Por qué no se oculta toda la información, incluyendo el nombre aleatorio?&lt;/p&gt;
+
+&lt;p&gt;Hay varias razones detrás de esto. Nombraremos las más importantes:&lt;/p&gt;
+
+&lt;p&gt;1 - Esto evita manipulaciones en el mercado, como pueden ser el front running, Pump And Dump, u otras manipulaciones. Ante cualquier tentativa de manupulacion, los demas participantes pueden identificar al manipulador facilmente.&lt;/p&gt;
+
+&lt;p&gt;2 - Ayuda a construir la reputación del usuario, recuerda, en caso de una prohibición gubernamental de bitcoins, giraremos surbitcoin a un mercado de P2P, por lo tanto, la reputación será muy importante.&lt;/p&gt;
+
+&lt;p&gt;3 - Permite a los usuarios auditar al operador del exchange. Esto ayudará a los operadores de SurBitcoin demostrar su solvencia al público ademas de no tener que contratar los servicios de un auditor que pueda manipular facilmente las cuentas.&lt;/p&gt;
+
+&lt;p&gt;Entendemos que la mayoría de las bolsas, a dia de hoy, no publican este tipo de contenido. Es por eso que constantemente estan surgiendo casos de manupulacion en el mercado y de estafadores cuyo unico interes es apoderarse de los bitcoins de sus clientes (en este caso no estamos hablando de los grandes exchanges, sino de una gran cantidad de pequeños exchanges que ya han cerrado sus puertas, declarando haber sido “hackeados”)&lt;/p&gt;
+</description>
+            <pubDate>Sun, 09 Nov 2014 16:30:00 -0800</pubDate>
+            <link>https://bitcoinvietnamexchange.github.io/exchange/es/post/faq-porque-se-publica-el-nombre-de-usuario-en-el-libro-de-ordenes/</link>
+            <guid isPermaLink="true">https://bitcoinvietnamexchange.github.io/exchange/es/post/faq-porque-se-publica-el-nombre-de-usuario-en-el-libro-de-ordenes/</guid>
+        </item>
+        
+        <item>
+            <title>¿Que alternativa hay al uso del libro de ordenes?</title>
+            <description>&lt;p&gt;Para aquellos usuarios que no estén familiarizados con la operativa de un libro de órdenes la alternativa es utilizar la opción de comprar a precio de mercado. Esta opción la encontrarán dirigiéndose a “buy or sell”  en el menú principal y solo tendrán que especificar la cantidad de bitcoins que desean comprar o vender.&lt;/p&gt;
+</description>
+            <pubDate>Thu, 06 Nov 2014 16:29:00 -0800</pubDate>
+            <link>https://bitcoinvietnamexchange.github.io/exchange/es/post/faq-que-alternativa-hay-al-uso-del-libro-de-ordenes/</link>
+            <guid isPermaLink="true">https://bitcoinvietnamexchange.github.io/exchange/es/post/faq-que-alternativa-hay-al-uso-del-libro-de-ordenes/</guid>
+        </item>
+        
+        <item>
+            <title>¿Porque no poseo la llave privada de mi cartera en el exchange?</title>
+            <description>&lt;p&gt;Nuestro principio es que los bitcoins hay que depositarlos en el exchange con el fin de intercambiarlos por FIAT. En consecuencia, para garantizar la seguridad y la rapidez en la transacción, el exchange mantiene la posesión de los depósitos tanto en FIAT como en BTC.&lt;/p&gt;
+</description>
+            <pubDate>Thu, 06 Nov 2014 16:28:00 -0800</pubDate>
+            <link>https://bitcoinvietnamexchange.github.io/exchange/es/post/faq-porque-no-poseo-la-llave-privada-de-mi-cartera-en-el-exchange/</link>
+            <guid isPermaLink="true">https://bitcoinvietnamexchange.github.io/exchange/es/post/faq-porque-no-poseo-la-llave-privada-de-mi-cartera-en-el-exchange/</guid>
+        </item>
+        
+        <item>
+            <title>¿Como desactivar mi cuenta en el exchange?</title>
+            <description>&lt;p&gt;Para desactivar su cuenta del exchange diríjase a “Mi cuenta” y seleccione “Preferencias” en el menú principal. Haga click a “desactivar mi cuenta” y proceda.&lt;/p&gt;
+</description>
+            <pubDate>Thu, 06 Nov 2014 16:27:00 -0800</pubDate>
+            <link>https://bitcoinvietnamexchange.github.io/exchange/es/post/faq-como-desactivar-mi-cuenta-en-el-exchange/</link>
+            <guid isPermaLink="true">https://bitcoinvietnamexchange.github.io/exchange/es/post/faq-como-desactivar-mi-cuenta-en-el-exchange/</guid>
+        </item>
+        
+        <item>
+            <title>¿Puedo mantener un registro de toda mi actividad en la plataforma?</title>
+            <description>&lt;p&gt;Si. En el menú principal vaya a “libro registro” donde hay un registro de todas las transacciones llevadas a cabo por el usuario.
+También podrá revisar su historial de depósitos y retiros median&lt;/p&gt;
+</description>
+            <pubDate>Thu, 06 Nov 2014 16:26:00 -0800</pubDate>
+            <link>https://bitcoinvietnamexchange.github.io/exchange/es/post/faq-puedo-mantener-un-registro-de-toda-mi-actividad-en-la-plataforma/</link>
+            <guid isPermaLink="true">https://bitcoinvietnamexchange.github.io/exchange/es/post/faq-puedo-mantener-un-registro-de-toda-mi-actividad-en-la-plataforma/</guid>
+        </item>
+        
+        <item>
+            <title>¿Pueden auditarse las direciones de almacenamiento de BTC?</title>
+            <description>&lt;p&gt;Si. Tanto la clave pública de almacenamiento en frío como la del almacenamiento en caliente se pueden auditar. Lo único que tendrá que hacer será dirigirse al blockchain e introducir la dirección que usted desee verificar.&lt;/p&gt;
+</description>
+            <pubDate>Thu, 06 Nov 2014 16:25:00 -0800</pubDate>
+            <link>https://bitcoinvietnamexchange.github.io/exchange/es/post/faq-pueden-auditarse-las-direcciones-de-almacenamiento-de-BTC/</link>
+            <guid isPermaLink="true">https://bitcoinvietnamexchange.github.io/exchange/es/post/faq-pueden-auditarse-las-direcciones-de-almacenamiento-de-BTC/</guid>
+        </item>
+        
+        <item>
+            <title>¿Donde se puede encontrar la informacion bancaria?</title>
+            <description>&lt;p&gt;Para poder depositar fondos en el exchange, el equipo de la plataforma tiene que verificar su cuenta bancaria. Una vez que este proceso se haya realizado usted podrá depositar sus fondos.
+La información relativa a nuestra cuenta bancaria que usted necesitará le aparecerá en pantalla cuando vaya a procesar una orden de depósito o de retiro.&lt;/p&gt;
+</description>
+            <pubDate>Thu, 06 Nov 2014 16:24:00 -0800</pubDate>
+            <link>https://bitcoinvietnamexchange.github.io/exchange/es/post/faq-donde-se-puede-encontrar-la-informacion-bancaria/</link>
+            <guid isPermaLink="true">https://bitcoinvietnamexchange.github.io/exchange/es/post/faq-donde-se-puede-encontrar-la-informacion-bancaria/</guid>
+        </item>
+        
+        <item>
+            <title>¿Quien paga las tasas de retiro?</title>
+            <description>&lt;p&gt;En cualquiera de los casos las tasas corren a cargo del usuario. Las tasas sobre los retiros en FIAT las establece el bróker. Las tasas sobre los movimientos de BTC son establecidas por la cadena de bloques.&lt;/p&gt;
+</description>
+            <pubDate>Thu, 06 Nov 2014 16:23:00 -0800</pubDate>
+            <link>https://bitcoinvietnamexchange.github.io/exchange/es/post/faq-quien-paga-las-tasas-de-retiro/</link>
+            <guid isPermaLink="true">https://bitcoinvietnamexchange.github.io/exchange/es/post/faq-quien-paga-las-tasas-de-retiro/</guid>
+        </item>
+        
+        <item>
+            <title>¿Cuanto se tarda en retirar FIAT?</title>
+            <description>&lt;p&gt;Al igual que en el caso de depositar BTC. El tiempo para retirarlos depende del tiempo que tarde la cadena de bloques en confirmar esa transacción.&lt;/p&gt;
+</description>
+            <pubDate>Thu, 06 Nov 2014 16:22:00 -0800</pubDate>
+            <link>https://bitcoinvietnamexchange.github.io/exchange/es/post/faq-cuanto-se-tarda-en-retirar-BTC/</link>
+            <guid isPermaLink="true">https://bitcoinvietnamexchange.github.io/exchange/es/post/faq-cuanto-se-tarda-en-retirar-BTC/</guid>
+        </item>
+        
+        <item>
+            <title>¿Cuanto se tarda en retirar FIAT?</title>
+            <description>&lt;p&gt;No debería tardar más de 24 horas. Aun así, en periodos de mucha actividad el bróker puede tardar algo más en efectuar la transacción.&lt;/p&gt;
+</description>
+            <pubDate>Thu, 06 Nov 2014 16:21:00 -0800</pubDate>
+            <link>https://bitcoinvietnamexchange.github.io/exchange/es/post/faq-cuanto-se-tarda-en-retirar-FIAT/</link>
+            <guid isPermaLink="true">https://bitcoinvietnamexchange.github.io/exchange/es/post/faq-cuanto-se-tarda-en-retirar-FIAT/</guid>
+        </item>
+        
+
+    </channel>
+</rss>

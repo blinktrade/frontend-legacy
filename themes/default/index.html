@@ -1,31 +1,142 @@
----
-layout:                 application.default
-title:                  Blinktrade demo exchange
-body_classes:           ws-not-connected bitex-not-logged active-view-start
-load_application:       True
----
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml">
+  <head>
+    <meta charset="utf-8">
+    
+        <title>BlinkDemo - Open Source Bitcoin Exchange demo website</title>
+    
+
+    <!-- Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="BlinkTrade">
+
+    
+        <meta name="description" content="Open Source Bitcoin Exchange demo website">
+        <meta name="keywords" content="bitcoin, bitcoin exchange, open source bitcoin exchange, bitcoin trading plataform, open source bitcoin trading plataform">
+        <meta property="og:title" content="BlinkDemo - Open Source Bitcoin Exchange demo website">
+        <meta property="og:description" content="Open Source Bitcoin Exchange demo website">
+    
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bitcoinvietnamexchange.github.io/exchange/themes/default/index.html">
+    <meta property="og:image" content="https://bitcoinvietnamexchange.github.io/exchange/assets/exchange_logos/bitcoinvietnam_social_network_share.png">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="https://bitcoinvietnamexchange.github.io/exchange/assets/exchange_logos/bitcoinvietnam_favicon.ico">
+    <link rel="icon" href="https://bitcoinvietnamexchange.github.io/exchange/assets/exchange_logos/bitcoinvietnam_favicon.ico" type="image/x-icon">
+
+    <!-- Feed -->
+    <link rel="alternate" type="application/rss+xml" href="https://bitcoinvietnamexchange.github.io/exchange/feed.xml">
+
+    <meta charset="utf-8">
+
+    <link rel="canonical" href="https://bitcoinvietnamexchange.github.io/exchange/themes/default/index.html"/>
+    <script type="text/javascript" src="//apis.google.com/js/plusone.js"></script>
+
+    <!--Bootstrap-->
+    <link href="https://bitcoinvietnamexchange.github.io/exchange/assets/themes/default/css/bootstrap-combined.min.css" rel="stylesheet">
+    <link href="https://bitcoinvietnamexchange.github.io/exchange/assets/themes/default/css/font-awesome.min.css" rel="stylesheet">
+
+    
+    <link href="https://bitcoinvietnamexchange.github.io/exchange/assets/themes/default/css/Dialog.css" rel="stylesheet">
+    <link href="https://bitcoinvietnamexchange.github.io/exchange/assets/themes/default/css/fuelux.css" rel="stylesheet">
+    <link href="https://bitcoinvietnamexchange.github.io/exchange/assets/themes/default/css/default.uni-form.css" rel="stylesheet">
+    <link href="https://bitcoinvietnamexchange.github.io/exchange/assets/themes/default/css/style.css?v=f345dc8" rel="stylesheet">
+    <script data-cfasync="false" src="https://bitcoinvietnamexchange.github.io/exchange/assets/js/bitex_app_blink_trade.compiled.vi.default.js?v=f345dc8" type="text/javascript"></script>
+    
+  </head>
+  <body class=" ws-not-connected bitex-not-logged active-view-start ">
+
+    <div id="id_toolbar" class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+
+          
+          <a href="#" class="brand" data-switch-view="offerbook">
+            <img data-switch-view="offerbook" src="https://bitcoinvietnamexchange.github.io/exchange/assets/exchange_logos/bitcoinvietnam_toolbar_logo.png" style="
+                height: 30px;
+                margin-top: -10px;
+                margin-bottom: -10px;
+            ">
+          </a>
+          
+
+          <ul class="nav navbar-nav pull-right">
+            
+            <li><a href="" data-switch-view="faq">FAQ</a></li>
+            <li class="bitex-display-if-logged"><a href="" data-switch-view="offerbook">Trading</a></li>
+            <li><a href="" data-switch-view="market">Market</a></li>
+            <li class="bitex-hide-if-logged"><a href="" data-switch-view="signin">Sign in</a></li>
+            <li class="bitex-hide-if-logged"><a href="" data-switch-view="signup">Sign up</a></li>
+            
+
+            <li class="dropdown">
+              <a id="drop1" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">VI <b class="caret"></b></a>
+              <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+              
+                
+              
+                
+                  
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="https://bitcoinvietnamexchange.github.io/exchange/en_US">EN_US</a></li>
+                  
+                
+              
+                
+                  
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="https://bitcoinvietnamexchange.github.io/exchange/es">ES</a></li>
+                  
+                
+              
+                
+                  
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="https://bitcoinvietnamexchange.github.io/exchange/pt_BR">PT_BR</a></li>
+                  
+                
+              
+                
+                  
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="https://bitcoinvietnamexchange.github.io/exchange/ro">RO</a></li>
+                  
+                
+              
+                
+                  
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="https://bitcoinvietnamexchange.github.io/exchange/zn_CN">ZN_CN</a></li>
+                  
+                
+              
+              </ul>
+            </li>
+
+            
+            <li>
+              <button id="id_button_connect_ws" class="bitex-hide-if-ws-connected btn-link"
+                      style="padding: 6px 15px 10px;">Connect <i class="icon-white icon-repeat"></i></button>
+            </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="clearfix" style="padding: 30px;"></div>
+
+    <div id="id_notifications" class="notifications top-right" style="z-index: 9000;"></div>
+
+
+
 
 <!-- div.container -->
 <div class="container">
   <!-- landing page-->
   <div id="start" class="page  row-fluid bitex-view bitex-view-admin">
     <header class="jumbotron">
-      <img src="{{ site.baseurl }}/assets/exchange_logos/{{ site.exchange_logo }}_landing_page_logo.png" style="">
+      <img src="/exchange/assets/exchange_logos/bitcoinvietnam_landing_page_logo.png" style="">
       <p class="lead bitex-view-title bitex-view-title">
-        {% case site.exchange %}
-          {% when 'chilebit' %}
-            {% t exchanges.chilebit.lead  %}
-          {% when 'surbitcoin' %}
-            {% t exchanges.surbitcoin.lead  %}
-          {% when 'urdubit' %}
-            {% t exchanges.urdubit.lead  %}
-          {% when 'foxbit' %}
-            {% t exchanges.foxbit.lead  %}
-          {% when 'romaniabex' %}
-            {% t exchanges.romaniabex.lead  %}
-          {% else %}
-            {% t exchanges.demo.lead  %}
-          {% endcase %}
+        
+            See our open source Bitcoin exchange in action
+          
       </p>
     </header>
 
@@ -33,16 +144,16 @@ load_application:       True
       <div class="row bitex-hide-if-logged bitex-view-content" style="text-align: center;">
         <form action="" class="form-inline">
           <div class="row-fluid">
-            <label for="id_landing_username">{% t views.start.username %}</label>
+            <label for="id_landing_username">Username:</label>
             <input class="focus" id="id_landing_username" placeholder="" size="30" type="text">
-            <label for="id_landing_password">{% t views.start.password %}</label>
+            <label for="id_landing_password">Password:</label>
             <input id="id_landing_password" placeholder="" size="30"  type="password">
-            <button id="id_landing_signin" class="btn btn-primary">{% t views.start.login %}</button>
+            <button id="id_landing_signin" class="btn btn-primary">login</button>
           </div>
           <div class="clearfix" style="height: 20px"></div>
           <div class="row-fluid">
             <span class="text-center">
-              <a href="" class="btn btn-success btn-large" data-switch-view="signup">{% t views.start.signup %}</a>
+              <a href="" class="btn btn-success btn-large" data-switch-view="signup">Sign up</a>
             </span>
           </div>
         </form>
@@ -52,30 +163,457 @@ load_application:       True
 
   <div id="faq" class="page row-fluid bitex-view">
     <div class="page-header">
-      <h1 class="bitex-view-title">{% t views.faq.title %}</h1>
+      <h1 class="bitex-view-title">FAQ - Frequently Asked Questions</h1>
     </div>
 
     <div class="bitex-view-content">
       <div class="accordion">
-        {% for post in site.categories['faq'] reversed %}
+        
         <div class="accordion-group">
           <div class="accordion-heading">
             <a class="accordion-toggle collapsed">
-              {{post.title}}
+              What is Bitcoin?
             </a>
           </div>
           <div class="accordion-body collapse ">
             <div class="accordion-inner">
-              {{post.content}}
+              <p>Bitcoin is a open source P2P digital network created in 2009 by pseudonymous author Satoshi Nakamoto. The protocol allows the user to send, store and receive value at a significant low cost and in a short matter of time. Bitcoin avoids the need for central authorities and issuers.</p>
+
+
             </div>
           </div>
         </div>
-        {% endfor %}
+        
+        <div class="accordion-group">
+          <div class="accordion-heading">
+            <a class="accordion-toggle collapsed">
+              What is a Bitcoin Exchange?
+            </a>
+          </div>
+          <div class="accordion-body collapse ">
+            <div class="accordion-inner">
+              <p>It is just a marketplace, where people interested in buying bitcoins find sellers interested in selling their bitcoins and vice-versa.</p>
+
+            </div>
+          </div>
+        </div>
+        
+        <div class="accordion-group">
+          <div class="accordion-heading">
+            <a class="accordion-toggle collapsed">
+              How does a bitcoin exchange work?
+            </a>
+          </div>
+          <div class="accordion-body collapse ">
+            <div class="accordion-inner">
+              <p>SurBitcoin allow buyers deposit Venezuelans Bolivares and sellers deposit Bitcoins. SurBitcoin then allows buyers transact with sellers.</p>
+
+
+            </div>
+          </div>
+        </div>
+        
+        <div class="accordion-group">
+          <div class="accordion-heading">
+            <a class="accordion-toggle collapsed">
+              How does a bitcoin exchange works?
+            </a>
+          </div>
+          <div class="accordion-body collapse ">
+            <div class="accordion-inner">
+              <p>SurBitcoin allow buyers deposit Venezuelans Bolivares and sellers deposit Bitcoins. SurBitcoin then allows buyers transact with sellers.</p>
+
+
+            </div>
+          </div>
+        </div>
+        
+        <div class="accordion-group">
+          <div class="accordion-heading">
+            <a class="accordion-toggle collapsed">
+              Does the exchange buy/sell bitcoin directly?
+            </a>
+          </div>
+          <div class="accordion-body collapse ">
+            <div class="accordion-inner">
+              <p>No. We are providing a service. Think on the exchange like eBay, we are just providing a service where you can find buyers or sellers.</p>
+
+<p>All we do is provide a safe and simple environment to trade with other users, that is all.</p>
+
+<p>We guarantee that buyers get their bitcoins and sellers get their money at agreed price.</p>
+
+            </div>
+          </div>
+        </div>
+        
+        <div class="accordion-group">
+          <div class="accordion-heading">
+            <a class="accordion-toggle collapsed">
+              What is the relationship between the exchange and Blinktrade? 
+            </a>
+          </div>
+          <div class="accordion-body collapse ">
+            <div class="accordion-inner">
+              <p>Blinktrade is the technology provider.</p>
+
+<p>The exchange operator hire the service of blinktrade.</p>
+
+<p>Blinktrade only provides IT services for the exchange operator.</p>
+
+<p>The exchange operator is de facto the company operating the exchange. By operating we means: Accepting deposits, Processing withdrawals, verifiying customers identities and allowing customers to trade safely.</p>
+
+            </div>
+          </div>
+        </div>
+        
+        <div class="accordion-group">
+          <div class="accordion-heading">
+            <a class="accordion-toggle collapsed">
+              How do I open my own Bitcoin Exchange?
+            </a>
+          </div>
+          <div class="accordion-body collapse ">
+            <div class="accordion-inner">
+              <p>You just need to go to <a href="http://blinktrade.com/#started">blinktrade</a> and click on  “Apply to be a partner” section and fill out the form.</p>
+
+            </div>
+          </div>
+        </div>
+        
+        <div class="accordion-group">
+          <div class="accordion-heading">
+            <a class="accordion-toggle collapsed">
+              How do I deactivate my exchange trader account?
+            </a>
+          </div>
+          <div class="accordion-body collapse ">
+            <div class="accordion-inner">
+              <p>To deactivate your exchange trader account, go to “Account” and select “Settings” from the side menu. Click “Deactivate account” and proceed.</p>
+
+            </div>
+          </div>
+        </div>
+        
+        <div class="accordion-group">
+          <div class="accordion-heading">
+            <a class="accordion-toggle collapsed">
+              How do I become a trader?
+            </a>
+          </div>
+          <div class="accordion-body collapse ">
+            <div class="accordion-inner">
+              <p>Opening a trading account at the exchange is easy, fast and free. Click “sign up” , fill out the form and log in.  After your login, the exchange operator will require your personal name, address and documentation. After your documentation is verified by the exchange operator your account will be credited with a bonus in your local currency. From that point you are all set to buy your first bitcoin!</p>
+
+            </div>
+          </div>
+        </div>
+        
+        <div class="accordion-group">
+          <div class="accordion-heading">
+            <a class="accordion-toggle collapsed">
+              How do I deposit local currency into my account?
+            </a>
+          </div>
+          <div class="accordion-body collapse ">
+            <div class="accordion-inner">
+              <p>On the main menu, click on “Deposit local currency” and a new window will appear. You will have to specify the amount of FIAT you want to deposit in order to buy bitcoins. Have in mind that the broker will charge you a fee every time you wish to make a deposit. In a deposit of $800 with a fee of 1.65% you will see $786.8 credited on your balance.</p>
+
+            </div>
+          </div>
+        </div>
+        
+        <div class="accordion-group">
+          <div class="accordion-heading">
+            <a class="accordion-toggle collapsed">
+              How to deposit BTC?
+            </a>
+          </div>
+          <div class="accordion-body collapse ">
+            <div class="accordion-inner">
+              <p>On the main menu, click on “Deposit BTC” and a new window will appear. The platform generates a unique address that will only be valid for that specific transaction and with a time limit to perform the deposit. Scan the QR code and send the BTC. After blockchain confirmation you will see the amount of BTC you sent credited into your trader account. No fees are charged for depositing BTC except from the one required by the blockchain to confirm the transaction. IMPORTANT: Never save the deposit address, never reuse the same address or your deposits won’t be confirmed.</p>
+
+            </div>
+          </div>
+        </div>
+        
+        <div class="accordion-group">
+          <div class="accordion-heading">
+            <a class="accordion-toggle collapsed">
+              How to withdraw FIAT?
+            </a>
+          </div>
+          <div class="accordion-body collapse ">
+            <div class="accordion-inner">
+              <p>As simple as the deposit process. Request a withdrawal in the main menu and a new window will appear showing the steps you have to follow. After specifying the amount and filling in the required information (account #, swift#…) the money will be sent to your account. Please be aware we apply applies a fee on every withdrawal.</p>
+
+            </div>
+          </div>
+        </div>
+        
+        <div class="accordion-group">
+          <div class="accordion-heading">
+            <a class="accordion-toggle collapsed">
+              How to withdraw BTC?
+            </a>
+          </div>
+          <div class="accordion-body collapse ">
+            <div class="accordion-inner">
+              <p>When you want to receive bitcoins all you have to do is request a withdrawal on the main menu. You will have to specify the amount and provide the public key in which you want those btc to be sent. Please take your time to introduce the btc address correctly as bitcoin transactions are irreversible.</p>
+
+            </div>
+          </div>
+        </div>
+        
+        <div class="accordion-group">
+          <div class="accordion-heading">
+            <a class="accordion-toggle collapsed">
+              Is your bitcoin safe?
+            </a>
+          </div>
+          <div class="accordion-body collapse ">
+            <div class="accordion-inner">
+              <p>Our main concern is to allow traders to interact within a safe environment. Bitcoins are stored in a multisignature cold storage wallet and away from the servers of the exchange. So even though if the server of the exchange has been hacked the bitcoins are out of the reach of the bad boys.</p>
+
+<p>The multisignature wallet requires 2 out of 3 signatures in order to be able to move the bitcoins.
+ the exchange operator holds one of the 3 keys. The other 2 are held by BlinkTrade and a mediator who will take part of the process in case there is a dispute between the exchange operator and BlinkTrade.</p>
+
+<p>This means that even though a hacker compromises the servers of the exchange, he will also have to compromise the servers of BlinkTrade to be able to take the bitcoins. The odds are extremely low for that to happen.</p>
+
+<p>Each time the bitcoins have to be moved from the multisignature wallet to the hot wallet (which is connected to the internet for processing fast withdrawals) BlinkTrade will previously verify the system and perform a proof of solvency of the bitcoins.
+In other words, every time the bitcoins are moved from multisignature cold storage to hot storage, we perform a complete check of the system.</p>
+
+<p>The hot wallet is kept in the servers of blockchain.info and we only keep a small amount of bitcoins to be able to cover the operations of the day.
+Further more, all the safety measures of the hot wallet are run by blockchain.info</p>
+
+<p>No exchange in the world is 100% secure. So even though we perform all the security measures, we don’t want to create a bitcoin pot of gold that will challenge hackers to try to compromise the exchange.</p>
+
+<p>We encourage the users to only deposit their bitcoins when they are going to sell them, and not using the exchange to bank on their bitcoins. The safest procedure is to always hold your bitcoins in your wallet until you want to trade them.</p>
+
+
+            </div>
+          </div>
+        </div>
+        
+        <div class="accordion-group">
+          <div class="accordion-heading">
+            <a class="accordion-toggle collapsed">
+              why don't I have a private key for my exchange wallet?
+            </a>
+          </div>
+          <div class="accordion-body collapse ">
+            <div class="accordion-inner">
+              <p>Our principle is that the bitcoins deposited in the exchange are there to be exchanged for your local currency. In consequence, to guarantee safety and speed in the trade, the exchange operator keeps possession of deposits either in FIAT and in BTC.</p>
+
+            </div>
+          </div>
+        </div>
+        
+        <div class="accordion-group">
+          <div class="accordion-heading">
+            <a class="accordion-toggle collapsed">
+              How to trade?
+            </a>
+          </div>
+          <div class="accordion-body collapse ">
+            <div class="accordion-inner">
+              <p>You need to choose the quantity of bitcoins you want to buy and specify the rate you are willing to pay for those bitcoins. The rate is always determined by the price of 1 bitcoin. Compare it to the price of a gallon of gas in USD.</p>
+
+            </div>
+          </div>
+        </div>
+        
+        <div class="accordion-group">
+          <div class="accordion-heading">
+            <a class="accordion-toggle collapsed">
+              Do I have to pay fees?
+            </a>
+          </div>
+          <div class="accordion-body collapse ">
+            <div class="accordion-inner">
+              <p>Yes, fees apply on FIAT deposits, FIAT withdrawals and trades. You don’t have to pay the exchange to deposit or withdraw BTC. Bitcoin fees apply to the blockchain.</p>
+
+            </div>
+          </div>
+        </div>
+        
+        <div class="accordion-group">
+          <div class="accordion-heading">
+            <a class="accordion-toggle collapsed">
+              How to cancel accidental orders?
+            </a>
+          </div>
+          <div class="accordion-body collapse ">
+            <div class="accordion-inner">
+              <p>To cancel an open order go to “Buy or Sell” on the main menu. Select the order to be canceled from the “My orders” list and click “Cancel” next to the chosen order. Another option is to click on the “Order Book” and search for the order marked with your username and a red “x” next to it. Click on the order to cancel it.</p>
+
+            </div>
+          </div>
+        </div>
+        
+        <div class="accordion-group">
+          <div class="accordion-heading">
+            <a class="accordion-toggle collapsed">
+              How long does a FIAT deposit confirmation take?
+            </a>
+          </div>
+          <div class="accordion-body collapse ">
+            <div class="accordion-inner">
+              <p>If you perform the deposit from an account of the same bank used by the exchange the confirmation will be made within 24 hours. If you do the deposit from a different bank in the country/region, the confirmation can take as long as 48 hours.</p>
+
+            </div>
+          </div>
+        </div>
+        
+        <div class="accordion-group">
+          <div class="accordion-heading">
+            <a class="accordion-toggle collapsed">
+              How long does a BTC deposit take?
+            </a>
+          </div>
+          <div class="accordion-body collapse ">
+            <div class="accordion-inner">
+              <p>As long as the blockchain network takes to confirm the transaction. Usually no longer than 10 minutes.  For deposits higher than 2 BTC, we require 3 confirmations that can take up to 30 minutes. And for amounts higher than 10 BTC, we require of 6 confirmations that can take up to 60 minutes.</p>
+
+            </div>
+          </div>
+        </div>
+        
+        <div class="accordion-group">
+          <div class="accordion-heading">
+            <a class="accordion-toggle collapsed">
+              What is the instant deposit mode?
+            </a>
+          </div>
+          <div class="accordion-body collapse ">
+            <div class="accordion-inner">
+              <p>It’s a feature of the exchange that enables trusted and verified users to start trading even though the FIAT deposit hasn’t still been verified by the broker. The account of the user gets credited without the need of waiting for deposit confirmations.</p>
+
+            </div>
+          </div>
+        </div>
+        
+        <div class="accordion-group">
+          <div class="accordion-heading">
+            <a class="accordion-toggle collapsed">
+              Can I deposit funds from a bank account other than my own?
+            </a>
+          </div>
+          <div class="accordion-body collapse ">
+            <div class="accordion-inner">
+              <p>Yes. Users are able to deposit money from third party bank accounts as long as they provide a valid form of id and authentication.</p>
+
+            </div>
+          </div>
+        </div>
+        
+        <div class="accordion-group">
+          <div class="accordion-heading">
+            <a class="accordion-toggle collapsed">
+              How long does a FIAT withdrawal take?
+            </a>
+          </div>
+          <div class="accordion-body collapse ">
+            <div class="accordion-inner">
+              <p>It should not take any longer than 24 hours. However, in periods of high activity the broker may take longer to transact the withdraw.</p>
+
+            </div>
+          </div>
+        </div>
+        
+        <div class="accordion-group">
+          <div class="accordion-heading">
+            <a class="accordion-toggle collapsed">
+              How long does a BTC withdrawal take?
+            </a>
+          </div>
+          <div class="accordion-body collapse ">
+            <div class="accordion-inner">
+              <p>As in the same case for depositing BTC, withdraw timing is subject to the speed of the blockchain network to confirm that specific transaction.</p>
+
+            </div>
+          </div>
+        </div>
+        
+        <div class="accordion-group">
+          <div class="accordion-heading">
+            <a class="accordion-toggle collapsed">
+              Who pays the withdrawal fee?
+            </a>
+          </div>
+          <div class="accordion-body collapse ">
+            <div class="accordion-inner">
+              <p>In both cases of withdrawing FIAT or BTC the fees are on the trader’s side. FIAT fees are established by the broker. BTC fees are established by the blockchain.</p>
+
+            </div>
+          </div>
+        </div>
+        
+        <div class="accordion-group">
+          <div class="accordion-heading">
+            <a class="accordion-toggle collapsed">
+              Where is your bank account information?
+            </a>
+          </div>
+          <div class="accordion-body collapse ">
+            <div class="accordion-inner">
+              <p>In order to be able to deposit funds into the exchange, the operator team has to verify your bank account. Once that process has been made you can deposit your funds.</p>
+
+<p>All the necessary bank information will pop up in a new window when you request a deposit order on the main menu.</p>
+
+            </div>
+          </div>
+        </div>
+        
+        <div class="accordion-group">
+          <div class="accordion-heading">
+            <a class="accordion-toggle collapsed">
+              Why are the user names shown in the order book?
+            </a>
+          </div>
+          <div class="accordion-body collapse ">
+            <div class="accordion-inner">
+              <p>We assign a random name for every single account. The name looks like something like this:  Rhino_899009</p>
+
+<p>So, instead of publishing the actual name of the user, we are publishing a random name.</p>
+
+<p>This protects the user’s privacy as long as he doesn’t reveal the link between his real name and the randomly generated name. It is the user’s responsibility to protect his own privacy.</p>
+
+<p>Why are we not hiding all the information, including the random name?</p>
+
+<p>There are a lot of reasons behind this. I will name the most important:</p>
+
+<p>1 - This avoids market manipulations, like FrontRunning, PumpAndDump, and other manipulations. You can try, but people would catch you instantly and would not follow the manipulators.  Essentially, the market manipulators would lose their money because people would be able to catch the manipulation very easily.</p>
+
+<p>2 - Help to build reputation, remember, in case of a government BAN on bitcoins, we will turn surbitcoin into a P2P market, therefore, reputation will be extremely important.</p>
+
+<p>3 - It allows users to audit the “exchange operator”. This will help SurBitcoin operators to prove its solvency to the public without a need of an auditor who can be easily bought.</p>
+
+<p>I understand that most of the exchanges today don’t publish this, that is why we see a lot of market manipulations out there, and also a lot of scammers who just want to rob bitcoins from their customers (I am not talking about the big exchanges, I am talking about a lot of small bitcoin exchanges that already closed their doors because they claimed they were hacked)</p>
+
+            </div>
+          </div>
+        </div>
+        
+        <div class="accordion-group">
+          <div class="accordion-heading">
+            <a class="accordion-toggle collapsed">
+              Hours of operation
+            </a>
+          </div>
+          <div class="accordion-body collapse ">
+            <div class="accordion-inner">
+              <p>Trading: 24 hours / 7 days
+Helpdesk: Monday to Friday 9 AM - 6 PM (GMT -5)</p>
+
+            </div>
+          </div>
+        </div>
+        
       </div>
 
       <h3>
       <a href="" class="bitex-support-link" target="_blank">
-        <i class="icon-envelope"></i> {% t views.faq.get_in_touch %}</a>
+        <i class="icon-envelope"></i> Contact us in case you didn't find the answer to your question</a>
       </h3>
     </div>
   </div>
@@ -83,14 +621,14 @@ load_application:       True
   <!-- signup page-->
   <div id="signup" class="page  row-fluid bitex-view">
     <div class="page-header">
-      <h1 class="bitex-view-title">{% t views.signup.title %}</h1>
+      <h1 class="bitex-view-title">Sign up</h1>
     </div>
-    <p>{% t views.signup.already_registered %} <a href="#" data-switch-view="signin">{% t views.signup.login %}</a>.</p>
+    <p>Already registered? <a href="#" data-switch-view="signin">Login</a>.</p>
 
     <div class="bitex-view-content">
       <form action="" accept-charset="UTF-8" class="form-horizontal" id="new_user" method="post">
         <div class="control-group">
-          <label class="control-label">{% t views.signup.username %}</label>
+          <label class="control-label">Username</label>
 
           <div class="controls">
             <input id="id_signup_username" name="Username" size="30" type="text" placeholder="">
@@ -98,45 +636,45 @@ load_application:       True
         </div>
 
         <div class="control-group">
-          <label class="control-label">{% t views.signup.email %}</label>
+          <label class="control-label">Email address</label>
 
           <div class="controls">
-            <input id="id_signup_email" name="Email" size="30" type="text" placeholder="{% t views.signup.email_placeholder %}">
+            <input id="id_signup_email" name="Email" size="30" type="text" placeholder="eg.: joe@doe.com">
           </div>
         </div>
 
         <div class="control-group">
-          <label class="control-label">{% t views.signup.password %}</label>
+          <label class="control-label">Password</label>
 
           <div class="controls">
             <input id="id_signup_password" name="Password" size="30" type="password">
-            <p class="help-block">{% t views.signup.password_help %}</p>
+            <p class="help-block">At least 8 characters</p>
           </div>
         </div>
 
         <div class="control-group">
-          <label class="control-label">{% t views.signup.confirm_password %}</label>
+          <label class="control-label">Confirm your password</label>
           <div class="controls">
             <input id="id_signup_password2" name="Password2" size="30" type="password">
           </div>
         </div>
 
         <div class="control-group" style="">
-          <label class="control-label">{% t views.signup.country %}</label>
+          <label class="control-label">Country</label>
           <div class="controls">
             <select id="id_signup_country" name="country"></select>
           </div>
         </div>
 
         <div id="id_signup_state_group" class="control-group" style="display: none">
-          <label class="control-label">{% t views.signup.state %}</label>
+          <label class="control-label">State or Province</label>
           <div class="controls">
             <select id="id_signup_state" name="state"></select>
           </div>
         </div>
 
         <div class="control-group" style="display: none;">
-          <label class="control-label">{% t views.signup.broker %}</label>
+          <label class="control-label">Broker</label>
           <div class="controls">
             <select id="id_signup_broker" name="broker"></select>
           </div>
@@ -149,10 +687,10 @@ load_application:       True
         </div>
 
         <div class="control-group">
-          <label class="control-label">{% t views.signup.terms_of_service %}</label>
+          <label class="control-label">Terms of service</label>
           <div class="controls">
             <label class="checkbox">
-              <input id="user_agreed_tos" name="" type="checkbox" checked>{% t views.signup.i_agree_with_terms_of_service %}
+              <input id="user_agreed_tos" name="" type="checkbox" checked>I agree with terms of service
             </label>
           </div>
         </div>
@@ -160,7 +698,7 @@ load_application:       True
 
       <div class="control-group">
         <div class="controls">
-          <button id="id_btn_signup" class="btn btn-primary">{% t views.signup.signup_button_label %}</button>
+          <button id="id_btn_signup" class="btn btn-primary">Sign up</button>
         </div>
       </div>
     </div>
@@ -169,28 +707,28 @@ load_application:       True
   <!-- signin page-->
   <div id="signin" class="page  row-fluid bitex-view">
     <div class="page-header">
-      <h1 class="bitex-view-title">{% t views.signin.title %}</h1>
+      <h1 class="bitex-view-title">Sign in</h1>
     </div>
-    <p>{% t views.signin.dont_have_an_account %} <a href="#" data-switch-view="signup">{% t views.signin.signup %}</a></p>
+    <p>Don't have an account? <a href="#" data-switch-view="signup">Sign up</a></p>
 
     <div class="bitex-view-content">
       <form accept-charset="UTF-8" action="" method="post">
         <div class="clearfix">
-          <label for="id_username">{% t views.signin.username %}</label>
+          <label for="id_username">Username</label>
 
           <div class="input">
             <input autocapitalize="off" autocorrect="off" id="id_username" name="username" type="text" placeholder=""></div>
         </div>
         <div class="clearfix">
-          <label for="id_password">{% t views.signin.password %}</label>
+          <label for="id_password">Password</label>
           <div class="input">
             <input id="id_password" placeholder="" name="password" type="password">
           </div>
         </div>
-        <p><a href="#" data-switch-view="forgot_password">{% t views.signin.forgot_your_password %}</a></p>
+        <p><a href="#" data-switch-view="forgot_password">Forgot your password?</a></p>
 
         <div class="actions">
-          <input id="id_btn_login" class="btn btn-primary" name="commit" type="submit" value="{% t views.signin.login_button_label %}">
+          <input id="id_btn_login" class="btn btn-primary" name="commit" type="submit" value="Sign in">
         </div>
       </form>
     </div>
@@ -198,19 +736,19 @@ load_application:       True
 
   <div id="forgot_password" class="page row bitex-view">
     <div class="page-header">
-      <h1 class="bitex-view-title">{% t views.forgot_password.title %}</h1>
+      <h1 class="bitex-view-title">Password recovery</h1>
     </div>
     <div class="bitex-view-content">
       <form accept-charset="UTF-8" action="" method="post">
         <div class="clearfix">
-          <label for="id_forgot_password_email">{% t views.forgot_password.email %}</label>
+          <label for="id_forgot_password_email">Email</label>
 
           <div class="input">
             <input autocapitalize="off" autocorrect="off" id="id_forgot_password_email" name="email" type="text" placeholder="">
           </div>
         </div>
         <div class="actions">
-          <input id="id_btn_forgot_password" class="btn btn-primary" name="commit" type="submit" value="{% t views.forgot_password.recover_password_button_label %}">
+          <input id="id_btn_forgot_password" class="btn btn-primary" name="commit" type="submit" value="Recover password">
         </div>
       </form>
     </div>
@@ -218,36 +756,36 @@ load_application:       True
 
   <div id="set_new_password" class="page  row bitex-view">
     <div class="page-header">
-      <h1 class="bitex-view-title">{% t views.set_new_password.title %}</h1>
+      <h1 class="bitex-view-title">Set new password</h1>
     </div>
     <div class="bitex-view-content">
       <form accept-charset="UTF-8" class="form-horizontal" id="redefine_new_password_form" method="post">
         <div class="control-group">
           <label for="id_set_new_password_token"
-                 class="control-label">{% t views.set_new_password.security_code %}</label>
+                 class="control-label">Security code</label>
           <div class="controls">
             <input id="id_set_new_password_token" name="Email" size="30" type="text" placeholder="" />
-            <p class="help-block">{% t views.set_new_password.security_code_help %}</p>
+            <p class="help-block">We just sent a security code to your email.</p>
           </div>
         </div>
 
         <div class="control-group">
-          <label for="id_set_new_password_password" class="control-label">{% t views.set_new_password.new_password %}</label>
+          <label for="id_set_new_password_password" class="control-label">New password</label>
           <div class="controls">
             <input id="id_set_new_password_password" name="Password" size="30" type="password" />
-            <p class="help-block">{% t views.set_new_password.new_password_help %}</p>
+            <p class="help-block">At least 8 characters</p>
           </div>
         </div>
 
         <div class="control-group">
-              <label for="id_set_new_password_password2" class="control-label">{% t views.set_new_password.confirm_password %}</label>
+              <label for="id_set_new_password_password2" class="control-label">Confirm your password</label>
           <div class="controls">
             <input id="id_set_new_password_password2" name="Password2" size="30" type="password" />
           </div>
         </div>
 
         <div class="actions">
-          <input id="id_btn_set_new_password" class="btn btn-primary" name="commit" type="submit" value="{% t views.set_new_password.set_new_password_button_label %}">
+          <input id="id_btn_set_new_password" class="btn btn-primary" name="commit" type="submit" value="Reset password">
         </div>
       </form>
     </div>
@@ -256,17 +794,17 @@ load_application:       True
   <div class="bitex-display-if-logged">
     <div class="alert | bitex-model" style="display: none" data-model-key="IsMissingVerification" data-model-action="show_element">
       <button type="button" class="close" data-dismiss="alert">&times;</button>
-      <a href="" data-switch-view="verification"> {% t views.alerts.verification %} </a>
+      <a href="" data-switch-view="verification"> You have not submitted your documents. Please verify your account. </a>
     </div>
 
     <div class="alert alert-success | bitex-model" style="display: none" data-model-key="TwoFactorEnabled" data-model-action="hide_element">
       <button type="button" class="close" data-dismiss="alert">&times;</button>
-      <a href="" data-switch-view="profile"> {% t views.alerts.enable_two_factor %} </a>
+      <a href="" data-switch-view="profile"> You can increase the security of your account by enabling authentication in two steps </a>
     </div>
 
     <div class="alert alert-error | bitex-model" style="display: none" data-model-key="IsAccountBlocked" data-model-action="show_element">
       <button type="button" class="close" data-dismiss="alert">&times;</button>
-      <a href="" data-switch-view="faq"> {% t views.alerts.frozen_account %} </a>
+      <a href="" data-switch-view="faq"> Your account has been frozen by the administrator, please contact support. </a>
     </div>
   </div>
 
@@ -274,7 +812,7 @@ load_application:       True
     <div class="span9">
       <div id="profile" class="bitex-view">
         <div class="section-title">
-          <h3 class="bitex-view-title">{% t views.profile.title %}</h3>
+          <h3 class="bitex-view-title">My Profile</h3>
         </div>
         <div id="profile_content" class="">
           <div id="account_overview_user_id"></div>
@@ -284,13 +822,13 @@ load_application:       True
 
           <div class="well span6">
             <div class="section-title">
-              <h3 class="bitex-view-title">{% t views.profile.two_factor_auth_section.title %}</h3>
+              <h3 class="bitex-view-title">Two factor authentication (2FA)</h3>
             </div>
 
             <div id="id_enable_two_factor_div" class="form-horizontal ">
 
               <div class="control-group">
-                <label class="control-label">{% t views.profile.two_factor_auth_section.key %}</label>
+                <label class="control-label">Key</label>
 
                 <div class="controls">
                   <span id='secret' class="bitex-model" data-model-key="TwoFactorSecret"></span>
@@ -304,19 +842,19 @@ load_application:       True
               </div>
 
               <div class="control-group">
-                <label class="control-label">{% t views.profile.two_factor_auth_section.authentication_code %}</label>
+                <label class="control-label">Authentication code</label>
 
                 <div class="controls">
                   <input id="id_second_step_verification"
                          type="text"
                          class="input-block-level" pattern="\d+"
-                         title="{% t views.profile.two_factor_auth_section.authentication_code_title %}"
-                         placeholder="{% t views.profile.two_factor_auth_section.authentication_code_placeholder %}" required>
+                         title="Code generated by Google Authenticatior"
+                         placeholder="Ex. 555555" required>
                 </div>
               </div>
             </div>
-            <button id="id_btn_enable_two_factor" class="btn btn-primary">{% t views.profile.two_factor_auth_section.enable %}</button>
-            <button id="id_btn_disable_two_factor" class="btn btn-danger">{% t views.profile.two_factor_auth_section.disable %}</button>
+            <button id="id_btn_enable_two_factor" class="btn btn-primary">Enable</button>
+            <button id="id_btn_disable_two_factor" class="btn btn-danger">Disable</button>
           </div>
 
         </div>
@@ -324,7 +862,7 @@ load_application:       True
 
       <div id="trading" class="bitex-view">
         <div class="section-title">
-          <h3 class="bitex-view-title">{% t views.trading.title %}</h3>
+          <h3 class="bitex-view-title">Buy or Sell</h3>
         </div>
         <div class="bitex-view-content">
           <div id="trading_order_entry_content" class="row-fluid"></div>
@@ -334,7 +872,7 @@ load_application:       True
 
       <div id="algotrading" class="bitex-view">
         <div class="section-title">
-          <h3 class="bitex-view-title">{% t views.algotrading.title %}</h3>
+          <h3 class="bitex-view-title">Algorithm Trading</h3>
         </div>
         <div class="bitex-view-content"></div>
       </div>
@@ -342,15 +880,15 @@ load_application:       True
 
       <div id="offerbook" class="bitex-view">
         <div class="section-title">
-          <h3 class="bitex-view-title">{% t views.offerbook.title %}</h3>
+          <h3 class="bitex-view-title">Order Book</h3>
         </div>
         <div class="bitex-view-content">
           <div id="offer_book_order_entry_content" class="row-fluid"></div>
           <div class="well">
             <div class="row-fluid">
               <div class="btn-group pull-right">
-                <div class="btn btn-mini | btn-show-cum-qty">{% t views.offerbook.cumulative %}</div>
-                <div class="btn btn-mini | btn-show-fees ">{% t views.offerbook.fees %}</div>
+                <div class="btn btn-mini | btn-show-cum-qty">Cumulative</div>
+                <div class="btn btn-mini | btn-show-fees ">Fees</div>
               </div>
             </div>
             <div class="row-fluid">
@@ -363,7 +901,7 @@ load_application:       True
 
       <div id="customers" class="bitex-view">
         <div class="section-title">
-          <h3 class="bitex-view-title">{% t views.customers.title %}</h3>
+          <h3 class="bitex-view-title">My customers</h3>
         </div>
         <div id="id_customers_well"></div>
       </div>
@@ -375,7 +913,7 @@ load_application:       True
 
       <div id="account_overview" class="bitex-view">
         <div class="section-title">
-          <h3 class="bitex-view-title">{% t views.account_overview.title %}</h3>
+          <h3 class="bitex-view-title">Account overview</h3>
         </div>
         <div class="content bitex-view-content">
           <div class="row-fluid">
@@ -385,7 +923,7 @@ load_application:       True
             <div class="span6">
               <div id="account_overview_fees_id">
                 <div id="account_overview_fees_balances_id"></div>
-                <button id="id_btn_user_fees" class="btn btn-primary btn-small pull-right" style="margin-bottom: 10px;">{% t views.account_overview.set_user_fees_button_label %}</button>
+                <button id="id_btn_user_fees" class="btn btn-primary btn-small pull-right" style="margin-bottom: 10px;">Set user fees</button>
               </div>
               <div id="account_overview_verify_data_id"></div>
               <div id="account_overview_balances_id"></div>
@@ -397,7 +935,7 @@ load_application:       True
 
       <div id="withdraw" class="bitex-view">
         <div class="section-title">
-          <h3 class="bitex-view-title">{% t views.withdraw.title %}</h3>
+          <h3 class="bitex-view-title">My Withdrawals</h3>
         </div>
         <div class="content bitex-view-content">
           <div id="id_withdraw_button_group" class="row-fluid text-right" style="margin-bottom:20px" ></div>
@@ -409,7 +947,7 @@ load_application:       True
 
       <div id="withdraw_requests" class="bitex-view">
         <div class="section-title">
-          <h3 class="bitex-view-title">{% t views.withdraw_requests.title %}</h3>
+          <h3 class="bitex-view-title">Withdrawal requests</h3>
         </div>
         <div class="content bitex-view-content">
           <div id="id_withdraw_request_list"></div>
@@ -418,7 +956,7 @@ load_application:       True
 
       <div id="deposit" class="bitex-view">
         <div class="section-title">
-          <h3 class="bitex-view-title">{% t views.deposit.title %}</h3>
+          <h3 class="bitex-view-title">My Deposits</h3>
         </div>
         <div class="content bitex-view-content">
           <div id="id_deposit_button_group" class="row-fluid text-right" style="margin-bottom:20px" ></div>
@@ -430,7 +968,7 @@ load_application:       True
 
       <div id="deposit_requests" class="bitex-view">
         <div class="section-title">
-          <h3 class="bitex-view-title">{% t views.deposit_requests.title %}</h3>
+          <h3 class="bitex-view-title">Deposit requests</h3>
         </div>
         <div class="content bitex-view-content">
           <div id="id_deposit_request_list"></div>
@@ -439,7 +977,7 @@ load_application:       True
 
       <div id="ledger" class="bitex-view">
         <div class="section-title">
-          <h3 class="bitex-view-title">{% t views.ledger.title %}</h3>
+          <h3 class="bitex-view-title">Ledger</h3>
         </div>
         <div class="content bitex-view-content">
           <div id="id_ledger_balances_container"></div>
@@ -450,11 +988,11 @@ load_application:       True
 
       <div id="api" class="bitex-view">
         <div class="section-title">
-          <h3 class="bitex-view-title">{% t views.api.title %}</h3>
+          <h3 class="bitex-view-title">API Keys</h3>
         </div>
         <div class="content bitex-view-content">
           <div id="id_api_button_group" class="row-fluid text-right" style="margin-bottom:20px">
-            <a id="id_btn_new_api_key" class="btn btn-primary"><i class="icon-plus "> {% t views.api.new_api_key %}</i></a>
+            <a id="id_btn_new_api_key" class="btn btn-primary"><i class="icon-plus "> New API Key</i></a>
           </div>
 
         </div>
@@ -462,14 +1000,14 @@ load_application:       True
 
       <div id="settings" class="bitex-view">
         <div class="section-title">
-          <h3 class="bitex-view-title">{% t views.settings.title %}</h3>
+          <h3 class="bitex-view-title">Settings</h3>
         </div>
         <div class="bitex-view-content"></div>
       </div>
 
       <div id="verification" class="bitex-view">
         <div class="section-title">
-          <h3 class="bitex-view-title">{% t views.verification.title %}</h3>
+          <h3 class="bitex-view-title">Verify your account</h3>
         </div>
         <div class="bitex-view-content">
           <iframe id="JotFormIFrame"
@@ -529,7 +1067,7 @@ load_application:       True
         <div id="account_balance" style="">
 
           <form class="form-inline">
-            <label class="control-label" for="id_instrument_1">{% t views.sidebar.market %}</label>
+            <label class="control-label" for="id_instrument_1">Market:</label>
             <select id="id_instrument_1">
               <option></option>
             </select>
@@ -540,79 +1078,79 @@ load_application:       True
 
         <div id="id_remittance_box" class=""></div>
 
-        <h6>{% t views.sidebar.menu %}</h6>
+        <h6>Menu</h6>
         <ul class="nav nav-list">
           <li style="">
             <a href="" data-switch-view="profile">
-              <i data-switch-view="profile" class="icon-user"></i> {% t views.sidebar.my_profile %}</a>
+              <i data-switch-view="profile" class="icon-user"></i> My Profile</a>
           </li>
           <li style="">
             <a href="" data-switch-view="my_broker">
-              <i data-switch-view="my_broker" class="icon-search"></i> {% t views.sidebar.my_broker %}</a></li>
+              <i data-switch-view="my_broker" class="icon-search"></i> About the exchange</a></li>
 
           <li>
             <a href="" data-switch-view="trading">
-              <i data-switch-view="trading" class="icon-random"></i> {% t views.sidebar.trading %}</a>
+              <i data-switch-view="trading" class="icon-random"></i> Buy or Sell</a>
           </li>
 
           <li>
             <a href="" data-switch-view="offerbook">
-              <i data-switch-view="offerbook" class="icon-book"></i> {% t views.sidebar.offerbook %}</a>
+              <i data-switch-view="offerbook" class="icon-book"></i> Order book</a>
           </li>
 
           <li style="">
             <a href="" data-switch-view="algotrading">
-              <i data-switch-view="algotrading" class="icon-cog"></i> {% t views.sidebar.algotrading %}</a>
+              <i data-switch-view="algotrading" class="icon-cog"></i> Algo Trading</a>
           </li>
 
           <li style="">
             <a href="" data-switch-view="ledger">
-              <i data-switch-view="ledger" class="icon-list"></i> {% t views.sidebar.ledger %}</a>
+              <i data-switch-view="ledger" class="icon-list"></i> Ledger</a>
           </li>
 
           <li style="" class="bitex-display-if-broker">
             <a href="" data-switch-view="customers">
-              <i data-switch-view="customers" class="icon-user"></i> {% t views.sidebar.customers %}</a>
+              <i data-switch-view="customers" class="icon-user"></i> My customers</a>
           </li>
 
           <li style="" class="bitex-display-if-broker">
             <a href="" data-switch-view="deposit_requests">
-              <i data-switch-view="deposit_requests" class="icon-plus"></i> {% t views.sidebar.deposit_requests %}</a>
+              <i data-switch-view="deposit_requests" class="icon-plus"></i> Deposit requests</a>
           </li>
 
           <li style="" class="bitex-display-if-broker">
             <a href="" data-switch-view="withdraw_requests">
-              <i data-switch-view="withdraw_requests" class="icon-minus"></i> {% t views.sidebar.withdraw_requests %}</a>
+              <i data-switch-view="withdraw_requests" class="icon-minus"></i> Withdrawal requests</a>
           </li>
 
           <li style="">
             <a href="" data-switch-view="deposit">
-              <i data-switch-view="deposit" class="icon-plus"></i> {% t views.sidebar.deposit %}</a>
+              <i data-switch-view="deposit" class="icon-plus"></i> My Deposits</a>
           </li>
 
           <li style="">
             <a href="" data-switch-view="withdraw">
-              <i data-switch-view="withdraw" class="icon-minus"></i> {% t views.sidebar.withdraw %}</a>
+              <i data-switch-view="withdraw" class="icon-minus"></i> My Withdrawals</a>
           </li>
 
           <li style="" class="bitex-display-if-non-broker" id="verification_menu_id">
             <a href="" data-switch-view="verification">
-              <i data-switch-view="verification" class="icon-check"></i> {% t views.sidebar.verification %}</a>
+              <i data-switch-view="verification" class="icon-check"></i> Verify your account</a>
           </li>
 
           <li style="">
             <a href="" data-switch-view="faq">
-              <i data-switch-view="faq" class="icon-question"></i> {% t views.sidebar.support %}</a>
+              <i data-switch-view="faq" class="icon-question"></i> Suggestions & Support</a>
           </li>
 
           <li style="">
             <a href="" data-switch-view="api">
-              <i data-switch-view="api" class="icon-globe"></i> {% t views.sidebar.api %}</a>
+              <i data-switch-view="api" class="icon-globe"></i> API</a>
           </li>
 
           <li>
             <a href="javascript:location.reload()">
-              <i class="icon-signout"></i> {% t views.sidebar.logout %}</a>
+              <i class="icon-signout"></i> Logout</a>
           </li>
         </ul>
       </div>
@@ -623,7 +1161,7 @@ load_application:       True
   <div id="market" class="page row bitex-view">
     <div class="row-fluid">
       <div class="page-header">
-        <h2 class="bitex-view-title">{% t views.market.title %}</h2>
+        <h2 class="bitex-view-title">Market</h2>
       </div>
     </div>
     <div class="bitex-view-content">
@@ -639,20 +1177,20 @@ load_application:       True
     <div class="bitex-view-content">
         <div class="row" style="text-align:center">
             <div class="span4">
-                <a href="{{ site.url}}{{ site.baseurl}}/themes/default/">
-                    <img src="{{ site.url}}{{ site.baseurl }}/assets/exchange_logos/thumb-themes/default-theme.jpg" alt="Default Theme">
+                <a href="https://bitcoinvietnamexchange.github.io/exchange/themes/default/">
+                    <img src="https://bitcoinvietnamexchange.github.io/exchange/assets/exchange_logos/thumb-themes/default-theme.jpg" alt="Default Theme">
                     <h3>Default Theme</h3>
                 </a>
             </div>
             <div class="span4">
-                <a href="{{ site.url}}{{ site.baseurl}}/themes/ander/">
-                    <img src="{{ site.url}}{{ site.baseurl }}/assets/exchange_logos/thumb-themes/ander-theme.jpg" alt="Ander Theme">
+                <a href="https://bitcoinvietnamexchange.github.io/exchange/themes/ander/">
+                    <img src="https://bitcoinvietnamexchange.github.io/exchange/assets/exchange_logos/thumb-themes/ander-theme.jpg" alt="Ander Theme">
                     <h3>Ander</h3>
                 </a>
             </div>
             <div class="span4">
-                <a href="{{ site.url}}{{ site.baseurl}}/themes/whitedev/">
-                    <img src="{{ site.url}}{{ site.baseurl }}/assets/exchange_logos/thumb-themes/whitedev-theme.jpg" alt="Whitedev Theme">
+                <a href="https://bitcoinvietnamexchange.github.io/exchange/themes/whitedev/">
+                    <img src="https://bitcoinvietnamexchange.github.io/exchange/assets/exchange_logos/thumb-themes/whitedev-theme.jpg" alt="Whitedev Theme">
                     <h3>Whitedev</h3>
                 </a>
             </div>
@@ -661,3 +1199,89 @@ load_application:       True
   </div>
 <!-- div.container -->
 </div>
+
+
+    <footer class="footer">
+      <div class="container">
+        <p>
+          
+          <a href="" data-switch-view="admin">admin</a> |
+          Latency: <span class="bitex-model" data-model-key="latency">0</span> ms |
+          Version: f345dc8 |
+          
+          <a href="http://blinktrade.com/" target="_blank">© 2014 BlinkTrade Inc</a>
+          | <a href="#themes">Themes</a>
+          | <a href="https://github.com/blinktrade/" target="_blank">Proudly 100% open source <span class="bitex-model" data-model-key="JSVersion"></span></a>
+          | <a href="http://nytm.org/made-in-nyc/" target="_blank">Made with <span style="color: #d11f0d;font-size: 19px;">♥</span> in NYC</a>
+        </p>
+      </div>
+    </footer>
+
+
+    
+    <script data-cfasync="false" type="text/javascript">
+      var _app;  // global application object
+      (function(){
+        var broker_id = 3;
+        var country_code = "VN";
+        var blinktrade_api = "api.testnet.blinktrade.com";
+
+        _app = new BlinkTradeApp(broker_id, country_code );
+        _app.run(blinktrade_api);
+      })();
+    </script>
+    
+
+    
+    <script data-cfasync="false" type="text/javascript">
+      (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+          (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+      })(window, document, 'script', '//www.google-analytics.com/analytics.js', '_gat');
+
+      _gat('create', 'UA-53856711-1', 'auto');
+      _gat('send', 'pageview');
+
+    </script>
+    
+
+    
+    <!--Start of Zopim Live Chat Script-->
+    <script data-cfasync="false" type="text/javascript">
+      window.$zopim||(function(d,s){var z=$zopim=function(c){z._.push(c)},$=z.s=
+          d.createElement(s),e=d.getElementsByTagName(s)[0];z.set=function(o){z.set.
+          _.push(o)};z._=[];z.set._=[];$.async=!0;$.setAttribute('charset','utf-8');
+        $.src='https://v2.zopim.com/?2SSNIzvxy8fBypKoZJ0pI43tUoNCv8os';z.t=+new Date;$.
+            type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
+    </script>
+    <!--End of Zopim Live Chat Script-->
+    
+
+    
+    <script type='text/javascript'>
+      (function() {
+        var s = document.createElement('script');
+        s.type = 'text/javascript';
+        s.async = true;
+        s.src = '//d3a5udlxrolr3e.cloudfront.net/resource/chat.js';
+        var x = document.getElementsByTagName('script')[0];
+        x.parentNode.insertBefore(s, x);
+      })();
+
+      window.embeddedChatAsyncInit = function() {
+        embeddedChat.init("4296");
+      }
+
+    </script>
+    
+
+
+  </body>
+</html>

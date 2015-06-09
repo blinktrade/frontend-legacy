@@ -1,0 +1,73 @@
+/* 
+ * pallete
+ * GreenLight : #CC4D25
+ * Green      : #873015
+ * Red        : #CD1931
+ */
+
+.ls-menu{
+    background:none;
+}
+.ls-user-account .ls-user-menu-header, .ls-language nav ul a{
+    background:#eee!important;
+}
+
+.modal > .modal-footer > .btn-primary,
+.ls-theme-orange .ls-btn-primary, .active, .active:hover{
+    background-color: #CC4D25;
+    border-color: #CC4D25!important;
+    color:white!important;
+}
+
+.modal > .modal-footer > .btn-primary,
+.ls-theme-orange .ls-btn-primary:hover, .ls-btn-primary:focus{
+    background-color: #CC4D25!important;
+    border-color: #CC4D25!important;
+}
+.ls-btn, .modal > .modal-footer > .btn{
+    border: 2px solid #CC4D25!important;
+}
+.ls-theme-orange [class*="ls-go"],
+.ls-theme-orange .ls-dropdown ul a:focus, .ls-theme-orange .ls-dropdown ul a:hover{
+    background:#873015!important;
+}
+
+.ls-input-text,
+.ls-theme-orange .ls-topbar .ls-alerts-list [class^="ls-ico"],
+.ls-theme-orange .ls-info-header [class*="ls-title"],
+.youraccount strong, .b,
+.ls-txt a,
+ul.start-links a,
+input[type],
+textarea{
+    color: #CC4D25!important;
+}
+
+.ls-theme-orange .ls-table.ls-bg-header thead{
+    background-color:#CC4D25;
+}
+
+@media (max-width: 768px){
+    .ls-theme-orange .ls-topbar{
+        background: #873015 url(../images/brand-romaniabex.svg) center center no-repeat !important;
+        background-size:30px;
+    }
+}
+.ls-btn-danger:hover, .ls-btn-danger:focus, .ls-btn-danger.ls-active{
+}
+
+.ls-theme-orange .ls-brand-name,
+.fuelux .label-important, .fuelux .badge-important{
+    background:#873015!important;
+    background-color:#873015!important;
+}
+.ls-btn-danger, .ls-theme-orange .ls-table tbody a:not([class*="ls-btn"]){
+    color:#CD1931!important;
+}
+.ls-btn-danger:hover{
+    color:white!important;
+}
+
+.ls-topbar .ls-ico-menu:before, .ls-topbar .ls-show-notifications:before{
+    color:white!important;
+}
