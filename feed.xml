@@ -1,134 +1,23 @@
+---
+layout: None
+---
 <?xml version="1.0" encoding="UTF-8"?>
     <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-        <title></title>
-        <description></description>
-        <link>https://bitcoinvietnamexchange.github.io/exchange/</link>
-        <atom:link href="https://bitcoinvietnamexchange.github.io/exchange/feed.xml" rel="self" type="application/rss+xml" />
+        <title>{{ site.title | xml_escape }}</title>
+        <description>{{ site.description | xml_escape }}</description>
+        <link>{{ site.url }}{{ site.baseurl }}/</link>
+        <atom:link href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" rel="self" type="application/rss+xml" />
 
-        
+        {% for post in site.posts limit:10 %}
         <item>
-            <title>Faq Can I Keep Track Of All My Past Activity On The Platform</title>
-            <description>&lt;hr /&gt;
-&lt;p&gt;layout: post
-title:  “Can I keep track of all my past activity in the platform?”
-date:   2014-11-07 00:26:00
-categories: vi faq&lt;/p&gt;
-
-&lt;p&gt;Yes. On the main menu go to “ledger” where a record of all the transactions is kept. You can also check your history of deposits and withdrawals by going to the main menu and clicking either on “deposits” or “withdrawals”.&lt;/p&gt;
-</description>
-            <pubDate>Fri, 07 Nov 2014 00:00:00 -0800</pubDate>
-            <link>https://bitcoinvietnamexchange.github.io/exchange/post/faq-can-I-keep-track-of-all-my-past-activity-on-the-platform/</link>
-            <guid isPermaLink="true">https://bitcoinvietnamexchange.github.io/exchange/post/faq-can-I-keep-track-of-all-my-past-activity-on-the-platform/</guid>
+            <title>{{ post.title | xml_escape }}</title>
+            <description>{{ post.content | xml_escape }}</description>
+            <pubDate>{{ post.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
+            <link>{{ post.url | prepend: site.baseurl | prepend: site.url }}</link>
+            <guid isPermaLink="true">{{ post.url | prepend: site.baseurl | prepend: site.url }}</guid>
         </item>
-        
-        <item>
-            <title>Faq Can I Audit The Balance Of The Wallets Of The Exchange</title>
-            <description>&lt;hr /&gt;
-&lt;p&gt;layout: post
-title:  “Can I audit the balance of the wallets of the exchange?”
-date:   2014-11-07 00:25:00
-categories: vi faq&lt;/p&gt;
-
-&lt;p&gt;Yes. Both public keys for the hot and cold wallets are available for auditing. All you have to do is go to blockchain.info and enter the adress you want to check out.&lt;/p&gt;
-
-</description>
-            <pubDate>Fri, 07 Nov 2014 00:00:00 -0800</pubDate>
-            <link>https://bitcoinvietnamexchange.github.io/exchange/post/faq-can-I-audit-the-balance-of-the-wallets-of-the-exchange/</link>
-            <guid isPermaLink="true">https://bitcoinvietnamexchange.github.io/exchange/post/faq-can-I-audit-the-balance-of-the-wallets-of-the-exchange/</guid>
-        </item>
-        
-        <item>
-            <title>Hours of operation</title>
-            <description>&lt;p&gt;Trading: 24 hours / 7 days
-Helpdesk: Monday to Friday 9 AM - 6 PM (GMT -5)&lt;/p&gt;
-</description>
-            <pubDate>Thu, 06 Nov 2014 16:29:00 -0800</pubDate>
-            <link>https://bitcoinvietnamexchange.github.io/exchange/post/faq-hours-of-operation/</link>
-            <guid isPermaLink="true">https://bitcoinvietnamexchange.github.io/exchange/post/faq-hours-of-operation/</guid>
-        </item>
-        
-        <item>
-            <title>Why are the user names shown in the order book?</title>
-            <description>&lt;p&gt;We assign a random name for every single account. The name looks like something like this:  Rhino_899009&lt;/p&gt;
-
-&lt;p&gt;So, instead of publishing the actual name of the user, we are publishing a random name.&lt;/p&gt;
-
-&lt;p&gt;This protects the user’s privacy as long as he doesn’t reveal the link between his real name and the randomly generated name. It is the user’s responsibility to protect his own privacy.&lt;/p&gt;
-
-&lt;p&gt;Why are we not hiding all the information, including the random name?&lt;/p&gt;
-
-&lt;p&gt;There are a lot of reasons behind this. I will name the most important:&lt;/p&gt;
-
-&lt;p&gt;1 - This avoids market manipulations, like FrontRunning, PumpAndDump, and other manipulations. You can try, but people would catch you instantly and would not follow the manipulators.  Essentially, the market manipulators would lose their money because people would be able to catch the manipulation very easily.&lt;/p&gt;
-
-&lt;p&gt;2 - Help to build reputation, remember, in case of a government BAN on bitcoins, we will turn surbitcoin into a P2P market, therefore, reputation will be extremely important.&lt;/p&gt;
-
-&lt;p&gt;3 - It allows users to audit the “exchange operator”. This will help SurBitcoin operators to prove its solvency to the public without a need of an auditor who can be easily bought.&lt;/p&gt;
-
-&lt;p&gt;I understand that most of the exchanges today don’t publish this, that is why we see a lot of market manipulations out there, and also a lot of scammers who just want to rob bitcoins from their customers (I am not talking about the big exchanges, I am talking about a lot of small bitcoin exchanges that already closed their doors because they claimed they were hacked)&lt;/p&gt;
-</description>
-            <pubDate>Thu, 06 Nov 2014 16:28:00 -0800</pubDate>
-            <link>https://bitcoinvietnamexchange.github.io/exchange/post/faq-why-are-the-user-names-shown-in-the-order-book/</link>
-            <guid isPermaLink="true">https://bitcoinvietnamexchange.github.io/exchange/post/faq-why-are-the-user-names-shown-in-the-order-book/</guid>
-        </item>
-        
-        <item>
-            <title>Where is your bank account information?</title>
-            <description>&lt;p&gt;In order to be able to deposit funds into the exchange, the operator team has to verify your bank account. Once that process has been made you can deposit your funds.&lt;/p&gt;
-
-&lt;p&gt;All the necessary bank information will pop up in a new window when you request a deposit order on the main menu.&lt;/p&gt;
-</description>
-            <pubDate>Thu, 06 Nov 2014 16:24:00 -0800</pubDate>
-            <link>https://bitcoinvietnamexchange.github.io/exchange/post/faq-where-is-your-bank-account-information/</link>
-            <guid isPermaLink="true">https://bitcoinvietnamexchange.github.io/exchange/post/faq-where-is-your-bank-account-information/</guid>
-        </item>
-        
-        <item>
-            <title>Who pays the withdrawal fee?</title>
-            <description>&lt;p&gt;In both cases of withdrawing FIAT or BTC the fees are on the trader’s side. FIAT fees are established by the broker. BTC fees are established by the blockchain.&lt;/p&gt;
-</description>
-            <pubDate>Thu, 06 Nov 2014 16:23:00 -0800</pubDate>
-            <link>https://bitcoinvietnamexchange.github.io/exchange/post/faq-who-pays-the-withdrawal-fee/</link>
-            <guid isPermaLink="true">https://bitcoinvietnamexchange.github.io/exchange/post/faq-who-pays-the-withdrawal-fee/</guid>
-        </item>
-        
-        <item>
-            <title>How long does a BTC withdrawal take?</title>
-            <description>&lt;p&gt;As in the same case for depositing BTC, withdraw timing is subject to the speed of the blockchain network to confirm that specific transaction.&lt;/p&gt;
-</description>
-            <pubDate>Thu, 06 Nov 2014 16:22:00 -0800</pubDate>
-            <link>https://bitcoinvietnamexchange.github.io/exchange/post/faq-how-long-does-a-BTC-withdrawal-take/</link>
-            <guid isPermaLink="true">https://bitcoinvietnamexchange.github.io/exchange/post/faq-how-long-does-a-BTC-withdrawal-take/</guid>
-        </item>
-        
-        <item>
-            <title>How long does a FIAT withdrawal take?</title>
-            <description>&lt;p&gt;It should not take any longer than 24 hours. However, in periods of high activity the broker may take longer to transact the withdraw.&lt;/p&gt;
-</description>
-            <pubDate>Thu, 06 Nov 2014 16:21:00 -0800</pubDate>
-            <link>https://bitcoinvietnamexchange.github.io/exchange/post/faq-how-long-does-a-FIAT-withdrawal-take/</link>
-            <guid isPermaLink="true">https://bitcoinvietnamexchange.github.io/exchange/post/faq-how-long-does-a-FIAT-withdrawal-take/</guid>
-        </item>
-        
-        <item>
-            <title>Can I deposit funds from a bank account other than my own?</title>
-            <description>&lt;p&gt;Yes. Users are able to deposit money from third party bank accounts as long as they provide a valid form of id and authentication.&lt;/p&gt;
-</description>
-            <pubDate>Thu, 06 Nov 2014 16:20:00 -0800</pubDate>
-            <link>https://bitcoinvietnamexchange.github.io/exchange/post/faq-can-I-deposit-funds-from-a-bank-account-other-than-my-own/</link>
-            <guid isPermaLink="true">https://bitcoinvietnamexchange.github.io/exchange/post/faq-can-I-deposit-funds-from-a-bank-account-other-than-my-own/</guid>
-        </item>
-        
-        <item>
-            <title>What is the instant deposit mode?</title>
-            <description>&lt;p&gt;It’s a feature of the exchange that enables trusted and verified users to start trading even though the FIAT deposit hasn’t still been verified by the broker. The account of the user gets credited without the need of waiting for deposit confirmations.&lt;/p&gt;
-</description>
-            <pubDate>Thu, 06 Nov 2014 16:19:00 -0800</pubDate>
-            <link>https://bitcoinvietnamexchange.github.io/exchange/post/faq-what-is-the-instant-deposit-mode/</link>
-            <guid isPermaLink="true">https://bitcoinvietnamexchange.github.io/exchange/post/faq-what-is-the-instant-deposit-mode/</guid>
-        </item>
-        
+        {% endfor %}
 
     </channel>
 </rss>
