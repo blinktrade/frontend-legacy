@@ -1,0 +1,8 @@
+---
+layout: post
+title:  "Can I audit the balance of the wallets of the exchange?"
+date:   2014-11-07 00:25:00
+categories: vi faq
+
+Yes. Both public keys for the hot and cold wallets are available for auditing. All you have to do is go to blockchain.info and enter the adress you want to check out.
+
