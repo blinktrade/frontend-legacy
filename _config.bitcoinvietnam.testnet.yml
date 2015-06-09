@@ -1,0 +1,35 @@
+# Site settings
+url: "https://vietnam.blinktrade.com"
+# url: "//localhost:4000"   # activate this to test on your localhost
+author: "BlinkTrade"
+baseurl: ""
+deploy_version: "HEAD"
+
+exchange: "bitcoinvietnam"
+exchange_logo: "bitcoinvietnam"
+
+default_country_code: "VN"
+blinktrade_broker_id: 3  
+
+#blinktrade_backend_api: "api.blinktrade.com"
+blinktrade_backend_api: "api.testnet.blinktrade.com"
+#blinktrade_backend_api: "localhost"
+google_analytics_id: "UA-53856711-1"
+zopim_key: "2SSNIzvxy8fBypKoZJ0pI43tUoNCv8os"
+
+embedded_chat_id : 4296  # embedded-chat.com
+
+
+# Build settings
+markdown: kramdown
+
+
+languages: ["vi", "en_US", "es", "pt_BR", "ro", "zn_CN"]
+
+exclude:     [ "jsdev", "LICENSE", "README.md", "config.rb", "deploy.sh", "build_javascript.sh" ]
+source:      .
+destination: ./_site
+plugins:     ./_plugins
+paginate:    5
+paginate_path: "post/page:num"
+permalink:     /post/:title/
