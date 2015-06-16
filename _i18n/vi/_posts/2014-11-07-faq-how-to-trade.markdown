@@ -1,8 +1,8 @@
 ---
 layout:     post
-title:      "How to trade?"
+title:      "Làm sao để giao dịch?"
 date:       2014-11-07 00:14:00
 categories: vi faq
 ---
 
-You need to choose the quantity of bitcoins you want to buy and specify the rate you are willing to pay for those bitcoins. The rate is always determined by the price of 1 bitcoin. Compare it to the price of a gallon of gas in USD.
+Bạn cần phải chọn số lượng Bitcoin bạn muốn mua và xác định tỷ giá bạn sẵn sàng trả tiền cho mỗi Bitcoin. Tỷ lệ luôn luôn được tính bằng giá của 1 Bitcoin.

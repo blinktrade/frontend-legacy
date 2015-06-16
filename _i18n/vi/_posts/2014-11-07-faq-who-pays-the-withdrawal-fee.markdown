@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "Who pays the withdrawal fee?"
+title:  "Ai là người trả phí rút tiền?"
 date:   2014-11-07 00:23:00
 categories: vi faq
 ---
 
-In both cases of withdrawing FIAT or BTC the fees are on the trader’s side. FIAT fees are established by the broker. BTC fees are established by the blockchain.
+Trong cả 2 trường hợp rút tiền (Bitcoin và VNĐ), người giao dịch phải trả phí. Phí rút VNĐ được tính bởi sàn giao dịch. Phí rút Bitcoin được tính bởi blockchain.
