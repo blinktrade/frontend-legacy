@@ -14,8 +14,8 @@ blinktrade_broker_id: 3
 #blinktrade_backend_api: "api.blinktrade.com"
 blinktrade_backend_api: "api.testnet.blinktrade.com"
 #blinktrade_backend_api: "localhost"
-google_analytics_id: "UA-53856711-1"
-zopim_key: "2SSNIzvxy8fBypKoZJ0pI43tUoNCv8os"
+google_analytics_id: "UA-51369348-1"
+zopim_key: "30yZGdJAGm7xnjR1MsGVUZsEdmEIsSio"
 
 embedded_chat_id : 4296  # embedded-chat.com
 
