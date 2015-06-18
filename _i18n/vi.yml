@@ -47,6 +47,14 @@ exchanges:
     keywords: Buy and sell bitcoin in China, bitcoin exchange in China, sell bitcoins in China, buy bitcoins in China
     lead: Buy and sell bitcoin in China
 views:
+  footer:
+    latency: latency
+    version: version
+    format: >
+      '© 2015 <a href="http://bitcoinvietnam.com.vn/" target="_blank">Bitcoin Vietnam Co. Ltd</a> & <a href="http://blinktrade.com/" target="_blank">BlinkTrade Inc</a>
+      | <a href="#themes">Giao diện</a>
+      | <a href="http://nytm.org/made-in-nyc/" target="_blank">Được xây dựng từ <span style="color: #d11f0d;font-size: 19px;">♥</span> tại New York</a>'
+
   toolbar:
     faq: Hỏi & Đáp
     trading: Giao dịch
