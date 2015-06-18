@@ -48,8 +48,8 @@ exchanges:
     lead: Buy and sell bitcoin in China
 views:
   footer:
-    latency: latency
-    version: version
+    latency: Độ trễ
+    version: Phiên bản
     format: >
       '© 2015 <a href="http://bitcoinvietnam.com.vn/" target="_blank">Bitcoin Vietnam Co. Ltd</a> & <a href="http://blinktrade.com/" target="_blank">BlinkTrade Inc</a>
       | <a href="#themes">Giao diện</a>

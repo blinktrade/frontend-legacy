@@ -50,8 +50,8 @@ exchanges:
 
 views:
   footer:
-    latency: latency
-    version: version
+    latency: Latency
+    version: Version
     format: >
       '<a href="http://blinktrade.com/" target="_blank">© 2014 BlinkTrade Inc</a>
       | <a href="#themes">Themes</a>
