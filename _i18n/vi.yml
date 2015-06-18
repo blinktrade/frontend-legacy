@@ -106,7 +106,7 @@ views:
     set_new_password_button_label: Đặt lại mật khẩu
 
   profile:
-    title: Hồ Sơ Của Tôi
+    title: Hồ sơ
     two_factor_auth_section:
       title: Xác thực 2 lớp (2FA)
       key: Khoá
@@ -120,34 +120,34 @@ views:
     title: Mua hoặc Bán
 
   offerbook:
-    title: Sổ lệnh
+    title: Sổ khớp lệnh
     cumulative: Lũy kế
     fees: Phí
 
   customers:
-    title: Khách hàng của tôi
+    title: Khách hàng
 
   account_overview:
     title:  Tổng quan về tài khoản
     set_user_fees_button_label: Thiết lập phí dịch vụ
 
   withdraw:
-    title: Các lệnh rút tiền của tôi
-
-  withdraw_requests:
     title: Các lệnh rút tiền
 
-  deposit:
-    title: Các lệnh gửi tiền của tôi
+  withdraw_requests:
+    title: Lệnh rút tiền của khách
 
-  deposit_requests:
+  deposit:
     title: Các lệnh gửi tiền
 
+  deposit_requests:
+    title: Lệnh gửi tiền của khách
+
   ledger:
-    title: Sổ cái
+    title: Sổ kế toán
 
   algotrading:
-    title: Giao dịch thuật toán
+    title: Thuật toán cho giao dịch
 
   api:
     title: Các Khoá API
@@ -157,7 +157,7 @@ views:
     title: Cài Đặt
 
   verification:
-    title: Xác minh tài khoản của bạn
+    title: Xác minh tài khoản
 
   market:
     title: Thị trường
@@ -170,18 +170,18 @@ views:
   sidebar:
     market: "Thị trường:"
     menu: Menu
-    my_profile: Hồ Sơ Của Tôi
-    my_broker: Về chúng tôi
+    my_profile: Hồ sơ
+    my_broker: Về sàn giao dịch
     trading: Mua và Bán
     offerbook: Sổ khớp lệnh
-    ledger: Sổ cái
-    customers: Khách hàng của tôi
-    deposit_requests: Các lệnh gửi tiền
-    withdraw_requests: Các lệnh rút tiền
-    deposit: Lệnh gửi tiền của tôi
-    withdraw: Lệnh rút tiền của tôi
+    ledger: Sổ kế toán
+    customers: Khách hàng
+    deposit_requests: Lệnh gửi tiền của khách
+    withdraw_requests: Lệnh rút tiền của khách
+    deposit: Các lệnh gửi tiền
+    withdraw: Các lệnh rút tiền
     verification: Xác minh tài khoản của bạn
     support: Ý kiến & Hỗ trợ
     api: API
     logout: Thoát
-    algotrading: Algo Trading
+    algotrading: Thuật toán cho giao dịch

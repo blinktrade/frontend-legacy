@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "How long does a FIAT withdrawal take?"
+title:  "Mất bao lâu để rút tiền VNĐ?"
 date:   2014-11-07 00:21:00
 categories: vi faq
 ---

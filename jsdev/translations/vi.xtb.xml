@@ -39,7 +39,7 @@
     <translation id="1856248176118651420" key="MSG_31SMIXGT1F3" source="bitex/templates/templates.default.soy.js" desc="Amount label">Số tiền đã trả</translation>
     <translation id="9031595279213129125" key="MSG_H9PUZYZDIKU0" source="bitex/templates/templates.default.soy.js" desc="Fee percentage label">Các phí:</translation>
     <translation id="7746178583637852614" key="MSG_TJ6EOXYE7AYM" source="bitex/templates/templates.default.soy.js" desc="Net amount">Tổng</translation>
-    <translation id="7325004207525327143" key="MSG_JOQKUAHI9O8Z" source="bitex/templates/templates.default.soy.js" desc="Title for the Broker view">Sàn của tôi</translation>
+    <translation id="7325004207525327143" key="MSG_JOQKUAHI9O8Z" source="bitex/templates/templates.default.soy.js" desc="Title for the Broker view">Sàn giao dịch</translation>
     <translation id="4207630095317176089" key="MSG_1TI4K0AT1GKPJ" source="bitex/templates/templates.default.soy.js" desc="Terms of service section subtitle on Broker view">Điều khoản sử dụng</translation>
     <translation id="6241362437101811864" key="MSG_K0BWX8ZXUB0" source="bitex/templates/templates.default.soy.js" desc="label in broker general information table">Số điện thoại</translation>
     <translation id="6440404554676146532" key="MSG_1UH38TH122H29" source="bitex/templates/templates.default.soy.js" desc="label in broker general information table">P:</translation>
@@ -223,14 +223,14 @@
     <translation id="4563638762379287621" key="MSG_WITHDRAW_TABLE_DETAILS_COLUMN_EMAIL" source="bitex/ui/withdraw_list.js" desc="Withdraw column label in the  broker's withdraw list detail table">Email</translation>
     <translation id="1072672957102508248" key="MSG_WITHDRAW_TABLE_DETAILS_COLUMN_FEES" source="bitex/ui/withdraw_list.js" desc="Withdraw column label in the  broker's withdraw list detail table">Phí</translation>
     <translation id="6229978662785299543" key="MSG_WITHDRAW_TABLE_DETAILS_COLUMN_BTN_BLOCKCHAIN" source="bitex/ui/withdraw_list.js" desc="Withdraw qr button label in the  broker's withdraw list">blockchain</translation>
-    <translation id="6678887731950416965" key="MSG_WITHDRAW_TABLE_COLUMN_ACTION_CANCEL" source="bitex/ui/withdraw_list.js" desc="Withdraw cancel button label in the  broker's withdraw list">Huỷ</translation>
+    <translation id="6678887731950416965" key="MSG_WITHDRAW_TABLE_COLUMN_ACTION_CANCEL" source="bitex/ui/withdraw_list.js" desc="Withdraw cancel button label in the  broker's withdraw list">Đóng</translation>
     <translation id="5299373936372872959" key="MSG_WITHDRAW_TABLE_COLUMN_ACTION_PROGRESS" source="bitex/ui/withdraw_list.js" desc="Withdraw progress button label in the  broker's withdraw list">Đặt là đang xử lý</translation>
     <translation id="5951081948198827457" key="MSG_WITHDRAW_TABLE_COLUMN_ACTION_COMPLETE" source="bitex/ui/withdraw_list.js" desc="Withdraw progress button label in the  broker's withdraw list">Đặt là đã xong</translation>
     <translation id="1501102989867637435" key="MSG_WITHDRAW_LIST_TABLE_TITLE" source="bitex/ui/withdraw_list.js" desc="deposit table title">Rút tiền</translation>
     <translation id="4173641508368473927" key="MSG_WITHDRAW_LIST_SEARCH_PLACEHOLDER" source="bitex/ui/withdraw_list.js" desc="placeholder for the search input text">Tìm kiếm ...</translation>
     <translation id="5507515176589784622" key="MSG_WITHDRAW_LIST_BUTTON_FILTER_ALL" source="bitex/ui/withdraw_list.js" desc="All records button filter on withdrawal list">Tất cả</translation>
     <translation id="1552945495735851510" key="MSG_DIALOG_OK_" source="closure-library/closure/goog/ui/dialog.js" desc="Standard caption for the dialog 'OK' button.">OK</translation>
-    <translation id="5989508864997829374" key="MSG_DIALOG_CANCEL_" source="closure-library/closure/goog/ui/dialog.js" desc="Standard caption for the dialog 'Cancel' button.">Hủy</translation>
+    <translation id="5989508864997829374" key="MSG_DIALOG_CANCEL_" source="closure-library/closure/goog/ui/dialog.js" desc="Standard caption for the dialog 'Cancel' button.">Đóng</translation>
     <translation id="4693042058030758166" key="MSG_DIALOG_YES_" source="closure-library/closure/goog/ui/dialog.js" desc="Standard caption for the dialog 'Yes' button.">Có</translation>
     <translation id="3127360860193158075" key="MSG_DIALOG_NO_" source="closure-library/closure/goog/ui/dialog.js" desc="Standard caption for the dialog 'No' button.">Không</translation>
     <translation id="3952584928426997635" key="MSG_DIALOG_SAVE_" source="closure-library/closure/goog/ui/dialog.js" desc="Standard caption for the dialog 'Save' button.">Lưu trữ</translation>
@@ -240,12 +240,12 @@
     <translation id="4943261173627375487" key="MSG_158L0G110FYSY" source="bitex/ui/advanced_order_entry.default.soy.js" desc="Advanced Order Entry Label">Giá</translation>
     <translation id="8907473018378627785" key="MSG_F8AZEOYNA6HU" source="bitex/ui/withdraw_methods.default.soy.js" desc="Methods column header">Tiền tệ</translation>
     <translation id="1208420604808647569" key="MSG_VFE45R6QB9L1" source="bitex/ui/withdraw_method_editor.default.soy.js" desc="Method field header">Tên</translation>
-    <translation id="2713475938532410126" key="MSG_1OJ0R34RYC70H" source="bitex/ui/withdraw_method_editor.default.soy.js" desc="Method disclaimer label">Lưu ý</translation>
+    <translation id="2713475938532410126" key="MSG_1OJ0R34RYC70H" source="bitex/ui/withdraw_method_editor.default.soy.js" desc="Method disclaimer label">Ghi chú</translation>
     <translation id="5882308637178570512" key="MSG_R8WOS2HYIYYH" source="bitex/ui/withdraw_method_editor.default.soy.js" desc="Method field header">Các hành động</translation>
     <translation id="7525547849338831451" key="MSG_62FS6ZVKS4W5" source="bitex/ui/withdraw_methods.default.soy.js" desc="Method edit action">điều chỉnh</translation>
     <translation id="6103588105306733726" key="MSG_SFPPE7ETAZOJ" source="bitex/ui/withdraw_method_editor.default.soy.js" desc="Field delete action">xóa</translation>
     <translation id="3442789566007593788" key="MSG_YPZDSKDEKL3G" source="bitex/ui/withdraw_methods.default.soy.js" desc="Save withdraw_structure button">Lưu</translation>
-    <translation id="6791785466902623219" key="MSG_1UB3ITWI32AZC" source="bitex/ui/withdraw_methods.default.soy.js" desc="Cancel withdraw_structure button">Hủy</translation>
+    <translation id="6791785466902623219" key="MSG_1UB3ITWI32AZC" source="bitex/ui/withdraw_methods.default.soy.js" desc="Cancel withdraw_structure button">Đóng</translation>
     <translation id="737436912993099490" key="MSG_1N14G65TREHQ4" source="bitex/ui/withdraw_methods.default.soy.js" desc="Add withdraw method">Thêm phương thức rút tiền</translation>
     <translation id="5185994614932733962" key="MSG_199GICMZG8GE5" source="bitex/ui/withdraw_methods.default.soy.js" desc="Saving status message on the save withdraw structure">Đang lưu trữ...</translation>
     <translation id="5189544120001329713" key="MSG_EDIT_WITHDRAW_METHOD_DIALOG_TITLE" source="bitex/ui/withdraw_methods.js" desc="Edit Method dialog title">Điều chỉnh phương thức rút tiền</translation>
@@ -377,10 +377,10 @@
     <translation id="4917678248058952669" key="MSG_LEDGER_TRADE_DESCRIPTION" source="bitex/ui/ledger_activity.js" desc="Ledger trade  description">Giao dịch</translation>
     <translation id="3113961977394914654" key="MSG_LEDGER_TRADE_FEE_DESCRIPTION" source="bitex/ui/ledger_activity.js" desc="Ledger trade fee description">Phí giao dịch</translation>
     <translation id="3714376345944817837" key="MSG_LEDGER_TRADE_BONUS_DESCRIPTION" source="bitex/ui/ledger_activity.js" desc="Ledger trade  description">Thưởng</translation>
-    <translation id="7859929297688167758" key="MSG_LEDGER_ACTIVITY_TITLE" source="bitex/ui/ledger_activity.js" desc="deposit table title">Sổ cái</translation>
+    <translation id="7859929297688167758" key="MSG_LEDGER_ACTIVITY_TITLE" source="bitex/ui/ledger_activity.js" desc="deposit table title">Sổ kế toán</translation>
     <translation id="3327883171268820814" key="MSG_LEDGER_ACTIVITY_SEARCH_PLACEHOLDER" source="bitex/ui/ledger_activity.js" desc="placeholder for the search input text in the customers table">Tìm kiếm ...</translation>
     <translation id="1488008330998227698" key="MSG_LEDGER_TABLE_SEARCH_ALL_CURRENCIES" source="bitex/view/ledger.js" desc="All currencies filter label on ledger table filters">Tất cả các tiền tệ</translation>
-    <translation id="8443933915360722226" key="MSG_MY_CUSTOMERS_LABEL" source="bitex/view/ledger.js" desc="label on ledge filter">Khách hàng của tôi</translation>
+    <translation id="8443933915360722226" key="MSG_MY_CUSTOMERS_LABEL" source="bitex/view/ledger.js" desc="label on ledge filter">Khách hàng</translation>
     <translation id="1349757727940620067" key="MSG_USER_FEES_DIALOG_TITLE" source="bitex/view/account_overview.js" desc="user custom fees">Tuỳ chỉnh phí dịch vụ</translation>
     <translation id="7352468665642972762" key="MSG_VERIFICATION_DATA_DIALOG_TITLE" source="bitex/view/account_overview.js" desc="Verification Data Dialog content title">Nhập dữ liệu xác minh</translation>
     <translation id="6337512722019146814" key="MSG_ACCOUNT_OVERVIEW_DEPOSIT_DIFFERENT_DECLARED_PAID_VALUE" source="bitex/view/account_overview.js" desc="value abbrev title when paid value differs from declared value">tuyên bố / đã trả bằng <ph name="currencydesc" /></translation>
@@ -416,7 +416,7 @@
     <translation id="4019947527190654168" key="MSG_TRADE_HISTORY_COLUMN_SELLER" source="bitex/ui/trade_history.js" desc="Column Seller">Người bán</translation>
     <translation id="9186597034539830374" key="MSG_TRADE_HISTORY_COLUMN_SIDE_BUY" source="bitex/ui/trade_history.js" desc="Column Side Buy">Mua</translation>
     <translation id="6927559644053892614" key="MSG_TRADE_HISTORY_COLUMN_SIDE_SELL" source="bitex/ui/trade_history.js" desc="Column Side Sell">Bán</translation>
-    <translation id="3706778100100763851" key="MSG_TRADE_HISTORY_TABLE_TITLE" source="bitex/ui/trade_history.js" desc="last trades table title">Những giao dịch cuối</translation>
+    <translation id="3706778100100763851" key="MSG_TRADE_HISTORY_TABLE_TITLE" source="bitex/ui/trade_history.js" desc="last trades table title">Các giao dịch cuối</translation>
     <translation id="3255834482463686890" key="MSG_SUCCESS_PASSWORD_CHANGE" source="bitex/app/blinktrade.js" desc="Password changed message">Mật khẩu đã thay đổi!</translation>
     <translation id="2296265795818731255" key="MSG_BITEX_PASSWORD_CHANGED_OK_TITLE" source="bitex/app/blinktrade.js" desc="Password Chanced with success dialog title">Thành công</translation>
     <translation id="7313000283228766439" key="MSG_BITEX_ERROR_VALIDATE_REQUIRED" source="bitex/app/blinktrade.js" desc="Error Validade Required in Validators"><ph name="c" /> là bắt buộc</translation>
@@ -444,7 +444,7 @@
     <translation id="3323205535308057074" key="MSG_CURRENCY_WITHDRAW_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="Crypto Currency Withdraw accordion title"> Rút<ph name="currency" /></translation>
     <translation id="5378780252427031622" key="MSG_INVALID_WITHDRAWAL_AMOUNT_VALUE" source="bitex/app/blinktrade.js" desc="Invalid withdrawal amount notification message during the withdrawal.">Lượng rút không hợp lệ</translation>
     <translation id="1303722161788372191" key="MSG_FILE_VIEW_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="File view dialog title">Xem</translation>
-    <translation id="4410152437687815595" key="MSG_WITHDRAW_CANCEL_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="Cancel Withdraw dialog title">Huỷ lệnh rút</translation>
+    <translation id="4410152437687815595" key="MSG_WITHDRAW_CANCEL_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="Cancel Withdraw dialog title">Đóng</translation>
     <translation id="654854339816380160" key="MSG_WITHDRAW_IN_PROGRESS_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="Crypto Currency Withdraw accordion title">Đặt việc rút <ph name="currency" /> đang trong quá trình xử lý</translation>
     <translation id="7091694946380763121" key="MSG_CURRENCY_BROKER_WITHDRAW_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="Crypto Currency Withdraw accordion title">Xác nhận rút <ph name="currency" /></translation>
     <translation id="8436234120443762929" key="MSG_SEND_ORDER_NOTIFICATION_TITLE" source="bitex/app/blinktrade.js" desc="notification for send order request">Đang gửi đơn hàng...</translation>
@@ -456,11 +456,11 @@
     <translation id="1172621097575866779" key="MSG_CANCEL_ORDER_NOTIFICATION_TITLE" source="bitex/app/blinktrade.js" desc="notification for order cancel request">Đang huỷ đơn hàng...</translation>
     <translation id="8749545027873374962" key="MSG_SHOW_DEPOSIT_RECEIPT_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="Crypto Currency Withdraw deposit title">Mã đệ trình <ph name="submissionid" /></translation>
     <translation id="3193148586780403406" key="MSG_ENABLE_INSTANT_DEPOSIT_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="Enable instant deposit dialog title">Kích hoạt chế độ nạp <ph name="currency" /> tức thì?</translation>
-    <translation id="6127304771554563659" key="MSG_SHOW_QR_CURRENCY_DEPOSIT_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="Crypto Currency Withdraw deposit title">nạp <ph name="currency" /></translation>
-    <translation id="2225738943455464187" key="MSG_SHOW_QR_CURRENCY_WITHDRAW_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="Crypto Currency Withdraw withdraw title">rút <ph name="currency" /></translation>
-    <translation id="3830167277314814271" key="MSG_DEPOSIT_CANCEL_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="Cancel Deposit dialog title">Huỷ lệnh nạp</translation>
+    <translation id="6127304771554563659" key="MSG_SHOW_QR_CURRENCY_DEPOSIT_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="Crypto Currency Withdraw deposit title">Nạp <ph name="currency" /></translation>
+    <translation id="2225738943455464187" key="MSG_SHOW_QR_CURRENCY_WITHDRAW_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="Crypto Currency Withdraw withdraw title">Rút <ph name="currency" /></translation>
+    <translation id="3830167277314814271" key="MSG_DEPOSIT_CANCEL_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="Cancel Deposit dialog title">Đóng</translation>
     <translation id="7496906925365343434" key="MSG_DLG_TITLE_GET_DEPOSIT_PAID_VALUE" source="bitex/app/blinktrade.js" desc="Dialog title to get deposit paid value">Xác nhận lệnh nạp</translation>
-    <translation id="5545270625797886732" key="MSG_CURRENCY_DEPOSIT_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="Crypto Currency Withdraw accordion title">nạp <ph name="currency" /></translation>
+    <translation id="5545270625797886732" key="MSG_CURRENCY_DEPOSIT_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="Crypto Currency Withdraw accordion title">Nạp <ph name="currency" /></translation>
     <translation id="2835185174766852870" key="MSG_ERROR_SETTING_TWO_FACTOR" source="bitex/app/blinktrade.js" desc="Error message when user missed the google authentication code">Mã xác thực sai. Xin hãy chắc chắn rằng bạn đang sử dụng Google Authenticator và đồng hồ trên thiết bị di động của bạn được đồng bộ với máy chủ Google.</translation>
     <translation id="519289737641591893" key="MSG_TWO_STEPS_AUTHENTICATION_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="google authentication dialog title">Xác thực 2 lớp</translation>
     <translation id="4916739059107319469" key="MSG_LOGIN_ERROR_INVALID_PASSWORD" source="bitex/app/blinktrade.js" desc="Invalid Password error">Sai mật khẩu</translation>
@@ -525,7 +525,7 @@
     <translation id="4097867125891327840" key="MSG_1DCRPN6C26MFK" source="bitex/ui/api_key_data_entry.soy.js" desc="Permissions title on the API Key Data Entry form">Quyền hạn</translation>
     <translation id="8221320109503331239" key="MSG_P15ME0URVENZ" source="bitex/ui/api_key_data_entry.soy.js" desc="Account info permission label on API Key data entry">Thông tin tài khoản</translation>
     <translation id="32893510811895086" key="MSG_1G2D3SSXWBIXP" source="bitex/ui/api_key_data_entry.soy.js" desc="Order history permission label on API Key data entry">Lịch sử giao dịch</translation>
-    <translation id="7885402986186777649" key="MSG_BK0X30WFEP8V" source="bitex/ui/api_key_data_entry.soy.js" desc="Ledger permission label on API Key data entry">Sổ cái</translation>
+    <translation id="7885402986186777649" key="MSG_BK0X30WFEP8V" source="bitex/ui/api_key_data_entry.soy.js" desc="Ledger permission label on API Key data entry">Sổ kế toán</translation>
     <translation id="5717295994441381767" key="MSG_RYQ798MB9STJ" source="bitex/ui/api_key_data_entry.soy.js" desc="View withdrawals permission label on API Key data entry">Xem các lệnh rút</translation>
     <translation id="8577292470085430562" key="MSG_1J5HOYKOIBQJ6" source="bitex/ui/api_key_data_entry.soy.js" desc="Balance permission label on API Key data entry">Thông tin số dư</translation>
     <translation id="8164559352473894636" key="MSG_DJN3AO89TFEZ" source="bitex/ui/api_key_data_entry.soy.js" desc="View Deposits permission label on API Key data entry">Xem các lệnh nạp</translation>
