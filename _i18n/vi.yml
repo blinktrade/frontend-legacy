@@ -112,7 +112,7 @@ views:
       key: Khoá
       authentication_code: Mã xác thực
       authentication_code_title: Mã xác thực từ Google Authenticator
-      authentication_code_placeholder: "Ví dụ\: 123456"
+      authentication_code_placeholder:"Ví dụ\: 123456"
       enable: Bật
       disable: Tắt
 
