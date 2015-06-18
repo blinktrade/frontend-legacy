@@ -49,7 +49,7 @@
     <translation id="389040683792211882" key="MSG_1PQP8MMPC7OUU" source="bitex/templates/templates.default.soy.js" desc="Terms column on Broker fees table">Các điều khoản</translation>
     <translation id="4083962123418202335" key="MSG_K0Y568XBO457" source="bitex/templates/templates.default.soy.js" desc="label in broker fees table">Phí giao dịch</translation>
     <translation id="7988407278596949144" key="MSG_1EUOC0S6XQP59" source="bitex/templates/templates.default.soy.js" desc="label in broker fees table">Phí giao dịch - Bên mua</translation>
-    <translation id="5319657868832870009" key="MSG_1EIWBJ89JWMNN" source="bitex/templates/templates.default.soy.js" desc="label in broker fees table">PhíPhí giao dịch - Bên bán</translation>
+    <translation id="5319657868832870009" key="MSG_1EIWBJ89JWMNN" source="bitex/templates/templates.default.soy.js" desc="label in broker fees table">Phí giao dịch - Bên bán</translation>
     <translation id="5166194079944134474" key="MSG_IHWC3OGEO0UD" source="bitex/templates/templates.default.soy.js" desc="Wallet section subtitle on Broker view">Các Ví</translation>
     <translation id="532585968376213265" key="MSG_EL9R0Y7HTKQO" source="bitex/templates/templates.default.soy.js" desc="Coin  column on Broker wallet table">Coin</translation>
     <translation id="2591562700335263517" key="MSG_TQ0QDGYRUFFU" source="bitex/ui/withdraw_method_editor.default.soy.js" desc="Method field header">Loại</translation>
@@ -71,7 +71,7 @@
     <translation id="8213044356837963510" key="MSG_6JE4R9Y781NK" source="bitex/templates/templates.default.soy.js" desc="reason for cancelling withdraw">Số tiền vượt quá hạn mức rút tiền hàng ngày</translation>
     <translation id="3536993658239660954" key="MSG_SDGA57B1Y9B0" source="bitex/templates/templates.default.soy.js" desc="reason for cancelling withdraw">Người dùng có khoản tiền gửi chưa được xác minh</translation>
     <translation id="6376327837383665334" key="MSG_1BKBPN7XRIM9W" source="bitex/templates/templates.default.soy.js" desc="Google Authenticator code dialog label">Mã Google Authenticator:</translation>
-    <translation id="4021569976401467131" key="MSG_Q6RJ4FMS79HH" source="bitex/templates/templates.default.soy.js" desc="Limit table field header">Mã Google authenticator</translation>
+    <translation id="4021569976401467131" key="MSG_Q6RJ4FMS79HH" source="bitex/templates/templates.default.soy.js" desc="Limit table field header">Mã Google Authenticator</translation>
     <translation id="3847549940711760229" key="MSG_155HTFF2STTN5" source="bitex/templates/templates.default.soy.js" desc="Google Authenticator code placeholder">Ví dụ: 123456</translation>
     <translation id="7893066449411497446" key="MSG_YNP9NN2M0VCH" source="bitex/templates/templates.default.soy.js" desc="Withdraw confirmation dialog message">Chúng tôi vừa gửi một mã xác nhận tới địa chỉ email của bạn.</translation>
     <translation id="1812638279514663541" key="MSG_10XCH9IJOMPHM" source="bitex/templates/templates.default.soy.js" desc="Confirmation code placeholder on withdraw confirmation dialog">Mã xác nhận</translation>
@@ -441,11 +441,11 @@
     <translation id="7343510545245590739" key="MSG_NOTIFICATION_ORDER_PARTIALLY_FILLED" source="bitex/app/blinktrade.js" desc="- Partially filled notification message">đã khớp lệnh xong một phần</translation>
     <translation id="8525903415095588809" key="MSG_NOTIFICATION_ORDER_FILLED" source="bitex/app/blinktrade.js" desc="- filled notification message">đã khớp xong</translation>
     <translation id="7777482384987435001" key="MSG_NOTIFICATION_ORDER_CANCELLED" source="bitex/app/blinktrade.js" desc="- Canceled notification message">đã huỷ</translation>
-    <translation id="3323205535308057074" key="MSG_CURRENCY_WITHDRAW_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="Crypto Currency Withdraw accordion title">Rút <ph name="currency" /></translation>
+    <translation id="3323205535308057074" key="MSG_CURRENCY_WITHDRAW_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="Crypto Currency Withdraw accordion title"> Rút<ph name="currency" /></translation>
     <translation id="5378780252427031622" key="MSG_INVALID_WITHDRAWAL_AMOUNT_VALUE" source="bitex/app/blinktrade.js" desc="Invalid withdrawal amount notification message during the withdrawal.">Lượng rút không hợp lệ</translation>
     <translation id="1303722161788372191" key="MSG_FILE_VIEW_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="File view dialog title">Xem</translation>
     <translation id="4410152437687815595" key="MSG_WITHDRAW_CANCEL_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="Cancel Withdraw dialog title">Huỷ lệnh rút</translation>
-    <translation id="654854339816380160" key="MSG_WITHDRAW_IN_PROGRESS_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="Crypto Currency Withdraw accordion title">Đặt việc rút <ph name="currency" /> đang xử lý</translation>
+    <translation id="654854339816380160" key="MSG_WITHDRAW_IN_PROGRESS_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="Crypto Currency Withdraw accordion title">Đặt việc rút <ph name="currency" /> đang trong quá trình xử lý</translation>
     <translation id="7091694946380763121" key="MSG_CURRENCY_BROKER_WITHDRAW_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="Crypto Currency Withdraw accordion title">Xác nhận rút <ph name="currency" /></translation>
     <translation id="8436234120443762929" key="MSG_SEND_ORDER_NOTIFICATION_TITLE" source="bitex/app/blinktrade.js" desc="notification for send order request">Đang gửi đơn hàng...</translation>
     <translation id="8109791583857100985" key="MSG_SEND_ORDER_NOTIFICATION_SIDE_BUY" source="bitex/app/blinktrade.js" desc="notification for send order request">Mua</translation>
