@@ -36,12 +36,21 @@ exchanges:
     description: Buy and sell bitcoin in Romania
     keywords: Buy and sell bitcoin in Romania, bitcoin exchange in Romania, sell bitcoins in Romania, buy bitcoins in Romania
     lead: Buy and sell bitcoin in Romania
+  bitcoinvietnam:
+    title: BitcoinVietnam - Buy or sell bitcoins in Vietnam
+    description: Buy and sell bitcoin in Vietnam
+    keywords: Buy and sell bitcoin in Vietnam, bitcoin exchange in Vietnam, sell bitcoins in Vietnam, buy bitcoins in Vietnam
+    lead: Buy and sell bitcoin in Vietnam
   yuanbit:
     title: YuanBit.com - Buy or sell bitcoins in China
     description: Buy and sell bitcoin in China
     keywords: Buy and sell bitcoin in China, bitcoin exchange in China, sell bitcoins in China, buy bitcoins in China
     lead: Buy and sell bitcoin in China
 views:
+  footer:
+    latency: Latency
+    version: Version
+
   toolbar:
     faq: FAQ
     trading: Trading
