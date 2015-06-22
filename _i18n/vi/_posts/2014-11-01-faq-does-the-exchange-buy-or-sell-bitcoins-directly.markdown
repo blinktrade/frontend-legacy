@@ -1,12 +1,12 @@
 ---
 layout:     post
-title:      "Does the exchange buy/sell bitcoin directly?"
+title:      "Sàn có cho mua bán Bitcoin trực tiếp không?"
 date:       2014-11-01 00:04:00
 categories: vi faq
 ---
 
-No. We are providing a service. Think on the exchange like eBay, we are just providing a service where you can find buyers or sellers.
+Không, chúng tôi chỉ cung cấp một dịch vụ. Hãy suy nghĩ về một sàn giao dịch giống như eBay, chúng tôi chỉ cung cấp một dịch vụ mà bạn có thể tìm được người mua hoặc người bán.
 
-All we do is provide a safe and simple environment to trade with other users, that is all.
+Tất cả chúng tôi làm là cung cấp một môi trường an toàn và đơn giản để giao dịch với người khác, đó là tất cả.
 
-We guarantee that buyers get their bitcoins and sellers get their money at agreed price.
+Chúng tôi đảm bảo rằng người mua có được Bitcoin của họ và người bán nhận được tiền của họ ở mức giá như đã thoả thuận.

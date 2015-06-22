@@ -1,8 +1,8 @@
 ---
 layout:     post
-title:      "How to withdraw FIAT?"
+title:      "Làm sao để rút VNĐ?"
 date:       2014-11-07 00:10:00
 categories: vi faq
 ---
 
-As simple as the deposit process. Request a withdrawal in the main menu and a new window will appear showing the steps you have to follow. After specifying the amount and filling in the required information (account #, swift#...) the money will be sent to your account. Please be aware we apply applies a fee on every withdrawal.
+Việc rút tiền VNĐ cũng đơn giản như quá trình gửi tiền. Bạn đặt lệnh rút tiền trong menu chính và một cửa sổ mới sẽ xuất hiện hướng dẫn bạn các bước tiếp theo. Sau khi nhập số lượng tiền và điền vào các thông tin cần thiết khác (số tài khoản, thông tin ngân hàng, ...), số tiền sẽ được gửi tới tài khoản của bạn. Xin lưu ý rằng chúng tôi có áp dụng phí rút tiền VNĐ cho mỗi lần rút.

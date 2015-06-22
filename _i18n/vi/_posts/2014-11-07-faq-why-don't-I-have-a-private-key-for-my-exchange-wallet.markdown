@@ -1,8 +1,8 @@
 ---
 layout:     post
-title:      "why don't I have a private key for my exchange wallet?"
+title:      "Tại sao tôi không có khóa riêng cho Ví của tôi tại sàn giao dịch?"
 date:       2014-11-07 00:13:00
 categories: vi faq
 ---
 
-Our principle is that the bitcoins deposited in the exchange are there to be exchanged for your local currency. In consequence, to guarantee safety and speed in the trade, the exchange operator keeps possession of deposits either in FIAT and in BTC.
+Nguyên tắc của chúng tôi là số Bitcoin được nạp vào sàn giao dịch là để trao đổi với đồng nội tệ. Vì vậy, để đảm bảo an toàn và tốc độ trong giao dịch, sàn giao dịch sẽ lưu giữ các khoản tiền gửi VNĐ và BTC.
