@@ -23,6 +23,8 @@ load_application:       True
             {% t exchanges.foxbit.lead  %}
           {% when 'romaniabex' %}
             {% t exchanges.romaniabex.lead  %}
+          {% when 'bitcoinvietnam' %}
+            {% t exchanges.bitcoinvietnam.lead  %}
           {% else %}
             {% t exchanges.demo.lead  %}
           {% endcase %}
@@ -50,7 +52,7 @@ load_application:       True
     </div>
   </div>
 
-  <div id="faq" class="page row-fluid bitex-view">
+  <div id="faq" class="page row-fluid bitex-view" style="display: none">
     <div class="page-header">
       <h1 class="bitex-view-title">{% t views.faq.title %}</h1>
     </div>
@@ -81,7 +83,7 @@ load_application:       True
   </div>
 
   <!-- signup page-->
-  <div id="signup" class="page  row-fluid bitex-view">
+  <div id="signup" class="page  row-fluid bitex-view" style="display: none">
     <div class="page-header">
       <h1 class="bitex-view-title">{% t views.signup.title %}</h1>
     </div>
@@ -167,7 +169,7 @@ load_application:       True
   </div>
 
   <!-- signin page-->
-  <div id="signin" class="page  row-fluid bitex-view">
+  <div id="signin" class="page  row-fluid bitex-view" style="display: none">
     <div class="page-header">
       <h1 class="bitex-view-title">{% t views.signin.title %}</h1>
     </div>
@@ -196,7 +198,7 @@ load_application:       True
     </div>
   </div>
 
-  <div id="forgot_password" class="page row bitex-view">
+  <div id="forgot_password" class="page row bitex-view" style="display: none">
     <div class="page-header">
       <h1 class="bitex-view-title">{% t views.forgot_password.title %}</h1>
     </div>
@@ -216,7 +218,7 @@ load_application:       True
     </div>
   </div>
 
-  <div id="set_new_password" class="page  row bitex-view">
+  <div id="set_new_password" class="page  row bitex-view" style="display: none">
     <div class="page-header">
       <h1 class="bitex-view-title">{% t views.set_new_password.title %}</h1>
     </div>
@@ -620,7 +622,7 @@ load_application:       True
     </div>
   </div>
 
-  <div id="market" class="page row bitex-view">
+  <div id="market" class="page row bitex-view" style="display: none">
     <div class="row-fluid">
       <div class="page-header">
         <h2 class="bitex-view-title">{% t views.market.title %}</h2>
@@ -630,7 +632,7 @@ load_application:       True
     </div>
   </div>
 
-  <div id="themes" class="bitex-view container page">
+  <div id="themes" class="bitex-view container page" style="display: none">
     <div class="page-header ls-title-4">
         <h1 class="bitex-view-title">Themes</h1>
     </div>

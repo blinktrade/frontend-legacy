@@ -13,6 +13,8 @@
       <title>{% t exchanges.foxbit.title %}</title>
     {% when 'romaniabex' %}
       <title>{% t exchanges.romaniabex.title %}</title>
+    {% when 'bitcoinvietnam' %}
+      <title>{% t exchanges.bitcoinvietnam.title %}</title>
     {% else %}
       <title>{% t exchanges.demo.title %}</title>
   {% endcase %}
@@ -48,6 +50,11 @@
       <meta name="keywords" content="{% t exchanges.romaniabex.keywords %}">
       <meta property="og:title" content="{% t exchanges.romaniabex.title %}">
       <meta property="og:description" content="{% t exchanges.romaniabex.description %}">
+    {% when 'bitcoinvietnam' %}
+      <meta name="description" content="{% t exchanges.bitcoinvietnam.description %}">
+      <meta name="keywords" content="{% t exchanges.bitcoinvietnam.keywords %}">
+      <meta property="og:title" content="{% t exchanges.bitcoinvietnam.title %}">
+      <meta property="og:description" content="{% t exchanges.bitcoinvietnam.description %}">
     {% else %}
       <meta name="description" content="{% t exchanges.demo.description %}">
       <meta name="keywords" content="{% t exchanges.demo.keywords %}">
