@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Can I keep track of all my past activity in the platform?"
+title:  "Tôi có thể xem lại tất cả các hoạt động trong quá khứ của tôi trên sàn giao dịch chứ?"
 date:   2014-11-07 00:26:00
 categories: vi faq
 
-Yes. On the main menu go to “ledger” where a record of all the transactions is kept. You can also check your history of deposits and withdrawals by going to the main menu and clicking either on “deposits” or “withdrawals”.
+Có chứ. Trên menu chính, bạn ấn vào "Sổ Cái" - nơi ghi lại của tất cả các giao dịch của bạn. Bạn cũng có thể kiểm tra lịch sử các khoản tiền gửi và rút bằng cách vào menu chính và nhấp vào "Các lệnh gửi tiền" hay "Các lệnh rút tiền".

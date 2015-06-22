@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "Can I deposit funds from a bank account other than my own?"
+title:  "Tôi có thể gửi tiền từ tài khoản ngân hàng không phải của tôi không?"
 date:   2014-11-07 00:20:00
 categories: vi faq
 ---
 
-Yes. Users are able to deposit money from third party bank accounts as long as they provide a valid form of id and authentication.
+Có. Người dùng có thể gửi tiền từ tài khoản ngân hàng của bên thứ ba miễn là họ đã cung cấp tài liệu xác minh.

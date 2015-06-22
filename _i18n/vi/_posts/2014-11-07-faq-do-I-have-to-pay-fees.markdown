@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "Do I have to pay fees?"
+title:  "Tôi có phải trả phí không?"
 date:   2014-11-07 00:15:00
 categories: vi faq
 ---
 
-Yes, fees apply on FIAT deposits, FIAT withdrawals and trades. You don’t have to pay the exchange to deposit or withdraw BTC. Bitcoin fees apply to the blockchain.
+Có, lệ phí áp dụng đối với việc rút và gửi tiền VNĐ và giao dịch. Bạn không cần phải trả phí để gửi và rút BTC. Phí Bitcoin áp dụng đối với các blockchain là rất nhỏ.
