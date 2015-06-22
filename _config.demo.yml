@@ -24,7 +24,7 @@ embedded_chat_id : 4296  # embedded-chat.com
 markdown: kramdown
 
 
-languages: ["en_US", "es", "pt_BR", "ro", "zn_CN"]
+languages: ["en_US", "es", "pt_BR", "ro", "zn_CN", "vi"]
 
 exclude:     [ "jsdev", "LICENSE", "README.md", "config.rb", "deploy.sh", "build_javascript.sh" ]
 source:      .
