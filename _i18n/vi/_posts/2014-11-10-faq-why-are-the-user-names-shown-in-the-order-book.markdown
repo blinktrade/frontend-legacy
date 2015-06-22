@@ -1,24 +1,22 @@
 ---
 layout: post
-title:  "Why are the user names shown in the order book?"
+title:  "Tại sao tên người dùng lại xuất hiện trên sổ giao dịch?"
 date:   2014-11-07 00:28:00
 categories: vi faq
 ---
 
-We assign a random name for every single account. The name looks like something like this:  Rhino_899009
+Chúng tôi sẽ chỉ định một tên ngẫu nhiên cho mỗi tài khoản. Thay vì sử dụng tên thật của người dùng, chúng tôi sẽ đặt cho họ 1 tên ngẫu nhiên.Tên có thể đặt như: Rhino_899009.
 
-So, instead of publishing the actual name of the user, we are publishing a random name.
+Tính bảo mật của người dùng sẽ được bảo đảm miễn là người dùng không tiết lộ mối liên quan giữa tên thật và tên được đặt ngẫu nhiên đó. Đây là trách nhiệm của người dùng để bảo vệ chính sự riêng tư của họ.
 
-This protects the user's privacy as long as he doesn't reveal the link between his real name and the randomly generated name. It is the user's responsibility to protect his own privacy.
+Tại sao chúng tôi không giấu mọi thông tin của người dùng, bao gồm cả tên được đặt ngẫu nhiên?
 
-Why are we not hiding all the information, including the random name?
+Có rất nhiều lý do giải thích cho việc này nhưng chúng tôi sẽ nêu ra những lý do quan trọng nhất: 
 
-There are a lot of reasons behind this. I will name the most important:
+1 - Điều này tránh việc thao túng thị trường, như Chạy Trước (Front-running), Bơm và Đẩy (Pump And Dump), và các loại thao túng khác. Bạn có thể thử, nhưng mọi người sẽ biết ngay lập tức và sẽ không thực hiện theo việc thao túng đó. Về cơ bản, việc thao túng thị trường sẽ làm mất tiền của họ, vì vậy mọi người sẽ không để cho việc lũng đoạn thị trường xảy ra.
 
-1 - This avoids market manipulations, like FrontRunning, PumpAndDump, and other manipulations. You can try, but people would catch you instantly and would not follow the manipulators.  Essentially, the market manipulators would lose their money because people would be able to catch the manipulation very easily.
+2 - Điều này giúp cho việc xây dựng danh tiếng của người dùng. Trong trường hợp chính phủ cấm đoán Bitcoin, chúng tôi sẽ chuyển đổi VBTC thành một sàn giao dịch P2P, vì vậy danh tiếng của người dùng sẽ vô cùng quan trọng.
 
-2 - Help to build reputation, remember, in case of a government BAN on bitcoins, we will turn surbitcoin into a P2P market, therefore, reputation will be extremely important.
+3 - Nó cho phép người dùng có thể kiểm tra sàn giao dịch. Điều này sẽ sẽ giúp cho VBTC chứng minh khả năng thanh toán của mình một cách công khai  mà không cần đến một kiểm toán viên có thể dễ dàng bị mua chuộc.
 
-3 - It allows users to audit the "exchange operator". This will help SurBitcoin operators to prove its solvency to the public without a need of an auditor who can be easily bought.
-
-I understand that most of the exchanges today don't publish this, that is why we see a lot of market manipulations out there, and also a lot of scammers who just want to rob bitcoins from their customers (I am not talking about the big exchanges, I am talking about a lot of small bitcoin exchanges that already closed their doors because they claimed they were hacked)
+Chúng tôi hiểu rằng hầu hết các sàn giao dịch ngày nay không công bố điều này, đó là lý do tại sao chúng ta thấy rất nhiều hành vi lũng đoạn thị trường, và cũng có rất nhiều kẻ lừa đảo chỉ muốn cướp Bitcoin từ khách hàng của họ (Chúng tôi không nói về những sàn giao dịch lớn. Chúng tôi đang nói về rất nhiều sàn giao dịch Bitcoin nhỏ mà đã bị đóng cửa của sau khi tuyên bố họ đã bị hack)

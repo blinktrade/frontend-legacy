@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "How long does a BTC deposit take?"
+title:  "Bao lâu sau khi gửi Bitcoin thì sàn nhận được?"
 date:   2014-11-07 00:18:00
 categories: vi faq
 ---
 
-As long as the blockchain network takes to confirm the transaction. Usually no longer than 10 minutes.  For deposits higher than 2 BTC, we require 3 confirmations that can take up to 30 minutes. And for amounts higher than 10 BTC, we require of 6 confirmations that can take up to 60 minutes.
+Chúng tôi sẽ cần đợi mạng lưới Blockchain xác nhận giao dịch. Thông thường quá trình này diễn ra dưới 10 phút. Đối với những khoản nạp có giá trị cao hơn 2 BTC, chúng tôi sẽ cần 3 lớp xác nhận và việc này có thể mất tới 30 phút. Nếu bạn nạp nhiều hơn 10 BTC, chúng tôi cần đợi 6 lớp xác nhận và có thể mất tới 60 phút.

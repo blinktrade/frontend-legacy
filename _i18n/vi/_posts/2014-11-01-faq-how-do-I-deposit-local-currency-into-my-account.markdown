@@ -1,8 +1,8 @@
 ---
 layout:     post
-title:      "How do I deposit local currency into my account?"
+title:      "Làm thế nào để gửi tiền nội tệ vào tài khoản của tôi?"
 date:       2014-11-07 00:08:00
 categories: vi faq
 ---
 
-On the main menu, click on “Deposit local currency” and a new window will appear. You will have to specify the amount of FIAT you want to deposit in order to buy bitcoins. Have in mind that the broker will charge you a fee every time you wish to make a deposit. In a deposit of $800 with a fee of 1.65% you will see $786.8 credited on your balance.
+Trên menu chính, sau khi bấm vào "Gửi tiền", một cửa sổ mới sẽ xuất hiện. Bạn sẽ phải xác định số lượng tiền mặt bạn muốn gửi để mua Bitcoin. Lưu ý rằng chúng tôi sẽ thu phí mỗi lần bạn muốn thực hiện một khoản tiền gửi. Ví dụ: Nếu bạn gửi 1,000,000 VNĐ và phí gửi tiền là 1%, bạn sẽ thấy số dư 990,000 VNĐ trong tài khoản của bạn.
