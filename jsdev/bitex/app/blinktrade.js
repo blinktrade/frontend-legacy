@@ -3899,7 +3899,7 @@ bitex.app.BlinkTrade.prototype.onConnectionOpen_ = function(e){
   goog.dom.classes.remove( document.body, 'bitex-non-broker' );
 
   this.conn_.testRequest();
-  this.conn_.requestSecurityList();
+  this.conn_.requestSecurityList('BLINK');
   this.conn_.requestBrokerList();
 
   // auto login in case of the user reconnecting
