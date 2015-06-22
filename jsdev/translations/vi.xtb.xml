@@ -140,7 +140,7 @@
     <translation id="5529309137315212879" key="MSG_1V8N1LUW94VG7" source="bitex/ui/advanced_order_entry.default.soy.js" desc="Total label in Order Entry">Tổng số:</translation>
     <translation id="2091645730166778520" key="MSG_1AWVKJHC0CZUU" source="bitex/templates/templates.default.soy.js" desc="'Fee (optional):' label in Order Entry">Phí (tùy chọn):</translation>
     <translation id="1011824685427913445" key="MSG_ADRG7VPM68ZJ" source="bitex/ui/advanced_order_entry.default.soy.js" desc="Advanced Order Entry Label">Mã khách hàng</translation>
-    <translation id="871552816493203847" key="MSG_INVALID_USERNAME" source="bitex/view/singup.js" desc="Validation erro on SignUp view">Tên người dùng không hợp lệ</translation>
+    <translation id="871552816493203847" key="MSG_INVALID_USERNAME" source="bitex/view/singup.js" desc="Validation erro on SignUp view">Tên đăng nhập không hợp lệ</translation>
     <translation id="472117013575644560" key="MSG_INVALID_EMAIL" source="bitex/view/singup.js" desc="Validation erro on SignUp view">Email không hợp lệ</translation>
     <translation id="4598631873929240186" key="MSG_INVALID_PASSWORD" source="bitex/view/singup.js" desc="Validation error on SignUp view">Mật khẩu phải có ít nhất 8 ký tự</translation>
     <translation id="8590240215221332548" key="MSG_PASSWORDS_DOES_NOT_MATCH" source="bitex/view/singup.js" desc="Validation error on SignUp view">Mật khẩu xác nhận không trùng khớp</translation>
