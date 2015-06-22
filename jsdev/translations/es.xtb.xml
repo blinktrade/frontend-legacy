@@ -550,4 +550,5 @@
 	<translation id="6008759521787611905" key="MSG_API_KEY_CREATED_DIALOG_TITLE" source="bitex/view/api.js" desc="title of the API Key created dialog">API Key Created</translation>
 	<translation id="8114088530100369765" key="MSG_LEDGER_MMP_DESCRIPTION" source="bitex/ui/ledger_activity.js" desc="Market maker point description on ledger activity">Point</translation>
 	<translation id="7068794892202282855" key="MSG_MY_CUSTOMERS_ACCOUNT_PORTFOLIO_LABEL" source="bitex/view/side_bar.js" desc="Portfolio caption on the accounts view">PORTFOLIO</translation>
+	<translation id="7514728368249936102" key="MSG_D2MJEU825AR9" source="bitex/templates/templates.soy.js" desc="Secured with BitGO">Asegurado con BitGo</translation>
 </translationbundle>

@@ -550,4 +550,5 @@
 	<translation id="7068794892202282855" key="MSG_MY_CUSTOMERS_ACCOUNT_PORTFOLIO_LABEL" source="bitex/view/side_bar.js" desc="Portfolio caption on the accounts view">PORTFOLIO</translation>
 	<translation id="6936423882009760858" key="MSG_NOTIFICATION_ORDER_REJECTED" source="bitex/app/blinktrade.js" desc="- Rejected notification message">rejected - <ph name="err" /></translation>
 	<translation id="1320132447258696985" key="MSG_SEND_ORDER_NOTIFICATION_CONTENT" source="bitex/app/blinktrade.js" desc="notification for send order request"><ph name="side" /> <ph name="amount" /> @ <ph name="price" /></translation>
+	<translation id="7514728368249936102" key="MSG_D2MJEU825AR9" source="bitex/templates/templates.soy.js" desc="Secured with BitGO">擔保與</translation>
 </translationbundle>
