@@ -55,8 +55,8 @@ views:
     faq: Hỏi & Đáp
     trading: Giao dịch
     market: Thị trường
-    signin: Đăng ký
-    signup: Đăng nhập
+    signin: Đăng nhập
+    signup: Đăng ký
     connect: Kết nối
 
   start:
@@ -75,12 +75,12 @@ views:
     login: Đăng nhập
     username: Tên đăng nhập
     email: Địa chỉ Email
-    email_placeholder: "Ví dụ: phuong@gmail.com"
+    email_placeholder: "Ví dụ: ngoctrinh@gmail.com"
     password: Mật khẩu
     password_help: Ít nhất 8 ký tự
-    confirm_password: Xác nhận mật khẩu của bạn
+    confirm_password: Xác nhận mật khẩu
     country: Quốc gia
-    state: Tỉnh/Thành Phố
+    state: Tỉnh/Thành phố
     broker: Broker
     terms_of_service: Điều Khoản Sử Dụng
     i_agree_with_terms_of_service: Tôi đồng ý với các điều khoản dịch vụ
@@ -121,10 +121,10 @@ views:
       disable: Tắt
 
   trading:
-    title: Mua hoặc Bán
+    title: Mua và Bán
 
   offerbook:
-    title: Sổ khớp lệnh
+    title: Sổ lệnh
     cumulative: Lũy kế
     fees: Phí
 
@@ -154,7 +154,7 @@ views:
     title: Thuật toán cho giao dịch
 
   api:
-    title: Các Khoá API
+    title: Các khoá API
     new_api_key: Khoá API Mới
 
   settings:
@@ -177,7 +177,7 @@ views:
     my_profile: Hồ sơ
     my_broker: Về sàn giao dịch
     trading: Mua và Bán
-    offerbook: Sổ khớp lệnh
+    offerbook: Sổ lệnh
     ledger: Sổ kế toán
     customers: Khách hàng
     deposit_requests: Lệnh gửi tiền của khách
