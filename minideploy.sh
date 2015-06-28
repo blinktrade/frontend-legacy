@@ -1,31 +1,35 @@
 #!/bin/bash
 
 if [ $# -ge 1 ]; then
-	LANGUAGE=$1
+	LANG=$1
 else
-	echo "Fast deployment script - only build default theme"
+	echo "Mini deployment script - build & deploy single theme for single language"
 	echo
-	echo "Syntax: ./minideploy.sh [language]"
+	echo "Syntax: ./minideploy.sh [language] [theme=default]"
 	echo "e.g. ./minideploy.sh vi"
 	exit 1
 fi
 
-echo "Deploying $LANGUAGE ..."
+THEME=default
+if [ $# -ge 2 ]; then
+	THEME=$2
+fi
 
+echo "Deploying $LANG using theme $THEME..."
 git checkout gh-pages
 git pull 
 git checkout master
 ln -s _config.bitcoinvietnam.testnet.yml  _config.yml
 
-echo "Building javascript..."
+echo "Building static resources..."
 cd jsdev
-LANG=$LANGUAGE THEME=default sh build_release.sh
-echo "done"
+sh build_release.sh
 cd ../
 
-git commit -am "Release $LANGUAGE - mini"
+git commit -am "Released $LANG with theme $THEME"
 ./deploy.sh gh-pages ""
 git push origin gh-pages
-git checkout HEAD
+git checkout gh-pages
 git branch -D master
 git checkout master
+echo "Done!"
