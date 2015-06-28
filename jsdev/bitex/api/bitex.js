@@ -178,6 +178,8 @@ bitex.api.BitEx.EventType = {
   MARKET_DATA_INCREMENTAL_REFRESH: 'md_incremental_refresh',
   MARKET_DATA_REQUEST_REJECT: 'md_request_reject',
 
+  LINE_OF_CREDIT_LIST_RESPONSE: 'line_of_credit_list_response',
+
   TRADING_SESSION_STATUS: 'md_status',
   TRADE: 'trade',
   TRADE_CLEAR: 'trade_clear',
@@ -571,6 +573,11 @@ bitex.api.BitEx.prototype.onMessage_ = function(e) {
     case 'U55': // APIKeyRevoke Response
       this.dispatchEvent( new bitex.api.BitExEvent( bitex.api.BitEx.EventType.API_KEY_REVOKE_RESPONSE + '.' + msg['APIKeyRevokeReqID'], msg) );
       this.dispatchEvent( new bitex.api.BitExEvent( bitex.api.BitEx.EventType.API_KEY_REVOKE_RESPONSE, msg ) );
+      break;
+
+    case 'U61': // Line of Credit List Response
+      this.dispatchEvent( new bitex.api.BitExEvent( bitex.api.BitEx.EventType.LINE_OF_CREDIT_LIST_RESPONSE + '.' + msg['LineOfCreditListReqID'], msg) );
+      this.dispatchEvent( new bitex.api.BitExEvent( bitex.api.BitEx.EventType.LINE_OF_CREDIT_LIST_RESPONSE, msg ) );
       break;
 
     case 'B1': // Process Deposit Response
@@ -1835,6 +1842,28 @@ bitex.api.BitEx.prototype.revokeAPIKey = function(api_key, opt_requestId){
   return requestId;
 };
 
+/**
+ * Requests the list of all API Keys
+ * @param {number=} opt_page. Defaults to 0
+ * @param {number=} opt_limit. Defaults to 100
+ * @param {number|string=} opt_requestId
+ */
+bitex.api.BitEx.prototype.requestLineOfCreditList = function(opt_page, opt_limit, opt_requestId){
+  var requestId = opt_requestId || parseInt( 1e7 * Math.random() , 10 );
+  var page = opt_page || 0;
+  var limit = opt_limit || 100;
+
+  var msg = {
+    'MsgType': 'U60',
+    'LineOfCreditListReqID': requestId,
+    'Page': page,
+    'PageSize': limit
+  };
+
+  this.sendMessage(msg);
+
+  return requestId;
+};
 
 
 
@@ -1909,6 +1938,8 @@ goog.exportProperty(BitEx.prototype, 'testRequest', bitex.api.BitEx.prototype.te
 goog.exportProperty(BitEx.prototype, 'requestAPIKeyList', bitex.api.BitEx.prototype.requestAPIKeyList);
 goog.exportProperty(BitEx.prototype, 'requestCreateAPIKey', bitex.api.BitEx.prototype.requestCreateAPIKey);
 goog.exportProperty(BitEx.prototype, 'revokeAPIKey', bitex.api.BitEx.prototype.revokeAPIKey);
+
+goog.exportProperty(BitEx.prototype, 'requestLineOfCreditList', bitex.api.BitEx.prototype.requestLineOfCreditList);
 
 goog.exportProperty(BitEx.prototype, 'addEventListener', bitex.api.BitEx.prototype.addEventListener);
 goog.exportProperty(BitEx.prototype, 'removeEventListener', bitex.api.BitEx.prototype.removeEventListener);

@@ -78,6 +78,7 @@ goog.require('bitex.view.LedgerView');
 goog.require('bitex.view.ProfileView');
 goog.require('bitex.view.RankingView');
 goog.require('bitex.view.APIView');
+goog.require('bitex.view.LineOfCreditView');
 
 goog.require('uniform.Uniform');
 goog.require('uniform.Meta');               // Switch according to the test($MODULE_NAME$)
@@ -378,6 +379,7 @@ bitex.app.BlinkTrade.prototype.run = function(host_api) {
   var ledgerView          = new bitex.view.LedgerView(this);
   var profileView         = new bitex.view.ProfileView(this);
   var apiView             = new bitex.view.APIView(this);
+  var lineOfCreditView    = new bitex.view.LineOfCreditView(this);
   var brokerApplicationView= new bitex.view.NullView(this);
 
   this.views_.addChild( toolBarView         );
@@ -404,6 +406,7 @@ bitex.app.BlinkTrade.prototype.run = function(host_api) {
   this.views_.addChild( rankingView         );
   this.views_.addChild( ledgerView          );
   this.views_.addChild( apiView             );
+  this.views_.addChild( lineOfCreditView    );
   this.views_.addChild( profileView          , false);
   this.views_.addChild( brokerApplicationView);
 
@@ -441,6 +444,7 @@ bitex.app.BlinkTrade.prototype.run = function(host_api) {
   this.router_.addView( '(ledger)'                      , ledgerView          );
   this.router_.addView( '(profile)'                     , profileView         );
   this.router_.addView( '(api)'                         , apiView             );
+  this.router_.addView( '(line_of_credit)'              , lineOfCreditView    );
   this.router_.addView( '(broker_application)'          , brokerApplicationView);
 
   var handler = this.getHandler();
@@ -476,9 +480,6 @@ bitex.app.BlinkTrade.prototype.run = function(host_api) {
 
   handler.listen( this.conn_, bitex.api.BitEx.EventType.ORDER_LIST_RESPONSE + '.' + this.open_orders_request_id_, this.onBitexOrderListResponse_);
   handler.listen( this.conn_ , bitex.api.BitEx.EventType.EXECUTION_REPORT, this.onBitexExecutionReport_);
-
-  handler.listen( this.conn_, bitex.api.BitEx.EventType.RAW_MESSAGE, goog.bind(  this.onBitexRawMessageLogger_, this, 'rx' ) );
-  handler.listen( this.conn_, bitex.api.BitEx.EventType.SENT_RAW_MESSAGE, goog.bind(  this.onBitexRawMessageLogger_, this, 'tx' )  );
 
   handler.listen( this.conn_, bitex.api.BitEx.EventType.VERIFY_CUSTOMER_UPDATE, this.onBitexVerifyCustomerUpdate_ );
 
@@ -721,30 +722,6 @@ bitex.app.BlinkTrade.prototype.onUpdateBalance_ = function(e) {
     this.getModel().set('AvailableBalance', available_balance);
   }
 };
-
-
-/**
- * logger
- * @param {string} action
- * @param {bitex.api.BitExEvent} e
- * @private
- */
-bitex.app.BlinkTrade.prototype.onBitexRawMessageLogger_ = function(action, e) {
-  var raw_msg = e.data;
-  try {
-    var msg = JSON.parse(e.data);
-    if ( goog.isDefAndNotNull(msg) ) {
-      if (msg['MsgType'] != '0' && msg['MsgType'] != '1') {
-        console.log(action + ':' + raw_msg);
-      }
-    }
-  }catch(e){
-    try {
-      console.log(action + ':' + raw_msg);
-    } catch(e) {}
-  }
-};
-
 
 bitex.app.BlinkTrade.prototype.onBitexWithdrawConfirmationResponse_ = function(e) {
   var msg = e.data;
@@ -1206,78 +1183,6 @@ bitex.app.BlinkTrade.prototype.onBitexOrderListResponse_ = function(e) {
 };
 
 /**
- *
- * @param {Object} execution_report
- * @param {Object=} opt_current_order
- */
-bitex.app.BlinkTrade.prototype.adjustLockedBalance_ = function(execution_report, opt_current_order){
-  var currency;
-  var is_buy_order = (execution_report['Side'] == '1');
-  var is_sell_order = (execution_report['Side'] == '2');
-
-  var new_volume = 0;
-  var current_volume = 0;
-
-  if (is_buy_order) {
-    currency = this.conn_.getPriceCurrencyFromSymbol(execution_report['Symbol']);
-    new_volume = parseInt(execution_report['LeavesQty'] * execution_report['Price'] / 1e8, 10 );
-    if (goog.isDefAndNotNull(opt_current_order)) {
-      current_volume =  parseInt(opt_current_order['LeavesQty'] * opt_current_order['Price'] / 1e8, 10);
-    }
-  } else if (is_sell_order) {
-    currency = this.conn_.getQtyCurrencyFromSymbol(execution_report['Symbol']);
-    new_volume = parseInt(execution_report['LeavesQty'], 10);
-    if (goog.isDefAndNotNull(opt_current_order)) {
-      current_volume =  parseInt(opt_current_order['LeavesQty'], 10);
-    }
-  }
-
-  var locked_balance = this.getModel().get('LockedBalance');
-  if (!goog.isDefAndNotNull(locked_balance)) {
-    locked_balance = {};
-    locked_balance[this.getModel().get('SelectedBrokerID')] = {};
-    locked_balance[this.getModel().get('SelectedBrokerID')][this.getModel().get('UserID')] = {};
-  }
-
-  var current_locked_balance = locked_balance[this.getModel().get('SelectedBrokerID')][this.getModel().get('UserID')][currency];
-  if (!goog.isDefAndNotNull(current_locked_balance)) {
-    current_locked_balance = 0;
-  }
-  current_locked_balance +=  (new_volume-current_volume);
-  locked_balance[this.getModel().get('SelectedBrokerID')][ this.getModel().get('UserID')][currency] = current_locked_balance;
-  this.getModel().set('LockedBalance',locked_balance);
-
-
-  var balance_broker = this.getModel().get('balance_' + this.getModel().get('SelectedBrokerID'));
-  if (!goog.isDefAndNotNull(balance_broker)) {
-    balance_broker = {};
-  }
-  var currency_locked_balance_key = currency + '_locked';
-  var currency_balance_locked = {};
-  currency_balance_locked[currency_locked_balance_key] = locked_balance[this.getModel().get('SelectedBrokerID')][ this.getModel().get('UserID')][currency];
-  goog.object.extend(balance_broker, currency_balance_locked );
-  this.getModel().set('balance_' + this.getModel().get('SelectedBrokerID'), balance_broker);
-
-
-  var locked_balance_key = 'locked_balance_' +
-      this.getModel().get('SelectedBrokerID') + ':' + this.getModel().get('UserID') + '_'  + currency;
-
-  if (this.getModel().get( locked_balance_key ) != current_locked_balance) {
-
-    // Update all running algorithms.
-    var running_algorithms = this.getModel().get('RunningAlgorithms');
-    goog.object.forEach(running_algorithms, function( running_algorithm) {
-      var worker = running_algorithm['worker'];
-      var balance_message= {};
-      balance_message[currency + '_locked' ] =  current_locked_balance;
-      worker.postMessage( { 'req': 'balance', 'balances': balance_message } );
-    }, this);
-
-    this.getModel().set( locked_balance_key , current_locked_balance);
-  }
-};
-
-/**
  * @param {Object} execution_report
  */
 bitex.app.BlinkTrade.prototype.processExecutionReport_ = function(execution_report) {
@@ -1289,7 +1194,6 @@ bitex.app.BlinkTrade.prototype.processExecutionReport_ = function(execution_repo
   var should_update_open_order_index_model = false;
   if (execution_report['LeavesQty'] == 0) {
     if (goog.array.binaryRemove( open_orders, execution_report['ClOrdID'] )) {
-      this.adjustLockedBalance_(execution_report, this.getModel().get('order_' + execution_report['ClOrdID']));
       this.getModel().remove('order_' + execution_report['ClOrdID']);
       should_update_open_order_index_model = true;
     }
@@ -1297,10 +1201,7 @@ bitex.app.BlinkTrade.prototype.processExecutionReport_ = function(execution_repo
     var idx_open_order = goog.array.binarySearch( open_orders, execution_report['ClOrdID']  );
     if (idx_open_order < 0 ) {
       goog.array.binaryInsert(open_orders, execution_report['ClOrdID'] ) ;
-      this.adjustLockedBalance_(execution_report);
       should_update_open_order_index_model = true;
-    } else {
-      this.adjustLockedBalance_(execution_report, this.getModel().get('order_' + execution_report['ClOrdID']));
     }
     this.getModel().set('order_' + execution_report['ClOrdID'], execution_report);
   }
@@ -1444,18 +1345,46 @@ bitex.app.BlinkTrade.prototype.onBitexBalanceResponse_ = function(e) {
   }, this);
 
   var model_balances = this.getModel().get('Balance');
+  var changed_balance = false;
   goog.object.forEach(msg, function( balances, brokerID ) {
     goog.object.forEach(balances, function( balance, currency ) {
-      if (!goog.isDefAndNotNull(model_balances[brokerID])) {
-        model_balances[brokerID] = {};
+      if ( ! goog.string.endsWith(currency, '_locked') ) {
+        if (!goog.isDefAndNotNull(model_balances[brokerID])) {
+          model_balances[brokerID] = {};
+        }
+        if (!goog.isDefAndNotNull(model_balances[brokerID][clientID])) {
+          model_balances[brokerID][clientID] = {};
+        }
+        model_balances[brokerID][clientID][currency] = balance;
+        changed_balance = true;
       }
-      if (!goog.isDefAndNotNull(model_balances[brokerID][clientID])) {
-        model_balances[brokerID][clientID] = {};
-      }
-      model_balances[brokerID][clientID][currency] = balance;
     }, this);
   },this);
-  this.getModel().set('Balance', model_balances);
+  if (changed_balance) {
+    this.getModel().set('Balance', model_balances);
+  }
+
+  changed_locked_balance = false;
+  model_locked_balances = this.getModel().get('LockedBalance');
+  goog.object.forEach(msg, function( locked_balances, brokerID ) {
+    goog.object.forEach(locked_balances, function( locked_balance, currency ) {
+      if ( goog.string.endsWith(currency, '_locked') ) {
+        currency = goog.string.remove(currency, '_locked');
+
+        if (!goog.isDefAndNotNull(model_locked_balances[brokerID])){
+          model_locked_balances[brokerID] = {};
+        }
+        if (!goog.isDefAndNotNull(model_locked_balances[brokerID][clientID])) {
+          model_locked_balances[brokerID][clientID] = {};
+        }
+        model_locked_balances[brokerID][clientID][currency] = locked_balance;
+        changed_locked_balance = true;
+      }
+    }, this);
+  },this);
+  if (changed_locked_balance) {
+    this.getModel().set('LockedBalance', model_locked_balances);
+  }
 };
 
 /**
@@ -3198,6 +3127,8 @@ bitex.app.BlinkTrade.prototype.onUserLoginOk_ = function(e) {
   this.getModel().set('IsVerified',       msg['Profile']['Verified'] > 1);
   this.getModel().set('IsMissingVerification', msg['Profile']['Verified'] == 0);
   this.getModel().set('IsAccountBlocked', msg['Profile']['Verified'] < 0);
+  this.getModel().set('HasLineOfCredit',  msg['HasLineOfCredit']);
+
 
   var broker_currencies = new goog.structs.Set();
   var allowed_markets = {};

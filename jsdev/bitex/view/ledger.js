@@ -55,7 +55,7 @@ bitex.view.LedgerView.prototype.destroyComponents_ = function( ) {
                      this.onLedgerTableRequestData_);
 
     handler.unlisten(this.getApplication().getBitexConnection(),
-                     bitex.api.BitEx.EventType.ORDER_LIST_RESPONSE,
+                     bitex.api.BitEx.EventType.LEDGER_LIST_RESPONSE + '.' + this.request_id_,
                      this.onLedgerListResponse_);
 
   }
