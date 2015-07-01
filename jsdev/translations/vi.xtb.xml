@@ -551,4 +551,16 @@
     <translation id="8114088530100369765" key="MSG_LEDGER_MMP_DESCRIPTION" source="bitex/ui/ledger_activity.js" desc="Market maker point description on ledger activity">Điểm</translation>
     <translation id="7068794892202282855" key="MSG_MY_CUSTOMERS_ACCOUNT_PORTFOLIO_LABEL" source="bitex/view/side_bar.js" desc="Portfolio caption on the accounts view">TẬP HỒ SƠ</translation>
 	<translation id="7514728368249936102" key="MSG_D2MJEU825AR9" source="bitex/templates/templates.soy.js" desc="Secured with BitGO">An toàn nhờ</translation>
+	<translation id="892585674532597696" key="MSG_1NGKVBAM29IJ3" source="bitex/ui/withdraw_method_editor.soy.js" desc="Method Costs label">Costs</translation>
+	<translation id="49313873871068883" key="MSG_1H5SH7TTI51BJ" source="bitex/ui/withdraw_method_editor.soy.js" desc="Percent cost placeholder">Percent cost</translation>
+	<translation id="3772542480897804564" key="MSG_6R5RE6NZLUSG" source="bitex/ui/withdraw_method_editor.soy.js" desc="Fixed cost placeholder">Fixed cost</translation>
+	<translation id="6108562551060734397" key="MSG_LINE_OF_CREDIT_TABLE_COLUMN_ID" source="bitex/ui/line_of_credit_table.js" desc="Column ID of the Line Of Credit Table">ID</translation>
+	<translation id="2566009228354708097" key="MSG_LINE_OF_CREDIT_TABLE_COLUMN_DATE_TIME" source="bitex/ui/line_of_credit_table.js" desc="Column  Date / Time of the Line Of Credit Table">Date/Time</translation>
+	<translation id="458865512257788320" key="MSG_LINE_OF_CREDIT_TABLE_COLUMN_CURRENCY" source="bitex/ui/line_of_credit_table.js" desc="Column Currency of the Line Of Credit Table">Currency</translation>
+	<translation id="4070084430190309752" key="MSG_LINE_OF_CREDIT_TABLE_COLUMN_PROVIDER_NAME" source="bitex/ui/line_of_credit_table.js" desc="Column Provider of the Line Of Credit Table">Provider</translation>
+	<translation id="4959995829714235236" key="MSG_LINE_OF_CREDIT_TABLE_COLUMN_BALANCE" source="bitex/ui/line_of_credit_table.js" desc="Column Balance of the Line Of Credit Table">Balance</translation>
+	<translation id="5169660997893273157" key="MSG_LINE_OF_CREDIT_TABLE_COLUMN_LIMIT" source="bitex/ui/line_of_credit_table.js" desc="Column Limit of the Line Of Credit Table">Limit</translation>
+	<translation id="3421148008785641730" key="MSG_LINE_OF_CREDIT_TABLE_COLUMN_DESCRIPTION" source="bitex/ui/line_of_credit_table.js" desc="Column Description of the Line Of Credit Table">Description</translation>
+	<translation id="6542796556014274980" key="MSG_LINE_OF_CREDIT_TITLE" source="bitex/ui/line_of_credit_table.js" desc="deposit table title">Line of Credit</translation>
+	<translation id="6068856490456338408" key="MSG_LEDGER_WITHDRAW_FEE_DISCOUNT_DESCRIPTION" source="bitex/ui/ledger_activity.js" desc="Ledger withdraw fee discount description">Discount on the withdrawal fee</translation>
 </translationbundle>
