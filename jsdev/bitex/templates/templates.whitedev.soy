@@ -323,9 +323,9 @@
                     {if $crypto_currencies['CurrencyCode'] == 'BTC' }
                       {switch $wallets['address'][0]}
                         {case 'm','n','2','9','c'}
-                          <a href="https://test-insight.bitpay.com/address/{$wallets['address']}/" target="_blank">{$wallets['address'] }</a>
+                          <a href="https://www.blocktrail.com/tBTC/address/{$wallets['address']}/" target="_blank">{$wallets['address'] }</a>
                         {default}
-                          <a href="https://blockchain.info/address/{$wallets['address']}/" target="_blank">{$wallets['address'] }</a>
+                          <a href="https://www.blocktrail.com/BTC/address/{$wallets['address']}/" target="_blank">{$wallets['address'] }</a>
                       {/switch}
                     {else}
                       {$wallets['address'] }
@@ -901,6 +901,7 @@
   * @param netValueID
   * @param hideNetAmount
   * @param? verificationLevel
+  * @param? netAmountLabel
   */
 {template .DepositWithdrawDialogContent}
   <form class="form-horizontal" data-deposit-status="prepare" data-uniform-control-holder-class="control-group">
@@ -1023,7 +1024,13 @@
               </li>
 
               <li {if $hideNetAmount} style="display:none;" {/if} >
-                <label class="control-label">{msg desc="Net amount"}Net amount{/msg}</label>
+                <label class="control-label">
+                {if $netAmountLabel}
+                  {$netAmountLabel}
+                {else}
+                  {msg desc="Net amount"}Net amount{/msg}
+                {/if}
+                :</label>
                 <label id="{$method['method']}_{$netValueID}" class="control-label" style="text-align: left;"></label>
                 <input id="{$method['method']}_{$netValueID}_value" type="hidden" value="">
                 <input id="{$method['method']}_{$netValueID}_validator" type="hidden" value=""

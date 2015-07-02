@@ -565,4 +565,23 @@
 	<translation id="3421148008785641730" key="MSG_LINE_OF_CREDIT_TABLE_COLUMN_DESCRIPTION" source="bitex/ui/line_of_credit_table.js" desc="Column Description of the Line Of Credit Table">Description</translation>
 	<translation id="6542796556014274980" key="MSG_LINE_OF_CREDIT_TITLE" source="bitex/ui/line_of_credit_table.js" desc="deposit table title">Line of Credit</translation>
 	<translation id="6068856490456338408" key="MSG_LEDGER_WITHDRAW_FEE_DISCOUNT_DESCRIPTION" source="bitex/ui/ledger_activity.js" desc="Ledger withdraw fee discount description">Discount on the withdrawal fee</translation>
+	<translation id="5064090507118055748" key="MSG_NET_AMOUNT_LABEL_TOTAL" source="bitex/app/blinktrade.js" desc="NetAmount &quot;Total&quot; Label on DepositWithdrawDialogContent">Total</translation>
+	<translation id="2003940443726065382" key="MSG_NET_AMOUNT_LABEL_NET_AMOUNT" source="bitex/app/blinktrade.js" desc="NetAmount &quot;Net amount&quot; Label on DepositWithdrawDialogContent">Sumă net</translation>
+	<translation id="1887376413975021327" key="MSG_WITHDRAW_TABLE_DETAILS_COLUMN_KYC" source="bitex/ui/withdraw_list.js" desc="Withdraw column label in the  broker's withdraw list detail table">KYC</translation>
+	<translation id="879371268304831999" key="MSG_WITHDRAW_VIEW_KYC_BUTTON_LABEL" source="bitex/ui/withdraw_list.js" desc="KYC View buttom label on withdrawal list">view</translation>
+	<translation id="1303465093157491884" key="MSG_WITHDRAW_TABLE_DETAILS_COLUMN_ACCT_TYPE" source="bitex/ui/withdraw_list.js" desc="Withdraw column label in the  broker's withdraw list detail table">Account Type</translation>
+	<translation id="1564209753795595379" key="MSG_WITHDRAW_FIELD_ACCT_NUMBER" source="bitex/app/blinktrade.js" desc="Withdraw field on the withdrawal dialog">Account number</translation>
+	<translation id="8089421723645896781" key="MSG_WITHDRAW_FIELD_ACCT_HOLDER" source="bitex/app/blinktrade.js" desc="Withdraw field on the withdrawal dialog">Account holder name</translation>
+	<translation id="9136238999830571266" key="MSG_WITHDRAW_FIELD_BANK_NAME" source="bitex/app/blinktrade.js" desc="Withdraw field on the withdrawal dialog">Bank name</translation>
+	<translation id="910870140585727361" key="MSG_WITHDRAW_FIELD_BANK_NUMBER" source="bitex/app/blinktrade.js" desc="Withdraw field on the withdrawal dialog">Bank number</translation>
+	<translation id="4420425121038723553" key="MSG_WITHDRAW_FIELD_CPF_CNPJ" source="bitex/app/blinktrade.js" desc="Withdraw field on the withdrawal dialog">CPF or CNPJ</translation>
+	<translation id="5103257087398798751" key="MSG_WITHDRAW_FIELD_ACCT_BRANCH" source="bitex/app/blinktrade.js" desc="Withdraw field on the withdrawal dialog">Account branch</translation>
+	<translation id="4172735211817266902" key="MSG_WITHDRAW_FIELD_ROUTING_NUMBER" source="bitex/app/blinktrade.js" desc="Withdraw field on the withdrawal dialog">Routing number</translation>
+	<translation id="7593986995671721225" key="MSG_WITHDRAW_FIELD_BANK_SWIFT" source="bitex/app/blinktrade.js" desc="Withdraw field on the withdrawal dialog">Bank Swift</translation>
+	<translation id="3861593375277819251" key="MSG_WITHDRAW_FIELD_EMAIL" source="bitex/app/blinktrade.js" desc="Withdraw field on the withdrawal dialog">Email</translation>
+	<translation id="692832065730079517" key="MSG_WITHDRAW_FIELD_ACCT_TYPE" source="bitex/app/blinktrade.js" desc="Withdraw field on the withdrawal dialog">Account Type</translation>
+	<translation id="8449988747453020863" key="MSG_WITHDRAW_FIELD_WALLET" source="bitex/app/blinktrade.js" desc="Withdraw field on the withdrawal dialog">Wallet</translation>
+	<translation id="5463654649482678315" key="MSG_WITHDRAW_FIELD_LINK" source="bitex/app/blinktrade.js" desc="Withdraw field on the withdrawal dialog">Broker receipt</translation>
+	<translation id="7233428290426397527" key="MSG_WITHDRAW_FIELD_TRANSACTION_ID" source="bitex/app/blinktrade.js" desc="Withdraw field on the withdrawal dialog">Transaction ID</translation>
+	<translation id="3755444255097815322" key="MSG_WITHDRAW_FIELD_KYC" source="bitex/app/blinktrade.js" desc="Withdraw field on the withdrawal dialog">KYC</translation>
 </translationbundle>

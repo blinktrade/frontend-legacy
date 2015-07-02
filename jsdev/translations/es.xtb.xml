@@ -213,9 +213,9 @@
   <translation id="6566808226824153897" key="MSG_WITHDRAW_TABLE_WALLET_KEY" source="bitex/ui/withdraw_list.js" desc="Withdraw qr button label in the  broker's withdraw list">Cartera</translation>
   <translation id="2744083615131574296" key="MSG_WITHDRAW_TABLE_DETAILS_COLUMN_BTN_QR" source="bitex/ui/withdraw_list.js" desc="Withdraw qr button label in the  broker's withdraw list">QR</translation>
   <translation id="1146045944393811148" key="MSG_WITHDRAW_TABLE_DETAILS_COLUMN_ACCT_NUMBER" source="bitex/ui/withdraw_list.js" desc="Withdraw column label in the  broker's withdraw list detail table">Número de cuenta</translation>
-  <translation id="4713095484265476739" key="MSG_WITHDRAW_TABLE_DETAILS_COLUMN_ACCT_HOLDER" source="bitex/ui/withdraw_list.js" desc="Withdraw column label in the  broker's withdraw list detail table">Nombre del titular de la cuenta</translation>
-  <translation id="3699817409321125141" key="MSG_WITHDRAW_TABLE_DETAILS_COLUMN_BANK_NAME" source="bitex/ui/withdraw_list.js" desc="Withdraw column label in the  broker's withdraw list detail table">Nombre de la entidad bancaria</translation>
-  <translation id="582652967234376249" key="MSG_WITHDRAW_TABLE_DETAILS_COLUMN_BANK_NUMBER" source="bitex/ui/withdraw_list.js" desc="Withdraw column label in the  broker's withdraw list detail table">Código banco</translation>
+  <translation id="4713095484265476739" key="MSG_WITHDRAW_TABLE_DETAILS_COLUMN_ACCT_HOLDER" source="bitex/ui/withdraw_list.js" desc="Withdraw column label in the  broker's withdraw list detail table">Nombre del titular</translation>
+  <translation id="3699817409321125141" key="MSG_WITHDRAW_TABLE_DETAILS_COLUMN_BANK_NAME" source="bitex/ui/withdraw_list.js" desc="Withdraw column label in the  broker's withdraw list detail table">Nombre del banco</translation>
+  <translation id="582652967234376249" key="MSG_WITHDRAW_TABLE_DETAILS_COLUMN_BANK_NUMBER" source="bitex/ui/withdraw_list.js" desc="Withdraw column label in the  broker's withdraw list detail table">Código del banco</translation>
   <translation id="2403944730202502817" key="MSG_WITHDRAW_TABLE_DETAILS_COLUMN_CPF_CNPJ" source="bitex/ui/withdraw_list.js" desc="Withdraw column label in the  broker's withdraw list detail table">CPF o CNPJ</translation>
   <translation id="3569242221589361104" key="MSG_WITHDRAW_TABLE_DETAILS_COLUMN_ACCT_BRANCH" source="bitex/ui/withdraw_list.js" desc="Withdraw column label in the  broker's withdraw list detail table">Número de la oficina bancaria</translation>
   <translation id="2877290349390693815" key="MSG_WITHDRAW_TABLE_DETAILS_COLUMN_ROUTING_NUMBER" source="bitex/ui/withdraw_list.js" desc="Withdraw column label in the  broker's withdraw list detail table">Número routing</translation>
@@ -563,4 +563,23 @@
 	<translation id="3421148008785641730" key="MSG_LINE_OF_CREDIT_TABLE_COLUMN_DESCRIPTION" source="bitex/ui/line_of_credit_table.js" desc="Column Description of the Line Of Credit Table">Descripción</translation>
 	<translation id="6542796556014274980" key="MSG_LINE_OF_CREDIT_TITLE" source="bitex/ui/line_of_credit_table.js" desc="deposit table title">Línea de crédito</translation>
 	<translation id="6068856490456338408" key="MSG_LEDGER_WITHDRAW_FEE_DISCOUNT_DESCRIPTION" source="bitex/ui/ledger_activity.js" desc="Ledger withdraw fee discount description">Descuento en la tasa de retiro</translation>
+	<translation id="5064090507118055748" key="MSG_NET_AMOUNT_LABEL_TOTAL" source="bitex/app/blinktrade.js" desc="NetAmount &quot;Total&quot; Label on DepositWithdrawDialogContent">Total</translation>
+	<translation id="2003940443726065382" key="MSG_NET_AMOUNT_LABEL_NET_AMOUNT" source="bitex/app/blinktrade.js" desc="NetAmount &quot;Net amount&quot; Label on DepositWithdrawDialogContent">Valor neto</translation>
+	<translation id="1887376413975021327" key="MSG_WITHDRAW_TABLE_DETAILS_COLUMN_KYC" source="bitex/ui/withdraw_list.js" desc="Withdraw column label in the  broker's withdraw list detail table">KYC</translation>
+	<translation id="879371268304831999" key="MSG_WITHDRAW_VIEW_KYC_BUTTON_LABEL" source="bitex/ui/withdraw_list.js" desc="KYC View buttom label on withdrawal list">view</translation>
+	<translation id="1303465093157491884" key="MSG_WITHDRAW_TABLE_DETAILS_COLUMN_ACCT_TYPE" source="bitex/ui/withdraw_list.js" desc="Withdraw column label in the  broker's withdraw list detail table">Tipo de cuenta</translation>
+	<translation id="1564209753795595379" key="MSG_WITHDRAW_FIELD_ACCT_NUMBER" source="bitex/app/blinktrade.js" desc="Withdraw field on the withdrawal dialog">Número de cuenta</translation>
+	<translation id="8089421723645896781" key="MSG_WITHDRAW_FIELD_ACCT_HOLDER" source="bitex/app/blinktrade.js" desc="Withdraw field on the withdrawal dialog">Nombre del titular</translation>
+	<translation id="9136238999830571266" key="MSG_WITHDRAW_FIELD_BANK_NAME" source="bitex/app/blinktrade.js" desc="Withdraw field on the withdrawal dialog">Nombre del banco</translation>
+	<translation id="910870140585727361" key="MSG_WITHDRAW_FIELD_BANK_NUMBER" source="bitex/app/blinktrade.js" desc="Withdraw field on the withdrawal dialog">Código del banco</translation>
+	<translation id="4420425121038723553" key="MSG_WITHDRAW_FIELD_CPF_CNPJ" source="bitex/app/blinktrade.js" desc="Withdraw field on the withdrawal dialog">CPF or CNPJ</translation>
+	<translation id="5103257087398798751" key="MSG_WITHDRAW_FIELD_ACCT_BRANCH" source="bitex/app/blinktrade.js" desc="Withdraw field on the withdrawal dialog">Número de la oficina bancaria</translation>
+	<translation id="4172735211817266902" key="MSG_WITHDRAW_FIELD_ROUTING_NUMBER" source="bitex/app/blinktrade.js" desc="Withdraw field on the withdrawal dialog">Número routing</translation>
+	<translation id="7593986995671721225" key="MSG_WITHDRAW_FIELD_BANK_SWIFT" source="bitex/app/blinktrade.js" desc="Withdraw field on the withdrawal dialog">Código swift</translation>
+	<translation id="3861593375277819251" key="MSG_WITHDRAW_FIELD_EMAIL" source="bitex/app/blinktrade.js" desc="Withdraw field on the withdrawal dialog">Correo electrónico</translation>
+	<translation id="692832065730079517" key="MSG_WITHDRAW_FIELD_ACCT_TYPE" source="bitex/app/blinktrade.js" desc="Withdraw field on the withdrawal dialog">Tipo de cuenta</translation>
+	<translation id="8449988747453020863" key="MSG_WITHDRAW_FIELD_WALLET" source="bitex/app/blinktrade.js" desc="Withdraw field on the withdrawal dialog">Cartera</translation>
+	<translation id="5463654649482678315" key="MSG_WITHDRAW_FIELD_LINK" source="bitex/app/blinktrade.js" desc="Withdraw field on the withdrawal dialog">Comprovante</translation>
+	<translation id="7233428290426397527" key="MSG_WITHDRAW_FIELD_TRANSACTION_ID" source="bitex/app/blinktrade.js" desc="Withdraw field on the withdrawal dialog">ID de la transacción</translation>
+	<translation id="3755444255097815322" key="MSG_WITHDRAW_FIELD_KYC" source="bitex/app/blinktrade.js" desc="Withdraw field on the withdrawal dialog">KYC</translation>
 </translationbundle>

@@ -91,11 +91,61 @@ goog.require('uniform.Validators');         // Switch according to the test($MOD
 var MSG_SUCCESS_PASSWORD_CHANGE = goog.getMsg('Password changed!');
 
 /**
-* @desc Password Chanced with success dialog title
-*/
+ * @desc Password Chanced with success dialog title
+ */
 var MSG_BITEX_PASSWORD_CHANGED_OK_TITLE = goog.getMsg('Success');
 
+/**
+ * @desc NetAmount "Total" Label on DepositWithdrawDialogContent
+ */
+var MSG_NET_AMOUNT_LABEL_TOTAL = goog.getMsg('Total');
 
+/**
+ * @desc NetAmount "Net amount" Label on DepositWithdrawDialogContent
+ */
+var MSG_NET_AMOUNT_LABEL_NET_AMOUNT = goog.getMsg('Net amount');
+
+/**  @desc Withdraw field on the withdrawal dialog */
+var MSG_WITHDRAW_FIELD_ACCT_NUMBER  = goog.getMsg('Account number');
+
+/**  @desc Withdraw field on the withdrawal dialog */
+var MSG_WITHDRAW_FIELD_ACCT_HOLDER  = goog.getMsg('Account holder name');
+
+/**  @desc Withdraw field on the withdrawal dialog */
+var MSG_WITHDRAW_FIELD_BANK_NAME  = goog.getMsg('Bank name');
+
+/**  @desc Withdraw field on the withdrawal dialog */
+var MSG_WITHDRAW_FIELD_BANK_NUMBER  = goog.getMsg('Bank number');
+
+/**  @desc Withdraw field on the withdrawal dialog */
+var MSG_WITHDRAW_FIELD_CPF_CNPJ  = goog.getMsg('CPF or CNPJ');
+
+/**  @desc Withdraw field on the withdrawal dialog */
+var MSG_WITHDRAW_FIELD_ACCT_BRANCH = goog.getMsg('Account branch');
+
+/**  @desc Withdraw field on the withdrawal dialog */
+var MSG_WITHDRAW_FIELD_ROUTING_NUMBER = goog.getMsg('Routing number');
+
+/**  @desc Withdraw field on the withdrawal dialog */
+var MSG_WITHDRAW_FIELD_BANK_SWIFT = goog.getMsg('Bank Swift');
+
+/**  @desc Withdraw field on the withdrawal dialog */
+var MSG_WITHDRAW_FIELD_EMAIL = goog.getMsg('Email');
+
+/**  @desc Withdraw field on the withdrawal dialog */
+var MSG_WITHDRAW_FIELD_ACCT_TYPE = goog.getMsg('Account Type');
+
+/**  @desc Withdraw field on the withdrawal dialog */
+var MSG_WITHDRAW_FIELD_WALLET = goog.getMsg('Wallet');
+
+/**  @desc Withdraw field on the withdrawal dialog */
+var MSG_WITHDRAW_FIELD_LINK = goog.getMsg('Broker receipt');
+
+/**  @desc Withdraw field on the withdrawal dialog */
+var MSG_WITHDRAW_FIELD_TRANSACTION_ID = goog.getMsg('Transaction ID');
+
+/**  @desc Withdraw field on the withdrawal dialog */
+var MSG_WITHDRAW_FIELD_KYC = goog.getMsg('KYC');
 
 /**
  * @param {number=} broker_id
@@ -1517,6 +1567,63 @@ bitex.app.BlinkTrade.prototype.showWithdrawalDialog = function(currency){
       withdrawal_method['fixed_fee'] = user_withdrawal_fixed_fee;
     }
 
+    if (this.getModel().get('IsMSB')) {
+      withdrawal_method['fields'].push({"side":"client",
+                                         "name": "KYC",
+                                         "validator":"required",
+                                         "type":"text",
+                                         "value":"",
+                                         "label":"KYC",
+                                         "placeholder":"https://link/user_kyc"});
+    }
+
+    goog.array.forEach(withdrawal_method['fields'], function(field) {
+      switch(field["name"]){
+        case 'AccountNumber':
+          field["label"] = MSG_WITHDRAW_FIELD_ACCT_NUMBER;
+          break;
+        case 'KYC':
+          field["label"] = MSG_WITHDRAW_FIELD_KYC;
+          break;
+        case 'Link':
+          field["Link"] = MSG_WITHDRAW_FIELD_LINK;
+          break;
+        case 'TransactionID':
+          field["TransactionID"] = MSG_WITHDRAW_FIELD_TRANSACTION_ID;
+          break;
+        case 'Wallet':
+          field["Wallet"] = MSG_WITHDRAW_FIELD_WALLET;
+          break;
+        case 'BankName':
+          field["label"] = MSG_WITHDRAW_FIELD_BANK_NAME;
+          break;
+        case 'BankNumber':
+          field["label"] = MSG_WITHDRAW_FIELD_BANK_NUMBER;
+          break;
+        case 'CPF_CNPJ':
+          field["label"] = MSG_WITHDRAW_FIELD_CPF_CNPJ;
+          break;
+        case 'AccountType':
+          field["label"] = MSG_WITHDRAW_FIELD_ACCT_TYPE;
+          break;
+        case 'AccountBranch':
+          field["label"] = MSG_WITHDRAW_FIELD_ACCT_BRANCH;
+          break;
+        case 'AccountName':
+          field["label"] = MSG_WITHDRAW_FIELD_ACCT_HOLDER;
+          break;
+        case 'RoutingNumber':
+          field["label"] = MSG_WITHDRAW_FIELD_ROUTING_NUMBER;
+          break;
+        case 'BankSwift':
+          field["label"] = MSG_WITHDRAW_FIELD_BANK_SWIFT;
+          break;
+        case 'Email':
+          field["label"] = MSG_WITHDRAW_FIELD_EMAIL;
+          break;
+      }
+    }, this);
+
     var withdrawal_limit;
     var withdrawal_limit_index;
     for (withdrawal_limit_index = user_verification_level; withdrawal_limit_index>=0;withdrawal_limit_index--) {
@@ -1572,7 +1679,8 @@ bitex.app.BlinkTrade.prototype.showWithdrawalDialog = function(currency){
     percentFeeID: percent_fee_element_id,
     totalFeesID: total_fees_element_id,
     netValueID: net_value_element_id,
-    hideNetAmount:false
+    hideNetAmount:false,
+    netAmountLabel:MSG_NET_AMOUNT_LABEL_TOTAL
   });
 
   /**
@@ -1599,7 +1707,7 @@ bitex.app.BlinkTrade.prototype.showWithdrawalDialog = function(currency){
           currency,
           method_id + '_' + total_fees_element_id,
           method_id + '_' + net_value_element_id,
-          false,  // opt_add_fees
+          true,   // opt_add_fees
           true,   // opt_is_fixed_fee_in_satoshis
           false,  // opt_is_fixed_fee_formatted
           false,  // opt_is_amount_in_satoshis
@@ -1647,20 +1755,21 @@ bitex.app.BlinkTrade.prototype.showWithdrawalDialog = function(currency){
             e.preventDefault();
             return;
           }
+          amount = parseInt(amount * 1e8, 10);
 
           var pos = [0];
           var net_amount_el_value_id = withdraw_data['Method'] + '_' + net_value_element_id + '_value';
           var net_amount_value = parseInt(goog.dom.forms.getValue( goog.dom.getElement(net_amount_el_value_id)),10);
 
           withdraw_data['Fees'] =
-              goog.dom.getTextContent(goog.dom.getElement(withdraw_data['Method'] + '_' + total_fees_element_id) );
+              goog.dom.getTextContent(goog.dom.getElement(withdraw_data['Method'] + '_' + total_fees_element_id));
           delete withdraw_data['Amount'];
 
           var method = withdraw_data['Method']; delete withdraw_data['Method'];
           var currency = withdraw_data['Currency']; delete withdraw_data['Currency'];
 
           this.conn_.requestWithdraw( e.target.getRequestId(),
-                                      net_amount_value,
+                                      amount,
                                       method,
                                       currency,
                                       withdraw_data );
@@ -1970,7 +2079,8 @@ bitex.app.BlinkTrade.prototype.onBrokerProcessWithdraw_ = function(e){
       percentFeeID: percent_fee_element_id,
       totalFeesID: total_fees_element_id,
       netValueID: net_value_element_id,
-      hideNetAmount:false
+      hideNetAmount:false,
+      netAmountLabel:MSG_NET_AMOUNT_LABEL_NET_AMOUNT
     });
 
     /**
@@ -2427,7 +2537,7 @@ bitex.app.BlinkTrade.prototype.doCalculateFees_ = function(amount_element_id,
   var net_amount = parseInt(amount - total_fees,10);
   if (add_fees) {
     net_amount = parseInt((amount / ( 100. - percent_fee_value ) * 100) + total_fixed_fee_value,10);
-    total_fees = parseInt(amount - net_amount,10);
+    total_fees = parseInt(net_amount - amount,10);
   }
 
   if (goog.isDefAndNotNull(opt_fee_value_element_id)) {
@@ -2847,7 +2957,8 @@ bitex.app.BlinkTrade.prototype.showDepositDialog = function(currency,
                                                                       percentFeeID: percent_fee_element_id,
                                                                       totalFeesID: total_fees_element_id,
                                                                       netValueID: net_value_element_id,
-                                                                      hideNetAmount:false
+                                                                      hideNetAmount:false,
+                                                                      netAmountLabel:MSG_NET_AMOUNT_LABEL_NET_AMOUNT
                                                                     });
 
 
@@ -3127,6 +3238,7 @@ bitex.app.BlinkTrade.prototype.onUserLoginOk_ = function(e) {
   this.getModel().set('IsVerified',       msg['Profile']['Verified'] > 1);
   this.getModel().set('IsMissingVerification', msg['Profile']['Verified'] == 0);
   this.getModel().set('IsAccountBlocked', msg['Profile']['Verified'] < 0);
+  this.getModel().set('IsMSB',            msg['IsMSB']);
   this.getModel().set('HasLineOfCredit',  msg['HasLineOfCredit']);
 
 
