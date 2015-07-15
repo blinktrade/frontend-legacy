@@ -231,8 +231,10 @@ bitex.view.SideBarView.prototype.enterDocument = function() {
 
     goog.dom.removeChildren(goog.dom.getElement('id_instrument_1'));
     goog.array.forEach(msg['Instruments'], function( instrument) {
-      var el = goog.dom.createDom('option', {'value': instrument['Symbol'] }, instrument['Description']);
-      goog.dom.appendChild( goog.dom.getElement('id_instrument_1'), el );
+      if (instrument['Market'] == 'BLINK') {
+        var el = goog.dom.createDom('option', {'value': instrument['Symbol'] }, instrument['Description']);
+        goog.dom.appendChild( goog.dom.getElement('id_instrument_1'), el );
+      }
     }, this);
 
   },this);

@@ -906,7 +906,7 @@
   * @param netValueID
   * @param hideNetAmount
   * @param? verificationLevel
-  * @param? netAmountLabel
+  * @param netAmountLabel
   */
 {template .DepositWithdrawDialogContent}
   <form class="form-horizontal" data-deposit-status="prepare" data-uniform-control-holder-class="control-group">
@@ -1035,11 +1035,7 @@
               </div>
 
               <div class="control-group" {if $hideNetAmount} style="display:none;" {/if} >
-                <label class="control-label net-amount">{if $netAmountLabel}
-                  {$netAmountLabel}
-                {else}
-                  {msg desc="Net amount"}Net amount{/msg}
-                {/if}:</label>
+                <label class="control-label net-amount">{$netAmountLabel}:</label>
                 <div class="controls">
                   <label id="{$method['method']}_{$netValueID}" class="control-label net-amount" style="text-align: left;"></label>
                   <input id="{$method['method']}_{$netValueID}_value" type="hidden" value="">
@@ -1126,7 +1122,7 @@
             </div>
 
             <div class="control-group" {if $hideNetAmount} style="display:none;" {/if}>
-              <label class="control-label net-amount">{msg desc="Net amount"}Net amount{/msg}</label>
+              <label class="control-label net-amount">{$netAmountLabel}:</label>
               <div class="controls">
                 <label id="{$method['method']}_{$netValueID}" class="control-label net-amount broker-confirm-deposit-net-amount" style="text-align: left;"></label>
                 <input id="{$method['method']}_{$netValueID}_value" type="hidden" value="">

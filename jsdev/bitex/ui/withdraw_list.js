@@ -319,6 +319,7 @@ bitex.ui.WithdrawList = function( methodDescriptionObj, opt_broker_mode,  opt_sh
                     key_description = MSG_WITHDRAW_TABLE_DETAILS_COLUMN_BANK_NUMBER;
                     break;
                   case 'CPF_CNPJ':
+                  case 'CPFCNPJ':
                     key_description = MSG_WITHDRAW_TABLE_DETAILS_COLUMN_CPF_CNPJ;
                     break;
                   case 'AccountType':

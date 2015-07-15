@@ -63,7 +63,6 @@ bitex.ui.LockedBalanceDisplay.prototype.enterDocument = function() {
  * @param {string} currency
  */
 bitex.ui.LockedBalanceDisplay.prototype.setBuyCurrency = function(currency){
-  console.log(currency);
   this.getModel().currency_buy = currency;
 
   var account_el = goog.dom.getElement(  this.makeId('locked_buy_account') );
@@ -75,7 +74,6 @@ bitex.ui.LockedBalanceDisplay.prototype.setBuyCurrency = function(currency){
  * @param {string} currency
  */
 bitex.ui.LockedBalanceDisplay.prototype.setSellCurrency = function(currency){
-  console.log(currency);
   this.getModel().currency_sell = currency;
 
   var account_el = goog.dom.getElement(  this.makeId('locked_sell_account') );
@@ -87,7 +85,6 @@ bitex.ui.LockedBalanceDisplay.prototype.setSellCurrency = function(currency){
  * @param {number} broker_id
  */
 bitex.ui.LockedBalanceDisplay.prototype.setBrokerID = function(broker_id) {
-  console.log(broker_id);
   this.getModel().broker_id = broker_id;
 
   var buy_account_el = goog.dom.getElement(  this.makeId('locked_buy_account') );
@@ -104,7 +101,6 @@ bitex.ui.LockedBalanceDisplay.prototype.setBrokerID = function(broker_id) {
  * @param {number} account_id
  */
 bitex.ui.LockedBalanceDisplay.prototype.setAccountID = function(account_id) {
-  console.log(account_id);
   this.getModel().account_id = account_id;
 
   var buy_account_el = goog.dom.getElement(  this.makeId('locked_buy_account') );

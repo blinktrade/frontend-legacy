@@ -1,0 +1,150 @@
+{namespace bitex.view.LineOfCreditView.templates}
+
+
+
+/**
+  * @param data
+  */
+{template .InfoLineOfCredit}
+/*
+  data = {
+    'ID': 1,
+    'ProviderFirstName': 'Owen',
+    'ProviderLastName': 'Gunden',
+    'TakerFirstName': 'BlinkTrade Inc.',
+    'TakerLastName': '',
+    'Description': 'Line of credit for remittances',
+    'Currency': 'USD',
+    'DeliveryCurrencies': ['BTC'],
+    'ContractInfo': {
+     'limit': 5000000000000,
+     'interest_rate': 0.000667,
+     'deliver_currencies': ['BTC'],
+     'BTC': {
+       'get_ticker': {
+         'market': 'BITFINEX',
+         'instrument': 'BTCUSD',
+         'column': 'BEST_BID',
+         'premium': [ [0,500000000000, 0.25],[500000000000,1500000000000, 0.35 ] ]
+       },
+       'payback_ticker': {
+         'market': 'BITFINEX',
+         'instrument': 'BTCUSD',
+         'column': 'BEST_ASK',
+         'premium': [ [0,500000000000, 0.25],[500000000000,1500000000000, 0.35 ] ]
+       }
+     }
+    },
+    'InterestRate': 0.000667,
+    'CreditLimit': 5000000000000,
+    'Balance': 0,
+    'LastUpdate': '2015-07-08 14:01:02',
+    'Created': '2015-07-08 14:01:02',
+    'PercentFee': 0.1,
+    'FixedFee': 1,
+    'IsActive': 1
+  }
+*/
+  <table class="table table-condensed table-bordered">
+    <tr>
+      <td>{msg desc="Provider full name on Line of credit info"}Provider{/msg}</td>
+      <td>{$data['ProviderFirstName']}{sp}{$data['ProviderLastName']}</td>
+    </tr>
+
+    <tr>
+      <td>{msg desc="Taker full name on Line of credit info"}Taker{/msg}</td>
+      <td>{$data['TakerFirstName']}{sp}{$data['TakerLastName']}</td>
+    </tr>
+
+    <tr>
+      <td>{msg desc="Currency on Line of credit info"}Currency{/msg}</td>
+      <td>{$data['Currency']}</td>
+    </tr>
+
+    <tr>
+      <td>{msg desc="Interest rate on Line of credit info"}Daily interest rate{/msg}</td>
+      <td>{$data['InterestRateHumanFormat']}</td>
+    </tr>
+
+    <tr>
+      <td>{msg desc="Credit Limit on Line of credit info"}Credit limit{/msg}</td>
+      <td>{$data['CreditLimitHumanFormat']}</td>
+    </tr>
+
+    <tr>
+      <td>{msg desc="Created on Line of credit info"}Created{/msg}</td>
+      <td>{$data['Created']} UTC</td>
+    </tr>
+
+    {foreach $c in $data['DeliveryCurrencies'] }
+      <tr>
+        <td colspan="2">{$c}</td>
+      </tr>
+
+      <tr>
+        <td>{msg desc="Get ticker on credit info"}Ticker for get{/msg}</td>
+        <td>{$data['ContractInfo'][$c]['get_ticker']['market']}:
+            {$data['ContractInfo'][$c]['get_ticker']['instrument']}:
+            {$data['ContractInfo'][$c]['get_ticker']['column']}{sp}
+            <span class="bitex-model"
+                  data-model-key="formatted:{$data['ContractInfo'][$c]['get_ticker']['market']}:
+                                  {$data['ContractInfo'][$c]['get_ticker']['instrument']}:
+                                  {$data['ContractInfo'][$c]['get_ticker']['column']}"></span>
+
+            </td>
+      </tr>
+
+      <tr>
+        <td>{msg desc="Payback ticker on credit info"}Ticker for payback{/msg}</td>
+        <td>{$data['ContractInfo'][$c]['payback_ticker']['market']}:
+            {$data['ContractInfo'][$c]['payback_ticker']['instrument']}:
+            {$data['ContractInfo'][$c]['payback_ticker']['column']}{sp}
+            <span class="bitex-model"
+                  data-model-key="formatted:{$data['ContractInfo'][$c]['payback_ticker']['market']}:
+                                  {$data['ContractInfo'][$c]['payback_ticker']['instrument']}:
+                                  {$data['ContractInfo'][$c]['payback_ticker']['column']}"></span>
+
+            </td>
+      </tr>
+
+      <tr>
+        <td>{msg desc="Min/Max size for currency on credit info"}Min/Max size{/msg}</td>
+        <td>
+          {$data['ContractInfo'][$c]['get_ticker']['min_size_human_format']}{sp}/{sp}
+          {$data['ContractInfo'][$c]['get_ticker']['max_size_human_format']}
+        </td>
+      </tr>
+
+    {/foreach}
+
+  </table>
+{/template}
+
+
+/**
+  * @param data
+  */
+{template .GetLineOfCredit}
+
+  <form class="form-horizontal" data-deposit-status="prepare">
+    <input type="hidden" name="Currency" value="{$data['Currency']}">
+
+    <div class="control-group">
+      <label class="control-label">{msg desc="amount"}Amount{/msg}</label>
+      <div class="controls">
+        <div class="input-prepend">
+          <span class="add-on">$</span>
+          <input id="xxxxxxx"
+              data-uniform-validators="required; validateNumber"
+              data-uniform-type="number"
+              data-uniform-filters="positive_number"
+              type="text"
+              class="input-small"
+              size="16"
+              name="Amount">
+        </div>
+      </div>
+    </div>
+  </form>
+
+{/template}

@@ -80,6 +80,8 @@ goog.require('bitex.view.RankingView');
 goog.require('bitex.view.APIView');
 goog.require('bitex.view.LineOfCreditView');
 
+goog.require('expression_evaluator.Parser');
+
 goog.require('uniform.Uniform');
 goog.require('uniform.Meta');               // Switch according to the test($MODULE_NAME$)
 goog.require('uniform.Validators');         // Switch according to the test($MODULE_NAME$)
@@ -538,7 +540,7 @@ bitex.app.BlinkTrade.prototype.run = function(host_api) {
 
   handler.listen( this.conn_, bitex.api.BitEx.EventType.UPDATE_PROFILE_RESPONSE, this.onUpdateProfileResponse_);
 
-
+  handler.listen( this.conn_, bitex.api.BitEx.EventType.SECURITY_STATUS, this.onBitexSecurityStatus_ );
 
   handler.listen( document.body, goog.events.EventType.CLICK , this.onBodyClick_);
   handler.listen( document.body, goog.events.EventType.CHANGE , this.onBodyChange_);
@@ -611,6 +613,40 @@ bitex.app.BlinkTrade.prototype.run = function(host_api) {
   this.getModel().set('JSVersion', '0.3' );
 
   this.connectBitEx();
+};
+
+bitex.app.BlinkTrade.prototype.onBitexSecurityStatus_ = function(e) {
+  var msg = e.data;
+
+  var model = this.getModel();
+  var currency = msg["Symbol"].substr(3);
+  var crypto_currency = msg["Symbol"].substr(0,3);
+
+  var vwap = parseInt(msg["BuyVolume"]/msg["SellVolume"] * 1.e8,10);
+  if ('VWAP' in msg) {
+    vwap = msg["VWAP"];
+  }
+
+  model.set(msg['Market'] + ':' + msg['Symbol'] + ':VWAP',vwap, true);
+  model.set(msg['Market'] + ':' + msg['Symbol'] + ':VOLUME', msg["SellVolume"], true);
+  model.set(msg['Market'] + ':' + msg['Symbol'] + ':SELL_VOLUME',msg["SellVolume"], true);
+  model.set(msg['Market'] + ':' + msg['Symbol'] + ':BUY_VOLUME',msg["BuyVolume"], true);
+  model.set(msg['Market'] + ':' + msg['Symbol'] + ':LOW_PX',msg["LowPx"], true);
+  model.set(msg['Market'] + ':' + msg['Symbol'] + ':HIGH_PX',msg["HighPx"], true);
+  model.set(msg['Market'] + ':' + msg['Symbol'] + ':BEST_BID',msg["BestBid"], true);
+  model.set(msg['Market'] + ':' + msg['Symbol'] + ':BEST_ASK',msg["BestAsk"], true);
+  model.set(msg['Market'] + ':' + msg['Symbol'] + ':LAST_PX',msg["LastPx"], true);
+
+
+  model.set('formatted:' + msg['Market'] + ':' + msg['Symbol'] + ':VWAP',this.formatCurrency(vwap/1.e8, currency, true), true);
+  model.set('formatted:' + msg['Market'] + ':' + msg['Symbol'] + ':VOLUME',this.formatCurrency(msg["SellVolume"]/1.e8,crypto_currency, true), true);
+  model.set('formatted:' + msg['Market'] + ':' + msg['Symbol'] + ':SELL_VOLUME',this.formatCurrency(msg["SellVolume"]/1.e8,crypto_currency, true), true);
+  model.set('formatted:' + msg['Market'] + ':' + msg['Symbol'] + ':BUY_VOLUME',this.formatCurrency(msg["BuyVolume"]/1.e8,currency, true), true);
+  model.set('formatted:' + msg['Market'] + ':' + msg['Symbol'] + ':LOW_PX',this.formatCurrency(msg["LowPx"]/1.e8,currency, true ), true);
+  model.set('formatted:' + msg['Market'] + ':' + msg['Symbol'] + ':HIGH_PX',this.formatCurrency(msg["HighPx"]/1.e8,currency, true ), true);
+  model.set('formatted:' + msg['Market'] + ':' + msg['Symbol'] + ':BEST_BID',this.formatCurrency(msg["BestBid"]/1.e8,currency, true ), true);
+  model.set('formatted:' + msg['Market'] + ':' + msg['Symbol'] + ':BEST_ASK',this.formatCurrency(msg["BestAsk"]/1.e8,currency, true ), true);
+  model.set('formatted:' + msg['Market'] + ':' + msg['Symbol'] + ':LAST_PX',this.formatCurrency(msg["LastPx"]/1.e8,currency, true ), true);
 };
 
 /**
@@ -892,12 +928,12 @@ bitex.app.BlinkTrade.prototype.onUserMarketDataUnsubscribe_ = function(e) {
 };
 
 bitex.app.BlinkTrade.prototype.onUserSecurityStatusSubscribe_ = function(e) {
-  this.conn_.subscribeSecurityStatus(e.target.getSecurities(),
-                                 e.target.getSecSubscriptionId());
+//  this.conn_.subscribeSecurityStatus(e.target.getSecurities(),
+//                                 e.target.getSecSubscriptionId());
 };
 
 bitex.app.BlinkTrade.prototype.onUserSecurityStatusUnsubscribe_ = function(e) {
-  this.conn_.unSubscribeSecurityStatus(e.target.getSecSubscriptionId());
+//  this.conn_.unSubscribeSecurityStatus(e.target.getSecSubscriptionId());
 };
 
 
@@ -1601,6 +1637,7 @@ bitex.app.BlinkTrade.prototype.showWithdrawalDialog = function(currency){
           field["label"] = MSG_WITHDRAW_FIELD_BANK_NUMBER;
           break;
         case 'CPF_CNPJ':
+        case 'CPFCNPJ':
           field["label"] = MSG_WITHDRAW_FIELD_CPF_CNPJ;
           break;
         case 'AccountType':
@@ -1737,7 +1774,6 @@ bitex.app.BlinkTrade.prototype.showWithdrawalDialog = function(currency){
             var position_key = 'position_' +
                 this.getModel().get('Broker')['BrokerID'] + ':' + this.getModel().get('UserID') + '_' + currency;
             var position = this.getModel().get( position_key);
-            console.log(position);
           } catch (e){}
 
           var withdraw_data = withdrawal_uniform.getAsJSON();
@@ -2306,7 +2342,6 @@ bitex.app.BlinkTrade.prototype.onShowReceipt_ = function(e){
     } 
     depositReceiptTemplateData.push(data);
   }, this); 
-  console.log (depositReceiptTemplateData) ;
 
   /**
    * @desc Crypto Currency Withdraw deposit title
@@ -3760,38 +3795,44 @@ bitex.app.BlinkTrade.prototype.onSecurityList_ =   function(e) {
 
   var symbols = [];
   goog.array.forEach(msg['Instruments'], function( instrument) {
+    var market = instrument['Market'];
     var symbol = instrument['Symbol'];
-
-
+    var currency = instrument['Currency'];
+    var crypto_currency = symbol.substr(0,3);
 
     this.all_markets_[symbol]  = {
+      'market': market,
       'symbol': symbol,
       'description': instrument['Description']
     };
 
-    symbols.push( symbol );
+    symbols.push( market + ':' + symbol );
 
-    var currency_key = instrument['Symbol'];
-    var volume_buy_key = 'volume_buy_' +  currency_key;
-    var volume_sell_key = 'volume_sell_' +  currency_key;
-    var min_key = 'min_' +  currency_key;
-    var max_key = 'max_' +  currency_key;
-    var avg_key = 'avg_' +  currency_key;
-    var bid_key = 'best_bid_' +  currency_key;
-    var offer_key = 'best_offer_' +  currency_key;
-    var last_price = 'last_price_' +  currency_key;
+    this.model_.set(market + ':' + symbol + ':VWAP',0, true);
+    this.model_.set(market + ':' + symbol + ':VOLUME', 0, true);
+    this.model_.set(market + ':' + symbol + ':SELL_VOLUME',0, true);
+    this.model_.set(market + ':' + symbol + ':BUY_VOLUME',0, true);
+    this.model_.set(market + ':' + symbol + ':LOW_PX',0, true);
+    this.model_.set(market + ':' + symbol + ':HIGH_PX',0, true);
+    this.model_.set(market + ':' + symbol + ':BEST_BID',0, true);
+    this.model_.set(market + ':' + symbol + ':BEST_ASK',0, true);
+    this.model_.set(market + ':' + symbol + ':LAST_PX',0, true);
 
-    this.model_.set('formatted_' + volume_sell_key, this.formatCurrency(0,  symbol.substr(0,3), true ), true );
-    this.model_.set('formatted_' + volume_buy_key, this.formatCurrency(0,  instrument['Currency'], true ), true );
-    this.model_.set('formatted_' + min_key, this.formatCurrency(0, instrument['Currency'], true) , true);
-    this.model_.set('formatted_' + max_key, this.formatCurrency(0, instrument['Currency'], true), true);
-    this.model_.set('formatted_' + avg_key, this.formatCurrency(0, instrument['Currency'], true), true);
-    this.model_.set('formatted_' + bid_key, this.formatCurrency(0, instrument['Currency'], true), true);
-    this.model_.set('formatted_' + offer_key, this.formatCurrency(0, instrument['Currency'], true), true);
-    this.model_.set('formatted_' + last_price, this.formatCurrency(0, instrument['Currency'], true), true);
+    this.model_.set('formatted:' + market + ':' + symbol + ':VWAP',this.formatCurrency(0, currency, true), true);
+    this.model_.set('formatted:' + market + ':' + symbol + ':VOLUME',this.formatCurrency(0,crypto_currency, true ), true);
+    this.model_.set('formatted:' + market + ':' + symbol + ':SELL_VOLUME',this.formatCurrency(0,crypto_currency, true ), true);
+    this.model_.set('formatted:' + market + ':' + symbol + ':BUY_VOLUME',this.formatCurrency(0,currency, true ), true);
+    this.model_.set('formatted:' + market + ':' + symbol + ':LOW_PX', this.formatCurrency(0,currency, true ), true);
+    this.model_.set('formatted:' + market + ':' + symbol + ':HIGH_PX',this.formatCurrency(0/1.e8,currency, true ), true);
+    this.model_.set('formatted:' + market + ':' + symbol + ':BEST_BID', this.formatCurrency(0,currency, true ), true);
+    this.model_.set('formatted:' + market + ':' + symbol + ':BEST_ASK',this.formatCurrency(0,currency, true ), true);
+    this.model_.set('formatted:' + market + ':' + symbol + ':LAST_PX',this.formatCurrency(0,currency, true ), true);
   }, this );
 
   this.model_.set('SecurityList', msg);
+
+  this.conn_.subscribeSecurityStatus( symbols );
+
 };
 
 /**
@@ -3942,7 +3983,7 @@ bitex.app.BlinkTrade.prototype.onConnectionOpen_ = function(e){
   goog.dom.classes.remove( document.body, 'bitex-non-broker' );
 
   this.conn_.testRequest();
-  this.conn_.requestSecurityList('BLINK');
+  this.conn_.requestSecurityList('ALL');
   this.conn_.requestBrokerList();
 
   // auto login in case of the user reconnecting
