@@ -1,5 +1,3 @@
-goog.provide('expression_evaluator.Token');
-goog.provide('expression_evaluator.Token.TokenType');
 /*!
  Based on ndef.parser, by Raphael Graf(r@undefined.ch)
  http://www.undefined.ch/mparser/index.html
@@ -11,6 +9,8 @@ goog.provide('expression_evaluator.Token.TokenType');
  but don't feel like you have to let me know or ask permission.
 */
 
+goog.provide('expression_evaluator.Token');
+goog.provide('expression_evaluator.Token.TokenType');
 
 /**
  * @constructor
