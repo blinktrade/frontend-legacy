@@ -28,7 +28,9 @@
       var country_code = "{% if page.default_country_code %}{{ page.default_country_code}}{% else %}{{ site.default_country_code}}{% endif %}";
       var blinktrade_api = "{% if page.blinktrade_backend_api %}{{ page.blinktrade_backend_api}}{% else %}{{ site.blinktrade_backend_api}}{% endif %}";
 
-      _app = new BlinkTradeApp(broker_id, country_code );
+      var remittance_box = {{ site.remittance_box  }};
+
+      _app = new BlinkTradeApp(broker_id, remittance_box,  country_code );
       _app.run(blinktrade_api);
     })();
   </script>

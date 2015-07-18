@@ -80,8 +80,6 @@ goog.require('bitex.view.RankingView');
 goog.require('bitex.view.APIView');
 goog.require('bitex.view.LineOfCreditView');
 
-goog.require('expression_evaluator.Parser');
-
 goog.require('uniform.Uniform');
 goog.require('uniform.Meta');               // Switch according to the test($MODULE_NAME$)
 goog.require('uniform.Validators');         // Switch according to the test($MODULE_NAME$)
@@ -151,6 +149,7 @@ var MSG_WITHDRAW_FIELD_KYC = goog.getMsg('KYC');
 
 /**
  * @param {number=} broker_id
+ * @param {Array.<Array.<string> > remittance_box
  * @param {string=} opt_default_country
  * @param {string=} opt_default_state
  * @param {number=} opt_test_request_timer_in_ms. Defaults to 30 seconds
@@ -158,7 +157,12 @@ var MSG_WITHDRAW_FIELD_KYC = goog.getMsg('KYC');
  * @constructor
  * @extends {goog.events.EventTarget}
  */
-bitex.app.BlinkTrade = function(broker_id, opt_default_country, opt_default_state, opt_test_request_timer_in_ms, opt_maximum_allowed_delay_in_ms) {
+bitex.app.BlinkTrade = function(broker_id,
+                                remittance_box,
+                                opt_default_country,
+                                opt_default_state,
+                                opt_test_request_timer_in_ms,
+                                opt_maximum_allowed_delay_in_ms) {
   goog.events.EventTarget.call(this);
 
   bootstrap.Dropdown.install();
@@ -196,6 +200,7 @@ bitex.app.BlinkTrade = function(broker_id, opt_default_country, opt_default_stat
     this.model_.set('DefaultState', opt_default_state);
   }
 
+  this.model_.set('RemittanceBoxInfo', remittance_box);
 
   this.open_orders_request_id_ = parseInt( 1e7 * Math.random() , 10 );
 
@@ -627,26 +632,26 @@ bitex.app.BlinkTrade.prototype.onBitexSecurityStatus_ = function(e) {
     vwap = msg["VWAP"];
   }
 
-  model.set(msg['Market'] + ':' + msg['Symbol'] + ':VWAP',vwap, true);
-  model.set(msg['Market'] + ':' + msg['Symbol'] + ':VOLUME', msg["SellVolume"], true);
-  model.set(msg['Market'] + ':' + msg['Symbol'] + ':SELL_VOLUME',msg["SellVolume"], true);
-  model.set(msg['Market'] + ':' + msg['Symbol'] + ':BUY_VOLUME',msg["BuyVolume"], true);
-  model.set(msg['Market'] + ':' + msg['Symbol'] + ':LOW_PX',msg["LowPx"], true);
-  model.set(msg['Market'] + ':' + msg['Symbol'] + ':HIGH_PX',msg["HighPx"], true);
-  model.set(msg['Market'] + ':' + msg['Symbol'] + ':BEST_BID',msg["BestBid"], true);
-  model.set(msg['Market'] + ':' + msg['Symbol'] + ':BEST_ASK',msg["BestAsk"], true);
-  model.set(msg['Market'] + ':' + msg['Symbol'] + ':LAST_PX',msg["LastPx"], true);
+  model.set(msg['Market'] + '_' + msg['Symbol'] + '_VWAP',vwap, true);
+  model.set(msg['Market'] + '_' + msg['Symbol'] + '_VOLUME', msg["SellVolume"], true);
+  model.set(msg['Market'] + '_' + msg['Symbol'] + '_SELL_VOLUME',msg["SellVolume"], true);
+  model.set(msg['Market'] + '_' + msg['Symbol'] + '_BUY_VOLUME',msg["BuyVolume"], true);
+  model.set(msg['Market'] + '_' + msg['Symbol'] + '_LOW_PX',msg["LowPx"], true);
+  model.set(msg['Market'] + '_' + msg['Symbol'] + '_HIGH_PX',msg["HighPx"], true);
+  model.set(msg['Market'] + '_' + msg['Symbol'] + '_BEST_BID',msg["BestBid"], true);
+  model.set(msg['Market'] + '_' + msg['Symbol'] + '_BEST_ASK',msg["BestAsk"], true);
+  model.set(msg['Market'] + '_' + msg['Symbol'] + '_LAST_PX',msg["LastPx"], true);
 
 
-  model.set('formatted:' + msg['Market'] + ':' + msg['Symbol'] + ':VWAP',this.formatCurrency(vwap/1.e8, currency, true), true);
-  model.set('formatted:' + msg['Market'] + ':' + msg['Symbol'] + ':VOLUME',this.formatCurrency(msg["SellVolume"]/1.e8,crypto_currency, true), true);
-  model.set('formatted:' + msg['Market'] + ':' + msg['Symbol'] + ':SELL_VOLUME',this.formatCurrency(msg["SellVolume"]/1.e8,crypto_currency, true), true);
-  model.set('formatted:' + msg['Market'] + ':' + msg['Symbol'] + ':BUY_VOLUME',this.formatCurrency(msg["BuyVolume"]/1.e8,currency, true), true);
-  model.set('formatted:' + msg['Market'] + ':' + msg['Symbol'] + ':LOW_PX',this.formatCurrency(msg["LowPx"]/1.e8,currency, true ), true);
-  model.set('formatted:' + msg['Market'] + ':' + msg['Symbol'] + ':HIGH_PX',this.formatCurrency(msg["HighPx"]/1.e8,currency, true ), true);
-  model.set('formatted:' + msg['Market'] + ':' + msg['Symbol'] + ':BEST_BID',this.formatCurrency(msg["BestBid"]/1.e8,currency, true ), true);
-  model.set('formatted:' + msg['Market'] + ':' + msg['Symbol'] + ':BEST_ASK',this.formatCurrency(msg["BestAsk"]/1.e8,currency, true ), true);
-  model.set('formatted:' + msg['Market'] + ':' + msg['Symbol'] + ':LAST_PX',this.formatCurrency(msg["LastPx"]/1.e8,currency, true ), true);
+  model.set('formatted_' + msg['Market'] + '_' + msg['Symbol'] + '_VWAP',this.formatCurrency(vwap/1.e8, currency, true), true);
+  model.set('formatted_' + msg['Market'] + '_' + msg['Symbol'] + '_VOLUME',this.formatCurrency(msg["SellVolume"]/1.e8,crypto_currency, true), true);
+  model.set('formatted_' + msg['Market'] + '_' + msg['Symbol'] + '_SELL_VOLUME',this.formatCurrency(msg["SellVolume"]/1.e8,crypto_currency, true), true);
+  model.set('formatted_' + msg['Market'] + '_' + msg['Symbol'] + '_BUY_VOLUME',this.formatCurrency(msg["BuyVolume"]/1.e8,currency, true), true);
+  model.set('formatted_' + msg['Market'] + '_' + msg['Symbol'] + '_LOW_PX',this.formatCurrency(msg["LowPx"]/1.e8,currency, true ), true);
+  model.set('formatted_' + msg['Market'] + '_' + msg['Symbol'] + '_HIGH_PX',this.formatCurrency(msg["HighPx"]/1.e8,currency, true ), true);
+  model.set('formatted_' + msg['Market'] + '_' + msg['Symbol'] + '_BEST_BID',this.formatCurrency(msg["BestBid"]/1.e8,currency, true ), true);
+  model.set('formatted_' + msg['Market'] + '_' + msg['Symbol'] + '_BEST_ASK',this.formatCurrency(msg["BestAsk"]/1.e8,currency, true ), true);
+  model.set('formatted_' + msg['Market'] + '_' + msg['Symbol'] + '_LAST_PX',this.formatCurrency(msg["LastPx"]/1.e8,currency, true ), true);
 };
 
 /**
@@ -3808,25 +3813,25 @@ bitex.app.BlinkTrade.prototype.onSecurityList_ =   function(e) {
 
     symbols.push( market + ':' + symbol );
 
-    this.model_.set(market + ':' + symbol + ':VWAP',0, true);
-    this.model_.set(market + ':' + symbol + ':VOLUME', 0, true);
-    this.model_.set(market + ':' + symbol + ':SELL_VOLUME',0, true);
-    this.model_.set(market + ':' + symbol + ':BUY_VOLUME',0, true);
-    this.model_.set(market + ':' + symbol + ':LOW_PX',0, true);
-    this.model_.set(market + ':' + symbol + ':HIGH_PX',0, true);
-    this.model_.set(market + ':' + symbol + ':BEST_BID',0, true);
-    this.model_.set(market + ':' + symbol + ':BEST_ASK',0, true);
-    this.model_.set(market + ':' + symbol + ':LAST_PX',0, true);
+    this.model_.set(market + '_' + symbol + '_VWAP',0, true);
+    this.model_.set(market + '_' + symbol + '_VOLUME', 0, true);
+    this.model_.set(market + '_' + symbol + '_SELL_VOLUME',0, true);
+    this.model_.set(market + '_' + symbol + '_BUY_VOLUME',0, true);
+    this.model_.set(market + '_' + symbol + '_LOW_PX',0, true);
+    this.model_.set(market + '_' + symbol + '_HIGH_PX',0, true);
+    this.model_.set(market + '_' + symbol + '_BEST_BID',0, true);
+    this.model_.set(market + '_' + symbol + '_BEST_ASK',0, true);
+    this.model_.set(market + '_' + symbol + '_LAST_PX',0, true);
 
-    this.model_.set('formatted:' + market + ':' + symbol + ':VWAP',this.formatCurrency(0, currency, true), true);
-    this.model_.set('formatted:' + market + ':' + symbol + ':VOLUME',this.formatCurrency(0,crypto_currency, true ), true);
-    this.model_.set('formatted:' + market + ':' + symbol + ':SELL_VOLUME',this.formatCurrency(0,crypto_currency, true ), true);
-    this.model_.set('formatted:' + market + ':' + symbol + ':BUY_VOLUME',this.formatCurrency(0,currency, true ), true);
-    this.model_.set('formatted:' + market + ':' + symbol + ':LOW_PX', this.formatCurrency(0,currency, true ), true);
-    this.model_.set('formatted:' + market + ':' + symbol + ':HIGH_PX',this.formatCurrency(0/1.e8,currency, true ), true);
-    this.model_.set('formatted:' + market + ':' + symbol + ':BEST_BID', this.formatCurrency(0,currency, true ), true);
-    this.model_.set('formatted:' + market + ':' + symbol + ':BEST_ASK',this.formatCurrency(0,currency, true ), true);
-    this.model_.set('formatted:' + market + ':' + symbol + ':LAST_PX',this.formatCurrency(0,currency, true ), true);
+    this.model_.set('formatted_' + market + '_' + symbol + '_VWAP',this.formatCurrency(0, currency, true), true);
+    this.model_.set('formatted_' + market + '_' + symbol + '_VOLUME',this.formatCurrency(0,crypto_currency, true ), true);
+    this.model_.set('formatted_' + market + '_' + symbol + '_SELL_VOLUME',this.formatCurrency(0,crypto_currency, true ), true);
+    this.model_.set('formatted_' + market + '_' + symbol + '_BUY_VOLUME',this.formatCurrency(0,currency, true ), true);
+    this.model_.set('formatted_' + market + '_' + symbol + '_LOW_PX', this.formatCurrency(0,currency, true ), true);
+    this.model_.set('formatted_' + market + '_' + symbol + '_HIGH_PX',this.formatCurrency(0/1.e8,currency, true ), true);
+    this.model_.set('formatted_' + market + '_' + symbol + '_BEST_BID', this.formatCurrency(0,currency, true ), true);
+    this.model_.set('formatted_' + market + '_' + symbol + '_BEST_ASK',this.formatCurrency(0,currency, true ), true);
+    this.model_.set('formatted_' + market + '_' + symbol + '_LAST_PX',this.formatCurrency(0,currency, true ), true);
   }, this );
 
   this.model_.set('SecurityList', msg);

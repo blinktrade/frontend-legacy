@@ -26,13 +26,13 @@
             {foreach $inst in $instruments}
                 <tr data-symbol="{$inst['Symbol']}" >
                 <td>{$inst['Description']} </td>
-                <td><span class="bitex-model" data-model-key="formatted:{$inst['Market']}:{$inst['Symbol']}:LAST_PX"></span></td>
-                <td><span class="bitex-model" data-model-key="formatted:{$inst['Market']}:{$inst['Symbol']}:BEST_BID"></span></td>
-                <td><span class="bitex-model" data-model-key="formatted:{$inst['Market']}:{$inst['Symbol']}:BEST_ASK"></span></td>
-                <td><span class="bitex-model" data-model-key="formatted:{$inst['Market']}:{$inst['Symbol']}:SELL_VOLUME"></span></td>
-                <td><span class="bitex-model" data-model-key="formatted:{$inst['Market']}:{$inst['Symbol']}:BUY_VOLUME"></span></td>
-                <td><span class="bitex-model" data-model-key="formatted:{$inst['Market']}:{$inst['Symbol']}:HIGH_PX"></span></td>
-                <td><span class="bitex-model" data-model-key="formatted:{$inst['Market']}:{$inst['Symbol']}:LOW_PX"></span></td>
+                <td><span class="bitex-model" data-model-key="formatted_{$inst['Market']}_{$inst['Symbol']}_LAST_PX"></span></td>
+                <td><span class="bitex-model" data-model-key="formatted_{$inst['Market']}_{$inst['Symbol']}_BEST_BID"></span></td>
+                <td><span class="bitex-model" data-model-key="formatted_{$inst['Market']}_{$inst['Symbol']}_BEST_ASK"></span></td>
+                <td><span class="bitex-model" data-model-key="formatted_{$inst['Market']}_{$inst['Symbol']}_SELL_VOLUME"></span></td>
+                <td><span class="bitex-model" data-model-key="formatted_{$inst['Market']}_{$inst['Symbol']}_BUY_VOLUME"></span></td>
+                <td><span class="bitex-model" data-model-key="formatted_{$inst['Market']}_{$inst['Symbol']}_HIGH_PX"></span></td>
+                <td><span class="bitex-model" data-model-key="formatted_{$inst['Market']}_{$inst['Symbol']}_LOW_PX"></span></td>
                 </tr>
             {/foreach}
           </tbody>

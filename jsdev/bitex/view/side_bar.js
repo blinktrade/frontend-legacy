@@ -7,6 +7,8 @@ goog.require('goog.style');
 
 goog.require('bitex.ui.RemittanceBox');
 
+goog.require('expression_evaluator.Parser');
+
 /**
  * @param {*} app
  * @param {goog.dom.DomHelper=} opt_domHelper
@@ -52,9 +54,6 @@ bitex.view.SideBarView.prototype.remittance_box_;
 bitex.view.SideBarView.prototype.onSelectedBroker_ = function(e){
   var model = this.getApplication().getModel();
   var selectedBrokerID = model.get('SelectedBrokerID');
-  if (goog.isDefAndNotNull(this.remittance_box_)) {
-    this.remittance_box_.clearCurrencies();
-  }
   if (goog.isDefAndNotNull(selectedBrokerID)) {
     var element_id = 'id_account_summary_' + selectedBrokerID;
     var element =  goog.dom.getElement(element_id);
@@ -69,18 +68,6 @@ bitex.view.SideBarView.prototype.onSelectedBroker_ = function(e){
     if (goog.isDefAndNotNull(element)) {
       goog.dom.classes.add(element, 'account-summary-broker-selected');
     }
-
-    if (goog.isDefAndNotNull(this.remittance_box_)){
-      var broker = model.get('Broker');
-      if (goog.isDefAndNotNull(broker)){
-        goog.array.forEach(broker['BrokerCurrencies'], function(currency) {
-          if (!this.getApplication().isCryptoCurrency(currency)){
-            this.remittance_box_.addCurrency(currency);
-          }
-        }, this);
-
-      }
-    }
   }
 };
 
@@ -91,11 +78,6 @@ bitex.view.SideBarView.prototype.onSelectedBroker_ = function(e){
 bitex.view.SideBarView.prototype.decorateInternal = function(element) {
   this.setElementInternal(element);
 
-  var remittance_box_el = goog.dom.getElement("id_remittance_box");
-  if (goog.isDefAndNotNull(remittance_box_el)) {
-    this.remittance_box_ = new bitex.ui.RemittanceBox();
-    this.remittance_box_.render(remittance_box_el);
-  }
 };
 
 bitex.view.SideBarView.prototype.enterDocument = function() {
@@ -112,9 +94,6 @@ bitex.view.SideBarView.prototype.enterDocument = function() {
   var MSG_MY_CUSTOMERS_ACCOUNT_PORTFOLIO_LABEL = goog.getMsg('PORTFOLIO');
 
 
-  handler.listen( conn ,
-                  bitex.api.BitEx.EventType.SECURITY_STATUS + '.' + this.market_data_subscription_id_,
-                  this.onBitexSecurityStatus_ );
   handler.listen(model, bitex.model.Model.EventType.SET + 'SelectedBrokerID', this.onSelectedBroker_);
 
   handler.listen( model, bitex.model.Model.EventType.SET + 'BrokerCurrencies', function(e){
@@ -218,6 +197,7 @@ bitex.view.SideBarView.prototype.enterDocument = function() {
     this.onSelectedBroker_(e);
   }, this);
 
+  var remittance_info = model.get('RemittanceBoxInfo');
 
   handler.listen( model,  bitex.model.Model.EventType.SET + 'SecurityList', function(e){
     var msg = model.get('SecurityList');
@@ -226,7 +206,6 @@ bitex.view.SideBarView.prototype.enterDocument = function() {
     goog.array.forEach(model.get('SecurityList')['Instruments'], function(instrument_info) {
       this.market_data_subscription_symbol_.push(instrument_info['Symbol'] );
     }, this);
-    this.dispatchEvent(bitex.view.View.EventType.SECURITY_STATUS_SUBSCRIBE);
 
 
     goog.dom.removeChildren(goog.dom.getElement('id_instrument_1'));
@@ -236,6 +215,39 @@ bitex.view.SideBarView.prototype.enterDocument = function() {
         goog.dom.appendChild( goog.dom.getElement('id_instrument_1'), el );
       }
     }, this);
+
+    if (!goog.isDefAndNotNull(this.remittance_box_)) {
+      var remittance_box_model = [];
+      goog.object.forEach(remittance_info, function(remitttance_info_currency, currency){
+        remittance_box_model.push([currency]);
+        goog.array.forEach(remitttance_info_currency, function(remittance_data) {
+          var data = [ remittance_data[0],
+                       remittance_data[1],
+                       this.getApplication().getCurrencyHumanFormat(remittance_data[1])];
+
+
+          var data_field_formulas = [];
+          goog.array.forEach(remittance_data, function(remittance_formula, idx){
+            if (idx < 2) {
+              return;
+            }
+
+            var formula = new expression_evaluator.Parser().parse(remittance_formula);
+            data_field_formulas.push([remittance_formula, formula.variables().join(',')]);
+          },this);
+          data.push(data_field_formulas)
+          remittance_box_model.push(data);
+        }, this);
+      }, this );
+
+      var remittance_box_el = goog.dom.getElement("id_remittance_box");
+      if (goog.isDefAndNotNull(remittance_box_el)) {
+        this.remittance_box_ = new bitex.ui.RemittanceBox();
+        this.remittance_box_.setModel(remittance_box_model);
+        this.remittance_box_.render(remittance_box_el);
+      }
+
+    }
 
   },this);
 
@@ -247,6 +259,11 @@ bitex.view.SideBarView.prototype.enterDocument = function() {
     if (allowed_markets_array.length > 0 ) {
       goog.dom.forms.setValue(goog.dom.getElement('id_instrument_1'), allowed_markets_array[0] );
       this.dispatchEvent(bitex.view.SideBarView.EventType.CHANGE_MARKET);
+
+      if (goog.isDefAndNotNull(this.remittance_box_)) {
+        var currency = this.getApplication().getPriceCurrencyFromSymbol(allowed_markets_array[0]);
+        this.remittance_box_.setCurrentCurrency(currency);
+      }
     }
   }, this);
 
@@ -254,18 +271,8 @@ bitex.view.SideBarView.prototype.enterDocument = function() {
     this.dispatchEvent(bitex.view.SideBarView.EventType.CHANGE_MARKET);
     if (goog.isDefAndNotNull(this.remittance_box_)) {
       var symbol = this.getSymbol();
-      this.remittance_box_.clearCurrencies();
-
-      if (goog.isDefAndNotNull( model.get('Broker')['AllowedMarkets'][symbol])) {
-        goog.array.forEach(model.get('Broker')['BrokerCurrencies'], function(currency) {
-          if (!this.getApplication().isCryptoCurrency(currency)){
-            this.remittance_box_.addCurrency(currency);
-          }
-        }, this);
-      } else {
-        var currency = this.getApplication().getPriceCurrencyFromSymbol(symbol);
-        this.remittance_box_.addCurrency(currency);
-      }
+      var currency = this.getApplication().getPriceCurrencyFromSymbol(symbol);
+      this.remittance_box_.setCurrentCurrency(currency);
     }
   }, this);
 
@@ -295,14 +302,6 @@ bitex.view.SideBarView.prototype.getSecSubscriptionId = function(){
  */
 bitex.view.SideBarView.prototype.getSecurities = function(){
   return this.market_data_subscription_symbol_;
-};
-
-bitex.view.SideBarView.prototype.onBitexSecurityStatus_ = function(e) {
-  var msg = e.data;
-  if (goog.isDefAndNotNull(this.remittance_box_)) {
-    var currency = this.getApplication().getPriceCurrencyFromSymbol(msg['Symbol']);
-    this.remittance_box_.setMarketData(currency, msg['BestBid'], msg['BestAsk'], msg['LastPx']);
-  }
 };
 
 /**

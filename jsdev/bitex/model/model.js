@@ -12,6 +12,8 @@ goog.require('goog.dom');
 goog.require('goog.Timer');
 goog.require('goog.dom.classes');
 
+goog.require('goog.i18n.NumberFormat');
+goog.require('expression_evaluator.Parser')
 
 /**
  * @typedef {{ symbol:String, currency:String, description:String }}
@@ -92,48 +94,135 @@ bitex.model.Model.prototype.remove = function(key) {
 
 
 bitex.model.Model.prototype.updateDom = function() {
-
   var elements = goog.dom.getElementsByClass('bitex-model', this.element_);
-
   goog.array.forEach( elements, function(el) {
     var model_key = el.getAttribute('data-model-key');
-    if (goog.isDefAndNotNull(model_key)) {
-      var current_value = goog.dom.getTextContent(el);
+    var model_formula = el.getAttribute('data-model-formula');
+    var value = this.get(model_key);
 
-      var model_action = el.getAttribute('data-model-action');
-      if (!goog.isDefAndNotNull(model_action)) {
-        model_action = 'text_content';
-      }
+    if (goog.isDefAndNotNull(model_formula)) {
+      var model_key_list = el.getAttribute('data-model-key-list');
+      model_key_list = model_key_list.split(',');
 
-      var value = this.get(model_key);
-      if (model_action == 'value') {
-        current_value = goog.dom.forms.getValue(el);
-        if (current_value !== value) {
-          goog.dom.forms.setValue( el, value );
-        }
-      } else if (model_action == 'text_content') {
-        // TODO: make sure this also works with value attribute
-        current_value = goog.dom.getTextContent(el);
-        if (current_value !== value) {
-          if (goog.isDefAndNotNull(value)) {
-            goog.dom.setTextContent( el, value );
-          } else {
-            goog.dom.setTextContent( el, '' );
-          }
-        }
-      } else if (model_action == 'show_element') {
-        current_value = goog.style.isElementShown(el);
-        if (current_value !== value) {
-          goog.style.showElement(el, value);
-        }
-      } else if (model_action == 'hide_element') {
-        current_value = !goog.style.isElementShown(el);
-        if (current_value !== value) {
-          goog.style.showElement(el, !value);
-        }
-      }
+      var variables = {};
+      goog.array.forEach(model_key_list, function(model_key){
+        variables[model_key] = this.get(model_key, 0);
+      }, this);
+      value = new expression_evaluator.Parser().parse(model_formula).evaluate(variables);
+      this.setElementValue_(el, value, false);
+    } else if (goog.isDefAndNotNull(model_key)) {
+      this.setElementValue_(el, value, false);
     }
   }, this);
+};
+
+/**
+ * @param {!Element} el
+ * @param {*} value
+ * @param {Boolean=} opt_blinkOnChange Defaults to false
+ */
+bitex.model.Model.prototype.setElementValue_ = function(el, value, opt_blinkOnChange ) {
+  var model_action = el.getAttribute('data-model-action');
+  if (!goog.isDefAndNotNull(model_action)) {
+    model_action = 'text_content';
+  }
+
+  var el_formatter = el.getAttribute('data-model-formatter');
+  if (!goog.isDefAndNotNull(el_formatter)) {
+    el_formatter = 'text';
+  }
+  var fmt;
+  var pos = [0];
+  if (el_formatter == 'currency') {
+    var pattern  =  el.getAttribute('data-model-formatter-pattern');
+    var currency =  el.getAttribute('data-model-formatter-currency');
+    fmt = new goog.i18n.NumberFormat(pattern, currency);
+  } else if (el_formatter == 'decimal') {
+    fmt = new goog.i18n.NumberFormat(goog.i18n.NumberFormat.Format.DECIMAL);
+    if (goog.isDefAndNotNull(el.getAttribute('data-model-formatter-max-faction-digits'))) {
+      fmt.setMaximumFractionDigits(parseInt(el.getAttribute('data-model-formatter-max-faction-digits'), 10));
+    }
+    if (goog.isDefAndNotNull(el.getAttribute('data-model-formatter-min-faction-digits'))) {
+      fmt.setMinimumFractionDigits(parseInt(el.getAttribute('data-model-formatter-min-faction-digits'),10));
+    }
+  } else if (el_formatter == 'percent') {
+    fmt = new goog.i18n.NumberFormat(goog.i18n.NumberFormat.Format.PERCENT);
+    if (goog.isDefAndNotNull(el.getAttribute('data-model-formatter-max-faction-digits'))) {
+      fmt.setMaximumFractionDigits(parseInt(el.getAttribute('data-model-formatter-max-faction-digits'), 10));
+    }
+    if (goog.isDefAndNotNull(el.getAttribute('data-model-formatter-min-faction-digits'))) {
+      fmt.setMinimumFractionDigits(parseInt(el.getAttribute('data-model-formatter-min-faction-digits'),10));
+    }
+  }
+
+
+
+  var should_add_blink_class = false;
+
+  if (model_action == 'value') {
+    current_value = goog.dom.forms.getValue(el);
+
+    if (goog.isDefAndNotNull(fmt)) {
+      pos = [0];
+      var tmp_value = fmt.parse(current_value , pos );
+      if (!(pos[0] != current_value.length || isNaN(tmp_value) || tmp_value <= 0 )) {
+        current_value = tmp_value;
+      }
+    }
+
+    if (current_value !== value) {
+      if (goog.isDefAndNotNull(fmt)) {
+        goog.dom.forms.setValue( el, fmt.format(value) );
+      } else {
+        goog.dom.forms.setValue( el, value );
+      }
+    }
+  } else if (model_action == 'text_content') {
+    // TODO: make sure this also works with value attribute
+    current_text_content = goog.dom.getTextContent(el);
+
+    if (goog.isDefAndNotNull(fmt)) {
+      pos = [0];
+      var tmp_value = fmt.parse(current_text_content, pos);
+      if (!(pos[0] != current_text_content.length || isNaN(tmp_value) || tmp_value <= 0 )) {
+        current_text_content = tmp_value;
+      }
+    }
+
+    if (current_text_content !== value) {
+      goog.dom.forms.setValue( el, value );
+
+      if (goog.isDefAndNotNull(fmt)) {
+        goog.dom.setTextContent(el, fmt.format(value));
+      } else {
+        goog.dom.setTextContent(el, value);
+      }
+      should_add_blink_class = true;
+    }
+  } else if (model_action == 'show_element') {
+    current_value = goog.style.isElementShown(el);
+    if (current_value !== value) {
+      goog.style.showElement(el, value);
+    }
+  } else if (model_action == 'hide_element') {
+    current_value = !goog.style.isElementShown(el);
+    if (current_value !== value) {
+      goog.style.showElement(el, !value);
+    }
+  }
+
+  if (opt_blinkOnChange === true && should_add_blink_class) {
+    var blink_class = el.getAttribute('data-blink-class');
+    if (goog.isDefAndNotNull(blink_class)) {
+      var blink_delay = el.getAttribute('data-blink-delay') || 700;
+      blink_delay = parseInt(blink_delay, 10);
+
+      goog.dom.classes.add( el,  blink_class );
+      goog.Timer.callOnce( function(){
+        goog.dom.classes.remove( el,  blink_class );
+      }, blink_delay , this);
+    }
+  }
 };
 
 /**
@@ -145,57 +234,35 @@ bitex.model.Model.prototype.set = function(key, value) {
   var old_value = this.map_.get(key);
   this.map_.set(key, value);
 
+  if (old_value === value) {
+    return;
+  }
+
   var elements = goog.dom.getElementsByClass('bitex-model', this.element_);
   goog.array.forEach( elements, function(el) {
     var model_key = el.getAttribute('data-model-key');
-    if (model_key === key) {
-      var model_action = el.getAttribute('data-model-action');
-      if (!goog.isDefAndNotNull(model_action)) {
-        model_action = 'text_content';
-      }
+    var match_model_key = (model_key === key);
 
-      var current_value;
-      var should_add_blink_class = false;
-      if (model_action == 'value') {
-        current_value = goog.dom.forms.getValue(el);
-        if (current_value !== value) {
-          goog.dom.forms.setValue( el, value );
-          should_add_blink_class = true;
-        }
-      } else if (model_action == 'text_content') {
-        // TODO: make sure this also works with value attribute
-        current_value = goog.dom.getTextContent(el);
-        if (current_value !== value) {
-          goog.dom.setTextContent( el, value );
-          should_add_blink_class = true;
-        }
-      } else if (model_action == 'show_element') {
-        current_value = goog.style.isElementShown(el);
-        if (current_value !== value) {
-          goog.style.showElement(el, value);
-        }
-      } else if (model_action == 'hide_element') {
-        current_value = !goog.style.isElementShown(el);
-        if (current_value !== value) {
-          goog.style.showElement(el, !value);
-        }
-      }
-
-      if (should_add_blink_class) {
-        var blink_class = el.getAttribute('data-blink-class');
-        if (goog.isDefAndNotNull(blink_class)) {
-          var blink_delay = el.getAttribute('data-blink-delay') || 700;
-          blink_delay = parseInt(blink_delay, 10);
-
-          goog.dom.classes.add( el,  blink_class );
-          goog.Timer.callOnce( function(){
-            goog.dom.classes.remove( el,  blink_class );
-          }, blink_delay , this);
-        }
-      }
-
+    var key_in_key_list = false;
+    var model_key_list = el.getAttribute('data-model-key-list');
+    if (goog.isDefAndNotNull(model_key_list)){
+      model_key_list = model_key_list.split(',');
+      key_in_key_list = goog.array.contains(model_key_list, key );
     }
-  });
+    var model_formula = el.getAttribute('data-model-formula');
+
+    if (key_in_key_list && goog.isDefAndNotNull(model_formula)) {
+      var variables = {};
+      goog.array.forEach(model_key_list, function(model_key){
+        variables[model_key] = this.get(model_key, 0);
+      }, this);
+      value = new expression_evaluator.Parser().parse(model_formula).evaluate(variables);
+      this.setElementValue_(el, value, true);
+
+    } else if (match_model_key) {
+      this.setElementValue_(el, value, true);
+    }
+  }, this);
 
   this.dispatchEvent( new bitex.model.ModelEvent(
       bitex.model.Model.EventType.SET + key,
