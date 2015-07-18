@@ -39,7 +39,7 @@ remittance_box: "{
     }"
 
 
-languages: ["en_US", "es", "pt_BR", "ro", "zn_CN", "vn"]
+languages: ["en_US", "es", "pt_BR", "ro", "zn_CN", "vi"]
 
 exclude:     [ "jsdev", "LICENSE", "README.md", "config.rb", "deploy.sh", "build_javascript.sh" ]
 source:      .
