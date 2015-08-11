@@ -579,13 +579,61 @@ bitex.util.getCountries = function() {
     "VU": "Vanuatu",
     "VA": "Vatican City",
     "VE": "Venezuela",
-    "VN": "Vietnam",
+    "VN": ["Vietnam", "An Giang|Bà Rịa - Vũng Tàu|Bạc Liêu|Bắc Kạn|Bắc Giang|Bắc Ninh|Bến Tre|Bình Dương|Bình Định|Bình Phước|Bình Thuận|Cà Mau|Cao Bằng|Cần Thơ|Đà Nẵng|Đắk Lắk|Đắk Nông|Điện Biên|Đồng Nai|Đồng Tháp|Gia Lai|Hà Giang|Hà Nam|Hà Nội|Hà Tây|Hà Tĩnh|Hải Dương|Hải Phòng|Hòa Bình|Hồ Chí Minh|Hậu Giang|Hưng Yên|Khánh Hòa|Kiên Giang|Kon Tum|Lai Châu|Lào Cai|Lạng Sơn|Lâm Đồng|Long An|Nam Định|Nghệ An|Ninh Bình|Ninh Thuận|Phú Thọ|Phú Yên|Quảng Bình|Quảng Nam|Quảng Ngãi|Quảng Ninh|Quảng Trị|Sóc Trăng|Sơn La|Tây Ninh|Thái Bình|Thái Nguyên|Thanh Hóa|Thừa Thiên - Huế|Tiền Giang|Trà Vinh|Tuyên Quang|Vĩnh Long|Vĩnh Phúc|Yên Bái", "An Giang|Bà Rịa - Vũng Tàu|Bạc Liêu|Bắc Kạn|Bắc Giang|Bắc Ninh|Bến Tre|Bình Dương|Bình Định|Bình Phước|Bình Thuận|Cà Mau|Cao Bằng|Cần Thơ|Đà Nẵng|Đắk Lắk|Đắk Nông|Điện Biên|Đồng Nai|Đồng Tháp|Gia Lai|Hà Giang|Hà Nam|Hà Nội|Hà Tây|Hà Tĩnh|Hải Dương|Hải Phòng|Hòa Bình|Hồ Chí Minh|Hậu Giang|Hưng Yên|Khánh Hòa|Kiên Giang|Kon Tum|Lai Châu|Lào Cai|Lạng Sơn|Lâm Đồng|Long An|Nam Định|Nghệ An|Ninh Bình|Ninh Thuận|Phú Thọ|Phú Yên|Quảng Bình|Quảng Nam|Quảng Ngãi|Quảng Ninh|Quảng Trị|Sóc Trăng|Sơn La|Tây Ninh|Thái Bình|Thái Nguyên|Thanh Hóa|Thừa Thiên - Huế|Tiền Giang|Trà Vinh|Tuyên Quang|Vĩnh Long|Vĩnh Phúc|Yên Bái"],
     "WF": "Wallis and Futuna",
     "EH": "Western Sahara",
     "YE": "Yemen",
     "ZM": "Zambia",
     "ZW": "Zimbabwe"
   };
+};
+
+/**
+ * @param {Array.<Object.<*>>} verification_data
+ * @return {string}
+ */
+bitex.util.verificationData2HTML = function(verification_data){
+  var formatted_data;
+  try {
+    formatted_data = '<table class="table table-striped table-condensed">';
+    goog.array.forEach(verification_data, function(verification_obj) {
+      goog.object.forEach(verification_obj, function(data, key) {
+        formatted_data += '<tr><td>';
+        if (key != 'data') {
+          formatted_data += key;
+        }
+        formatted_data += '</td> <td>';
+        if (key == 'data') {
+          formatted_data +=  data;
+        } else if (key == 'uploaded_files') {
+          if (goog.isArray(data)) {
+            goog.array.forEach(data, function(data_line) {
+              if ( goog.isDefAndNotNull(data_line.match(/\.(JPG|JPEG|PNG|GIF|jpg|jpeg|png|gif)$/))) {
+                formatted_data += ' <a href="#" data-action="file-view" data-filename="' + data_line + '" class="btn btn-mini btn-info" >' +
+                    '<i data-action="file-view" data-filename="' + data_line + '"  class="icon-white icon-eye-open"></i></a> ';
+              } else {
+                formatted_data += ' <a href="' + data_line + '" class="btn btn-mini btn-info" "target":"blank" >' +
+                    '<i class="icon-white icon-file"></i></a> ';
+              }
+            });
+          }
+        } else if (goog.isArray(data)) {
+          goog.array.forEach(data, function(data_line) {
+            formatted_data += data_line + '<br/>';
+          }, this);
+        } else if (goog.isObject(data)) {
+          goog.object.forEach(data, function(data_line_data, data_line_key) {
+            formatted_data += data_line_key + ':'  + data_line_data + '<br/>';
+          });
+        } else {
+          formatted_data +=  data;
+        }
+        formatted_data += '</td></tr>';
+      });
+    });
+    formatted_data += '</table>';
+  } catch(e){}
+  return formatted_data;
 };
 
 /**
@@ -622,7 +670,7 @@ bitex.util.calculatePriceAmountAndFee = function(user_input, verb, order_depth, 
   };
 
   var total = user_input;
-  var fee =  total * fee / 10000;
+  fee =  total * fee / 10000;
   var work_total = total - fee;
 
   for ( var order_idx in order_depth) {
@@ -704,9 +752,9 @@ bitex.util.base58Decode = function(string) {
 
   var input = string.split('').map(function(c){
     return ALPHABET_MAP[c];
-  })
+  });
 
-  var i, j, bytes = [0]
+  var  j, bytes = [0];
   for (i = 0; i < input.length; i++) {
     for (j = 0; j < bytes.length; j++) bytes[j] *= BASE;
     bytes[bytes.length - 1] += input[i];
@@ -729,7 +777,7 @@ bitex.util.base58Decode = function(string) {
   for (i = 0; i < input.length - 1 && input[i] == 0; i++) bytes.unshift(0);
 
   return bytes;
-}
+};
 
 
 
