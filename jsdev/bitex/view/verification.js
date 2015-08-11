@@ -43,6 +43,7 @@ bitex.view.VerificationView.prototype.enterView = function() {
   verification_form_url = verification_form_url.replace('{{Email}}', model.get('Profile')['Email']);
   verification_form_url = verification_form_url.replace('{{FingerPrint}}',  this.getApplication().getFingerPrint());
   verification_form_url = verification_form_url.replace('{{STUNTIp}}',  stunt_ip_str);
+  verification_form_url = verification_form_url.replace('{{language}}',  goog.LOCALE);
 
 
   if (goog.isDefAndNotNull(model.get('Profile')['State'])) {

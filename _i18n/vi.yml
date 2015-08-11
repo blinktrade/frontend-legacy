@@ -171,6 +171,9 @@ views:
     enable_two_factor: Bạn có thể tăng mức độ an ninh cho tài khoản của bạn bằng cách bật chức năng xác thực 2 lớp.
     frozen_account: Tài khoản của bạn đã bị khoá. Xin vui lòng liên hệ với bộ phận hỗ trợ khách hàng.
 
+  line_of_credit:
+    title: Hạn mức tín dụng
+
   sidebar:
     market: "Thị trường:"
     menu: Menu
@@ -185,6 +188,7 @@ views:
     deposit: Các lệnh gửi tiền
     withdraw: Các lệnh rút tiền
     verification: Xác minh tài khoản của bạn
+    line_of_credit: Hạn mức tín dụng
     support: Ý kiến & Hỗ trợ
     api: API
     logout: Thoát
