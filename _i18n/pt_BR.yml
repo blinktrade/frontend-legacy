@@ -172,6 +172,9 @@ views:
     enable_two_factor: Você pode aumentar a segurança da sua conta apenas habilitando a autenticação em dois passos
     frozen_account: A sua conta foi congelada pelo administrador, por favor contate o suporte.
 
+  line_of_credit:
+    title: Linha de crédito
+
   sidebar:
     market: "Mercado:"
     menu: Menu
@@ -186,6 +189,7 @@ views:
     deposit: Depósitos
     withdraw: Saques
     verification: Verificar a sua conta
+    line_of_credit: Linha de crédito
     support: Suporte e Sugestões
     api: API
     logout: Sair

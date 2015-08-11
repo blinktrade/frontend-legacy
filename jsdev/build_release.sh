@@ -35,6 +35,7 @@ SOY_TEMPLATES="
                ui/remittance_box
                ui/api_key_data_entry
                ui/dialog
+               view/line_of_credit
 "
 
 for template in $SOY_TEMPLATES ; do 
@@ -64,12 +65,13 @@ echo "done with soy templates"
 #  --compiler_flags="--xtb_output_file=./translations/$LANG.xtb.xml"
 
 
-# BlinkTrade Application - enUS
+# BlinkTrade Application - en_US
 python ./closure-library/closure/bin/build/closurebuilder.py  \
   --root=./closure-library/ \
   --root=./closure-bootstrap/javascript/ \
   --root=./scottlogic/ \
   --root=./uniform/ \
+  --root=./expression_evaluator/ \
   --root=./bitex \
   --namespace=bitex.app.BlinkTrade \
   --output_mode=compiled \

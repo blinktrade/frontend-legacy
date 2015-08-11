@@ -589,6 +589,54 @@ bitex.util.getCountries = function() {
 };
 
 /**
+ * @param {Array.<Object.<*>>} verification_data
+ * @return {string}
+ */
+bitex.util.verificationData2HTML = function(verification_data){
+  var formatted_data;
+  try {
+    formatted_data = '<table class="table table-striped table-condensed">';
+    goog.array.forEach(verification_data, function(verification_obj) {
+      goog.object.forEach(verification_obj, function(data, key) {
+        formatted_data += '<tr><td>';
+        if (key != 'data') {
+          formatted_data += key;
+        }
+        formatted_data += '</td> <td>';
+        if (key == 'data') {
+          formatted_data +=  data;
+        } else if (key == 'uploaded_files') {
+          if (goog.isArray(data)) {
+            goog.array.forEach(data, function(data_line) {
+              if ( goog.isDefAndNotNull(data_line.match(/\.(JPG|JPEG|PNG|GIF|jpg|jpeg|png|gif)$/))) {
+                formatted_data += ' <a href="#" data-action="file-view" data-filename="' + data_line + '" class="btn btn-mini btn-info" >' +
+                    '<i data-action="file-view" data-filename="' + data_line + '"  class="icon-white icon-eye-open"></i></a> ';
+              } else {
+                formatted_data += ' <a href="' + data_line + '" class="btn btn-mini btn-info" "target":"blank" >' +
+                    '<i class="icon-white icon-file"></i></a> ';
+              }
+            });
+          }
+        } else if (goog.isArray(data)) {
+          goog.array.forEach(data, function(data_line) {
+            formatted_data += data_line + '<br/>';
+          }, this);
+        } else if (goog.isObject(data)) {
+          goog.object.forEach(data, function(data_line_data, data_line_key) {
+            formatted_data += data_line_key + ':'  + data_line_data + '<br/>';
+          });
+        } else {
+          formatted_data +=  data;
+        }
+        formatted_data += '</td></tr>';
+      });
+    });
+    formatted_data += '</table>';
+  } catch(e){}
+  return formatted_data;
+};
+
+/**
  * @enum {number}
  */
 bitex.util.PriceAmountCalculatorVerb = {
@@ -622,7 +670,7 @@ bitex.util.calculatePriceAmountAndFee = function(user_input, verb, order_depth, 
   };
 
   var total = user_input;
-  var fee =  total * fee / 10000;
+  fee =  total * fee / 10000;
   var work_total = total - fee;
 
   for ( var order_idx in order_depth) {
@@ -704,9 +752,9 @@ bitex.util.base58Decode = function(string) {
 
   var input = string.split('').map(function(c){
     return ALPHABET_MAP[c];
-  })
+  });
 
-  var i, j, bytes = [0]
+  var  j, bytes = [0];
   for (i = 0; i < input.length; i++) {
     for (j = 0; j < bytes.length; j++) bytes[j] *= BASE;
     bytes[bytes.length - 1] += input[i];
@@ -729,7 +777,7 @@ bitex.util.base58Decode = function(string) {
   for (i = 0; i < input.length - 1 && input[i] == 0; i++) bytes.unshift(0);
 
   return bytes;
-}
+};
 
 
 

@@ -161,6 +161,13 @@ bitex.view.WithdrawView.prototype.getWithdrawData = function() {
   return this.data_;
 };
 
+/**
+ * @return {Object}
+ */
+bitex.view.WithdrawView.prototype.getData = function() {
+  return this.data_;
+};
+
 
 /**
  * @param {goog.events.Event} e
@@ -229,6 +236,10 @@ bitex.view.WithdrawView.prototype.destroyComponents_ = function( ) {
     handler.unlisten(this.withdraw_list_table_.getElement(),
                      goog.events.EventType.CLICK,
                      this.onWithdrawListTableClick_);
+
+    handler.unlisten(this.withdraw_list_table_,
+                     bitex.ui.WithdrawList.EventType.KYC,
+                     this.onUserKYC_ );
 
     handler.unlisten(this.withdraw_list_table_,
                      bitex.ui.WithdrawList.EventType.CANCEL,
@@ -320,6 +331,9 @@ bitex.view.WithdrawView.prototype.recreateComponents_ = function() {
                  this.onWithdrawRefresh_);
 
 
+  handler.listen(this.withdraw_list_table_,
+                 bitex.ui.WithdrawList.EventType.KYC,
+                 this.onUserKYC_ );
 
   handler.listen(this.withdraw_list_table_,
                  bitex.ui.WithdrawList.EventType.CANCEL,
@@ -406,6 +420,16 @@ bitex.view.WithdrawView.prototype.onUserCancelWithdraw_ = function(e) {
   this.data_ = this.withdraw_list_table_.getWithdrawData();
   this.dispatchEvent(bitex.view.View.EventType.PROCESS_WITHDRAW);
 };
+
+/**
+ * @param {goog.events.Event} e
+ * @private
+ */
+bitex.view.WithdrawView.prototype.onUserKYC_ = function(e) {
+  this.data_ = this.withdraw_list_table_.getWithdrawData();
+  this.dispatchEvent(bitex.view.View.EventType.SHOW_KYC);
+};
+
 
 /**
  * @param {goog.events.Event} e

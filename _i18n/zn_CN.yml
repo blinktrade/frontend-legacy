@@ -173,6 +173,9 @@ views:
     enable_two_factor: 为了您的账户的安全性，请启用二重验证系统。
     frozen_account: 你的账户已经被管理员冻结，请联系管理员。
 
+  line_of_credit:
+    title: 信用额度
+
   sidebar:
     market: "市场:"
     menu: 菜单
@@ -187,6 +190,7 @@ views:
     deposit: 我的充值
     withdraw: 我的提现
     verification: 验证我的账户
+    line_of_credit: 信用额度
     support: 建议和问题
     api: API
     logout: 退出
