@@ -178,7 +178,10 @@ bitex.api.BitEx.EventType = {
   MARKET_DATA_INCREMENTAL_REFRESH: 'md_incremental_refresh',
   MARKET_DATA_REQUEST_REJECT: 'md_request_reject',
 
-  LINE_OF_CREDIT_LIST_RESPONSE: 'line_of_credit_list_response',
+  LINE_OF_CREDIT_LIST_RESPONSE: 'loc_list_response',
+  LINE_OF_CREDIT_LIST_RESPONSE: 'loc_list_refresh',
+  GET_LINE_OF_CREDIT_RESPONSE: 'get_loc_response',
+  PAY_LINE_OF_CREDIT_RESPONSE: 'pay_loc_response',
 
   TRADING_SESSION_STATUS: 'md_status',
   TRADE: 'trade',
@@ -575,9 +578,25 @@ bitex.api.BitEx.prototype.onMessage_ = function(e) {
       this.dispatchEvent( new bitex.api.BitExEvent( bitex.api.BitEx.EventType.API_KEY_REVOKE_RESPONSE, msg ) );
       break;
 
+    case 'U57': // Get Credit Line Of Credit Response
+      this.dispatchEvent( new bitex.api.BitExEvent( bitex.api.BitEx.EventType.GET_LINE_OF_CREDIT_RESPONSE + '.' + msg['GetCreditLineOfCreditReqID'], msg) );
+      this.dispatchEvent( new bitex.api.BitExEvent( bitex.api.BitEx.EventType.GET_LINE_OF_CREDIT_RESPONSE, msg ) );
+      break;
+
+    case 'U59': // Pay Credit Line Of Credit Response
+      this.dispatchEvent( new bitex.api.BitExEvent( bitex.api.BitEx.EventType.PAY_LINE_OF_CREDIT_RESPONSE + '.' + msg['PayCreditLineOfCreditReqID'], msg) );
+      this.dispatchEvent( new bitex.api.BitExEvent( bitex.api.BitEx.EventType.PAY_LINE_OF_CREDIT_RESPONSE, msg ) );
+      break;
+
     case 'U61': // Line of Credit List Response
       this.dispatchEvent( new bitex.api.BitExEvent( bitex.api.BitEx.EventType.LINE_OF_CREDIT_LIST_RESPONSE + '.' + msg['LineOfCreditListReqID'], msg) );
       this.dispatchEvent( new bitex.api.BitExEvent( bitex.api.BitEx.EventType.LINE_OF_CREDIT_LIST_RESPONSE, msg ) );
+      break;
+
+    case 'U65': // Line Of Credit Refresh
+      this.dispatchEvent( new bitex.api.BitExEvent( bitex.api.BitEx.EventType.LINE_OF_CREDIT_LIST_REFRESH + '.' + msg['ProviderID'], msg ) );
+      this.dispatchEvent( new bitex.api.BitExEvent( bitex.api.BitEx.EventType.LINE_OF_CREDIT_LIST_REFRESH + '.' + msg['TakerID'], msg ) );
+      this.dispatchEvent( new bitex.api.BitExEvent( bitex.api.BitEx.EventType.LINE_OF_CREDIT_LIST_REFRESH, msg ) );
       break;
 
     case 'B1': // Process Deposit Response
@@ -1865,6 +1884,70 @@ bitex.api.BitEx.prototype.requestLineOfCreditList = function(opt_page, opt_limit
   return requestId;
 };
 
+/**
+ * @param {string} line_of_credit_id
+ * @param {number} amount
+ * @param {string} delivery_currency
+ * @param {number|string=} opt_requestId
+ */
+bitex.api.BitEx.prototype.getLineOfCredit = function(line_of_credit_id, amount, delivery_currency, opt_requestId) {
+  var requestId = opt_requestId || parseInt( 1e7 * Math.random() , 10 );
+  var msg = {
+    'MsgType': 'U56',
+    'GetCreditLineOfCreditReqID': requestId,
+    'LineOfCreditID': line_of_credit_id,
+    'Amount': amount,
+    'DeliveryCurrency': delivery_currency
+  };
+
+  this.sendMessage(msg);
+
+  return requestId;
+};
+
+/**
+ * @param {string} line_of_credit_id
+ * @param {number} amount
+ * @param {string} currency
+ * @param {number|string=} opt_requestId
+ */
+bitex.api.BitEx.prototype.payLineOfCredit = function(line_of_credit_id, amount, currency, opt_requestId) {
+  var requestId = opt_requestId || parseInt( 1e7 * Math.random() , 10 );
+  var msg = {
+    'MsgType': 'U58',
+    'PayCreditLineOfCreditReqID': requestId,
+    'LineOfCreditID': line_of_credit_id,
+    'Amount': amount,
+    'Currency': currency
+  };
+
+  this.sendMessage(msg);
+
+  return requestId;
+};
+
+/**
+ * @param {string} line_of_credit_id
+ * @param {boolean=} opt_enable Defaults to true
+ * @param {number|string=} opt_requestId
+ */
+bitex.api.BitEx.prototype.enableLineOfCredit = function(line_of_credit_id, opt_enable, opt_requestId) {
+  var requestId = opt_requestId || parseInt( 1e7 * Math.random() , 10 );
+  var enable = true;
+  if (goog.isDefAndNotNull(opt_enable) && (opt_enable === false || opt_enable === 0)) {
+    enable = false;
+  }
+
+  var msg = {
+    'MsgType': 'U62',
+    'EnableCreditLineOfCreditReqID': requestId,
+    'Enable': enable
+  };
+
+  this.sendMessage(msg);
+
+  return requestId;
+};
 
 
 /**
@@ -1940,6 +2023,10 @@ goog.exportProperty(BitEx.prototype, 'requestCreateAPIKey', bitex.api.BitEx.prot
 goog.exportProperty(BitEx.prototype, 'revokeAPIKey', bitex.api.BitEx.prototype.revokeAPIKey);
 
 goog.exportProperty(BitEx.prototype, 'requestLineOfCreditList', bitex.api.BitEx.prototype.requestLineOfCreditList);
+goog.exportProperty(BitEx.prototype, 'getLineOfCredit', bitex.api.BitEx.prototype.getLineOfCredit);
+goog.exportProperty(BitEx.prototype, 'payLineOfCredit', bitex.api.BitEx.prototype.payLineOfCredit);
+goog.exportProperty(BitEx.prototype, 'enableLineOfCredit', bitex.api.BitEx.prototype.enableLineOfCredit);
+
 
 goog.exportProperty(BitEx.prototype, 'addEventListener', bitex.api.BitEx.prototype.addEventListener);
 goog.exportProperty(BitEx.prototype, 'removeEventListener', bitex.api.BitEx.prototype.removeEventListener);

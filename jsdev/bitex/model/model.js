@@ -229,40 +229,63 @@ bitex.model.Model.prototype.setElementValue_ = function(el, value, opt_blinkOnCh
  * Adds a key-value pair to the map.
  * @param {*} key The key.
  * @param {*} value The value to add.
+ * @param {Boolean=} opt_deepExpose Defaults to false
  */
-bitex.model.Model.prototype.set = function(key, value) {
+bitex.model.Model.prototype.set = function(key, value, opt_deepExpose) {
+  var deepExpose = (goog.isDefAndNotNull(opt_deepExpose) && opt_deepExpose === true);
+
   var old_value = this.map_.get(key);
   this.map_.set(key, value);
 
-  if (old_value === value) {
+  var update_dom = true;
+  if ( goog.isArrayLike(value) ) {
+    if (deepExpose){
+      goog.array.forEach( value, function(array_value, array_value_index) {
+        this.set( key + '_' + array_value_index,  array_value,deepExpose );
+      }, this );
+
+    }
+    update_dom = false;
+  } else if (goog.isObject(value)) {
+    if (deepExpose) {
+      goog.object.forEach(value, function (object_value, object_value_key) {
+        this.set(key + '_' + object_value_key, object_value, deepExpose);
+      }, this);
+    }
+    update_dom = false;
+  } else if (goog.isFunction(value)) {
+    update_dom = false;
+  } else if (old_value === value) {
     return;
   }
 
-  var elements = goog.dom.getElementsByClass('bitex-model', this.element_);
-  goog.array.forEach( elements, function(el) {
-    var model_key = el.getAttribute('data-model-key');
-    var match_model_key = (model_key === key);
+  if (update_dom) {
+    var elements = goog.dom.getElementsByClass('bitex-model', this.element_);
+    goog.array.forEach( elements, function(el) {
+      var model_key = el.getAttribute('data-model-key');
+      var match_model_key = (model_key === key);
 
-    var key_in_key_list = false;
-    var model_key_list = el.getAttribute('data-model-key-list');
-    if (goog.isDefAndNotNull(model_key_list)){
-      model_key_list = model_key_list.split(',');
-      key_in_key_list = goog.array.contains(model_key_list, key );
-    }
-    var model_formula = el.getAttribute('data-model-formula');
+      var key_in_key_list = false;
+      var model_key_list = el.getAttribute('data-model-key-list');
+      if (goog.isDefAndNotNull(model_key_list)){
+        model_key_list = model_key_list.split(',');
+        key_in_key_list = goog.array.contains(model_key_list, key );
+      }
+      var model_formula = el.getAttribute('data-model-formula');
 
-    if (key_in_key_list && goog.isDefAndNotNull(model_formula)) {
-      var variables = {};
-      goog.array.forEach(model_key_list, function(model_key){
-        variables[model_key] = this.get(model_key, 0);
-      }, this);
-      value = new expression_evaluator.Parser().parse(model_formula).evaluate(variables);
-      this.setElementValue_(el, value, true);
+      if (key_in_key_list && goog.isDefAndNotNull(model_formula)) {
+        var variables = {};
+        goog.array.forEach(model_key_list, function(model_key){
+          variables[model_key] = this.get(model_key, 0);
+        }, this);
+        var formula_result = new expression_evaluator.Parser().parse(model_formula).evaluate(variables);
+        this.setElementValue_(el, formula_result, true);
 
-    } else if (match_model_key) {
-      this.setElementValue_(el, value, true);
-    }
-  }, this);
+      } else if (match_model_key) {
+        this.setElementValue_(el, value, true);
+      }
+    }, this);
+  }
 
   this.dispatchEvent( new bitex.model.ModelEvent(
       bitex.model.Model.EventType.SET + key,

@@ -94,107 +94,115 @@ bitex.view.SideBarView.prototype.enterDocument = function() {
   var MSG_MY_CUSTOMERS_ACCOUNT_PORTFOLIO_LABEL = goog.getMsg('PORTFOLIO');
 
 
+  /**
+   * @desc My customers account balance label
+   */
+  var MSG_MY_CUSTOMERS_ACCOUNT_BALANCE_LABEL = goog.getMsg('My customers');
+
+  /**
+   * @desc My account balance label
+   */
+  var MSG_MY_ACCOUNTS_BALANCE_LABEL = goog.getMsg('My account');
+
+
   handler.listen(model, bitex.model.Model.EventType.SET + 'SelectedBrokerID', this.onSelectedBroker_);
 
-  handler.listen( model, bitex.model.Model.EventType.SET + 'BrokerCurrencies', function(e){
-    goog.dom.removeChildren( goog.dom.getElement("id_account_summary_content"));
-    var accounts = [];
+  handler.listen( model, bitex.model.Model.EventType.SET + 'UserLogged', function(){
+    if (model.get('UserLogged')) {
 
-    accounts.push({
-      'brokerID': model.get('Broker')['BrokerID'],
-      'brokerName': model.get('Broker')['ShortName'],
-      'clientID': model.get('UserID'),
-      'currencies': []
-    });
-    goog.array.forEach(model.get('Broker')['BrokerCurrencies'], function(currency) {
-      accounts[0]['currencies'].push({
-        'currency':currency,
-        'currency_key':currency,
-        'balance':0,
-        'formattedBalance': this.getApplication().formatCurrency(0,currency, true),
-        'showDeposit': true,
-        'showWithdraw': true
-      });
-    }, this);
+      var balance_model_key = 'Balance_' + model.get('Broker')['BrokerID'] +  '_' + model.get('UserID');
+      handler.listenOnce( model, bitex.model.Model.EventType.SET + balance_model_key, function(e){
+        goog.dom.removeChildren( goog.dom.getElement("id_account_summary_content"));
 
-    goog.object.forEach(model.get('Broker')['AllowedMarkets'], function(market, symbol) {
-      if (model.get('ShowMMP')) {
-        accounts[0]['currencies'].push({
-          'currency': 'MMP.' + symbol,
-          'currency_key': 'MMP.' + symbol,
-          'balance':0,
-          'formattedBalance': this.getApplication().formatCurrency(0, 'MMP.' + symbol, true),
-          'showDeposit': false,
-          'showWithdraw': false
+        var account_boxes = [];
+
+        account_boxes.push({
+          'title': MSG_MY_ACCOUNTS_BALANCE_LABEL,
+          'balances': []
         });
-      }
-    }, this);
 
+        var broker_currencies = model.get('BrokerCurrencies');
+        goog.object.forEach(model.get(balance_model_key), function(balance, currency) {
+          currency_code = currency;
+          var show_deposit = goog.array.contains(broker_currencies, currency);
+          var currency_pattern = this.getApplication().getCurrencyHumanFormat(currency_code);
 
-    /**
-     * @desc My customers account balance label
-     */
-    var MSG_MY_CUSTOMERS_ACCOUNT_BALANCE_LABEL = goog.getMsg('My customers');
+          account_boxes[account_boxes.length-1]['balances'].push({
+            'currency': currency,
+            'currencyPattern': currency_pattern,
+            'brokerID': model.get('Broker')['BrokerID'],
+            'accountID': model.get('UserID'),
+            'showDeposit': show_deposit,
+            'showWithdraw': show_deposit
+           });
 
+        }, this);
 
-
-    if (model.get('IsBroker')) {
-      accounts.push({
-        'brokerID': model.get('Profile')['BrokerID'],
-        'brokerName': MSG_MY_CUSTOMERS_ACCOUNT_BALANCE_LABEL,
-        'clientID': model.get('UserID'),
-        'currencies': []
-      });
-      goog.array.forEach(model.get('Profile')['BrokerCurrencies'], function(currency) {
-        accounts[1]['currencies'].push({
-          'currency':currency,
-          'currency_key':currency,
-          'balance':0,
-          'formattedBalance': this.getApplication().formatCurrency(0,currency, true),
-          'showDeposit': false,
-          'showWithdraw': false
+        goog.soy.renderElement(goog.dom.getElement('id_account_summary_content'), bitex.templates.YourAccountSummary, {
+          boxes: account_boxes
         });
-      },this);
-
-      goog.object.forEach(model.get('Profile')['AllowedMarkets'], function(market, symbol) {
-        accounts[1]['currencies'].push({
-          'currency': 'MMP.' + symbol,
-          'currency_key': 'MMP.' + symbol,
-          'balance':0,
-          'formattedBalance': this.getApplication().formatCurrency(0, 'MMP.' + symbol, true),
-          'showDeposit': false,
-          'showWithdraw': false
-        });
+        model.updateDom();
       }, this);
 
-      if (goog.isDefAndNotNull( model.get('Profile')['Accounts'] )) {
-        goog.object.forEach( model.get('Profile')['Accounts'], function(account_data, account_name) {
-          accounts.push({
-            'brokerID': model.get('Profile')['BrokerID'],
-            'brokerName': account_name,
-            'clientID':  account_data[0],
-            'currencies':[]
+      if (model.get('IsBroker')) {
+        var broker_balance_model_key = 'Balance_' + model.get('Profile')['BrokerID'] +  '_' + model.get('UserID');
+        handler.listenOnce( model, bitex.model.Model.EventType.SET + broker_balance_model_key, function(e){
+          goog.dom.removeChildren( goog.dom.getElement("id_account_summary_content"));
+          var account_boxes = [];
+          account_boxes.push({
+            'title': MSG_MY_CUSTOMERS_ACCOUNT_BALANCE_LABEL,
+            'balances': []
           });
 
           goog.array.forEach(model.get('Profile')['BrokerCurrencies'], function(currency) {
-            accounts[accounts.length-1]['currencies'].push({
-               'currency':currency,
-               'currency_key':currency,
-               'balance':0,
-               'formattedBalance': this.getApplication().formatCurrency(0,currency, true),
-               'showDeposit': false,
-               'showWithdraw': false
+            account_boxes[account_boxes.length-1]['balances'].push({
+              'currency': currency,
+              'currencyPattern': this.getApplication().getCurrencyHumanFormat(currency),
+              'brokerID': model.get('Profile')['BrokerID'],
+              'accountID': model.get('UserID'),
+              'showDeposit': false,
+              'showWithdraw': false
              });
           },this);
-        }, this  );
+
+          goog.object.forEach(model.get('Profile')['AllowedMarkets'], function(market, symbol) {
+            var currency = 'MMP_' + symbol;
+            account_boxes[account_boxes.length-1]['balances'].push({
+              'currency': currency,
+              'currencyPattern': this.getApplication().getCurrencyHumanFormat(currency),
+              'brokerID': model.get('Profile')['BrokerID'],
+              'accountID': model.get('UserID'),
+              'showDeposit': false,
+              'showWithdraw': false
+             });
+          }, this);
+
+          if (goog.isDefAndNotNull( model.get('Profile')['Accounts'] )) {
+            goog.object.forEach( model.get('Profile')['Accounts'], function(account_data, account_name) {
+              account_boxes.push({
+                'title': account_name,
+                'balances': []
+              });
+
+              goog.array.forEach(model.get('Profile')['BrokerCurrencies'], function(currency) {
+                account_boxes[account_boxes.length-1]['balances'].push({
+                  'currency': currency,
+                  'currencyPattern': this.getApplication().getCurrencyHumanFormat(currency),
+                  'brokerID':  model.get('Profile')['BrokerID'],
+                  'accountID': account_data[0],
+                  'showDeposit': false,
+                  'showWithdraw': false
+                 });
+              },this);
+            }, this);
+          }
+          goog.soy.renderElement(goog.dom.getElement('id_account_summary_content'), bitex.templates.YourAccountSummary, {
+            boxes: account_boxes
+          });
+          model.updateDom();
+        }, this);
       }
     }
-
-    goog.soy.renderElement(goog.dom.getElement('id_account_summary_content'), bitex.templates.YourAccountSummary, {
-      accounts: accounts
-    });
-
-    this.onSelectedBroker_(e);
   }, this);
 
   var remittance_info = model.get('RemittanceBoxInfo');

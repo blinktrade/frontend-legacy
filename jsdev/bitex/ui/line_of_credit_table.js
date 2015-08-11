@@ -199,6 +199,7 @@ bitex.ui.LineOfCreditTable = function(accountID, opt_domHelper) {
   var options = {
     'title': MSG_LINE_OF_CREDIT_TITLE,
     'showSearch': false,
+    'rowIDFn':this.getRowId,
     'columns': grid_columns
   };
 
@@ -285,6 +286,14 @@ bitex.ui.LineOfCreditTable.CSS_CLASS = goog.getCssName('line-of-credit-table');
 /** @inheritDoc */
 bitex.ui.LineOfCreditTable.prototype.getCssClass = function() {
   return bitex.ui.LineOfCreditTable.CSS_CLASS;
+};
+
+/**
+ * @param {Object} row_set
+ * @return {string}
+ */
+bitex.ui.LineOfCreditTable.prototype.getRowId = function(row_set) {
+  return this.makeId(row_set['ID'] );
 };
 
 

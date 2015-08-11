@@ -435,6 +435,19 @@ bitex.ui.WithdrawList = function( methodDescriptionObj, opt_broker_mode,  opt_sh
       'formatter': function(s, row_set_obj){
         var data_row = goog.json.serialize( row_set_obj );
 
+        var btn_kyc;
+        if (goog.object.containsKey(row_set_obj, 'UserVerificationData') && goog.isDefAndNotNull(row_set_obj['UserVerificationData']) ) {
+          /**
+           * @desc Withdraw cancel button label in the  broker's withdraw list
+           */
+          var MSG_WITHDRAW_TABLE_COLUMN_ACTION_KYC = goog.getMsg('KYC');
+
+          btn_kyc = goog.dom.createDom( 'button',
+                 { 'class':'btn btn-mini btn-warning btn-withdraw-kyc',
+                   'data-row': goog.json.serialize(row_set_obj['UserVerificationData'])},
+                 MSG_WITHDRAW_TABLE_COLUMN_ACTION_KYC );
+        }
+
         /**
          * @desc Withdraw cancel button label in the  broker's withdraw list
          */
@@ -463,12 +476,23 @@ bitex.ui.WithdrawList = function( methodDescriptionObj, opt_broker_mode,  opt_sh
                                                { 'class':'btn btn-mini btn-success btn-withdraw-complete', 'data-row': data_row},
                                                MSG_WITHDRAW_TABLE_COLUMN_ACTION_COMPLETE );
 
-        switch(row_set_obj['Status']){
-          case '0': return btn_cancel;
-          case '1': return goog.dom.createDom('div', 'btn-group',[btn_cancel, btn_progress]);
-          case '2': return goog.dom.createDom('div', 'btn-group', [btn_cancel, btn_complete]);
-          case '4': return "";
-          case '8': return "";
+        if (goog.isDefAndNotNull(btn_kyc)) {
+          switch(row_set_obj['Status']){
+            case '0': return goog.dom.createDom('div', 'btn-group',[btn_kyc, btn_cancel]);
+            case '1': return goog.dom.createDom('div', 'btn-group',[btn_kyc, btn_cancel, btn_progress]);
+            case '2': return goog.dom.createDom('div', 'btn-group', [btn_kyc, btn_cancel, btn_complete]);
+            case '4': return btn_kyc;
+            case '8': return btn_kyc;
+          }
+        } else {
+          switch(row_set_obj['Status']){
+            case '0': return btn_cancel;
+            case '1': return goog.dom.createDom('div', 'btn-group',[btn_cancel, btn_progress]);
+            case '2': return goog.dom.createDom('div', 'btn-group', [btn_cancel, btn_complete]);
+            case '4': return "";
+            case '8': return "";
+          }
+
         }
       }
     });
@@ -519,7 +543,8 @@ goog.inherits(bitex.ui.WithdrawList, bitex.ui.DataGrid);
 bitex.ui.WithdrawList.EventType = {
   CANCEL: 'withdraw_cancel',
   PROGRESS: 'withdraw_progress',
-  COMPLETE: 'withdraw_complete'
+  COMPLETE: 'withdraw_complete',
+  KYC: 'withdraw_kyc'
 };
 
 /**
@@ -578,6 +603,8 @@ bitex.ui.WithdrawList.prototype.handleClick_ = function(e) {
     this.dispatchEvent(bitex.ui.WithdrawList.EventType.PROGRESS);
   } else if (goog.dom.classes.has(e.target, 'btn-withdraw-cancel' )) {
     this.dispatchEvent(bitex.ui.WithdrawList.EventType.CANCEL);
+  } else if (goog.dom.classes.has(e.target, 'btn-withdraw-kyc' )) {
+    this.dispatchEvent(bitex.ui.WithdrawList.EventType.KYC);
   }
 
   this.selected_withdraw_ = null;

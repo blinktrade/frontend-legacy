@@ -382,7 +382,7 @@
       <label class="control-label" for="{$reason_id}" >{msg desc="Cancel deposit reason label"}Reason:{/msg}</label>
       <div class="controls">
         <select id="{$reason_id}">
-          <option value=0 selected>{msg desc="reason for cancelling deposit"}Other{/msg}</option>
+          <option value="0" selected>{msg desc="reason for cancelling deposit"}Other{/msg}</option>
         </select>
       </div>
     </div>
@@ -408,15 +408,15 @@
       <label class="control-label" for="{$reason_id}" >{msg desc="Cancel withdraw reason label"}Reason:{/msg}</label>
       <div class="controls">
         <select id="{$reason_id}">
-          <option value=0>{msg desc="reason for cancelling withdraw"}Other{/msg}</option>
-          <option value=-1 selected>{msg desc="reason for cancelling withdraw"}Insufficient funds{/msg}</option>
-          <option value=-2>{msg desc="reason for cancelling withdraw"}Account not verified{/msg}</option>
-          <option value=-3>{msg desc="reason for cancelling withdraw"}Suspicion of fraud{/msg}</option>
-          <option value=-4>{msg desc="reason for cancelling withdraw"}Withdrawing to a different account than yours{/msg}</option>
-          <option value=-5>{msg desc="reason for cancelling withdraw"}Invalid wallet{/msg}</option>
-          <option value=-6>{msg desc="reason for cancelling withdraw"}Invalid bank account{/msg}</option>
-          <option value=-7>{msg desc="reason for cancelling withdraw"}Amount exceeded your daily withdraw limit{/msg}</option>
-          <option value=-8>{msg desc="reason for cancelling withdraw"}User has deposits that are not yet confirmed{/msg}</option>
+          <option value="0">{msg desc="reason for cancelling withdraw"}Other{/msg}</option>
+          <option value="-1" selected>{msg desc="reason for cancelling withdraw"}Insufficient funds{/msg}</option>
+          <option value="-2">{msg desc="reason for cancelling withdraw"}Account not verified{/msg}</option>
+          <option value="-3">{msg desc="reason for cancelling withdraw"}Suspicion of fraud{/msg}</option>
+          <option value="-4">{msg desc="reason for cancelling withdraw"}Withdrawing to a different account than yours{/msg}</option>
+          <option value="-5">{msg desc="reason for cancelling withdraw"}Invalid wallet{/msg}</option>
+          <option value="-6">{msg desc="reason for cancelling withdraw"}Invalid bank account{/msg}</option>
+          <option value="-7">{msg desc="reason for cancelling withdraw"}Amount exceeded your daily withdraw limit{/msg}</option>
+          <option value="-8">{msg desc="reason for cancelling withdraw"}User has deposits that are not yet confirmed{/msg}</option>
         </select>
       </div>
     </div>
@@ -511,69 +511,70 @@
 {/template}
 
 /**
-  * @param accounts
+  * @param boxes
   */
 {template .YourAccountSummary}
-  <h6>{msg desc="Your account label in the right side bar"}Your account{/msg}</h6>
-    {foreach $account in $accounts}
-      <table class="table table-bordered account-summary-table" >
-        <tbody>
+  {foreach $box in $boxes}
+    <table class="table table-bordered account-summary-table" >
+      <tbody>
 
-      <tr id="id_account_summary_{$account['brokerID']}"
-          class='account-summary-broker model-action-set'
-          data-key="SelectedBrokerID"
-          data-value="{$account['brokerID']}"
-          {if length($accounts) <= 1 or length($account['currencies']) == 0 }style="display:none;"{/if}>
-            <td colspan="3"><strong>{$account['brokerName']}</strong></td>
-      </tr>
-
-      {foreach $currency_info in $account['currencies']}
-        <tr>
-
-          <td style="padding: 4px;{if not isFirst($currency_info) }border-top: 0;{/if}">
-            <strong>{$currency_info['currency']}</strong>
-          </td>
-
-          <td style="padding: 4px;{if not isFirst($currency_info) }border-top: 0;{/if}" {if not $currency_info['showDeposit'] and not $currency_info['showWithdraw'] }colspan="2"{/if} >
-            <span class="bitex-model"
-               data-model-key="formatted_balance_{$account['brokerID']}:{$account['clientID']}_{$currency_info['currency_key']}"
-               data-blink-class="balance-info-blink">{if $currency_info['formattedBalance']} {$currency_info['formattedBalance']}{/if}
-            </span>
-            <abbr title="{msg desc="Unconfirmed deposits"}Unconfirmed deposits{/msg}">
-              <em>
-                 <span class="bitex-model"
-                    data-model-key="formatted_position_{$account['brokerID']}:{$account['clientID']}_{$currency_info['currency_key']}"
-                    data-blink-class="balance-info-blink"></span>
-              </em>
-            </abbr>
-
-         </td>
-         {if $currency_info['showDeposit'] and  $currency_info['showWithdraw']}
-          <td style="padding: 4px;border-left:0;{if not isFirst($currency_info) }border-top: 0;{/if}">
-            <div class="btn-group">
-
-              {if $currency_info['showDeposit'] }
-                <button class="btn btn-mini" data-action="deposit" data-currency="{$currency_info['currency']}">
-                  <i data-action="deposit" data-currency="{$currency_info['currency']}" class="icon-download-alt"></i>
-                </button>
-              {/if}
-              {if $currency_info['showWithdraw'] }
-                <button class="btn btn-mini" data-action="withdraw" data-currency="{$currency_info['currency']}">
-                  <i data-action="withdraw" data-currency="{$currency_info['currency']}" class="icon-upload-alt"></i>
-                </button>
-              {/if}
-
-            </div>
-          </td>
-          {/if}
-
+        <tr class='account-summary-broker'>
+          <td colspan="3"><strong>{$box['title']}</strong></td>
         </tr>
-      {/foreach}
 
-        </tbody>
-      </table>
-    {/foreach}
+        {foreach $balance_info in $box['balances']}
+          <tr>
+            <td style="padding: 4px;">
+              <strong>{$balance_info['currency']}</strong>
+            </td>
+
+            <td style="padding: 4px;"{if not $balance_info['showDeposit'] and not $balance_info['showWithdraw']}colspan="2"{/if}>
+              <span class="bitex-model"
+                    data-model-key-list="Balance_{$balance_info['brokerID']}_{$balance_info['accountID']}_{$balance_info['currency']}"
+                    data-model-formula="Balance_{$balance_info['brokerID']}_{$balance_info['accountID']}_{$balance_info['currency']} / 100000000"
+                    data-model-formatter="currency"
+                    data-model-formatter-pattern="{$balance_info['currencyPattern']}"
+                    data-blink-class="balance-info-blink"></span>
+
+              {sp}<abbr title="{msg desc="Unconfirmed deposits"}Unconfirmed deposits{/msg}"
+                        class="bitex-model"
+                        data-model-action="show_element"
+                        data-model-key-list="Position_{$balance_info['brokerID']}_{$balance_info['accountID']}_{$balance_info['currency']}"
+                        data-model-formula="Position_{$balance_info['brokerID']}_{$balance_info['accountID']}_{$balance_info['currency']}">
+                <em>
+                  <span class="bitex-model"
+                        data-model-key-list="Position_{$balance_info['brokerID']}_{$balance_info['accountID']}_{$balance_info['currency']}"
+                        data-model-formula="Position_{$balance_info['brokerID']}_{$balance_info['accountID']}_{$balance_info['currency']} / 100000000"
+                        data-model-formatter="currency"
+                        data-model-formatter-pattern="{$balance_info['currencyPattern']}"
+                        data-blink-class="balance-info-blink"></span>
+                </em>
+              </abbr>
+
+           </td>
+           {if $balance_info['showDeposit'] and  $balance_info['showWithdraw']}
+            <td style="padding: 4px;border-left:0;">
+              <div class="btn-group">
+                {if $balance_info['showDeposit'] }
+                  <button class="btn btn-mini" data-action="deposit" data-currency="{$balance_info['currency']}">
+                    <i data-action="deposit" data-currency="{$balance_info['currency']}" class="icon-download-alt"></i>
+                  </button>
+                {/if}
+                {if $balance_info['showWithdraw'] }
+                  <button class="btn btn-mini" data-action="withdraw" data-currency="{$balance_info['currency']}">
+                    <i data-action="withdraw" data-currency="{$balance_info['currency']}" class="icon-upload-alt"></i>
+                  </button>
+                {/if}
+              </div>
+            </td>
+            {/if}
+          </tr>
+        {/foreach}
+      </tbody>
+    </table>
+  {/foreach}
 {/template}
+
 
 /**
   * @param currencies
@@ -927,7 +928,7 @@
           <div class="controls">
             <select id="{$methodID}" name="Method" class="withdraw-method-selector">
               {foreach $method in $methods }
-               <option {if isFirst($method)}selected{/if} value="{$method['method']}"
+               <option value="{$method['method']}"
                     data-net-value="{$method['method']}_{$netValueID}"
                     data-percent-fee="{$method['method']}_{$percentFeeID}"
                     data-fixed-fee="{$method['method']}_{$fixedFeeID}">{$method['description']}</option>
@@ -1070,7 +1071,7 @@
             {/if}
           {/if}
         {else}
-          <div class="withdraw-method" data-withdraw-method="{$method['method']}" style="{if not isFirst($method)}display:none;{/if}" >
+          <div class="withdraw-method" data-withdraw-method="{$method['method']}" style="display:none;" >
 
             {if $side == 'client'}
               <div class="control-group">
@@ -1241,12 +1242,12 @@
   */
 {template .AccountOverviewHeaderVerified}
   <select id="id_select_new_verification_level" data-profile-change="Verified" >
-    <option value=0 {if $msg_customer_detail['Verified']==0}selected{/if}>{msg desc="label on  overview header"}No{/msg}</option>
-    <option value=1 {if $msg_customer_detail['Verified']==1}selected{/if}>{msg desc="label on  overview header"}Pending{/msg}</option>
-    <option value=2 {if $msg_customer_detail['Verified']==2}selected{/if}>{msg desc="label on  overview header"}Progress{/msg}</option>
-    <option value=3 {if $msg_customer_detail['Verified']==3}selected{/if}>{msg desc="label on  overview header"}Yes - Level I {/msg}</option>
-    <option value=4 {if $msg_customer_detail['Verified']==4}selected{/if}>{msg desc="label on  overview header"}Yes - Level II {/msg}</option>
-    <option value=5 {if $msg_customer_detail['Verified']==5}selected{/if}>{msg desc="label on  overview header"}Yes - Level III {/msg}</option>
+    <option value="0" {if $msg_customer_detail['Verified']==0}selected{/if}>{msg desc="label on  overview header"}No{/msg}</option>
+    <option value="1" {if $msg_customer_detail['Verified']==1}selected{/if}>{msg desc="label on  overview header"}Pending{/msg}</option>
+    <option value="2" {if $msg_customer_detail['Verified']==2}selected{/if}>{msg desc="label on  overview header"}Progress{/msg}</option>
+    <option value="3" {if $msg_customer_detail['Verified']==3}selected{/if}>{msg desc="label on  overview header"}Yes - Level I {/msg}</option>
+    <option value="4" {if $msg_customer_detail['Verified']==4}selected{/if}>{msg desc="label on  overview header"}Yes - Level II {/msg}</option>
+    <option value="5" {if $msg_customer_detail['Verified']==5}selected{/if}>{msg desc="label on  overview header"}Yes - Level III {/msg}</option>
   </select>
 {/template}
 
