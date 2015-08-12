@@ -1071,8 +1071,7 @@
             {/if}
           {/if}
         {else}
-          <div class="withdraw-method" data-withdraw-method="{$method['method']}" style="display:none;" >
-
+          <div class="withdraw-method" data-withdraw-method="{$method['method']}" style="{if length($methods) > 1}display:none;{/if}">
             {if $side == 'client'}
               <div class="control-group">
                 <label class="control-label">{msg desc="amount"}Amount{/msg}</label>

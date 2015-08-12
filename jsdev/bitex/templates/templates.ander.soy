@@ -985,8 +985,7 @@
             {/if}
 
         {else}
-
-            <div class="withdraw-method" data-withdraw-method="{$method['method']}" style="{if not isFirst($method)}display:none;{/if}">
+            <div class="withdraw-method" data-withdraw-method="{$method['method']}" style="{if length($methods) > 1}display:none;{/if}">
                 {if $side == 'client'}
                     <label class="modal-form__label">{msg desc="amount"}Amount{/msg} {$currencySign}:</label>
 
