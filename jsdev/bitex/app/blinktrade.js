@@ -3336,6 +3336,7 @@ bitex.app.BlinkTrade.prototype.onUserLoginOk_ = function(e) {
   this.getModel().set('IsAccountBlocked', msg['Profile']['Verified'] < 0);
   this.getModel().set('IsMSB',            msg['IsMSB']);
   this.getModel().set('HasLineOfCredit',  msg['HasLineOfCredit']);
+  this.getModel().set('EmailLang',        msg['EmailLang']);
 
 
   var broker_currencies = new goog.structs.Set();

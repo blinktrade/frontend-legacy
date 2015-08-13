@@ -1,11 +1,5 @@
 {namespace bitex.templates}
 
-/**
-  */
-{template .ProfileViewChangePasswordPlaceHolder}
-  <div class="span6 well"></div>
-{/template}
-
 
 /**
   * @param permissions
@@ -1071,8 +1065,7 @@
             {/if}
           {/if}
         {else}
-          <div class="withdraw-method" data-withdraw-method="{$method['method']}" style="display:none;" >
-
+          <div class="withdraw-method" data-withdraw-method="{$method['method']}" style="{if length($methods) > 1}display:none;{/if}">
             {if $side == 'client'}
               <div class="control-group">
                 <label class="control-label">{msg desc="amount"}Amount{/msg}</label>
@@ -1341,58 +1334,6 @@
     </tbody>
   </table>
 {/template}
-
-
-/**
-  * @param msg_customer_detail
-  */
-{template .AccountOverviewUser}
-  <table class="table table-striped table-condensed account-overview-table" style="width: 350px">
-    <tbody>
-      <tr>
-        <td><strong>{msg desc="label on overview header"}ID{/msg}</strong></td>
-        <td>{$msg_customer_detail['ID']}</td>
-      </tr>
-      <tr>
-        <td><strong>{msg desc="label on  overview header"}Username{/msg}</strong></td>
-        <td>{$msg_customer_detail['Username']}</td>
-      </tr>
-      <tr>
-         <td><strong>{msg desc="label on  overview header"}Email{/msg}</strong></td>
-         <td>{$msg_customer_detail['Email']}</td>
-      </tr>
-      <tr>
-         <td><strong>{msg desc="label on  overview header"}State{/msg}</strong></td>
-         <td>{$msg_customer_detail['State']}</td>
-      </tr>
-      <tr>
-         <td><strong>{msg desc="label on  overview header"}Country{/msg}</strong></td>
-         <td>{$msg_customer_detail['CountryCode']}</td>
-      </tr>
-      <tr>
-         <td><strong>{msg desc="label on  overview header"}Is verified{/msg}</strong></td>
-         <td class="account-overview-val account-overview-verified">
-            {switch $msg_customer_detail['Verified'] }
-              {case 0}
-                <span class="label label-important">{msg desc="label on  overview header"}No{/msg}</span>
-              {case 1}
-                <span class="label label-important">{msg desc="label on  overview header"}Pending{/msg}</span>
-              {case 2}
-                <span class="label label-success">{msg desc="label on  overview header"}Yes{/msg}</span>
-              {case 3}
-                <span class="label label-success">{msg desc="label on  overview header"}Yes - Level II{/msg}</span>
-              {case 4}
-                <span class="label label-success">{msg desc="label on  overview header"}Yes - Level III{/msg}</span>
-              {case 5}
-                <span class="label label-success">{msg desc="label on  overview header"}Yes - Level IV{/msg}</span>
-            {/switch}
-         </td>
-      </tr>
-    </tbody>
-  </table>
-{/template}
-
-
 
 /**
   * @param clientID

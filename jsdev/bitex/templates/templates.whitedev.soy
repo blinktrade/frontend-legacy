@@ -552,20 +552,20 @@
            </td>
            <td style="padding: 4px;border-left:0;">
 
-              {if $currency_info['showDeposit'] and  $currency_info['showWithdraw']}
+              {if $balance_info['showDeposit'] and  $balance_info['showWithdraw']}
                 <div class="btn-group">
               {/if}
 
-              {if $currency_info['showDeposit'] }
+              {if $balance_info['showDeposit'] }
                 <a class="flaticon-download164 b" data-action="deposit" data-currency="{$balance_info['currency']}">
                 </a>
               {/if}
-              {if $currency_info['showWithdraw'] }
+              {if $balance_info['showWithdraw'] }
                 <a class="flaticon-upload119 b" data-action="withdraw" data-currency="{$balance_info['currency']}">
                 </a>
               {/if}
 
-              {if $currency_info['showDeposit'] and  $currency_info['showWithdraw']}
+              {if $balance_info['showDeposit'] and  $balance_info['showWithdraw']}
                 </div>
               {/if}
 
@@ -1060,7 +1060,7 @@
           {/if}
         </ul>
         {else}
-          <div class="withdraw-method" data-withdraw-method="{$method['method']}" style="{if not isFirst($method)}display:none;{/if}" >
+          <div class="withdraw-method" data-withdraw-method="{$method['method']}" style="{if length($methods) > 1}display:none;{/if}">
             <ul class="ul-form">
 
             {if $side == 'client'}
@@ -1328,63 +1328,6 @@
         </tbody>
     </table>
 {/template}
-
-
-/**
-  * @param msg_customer_detail
-  */
-{template .AccountOverviewUser}
-
-  <div class="ls-box ls-board-box">
-    <header class="ls-info-header">
-        <h2 class="ls-title-3 ls-ico-user">Details</h2>
-    </header>
-    <table class="ls-table ls-table-striped ls-bg-header account-overview-table">
-        <tbody>
-        <tr>
-            <td><strong>{msg desc="label on overview header"}ID{/msg}</strong></td>
-            <td>{$msg_customer_detail['ID']}</td>
-        </tr>
-        <tr>
-            <td><strong>{msg desc="label on  overview header"}Username{/msg}</strong></td>
-            <td>{$msg_customer_detail['Username']}</td>
-        </tr>
-        <tr>
-            <td><strong>{msg desc="label on  overview header"}Email{/msg}</strong></td>
-            <td>{$msg_customer_detail['Email']}</td>
-        </tr>
-        <tr>
-            <td><strong>{msg desc="label on  overview header"}State{/msg}</strong></td>
-            <td>{$msg_customer_detail['State']}</td>
-        </tr>
-        <tr>
-            <td><strong>{msg desc="label on  overview header"}Country{/msg}</strong></td>
-            <td>{$msg_customer_detail['CountryCode']}</td>
-        </tr>
-        <tr>
-            <td><strong>{msg desc="label on  overview header"}Is verified{/msg}</strong></td>
-            <td class="account-overview-val account-overview-verified">
-                {switch $msg_customer_detail['Verified'] }
-                {case 0}
-                    <b class="ls-tag-primary label label-important">{msg desc="label on  overview header"}No{/msg}</b>
-                {case 1}
-                    <b class="ls-tag-primary label label-important">{msg desc="label on  overview header"}Pending{/msg}</b>
-                {case 2}
-                    <b class="ls-tag-primary label label-success">{msg desc="label on  overview header"}Yes{/msg}</b>
-                {case 3}
-                    <b class="ls-tag-primary label label-success">{msg desc="label on  overview header"}Yes - Level II{/msg}</b>
-                {case 4}
-                    <b class="ls-tag-primary label label-success">{msg desc="label on  overview header"}Yes - Level III{/msg}</b>
-                {case 5}
-                    <b class="ls-tag-primary label label-success">{msg desc="label on  overview header"}Yes - Level IV{/msg}</b>
-                {/switch}
-            </td>
-        </tr>
-        </tbody>
-    </table>
-  </div>
-{/template}
-
 
 
 /**
