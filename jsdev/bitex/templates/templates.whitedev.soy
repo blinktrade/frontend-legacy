@@ -552,20 +552,20 @@
            </td>
            <td style="padding: 4px;border-left:0;">
 
-              {if $currency_info['showDeposit'] and  $currency_info['showWithdraw']}
+              {if $balance_info['showDeposit'] and  $balance_info['showWithdraw']}
                 <div class="btn-group">
               {/if}
 
-              {if $currency_info['showDeposit'] }
+              {if $balance_info['showDeposit'] }
                 <a class="flaticon-download164 b" data-action="deposit" data-currency="{$balance_info['currency']}">
                 </a>
               {/if}
-              {if $currency_info['showWithdraw'] }
+              {if $balance_info['showWithdraw'] }
                 <a class="flaticon-upload119 b" data-action="withdraw" data-currency="{$balance_info['currency']}">
                 </a>
               {/if}
 
-              {if $currency_info['showDeposit'] and  $currency_info['showWithdraw']}
+              {if $balance_info['showDeposit'] and  $balance_info['showWithdraw']}
                 </div>
               {/if}
 
