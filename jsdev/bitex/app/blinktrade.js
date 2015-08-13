@@ -112,6 +112,9 @@ var MSG_WITHDRAW_FIELD_ACCT_NUMBER  = goog.getMsg('Account number');
 var MSG_WITHDRAW_FIELD_ACCT_HOLDER  = goog.getMsg('Account holder name');
 
 /**  @desc Withdraw field on the withdrawal dialog */
+var MSG_WITHDRAW_FIELD_ACCT_HOLDER_ID  = goog.getMsg('Account holder ID');
+
+/**  @desc Withdraw field on the withdrawal dialog */
 var MSG_WITHDRAW_FIELD_BANK_NAME  = goog.getMsg('Bank name');
 
 /**  @desc Withdraw field on the withdrawal dialog */
@@ -146,6 +149,21 @@ var MSG_WITHDRAW_FIELD_TRANSACTION_ID = goog.getMsg('Transaction ID');
 
 /**  @desc Withdraw field on the withdrawal dialog */
 var MSG_WITHDRAW_FIELD_KYC = goog.getMsg('KYC');
+
+/**  @desc Withdraw field on the withdrawal dialog */
+var MSG_WITHDRAW_FIELD_SENDER_NAME = goog.getMsg('Sender Name');
+
+/**  @desc Withdraw field on the withdrawal dialog */
+var MSG_WITHDRAW_FIELD_SENDER_ID = goog.getMsg('Sender ID');
+
+/**  @desc Withdraw field on the withdrawal dialog */
+var MSG_WITHDRAW_FIELD_SENDER_PHONE_NUMBER = goog.getMsg('Sender phone #');
+
+/**  @desc Withdraw field on the withdrawal dialog */
+var MSG_WITHDRAW_FIELD_SENDER_KYC = goog.getMsg('Sender KYC');
+
+/**  @desc Withdraw field on the withdrawal dialog */
+var MSG_WITHDRAW_FIELD_ACCT_HOLDER_ID_PHONE_NUMBER = goog.getMsg('Account holder phone #');
 
 /**
  * @param {number=} broker_id
@@ -622,6 +640,14 @@ bitex.app.BlinkTrade.prototype.run = function(host_api) {
   this.getModel().set('UserLogged',false);
 
   this.connectBitEx();
+
+
+  if ("Notification" in window ) {
+    if (Notification.permission !== "granted" && Notification.permission !== 'denied') {
+      Notification.requestPermission();
+    }
+  }
+
 };
 
 bitex.app.BlinkTrade.prototype.onBitexSecurityStatus_ = function(e) {
@@ -1187,7 +1213,7 @@ bitex.app.BlinkTrade.prototype.onBitexWithdrawIncrementalUpdate_ = function(e) {
    * @desc Withdraw admin notification
    */
   var MSG_WITHDRAW_NOTIFICATION_BROKER_CONFIRMED_TITLE =
-      goog.getMsg('User requested withdrawal {$id}.', {id: msg['WithdrawID']});
+      goog.getMsg('User {$username} requested withdrawal of', {username: msg['Username']});
 
 
   var formatted_value = this.formatCurrency(msg['Amount']/1e8, msg['Currency'] );
@@ -1197,29 +1223,35 @@ bitex.app.BlinkTrade.prototype.onBitexWithdrawIncrementalUpdate_ = function(e) {
     case '1': // CONFIRMED
       if (this.getModel().get('IsBroker') && msg['Currency'] != 'BTC') {
         bitex.util.playSound('/assets/res/withdrawal-admin.mp3');
-        notification_type_title = ['warning', MSG_WITHDRAW_NOTIFICATION_BROKER_CONFIRMED_TITLE, 300000];
+        notification_type_title = ['warning', MSG_WITHDRAW_NOTIFICATION_BROKER_CONFIRMED_TITLE, 300000, true];
       } else if (!this.getModel().get('IsBroker')) {
-        notification_type_title = ['info', MSG_WITHDRAW_NOTIFICATION_USER_CONFIRMED_TITLE, 3000];
+        notification_type_title = ['info', MSG_WITHDRAW_NOTIFICATION_USER_CONFIRMED_TITLE, 3000, false];
       }
       break;
     case '2': // IN PROGRESS
       if (!this.getModel().get('IsBroker')) {
-        notification_type_title = ['info', MSG_WITHDRAW_NOTIFICATION_USER_PROGRESS_TITLE, 3000];
+        notification_type_title = ['info', MSG_WITHDRAW_NOTIFICATION_USER_PROGRESS_TITLE, 3000, false];
       }
       break;
     case '4': // COMPLETED
       if (!this.getModel().get('IsBroker')) {
-        notification_type_title = ['success', MSG_WITHDRAW_NOTIFICATION_USER_COMPLETE_TITLE, 10000];
+        bitex.util.playSound('/assets/res/withdrawal-admin.mp3');
+        notification_type_title = ['success', MSG_WITHDRAW_NOTIFICATION_USER_COMPLETE_TITLE, 60000, true];
       }
       break;
     case '8': // CANCELLED
       if (!this.getModel().get('IsBroker')) {
-        notification_type_title = ['danger', MSG_WITHDRAW_NOTIFICATION_USER_CANCEL_TITLE, 60000];
+        notification_type_title = ['danger', MSG_WITHDRAW_NOTIFICATION_USER_CANCEL_TITLE, 60000, true];
+        bitex.util.playSound('/assets/res/error.mp3');
       }
       break;
   }
   if (goog.isDefAndNotNull(notification_type_title)) {
-    this.showNotification(notification_type_title[0], notification_type_title[1], formatted_value, notification_type_title[2]);
+    this.showNotification(notification_type_title[0],
+                          notification_type_title[1],
+                          formatted_value,
+                          notification_type_title[2],
+                          notification_type_title[3]);
   }
 };
 
@@ -1236,6 +1268,11 @@ bitex.app.BlinkTrade.prototype.onBitexDepositIncrementalUpdate_ = function(e) {
    */
   var MSG_DEPOSIT_NOTIFICATION_COMPLETE = goog.getMsg('Your deposit request {$id} was credited into your account', {id: msg['ControlNumber']});
 
+  /**
+   * @desc Fiat deposit confirmed user notification
+   */
+  var MSG_DEPOSIT_NOTIFICATION_CANCELLED = goog.getMsg('Your deposit request {$id} was cancelled', {id: msg['ControlNumber']});
+
 
   /**
    * @desc Fiat deposit confirmed user notification
@@ -1250,13 +1287,16 @@ bitex.app.BlinkTrade.prototype.onBitexDepositIncrementalUpdate_ = function(e) {
 
   if (msg['Type'] != 'CRY' ) { // Ignore all crypto currency deposits
     if (msg['Status'] == '4' && !this.getModel().get('IsBroker') ) { // When the user gets his deposit completed
-
       notification_type_title = ['success', MSG_DEPOSIT_NOTIFICATION_COMPLETE];
 
       bitex.util.playSound('/assets/res/deposit.mp3');
-    }
+    } else if (msg['Status'] == '8' && !this.getModel().get('IsBroker') ) { // When the user gets his deposit cancelled
 
-    if (msg['Status'] == '1' && this.getModel().get('IsBroker') ) { // When the broker gets an deposit receipt
+      formatted_value = this.formatCurrency(msg['Value']/1e8, msg['Currency'] );
+      notification_type_title = ['error', MSG_DEPOSIT_NOTIFICATION_CANCELLED];
+      bitex.util.playSound('/assets/res/error.mp3');
+
+    } else if (msg['Status'] == '1' && this.getModel().get('IsBroker') ) { // When the broker gets an deposit receipt
       formatted_value = this.formatCurrency(msg['Value']/1e8, msg['Currency'] );
       notification_type_title = ['success', MSG_DEPOSIT_NOTIFICATION_USER_CONFIRMATION];
 
@@ -1265,7 +1305,7 @@ bitex.app.BlinkTrade.prototype.onBitexDepositIncrementalUpdate_ = function(e) {
   }
 
   if (goog.isDefAndNotNull(notification_type_title)) {
-    this.showNotification(notification_type_title[0], notification_type_title[1], formatted_value, 60000);
+    this.showNotification(notification_type_title[0], notification_type_title[1], formatted_value, 60000, true);
   }
 };
 
@@ -1302,12 +1342,18 @@ bitex.app.BlinkTrade.prototype.onBitexVerifyCustomerUpdate_ = function(e) {
 
 
   if (old_verified == 0 && profile['Verified'] == 1  ) {
-    this.router_.setView('offerbook');
-    this.showNotification('success', MSG_NOTIFICATION_VERIFY_TITLE, MSG_PENDING_VERIFICATION_CONTENT);
+    if (!this.getModel().set('IsBroker')){
+      this.router_.setView('offerbook');
+      this.showNotification('success', MSG_NOTIFICATION_VERIFY_TITLE, MSG_PENDING_VERIFICATION_CONTENT);
+    }
   } else if (profile['Verified'] == 2  ) {
-    this.showNotification('success', MSG_NOTIFICATION_VERIFY_TITLE, MSG_PROGRESS_VERIFICATION_CONTENT);
+    if (!this.getModel().set('IsBroker')) {
+      this.showNotification('success', MSG_NOTIFICATION_VERIFY_TITLE, MSG_PROGRESS_VERIFICATION_CONTENT);
+    }
   } else if (profile['Verified'] >= 3  ) {
-    this.showNotification('success', MSG_NOTIFICATION_VERIFY_TITLE, MSG_ACCOUNT_VERIFIED_CONTENT);
+    if (!this.getModel().set('IsBroker')) {
+      this.showNotification('success', MSG_NOTIFICATION_VERIFY_TITLE, MSG_ACCOUNT_VERIFIED_CONTENT, 3000, true);
+    }
   }
 };
 
@@ -1693,13 +1739,79 @@ bitex.app.BlinkTrade.prototype.showWithdrawalDialog = function(currency){
     }
 
     if (this.getModel().get('IsMSB')) {
+      if (!goog.array.contains(withdrawal_method['fields'], "SenderName" )) {
+        withdrawal_method['fields'].push({"side":"client",
+                                           "name": "SenderName",
+                                           "validator":"required",
+                                           "type":"text",
+                                           "value":"",
+                                           "label": MSG_WITHDRAW_FIELD_SENDER_NAME,
+                                           "placeholder":""});
+      }
+      if (!goog.array.contains(withdrawal_method['fields'], "SenderID" )) {
+        withdrawal_method['fields'].push({"side":"client",
+                                           "name": "SenderID",
+                                           "validator":"required",
+                                           "type":"text",
+                                           "value":"",
+                                           "label": MSG_WITHDRAW_FIELD_SENDER_ID,
+                                           "placeholder":""});
+      }
+      if (!goog.array.contains(withdrawal_method['fields'], "SenderPhone" )) {
+        withdrawal_method['fields'].push({"side":"client",
+                                           "name": "SenderPhone",
+                                           "validator":"validatePhoneNumber",
+                                           "type":"text",
+                                           "value":"",
+                                           "label": MSG_WITHDRAW_FIELD_SENDER_PHONE_NUMBER,
+                                           "placeholder":""});
+      }
+      withdrawal_method['fields'].push({"side":"client",
+                                         "name": "senderKYC",
+                                         "validator":"required",
+                                         "type":"text",
+                                         "value":"",
+                                         "label": MSG_WITHDRAW_FIELD_SENDER_KYC,
+                                         "placeholder":"https://link.com/user_kyc"});
+
+
+      if (!goog.array.contains(withdrawal_method['fields'], "AccountName" )) {
+        withdrawal_method['fields'].push({"side":"client",
+                                           "name": "AccountName",
+                                           "validator":"required",
+                                           "type":"text",
+                                           "value":"",
+                                           "label": MSG_WITHDRAW_FIELD_ACCT_HOLDER,
+                                           "placeholder":""});
+      }
+
+      if (!goog.array.contains(withdrawal_method['fields'], "AccountHolderID" )) {
+        withdrawal_method['fields'].push({"side":"client",
+                                           "name": "AccountHolderID",
+                                           "validator":"required",
+                                           "type":"text",
+                                           "value":"",
+                                           "label": MSG_WITHDRAW_FIELD_ACCT_HOLDER_ID,
+                                           "placeholder":""});
+      }
+
+      if (!goog.array.contains(withdrawal_method['fields'], "AccountHolderPhone" )) {
+        withdrawal_method['fields'].push({"side":"client",
+                                           "name": "AccountHolderPhone",
+                                           "validator":"validatePhoneNumber",
+                                           "type":"text",
+                                           "value":"",
+                                           "label": MSG_WITHDRAW_FIELD_ACCT_HOLDER_ID_PHONE_NUMBER,
+                                           "placeholder":""});
+      }
+
       withdrawal_method['fields'].push({"side":"client",
                                          "name": "KYC",
                                          "validator":"required",
                                          "type":"text",
                                          "value":"",
-                                         "label":"KYC",
-                                         "placeholder":"https://link/user_kyc"});
+                                         "label": MSG_WITHDRAW_FIELD_KYC,
+                                         "placeholder":"https://link.com/user_kyc"});
     }
 
     goog.array.forEach(withdrawal_method['fields'], function(field) {
@@ -4286,8 +4398,18 @@ bitex.app.BlinkTrade.prototype.showDialog = function(content, opt_title, opt_but
  * @param {string} title
  * @param {string} content
  * @param {number} opt_display_time.  Defaults to 3000 milliseconds
+ * @param {boolean} opt_system
  */
-bitex.app.BlinkTrade.prototype.showNotification = function(type , title, content,  opt_display_time) {
+bitex.app.BlinkTrade.prototype.showNotification = function(type , title, content,  opt_display_time, opt_system) {
+  if ( opt_system === true && "Notification" in window && Notification.permission === "granted" ) {
+    if (type == 'error') {
+      new Notification('ERROR: ' + title + ' ' + content);
+    } else {
+      new Notification(title + ' ' + content);
+    }
+    return;
+  }
+
   var display_time = 3000;
   if (type == 'error') {
     display_time *= 3;

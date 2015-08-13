@@ -1602,8 +1602,8 @@ bitex.api.BitEx.prototype.sendOrder_ = function( symbol, qty, price, side, broke
     'Symbol': symbol,
     'Side': side,
     'OrdType': orderType,
-    'Price': price,
-    'OrderQty': qty,
+    'Price': parseInt(price,10),
+    'OrderQty': parseInt(qty,10),
     'BrokerID': broker_id
   };
 

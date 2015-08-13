@@ -283,6 +283,9 @@ bitex.ui.WithdrawList = function( methodDescriptionObj, opt_broker_mode,  opt_sh
                 var MSG_WITHDRAW_TABLE_DETAILS_COLUMN_ACCT_HOLDER  = goog.getMsg('Account holder name');
 
                 /**  @desc Withdraw column label in the  broker's withdraw list detail table */
+                var MSG_WITHDRAW_TABLE_DETAILS_COLUMN_ACCT_HOLDER_ID  = goog.getMsg('Account holder ID');
+
+                /**  @desc Withdraw column label in the  broker's withdraw list detail table */
                 var MSG_WITHDRAW_TABLE_DETAILS_COLUMN_BANK_NAME  = goog.getMsg('Bank name');
 
                 /**  @desc Withdraw column label in the  broker's withdraw list detail table */
@@ -306,9 +309,48 @@ bitex.ui.WithdrawList = function( methodDescriptionObj, opt_broker_mode,  opt_sh
                 /**  @desc Withdraw column label in the  broker's withdraw list detail table */
                 var MSG_WITHDRAW_TABLE_DETAILS_COLUMN_ACCT_TYPE = goog.getMsg('Account Type');
 
+                /**  @desc Withdraw column label in the  broker's withdraw list detail table */
+                var MSG_WITHDRAW_TABLE_DETAILS_COLUMN_KYC = goog.getMsg('KYC');
+
+                /**  @desc Withdraw column label in the  broker's withdraw list detail table */
+                var MSG_WITHDRAW_TABLE_DETAILS_COLUMN_SENDER_NAME = goog.getMsg('Sender Name');
+
+                /**  @desc Withdraw column label in the  broker's withdraw list detail table */
+                var MSG_WITHDRAW_TABLE_DETAILS_COLUMN_SENDER_ID = goog.getMsg('Sender ID');
+
+                /**  @desc Withdraw column label in the  broker's withdraw list detail table */
+                var MSG_WITHDRAW_TABLE_DETAILS_COLUMN_SENDER_PHONE_NUMBER = goog.getMsg('Sender phone #');
+
+                /**  @desc Withdraw column label in the  broker's withdraw list detail table */
+                var MSG_WITHDRAW_TABLE_DETAILS_COLUMN_SENDER_KYC = goog.getMsg('Sender KYC');
+
+                /**  @desc Withdraw column label in the  broker's withdraw list detail table */
+                var MSG_WITHDRAW_TABLE_DETAILS_COLUMN_ACCT_HOLDER_ID_PHONE_NUMBER = goog.getMsg('Account holder phone #');
+
+
                 var key_description = key;
 
                 switch(key){
+                  case 'SenderID':
+                    key_description = MSG_WITHDRAW_TABLE_DETAILS_COLUMN_SENDER_ID;
+                    break;
+
+                  case 'SenderName':
+                    key_description = MSG_WITHDRAW_TABLE_DETAILS_COLUMN_SENDER_NAME;
+                    break;
+
+                  case 'SenderPhone':
+                    key_description = MSG_WITHDRAW_TABLE_DETAILS_COLUMN_SENDER_PHONE_NUMBER;
+                    break;
+
+                  case 'senderKYC':
+                    key_description = MSG_WITHDRAW_TABLE_DETAILS_COLUMN_SENDER_KYC;
+                    break;
+
+                  case 'AccountHolderPhone':
+                    key_description = MSG_WITHDRAW_TABLE_DETAILS_COLUMN_ACCT_HOLDER_ID_PHONE_NUMBER;
+                    break;
+
                   case 'AccountNumber':
                     key_description = MSG_WITHDRAW_TABLE_DETAILS_COLUMN_ACCT_NUMBER;
                     break;
@@ -330,6 +372,12 @@ bitex.ui.WithdrawList = function( methodDescriptionObj, opt_broker_mode,  opt_sh
                     break;
                   case 'AccountName':
                     key_description = MSG_WITHDRAW_TABLE_DETAILS_COLUMN_ACCT_HOLDER;
+                    break;
+                  case 'AccountHolderID':
+                    key_description = MSG_WITHDRAW_TABLE_DETAILS_COLUMN_ACCT_HOLDER_ID;
+                    break;
+                  case 'KYC':
+                    key_description = MSG_WITHDRAW_TABLE_DETAILS_COLUMN_KYC;
                     break;
                   case 'RoutingNumber':
                     key_description = MSG_WITHDRAW_TABLE_DETAILS_COLUMN_ROUTING_NUMBER;
