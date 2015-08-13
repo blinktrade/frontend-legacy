@@ -1183,33 +1183,43 @@ bitex.app.BlinkTrade.prototype.onBitexWithdrawIncrementalUpdate_ = function(e) {
    */
   var MSG_WITHDRAW_NOTIFICATION_USER_CANCEL_TITLE = goog.getMsg('withdraw [{$id}] cancelled', {id: msg['WithdrawID']});
 
+  /**
+   * @desc Withdraw admin notification
+   */
+  var MSG_WITHDRAW_NOTIFICATION_BROKER_CONFIRMED_TITLE =
+      goog.getMsg('User requested withdrawal {$id}.', {id: msg['WithdrawID']});
+
 
   var formatted_value = this.formatCurrency(msg['Amount']/1e8, msg['Currency'] );
 
   var notification_type_title;
   switch (msg['Status']) {
-    case '0':
-      notification_type_title = ['warning', MSG_WITHDRAW_NOTIFICATION_USER_UNCONFIRMED_TITLE];
-      break;
     case '1': // CONFIRMED
       if (this.getModel().get('IsBroker') && msg['Currency'] != 'BTC') {
         bitex.util.playSound('/assets/res/withdrawal-admin.mp3');
+        notification_type_title = ['warning', MSG_WITHDRAW_NOTIFICATION_BROKER_CONFIRMED_TITLE, 300000];
+      } else if (!this.getModel().get('IsBroker')) {
+        notification_type_title = ['info', MSG_WITHDRAW_NOTIFICATION_USER_CONFIRMED_TITLE, 3000];
       }
-      notification_type_title = ['info', MSG_WITHDRAW_NOTIFICATION_USER_CONFIRMED_TITLE];
       break;
     case '2': // IN PROGRESS
-      notification_type_title = ['info', MSG_WITHDRAW_NOTIFICATION_USER_PROGRESS_TITLE];
+      if (!this.getModel().get('IsBroker')) {
+        notification_type_title = ['info', MSG_WITHDRAW_NOTIFICATION_USER_PROGRESS_TITLE, 3000];
+      }
       break;
     case '4': // COMPLETED
-      notification_type_title = ['success', MSG_WITHDRAW_NOTIFICATION_USER_COMPLETE_TITLE];
+      if (!this.getModel().get('IsBroker')) {
+        notification_type_title = ['success', MSG_WITHDRAW_NOTIFICATION_USER_COMPLETE_TITLE, 10000];
+      }
       break;
     case '8': // CANCELLED
-      notification_type_title = ['danger', MSG_WITHDRAW_NOTIFICATION_USER_CANCEL_TITLE];
+      if (!this.getModel().get('IsBroker')) {
+        notification_type_title = ['danger', MSG_WITHDRAW_NOTIFICATION_USER_CANCEL_TITLE, 60000];
+      }
       break;
-
   }
   if (goog.isDefAndNotNull(notification_type_title)) {
-    this.showNotification(notification_type_title[0], notification_type_title[1], formatted_value);
+    this.showNotification(notification_type_title[0], notification_type_title[1], formatted_value, notification_type_title[2]);
   }
 };
 
@@ -1220,20 +1230,42 @@ bitex.app.BlinkTrade.prototype.onBitexWithdrawIncrementalUpdate_ = function(e) {
  */
 bitex.app.BlinkTrade.prototype.onBitexDepositIncrementalUpdate_ = function(e) {
   var msg = e.data;
-  var should_beep = false;
+
+  /**
+   * @desc Fiat deposit confirmed user notification
+   */
+  var MSG_DEPOSIT_NOTIFICATION_COMPLETE = goog.getMsg('Your deposit request {$id} was credited into your account', {id: msg['ControlNumber']});
+
+
+  /**
+   * @desc Fiat deposit confirmed user notification
+   */
+  var MSG_DEPOSIT_NOTIFICATION_USER_CONFIRMATION =
+      goog.getMsg('User just sent a deposit receipt for the deposit {$id}', {id: msg['ControlNumber']});
+
+
+  var formatted_value = this.formatCurrency(msg['PaidValue']/1e8, msg['Currency'] );
+
+  var notification_type_title;
 
   if (msg['Type'] != 'CRY' ) { // Ignore all crypto currency deposits
     if (msg['Status'] == '4' && !this.getModel().get('IsBroker') ) { // When the user gets his deposit completed
-      should_beep = true;
+
+      notification_type_title = ['success', MSG_DEPOSIT_NOTIFICATION_COMPLETE];
+
+      bitex.util.playSound('/assets/res/deposit.mp3');
     }
 
     if (msg['Status'] == '1' && this.getModel().get('IsBroker') ) { // When the broker gets an deposit receipt
-      should_beep = true;
+      formatted_value = this.formatCurrency(msg['Value']/1e8, msg['Currency'] );
+      notification_type_title = ['success', MSG_DEPOSIT_NOTIFICATION_USER_CONFIRMATION];
+
+      bitex.util.playSound('/assets/res/deposit-admin.mp3');
     }
   }
 
-  if (should_beep) {
-    bitex.util.playSound('/assets/res/deposit.mp3');
+  if (goog.isDefAndNotNull(notification_type_title)) {
+    this.showNotification(notification_type_title[0], notification_type_title[1], formatted_value, 60000);
   }
 };
 
