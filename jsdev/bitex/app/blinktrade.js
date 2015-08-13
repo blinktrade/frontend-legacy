@@ -533,6 +533,7 @@ bitex.app.BlinkTrade.prototype.run = function(host_api) {
   handler.listen( this.conn_ , bitex.api.BitEx.EventType.PASSWORD_CHANGED_ERROR, this.onBitexPasswordChangedError_);
   handler.listen( this.conn_ , bitex.api.BitEx.EventType.DEPOSIT_METHODS_RESPONSE, this.onBitexDepositMethodsResponse_ );
 
+  handler.listen( this.conn_ , bitex.api.BitEx.EventType.DEPOSIT_REFRESH, this.onBitexDepositIncrementalUpdate_);
   handler.listen( this.conn_ , bitex.api.BitEx.EventType.WITHDRAW_REFRESH, this.onBitexWithdrawIncrementalUpdate_);
 
   handler.listen( this.conn_, bitex.api.BitEx.EventType.ORDER_LIST_RESPONSE + '.' + this.open_orders_request_id_, this.onBitexOrderListResponse_);
@@ -1191,6 +1192,9 @@ bitex.app.BlinkTrade.prototype.onBitexWithdrawIncrementalUpdate_ = function(e) {
       notification_type_title = ['warning', MSG_WITHDRAW_NOTIFICATION_USER_UNCONFIRMED_TITLE];
       break;
     case '1': // CONFIRMED
+      if (this.getModel().get('IsBroker') && msg['Currency'] != 'BTC') {
+        bitex.util.playSound('/assets/res/withdrawal-admin.mp3');
+      }
       notification_type_title = ['info', MSG_WITHDRAW_NOTIFICATION_USER_CONFIRMED_TITLE];
       break;
     case '2': // IN PROGRESS
@@ -1206,6 +1210,30 @@ bitex.app.BlinkTrade.prototype.onBitexWithdrawIncrementalUpdate_ = function(e) {
   }
   if (goog.isDefAndNotNull(notification_type_title)) {
     this.showNotification(notification_type_title[0], notification_type_title[1], formatted_value);
+  }
+};
+
+
+/**
+ * @param {bitex.api.BitExEvent} e
+ * @private
+ */
+bitex.app.BlinkTrade.prototype.onBitexDepositIncrementalUpdate_ = function(e) {
+  var msg = e.data;
+  var should_beep = false;
+
+  if (msg['Type'] != 'CRY' ) { // Ignore all crypto currency deposits
+    if (msg['Status'] == '4' && !this.getModel().get('IsBroker') ) { // When the user gets his deposit completed
+      should_beep = true;
+    }
+
+    if (msg['Status'] == '1' && this.getModel().get('IsBroker') ) { // When the broker gets an deposit receipt
+      should_beep = true;
+    }
+  }
+
+  if (should_beep) {
+    bitex.util.playSound('/assets/res/deposit.mp3');
   }
 };
 
@@ -1759,7 +1787,10 @@ bitex.app.BlinkTrade.prototype.showWithdrawalDialog = function(currency){
                              MSG_CURRENCY_WITHDRAW_DIALOG_TITLE,
                              bitex.ui.Dialog.ButtonSet.createOkCancel());
 
-  goog.dom.forms.setValue(goog.dom.getElement(method_element_id));
+
+  if (user_verified_withdraw_methods.length > 1 ) {
+    goog.dom.forms.setValue(goog.dom.getElement(method_element_id));
+  }
 
   var handler = this.getHandler();
   var withdrawal_form_el = goog.dom.getFirstElementChild(dlg.getContentElement());
@@ -3051,7 +3082,9 @@ bitex.app.BlinkTrade.prototype.showDepositDialog = function(currency,
                              MSG_CURRENCY_DEPOSIT_DIALOG_TITLE,
                              bitex.ui.Dialog.ButtonSet.createOkCancel());
 
-  goog.dom.forms.setValue(goog.dom.getElement(method_element_id));
+  if (deposit_methods.length > 1 ) {
+    goog.dom.forms.setValue(goog.dom.getElement(method_element_id));
+  }
 
   var deposit_form_uniform = new uniform.Uniform();
   deposit_form_uniform.decorate(  goog.dom.getFirstElementChild(dlg.getContentElement()) );

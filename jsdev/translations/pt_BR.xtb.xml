@@ -34,7 +34,7 @@
 	<translation id="4798155901587681769" key="MSG_ACCOUNT_ACTIVITY_TABLE_COLUMN_VOLUME" source="bitex/ui/account_activity.js" desc="Column Volume of the Account Activity">Total</translation>
 	<translation id="3236422184265890902" key="MSG_10MREZ018RP5T" source="bitex/templates/templates.default.soy.js" desc="Customer username">Usuário:</translation>
 	<translation id="5697659303585616266" key="MSG_FCF8V597Y07" source="bitex/templates/templates.default.soy.js" desc="Error code label on error dialog content">Código do erro</translation>
-	<translation id="3528221637484851073" key="MSG_MBVKLDPBRJRZ" source="bitex/templates/templates.default.soy.js" desc="Download picture link on deposit receipt dialog content">Baixas</translation>
+	<translation id="3528221637484851073" key="MSG_MBVKLDPBRJRZ" source="bitex/templates/templates.default.soy.js" desc="Download picture link on deposit receipt dialog content">Baixar</translation>
 	<translation id="273816828165355421" key="MSG_YWQ8C75BXOS4" source="bitex/templates/templates.default.soy.js" desc="Control number label">Número de controle</translation>
 	<translation id="1856248176118651420" key="MSG_31SMIXGT1F3" source="bitex/templates/templates.default.soy.js" desc="Amount label">Valor pago</translation>
 	<translation id="9031595279213129125" key="MSG_H9PUZYZDIKU0" source="bitex/templates/templates.default.soy.js" desc="Fee percentage label">Taxas:</translation>
