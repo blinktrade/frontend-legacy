@@ -31,6 +31,8 @@ bitex.model.OrderBookInstrumentModel;
  * @extends {goog.events.EventTarget}
  */
 bitex.model.Model = function(element, opt_map, var_args){
+  goog.events.EventTarget.call(this);
+
   this.element_ = element;
 
   this.map_ = new goog.structs.Map(opt_map, var_args);

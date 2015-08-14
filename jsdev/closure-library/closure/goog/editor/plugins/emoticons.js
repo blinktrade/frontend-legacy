@@ -23,8 +23,10 @@ goog.provide('goog.editor.plugins.Emoticons');
 
 goog.require('goog.dom.TagName');
 goog.require('goog.editor.Plugin');
+goog.require('goog.editor.range');
 goog.require('goog.functions');
 goog.require('goog.ui.emoji.Emoji');
+goog.require('goog.userAgent');
 
 
 
@@ -33,9 +35,10 @@ goog.require('goog.ui.emoji.Emoji');
  *
  * @constructor
  * @extends {goog.editor.Plugin}
+ * @final
  */
 goog.editor.plugins.Emoticons = function() {
-  goog.base(this);
+  goog.editor.plugins.Emoticons.base(this, 'constructor');
 };
 goog.inherits(goog.editor.plugins.Emoticons, goog.editor.Plugin);
 
@@ -61,17 +64,29 @@ goog.editor.plugins.Emoticons.prototype.isSupportedCommand = function(
  * cursor to the right of the inserted emoticon.
  * @param {string} command Command to execute.
  * @param {*=} opt_arg Emoji to insert.
- * @return {Object|undefined} The result of the command.
+ * @return {!Object|undefined} The result of the command.
  * @override
  */
 goog.editor.plugins.Emoticons.prototype.execCommandInternal = function(
     command, opt_arg) {
   var emoji = /** @type {goog.ui.emoji.Emoji} */ (opt_arg);
+
+  var styleProperties = 'margin:0 0.2ex;vertical-align:middle;';
+  var emojiHeight = emoji.getHeight();
+  styleProperties += emojiHeight ? 'height:' + emojiHeight + 'px;' : '';
+  var emojiWidth = emoji.getWidth();
+  styleProperties += emojiWidth ? 'width:' + emojiWidth + 'px;' : '';
+
   var dom = this.getFieldDomHelper();
-  var img = dom.createDom(goog.dom.TagName.IMG, {
+  var imgAttributes = {
     'src': emoji.getUrl(),
-    'style': 'margin:0 0.2ex;vertical-align:middle'
-  });
+    'style': styleProperties
+  };
+  if (emoji.getAltText()) {
+    imgAttributes['alt'] = emoji.getAltText();
+  }
+  var img = dom.createDom(goog.dom.TagName.IMG, imgAttributes);
+
   img.setAttribute(goog.ui.emoji.Emoji.ATTRIBUTE, emoji.getId());
 
   this.getFieldObject().getRange().replaceContentsWithNode(img);
@@ -79,7 +94,7 @@ goog.editor.plugins.Emoticons.prototype.execCommandInternal = function(
   // IE8 does the right thing with the cursor, and has a js error when we try
   // to place the cursor manually.
   // IE9 loses the cursor when the window is focused, so focus first.
-  if (!goog.userAgent.IE || goog.userAgent.isDocumentMode(9)) {
+  if (!goog.userAgent.IE || goog.userAgent.isDocumentModeOrHigher(9)) {
     this.getFieldObject().focus();
     goog.editor.range.placeCursorNextTo(img, false);
   }
