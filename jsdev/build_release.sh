@@ -57,6 +57,7 @@ python ./closure-library/closure/bin/build/closurebuilder.py  \
   --root=./closure-bootstrap/javascript/ \
   --root=./scottlogic/ \
   --root=./uniform/ \
+  --root=./libphonenumber/i18n/phonenumbers/ \
   --root=./expression_evaluator/ \
   --root=./bitex \
   --namespace=bitex.app.BlinkTrade \

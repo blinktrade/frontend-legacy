@@ -12,6 +12,8 @@ python ./closure-library/closure/bin/build/closurebuilder.py  \
   --root=./closure-bootstrap/javascript/ \
   --root=./scottlogic/ \
   --root=./uniform/ \
+  --root=./libphonenumber/i18n/phonenumbers/ \
+  --root=./expression_evaluator/ \
   --namespace=bitex.app.BlinkTrade \
   --output_mode=compiled \
   --compiler_jar=./tools/XtbGenerator.jar \
