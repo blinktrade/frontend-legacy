@@ -356,12 +356,6 @@ uniform.Validators.prototype.validatePhoneNumber_ = function(el, condition, para
   if (condition && !eval(condition)) {
     return;
   }
-  var elValue = goog.dom.forms.getValue(el);
-
-  var phoneUtil = i18n.phonenumbers.PhoneNumberUtil.getInstance();
-  var number = phoneUtil.parseAndKeepRawInput(elValue);
-
-  var isPossible = phoneUtil.isPossibleNumber(number);
 
   /** @desc Error validate phone number*/
   var MSG_ERROR_VALIDATE_INVALID_COUNTRY_CODE =
@@ -379,6 +373,26 @@ uniform.Validators.prototype.validatePhoneNumber_ = function(el, condition, para
   var MSG_ERROR_VALIDATE_INVALID_NUMBER =
       goog.getMsg('{$c} must contain a valid phone number. [Invalid number]', {c:caption});
 
+
+
+  var phoneUtil = i18n.phonenumbers.PhoneNumberUtil.getInstance();
+  try {
+    var number = phoneUtil.parseAndKeepRawInput(goog.dom.forms.getValue(el));
+    var isPossible = phoneUtil.isPossibleNumber(number);
+  } catch (err) {
+    switch (err){
+      case i18n.phonenumbers.Error.INVALID_COUNTRY_CODE:
+        throw MSG_ERROR_VALIDATE_INVALID_COUNTRY_CODE;
+      case i18n.phonenumbers.Error.NOT_A_NUMBER:
+        throw MSG_ERROR_VALIDATE_INVALID_NUMBER;
+      case i18n.phonenumbers.Error.TOO_SHORT_AFTER_IDD:
+      case i18n.phonenumbers.Error.TOO_SHORT_NSN:
+        throw MSG_ERROR_VALIDATE_PHONE_NUMBER_TO_SHORT;
+      case i18n.phonenumbers.Error.TOO_LONG:
+        throw MSG_ERROR_VALIDATE_PHONE_NUMBER_TO_SHORT;
+    }
+    throw err;
+  }
 
   if (!isPossible) {
     var PNV = i18n.phonenumbers.PhoneNumberUtil.ValidationResult;
