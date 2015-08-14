@@ -37,6 +37,7 @@
  * We currently do a bad job detecting when the IME closes on IE, and
  * make a "best effort" guess on when we know it's closed.
  *
+ * @author nicksantos@google.com (Nick Santos) (Ported to Closure)
  */
 
 goog.provide('goog.events.ImeHandler');
@@ -49,7 +50,6 @@ goog.require('goog.events.EventTarget');
 goog.require('goog.events.EventType');
 goog.require('goog.events.KeyCodes');
 goog.require('goog.userAgent');
-goog.require('goog.userAgent.product');
 
 
 
@@ -58,9 +58,10 @@ goog.require('goog.userAgent.product');
  * @param {Element} el The element to listen on.
  * @extends {goog.events.EventTarget}
  * @constructor
+ * @final
  */
 goog.events.ImeHandler = function(el) {
-  goog.base(this);
+  goog.events.ImeHandler.base(this, 'constructor');
 
   /**
    * The element to listen on.
@@ -72,28 +73,31 @@ goog.events.ImeHandler = function(el) {
   /**
    * Tracks the keyup event only, because it has a different life-cycle from
    * other events.
-   * @type {goog.events.EventHandler}
+   * @type {goog.events.EventHandler<!goog.events.ImeHandler>}
    * @private
    */
   this.keyUpHandler_ = new goog.events.EventHandler(this);
 
   /**
    * Tracks all the browser events.
-   * @type {goog.events.EventHandler}
+   * @type {goog.events.EventHandler<!goog.events.ImeHandler>}
    * @private
    */
   this.handler_ = new goog.events.EventHandler(this);
 
   if (goog.events.ImeHandler.USES_COMPOSITION_EVENTS) {
     this.handler_.
-        listen(el, 'compositionstart', this.handleCompositionStart_).
-        listen(el, 'compositionend', this.handleCompositionEnd_).
-        listen(el, 'compositionupdate', this.handleTextModifyingInput_);
+        listen(el, goog.events.EventType.COMPOSITIONSTART,
+            this.handleCompositionStart_).
+        listen(el, goog.events.EventType.COMPOSITIONEND,
+            this.handleCompositionEnd_).
+        listen(el, goog.events.EventType.COMPOSITIONUPDATE,
+            this.handleTextModifyingInput_);
   }
 
   this.handler_.
-      listen(el, 'textInput', this.handleTextInput_).
-      listen(el, 'text', this.handleTextModifyingInput_).
+      listen(el, goog.events.EventType.TEXTINPUT, this.handleTextInput_).
+      listen(el, goog.events.EventType.TEXT, this.handleTextModifyingInput_).
       listen(el, goog.events.EventType.KEYDOWN, this.handleKeyDown_);
 };
 goog.inherits(goog.events.ImeHandler, goog.events.EventTarget);
@@ -124,9 +128,10 @@ goog.events.ImeHandler.EventType = {
  * @param {goog.events.BrowserEvent} reason The trigger for this event.
  * @constructor
  * @extends {goog.events.Event}
+ * @final
  */
 goog.events.ImeHandler.Event = function(type, reason) {
-  goog.base(this, type);
+  goog.events.ImeHandler.Event.base(this, 'constructor', type);
 
   /**
    * The event that triggered this.
@@ -143,7 +148,7 @@ goog.inherits(goog.events.ImeHandler.Event, goog.events.Event);
  */
 goog.events.ImeHandler.USES_COMPOSITION_EVENTS =
     goog.userAgent.GECKO ||
-    (goog.userAgent.WEBKIT && goog.userAgent.isVersion(532));
+    (goog.userAgent.WEBKIT && goog.userAgent.isVersionOrHigher(532));
 
 
 /**
@@ -360,5 +365,5 @@ goog.events.ImeHandler.prototype.disposeInternal = function() {
   this.handler_.dispose();
   this.keyUpHandler_.dispose();
   this.el_ = null;
-  goog.base(this, 'disposeInternal');
+  goog.events.ImeHandler.base(this, 'disposeInternal');
 };

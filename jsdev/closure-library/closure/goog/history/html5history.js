@@ -30,7 +30,6 @@ goog.require('goog.events');
 goog.require('goog.events.EventTarget');
 goog.require('goog.events.EventType');
 goog.require('goog.history.Event');
-goog.require('goog.history.EventType');
 
 
 
@@ -44,6 +43,7 @@ goog.require('goog.history.EventType');
  *     when storing token without using hash fragment.
  * @constructor
  * @extends {goog.events.EventTarget}
+ * @final
  */
 goog.history.Html5History = function(opt_win, opt_transformer) {
   goog.events.EventTarget.call(this);

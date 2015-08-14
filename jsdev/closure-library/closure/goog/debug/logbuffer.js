@@ -32,6 +32,7 @@ goog.require('goog.debug.LogRecord');
 /**
  * Creates the log buffer.
  * @constructor
+ * @final
  */
 goog.debug.LogBuffer = function() {
   goog.asserts.assert(goog.debug.LogBuffer.isBufferingEnabled(),
@@ -60,12 +61,12 @@ goog.debug.LogBuffer.getInstance = function() {
  * @define {number} The number of log records to buffer. 0 means disable
  * buffering.
  */
-goog.debug.LogBuffer.CAPACITY = 0;
+goog.define('goog.debug.LogBuffer.CAPACITY', 0);
 
 
 /**
  * The array to store the records.
- * @type {!Array.<!goog.debug.LogRecord|undefined>}
+ * @type {!Array<!goog.debug.LogRecord|undefined>}
  * @private
  */
 goog.debug.LogBuffer.prototype.buffer_;

@@ -14,6 +14,7 @@
 
 /**
  * @fileoverview Utilities for string manipulation.
+ * @author arv@google.com (Erik Arvidsson)
  */
 
 
@@ -22,6 +23,19 @@
  */
 goog.provide('goog.string');
 goog.provide('goog.string.Unicode');
+
+
+/**
+ * @define {boolean} Enables HTML escaping of lowercase letter "e" which helps
+ * with detection of double-escaping as this letter is frequently used.
+ */
+goog.define('goog.string.DETECT_DOUBLE_ESCAPING', false);
+
+
+/**
+ * @define {boolean} Whether to force non-dom html unescaping.
+ */
+goog.define('goog.string.FORCE_NON_DOM_HTML_UNESCAPING', false);
 
 
 /**
@@ -83,6 +97,18 @@ goog.string.caseInsensitiveEndsWith = function(str, suffix) {
 
 
 /**
+ * Case-insensitive equality checker.
+ * @param {string} str1 First string to check.
+ * @param {string} str2 Second string to check.
+ * @return {boolean} True if {@code str1} and {@code str2} are the same string,
+ *     ignoring case.
+ */
+goog.string.caseInsensitiveEquals = function(str1, str2) {
+  return str1.toLowerCase() == str2.toLowerCase();
+};
+
+
+/**
  * Does simple python-style string substitution.
  * subs("foo%s hot%s", "bar", "dog") becomes "foobar hotdog".
  * @param {string} str The string containing the pattern.
@@ -91,18 +117,18 @@ goog.string.caseInsensitiveEndsWith = function(str, suffix) {
  *     {@code %s} has been replaced an argument from {@code var_args}.
  */
 goog.string.subs = function(str, var_args) {
-  // This appears to be slow, but testing shows it compares more or less
-  // equivalent to the regex.exec method.
-  for (var i = 1; i < arguments.length; i++) {
-    // We cast to String in case an argument is a Function.  Replacing $&, for
-    // example, with $$$& stops the replace from subsituting the whole match
-    // into the resultant string.  $$$& in the first replace becomes $$& in the
-    //  second, which leaves $& in the resultant string.  Also:
-    // $$, $`, $', $n $nn
-    var replacement = String(arguments[i]).replace(/\$/g, '$$$$');
-    str = str.replace(/\%s/, replacement);
+  var splitParts = str.split('%s');
+  var returnString = '';
+
+  var subsArguments = Array.prototype.slice.call(arguments, 1);
+  while (subsArguments.length &&
+         // Replace up to the last split part. We are inserting in the
+         // positions between split parts.
+         splitParts.length > 1) {
+    returnString += splitParts.shift() + subsArguments.shift();
   }
-  return str;
+
+  return returnString + splitParts.join('%s'); // Join unused '%s'
 };
 
 
@@ -123,9 +149,9 @@ goog.string.collapseWhitespace = function(str) {
 /**
  * Checks if a string is empty or contains only whitespaces.
  * @param {string} str The string to check.
- * @return {boolean} True if {@code str} is empty or whitespace only.
+ * @return {boolean} Whether {@code str} is empty or whitespace only.
  */
-goog.string.isEmpty = function(str) {
+goog.string.isEmptyOrWhitespace = function(str) {
   // testing length == 0 first is actually slower in all browsers (about the
   // same in Opera).
   // Since IE doesn't include non-breaking-space (0xa0) in their \s character
@@ -136,14 +162,51 @@ goog.string.isEmpty = function(str) {
 
 
 /**
+ * Checks if a string is empty.
+ * @param {string} str The string to check.
+ * @return {boolean} Whether {@code str} is empty.
+ */
+goog.string.isEmptyString = function(str) {
+  return str.length == 0;
+};
+
+
+/**
+ * Checks if a string is empty or contains only whitespaces.
+ *
+ * TODO(user): Deprecate this when clients have been switched over to
+ * goog.string.isEmptyOrWhitespace.
+ *
+ * @param {string} str The string to check.
+ * @return {boolean} Whether {@code str} is empty or whitespace only.
+ */
+goog.string.isEmpty = goog.string.isEmptyOrWhitespace;
+
+
+/**
  * Checks if a string is null, undefined, empty or contains only whitespaces.
  * @param {*} str The string to check.
- * @return {boolean} True if{@code str} is null, undefined, empty, or
+ * @return {boolean} Whether {@code str} is null, undefined, empty, or
+ *     whitespace only.
+ * @deprecated Use goog.string.isEmptyOrWhitespace(goog.string.makeSafe(str))
+ *     instead.
+ */
+goog.string.isEmptyOrWhitespaceSafe = function(str) {
+  return goog.string.isEmptyOrWhitespace(goog.string.makeSafe(str));
+};
+
+
+/**
+ * Checks if a string is null, undefined, empty or contains only whitespaces.
+ *
+ * TODO(user): Deprecate this when clients have been switched over to
+ * goog.string.isEmptyOrWhitespaceSafe.
+ *
+ * @param {*} str The string to check.
+ * @return {boolean} Whether {@code str} is null, undefined, empty, or
  *     whitespace only.
  */
-goog.string.isEmptySafe = function(str) {
-  return goog.string.isEmpty(goog.string.makeSafe(str));
-};
+goog.string.isEmptySafe = goog.string.isEmptyOrWhitespaceSafe;
 
 
 /**
@@ -190,7 +253,7 @@ goog.string.isAlphaNumeric = function(str) {
 /**
  * Checks if a character is a space character.
  * @param {string} ch Character to check.
- * @return {boolean} True if {code ch} is a space.
+ * @return {boolean} True if {@code ch} is a space.
  */
 goog.string.isSpace = function(ch) {
   return ch == ' ';
@@ -200,7 +263,7 @@ goog.string.isSpace = function(ch) {
 /**
  * Checks if a character is a valid unicode character.
  * @param {string} ch Character to check.
- * @return {boolean} True if {code ch} is a valid unicode character.
+ * @return {boolean} True if {@code ch} is a valid unicode character.
  */
 goog.string.isUnicodeChar = function(ch) {
   return ch.length == 1 && ch >= ' ' && ch <= '~' ||
@@ -270,12 +333,17 @@ goog.string.collapseBreakingSpaces = function(str) {
  * @param {string} str The string to trim.
  * @return {string} A trimmed copy of {@code str}.
  */
-goog.string.trim = function(str) {
-  // Since IE doesn't include non-breaking-space (0xa0) in their \s character
-  // class (as required by section 7.2 of the ECMAScript spec), we explicitly
-  // include it in the regexp to enforce consistent cross-browser behavior.
-  return str.replace(/^[\s\xa0]+|[\s\xa0]+$/g, '');
-};
+goog.string.trim = (goog.TRUSTED_SITE && String.prototype.trim) ?
+    function(str) {
+      return str.trim();
+    } :
+    function(str) {
+      // Since IE doesn't include non-breaking-space (0xa0) in their \s
+      // character class (as required by section 7.2 of the ECMAScript spec),
+      // we explicitly include it in the regexp to enforce consistent
+      // cross-browser behavior.
+      return str.replace(/^[\s\xa0]+|[\s\xa0]+$/g, '');
+    };
 
 
 /**
@@ -438,12 +506,16 @@ goog.string.newLineToBr = function(str, opt_xml) {
 
 
 /**
- * Escape double quote '"' characters in addition to '&', '<', and '>' so that a
- * string can be included in an HTML tag attribute value within double quotes.
+ * Escapes double quote '"' and single quote '\'' characters in addition to
+ * '&', '<', and '>' so that a string can be included in an HTML tag attribute
+ * value within double or single quotes.
  *
  * It should be noted that > doesn't need to be escaped for the HTML or XML to
  * be valid, but it has been decided to escape it for consistency with other
  * implementations.
+ *
+ * With goog.string.DETECT_DOUBLE_ESCAPING, this function escapes also the
+ * lowercase letter "e".
  *
  * NOTE(user):
  * HtmlEscape is often called during the generation of large blocks of HTML.
@@ -480,28 +552,43 @@ goog.string.newLineToBr = function(str, opt_xml) {
 goog.string.htmlEscape = function(str, opt_isLikelyToContainHtmlChars) {
 
   if (opt_isLikelyToContainHtmlChars) {
-    return str.replace(goog.string.amperRe_, '&amp;')
-          .replace(goog.string.ltRe_, '&lt;')
-          .replace(goog.string.gtRe_, '&gt;')
-          .replace(goog.string.quotRe_, '&quot;');
+    str = str.replace(goog.string.AMP_RE_, '&amp;')
+          .replace(goog.string.LT_RE_, '&lt;')
+          .replace(goog.string.GT_RE_, '&gt;')
+          .replace(goog.string.QUOT_RE_, '&quot;')
+          .replace(goog.string.SINGLE_QUOTE_RE_, '&#39;')
+          .replace(goog.string.NULL_RE_, '&#0;');
+    if (goog.string.DETECT_DOUBLE_ESCAPING) {
+      str = str.replace(goog.string.E_RE_, '&#101;');
+    }
+    return str;
 
   } else {
     // quick test helps in the case when there are no chars to replace, in
     // worst case this makes barely a difference to the time taken
-    if (!goog.string.allRe_.test(str)) return str;
+    if (!goog.string.ALL_RE_.test(str)) return str;
 
     // str.indexOf is faster than regex.test in this case
     if (str.indexOf('&') != -1) {
-      str = str.replace(goog.string.amperRe_, '&amp;');
+      str = str.replace(goog.string.AMP_RE_, '&amp;');
     }
     if (str.indexOf('<') != -1) {
-      str = str.replace(goog.string.ltRe_, '&lt;');
+      str = str.replace(goog.string.LT_RE_, '&lt;');
     }
     if (str.indexOf('>') != -1) {
-      str = str.replace(goog.string.gtRe_, '&gt;');
+      str = str.replace(goog.string.GT_RE_, '&gt;');
     }
     if (str.indexOf('"') != -1) {
-      str = str.replace(goog.string.quotRe_, '&quot;');
+      str = str.replace(goog.string.QUOT_RE_, '&quot;');
+    }
+    if (str.indexOf('\'') != -1) {
+      str = str.replace(goog.string.SINGLE_QUOTE_RE_, '&#39;');
+    }
+    if (str.indexOf('\x00') != -1) {
+      str = str.replace(goog.string.NULL_RE_, '&#0;');
+    }
+    if (goog.string.DETECT_DOUBLE_ESCAPING && str.indexOf('e') != -1) {
+      str = str.replace(goog.string.E_RE_, '&#101;');
     }
     return str;
   }
@@ -510,42 +597,68 @@ goog.string.htmlEscape = function(str, opt_isLikelyToContainHtmlChars) {
 
 /**
  * Regular expression that matches an ampersand, for use in escaping.
- * @type {RegExp}
+ * @const {!RegExp}
  * @private
  */
-goog.string.amperRe_ = /&/g;
+goog.string.AMP_RE_ = /&/g;
 
 
 /**
  * Regular expression that matches a less than sign, for use in escaping.
- * @type {RegExp}
+ * @const {!RegExp}
  * @private
  */
-goog.string.ltRe_ = /</g;
+goog.string.LT_RE_ = /</g;
 
 
 /**
  * Regular expression that matches a greater than sign, for use in escaping.
- * @type {RegExp}
+ * @const {!RegExp}
  * @private
  */
-goog.string.gtRe_ = />/g;
+goog.string.GT_RE_ = />/g;
 
 
 /**
  * Regular expression that matches a double quote, for use in escaping.
- * @type {RegExp}
+ * @const {!RegExp}
  * @private
  */
-goog.string.quotRe_ = /\"/g;
+goog.string.QUOT_RE_ = /"/g;
+
+
+/**
+ * Regular expression that matches a single quote, for use in escaping.
+ * @const {!RegExp}
+ * @private
+ */
+goog.string.SINGLE_QUOTE_RE_ = /'/g;
+
+
+/**
+ * Regular expression that matches null character, for use in escaping.
+ * @const {!RegExp}
+ * @private
+ */
+goog.string.NULL_RE_ = /\x00/g;
+
+
+/**
+ * Regular expression that matches a lowercase letter "e", for use in escaping.
+ * @const {!RegExp}
+ * @private
+ */
+goog.string.E_RE_ = /e/g;
 
 
 /**
  * Regular expression that matches any character that needs to be escaped.
- * @type {RegExp}
+ * @const {!RegExp}
  * @private
  */
-goog.string.allRe_ = /[&<>\"]/;
+goog.string.ALL_RE_ = (goog.string.DETECT_DOUBLE_ESCAPING ?
+    /[\x00&<>"'e]/ :
+    /[\x00&<>"']/);
 
 
 /**
@@ -556,10 +669,10 @@ goog.string.allRe_ = /[&<>\"]/;
  */
 goog.string.unescapeEntities = function(str) {
   if (goog.string.contains(str, '&')) {
-    // We are careful not to use a DOM if we do not have one. We use the []
-    // notation so that the JSCompiler will not complain about these objects and
-    // fields in the case where we have no DOM.
-    if ('document' in goog.global) {
+    // We are careful not to use a DOM if we do not have one or we explicitly
+    // requested non-DOM html unescaping.
+    if (!goog.string.FORCE_NON_DOM_HTML_UNESCAPING &&
+        'document' in goog.global) {
       return goog.string.unescapeEntitiesUsingDom_(str);
     } else {
       // Fall back on pure XML entities
@@ -571,15 +684,39 @@ goog.string.unescapeEntities = function(str) {
 
 
 /**
+ * Unescapes a HTML string using the provided document.
+ *
+ * @param {string} str The string to unescape.
+ * @param {!Document} document A document to use in escaping the string.
+ * @return {string} An unescaped copy of {@code str}.
+ */
+goog.string.unescapeEntitiesWithDocument = function(str, document) {
+  if (goog.string.contains(str, '&')) {
+    return goog.string.unescapeEntitiesUsingDom_(str, document);
+  }
+  return str;
+};
+
+
+/**
  * Unescapes an HTML string using a DOM to resolve non-XML, non-numeric
  * entities. This function is XSS-safe and whitespace-preserving.
  * @private
  * @param {string} str The string to unescape.
+ * @param {Document=} opt_document An optional document to use for creating
+ *     elements. If this is not specified then the default window.document
+ *     will be used.
  * @return {string} The unescaped {@code str} string.
  */
-goog.string.unescapeEntitiesUsingDom_ = function(str) {
+goog.string.unescapeEntitiesUsingDom_ = function(str, opt_document) {
+  /** @type {!Object<string, string>} */
   var seen = {'&amp;': '&', '&lt;': '<', '&gt;': '>', '&quot;': '"'};
-  var div = document.createElement('div');
+  var div;
+  if (opt_document) {
+    div = opt_document.createElement('div');
+  } else {
+    div = goog.global.document.createElement('div');
+  }
   // Match as many valid entity characters as possible. If the actual entity
   // happens to be shorter, it will still work as innerHTML will return the
   // trailing characters unchanged. Since the entity characters do not include
@@ -662,7 +799,19 @@ goog.string.HTML_ENTITY_PATTERN_ = /&([^;\s<&]+);?/g;
  * @return {string} An escaped copy of {@code str}.
  */
 goog.string.whitespaceEscape = function(str, opt_xml) {
+  // This doesn't use goog.string.preserveSpaces for backwards compatibility.
   return goog.string.newLineToBr(str.replace(/  /g, ' &#160;'), opt_xml);
+};
+
+
+/**
+ * Preserve spaces that would be otherwise collapsed in HTML by replacing them
+ * with non-breaking space Unicode characters.
+ * @param {string} str The string in which to preserve whitespace.
+ * @return {string} A copy of {@code str} with preserved whitespace.
+ */
+goog.string.preserveSpaces = function(str) {
+  return str.replace(/(^|[\n ]) /g, '$1' + goog.string.Unicode.NBSP);
 };
 
 
@@ -763,8 +912,7 @@ goog.string.truncateMiddle = function(str, chars,
 
 /**
  * Special chars that need to be escaped for goog.string.quote.
- * @private
- * @type {Object}
+ * @private {!Object<string, string>}
  */
 goog.string.specialEscapeChars_ = {
   '\0': '\\0',
@@ -781,8 +929,7 @@ goog.string.specialEscapeChars_ = {
 
 /**
  * Character mappings used internally for goog.string.escapeChar.
- * @private
- * @type {Object}
+ * @private {!Object<string, string>}
  */
 goog.string.jsEscapeCache_ = {
   '\'': '\\\''
@@ -867,31 +1014,24 @@ goog.string.escapeChar = function(c) {
 
 
 /**
- * Takes a string and creates a map (Object) in which the keys are the
- * characters in the string. The value for the key is set to true. You can
- * then use goog.object.map or goog.array.map to change the values.
- * @param {string} s The string to build the map from.
- * @return {Object} The map of characters used.
+ * Determines whether a string contains a substring.
+ * @param {string} str The string to search.
+ * @param {string} subString The substring to search for.
+ * @return {boolean} Whether {@code str} contains {@code subString}.
  */
-// TODO(arv): It seems like we should have a generic goog.array.toMap. But do
-//            we want a dependency on goog.array in goog.string?
-goog.string.toMap = function(s) {
-  var rv = {};
-  for (var i = 0; i < s.length; i++) {
-    rv[s.charAt(i)] = true;
-  }
-  return rv;
+goog.string.contains = function(str, subString) {
+  return str.indexOf(subString) != -1;
 };
 
 
 /**
- * Checks whether a string contains a given substring.
- * @param {string} s The string to test.
- * @param {string} ss The substring to test for.
- * @return {boolean} True if {@code s} contains {@code ss}.
+ * Determines whether a string contains a substring, ignoring case.
+ * @param {string} str The string to search.
+ * @param {string} subString The substring to search for.
+ * @return {boolean} Whether {@code str} contains {@code subString}.
  */
-goog.string.contains = function(s, ss) {
-  return s.indexOf(ss) != -1;
+goog.string.caseInsensitiveContains = function(str, subString) {
+  return goog.string.contains(str.toLowerCase(), subString.toLowerCase());
 };
 
 
@@ -1174,7 +1314,7 @@ goog.string.createUniqueString = function() {
 
 
 /**
- * Converts the supplied string to a number, which may be Ininity or NaN.
+ * Converts the supplied string to a number, which may be Infinity or NaN.
  * This function strips whitespace: (toNumber(' 123') === 123)
  * This function accepts scientific notation: (toNumber('1e1') === 10)
  *
@@ -1186,10 +1326,38 @@ goog.string.createUniqueString = function() {
  */
 goog.string.toNumber = function(str) {
   var num = Number(str);
-  if (num == 0 && goog.string.isEmpty(str)) {
+  if (num == 0 && goog.string.isEmptyOrWhitespace(str)) {
     return NaN;
   }
   return num;
+};
+
+
+/**
+ * Returns whether the given string is lower camel case (e.g. "isFooBar").
+ *
+ * Note that this assumes the string is entirely letters.
+ * @see http://en.wikipedia.org/wiki/CamelCase#Variations_and_synonyms
+ *
+ * @param {string} str String to test.
+ * @return {boolean} Whether the string is lower camel case.
+ */
+goog.string.isLowerCamelCase = function(str) {
+  return /^[a-z]+([A-Z][a-z]*)*$/.test(str);
+};
+
+
+/**
+ * Returns whether the given string is upper camel case (e.g. "FooBarBaz").
+ *
+ * Note that this assumes the string is entirely letters.
+ * @see http://en.wikipedia.org/wiki/CamelCase#Variations_and_synonyms
+ *
+ * @param {string} str String to test.
+ * @return {boolean} Whether the string is upper camel case.
+ */
+goog.string.isUpperCamelCase = function(str) {
+  return /^([A-Z][a-z]*)+$/.test(str);
 };
 
 
@@ -1266,6 +1434,25 @@ goog.string.toTitleCase = function(str, opt_delimiters) {
 
 
 /**
+ * Capitalizes a string, i.e. converts the first letter to uppercase
+ * and all other letters to lowercase, e.g.:
+ *
+ * goog.string.capitalize('one')     => 'One'
+ * goog.string.capitalize('ONE')     => 'One'
+ * goog.string.capitalize('one two') => 'One two'
+ *
+ * Note that this function does not trim initial whitespace.
+ *
+ * @param {string} str String value to capitalize.
+ * @return {string} String value with first letter in uppercase.
+ */
+goog.string.capitalize = function(str) {
+  return String(str.charAt(0)).toUpperCase() +
+      String(str.substr(1)).toLowerCase();
+};
+
+
+/**
  * Parse a string in decimal or hexidecimal ('0xFFFF') form.
  *
  * To parse a particular radix, please use parseInt(string, radix) directly. See
@@ -1295,4 +1482,84 @@ goog.string.parseInt = function(value) {
   }
 
   return NaN;
+};
+
+
+/**
+ * Splits a string on a separator a limited number of times.
+ *
+ * This implementation is more similar to Python or Java, where the limit
+ * parameter specifies the maximum number of splits rather than truncating
+ * the number of results.
+ *
+ * See http://docs.python.org/2/library/stdtypes.html#str.split
+ * See JavaDoc: http://goo.gl/F2AsY
+ * See Mozilla reference: http://goo.gl/dZdZs
+ *
+ * @param {string} str String to split.
+ * @param {string} separator The separator.
+ * @param {number} limit The limit to the number of splits. The resulting array
+ *     will have a maximum length of limit+1.  Negative numbers are the same
+ *     as zero.
+ * @return {!Array<string>} The string, split.
+ */
+
+goog.string.splitLimit = function(str, separator, limit) {
+  var parts = str.split(separator);
+  var returnVal = [];
+
+  // Only continue doing this while we haven't hit the limit and we have
+  // parts left.
+  while (limit > 0 && parts.length) {
+    returnVal.push(parts.shift());
+    limit--;
+  }
+
+  // If there are remaining parts, append them to the end.
+  if (parts.length) {
+    returnVal.push(parts.join(separator));
+  }
+
+  return returnVal;
+};
+
+
+/**
+ * Computes the Levenshtein edit distance between two strings.
+ * @param {string} a
+ * @param {string} b
+ * @return {number} The edit distance between the two strings.
+ */
+goog.string.editDistance = function(a, b) {
+  var v0 = [];
+  var v1 = [];
+
+  if (a == b) {
+    return 0;
+  }
+
+  if (!a.length || !b.length) {
+    return Math.max(a.length, b.length);
+  }
+
+  for (var i = 0; i < b.length + 1; i++) {
+    v0[i] = i;
+  }
+
+  for (var i = 0; i < a.length; i++) {
+    v1[0] = i + 1;
+
+    for (var j = 0; j < b.length; j++) {
+      var cost = a[i] != b[j];
+      // Cost for the substring is the minimum of adding one character, removing
+      // one character, or a swap.
+      v1[j + 1] = Math.min(v1[j] + 1, v0[j + 1] + 1, v0[j] + cost);
+    }
+
+    for (var j = 0; j < v0.length; j++) {
+      v0[j] = v1[j];
+    }
+  }
+
+  return v1[b.length];
 };

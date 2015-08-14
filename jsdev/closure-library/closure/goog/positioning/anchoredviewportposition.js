@@ -20,10 +20,8 @@
 
 goog.provide('goog.positioning.AnchoredViewportPosition');
 
-goog.require('goog.math.Box');
 goog.require('goog.positioning');
 goog.require('goog.positioning.AnchoredPosition');
-goog.require('goog.positioning.Corner');
 goog.require('goog.positioning.Overflow');
 goog.require('goog.positioning.OverflowStatus');
 
@@ -83,6 +81,26 @@ goog.positioning.AnchoredViewportPosition = function(anchorElement,
 };
 goog.inherits(goog.positioning.AnchoredViewportPosition,
               goog.positioning.AnchoredPosition);
+
+
+/**
+ * @return {goog.math.Box|undefined} The box object describing the
+ *     dimensions in which the movable element will be shown.
+ */
+goog.positioning.AnchoredViewportPosition.prototype.getOverflowConstraint =
+    function() {
+  return this.overflowConstraint_;
+};
+
+
+/**
+ * @param {goog.math.Box|undefined} overflowConstraint Box object describing the
+ *     dimensions in which the movable element could be shown.
+ */
+goog.positioning.AnchoredViewportPosition.prototype.setOverflowConstraint =
+    function(overflowConstraint) {
+  this.overflowConstraint_ = overflowConstraint;
+};
 
 
 /**
