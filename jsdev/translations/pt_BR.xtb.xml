@@ -625,7 +625,7 @@
 	<translation id="5893370330965605469" key="MSG_WITHDRAW_FIELD_ACCT_HOLDER_ID" source="bitex/app/blinktrade.js" desc="Withdraw field on the withdrawal dialog">Doc. Ident. do correntista</translation>
 	<translation id="6139721622172805966" key="MSG_WITHDRAW_FIELD_SENDER_NAME" source="bitex/app/blinktrade.js" desc="Withdraw field on the withdrawal dialog">Nome do remetente</translation>
 	<translation id="2756996411461682192" key="MSG_WITHDRAW_FIELD_SENDER_ID" source="bitex/app/blinktrade.js" desc="Withdraw field on the withdrawal dialog">Doc. Ident. do remetente</translation>
-	<translation id="8477370668668748984" key="MSG_WITHDRAW_FIELD_SENDER_PHONE_NUMBER" source="bitex/app/blinktrade.js" desc="Withdraw field on the withdrawal dialog">Te. do remetente</translation>
+	<translation id="8477370668668748984" key="MSG_WITHDRAW_FIELD_SENDER_PHONE_NUMBER" source="bitex/app/blinktrade.js" desc="Withdraw field on the withdrawal dialog">Tel. do remetente</translation>
 	<translation id="725515719376663481" key="MSG_WITHDRAW_FIELD_SENDER_KYC" source="bitex/app/blinktrade.js" desc="Withdraw field on the withdrawal dialog">KYC do remetente</translation>
 	<translation id="5536277637035062332" key="MSG_WITHDRAW_FIELD_ACCT_HOLDER_ID_PHONE_NUMBER" source="bitex/app/blinktrade.js" desc="Withdraw field on the withdrawal dialog">Tel. do correntista #</translation>
 	<translation id="8161294925332269311" key="MSG_WITHDRAW_NOTIFICATION_BROKER_CONFIRMED_TITLE" source="bitex/app/blinktrade.js" desc="Withdraw admin notification">Usuário <ph name="username" /> solicitou um resgate de</translation>
