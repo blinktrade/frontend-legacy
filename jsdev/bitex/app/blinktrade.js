@@ -1767,7 +1767,7 @@ bitex.app.BlinkTrade.prototype.showWithdrawalDialog = function(currency){
                                            "placeholder":""});
       }
       withdrawal_method['fields'].push({"side":"client",
-                                         "name": "senderKYC",
+                                         "name": "SenderKYC",
                                          "validator":"required",
                                          "type":"text",
                                          "value":"",

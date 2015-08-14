@@ -208,24 +208,6 @@ bitex.ui.WithdrawList = function( methodDescriptionObj, opt_broker_mode,  opt_sh
                   goog.dom.createDom('td', goog.getCssName(bitex.ui.WithdrawList.CSS_CLASS, 'details-td-value'), method ))
         );
 
-        if (goog.isDefAndNotNull(data['KYC'])) {
-          /**  @desc Withdraw column label in the  broker's withdraw list detail table */
-          var MSG_WITHDRAW_TABLE_DETAILS_COLUMN_KYC = goog.getMsg('KYC');
-
-          /** @desc KYC View buttom label on withdrawal list */
-          var MSG_WITHDRAW_VIEW_KYC_BUTTON_LABEL = goog.getMsg('view');
-
-          goog.dom.appendChild(element, goog.dom.createDom('tr', goog.getCssName(bitex.ui.WithdrawList.CSS_CLASS, 'details-tr'),
-              goog.dom.createDom('td', goog.getCssName(bitex.ui.WithdrawList.CSS_CLASS, 'details-td-key'), MSG_WITHDRAW_TABLE_DETAILS_COLUMN_KYC ),
-              goog.dom.createDom('td', goog.getCssName(bitex.ui.WithdrawList.CSS_CLASS, 'details-td-value'),
-                goog.dom.createDom('a', {
-                  'class':'btn btn-mini btn-primary',
-                  'target':'_blank',
-                  'href': data['KYC']
-                }, MSG_WITHDRAW_VIEW_KYC_BUTTON_LABEL,' ' ,goog.dom.createDom( 'i', ['icon-white', 'icon-eye-open'] )
-              ))));
-        }
-
         if (goog.isDefAndNotNull(data['Link'])) {
           /** @desc reason for cancelling withdraw */
           var MSG_WITHDRAW_BROKER_RECEIPT_COLUMN = goog.getMsg('Broker receipt');
@@ -251,7 +233,7 @@ bitex.ui.WithdrawList = function( methodDescriptionObj, opt_broker_mode,  opt_sh
         var MSG_WITHDRAW_TABLE_DETAILS_COLUMN_TRANSACTION_ID  = goog.getMsg('Transaction ID');
 
         goog.object.forEach(data, function(value, key) {
-          if (key != 'Link' && key != 'Currency' && key != 'KYC' && key != 'Fees' && key != 'TransactionID') {
+          if (key != 'Link' && key != 'Currency'  && key != 'Fees' && key != 'TransactionID') {
             if (goog.isDefAndNotNull(value) && !goog.string.isEmpty(value) )  {
               if (key == 'Wallet') {
                 /**
@@ -334,23 +316,18 @@ bitex.ui.WithdrawList = function( methodDescriptionObj, opt_broker_mode,  opt_sh
                   case 'SenderID':
                     key_description = MSG_WITHDRAW_TABLE_DETAILS_COLUMN_SENDER_ID;
                     break;
-
                   case 'SenderName':
                     key_description = MSG_WITHDRAW_TABLE_DETAILS_COLUMN_SENDER_NAME;
                     break;
-
                   case 'SenderPhone':
                     key_description = MSG_WITHDRAW_TABLE_DETAILS_COLUMN_SENDER_PHONE_NUMBER;
                     break;
-
-                  case 'senderKYC':
+                  case 'SenderKYC':
                     key_description = MSG_WITHDRAW_TABLE_DETAILS_COLUMN_SENDER_KYC;
                     break;
-
                   case 'AccountHolderPhone':
                     key_description = MSG_WITHDRAW_TABLE_DETAILS_COLUMN_ACCT_HOLDER_ID_PHONE_NUMBER;
                     break;
-
                   case 'AccountNumber':
                     key_description = MSG_WITHDRAW_TABLE_DETAILS_COLUMN_ACCT_NUMBER;
                     break;
@@ -390,11 +367,26 @@ bitex.ui.WithdrawList = function( methodDescriptionObj, opt_broker_mode,  opt_sh
                     break;
                 }
 
-                goog.dom.appendChild(element,
-                   goog.dom.createDom('tr', goog.getCssName(bitex.ui.WithdrawList.CSS_CLASS, 'details-tr'),
-                     goog.dom.createDom('td', goog.getCssName(bitex.ui.WithdrawList.CSS_CLASS, 'details-td-key'), key_description ),
-                     goog.dom.createDom('td', goog.getCssName(bitex.ui.WithdrawList.CSS_CLASS, 'details-td-value'), value ))
-                );
+                if (key == 'KYC' || key == 'SenderKYC' ) {
+                  /** @desc KYC View buttom label on withdrawal list */
+                  var MSG_WITHDRAW_VIEW_KYC_BUTTON_LABEL = goog.getMsg('view');
+
+                  goog.dom.appendChild(element, goog.dom.createDom('tr', goog.getCssName(bitex.ui.WithdrawList.CSS_CLASS, 'details-tr'),
+                      goog.dom.createDom('td', goog.getCssName(bitex.ui.WithdrawList.CSS_CLASS, 'details-td-key'), key_description ),
+                      goog.dom.createDom('td', goog.getCssName(bitex.ui.WithdrawList.CSS_CLASS, 'details-td-value'),
+                        goog.dom.createDom('a', {
+                          'class':'btn btn-mini btn-primary',
+                          'target':'_blank',
+                          'href': data['KYC']
+                        }, MSG_WITHDRAW_VIEW_KYC_BUTTON_LABEL,' ' ,goog.dom.createDom( 'i', ['icon-white', 'icon-eye-open'] )
+                      ))));
+                } else {
+                  goog.dom.appendChild(element,
+                     goog.dom.createDom('tr', goog.getCssName(bitex.ui.WithdrawList.CSS_CLASS, 'details-tr'),
+                       goog.dom.createDom('td', goog.getCssName(bitex.ui.WithdrawList.CSS_CLASS, 'details-td-key'), key_description ),
+                       goog.dom.createDom('td', goog.getCssName(bitex.ui.WithdrawList.CSS_CLASS, 'details-td-value'), value ))
+                  );
+                }
               }
             }
           }
