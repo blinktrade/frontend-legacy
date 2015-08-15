@@ -110,6 +110,11 @@ bitex.ui.LedgerActivity = function(button_filters, pseudoNameFunction, opt_broke
         var MSG_LEDGER_WITHDRAW_FEE_DESCRIPTION = goog.getMsg('Fee on withdraw');
 
         /**
+         * @desc Ledger withdraw fee discount description
+         */
+        var MSG_LEDGER_WITHDRAW_FEE_DISCOUNT_DESCRIPTION = goog.getMsg('Discount on the withdrawal fee');
+
+        /**
          * @desc Ledger trade  description
          */
         var MSG_LEDGER_TRADE_DESCRIPTION = goog.getMsg('Trade');
@@ -140,6 +145,8 @@ bitex.ui.LedgerActivity = function(button_filters, pseudoNameFunction, opt_broke
             return MSG_LEDGER_WITHDRAW_DESCRIPTION;
           case 'WF':
             return MSG_LEDGER_WITHDRAW_FEE_DESCRIPTION;
+          case 'WFR':
+            return MSG_LEDGER_WITHDRAW_FEE_DISCOUNT_DESCRIPTION;
           case 'T':
             return MSG_LEDGER_TRADE_DESCRIPTION;
           case 'TF':
@@ -163,6 +170,7 @@ bitex.ui.LedgerActivity = function(button_filters, pseudoNameFunction, opt_broke
             case 'D':
             case 'W':
             case 'WF':
+            case 'WFR':
             case 'TF':
             case 'P':
               return '';

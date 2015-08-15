@@ -9,6 +9,7 @@ goog.require('bitex.ui.ChangePassword');
 goog.require('goog.date.UtcDateTime');
 goog.require('goog.graphics.Stroke');
 goog.require('goog.i18n.DateTimeFormat');
+goog.require('bitex.view.ProfileView.templates');
 
 
 /**
@@ -27,7 +28,15 @@ goog.inherits(bitex.view.ProfileView, bitex.view.View);
  */
 bitex.view.ProfileView.prototype.change_password_;
 
+/**
+ * @type {string}
+ */
+bitex.view.ProfileView.prototype.client_id_;
 
+/**
+ * @type {Object}
+ */
+bitex.view.AccountOverview.prototype.update_profile_data_;
 
 
 bitex.view.ProfileView.prototype.enterView = function() {
@@ -73,9 +82,11 @@ bitex.view.ProfileView.prototype.enterView = function() {
     customer['State'] = state;
     customer['CountryCode'] = model.get('Profile')['Country'];
     customer['Verified'] = model.get('Profile')['Verified'];
+    customer['EmailLang'] = model.get('Profile')['EmailLang'];
 
     var account_overview_header_el = goog.dom.getElement('account_overview_user_id');
-    goog.soy.renderElement(account_overview_header_el,bitex.templates.AccountOverviewUser, {msg_customer_detail: customer});
+    goog.soy.renderElement(account_overview_header_el,
+                           bitex.view.ProfileView.templates.AccountOverviewUser, {msg_customer_detail: customer});
   }
 
 
@@ -92,7 +103,8 @@ bitex.view.ProfileView.prototype.enterView = function() {
 
   var change_password_place_holder_compoenent = new goog.ui.Component();
   change_password_place_holder_compoenent.createDom = function(e){
-    this.setElementInternal( goog.soy.renderAsElement( bitex.templates.ProfileViewChangePasswordPlaceHolder ) );
+    this.setElementInternal(
+        goog.soy.renderAsElement( bitex.view.ProfileView.templates.ProfileViewChangePasswordPlaceHolder ) );
   };
   this.addChild(change_password_place_holder_compoenent, true);
 
@@ -187,6 +199,7 @@ bitex.view.ProfileView.prototype.enterDocument = function() {
   handler.listen( model, bitex.model.Model.EventType.SET + 'TwoFactorSecret', this.onModelSetTwoFactorSecret_ );
   handler.listen( model, bitex.model.Model.EventType.SET + 'TwoFactorEnabled', this.onModelSetTwoFactorEnabled_);
 
+  handler.listen(this.getElement(), goog.events.EventType.CHANGE, this.onElementChange_ );
 
   handler.listen(goog.dom.getElement('id_btn_enable_two_factor'), goog.events.EventType.CLICK, function(e){
     this.dispatchEvent(bitex.view.View.EventType.ENABLE_TWOFACTOR);
@@ -265,6 +278,39 @@ bitex.view.ProfileView.prototype.onSaveWithdrawStructure_ = function(e) {
     withdraw_method_component.setDirty(false);
     withdraw_method_component.setSavingStatus(false);
   });
+};
+
+/**
+ * @return {String}
+ */
+bitex.view.ProfileView.prototype.getClientID = function() {
+  return this.client_id_;
+};
+
+/**
+ * @return {Object}
+ */
+bitex.view.ProfileView.prototype.getProfileTagNewValues = function() {
+  return this.update_profile_data_;
+};
+
+
+/**
+ * @param {goog.events.Event} e
+ */
+bitex.view.ProfileView.prototype.onElementChange_ = function(e){
+  var el = e.target;
+  if (goog.isDefAndNotNull(el.getAttribute('data-profile-change') )){
+    var changed_attribute = el.getAttribute('data-profile-change');
+
+    this.client_id_ = null;
+
+    var new_value = goog.dom.forms.getValue(el);
+
+    this.update_profile_data_ = {};
+    this.update_profile_data_[changed_attribute] = new_value;
+    this.dispatchEvent(bitex.view.View.EventType.UPDATE_PROFILE);
+  }
 };
 
 /**

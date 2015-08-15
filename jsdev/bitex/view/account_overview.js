@@ -9,6 +9,7 @@ goog.require('goog.style');
 goog.require('goog.string');
 goog.require('goog.array');
 goog.require('goog.soy');
+goog.require('bitex.util');
 
 /**
  * @param {*} app
@@ -265,43 +266,7 @@ bitex.view.AccountOverview.prototype.formatVerificationData_ = function(raw_veri
   var formatted_data = raw_verification_data;
   try {
     var verification_data = goog.json.parse(raw_verification_data);
-    formatted_data = '<table class="table table-striped table-condensed">';
-    goog.array.forEach(verification_data, function(verification_obj) {
-      goog.object.forEach(verification_obj, function(data, key) {
-        formatted_data += '<tr><td>';
-        if (key != 'data') {
-          formatted_data += key;
-        }
-        formatted_data += '</td> <td>';
-        if (key == 'data') {
-          formatted_data +=  data;
-        } else if (key == 'uploaded_files') {
-          if (goog.isArray(data)) {
-            goog.array.forEach(data, function(data_line) {
-              if ( goog.isDefAndNotNull(data_line.match(/\.(JPG|JPEG|PNG|GIF|jpg|jpeg|png|gif)$/))) {
-                formatted_data += ' <a href="#" data-action="file-view" data-filename="' + data_line + '" class="btn btn-mini btn-info" >' +
-                    '<i data-action="file-view" data-filename="' + data_line + '"  class="icon-white icon-eye-open"></i></a> ';
-              } else {
-                formatted_data += ' <a href="' + data_line + '" class="btn btn-mini btn-info" "target":"blank" >' +
-                    '<i class="icon-white icon-file"></i></a> ';
-              }
-            }, this);
-          }
-        } else if (goog.isArray(data)) {
-          goog.array.forEach(data, function(data_line) {
-            formatted_data += data_line + '<br/>';
-          }, this);
-        } else if (goog.isObject(data)) {
-          goog.object.forEach(data, function(data_line_data, data_line_key) {
-            formatted_data += data_line_key + ':'  + data_line_data + '<br/>';
-          }, this);
-        } else {
-          formatted_data +=  data;
-        }
-        formatted_data += '</td></tr>';
-      }, this  );
-    }, this );
-    formatted_data += '</table>';
+    formatted_data = bitex.util.verificationData2HTML(verification_data);
   } catch(e){}
   return formatted_data;
 };
