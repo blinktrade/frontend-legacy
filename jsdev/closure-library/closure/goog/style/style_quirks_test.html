@@ -17,6 +17,7 @@ See the COPYING file for details.
     maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
 <title>Closure Unit Tests - goog.dom.style</title>
 <script src="../base.js"></script>
+<script>goog.require('goog.userAgent');</script>
 <style>
 
 * {
@@ -319,6 +320,15 @@ i {
     </div>
   </div>
 
+  <div id="unselectable-gecko" style="-moz-user-select:none">no-select</div>
+  <div id="unselectable-webkit" style="-webkit-user-select:none">no-select</div>
+  <div id="unselectable-ie" unselectable="on">no-select</div>
+
+  <div id="make-unselectable">
+    <p>Can't touch this <aside>(Oh-oh oh oh-oh)</aside></p>
+    <div><em>Stop.</em> Hammer <math><mo>×</mo></math></div>
+  </div>
+
   <div id="pos-scroll-abs">
 
     <p>Some text some text some text some text some text some text some text
@@ -431,6 +441,9 @@ xxxxxxxx x</div>
 <div id="style-position-fixed" style="position:fixed"></div>
 <div id="css-position-absolute"></div>
 
+<div id="box-sizing-unset"></div>
+<div id="box-sizing-border-box" style="box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;"></div>
+
 <div id="style-overflow-scroll" style="overflow:scroll"></div>
 <div id="css-overflow-hidden"></div>
 
@@ -519,7 +532,14 @@ Test-visible
 <div id="test-viewport"></div>
 <div id="translation"></div>
 
+<div id="rotated"></div>
+<div id="scaled"></div>
+
 <script>
+if (!goog.userAgent.IE || goog.userAgent.isDocumentModeOrHigher(9)) {
+  document.write(
+      '<iframe id="svg-frame" src="style_test_rect.svg"></' + 'iframe>');
+}
 goog.require('goog.style_test');
 </script>
 

@@ -5,4 +5,4 @@ date:   2014-11-07 00:23:00
 categories: vi faq
 ---
 
-Trong cả 2 trường hợp rút tiền (Bitcoin và VNĐ), người giao dịch phải trả phí. Phí rút VNĐ được tính bởi sàn giao dịch. Phí rút Bitcoin được tính bởi blockchain.
+Trong cả 2 trường hợp rút tiền (Bitcoin và VNĐ), người giao dịch phải trả phí.

@@ -2,40 +2,40 @@
 
 /**
   * @param id
-  * @param remittance_pair
+  * @param remittance_data_record
   */
 {template .RemittancesBoxCurrency}
   <tr>
-    <td style="padding: 4px;border-top: 0;"><strong>{$remittance_pair[1]}</strong></td>
-    <td style="padding: 4px;border-top: 0;">
-      <span id="{$id}_{$remittance_pair[0]}_buy"  data-blink-class="md-blink"></span>
-      <span> / <span>
-      <span id="{$id}_{$remittance_pair[0]}_sell" data-blink-class="md-blink"></span>
+    <td style="padding: 4px;"><strong>{$remittance_data_record[0]}</strong></td>
+    <td style="padding: 4px;">
+      <!-- {$id} -->
+      {foreach $field_data in $remittance_data_record[3]}
+        <span class="bitex-model"
+        data-model-key-list="{$field_data[1]}"
+        data-model-formula="{$field_data[0]}"
+        data-model-formatter="currency"
+        data-model-formatter-pattern="{$remittance_data_record[2]}"
+        data-blink-class="md-blink"></span>
+        {if not isLast($field_data)}{sp}/{sp}{/if}
+      {/foreach}
     </td>
   </tr>
 {/template}
 
-
 /**
   * @param id
-  * @param remittance_pairs
-  */
-{template .RemittancesBoxCurrencies}
-  {foreach $remittance_pair in $remittance_pairs}
-    {call .RemittancesBoxCurrency}
-      {param id: $id /}
-      {param remittance_pair: $remittance_pair /}
-    {/call}
-  {/foreach}
-{/template}
-
-/**
-  * @param id
-  * @param remittance_pairs
+  * @param remittance_data_table
   */
 {template .RemittancesBox}
   <div id="{$id}" class="remittance-box">
-    <table class="table table-bordered table-condensed remittance-box-table">
+
+  {foreach $remittance_data_record in $remittance_data_table}
+    {if length($remittance_data_record) == 1 }
+      {if not isFirst($remittance_data_record)}
+          </tbody>
+        </table>
+      {/if}
+      <table id="{$id}_{$remittance_data_record[0]}" style="display:none" class="table table-bordered table-condensed remittance-box-table">
       <thead>
         <tr>
           <td colspan="2">
@@ -44,12 +44,13 @@
         </tr>
       </thead>
       <tbody class="remittance-box-content">
-        {call .RemittancesBoxCurrencies}
+    {else}
+        {call .RemittancesBoxCurrency}
           {param id: $id /}
-          {param remittance_pairs: $remittance_pairs /}
+          {param remittance_data_record: $remittance_data_record /}
         {/call}
-      </tbody>
-    </table>
+    {/if}
+  {/foreach}
   </div>
 {/template}
 
