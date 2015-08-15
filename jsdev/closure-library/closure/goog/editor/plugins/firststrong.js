@@ -41,11 +41,11 @@
 
 goog.provide('goog.editor.plugins.FirstStrong');
 
-goog.require('goog.dom');
 goog.require('goog.dom.NodeType');
 goog.require('goog.dom.TagIterator');
 goog.require('goog.dom.TagName');
 goog.require('goog.editor.Command');
+goog.require('goog.editor.Field');
 goog.require('goog.editor.Plugin');
 goog.require('goog.editor.node');
 goog.require('goog.editor.range');
@@ -60,9 +60,10 @@ goog.require('goog.userAgent');
  * First Strong plugin.
  * @constructor
  * @extends {goog.editor.Plugin}
+ * @final
  */
 goog.editor.plugins.FirstStrong = function() {
-  goog.base(this);
+  goog.editor.plugins.FirstStrong.base(this, 'constructor');
 
   /**
    * Indicates whether or not the cursor is in a paragraph we have not yet
@@ -128,6 +129,12 @@ goog.editor.plugins.FirstStrong.INPUT_ATTRIBUTE = 'fs-input';
 
 /** @override */
 goog.editor.plugins.FirstStrong.prototype.handleKeyPress = function(e) {
+  if (goog.editor.Field.SELECTION_CHANGE_KEYCODES[e.keyCode]) {
+    // Key triggered selection change event (e.g. on ENTER) is throttled and a
+    // later LTR/RTL strong keypress may come before it. Need to capture it.
+    this.isNewBlock_ = true;
+    return false;  // A selection-changing key is not LTR/RTL strong.
+  }
   if (!this.isNewBlock_) {
     return false;  // We've already determined this paragraph's direction.
   }
@@ -137,7 +144,10 @@ goog.editor.plugins.FirstStrong.prototype.handleKeyPress = function(e) {
   }
   var newInput = goog.i18n.uChar.fromCharCode(e.charCode);
 
-  if (!newInput) {
+  // IME's may return 0 for the charCode, which is a legitimate, non-Strong
+  // charCode, or they may return an illegal charCode (for which newInput will
+  // be false).
+  if (!newInput || !e.charCode) {
     var browserEvent = e.getBrowserEvent();
     if (browserEvent) {
       if (goog.userAgent.IE && browserEvent['getAttribute']) {
@@ -151,7 +161,7 @@ goog.editor.plugins.FirstStrong.prototype.handleKeyPress = function(e) {
   }
 
   if (!newInput) {
-    return false; // Unrecognized key.
+    return false;  // Unrecognized key.
   }
 
   var isLtr = goog.i18n.bidi.isLtrChar(newInput);
@@ -307,7 +317,7 @@ goog.editor.plugins.FirstStrong.prototype.getTextAround_ = function(root,
  */
 goog.editor.plugins.FirstStrong.isBlock_ = function(node) {
   return !!node && goog.editor.node.isBlockTag(node) &&
-      node.tagName != goog.dom.TagName.LI;
+      /** @type {!Element} */ (node).tagName != goog.dom.TagName.LI;
 };
 
 
@@ -319,6 +329,7 @@ goog.editor.plugins.FirstStrong.isBlock_ = function(node) {
  * @private
  */
 goog.editor.plugins.FirstStrong.isGeckoBlock_ = function(node) {
-  return !!node && (node.tagName == goog.dom.TagName.BR ||
+  return !!node &&
+      (/** @type {!Element} */ (node).tagName == goog.dom.TagName.BR ||
       goog.editor.plugins.FirstStrong.isBlock_(node));
 };

@@ -80,6 +80,7 @@
     <!--Bootstrap-->
     <link href="{{ site.url }}{{ site.baseurl }}/assets/themes/default/css/bootstrap-combined.min.css" rel="stylesheet">
     <link href="{{ site.url }}{{ site.baseurl }}/assets/themes/default/css/font-awesome.min.css" rel="stylesheet">
+    <link href="{{ site.url }}{{ site.baseurl }}/assets/css/flag-icon.css" rel="stylesheet">
 
     {% if page.load_application %}
     <link href="{{ site.url }}{{ site.baseurl }}/assets/themes/default/css/Dialog.css" rel="stylesheet">
@@ -123,14 +124,17 @@
             {% endif %}
 
             <li class="dropdown">
-              <a id="drop1" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">{{ site.lang|upcase }} <b class="caret"></b></a>
-              <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+              <a id="drop1" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">
+                <span class="flag-icon flag-icon-{{ site.lang}}"></span> <b class="caret"></b></a>
+              <ul class="dropdown-menu" role="menu" aria-labelledby="drop1" style="min-width: 60px">
               {% for lang in site.languages %}
                 {% if  lang != site.lang  %}
                   {% if forloop.first %}
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ site.url }}{{ site.baseurl_root }}/">{{ lang|upcase }}</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ site.url }}{{ site.baseurl_root }}/">
+                      <span class="flag-icon flag-icon-{{lang}}"></span></a></li>
                   {% else %}
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ site.url }}{{ site.baseurl_root }}/{{lang}}">{{ lang|upcase }}</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ site.url }}{{ site.baseurl_root }}/{{lang}}">
+                      <span class="flag-icon flag-icon-{{lang}}"></span></a></li>
                   {% endif %}
                 {% endif %}
               {% endfor %}

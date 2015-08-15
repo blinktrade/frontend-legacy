@@ -18,8 +18,8 @@ Hay varias razones detrás de esto. Nombraremos las más importantes:
 
 1 - Esto evita manipulaciones en el mercado, como pueden ser el front running, Pump And Dump, u otras manipulaciones. Ante cualquier tentativa de manupulacion, los demas participantes pueden identificar al manipulador facilmente.
 
-2 - Ayuda a construir la reputación del usuario, recuerda, en caso de una prohibición gubernamental de bitcoins, giraremos surbitcoin a un mercado de P2P, por lo tanto, la reputación será muy importante.
+2 - Ayuda a construir la reputación del usuario, recuerda, en caso de una prohibición gubernamental de bitcoins, giraremos el exchange a un mercado de P2P, por lo tanto, la reputación será muy importante.
 
-3 - Permite a los usuarios auditar al operador del exchange. Esto ayudará a los operadores de SurBitcoin demostrar su solvencia al público ademas de no tener que contratar los servicios de un auditor que pueda manipular facilmente las cuentas.
+3 - Permite a los usuarios auditar al operador del exchange. Esto ayudará a los operadores del exchange demostrar su solvencia al público ademas de no tener que contratar los servicios de un auditor que pueda manipular facilmente las cuentas.
 
 Entendemos que la mayoría de las bolsas, a dia de hoy, no publican este tipo de contenido. Es por eso que constantemente estan surgiendo casos de manupulacion en el mercado y de estafadores cuyo unico interes es apoderarse de los bitcoins de sus clientes (en este caso no estamos hablando de los grandes exchanges, sino de una gran cantidad de pequeños exchanges que ya han cerrado sus puertas, declarando haber sido "hackeados")
