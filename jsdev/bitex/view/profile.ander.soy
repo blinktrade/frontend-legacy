@@ -1,0 +1,90 @@
+{namespace bitex.view.ProfileView.templates}
+
+/**
+  */
+{template .ProfileViewChangePasswordPlaceHolder}
+  <div class="span6 well"></div>
+{/template}
+
+
+/**
+  * @param msg_customer_detail
+  */
+{template .AccountOverviewUserEmailLanguage}
+  <select id="id_select_new_email_language" data-profile-change="EmailLang" >
+    <option value="en" {if $msg_customer_detail['EmailLang']=='en'}selected{/if}>
+      {msg desc="English option on email language select"}English{/msg}
+    </option>
+
+    <option value="pt_BR" {if $msg_customer_detail['EmailLang']=='pt_BR'}selected{/if}>
+      {msg desc="Brazilian Portuguese option on email language select"}Brazilian Portuguese{/msg}
+    </option>
+
+    <option value="es" {if $msg_customer_detail['EmailLang']=='es'}selected{/if}>
+      {msg desc="Spanish option on email language select"}Spanish{/msg}
+    </option>
+
+    <option value="vi" {if $msg_customer_detail['EmailLang']=='vi'}selected{/if}>
+      {msg desc="Vietnamese option on email language select"}Vietnamese{/msg}
+    </option>
+  </select>
+{/template}
+
+/**
+  * @param msg_customer_detail
+  */
+{template .AccountOverviewUser}
+  <table class="profile-table table">
+    <tbody>
+      <tr>
+        <td><strong>{msg desc="label on overview header"}ID{/msg}</strong></td>
+        <td>{$msg_customer_detail['ID']}</td>
+      </tr>
+      <tr>
+        <td><strong>{msg desc="label on  overview header"}Username{/msg}</strong></td>
+        <td>{$msg_customer_detail['Username']}</td>
+      </tr>
+      <tr>
+         <td><strong>{msg desc="label on  overview header"}Email{/msg}</strong></td>
+         <td>{$msg_customer_detail['Email']}</td>
+      </tr>
+      <tr>
+         <td><strong>{msg desc="label on  overview header"}State{/msg}</strong></td>
+         <td>{$msg_customer_detail['State']}</td>
+      </tr>
+      <tr>
+         <td><strong>{msg desc="label on  overview header"}Country{/msg}</strong></td>
+         <td>{$msg_customer_detail['CountryCode']}</td>
+      </tr>
+      <tr>
+         <td><strong>{msg desc="label on  overview header"}Is verified{/msg}</strong></td>
+         <td class="account-overview-val account-overview-verified">
+            {switch $msg_customer_detail['Verified'] }
+              {case 0}
+                <span class="label label-important">{msg desc="label on  overview header"}No{/msg}</span>
+              {case 1}
+                <span class="label label-important">{msg desc="label on  overview header"}Pending{/msg}</span>
+              {case 2}
+                <span class="label label-important">{msg desc="label on  overview header"}Progress{/msg}</span>
+              {case 3}
+                <span class="label label-success">{msg desc="label on  overview header"}Yes{/msg}</span>
+              {case 4}
+                <span class="label label-success">{msg desc="label on  overview header"}Yes - Level II{/msg}</span>
+              {case 5}
+                <span class="label label-success">{msg desc="label on  overview header"}Yes - Level III{/msg}</span>
+            {/switch}
+         </td>
+      </tr>
+
+      <tr>
+         <td><strong>{msg desc="label on  overview header"}Email preferred language{/msg}</strong></td>
+          <td>
+            {call .AccountOverviewUserEmailLanguage}
+              {param msg_customer_detail: $msg_customer_detail /}
+            {/call}
+         </td>
+      </tr>
+
+    </tbody>
+  </table>
+{/template}

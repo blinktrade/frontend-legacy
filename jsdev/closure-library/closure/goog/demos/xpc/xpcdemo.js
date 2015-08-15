@@ -17,21 +17,20 @@
  * This script is used in both the container page and the iframe.
  *
  */
+goog.provide('xpcdemo');
 
 goog.require('goog.Uri');
-goog.require('goog.debug.Logger');
+goog.require('goog.asserts');
 goog.require('goog.dom');
+goog.require('goog.dom.TagName');
 goog.require('goog.events');
 goog.require('goog.events.EventType');
+goog.require('goog.html.SafeHtml');
 goog.require('goog.json');
+goog.require('goog.log');
+goog.require('goog.log.Level');
+goog.require('goog.net.xpc.CfgFields');
 goog.require('goog.net.xpc.CrossPageChannel');
-
-
-/**
- * Namespace for the demo. We don't use goog.provide here because it's not a
- * real module (cannot be required).
- */
-var xpcdemo = {};
 
 
 /**
@@ -105,8 +104,8 @@ xpcdemo.initOuter = function() {
   xpcdemo.channel = new goog.net.xpc.CrossPageChannel(cfg);
 
   // Create the peer iframe.
-  xpcdemo.peerIframe = xpcdemo.channel.createPeerIframe(
-      goog.dom.getElement('iframeContainer'));
+  xpcdemo.peerIframe = xpcdemo.channel.createPeerIframe(goog.asserts.assert(
+      goog.dom.getElement('iframeContainer')));
 
   xpcdemo.initCommon_();
 
@@ -135,17 +134,24 @@ xpcdemo.initInner = function() {
  * @private
  */
 xpcdemo.initCommon_ = function() {
-  var xpcLogger = goog.debug.Logger.getLogger('goog.net.xpc');
-  xpcLogger.addHandler(function(logRecord) {
+  var xpcLogger = goog.log.getLogger('goog.net.xpc',
+      window.location.href.match(/verbose/) ?
+          goog.log.Level.ALL : goog.log.Level.INFO);
+  goog.log.addHandler(xpcLogger, function(logRecord) {
     xpcdemo.log('[XPC] ' + logRecord.getMessage());
   });
-  xpcLogger.setLevel(window.location.href.match(/verbose/) ?
-      goog.debug.Logger.Level.ALL : goog.debug.Logger.Level.INFO);
 
   // Register services.
-  xpcdemo.channel.registerService('log', xpcdemo.log);
-  xpcdemo.channel.registerService('ping', xpcdemo.pingHandler_);
-  xpcdemo.channel.registerService('events', xpcdemo.eventsMsgHandler_);
+  // The functions will only recieve strings but takes an optional third
+  // parameter that causes the function to recieve an Object to cast to the
+  // expected type, but it would be better to change the API or add
+  // overload support to the compiler.
+  xpcdemo.channel.registerService('log',
+      /** @type {function((!Object|string)): ?} */ (xpcdemo.log));
+  xpcdemo.channel.registerService('ping',
+      /** @type {function((!Object|string)): ?} */ (xpcdemo.pingHandler_));
+  xpcdemo.channel.registerService('events',
+      /** @type {function((!Object|string)): ?} */ (xpcdemo.eventsMsgHandler_));
 
   // Connect the channel.
   xpcdemo.channel.connect(function() {
@@ -180,8 +186,8 @@ xpcdemo.teardown = function() {
  */
 xpcdemo.log = function(msgString) {
   xpcdemo.consoleElm || (xpcdemo.consoleElm = goog.dom.getElement('console'));
-  var msgElm = goog.dom.createDom('div');
-  msgElm.innerHTML = msgString;
+  var msgElm = goog.html.SafeHtml.create(
+      goog.dom.TagName.DIV, {}, goog.html.SafeHtml.htmlEscape(msgString));
   xpcdemo.consoleElm.insertBefore(msgElm, xpcdemo.consoleElm.firstChild);
 };
 
@@ -193,6 +199,7 @@ xpcdemo.ping = function() {
   // send current time
   xpcdemo.channel.send('ping', goog.now() + '');
 };
+
 
 /**
  * The handler function for incoming pings (messages sent to the service
@@ -258,7 +265,7 @@ xpcdemo.stopMousemoveForwarding = function() {
  */
 xpcdemo.mouseEventHandler_ = function(e) {
   xpcdemo.channel.send('events',
-                   [e.type, e.clientX, e.clientY, goog.now()].join(','));
+      [e.type, e.clientX, e.clientY, goog.now()].join(','));
 };
 
 

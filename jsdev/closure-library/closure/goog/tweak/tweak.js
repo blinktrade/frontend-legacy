@@ -23,6 +23,7 @@ goog.provide('goog.tweak');
 goog.provide('goog.tweak.ConfigParams');
 
 goog.require('goog.asserts');
+goog.require('goog.tweak.BaseSetting');
 goog.require('goog.tweak.BooleanGroup');
 goog.require('goog.tweak.BooleanInGroupSetting');
 goog.require('goog.tweak.BooleanSetting');
@@ -36,7 +37,7 @@ goog.require('goog.tweak.StringSetting');
  * Calls to this function are overridden by the compiler by the processTweaks
  * pass. It returns the overrides to default values for tweaks set by compiler
  * options.
- * @return {!Object.<number|string|boolean>} A map of tweakId -> defaultValue.
+ * @return {!Object<number|string|boolean>} A map of tweakId -> defaultValue.
  * @private
  */
 goog.tweak.getCompilerOverrides_ = function() {
@@ -80,7 +81,7 @@ goog.tweak.getRegistry = function() {
  *     implemented.
  * @typedef {{
  *     label:(string|undefined),
- *     validValues:(!Array.<string>|!Array.<number>|undefined),
+ *     validValues:(!Array<string>|!Array<number>|undefined),
  *     paramName:(string|undefined),
  *     restartRequired:(boolean|undefined),
  *     callback:(Function|undefined),
@@ -88,24 +89,6 @@ goog.tweak.getRegistry = function() {
  *     }|!Object}
  */
 goog.tweak.ConfigParams;
-
-
-/**
- * Silences warning about properties on ConfigParams never being set when
- * running JsLibTest.
- * @return {goog.tweak.ConfigParams} Dummy return.
- * @private
- */
-goog.tweak.configParamsNeverCompilerWarningWorkAround_ = function() {
-  return {
-    label: '',
-    validValues: [],
-    paramName: '',
-    restartRequired: true,
-    callback: goog.nullFunction,
-    token: ''
-  };
-};
 
 
 /**

@@ -20,12 +20,15 @@
 
 goog.provide('goog.net.jsloader');
 goog.provide('goog.net.jsloader.Error');
+goog.provide('goog.net.jsloader.ErrorCode');
+goog.provide('goog.net.jsloader.Options');
 
 goog.require('goog.array');
 goog.require('goog.async.Deferred');
 goog.require('goog.debug.Error');
 goog.require('goog.dom');
-goog.require('goog.userAgent');
+goog.require('goog.dom.TagName');
+goog.require('goog.object');
 
 
 /**
@@ -54,11 +57,13 @@ goog.net.jsloader.DEFAULT_TIMEOUT = 5000;
  * cleanupWhenDone: If true clean up the script tag after script completes to
  *     load. This is important if you just want to read data from the JavaScript
  *     and then throw it away. Default is false.
+ * attributes: Additional attributes to set on the script tag.
  *
  * @typedef {{
  *   timeout: (number|undefined),
  *   document: (HTMLDocument|undefined),
- *   cleanupWhenDone: (boolean|undefined)
+ *   cleanupWhenDone: (boolean|undefined),
+ *   attributes: (!Object<string, string>|undefined)
  * }}
  */
 goog.net.jsloader.Options;
@@ -66,10 +71,20 @@ goog.net.jsloader.Options;
 
 /**
  * Scripts (URIs) waiting to be loaded.
- * @type {Array.<string>}
+ * @type {Array<string>}
  * @private
  */
 goog.net.jsloader.scriptsToLoad_ = [];
+
+
+/**
+ * The deferred result of loading the URIs in scriptsToLoad_.
+ * We need to return this to a caller that wants to load URIs while
+ * a deferred is already working on them.
+ * @type {!goog.async.Deferred}
+ * @private
+ */
+goog.net.jsloader.scriptLoadingDeferred_;
 
 
 /**
@@ -86,9 +101,11 @@ goog.net.jsloader.scriptsToLoad_ = [];
  * If you need to load a large number of scripts on the same domain,
  * you may want to use goog.module.ModuleLoader.
  *
- * @param {Array.<string>} uris The URIs to load.
+ * @param {Array<string>} uris The URIs to load.
  * @param {goog.net.jsloader.Options=} opt_options Optional parameters. See
  *     goog.net.jsloader.options documentation for details.
+ * @return {!goog.async.Deferred} The deferred result, that may be used to add
+ *     callbacks
  */
 goog.net.jsloader.loadMany = function(uris, opt_options) {
   // Loading the scripts in serial introduces asynchronosity into the flow.
@@ -98,7 +115,7 @@ goog.net.jsloader.loadMany = function(uris, opt_options) {
   //
   // To work around this issue, all module loads share a queue.
   if (!uris.length) {
-    return;
+    return goog.async.Deferred.succeed(null);
   }
 
   var isAnotherModuleLoading = goog.net.jsloader.scriptsToLoad_.length;
@@ -106,8 +123,10 @@ goog.net.jsloader.loadMany = function(uris, opt_options) {
   if (isAnotherModuleLoading) {
     // jsloader is still loading some other scripts.
     // In order to prevent the race condition noted above, we just add
-    // these URIs to the end of the scripts' queue and return.
-    return;
+    // these URIs to the end of the scripts' queue and return the deferred
+    // result of the ongoing script load, so the caller knows when they
+    // finish loading.
+    return goog.net.jsloader.scriptLoadingDeferred_;
   }
 
   uris = goog.net.jsloader.scriptsToLoad_;
@@ -117,8 +136,10 @@ goog.net.jsloader.loadMany = function(uris, opt_options) {
     if (uris.length) {
       deferred.addBoth(popAndLoadNextScript);
     }
+    return deferred;
   };
-  popAndLoadNextScript();
+  goog.net.jsloader.scriptLoadingDeferred_ = popAndLoadNextScript();
+  return goog.net.jsloader.scriptLoadingDeferred_;
 };
 
 
@@ -179,14 +200,15 @@ goog.net.jsloader.load = function(uri, opt_options) {
         'Error while loading script ' + uri));
   };
 
-  // Add the script element to the document.
-  goog.dom.setProperties(script, {
+  var properties = options.attributes || {};
+  goog.object.extend(properties, {
     'type': 'text/javascript',
     'charset': 'UTF-8',
     // NOTE(user): Safari never loads the script if we don't set
     // the src attribute before appending.
     'src': uri
   });
+  goog.dom.setProperties(script, properties);
   var scriptParent = goog.net.jsloader.getScriptParentElement_(doc);
   scriptParent.appendChild(script);
 
@@ -233,7 +255,8 @@ goog.net.jsloader.loadAndVerify = function(uri, verificationObjName, options) {
   var sendDeferred = goog.net.jsloader.load(uri, options);
 
   // Create a deferred object wrapping the send result.
-  var deferred = new goog.async.Deferred(sendDeferred.cancel);
+  var deferred = new goog.async.Deferred(
+      goog.bind(sendDeferred.cancel, sendDeferred));
 
   // Call user back with object that was set by the script.
   sendDeferred.addCallback(function() {
@@ -290,7 +313,7 @@ goog.net.jsloader.cancel_ = function() {
   var request = this;
   if (request && request.script_) {
     var scriptNode = request.script_;
-    if (scriptNode && scriptNode.tagName == 'SCRIPT') {
+    if (scriptNode && scriptNode.tagName == goog.dom.TagName.SCRIPT) {
       goog.net.jsloader.cleanup_(scriptNode, true, request.timeout_);
     }
   }
@@ -345,13 +368,14 @@ goog.net.jsloader.ErrorCode = {
  * @param {string=} opt_message Additional message.
  * @constructor
  * @extends {goog.debug.Error}
+ * @final
  */
 goog.net.jsloader.Error = function(code, opt_message) {
   var msg = 'Jsloader error (code #' + code + ')';
   if (opt_message) {
     msg += ': ' + opt_message;
   }
-  goog.base(this, msg);
+  goog.net.jsloader.Error.base(this, 'constructor', msg);
 
   /**
    * The code for this error.
