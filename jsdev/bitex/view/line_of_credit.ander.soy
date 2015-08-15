@@ -1,0 +1,368 @@
+{namespace bitex.view.LineOfCreditView.templates}
+
+
+
+/**
+  * @param data
+  */
+{template .InfoLineOfCredit}
+/*
+  data = {
+    'ID': 1,
+    'ProviderFirstName': 'Owen',
+    'ProviderLastName': 'Gunden',
+    'TakerFirstName': 'BlinkTrade Inc.',
+    'TakerLastName': '',
+    'Description': 'Line of credit for remittances',
+    'Currency': 'USD',
+    'DeliveryCurrencies': ['BTC'],
+    'ContractInfo': {
+     'limit': 5000000000000,
+     'interest_rate': 0.000667,
+     'deliver_currencies': ['BTC'],
+     'BTC': {
+       'get_ticker': {
+         'currency': 'USD',
+         'market': 'BITFINEX',
+         'instrument': 'BTCUSD',
+         'column': 'BEST_BID',
+         'premium': [ [0,500000000000, 0.25],[500000000000,1500000000000, 0.35 ] ]
+       },
+       'payback_ticker': {
+         'currency': 'USD',
+         'market': 'BITFINEX',
+         'instrument': 'BTCUSD',
+         'column': 'BEST_ASK',
+         'premium': [ [0,500000000000, 0.25],[500000000000,1500000000000, 0.35 ] ]
+       }
+     }
+    },
+    'InterestRate': 0.000667,
+    'CreditLimit': 5000000000000,
+    'Balance': 0,
+    'LastUpdate': '2015-07-08 14:01:02',
+    'Created': '2015-07-08 14:01:02',
+    'PercentFee': 0.1,
+    'FixedFee': 1,
+    'IsActive': 1
+  }
+*/
+  <table class="table table-condensed table-bordered">
+    <tr>
+      <td>{msg desc="Provider full name on Line of credit info"}Provider{/msg}</td>
+      <td>{$data['ProviderFirstName']}{sp}{$data['ProviderLastName']}</td>
+    </tr>
+
+    <tr>
+      <td>{msg desc="Taker full name on Line of credit info"}Taker{/msg}</td>
+      <td>{$data['TakerFirstName']}{sp}{$data['TakerLastName']}</td>
+    </tr>
+
+    <tr>
+      <td>{msg desc="Currency on Line of credit info"}Currency{/msg}</td>
+      <td>{$data['Currency']}</td>
+    </tr>
+
+    <tr>
+      <td>{msg desc="Interest rate on Line of credit info"}Daily interest rate{/msg}</td>
+      <td>{$data['InterestRateHumanFormat']}</td>
+    </tr>
+
+    <tr>
+      <td>{msg desc="Credit Limit on Line of credit info"}Credit limit{/msg}</td>
+      <td>{$data['CreditLimitHumanFormat']}</td>
+    </tr>
+
+    <tr>
+      <td>{msg desc="Created on Line of credit info"}Created{/msg}</td>
+      <td>{$data['Created']} UTC</td>
+    </tr>
+
+    {foreach $c in $data['DeliveryCurrencies'] }
+      <tr>
+        <td colspan="2"> {msg desc="Delivery currency title on credit info"}Get and pay back in {$c}{/msg}</td>
+      </tr>
+
+      <tr>
+        <td>{msg desc="Get ticker on credit info"}Ticker for get{/msg}</td>
+        <td>{$data['ContractInfo'][$c]['get_ticker']['market']}:
+            {$data['ContractInfo'][$c]['get_ticker']['instrument']}:
+            {$data['ContractInfo'][$c]['get_ticker']['column']}{sp}
+            <span class="bitex-model"
+                  data-model-formatter="currency"
+                  data-model-formatter-pattern="{$data['ContractInfo'][$c]['get_ticker']['currency_pattern']}"
+                  data-model-formula="{$data['ContractInfo'][$c]['get_ticker']['market']}_
+                                  {$data['ContractInfo'][$c]['get_ticker']['instrument']}_
+                                  {$data['ContractInfo'][$c]['get_ticker']['column']} / 100000000"
+                  data-model-key-list="{$data['ContractInfo'][$c]['get_ticker']['market']}_
+                                  {$data['ContractInfo'][$c]['get_ticker']['instrument']}_
+                                  {$data['ContractInfo'][$c]['get_ticker']['column']}"></span>
+
+            </td>
+      </tr>
+
+      <tr>
+        <td>{msg desc="Payback ticker on credit info"}Ticker for payback{/msg}</td>
+        <td>{$data['ContractInfo'][$c]['payback_ticker']['market']}:
+            {$data['ContractInfo'][$c]['payback_ticker']['instrument']}:
+            {$data['ContractInfo'][$c]['payback_ticker']['column']}{sp}
+            <span class="bitex-model"
+                  data-model-formatter="currency"
+                  data-model-formatter-pattern="{$data['ContractInfo'][$c]['payback_ticker']['currency_pattern']}"
+                  data-model-formula="{$data['ContractInfo'][$c]['payback_ticker']['market']}_
+                                  {$data['ContractInfo'][$c]['payback_ticker']['instrument']}_
+                                  {$data['ContractInfo'][$c]['payback_ticker']['column']} / 100000000"
+                  data-model-key-list="{$data['ContractInfo'][$c]['payback_ticker']['market']}_
+                                  {$data['ContractInfo'][$c]['payback_ticker']['instrument']}_
+                                  {$data['ContractInfo'][$c]['payback_ticker']['column']}"></span>
+            </td>
+      </tr>
+
+      <tr>
+        <td>{msg desc="Min/Max size for currency on credit info"}Min/Max size{/msg}</td>
+        <td>
+          {$data['ContractInfo'][$c]['get_ticker']['min_size_human_format']}{sp}/{sp}
+          {$data['ContractInfo'][$c]['get_ticker']['max_size_human_format']}
+        </td>
+      </tr>
+
+    {/foreach}
+
+  </table>
+{/template}
+
+
+
+
+/**
+  * @param id
+  * @param data
+  */
+{template .PayLineOfCredit}
+  <form  id="{$id}_form" class="pay-line-of-credit-data-entry-form form-horizontal">
+    <input type="hidden" name="ID"  value="{$data['ID']}"/>
+    <fieldset>
+      {if length($data['DeliveryCurrencies']) > 1}
+        <div class="control-group">
+          <label class="control-label">{msg desc="method"}Currency{/msg}</label>
+          <div class="controls">
+            <select id="{$id}_form_delivery_currency" name="Currency" class="delivery-method-selector">
+              {foreach $c in $data['DeliveryCurrencies']}
+                <option {if isFirst($c)}selected{/if} value="{$c}">{$c}</option>
+              {/foreach}
+            </select>
+          </div>
+        </div>
+      {else}
+        {foreach $c in $data['DeliveryCurrencies']}
+          <input  id="{$id}_form_delivery_currency" type="hidden" name="Currency"  value="{$c}"/>
+        {/foreach}
+      {/if}
+
+      {foreach $c in $data['DeliveryCurrencies'] }
+        <div class="line-of-credit-delivery-currency" data-delivery-currency="{$c}" style="">
+          <div class="control-group">
+            <label class="control-label">{msg desc="Amount to payback the line of credit withdow"}Amount:{/msg}</label>
+            <div class="controls">
+              <div class="input-prepend">
+                <span class="add-on">{$data['ContractInfo'][$c]['CurrencySign']}</span>
+                <input id="{$id}_form_amount_{$c}_{$data['Currency']}"
+                       data-uniform-validators="required; validateNumber;"
+                       data-uniform-type="number"
+                       data-uniform-filters="positive_number"
+                       value=""
+                       type="text"
+                       class="input-small label-input-label"
+                       size="16"
+                       name="Amount"
+                       placeholder=""/>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {if $c != $data['Currency']}
+          <div class="control-group">
+            <label class="control-label">{msg desc="Exchange rate on get line of credit"}Exchange rate:{/msg}</label>
+            <div class="controls">
+              <label id="{$id}_form_exchange_rate_{$data['Currency']}_{$c}" style="text-align: left;"
+                    class="bitex-model control-label"
+                    data-model-formatter="currency"
+                    data-blink-class="balance-info-blink"
+                    data-model-formatter-pattern="{$data['ContractInfo'][$c]['payback_ticker']['currency_pattern']}"
+                    data-model-formula="({$data['ContractInfo'][$c]['payback_ticker']['ticker']} - ( (ID_LOC_FORM_AMOUNT_{$c}_{$data['Currency']}_PREMIUM / 100) * ({$data['ContractInfo'][$c]['payback_ticker']['ticker']} ) ) ) / 100000000"
+                    data-model-key-list="{$data['ContractInfo'][$c]['payback_ticker']['ticker']},ID_LOC_FORM_AMOUNT_{$c}_{$data['Currency']}_PREMIUM"></label>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label class="control-label">{msg desc="Total on get line of credit"}Total:{/msg}</label>
+            <div class="controls">
+              <label id="{$id}_form_total_{$data['Currency']}_{$c}" style="text-align: left;"
+                      class="bitex-model control-label"
+                      data-model-formatter="currency"
+                      data-blink-class="balance-info-blink"
+                      data-model-formatter-pattern="{$data['ContractInfo'][$c]['payback_ticker']['currency_pattern']}"
+                      data-model-formula="ID_LOC_FORM_AMOUNT_{$c}_{$data['Currency']} / 100000000 * ( ({$data['ContractInfo'][$c]['payback_ticker']['ticker']} - ( (ID_LOC_FORM_AMOUNT_{$c}_{$data['Currency']}_PREMIUM / 100) * ({$data['ContractInfo'][$c]['payback_ticker']['ticker']} ) ) ) ) / 100000000 "
+                      data-model-key-list="ID_LOC_FORM_AMOUNT_{$c}_{$data['Currency']},ID_LOC_FORM_AMOUNT_{$c}_{$data['Currency']}_PREMIUM,{$data['ContractInfo'][$c]['payback_ticker']['ticker']}"></label>
+            </div>
+          </div>
+        {/if}
+
+        <div class="control-group">
+          <label class="control-label">{msg desc="Fees on get line of credit"}Fees:{/msg}</label>
+          <div class="controls">
+            <label id="{$id}_form_fee_{$data['Currency']}_{$c}" style="text-align: left;"
+                   class="bitex-model control-label"
+                   data-model-formatter="currency"
+                   data-blink-class="balance-info-blink"
+                   data-model-formatter-pattern="{$data['ContractInfo'][$c]['CurrencyPattern']}"
+                   data-model-formula="({$data['PercentFee']}/100 * ID_LOC_FORM_AMOUNT_{$c}_{$data['Currency']} ) "
+                   data-model-key-list="ID_LOC_FORM_AMOUNT_{$c}_{$data['Currency']},ID_LOC_FORM_AMOUNT_{$c}_{$data['Currency']}_PREMIUM,{$data['ContractInfo'][$c]['payback_ticker']['ticker']}"></label>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label class="control-label">{msg desc="Total after fees on get line of credit"}Net total:{/msg}</label>
+          <div class="controls">
+            <label id="{$id}_form_net_total_{$data['Currency']}_{$c}" style="text-align: left;"
+                   class="bitex-model control-label"
+                   data-model-formatter="currency"
+                   data-blink-class="balance-info-blink"
+                   data-model-formatter-pattern="{$data['ContractInfo'][$c]['payback_ticker']['currency_pattern']}"
+                   data-model-formula="(ID_LOC_FORM_AMOUNT_{$c}_{$data['Currency']} - ({$data['PercentFee']}/100 * ID_LOC_FORM_AMOUNT_{$c}_{$data['Currency']} ) ) / 100000000 * ( ({$data['ContractInfo'][$c]['payback_ticker']['ticker']} - ( (ID_LOC_FORM_AMOUNT_{$c}_{$data['Currency']}_PREMIUM / 100) * ({$data['ContractInfo'][$c]['payback_ticker']['ticker']} ) ) ) ) / 100000000  "
+                   data-model-key-list="ID_LOC_FORM_AMOUNT_{$c}_{$data['Currency']},ID_LOC_FORM_AMOUNT_{$c}_{$data['Currency']}_PREMIUM,{$data['ContractInfo'][$c]['payback_ticker']['ticker']}"></label>
+          </div>
+        </div>
+       {/foreach}
+    </fieldset>
+  </form>
+{/template}
+
+
+
+
+/**
+  * @param id
+  * @param data
+  */
+{template .GetLineOfCredit}
+  <form  id="{$id}_form" class="get-line-of-credit-data-entry-form form-horizontal">
+    <input type="hidden" name="ID"  value="{$data['ID']}"/>
+    <fieldset>
+      {if length($data['DeliveryCurrencies']) > 1}
+        <div class="control-group">
+          <label class="control-label">{msg desc="method"}Delivery method{/msg}</label>
+          <div class="controls">
+            <select id="{$id}_form_delivery_currency" name="DeliveryMethod" class="delivery-method-selector">
+              {foreach $c in $data['DeliveryCurrencies']}
+                <option {if isFirst($c)}selected{/if} value="{$c}">{$c}</option>
+              {/foreach}
+            </select>
+          </div>
+        </div>
+      {else}
+        {foreach $c in $data['DeliveryCurrencies']}
+          <input  id="{$id}_form_delivery_currency" type="hidden" name="DeliveryMethod"  value="{$c}"/>
+        {/foreach}
+      {/if}
+
+
+
+      {foreach $c in $data['DeliveryCurrencies'] }
+        <div class="line-of-credit-delivery-currency" data-delivery-currency="{$c}" style="">
+          <div class="control-group">
+            <label class="control-label">{msg desc="Amount on get line of credit withdow"}Amount:{/msg}</label>
+            <div class="controls">
+              <div class="input-prepend">
+                <span class="add-on">{$data['CurrencySign']}</span>
+                <input id="{$id}_form_amount_{$data['Currency']}_{$c}"
+                       data-uniform-validators="required; validateNumber; validateMin {$data['ContractInfo'][$c]['get_ticker']['min_size_decimal']}; validateMax {$data['ContractInfo'][$c]['get_ticker']['max_size_decimal']}"
+                       data-uniform-type="number"
+                       data-uniform-filters="positive_number"
+                       value=""
+                       type="text"
+                       class="input-small label-input-label"
+                       size="16"
+                       name="Amount"
+                       placeholder=""/>
+              </div>
+              <div>
+                <em><small> {msg desc="Minimum and Maximum per transaction help block on the get line of credit "}
+                 Minimum of {$data['ContractInfo'][$c]['get_ticker']['min_size_human_format']} and
+                 Maximum of {$data['ContractInfo'][$c]['get_ticker']['max_size_human_format']} per transaction.{/msg}</small></em>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {if $c != $data['Currency']}
+          <div class="control-group">
+            <label class="control-label">{msg desc="Exchange rate on get line of credit"}Exchange rate:{/msg}</label>
+            <div class="controls">
+              <label id="{$id}_form_exchange_rate_{$data['Currency']}_{$c}" style="text-align: left;"
+                    class="bitex-model control-label"
+                    data-model-formatter="currency"
+                    data-blink-class="balance-info-blink"
+                    data-model-formatter-pattern="{$data['ContractInfo'][$c]['get_ticker']['currency_pattern']}"
+                    data-model-formula="({$data['ContractInfo'][$c]['get_ticker']['ticker']} +  ( (ID_LOC_FORM_AMOUNT_{$data['Currency']}_{$c}_PREMIUM / 100) * ({$data['ContractInfo'][$c]['get_ticker']['ticker']} ) ) ) / 100000000"
+                    data-model-key-list="{$data['ContractInfo'][$c]['get_ticker']['ticker']},ID_LOC_FORM_AMOUNT_{$data['Currency']}_{$c}_PREMIUM"></label>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label class="control-label">{msg desc="Total on get line of credit"}Total:{/msg}</label>
+            <div class="controls">
+              <label id="{$id}_form_total_{$data['Currency']}_{$c}" style="text-align: left;"
+                      class="bitex-model control-label"
+                      data-model-formatter="currency"
+                      data-blink-class="balance-info-blink"
+                      data-model-formatter-pattern="{$data['ContractInfo'][$c]['CurrencyPattern']}"
+                      data-model-formula="ID_LOC_FORM_AMOUNT_{$data['Currency']}_{$c} / ( ({$data['ContractInfo'][$c]['get_ticker']['ticker']} +  ( (ID_LOC_FORM_AMOUNT_{$data['Currency']}_{$c}_PREMIUM / 100) * ({$data['ContractInfo'][$c]['get_ticker']['ticker']} ) ) ) ) "
+                      data-model-key-list="ID_LOC_FORM_AMOUNT_{$data['Currency']}_{$c},ID_LOC_FORM_AMOUNT_{$data['Currency']}_{$c}_PREMIUM,{$data['ContractInfo'][$c]['get_ticker']['ticker']}"></label>
+            </div>
+          </div>
+        {/if}
+
+        <div class="control-group">
+          <label class="control-label">{msg desc="Fees on get line of credit"}Fees:{/msg}</label>
+          <div class="controls">
+            <label id="{$id}_form_fee_{$data['Currency']}_{$c}" style="text-align: left;"
+                   class="bitex-model control-label"
+                   data-model-formatter="currency"
+                   data-blink-class="balance-info-blink"
+                   data-model-formatter-pattern="{$data['ContractInfo'][$c]['CurrencyPattern']}"
+                   data-model-formula="( ( (ID_LOC_FORM_AMOUNT_{$data['Currency']}_{$c}_PREMIUM / 100) * ({$data['ContractInfo'][$c]['get_ticker']['ticker']} ) ) ) ) + ( ({$data['PercentFee']}/100)  * (ID_LOC_FORM_AMOUNT_{$data['Currency']}_{$c} / ( ({$data['ContractInfo'][$c]['get_ticker']['ticker']} +  ( (ID_LOC_FORM_AMOUNT_{$data['Currency']}_{$c}_PREMIUM / 100) * ({$data['ContractInfo'][$c]['get_ticker']['ticker']} ) ) ) ) - ( ( (ID_LOC_FORM_AMOUNT_{$data['Currency']}_{$c}_PREMIUM / 100) * ({$data['ContractInfo'][$c]['get_ticker']['ticker']} ) ) ) ) ) )"
+                   data-model-key-list="ID_LOC_FORM_AMOUNT_{$data['Currency']}_{$c},ID_LOC_FORM_AMOUNT_{$data['Currency']}_{$c}_PREMIUM,{$data['ContractInfo'][$c]['get_ticker']['ticker']}"></label>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label class="control-label">{msg desc="Total after fees on get line of credit"}Net total:{/msg}</label>
+          <div class="controls">
+            <label id="{$id}_form_net_total_{$data['Currency']}_{$c}" style="text-align: left;"
+                   class="bitex-model control-label"
+                   data-model-formatter="currency"
+                   data-blink-class="balance-info-blink"
+                   data-model-formatter-pattern="{$data['ContractInfo'][$c]['CurrencyPattern']}"
+                   data-model-formula="(ID_LOC_FORM_AMOUNT_{$data['Currency']}_{$c} / ( ({$data['ContractInfo'][$c]['get_ticker']['ticker']} +  ( (ID_LOC_FORM_AMOUNT_{$data['Currency']}_{$c}_PREMIUM / 100) * ({$data['ContractInfo'][$c]['get_ticker']['ticker']} ) ) ) ) ) - ( ( ( (ID_LOC_FORM_AMOUNT_{$data['Currency']}_{$c}_PREMIUM / 100) * ({$data['ContractInfo'][$c]['get_ticker']['ticker']} ) ) ) ) + ( ({$data['PercentFee']}/100)  * (ID_LOC_FORM_AMOUNT_{$data['Currency']}_{$c} / ( ({$data['ContractInfo'][$c]['get_ticker']['ticker']} +  ( (ID_LOC_FORM_AMOUNT_{$data['Currency']}_{$c}_PREMIUM / 100) * ({$data['ContractInfo'][$c]['get_ticker']['ticker']} ) ) ) ) - ( ( (ID_LOC_FORM_AMOUNT_{$data['Currency']}_{$c}_PREMIUM / 100) * ({$data['ContractInfo'][$c]['get_ticker']['ticker']} ) ) ) ) ) ) ) "
+                   data-model-key-list="ID_LOC_FORM_AMOUNT_{$data['Currency']}_{$c},ID_LOC_FORM_AMOUNT_{$data['Currency']}_{$c}_PREMIUM,{$data['ContractInfo'][$c]['get_ticker']['ticker']}"></label>
+          </div>
+        </div>
+
+
+        <div class="control-group">
+          <label class="control-label">{msg desc="Interest rate on get line of credit"}Daily interest rate:{/msg}</label>
+          <div class="controls">
+            <label id="{$id}_form_interest_rate_{$data['Currency']}_{$c}" class="control-label" style="text-align: left;">{$data['ContractInfo']['interest_rate_human_format']}</label>
+          </div>
+        </div>
+
+       {/foreach}
+
+    </fieldset>
+  </form>
+
+{/template}
+
+

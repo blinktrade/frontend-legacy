@@ -35,6 +35,8 @@ SOY_TEMPLATES="
                ui/remittance_box
                ui/api_key_data_entry
                ui/dialog
+               view/line_of_credit
+               view/profile
 "
 
 for template in $SOY_TEMPLATES ; do 
@@ -49,27 +51,14 @@ done
 
 echo "done with soy templates"
 
-## Messages - Uncomment this to generate the translation file
-#python ./closure-library/closure/bin/build/closurebuilder.py  \
-#  --root=./bitex \
-#  --root=./closure-library/ \
-#  --root=./closure-bootstrap/javascript/ \
-#  --root=./scottlogic/ \
-#  --root=./uniform/ \
-#  --namespace=bitex.app.BlinkTrade \
-#  --output_mode=compiled \
-#  --compiler_jar=./tools/XtbGenerator.jar \
-#  --compiler_flags="--lang=$LANG" \
-#  --compiler_flags="--translations_file=./translations/$LANG.xtb.xml" \
-#  --compiler_flags="--xtb_output_file=./translations/$LANG.xtb.xml"
-
-
-# BlinkTrade Application - enUS
+# BlinkTrade Application - en_US
 python ./closure-library/closure/bin/build/closurebuilder.py  \
   --root=./closure-library/ \
   --root=./closure-bootstrap/javascript/ \
   --root=./scottlogic/ \
   --root=./uniform/ \
+  --root=./libphonenumber/i18n/phonenumbers/ \
+  --root=./expression_evaluator/ \
   --root=./bitex \
   --namespace=bitex.app.BlinkTrade \
   --output_mode=compiled \

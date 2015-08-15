@@ -171,6 +171,9 @@ views:
     enable_two_factor: Puteți crește securitatea contului dvs. prin activarea autentificare în doi pasi.
     frozen_account: Contul nostru a fost oprit de către administrator, vă rugăm să contactați echipa de suport.
 
+  line_of_credit:
+    title: Linie de credit
+
   sidebar:
     market: "Moneda de schimb :"
     menu: Meniu
@@ -185,6 +188,7 @@ views:
     deposit: Depunerile mele
     withdraw: Retragerile mele
     verification: Verificați-va contul
+    line_of_credit: Linie de credit
     support: Sugestii & Support
     api: API
     logout: Delogare

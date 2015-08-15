@@ -16,7 +16,6 @@
  * @fileoverview A utility class for representing rectangles.
  */
 
-
 goog.provide('goog.math.Rect');
 
 goog.require('goog.math.Box');
@@ -31,38 +30,26 @@ goog.require('goog.math.Size');
  * @param {number} y Top.
  * @param {number} w Width.
  * @param {number} h Height.
+ * @struct
  * @constructor
  */
 goog.math.Rect = function(x, y, w, h) {
-  /**
-   * Left
-   * @type {number}
-   */
+  /** @type {number} */
   this.left = x;
 
-  /**
-   * Top
-   * @type {number}
-   */
+  /** @type {number} */
   this.top = y;
 
-  /**
-   * Width
-   * @type {number}
-   */
+  /** @type {number} */
   this.width = w;
 
-  /**
-   * Height
-   * @type {number}
-   */
+  /** @type {number} */
   this.height = h;
 };
 
 
 /**
- * Returns a new copy of the rectangle.
- * @return {!goog.math.Rect} A clone of this Rectangle.
+ * @return {!goog.math.Rect} A new copy of this Rectangle.
  */
 goog.math.Rect.prototype.clone = function() {
   return new goog.math.Rect(this.left, this.top, this.width, this.height);
@@ -81,6 +68,18 @@ goog.math.Rect.prototype.toBox = function() {
                            right,
                            bottom,
                            this.left);
+};
+
+
+/**
+ * Creates a new Rect object with the position and size given.
+ * @param {!goog.math.Coordinate} position The top-left coordinate of the Rect
+ * @param {!goog.math.Size} size The size of the Rect
+ * @return {!goog.math.Rect} A new Rect initialized with the given position and
+ *     size.
+ */
+goog.math.Rect.createFromPositionAndSize = function(position, size) {
+  return new goog.math.Rect(position.x, position.y, size.width, size.height);
 };
 
 
@@ -215,7 +214,7 @@ goog.math.Rect.prototype.intersects = function(rect) {
  * rectangle after the second has been subtracted.
  * @param {goog.math.Rect} a A Rectangle.
  * @param {goog.math.Rect} b A Rectangle.
- * @return {!Array.<!goog.math.Rect>} An array with 0 to 4 rectangles which
+ * @return {!Array<!goog.math.Rect>} An array with 0 to 4 rectangles which
  *     together define the difference area of rectangle a minus rectangle b.
  */
 goog.math.Rect.difference = function(a, b) {
@@ -265,7 +264,7 @@ goog.math.Rect.difference = function(a, b) {
  * return value is an array of 0 to 4 rectangles defining the remaining regions
  * of this rectangle after the other has been subtracted.
  * @param {goog.math.Rect} rect A Rectangle.
- * @return {!Array.<!goog.math.Rect>} An array with 0 to 4 rectangles which
+ * @return {!Array<!goog.math.Rect>} An array with 0 to 4 rectangles which
  *     together define the difference area of rectangle a minus rectangle b.
  */
 goog.math.Rect.prototype.difference = function(rect) {
@@ -334,11 +333,64 @@ goog.math.Rect.prototype.contains = function(another) {
 
 
 /**
- * Returns the size of this rectangle.
+ * @param {!goog.math.Coordinate} point A coordinate.
+ * @return {number} The squared distance between the point and the closest
+ *     point inside the rectangle. Returns 0 if the point is inside the
+ *     rectangle.
+ */
+goog.math.Rect.prototype.squaredDistance = function(point) {
+  var dx = point.x < this.left ?
+      this.left - point.x : Math.max(point.x - (this.left + this.width), 0);
+  var dy = point.y < this.top ?
+      this.top - point.y : Math.max(point.y - (this.top + this.height), 0);
+  return dx * dx + dy * dy;
+};
+
+
+/**
+ * @param {!goog.math.Coordinate} point A coordinate.
+ * @return {number} The distance between the point and the closest point
+ *     inside the rectangle. Returns 0 if the point is inside the rectangle.
+ */
+goog.math.Rect.prototype.distance = function(point) {
+  return Math.sqrt(this.squaredDistance(point));
+};
+
+
+/**
  * @return {!goog.math.Size} The size of this rectangle.
  */
 goog.math.Rect.prototype.getSize = function() {
   return new goog.math.Size(this.width, this.height);
+};
+
+
+/**
+ * @return {!goog.math.Coordinate} A new coordinate for the top-left corner of
+ *     the rectangle.
+ */
+goog.math.Rect.prototype.getTopLeft = function() {
+  return new goog.math.Coordinate(this.left, this.top);
+};
+
+
+/**
+ * @return {!goog.math.Coordinate} A new coordinate for the center of the
+ *     rectangle.
+ */
+goog.math.Rect.prototype.getCenter = function() {
+  return new goog.math.Coordinate(
+      this.left + this.width / 2, this.top + this.height / 2);
+};
+
+
+/**
+ * @return {!goog.math.Coordinate} A new coordinate for the bottom-right corner
+ *     of the rectangle.
+ */
+goog.math.Rect.prototype.getBottomRight = function() {
+  return new goog.math.Coordinate(
+      this.left + this.width, this.top + this.height);
 };
 
 
