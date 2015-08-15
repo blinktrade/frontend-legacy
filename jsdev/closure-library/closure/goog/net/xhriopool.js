@@ -22,7 +22,6 @@
 goog.provide('goog.net.XhrIoPool');
 
 goog.require('goog.net.XhrIo');
-goog.require('goog.structs');
 goog.require('goog.structs.PriorityPool');
 
 
@@ -31,7 +30,7 @@ goog.require('goog.structs.PriorityPool');
  * A pool of XhrIo objects.
  * @param {goog.structs.Map=} opt_headers Map of default headers to add to every
  *     request.
- * @param {number=} opt_minCount Minimum number of objects (Default: 1).
+ * @param {number=} opt_minCount Minimum number of objects (Default: 0).
  * @param {number=} opt_maxCount Maximum number of objects (Default: 10).
  * @constructor
  * @extends {goog.structs.PriorityPool}
@@ -51,14 +50,14 @@ goog.inherits(goog.net.XhrIoPool, goog.structs.PriorityPool);
 
 /**
  * Creates an instance of an XhrIo object to use in the pool.
- * @return {goog.net.XhrIo} The created object.
+ * @return {!goog.net.XhrIo} The created object.
  * @override
  */
 goog.net.XhrIoPool.prototype.createObject = function() {
   var xhrIo = new goog.net.XhrIo();
   var headers = this.headers_;
   if (headers) {
-    goog.structs.forEach(headers, function(value, key) {
+    headers.forEach(function(value, key) {
       xhrIo.headers.set(key, value);
     });
   }

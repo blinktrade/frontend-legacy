@@ -81,11 +81,17 @@ bitex.view.MarketView.prototype.recreateComponents_ = function() {
 
   this.market_data_subscription_symbol_ =  [];
   goog.array.forEach(model.get('SecurityList')['Instruments'], function(instrument_info) {
-    this.market_data_subscription_symbol_.push(instrument_info['Symbol'] );
+    this.market_data_subscription_symbol_.push(instrument_info['Market'] + ':' + instrument_info['Symbol'] );
   }, this);
 
   this.market_view_table_ = new bitex.ui.MarketViewTable();
-  this.market_view_table_.setModel({id:'market_view', instruments: model.get('SecurityList')['Instruments']});
+  var market_view_table_model = {id:'market_view', instruments:[]};
+  goog.array.forEach(model.get('SecurityList')['Instruments'], function( instrument) {
+    if (instrument['Market'] == 'BLINK') {
+      market_view_table_model.instruments.push(instrument);
+    }
+  }, this);
+  this.market_view_table_.setModel(market_view_table_model);
   this.addChild(this.market_view_table_, true);
 
   this.getApplication().getModel().updateDom();
@@ -109,12 +115,10 @@ bitex.view.MarketView.prototype.recreateComponents_ = function() {
   handler.listen( conn , bitex.api.BitEx.EventType.TRADING_SESSION_STATUS + '.' + this.market_data_subscription_id_, this.onBitexTradingSessionStatus_ );
   handler.listen( conn , bitex.api.BitEx.EventType.ORDER_BOOK_NEW_ORDER + '.' + this.market_data_subscription_id_, this.onBitexOrderBookNewOrder_ );
   handler.listen( conn , bitex.api.BitEx.EventType.TRADE + '.' + this.market_data_subscription_id_, this.onBitexTrade_ );
-  handler.listen( conn , bitex.api.BitEx.EventType.SECURITY_STATUS + '.' + this.market_data_subscription_id_, this.onBitexSecurityStatus_ );
 
   this.addChild(this.last_trades_table_, true);
 
   this.dispatchEvent(bitex.view.View.EventType.MARKET_DATA_SUBSCRIBE);
-  this.dispatchEvent(bitex.view.View.EventType.SECURITY_STATUS_SUBSCRIBE);
   this.market_view_table_.selectFirst();
 };
 
@@ -147,7 +151,6 @@ bitex.view.MarketView.prototype.destroyComponents_ = function( ) {
     handler.unlisten( conn , bitex.api.BitEx.EventType.TRADE + '.' + this.market_data_subscription_id_, this.onBitexTrade_ );
 
     this.dispatchEvent(bitex.view.View.EventType.MARKET_DATA_UNSUBSCRIBE);
-    this.dispatchEvent(bitex.view.View.EventType.SECURITY_STATUS_UNSUBSCRIBE);
   }
 
   this.removeChildren(true);
@@ -177,25 +180,6 @@ bitex.view.MarketView.prototype.onTradeHistoryTableRequestData_ = function(e) {
   
   var conn = this.getApplication().getBitexConnection();
   conn.requestTradeHistory(this.market_data_subscription_id_, page, limit, undefined, filter );
-};
-
-bitex.view.MarketView.prototype.onBitexSecurityStatus_ = function(e) {
-  if (!goog.isDefAndNotNull(this.market_view_table_) ) {
-    return;
-  }
-    var msg = e.data;
-
-    var model = this.getApplication().getModel();
-    var currency = msg["Symbol"].substr(3);
-    var crypto_currency = msg["Symbol"].substr(0,3);
-
-    model.set('formatted_volume_buy_' + msg["Symbol"], this.getApplication().formatCurrency(msg["BuyVolume"]/1.e8,  currency, true ), true );
-    model.set('formatted_volume_sell_' + msg["Symbol"], this.getApplication().formatCurrency(msg["SellVolume"]/1.e8,  crypto_currency, true ), true );
-    model.set('formatted_min_' + msg["Symbol"], this.getApplication().formatCurrency(msg["LowPx"]/1.e8,  currency, true ), true );
-    model.set('formatted_max_' + msg["Symbol"], this.getApplication().formatCurrency(msg["HighPx"]/1.e8,  currency, true ), true );
-    model.set('formatted_last_price_' + msg["Symbol"], this.getApplication().formatCurrency(msg["LastPx"]/1.e8,  currency, true ), true );
-    model.set('formatted_bid_' + msg["Symbol"], this.getApplication().formatCurrency(msg["BestBid"]/1.e8,  currency, true ), true );
-    model.set('formatted_ask_' + msg["Symbol"], this.getApplication().formatCurrency(msg["BestAsk"]/1.e8,  currency, true ), true );
 };
 
 /**

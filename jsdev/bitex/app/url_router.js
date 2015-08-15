@@ -15,10 +15,11 @@ goog.require('goog.string');
  * @extends {goog.events.EventTarget}
  */
 bitex.app.UrlRouter = function(app, baseUrl, defaultView) {
+  goog.events.EventTarget.call(this);
   this.urls_ = [];
 
   this.app_ = app;
-  this.history_ = null
+  this.history_ = null;
   this.base_url_ = baseUrl;
   this.default_view_ = defaultView;
 };

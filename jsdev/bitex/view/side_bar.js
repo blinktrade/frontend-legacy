@@ -7,6 +7,8 @@ goog.require('goog.style');
 
 goog.require('bitex.ui.RemittanceBox');
 
+goog.require('expression_evaluator.Parser');
+
 /**
  * @param {*} app
  * @param {goog.dom.DomHelper=} opt_domHelper
@@ -52,9 +54,6 @@ bitex.view.SideBarView.prototype.remittance_box_;
 bitex.view.SideBarView.prototype.onSelectedBroker_ = function(e){
   var model = this.getApplication().getModel();
   var selectedBrokerID = model.get('SelectedBrokerID');
-  if (goog.isDefAndNotNull(this.remittance_box_)) {
-    this.remittance_box_.clearCurrencies();
-  }
   if (goog.isDefAndNotNull(selectedBrokerID)) {
     var element_id = 'id_account_summary_' + selectedBrokerID;
     var element =  goog.dom.getElement(element_id);
@@ -69,18 +68,6 @@ bitex.view.SideBarView.prototype.onSelectedBroker_ = function(e){
     if (goog.isDefAndNotNull(element)) {
       goog.dom.classes.add(element, 'account-summary-broker-selected');
     }
-
-    if (goog.isDefAndNotNull(this.remittance_box_)){
-      var broker = model.get('Broker');
-      if (goog.isDefAndNotNull(broker)){
-        goog.array.forEach(broker['BrokerCurrencies'], function(currency) {
-          if (!this.getApplication().isCryptoCurrency(currency)){
-            this.remittance_box_.addCurrency(currency);
-          }
-        }, this);
-
-      }
-    }
   }
 };
 
@@ -91,11 +78,6 @@ bitex.view.SideBarView.prototype.onSelectedBroker_ = function(e){
 bitex.view.SideBarView.prototype.decorateInternal = function(element) {
   this.setElementInternal(element);
 
-  var remittance_box_el = goog.dom.getElement("id_remittance_box");
-  if (goog.isDefAndNotNull(remittance_box_el)) {
-    this.remittance_box_ = new bitex.ui.RemittanceBox();
-    this.remittance_box_.render(remittance_box_el);
-  }
 };
 
 bitex.view.SideBarView.prototype.enterDocument = function() {
@@ -112,112 +94,118 @@ bitex.view.SideBarView.prototype.enterDocument = function() {
   var MSG_MY_CUSTOMERS_ACCOUNT_PORTFOLIO_LABEL = goog.getMsg('PORTFOLIO');
 
 
-  handler.listen( conn ,
-                  bitex.api.BitEx.EventType.SECURITY_STATUS + '.' + this.market_data_subscription_id_,
-                  this.onBitexSecurityStatus_ );
+  /**
+   * @desc My customers account balance label
+   */
+  var MSG_MY_CUSTOMERS_ACCOUNT_BALANCE_LABEL = goog.getMsg('My customers');
+
+  /**
+   * @desc My account balance label
+   */
+  var MSG_MY_ACCOUNTS_BALANCE_LABEL = goog.getMsg('My account');
+
+
   handler.listen(model, bitex.model.Model.EventType.SET + 'SelectedBrokerID', this.onSelectedBroker_);
 
-  handler.listen( model, bitex.model.Model.EventType.SET + 'BrokerCurrencies', function(e){
-    goog.dom.removeChildren( goog.dom.getElement("id_account_summary_content"));
-    var accounts = [];
+  handler.listen( model, bitex.model.Model.EventType.SET + 'UserLogged', function(){
+    if (model.get('UserLogged')) {
 
-    accounts.push({
-      'brokerID': model.get('Broker')['BrokerID'],
-      'brokerName': model.get('Broker')['ShortName'],
-      'clientID': model.get('UserID'),
-      'currencies': []
-    });
-    goog.array.forEach(model.get('Broker')['BrokerCurrencies'], function(currency) {
-      accounts[0]['currencies'].push({
-        'currency':currency,
-        'currency_key':currency,
-        'balance':0,
-        'formattedBalance': this.getApplication().formatCurrency(0,currency, true),
-        'showDeposit': true,
-        'showWithdraw': true
-      });
-    }, this);
+      var balance_model_key = 'Balance_' + model.get('Broker')['BrokerID'] +  '_' + model.get('UserID');
+      handler.listenOnce( model, bitex.model.Model.EventType.SET + balance_model_key, function(e){
+        goog.dom.removeChildren( goog.dom.getElement("id_account_summary_content"));
 
-    goog.object.forEach(model.get('Broker')['AllowedMarkets'], function(market, symbol) {
-      if (model.get('ShowMMP')) {
-        accounts[0]['currencies'].push({
-          'currency': 'MMP.' + symbol,
-          'currency_key': 'MMP.' + symbol,
-          'balance':0,
-          'formattedBalance': this.getApplication().formatCurrency(0, 'MMP.' + symbol, true),
-          'showDeposit': false,
-          'showWithdraw': false
+        var account_boxes = [];
+
+        account_boxes.push({
+          'title': MSG_MY_ACCOUNTS_BALANCE_LABEL,
+          'balances': []
         });
-      }
-    }, this);
 
+        var broker_currencies = model.get('BrokerCurrencies');
+        goog.object.forEach(model.get(balance_model_key), function(balance, currency) {
+          currency_code = currency;
+          var show_deposit = goog.array.contains(broker_currencies, currency);
+          var currency_pattern = this.getApplication().getCurrencyHumanFormat(currency_code);
 
-    /**
-     * @desc My customers account balance label
-     */
-    var MSG_MY_CUSTOMERS_ACCOUNT_BALANCE_LABEL = goog.getMsg('My customers');
+          account_boxes[account_boxes.length-1]['balances'].push({
+            'currency': currency,
+            'currencyPattern': currency_pattern,
+            'brokerID': model.get('Broker')['BrokerID'],
+            'accountID': model.get('UserID'),
+            'showDeposit': show_deposit,
+            'showWithdraw': show_deposit
+           });
 
+        }, this);
 
-
-    if (model.get('IsBroker')) {
-      accounts.push({
-        'brokerID': model.get('Profile')['BrokerID'],
-        'brokerName': MSG_MY_CUSTOMERS_ACCOUNT_BALANCE_LABEL,
-        'clientID': model.get('UserID'),
-        'currencies': []
-      });
-      goog.array.forEach(model.get('Profile')['BrokerCurrencies'], function(currency) {
-        accounts[1]['currencies'].push({
-          'currency':currency,
-          'currency_key':currency,
-          'balance':0,
-          'formattedBalance': this.getApplication().formatCurrency(0,currency, true),
-          'showDeposit': false,
-          'showWithdraw': false
+        goog.soy.renderElement(goog.dom.getElement('id_account_summary_content'), bitex.templates.YourAccountSummary, {
+          boxes: account_boxes
         });
-      },this);
-
-      goog.object.forEach(model.get('Profile')['AllowedMarkets'], function(market, symbol) {
-        accounts[1]['currencies'].push({
-          'currency': 'MMP.' + symbol,
-          'currency_key': 'MMP.' + symbol,
-          'balance':0,
-          'formattedBalance': this.getApplication().formatCurrency(0, 'MMP.' + symbol, true),
-          'showDeposit': false,
-          'showWithdraw': false
-        });
+        model.updateDom();
       }, this);
 
-      if (goog.isDefAndNotNull( model.get('Profile')['Accounts'] )) {
-        goog.object.forEach( model.get('Profile')['Accounts'], function(account_data, account_name) {
-          accounts.push({
-            'brokerID': model.get('Profile')['BrokerID'],
-            'brokerName': account_name,
-            'clientID':  account_data[0],
-            'currencies':[]
+      if (model.get('IsBroker')) {
+        var broker_balance_model_key = 'Balance_' + model.get('Profile')['BrokerID'] +  '_' + model.get('UserID');
+        handler.listenOnce( model, bitex.model.Model.EventType.SET + broker_balance_model_key, function(e){
+          goog.dom.removeChildren( goog.dom.getElement("id_account_summary_content"));
+          var account_boxes = [];
+          account_boxes.push({
+            'title': MSG_MY_CUSTOMERS_ACCOUNT_BALANCE_LABEL,
+            'balances': []
           });
 
           goog.array.forEach(model.get('Profile')['BrokerCurrencies'], function(currency) {
-            accounts[accounts.length-1]['currencies'].push({
-               'currency':currency,
-               'currency_key':currency,
-               'balance':0,
-               'formattedBalance': this.getApplication().formatCurrency(0,currency, true),
-               'showDeposit': false,
-               'showWithdraw': false
+            account_boxes[account_boxes.length-1]['balances'].push({
+              'currency': currency,
+              'currencyPattern': this.getApplication().getCurrencyHumanFormat(currency),
+              'brokerID': model.get('Profile')['BrokerID'],
+              'accountID': model.get('UserID'),
+              'showDeposit': false,
+              'showWithdraw': false
              });
           },this);
-        }, this  );
+
+          goog.object.forEach(model.get('Profile')['AllowedMarkets'], function(market, symbol) {
+            var currency = 'MMP_' + symbol;
+            account_boxes[account_boxes.length-1]['balances'].push({
+              'currency': currency,
+              'currencyPattern': this.getApplication().getCurrencyHumanFormat(currency),
+              'brokerID': model.get('Profile')['BrokerID'],
+              'accountID': model.get('UserID'),
+              'showDeposit': false,
+              'showWithdraw': false
+             });
+          }, this);
+
+          if (goog.isDefAndNotNull( model.get('Profile')['Accounts'] )) {
+            goog.object.forEach( model.get('Profile')['Accounts'], function(account_data, account_name) {
+              account_boxes.push({
+                'title': account_name,
+                'balances': []
+              });
+
+              goog.array.forEach(model.get('Profile')['BrokerCurrencies'], function(currency) {
+                account_boxes[account_boxes.length-1]['balances'].push({
+                  'currency': currency,
+                  'currencyPattern': this.getApplication().getCurrencyHumanFormat(currency),
+                  'brokerID':  model.get('Profile')['BrokerID'],
+                  'accountID': account_data[0],
+                  'showDeposit': false,
+                  'showWithdraw': false
+                 });
+              },this);
+            }, this);
+          }
+          goog.soy.renderElement(goog.dom.getElement('id_account_summary_content'), bitex.templates.YourAccountSummary, {
+            boxes: account_boxes
+          });
+          model.updateDom();
+        }, this);
       }
     }
-
-    goog.soy.renderElement(goog.dom.getElement('id_account_summary_content'), bitex.templates.YourAccountSummary, {
-      accounts: accounts
-    });
-
-    this.onSelectedBroker_(e);
   }, this);
 
+  var remittance_info = model.get('RemittanceBoxInfo');
 
   handler.listen( model,  bitex.model.Model.EventType.SET + 'SecurityList', function(e){
     var msg = model.get('SecurityList');
@@ -226,14 +214,48 @@ bitex.view.SideBarView.prototype.enterDocument = function() {
     goog.array.forEach(model.get('SecurityList')['Instruments'], function(instrument_info) {
       this.market_data_subscription_symbol_.push(instrument_info['Symbol'] );
     }, this);
-    this.dispatchEvent(bitex.view.View.EventType.SECURITY_STATUS_SUBSCRIBE);
 
 
     goog.dom.removeChildren(goog.dom.getElement('id_instrument_1'));
     goog.array.forEach(msg['Instruments'], function( instrument) {
-      var el = goog.dom.createDom('option', {'value': instrument['Symbol'] }, instrument['Description']);
-      goog.dom.appendChild( goog.dom.getElement('id_instrument_1'), el );
+      if (instrument['Market'] == 'BLINK') {
+        var el = goog.dom.createDom('option', {'value': instrument['Symbol'] }, instrument['Description']);
+        goog.dom.appendChild( goog.dom.getElement('id_instrument_1'), el );
+      }
     }, this);
+
+    if (!goog.isDefAndNotNull(this.remittance_box_)) {
+      var remittance_box_model = [];
+      goog.object.forEach(remittance_info, function(remitttance_info_currency, currency){
+        remittance_box_model.push([currency]);
+        goog.array.forEach(remitttance_info_currency, function(remittance_data) {
+          var data = [ remittance_data[0],
+                       remittance_data[1],
+                       this.getApplication().getCurrencyHumanFormat(remittance_data[1])];
+
+
+          var data_field_formulas = [];
+          goog.array.forEach(remittance_data, function(remittance_formula, idx){
+            if (idx < 2) {
+              return;
+            }
+
+            var formula = new expression_evaluator.Parser().parse(remittance_formula);
+            data_field_formulas.push([remittance_formula, formula.variables().join(',')]);
+          },this);
+          data.push(data_field_formulas)
+          remittance_box_model.push(data);
+        }, this);
+      }, this );
+
+      var remittance_box_el = goog.dom.getElement("id_remittance_box");
+      if (goog.isDefAndNotNull(remittance_box_el)) {
+        this.remittance_box_ = new bitex.ui.RemittanceBox();
+        this.remittance_box_.setModel(remittance_box_model);
+        this.remittance_box_.render(remittance_box_el);
+      }
+
+    }
 
   },this);
 
@@ -245,6 +267,11 @@ bitex.view.SideBarView.prototype.enterDocument = function() {
     if (allowed_markets_array.length > 0 ) {
       goog.dom.forms.setValue(goog.dom.getElement('id_instrument_1'), allowed_markets_array[0] );
       this.dispatchEvent(bitex.view.SideBarView.EventType.CHANGE_MARKET);
+
+      if (goog.isDefAndNotNull(this.remittance_box_)) {
+        var currency = this.getApplication().getPriceCurrencyFromSymbol(allowed_markets_array[0]);
+        this.remittance_box_.setCurrentCurrency(currency);
+      }
     }
   }, this);
 
@@ -252,18 +279,8 @@ bitex.view.SideBarView.prototype.enterDocument = function() {
     this.dispatchEvent(bitex.view.SideBarView.EventType.CHANGE_MARKET);
     if (goog.isDefAndNotNull(this.remittance_box_)) {
       var symbol = this.getSymbol();
-      this.remittance_box_.clearCurrencies();
-
-      if (goog.isDefAndNotNull( model.get('Broker')['AllowedMarkets'][symbol])) {
-        goog.array.forEach(model.get('Broker')['BrokerCurrencies'], function(currency) {
-          if (!this.getApplication().isCryptoCurrency(currency)){
-            this.remittance_box_.addCurrency(currency);
-          }
-        }, this);
-      } else {
-        var currency = this.getApplication().getPriceCurrencyFromSymbol(symbol);
-        this.remittance_box_.addCurrency(currency);
-      }
+      var currency = this.getApplication().getPriceCurrencyFromSymbol(symbol);
+      this.remittance_box_.setCurrentCurrency(currency);
     }
   }, this);
 
@@ -293,14 +310,6 @@ bitex.view.SideBarView.prototype.getSecSubscriptionId = function(){
  */
 bitex.view.SideBarView.prototype.getSecurities = function(){
   return this.market_data_subscription_symbol_;
-};
-
-bitex.view.SideBarView.prototype.onBitexSecurityStatus_ = function(e) {
-  var msg = e.data;
-  if (goog.isDefAndNotNull(this.remittance_box_)) {
-    var currency = this.getApplication().getPriceCurrencyFromSymbol(msg['Symbol']);
-    this.remittance_box_.setMarketData(currency, msg['BestBid'], msg['BestAsk'], msg['LastPx']);
-  }
 };
 
 /**
