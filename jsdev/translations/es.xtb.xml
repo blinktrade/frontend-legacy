@@ -213,9 +213,9 @@
   <translation id="6566808226824153897" key="MSG_WITHDRAW_TABLE_WALLET_KEY" source="bitex/ui/withdraw_list.js" desc="Withdraw qr button label in the  broker's withdraw list">Cartera</translation>
   <translation id="2744083615131574296" key="MSG_WITHDRAW_TABLE_DETAILS_COLUMN_BTN_QR" source="bitex/ui/withdraw_list.js" desc="Withdraw qr button label in the  broker's withdraw list">QR</translation>
   <translation id="1146045944393811148" key="MSG_WITHDRAW_TABLE_DETAILS_COLUMN_ACCT_NUMBER" source="bitex/ui/withdraw_list.js" desc="Withdraw column label in the  broker's withdraw list detail table">Número de cuenta</translation>
-  <translation id="4713095484265476739" key="MSG_WITHDRAW_TABLE_DETAILS_COLUMN_ACCT_HOLDER" source="bitex/ui/withdraw_list.js" desc="Withdraw column label in the  broker's withdraw list detail table">Nombre del titular de la cuenta</translation>
-  <translation id="3699817409321125141" key="MSG_WITHDRAW_TABLE_DETAILS_COLUMN_BANK_NAME" source="bitex/ui/withdraw_list.js" desc="Withdraw column label in the  broker's withdraw list detail table">Nombre de la entidad bancaria</translation>
-  <translation id="582652967234376249" key="MSG_WITHDRAW_TABLE_DETAILS_COLUMN_BANK_NUMBER" source="bitex/ui/withdraw_list.js" desc="Withdraw column label in the  broker's withdraw list detail table">Código banco</translation>
+  <translation id="4713095484265476739" key="MSG_WITHDRAW_TABLE_DETAILS_COLUMN_ACCT_HOLDER" source="bitex/ui/withdraw_list.js" desc="Withdraw column label in the  broker's withdraw list detail table">Nombre del titular</translation>
+  <translation id="3699817409321125141" key="MSG_WITHDRAW_TABLE_DETAILS_COLUMN_BANK_NAME" source="bitex/ui/withdraw_list.js" desc="Withdraw column label in the  broker's withdraw list detail table">Nombre del banco</translation>
+  <translation id="582652967234376249" key="MSG_WITHDRAW_TABLE_DETAILS_COLUMN_BANK_NUMBER" source="bitex/ui/withdraw_list.js" desc="Withdraw column label in the  broker's withdraw list detail table">Código del banco</translation>
   <translation id="2403944730202502817" key="MSG_WITHDRAW_TABLE_DETAILS_COLUMN_CPF_CNPJ" source="bitex/ui/withdraw_list.js" desc="Withdraw column label in the  broker's withdraw list detail table">CPF o CNPJ</translation>
   <translation id="3569242221589361104" key="MSG_WITHDRAW_TABLE_DETAILS_COLUMN_ACCT_BRANCH" source="bitex/ui/withdraw_list.js" desc="Withdraw column label in the  broker's withdraw list detail table">Número de la oficina bancaria</translation>
   <translation id="2877290349390693815" key="MSG_WITHDRAW_TABLE_DETAILS_COLUMN_ROUTING_NUMBER" source="bitex/ui/withdraw_list.js" desc="Withdraw column label in the  broker's withdraw list detail table">Número routing</translation>
@@ -511,4 +511,124 @@
   <translation id="7516325200367950709" key="MSG_ORDER_MANAGER_TABLE_BUTTON_FILTER_OPEN_ORDERS" source="bitex/ui/order_manager.js" desc="Open Orders option on the Orders filters">Abiertas</translation>
   <translation id="8851988874979947901" key="MSG_ORDER_MANAGER_TABLE_BUTTON_FILTER_FILLED" source="bitex/ui/order_manager.js" desc="Open Orders option on the Orders filters">Ejecutadas</translation>
   <translation id="8668270496213170877" key="MSG_ORDER_MANAGER_TABLE_BUTTON_FILTER_CANCELED" source="bitex/ui/order_manager.js" desc="Cancelled option on the Orders filters">Canceladas</translation>
+	<translation id="5278179546714001548" key="MSG_1SCUJ3LUJLI5Q" source="bitex/templates/templates.soy.js" desc="API Key created dialog description">The API Key '<ph name="label" />' has been created successfully. Please make sure to store the credentials below in a secure location.</translation>
+	<translation id="3749805723063027841" key="MSG_1JSPIZ1YZP7XP" source="bitex/templates/templates.soy.js" desc="API Key label on API Keycreated dialog">API Key</translation>
+	<translation id="4070451207876044541" key="MSG_137B1OQ694KPR" source="bitex/templates/templates.soy.js" desc="API Password label on API Keycreated dialog">API Password</translation>
+	<translation id="1796858524711014089" key="MSG_SAMKINQQA1MG" source="bitex/templates/templates.soy.js" desc="API Secret label on API Keycreated dialog">API Secret</translation>
+	<translation id="1137238780418297731" key="MSG_17NIA3XHCTE27" source="bitex/templates/templates.soy.js" desc="Warning message on the API Key created dialog description">Warning! </translation>
+	<translation id="6164095401672004694" key="MSG_1QSLANFXG4TP2" source="bitex/templates/templates.soy.js" desc="Warning message on the API Key created dialog description">The API secret and password will never be displayed again. Make sure you have saved it before closing this window.</translation>
+	<translation id="6569879323367838729" key="MSG_KY1G1MI46QJ8" source="bitex/templates/templates.soy.js" desc="Unconfirmed deposits">Unconfirmed deposits</translation>
+	<translation id="5640944158779972001" key="MSG_IS0MGL5W1XEC" source="bitex/ui/order_book.soy.js" desc="Caption shown when user is drag dropping an order in the order book">Cancel/Replace Order</translation>
+	<translation id="2889461479049773702" key="MSG_10XTT3Z48GDSL" source="bitex/ui/api_key_data_entry.soy.js" desc="API Key Data Entry form legend">Create API Key</translation>
+	<translation id="4306381736970197948" key="MSG_1EAVEL1ZINXQ8" source="bitex/ui/api_key_data_entry.soy.js" desc="Permissions clear all button on the API Key Data Entry form">Clear all</translation>
+	<translation id="6278595378594370526" key="MSG_1VZUCED70NV74" source="bitex/ui/api_key_data_entry.soy.js" desc="Permissions select all button on the API Key Data Entry form">Select all</translation>
+	<translation id="4097867125891327840" key="MSG_1DCRPN6C26MFK" source="bitex/ui/api_key_data_entry.soy.js" desc="Permissions title on the API Key Data Entry form">Permissions</translation>
+	<translation id="8221320109503331239" key="MSG_P15ME0URVENZ" source="bitex/ui/api_key_data_entry.soy.js" desc="Account info permission label on API Key data entry">Account info</translation>
+	<translation id="32893510811895086" key="MSG_1G2D3SSXWBIXP" source="bitex/ui/api_key_data_entry.soy.js" desc="Order history permission label on API Key data entry">Order history</translation>
+	<translation id="7885402986186777649" key="MSG_BK0X30WFEP8V" source="bitex/ui/api_key_data_entry.soy.js" desc="Ledger permission label on API Key data entry">Ledger</translation>
+	<translation id="5717295994441381767" key="MSG_RYQ798MB9STJ" source="bitex/ui/api_key_data_entry.soy.js" desc="View withdrawals permission label on API Key data entry">View withdrawals</translation>
+	<translation id="8577292470085430562" key="MSG_1J5HOYKOIBQJ6" source="bitex/ui/api_key_data_entry.soy.js" desc="Balance permission label on API Key data entry">Balance info</translation>
+	<translation id="8164559352473894636" key="MSG_DJN3AO89TFEZ" source="bitex/ui/api_key_data_entry.soy.js" desc="View Deposits permission label on API Key data entry">View deposits</translation>
+	<translation id="8629450653864986175" key="MSG_XN4HRR1SJPO9" source="bitex/ui/api_key_data_entry.soy.js" desc="Buy and Sell orders on the API Key Data Entry form permissions section">Buy and Sell Orders</translation>
+	<translation id="451391178740975930" key="MSG_16NVGCS633NOM" source="bitex/ui/api_key_data_entry.soy.js" desc="Buy limited orders permission label on API Key data entry">Create Buy Limited Order</translation>
+	<translation id="2157015485516147378" key="MSG_M6OOWWVLLFZN" source="bitex/ui/api_key_data_entry.soy.js" desc="Sell limited orders permission label on API Key data entry">Create Sell Limited Order</translation>
+	<translation id="5071383481287243705" key="MSG_J1XBCXOQ88OU" source="bitex/ui/api_key_data_entry.soy.js" desc="Buy market orders permission label on API Key data entry">Create Buy Market Order</translation>
+	<translation id="3435434183996421243" key="MSG_1CNPOL55XZVE6" source="bitex/ui/api_key_data_entry.soy.js" desc="Sell limited orders permission label on API Key data entry">Create Sell Market Order</translation>
+	<translation id="1382135106467881153" key="MSG_PCU4TZ8B7EZW" source="bitex/ui/api_key_data_entry.soy.js" desc="Cancel orders permission label on API Key data entry">Cancel Orders</translation>
+	<translation id="1989988622095504772" key="MSG_1LD4HMJKRVLII" source="bitex/ui/api_key_data_entry.soy.js" desc="Deposit methods on the API Key Data Entry form permissions section">Deposit</translation>
+	<translation id="1032252504348386902" key="MSG_1L6LWO9T3L4AF" source="bitex/ui/api_key_data_entry.soy.js" desc="Withdrawals methods on the API Key Data Entry form permissions section">Withdrawals</translation>
+	<translation id="2078634528972237669" key="MSG_4P3IRFD798ND" source="bitex/ui/api_key_data_entry.soy.js" desc="IP Whitelist title on the API Key Data Entry form">IP Whitelist</translation>
+	<translation id="796511320000002221" key="MSG_VGY5IWMV7UDE" source="bitex/ui/api_key_data_entry.soy.js" desc="IP Addresses on the API Key Data Entry form IP Whitelist section">IP Addresses</translation>
+	<translation id="1813272520518069750" key="MSG_KDV0CEN1PRR8" source="bitex/ui/api_key_data_entry.soy.js" desc="IP Whitelist help on the API Key Data Entry form">Enter a list of IP Address separated by comma (ie. 55.55.55.55,44.44.44.44) that you want to white list. Not specifying an IP Address means that you are allowing this API Key to be used from any IP</translation>
+	<translation id="1499192933367430306" key="MSG_API_TABLE_COLUMN_LAST_USED" source="bitex/ui/api_list.js" desc="Column Last Used of the Api List">Last Used</translation>
+	<translation id="535090090230027629" key="MSG_API_TABLE_COLUMN_LABEL" source="bitex/ui/api_list.js" desc="Column Label of the Api List">Label</translation>
+	<translation id="2427155606190811256" key="MSG_API_TABLE_COLUMN_API_KEY" source="bitex/ui/api_list.js" desc="Column API Keu of the Api List">API Key</translation>
+	<translation id="2661518433252054313" key="MSG_API_TABLE_COLUMN_PERMISSIONS" source="bitex/ui/api_list.js" desc="Column Permissions of the Api List">Permissions</translation>
+	<translation id="5092095911040506866" key="MSG_API_TABLE_COLUMN_ACTIONS" source="bitex/ui/api_list.js" desc="Column Actions of the Api List">Actions</translation>
+	<translation id="5327338953378464371" key="MSG_API_TABLE_COLUMN_ACTION_REVOKE" source="bitex/ui/api_list.js" desc="Revoke Button in the Actions column of the Api List">revoke</translation>
+	<translation id="6360068141733928765" key="MSG_API_LIST_TABLE_TITLE" source="bitex/ui/api_list.js" desc="deposit table title">API Keys</translation>
+	<translation id="6008759521787611905" key="MSG_API_KEY_CREATED_DIALOG_TITLE" source="bitex/view/api.js" desc="title of the API Key created dialog">API Key Created</translation>
+	<translation id="8114088530100369765" key="MSG_LEDGER_MMP_DESCRIPTION" source="bitex/ui/ledger_activity.js" desc="Market maker point description on ledger activity">Point</translation>
+	<translation id="7068794892202282855" key="MSG_MY_CUSTOMERS_ACCOUNT_PORTFOLIO_LABEL" source="bitex/view/side_bar.js" desc="Portfolio caption on the accounts view">PORTFOLIO</translation>
+	<translation id="7514728368249936102" key="MSG_D2MJEU825AR9" source="bitex/templates/templates.soy.js" desc="Secured with BitGO">Asegurado con BitGo</translation>
+	<translation id="892585674532597696" key="MSG_1NGKVBAM29IJ3" source="bitex/ui/withdraw_method_editor.soy.js" desc="Method Costs label">Costos</translation>
+	<translation id="49313873871068883" key="MSG_1H5SH7TTI51BJ" source="bitex/ui/withdraw_method_editor.soy.js" desc="Percent cost placeholder">Porcentaje costos</translation>
+	<translation id="3772542480897804564" key="MSG_6R5RE6NZLUSG" source="bitex/ui/withdraw_method_editor.soy.js" desc="Fixed cost placeholder">Costos fijos</translation>
+	<translation id="6108562551060734397" key="MSG_LINE_OF_CREDIT_TABLE_COLUMN_ID" source="bitex/ui/line_of_credit_table.js" desc="Column ID of the Line Of Credit Table">ID</translation>
+	<translation id="2566009228354708097" key="MSG_LINE_OF_CREDIT_TABLE_COLUMN_DATE_TIME" source="bitex/ui/line_of_credit_table.js" desc="Column  Date / Time of the Line Of Credit Table">Fecha/Hora</translation>
+	<translation id="458865512257788320" key="MSG_LINE_OF_CREDIT_TABLE_COLUMN_CURRENCY" source="bitex/ui/line_of_credit_table.js" desc="Column Currency of the Line Of Credit Table">Moneda</translation>
+	<translation id="4070084430190309752" key="MSG_LINE_OF_CREDIT_TABLE_COLUMN_PROVIDER_NAME" source="bitex/ui/line_of_credit_table.js" desc="Column Provider of the Line Of Credit Table">Provider</translation>
+	<translation id="4959995829714235236" key="MSG_LINE_OF_CREDIT_TABLE_COLUMN_BALANCE" source="bitex/ui/line_of_credit_table.js" desc="Column Balance of the Line Of Credit Table">Saldo</translation>
+	<translation id="5169660997893273157" key="MSG_LINE_OF_CREDIT_TABLE_COLUMN_LIMIT" source="bitex/ui/line_of_credit_table.js" desc="Column Limit of the Line Of Credit Table">Limite</translation>
+	<translation id="3421148008785641730" key="MSG_LINE_OF_CREDIT_TABLE_COLUMN_DESCRIPTION" source="bitex/ui/line_of_credit_table.js" desc="Column Description of the Line Of Credit Table">Descripción</translation>
+	<translation id="6542796556014274980" key="MSG_LINE_OF_CREDIT_TITLE" source="bitex/ui/line_of_credit_table.js" desc="deposit table title">Línea de crédito</translation>
+	<translation id="6068856490456338408" key="MSG_LEDGER_WITHDRAW_FEE_DISCOUNT_DESCRIPTION" source="bitex/ui/ledger_activity.js" desc="Ledger withdraw fee discount description">Descuento en la tasa de retiro</translation>
+	<translation id="5064090507118055748" key="MSG_NET_AMOUNT_LABEL_TOTAL" source="bitex/app/blinktrade.js" desc="NetAmount &quot;Total&quot; Label on DepositWithdrawDialogContent">Total</translation>
+	<translation id="2003940443726065382" key="MSG_NET_AMOUNT_LABEL_NET_AMOUNT" source="bitex/app/blinktrade.js" desc="NetAmount &quot;Net amount&quot; Label on DepositWithdrawDialogContent">Valor neto</translation>
+	<translation id="1887376413975021327" key="MSG_WITHDRAW_TABLE_DETAILS_COLUMN_KYC" source="bitex/ui/withdraw_list.js" desc="Withdraw column label in the  broker's withdraw list detail table">KYC</translation>
+	<translation id="879371268304831999" key="MSG_WITHDRAW_VIEW_KYC_BUTTON_LABEL" source="bitex/ui/withdraw_list.js" desc="KYC View buttom label on withdrawal list">view</translation>
+	<translation id="1303465093157491884" key="MSG_WITHDRAW_TABLE_DETAILS_COLUMN_ACCT_TYPE" source="bitex/ui/withdraw_list.js" desc="Withdraw column label in the  broker's withdraw list detail table">Tipo de cuenta</translation>
+	<translation id="1564209753795595379" key="MSG_WITHDRAW_FIELD_ACCT_NUMBER" source="bitex/app/blinktrade.js" desc="Withdraw field on the withdrawal dialog">Número de cuenta</translation>
+	<translation id="8089421723645896781" key="MSG_WITHDRAW_FIELD_ACCT_HOLDER" source="bitex/app/blinktrade.js" desc="Withdraw field on the withdrawal dialog">Nombre del titular</translation>
+	<translation id="9136238999830571266" key="MSG_WITHDRAW_FIELD_BANK_NAME" source="bitex/app/blinktrade.js" desc="Withdraw field on the withdrawal dialog">Nombre del banco</translation>
+	<translation id="910870140585727361" key="MSG_WITHDRAW_FIELD_BANK_NUMBER" source="bitex/app/blinktrade.js" desc="Withdraw field on the withdrawal dialog">Código del banco</translation>
+	<translation id="4420425121038723553" key="MSG_WITHDRAW_FIELD_CPF_CNPJ" source="bitex/app/blinktrade.js" desc="Withdraw field on the withdrawal dialog">CPF or CNPJ</translation>
+	<translation id="5103257087398798751" key="MSG_WITHDRAW_FIELD_ACCT_BRANCH" source="bitex/app/blinktrade.js" desc="Withdraw field on the withdrawal dialog">Número de la oficina bancaria</translation>
+	<translation id="4172735211817266902" key="MSG_WITHDRAW_FIELD_ROUTING_NUMBER" source="bitex/app/blinktrade.js" desc="Withdraw field on the withdrawal dialog">Número routing</translation>
+	<translation id="7593986995671721225" key="MSG_WITHDRAW_FIELD_BANK_SWIFT" source="bitex/app/blinktrade.js" desc="Withdraw field on the withdrawal dialog">Código swift</translation>
+	<translation id="3861593375277819251" key="MSG_WITHDRAW_FIELD_EMAIL" source="bitex/app/blinktrade.js" desc="Withdraw field on the withdrawal dialog">Correo electrónico</translation>
+	<translation id="692832065730079517" key="MSG_WITHDRAW_FIELD_ACCT_TYPE" source="bitex/app/blinktrade.js" desc="Withdraw field on the withdrawal dialog">Tipo de cuenta</translation>
+	<translation id="8449988747453020863" key="MSG_WITHDRAW_FIELD_WALLET" source="bitex/app/blinktrade.js" desc="Withdraw field on the withdrawal dialog">Cartera</translation>
+	<translation id="5463654649482678315" key="MSG_WITHDRAW_FIELD_LINK" source="bitex/app/blinktrade.js" desc="Withdraw field on the withdrawal dialog">Comprovante</translation>
+	<translation id="7233428290426397527" key="MSG_WITHDRAW_FIELD_TRANSACTION_ID" source="bitex/app/blinktrade.js" desc="Withdraw field on the withdrawal dialog">ID de la transacción</translation>
+	<translation id="3755444255097815322" key="MSG_WITHDRAW_FIELD_KYC" source="bitex/app/blinktrade.js" desc="Withdraw field on the withdrawal dialog">KYC</translation>
+	<translation id="4860965689056550924" key="MSG_ERROR_VALIDATE_INVALID_COUNTRY_CODE" source="uniform/validators.js" desc="Error validate phone number"><ph name="c" /> must contain a valid phone number. [Invalid country code]</translation>
+	<translation id="2559775226476327666" key="MSG_ERROR_VALIDATE_PHONE_NUMBER_TO_SHORT" source="uniform/validators.js" desc="Error validate phone number"><ph name="c" /> must contain a valid phone number. [Phone number is too short]</translation>
+	<translation id="2291078325504774794" key="MSG_ERROR_VALIDATE_PHONE_NUMBER_TO_LONG" source="uniform/validators.js" desc="Error validate phone number"><ph name="c" /> must contain a valid phone number. [Phone number is too long]</translation>
+	<translation id="8679354441414522301" key="MSG_ERROR_VALIDATE_INVALID_NUMBER" source="uniform/validators.js" desc="Error validate phone number"><ph name="c" /> must contain a valid phone number. [Invalid number]</translation>
+	<translation id="2634409326242022399" key="MSG_WITHDRAW_TABLE_DETAILS_COLUMN_ACCT_HOLDER_ID" source="bitex/ui/withdraw_list.js" desc="Withdraw column label in the  broker's withdraw list detail table">Account holder ID</translation>
+	<translation id="3419245007254051464" key="MSG_WITHDRAW_TABLE_DETAILS_COLUMN_SENDER_NAME" source="bitex/ui/withdraw_list.js" desc="Withdraw column label in the  broker's withdraw list detail table">Sender Name</translation>
+	<translation id="7841105349161812106" key="MSG_WITHDRAW_TABLE_DETAILS_COLUMN_SENDER_ID" source="bitex/ui/withdraw_list.js" desc="Withdraw column label in the  broker's withdraw list detail table">Sender ID</translation>
+	<translation id="3558000690051562987" key="MSG_WITHDRAW_TABLE_DETAILS_COLUMN_SENDER_PHONE_NUMBER" source="bitex/ui/withdraw_list.js" desc="Withdraw column label in the  broker's withdraw list detail table">Sender phone #</translation>
+	<translation id="1250544065220621969" key="MSG_WITHDRAW_TABLE_DETAILS_COLUMN_SENDER_KYC" source="bitex/ui/withdraw_list.js" desc="Withdraw column label in the  broker's withdraw list detail table">Sender KYC</translation>
+	<translation id="4507525476196602233" key="MSG_WITHDRAW_TABLE_DETAILS_COLUMN_ACCT_HOLDER_ID_PHONE_NUMBER" source="bitex/ui/withdraw_list.js" desc="Withdraw column label in the  broker's withdraw list detail table">Account holder phone #</translation>
+	<translation id="5999055786432697519" key="MSG_WITHDRAW_TABLE_COLUMN_ACTION_KYC" source="bitex/ui/withdraw_list.js" desc="Withdraw cancel button label in the  broker's withdraw list">KYC</translation>
+	<translation id="2783077389400995323" key="MSG_10LQT5K8GYUX7" source="bitex/view/profile.soy.js" desc="English option on email language select">English</translation>
+	<translation id="4943311398985874173" key="MSG_DZL7J1D3X2UF" source="bitex/view/profile.soy.js" desc="Brazilian Portuguese option on email language select">Brazilian Portuguese</translation>
+	<translation id="8411276500522835474" key="MSG_PMMVDV5RUA99" source="bitex/view/profile.soy.js" desc="Spanish option on email language select">Spanish</translation>
+	<translation id="4365930238808555300" key="MSG_K5LYRFH1G3PU" source="bitex/view/profile.soy.js" desc="Vietnamese option on email language select">Vietnamese</translation>
+	<translation id="4629358918230938980" key="MSG_CUMQXDILCWAF" source="bitex/view/profile.soy.js" desc="label on  overview header">Email preferred language</translation>
+	<translation id="6923078892401750596" key="MSG_19OYC8RQ9JU5J" source="bitex/view/line_of_credit.soy.js" desc="Provider full name on Line of credit info">Provider</translation>
+	<translation id="7710895302268826767" key="MSG_KA4HB96UJR50" source="bitex/view/line_of_credit.soy.js" desc="Taker full name on Line of credit info">Taker</translation>
+	<translation id="6633474827790960340" key="MSG_17P2BZ7P9GV7C" source="bitex/view/line_of_credit.soy.js" desc="Interest rate on Line of credit info">Daily interest rate</translation>
+	<translation id="5086352842455490444" key="MSG_1MFSND48W7B6L" source="bitex/view/line_of_credit.soy.js" desc="Credit Limit on Line of credit info">Credit limit</translation>
+	<translation id="4595750559157712461" key="MSG_15C1FJDJR2TPV" source="bitex/view/line_of_credit.soy.js" desc="Created on Line of credit info">Created</translation>
+	<translation id="21102171177496492" key="MSG_12P0QRT7U8WKZ" source="bitex/view/line_of_credit.soy.js" desc="Get ticker on credit info">Ticker for get</translation>
+	<translation id="3701218124899632809" key="MSG_11XSGRBDGPVRH" source="bitex/view/line_of_credit.soy.js" desc="Payback ticker on credit info">Ticker for payback</translation>
+	<translation id="8365210763836062229" key="MSG_1STZ53XH6IZML" source="bitex/view/line_of_credit.soy.js" desc="Min/Max size for currency on credit info">Min/Max size</translation>
+	<translation id="4785573854332489097" key="MSG_FADES091T90I" source="bitex/view/line_of_credit.soy.js" desc="Delivery currency title on credit info">Get and pay back in <ph name="c" /></translation>
+	<translation id="2615554262622026962" key="MSG_S3ZP8WSYSR8D" source="bitex/view/line_of_credit.soy.js" desc="Total after fees on get line of credit">Net total:</translation>
+	<translation id="8950229869982737619" key="MSG_D2IY9MWURKT4" source="bitex/view/line_of_credit.soy.js" desc="Exchange rate on get line of credit">Exchange rate:</translation>
+	<translation id="4677219802253382956" key="MSG_QFZRQ3U5FQKG" source="bitex/view/line_of_credit.soy.js" desc="Interest rate on get line of credit">Daily interest rate:</translation>
+	<translation id="1812882352868306055" key="MSG_XU5HVVDNY0T1" source="bitex/view/line_of_credit.soy.js" desc="method">Delivery method</translation>
+	<translation id="5749898951091171103" key="MSG_880GDDZ0V9IO" source="bitex/view/line_of_credit.soy.js" desc="Minimum and Maximum per transaction help block on the get line of credit">Minimum of <ph name="xxx_1" /> and Maximum of <ph name="xxx_2" /> per transaction.</translation>
+	<translation id="4786712882098734083" key="MSG_LINE_OF_CREDIT_TABLE_COLUMN_ACTIONS" source="bitex/ui/line_of_credit_table.js" desc="Column  Actions of the Line Of Credit Table">Actions</translation>
+	<translation id="1284351463655416332" key="MSG_LINE_OF_CREDIT_ACTION_ENABLE_BUTTON_LABEL" source="bitex/ui/line_of_credit_table.js" desc="Enable action button on the Line Of Credit Table">Enable</translation>
+	<translation id="2350158942300466275" key="MSG_LINE_OF_CREDIT_ACTION_DISABLE_BUTTON_LABEL" source="bitex/ui/line_of_credit_table.js" desc="Disable action button on the Line Of Credit Table">Disable</translation>
+	<translation id="2810926171870305352" key="MSG_LINE_OF_CREDIT_ACTION_GET_BUTTON_LABEL" source="bitex/ui/line_of_credit_table.js" desc="Get action button on the Line Of Credit Table">Get</translation>
+	<translation id="5687613667840135051" key="MSG_LINE_OF_CREDIT_ACTION_PAYBACK_BUTTON_LABEL" source="bitex/ui/line_of_credit_table.js" desc="Get action button on the Line Of Credit Table">Pay back</translation>
+	<translation id="3361852110021066413" key="MSG_LINE_OF_CREDIT_ACTION_INFO_BUTTON_LABEL" source="bitex/ui/line_of_credit_table.js" desc="Info action button on the Line Of Credit Table">info</translation>
+	<translation id="4532638121095101206" key="MSG_LINE_OF_CREDIT_DELIVERY_CURRENCIES_INFO" source="bitex/ui/line_of_credit_table.js" desc="Currency information on line of credit when the currency differs from delivery currency"><ph name="c" /> get/paid in <ph name="l" /></translation>
+	<translation id="1294685409638610285" key="MSG_MY_ACCOUNTS_BALANCE_LABEL" source="bitex/view/side_bar.js" desc="My account balance label">My account</translation>
+	<translation id="5893370330965605469" key="MSG_WITHDRAW_FIELD_ACCT_HOLDER_ID" source="bitex/app/blinktrade.js" desc="Withdraw field on the withdrawal dialog">Account holder ID</translation>
+	<translation id="6139721622172805966" key="MSG_WITHDRAW_FIELD_SENDER_NAME" source="bitex/app/blinktrade.js" desc="Withdraw field on the withdrawal dialog">Sender Name</translation>
+	<translation id="2756996411461682192" key="MSG_WITHDRAW_FIELD_SENDER_ID" source="bitex/app/blinktrade.js" desc="Withdraw field on the withdrawal dialog">Sender ID</translation>
+	<translation id="8477370668668748984" key="MSG_WITHDRAW_FIELD_SENDER_PHONE_NUMBER" source="bitex/app/blinktrade.js" desc="Withdraw field on the withdrawal dialog">Sender phone #</translation>
+	<translation id="725515719376663481" key="MSG_WITHDRAW_FIELD_SENDER_KYC" source="bitex/app/blinktrade.js" desc="Withdraw field on the withdrawal dialog">Sender KYC</translation>
+	<translation id="5536277637035062332" key="MSG_WITHDRAW_FIELD_ACCT_HOLDER_ID_PHONE_NUMBER" source="bitex/app/blinktrade.js" desc="Withdraw field on the withdrawal dialog">Account holder phone #</translation>
+	<translation id="8161294925332269311" key="MSG_WITHDRAW_NOTIFICATION_BROKER_CONFIRMED_TITLE" source="bitex/app/blinktrade.js" desc="Withdraw admin notification">User <ph name="username" /> requested withdrawal of</translation>
+	<translation id="1205292933428921730" key="MSG_DEPOSIT_NOTIFICATION_COMPLETE" source="bitex/app/blinktrade.js" desc="Fiat deposit confirmed user notification">Your deposit request <ph name="id" /> was credited into your account</translation>
+	<translation id="2791342424109102417" key="MSG_DEPOSIT_NOTIFICATION_CANCELLED" source="bitex/app/blinktrade.js" desc="Fiat deposit confirmed user notification">Your deposit request <ph name="id" /> was cancelled</translation>
+	<translation id="3641848634189779910" key="MSG_DEPOSIT_NOTIFICATION_USER_CONFIRMATION" source="bitex/app/blinktrade.js" desc="Fiat deposit confirmed user notification">User just sent a deposit receipt for the deposit <ph name="id" /></translation>
+	<translation id="1925869758888458607" key="MSG_SHOW_KYC_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="kyc dialog title">KYC</translation>
 </translationbundle>

@@ -7,6 +7,8 @@ goog.require('goog.array');
 goog.require('goog.dom.forms');
 goog.require('goog.i18n.NumberFormat');
 
+goog.require('i18n.phonenumbers.PhoneNumberUtil');
+goog.require('i18n.phonenumbers.PhoneNumberUtil.ValidationResult');
 
 /**
  * Handle all uniform validations
@@ -15,18 +17,19 @@ goog.require('goog.i18n.NumberFormat');
 uniform.Validators = function() {
   this.metaMap_ = new goog.structs.Map();
 
-  this.metaMap_.set('required'         ,this.validateRequired_);
-  this.metaMap_.set('validateMinLength',this.validateMinLength_);
-  this.metaMap_.set('validateEmail'    ,this.validateEmail_);
-  this.metaMap_.set('validateMaxLength',this.validateMaxLength_);
-  this.metaMap_.set('validateMin'      ,this.validateMin_);
-  this.metaMap_.set('validateMax'      ,this.validateMax_);
-  this.metaMap_.set('validateNumber'   ,this.validateNumber_);
-  this.metaMap_.set('validateInteger'  ,this.validateInteger_);
-  this.metaMap_.set('validateAlpha'    ,this.validateAlpha_);
-  this.metaMap_.set('validateAlphaNum' ,this.validateAlphaNum_);
-  this.metaMap_.set('validatePhrase'   ,this.validatePhrase_);
-  this.metaMap_.set('validateUsername' ,this.validateUsername_);
+  this.metaMap_.set('required'           ,this.validateRequired_);
+  this.metaMap_.set('validateMinLength'  ,this.validateMinLength_);
+  this.metaMap_.set('validateEmail'      ,this.validateEmail_);
+  this.metaMap_.set('validateMaxLength'  ,this.validateMaxLength_);
+  this.metaMap_.set('validateMin'        ,this.validateMin_);
+  this.metaMap_.set('validateMax'        ,this.validateMax_);
+  this.metaMap_.set('validateNumber'     ,this.validateNumber_);
+  this.metaMap_.set('validateInteger'    ,this.validateInteger_);
+  this.metaMap_.set('validateAlpha'      ,this.validateAlpha_);
+  this.metaMap_.set('validateAlphaNum'   ,this.validateAlphaNum_);
+  this.metaMap_.set('validatePhrase'     ,this.validatePhrase_);
+  this.metaMap_.set('validatePhoneNumber',this.validatePhoneNumber_);
+  this.metaMap_.set('validateUsername'   ,this.validateUsername_);
 
 };
 goog.addSingletonGetter(uniform.Validators);
@@ -339,6 +342,73 @@ uniform.Validators.prototype.validateAlphaNum_ = function(el, condition, params,
                     '(without special characters)', {c:caption});
 
     throw MSG_ERROR_VALIDATE_ALPHA_NUM;
+  }
+};
+
+/**
+ * Simple phrases
+ * @param {Element} el
+ * @param {string} condition
+ * @param {string} params
+ * @param {string} caption
+ */
+uniform.Validators.prototype.validatePhoneNumber_ = function(el, condition, params, caption){
+  if (condition && !eval(condition)) {
+    return;
+  }
+
+  /** @desc Error validate phone number*/
+  var MSG_ERROR_VALIDATE_INVALID_COUNTRY_CODE =
+      goog.getMsg('{$c} must contain a valid phone number. [Invalid country code]', {c:caption});
+
+  /** @desc Error validate phone number*/
+  var MSG_ERROR_VALIDATE_PHONE_NUMBER_TO_SHORT =
+      goog.getMsg('{$c} must contain a valid phone number. [Phone number is too short]', {c:caption});
+
+  /** @desc Error validate phone number*/
+  var MSG_ERROR_VALIDATE_PHONE_NUMBER_TO_LONG =
+      goog.getMsg('{$c} must contain a valid phone number. [Phone number is too long]', {c:caption});
+
+  /** @desc Error validate phone number*/
+  var MSG_ERROR_VALIDATE_INVALID_NUMBER =
+      goog.getMsg('{$c} must contain a valid phone number. [Invalid number]', {c:caption});
+
+
+
+  var phoneUtil = i18n.phonenumbers.PhoneNumberUtil.getInstance();
+  try {
+    var number = phoneUtil.parseAndKeepRawInput(goog.dom.forms.getValue(el));
+    var isPossible = phoneUtil.isPossibleNumber(number);
+  } catch (err) {
+    switch (err){
+      case i18n.phonenumbers.Error.INVALID_COUNTRY_CODE:
+        throw MSG_ERROR_VALIDATE_INVALID_COUNTRY_CODE;
+      case i18n.phonenumbers.Error.NOT_A_NUMBER:
+        throw MSG_ERROR_VALIDATE_INVALID_NUMBER;
+      case i18n.phonenumbers.Error.TOO_SHORT_AFTER_IDD:
+      case i18n.phonenumbers.Error.TOO_SHORT_NSN:
+        throw MSG_ERROR_VALIDATE_PHONE_NUMBER_TO_SHORT;
+      case i18n.phonenumbers.Error.TOO_LONG:
+        throw MSG_ERROR_VALIDATE_PHONE_NUMBER_TO_SHORT;
+    }
+    throw err;
+  }
+
+  if (!isPossible) {
+    var PNV = i18n.phonenumbers.PhoneNumberUtil.ValidationResult;
+    switch (phoneUtil.isPossibleNumberWithReason(number)) {
+      case PNV.INVALID_COUNTRY_CODE:
+        throw MSG_ERROR_VALIDATE_INVALID_COUNTRY_CODE;
+      case PNV.TOO_SHORT:
+        throw MSG_ERROR_VALIDATE_PHONE_NUMBER_TO_SHORT;
+      case PNV.TOO_LONG:
+        throw MSG_ERROR_VALIDATE_PHONE_NUMBER_TO_LONG;
+    }
+  } else {
+    var isNumberValid = phoneUtil.isValidNumber(number);
+    if (!isNumberValid) {
+      throw MSG_ERROR_VALIDATE_INVALID_NUMBER;
+    }
   }
 };
 

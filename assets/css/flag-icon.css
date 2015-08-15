@@ -1,0 +1,93 @@
+.flag-wrapper {
+  width: 100%;
+  display: inline-block;
+  position: relative;
+  box-shadow: 0 0 2px black;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.flag-wrapper:after {
+  padding-top: 75%; /* ratio */
+  display: block;
+  content: '';
+}
+
+.flag-wrapper .flag {
+  position: absolute;
+  top: 0; bottom: 0; right: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+}
+
+.flag-icon-background {
+  background-size: contain;
+  background-position: 50%;
+  background-repeat: no-repeat;
+}
+.flag-icon {
+  background-size: contain;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  position: relative;
+  display: inline-block;
+  width: 1.33333333em;
+  line-height: 1em;
+}
+.flag-icon:before {
+  content: "\00a0";
+}
+.flag-icon.flag-icon-squared {
+  width: 1em;
+}
+
+.flag-icon-pt_BR {
+  background-image: url(/assets/flags/4x3/br.svg);
+}
+.flag-icon-pt_BR.flag-icon-squared {
+  background-image: url(/assets/flags/1x1/br.svg);
+}
+
+.flag-icon-en_US {
+  background-image: url(/assets/flags/4x3/us.svg);
+}
+.flag-icon-en_US.flag-icon-squared {
+  background-image: url(/assets/flags/1x1/us.svg);
+}
+
+.flag-icon-vi {
+  background-image: url(/assets/flags/4x3/vn.svg);
+}
+.flag-icon-vi.flag-icon-squared {
+  background-image: url(/assets/flags/1x1/vn.svg);
+}
+
+
+.flag-icon-es {
+  background-image: url(/assets/flags/4x3/es.svg);
+}
+.flag-icon-es.flag-icon-squared {
+  background-image: url(/assets/flags/1x1/es.svg);
+}
+
+.flag-icon-es {
+  background-image: url(/assets/flags/4x3/es.svg);
+}
+.flag-icon-es.flag-icon-squared {
+  background-image: url(/assets/flags/1x1/es.svg);
+}
+
+.flag-icon-zn_CN {
+  background-image: url(/assets/flags/4x3/cn.svg);
+}
+.flag-icon-zn_CN.flag-icon-squared {
+  background-image: url(/assets/flags/1x1/cn.svg);
+}
+
+.flag-icon-ro {
+  background-image: url(/assets/flags/4x3/ro.svg);
+}
+.flag-icon-ro.flag-icon-squared {
+  background-image: url(/assets/flags/1x1/ro.svg);
+}

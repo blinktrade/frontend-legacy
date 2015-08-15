@@ -36,12 +36,21 @@ exchanges:
     description:  Cumpărați și vindeți Bitcoin în România
     keywords: Buy and sell bitcoin in Romania, bitcoin exchange in Romania, sell bitcoins in Romania, buy bitcoins in Romania,cumpara si vinde Bitcoin in Romania, schimba Bitcoin Romania
     lead: Cumpărați și vindeți Bitcoin în România
+  bitcoinvietnam:
+    title: BitcoinVietnam -  //Cumpărați și vindeți Bitcoin în Vietnam 
+    description:  Cumpărați și vindeți Bitcoin în Vietnam
+    keywords: Buy and sell bitcoin in China, bitcoin exchange in Vietnam, sell bitcoins in Vietnam, buy bitcoins in Vietnam,cumpara si vinde Bitcoin in Vietnam, schimba Bitcoin Vietnam 
+    lead: Cumpărați și vindeți Bitcoin în Vietnam
   yuanbit:
     title: YuanBit.com -  //Cumpărați și vindeți Bitcoin în China
     description:  Cumpărați și vindeți Bitcoin în China
     keywords: Buy and sell bitcoin in China, bitcoin exchange in China, sell bitcoins in China, buy bitcoins in China,cumpara si vinde Bitcoin in China, schimba Bitcoin China
     lead: Cumpărați și vindeți Bitcoin în China
 views:
+  footer:
+    latency: Latency
+    version: Version
+
   toolbar:
     faq: Întrebări frecvente
     trading: Tranzacționare
@@ -162,6 +171,9 @@ views:
     enable_two_factor: Puteți crește securitatea contului dvs. prin activarea autentificare în doi pasi.
     frozen_account: Contul nostru a fost oprit de către administrator, vă rugăm să contactați echipa de suport.
 
+  line_of_credit:
+    title: Linie de credit
+
   sidebar:
     market: "Moneda de schimb :"
     menu: Meniu
@@ -176,6 +188,7 @@ views:
     deposit: Depunerile mele
     withdraw: Retragerile mele
     verification: Verificați-va contul
+    line_of_credit: Linie de credit
     support: Sugestii & Support
     api: API
     logout: Delogare

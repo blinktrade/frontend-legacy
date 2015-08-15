@@ -26,13 +26,13 @@
             {foreach $inst in $instruments}
                 <tr data-symbol="{$inst['Symbol']}" >
                 <td>{$inst['Description']} </td>
-                <td><span class="bitex-model" data-model-key="formatted_last_price_{$inst['Symbol']}"></span></td>
-                <td><span class="bitex-model" data-model-key="formatted_bid_{$inst['Symbol']}"></span></td>
-                <td><span class="bitex-model" data-model-key="formatted_ask_{$inst['Symbol']}"></span></td>
-                <td><span class="bitex-model" data-model-key="formatted_volume_sell_{$inst['Symbol']}"></span></td>
-                <td><span class="bitex-model" data-model-key="formatted_volume_buy_{$inst['Symbol']}"></span></td>
-                <td><span class="bitex-model" data-model-key="formatted_max_{$inst['Symbol']}"></span></td>
-                <td><span class="bitex-model" data-model-key="formatted_min_{$inst['Symbol']}"></span></td>
+                <td><span class="bitex-model" data-model-key="formatted_{$inst['Market']}_{$inst['Symbol']}_LAST_PX"></span></td>
+                <td><span class="bitex-model" data-model-key="formatted_{$inst['Market']}_{$inst['Symbol']}_BEST_BID"></span></td>
+                <td><span class="bitex-model" data-model-key="formatted_{$inst['Market']}_{$inst['Symbol']}_BEST_ASK"></span></td>
+                <td><span class="bitex-model" data-model-key="formatted_{$inst['Market']}_{$inst['Symbol']}_SELL_VOLUME"></span></td>
+                <td><span class="bitex-model" data-model-key="formatted_{$inst['Market']}_{$inst['Symbol']}_BUY_VOLUME"></span></td>
+                <td><span class="bitex-model" data-model-key="formatted_{$inst['Market']}_{$inst['Symbol']}_HIGH_PX"></span></td>
+                <td><span class="bitex-model" data-model-key="formatted_{$inst['Market']}_{$inst['Symbol']}_LOW_PX"></span></td>
                 </tr>
             {/foreach}
           </tbody>

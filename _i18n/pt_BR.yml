@@ -36,6 +36,11 @@ exchanges:
     description:  Compre e venda bitcoins na Romênia
     keywords: Compra e venda de bitcoins na Romênia, bolsa de bitcoins na Romênia, venda bitcoins na Romênia, compre bitcoins na Romênia
     lead: Compre e venda bitcoins na Romênia
+  bitcoinvietnam:
+    title: BitcoinVietnam - Compre e venda bitcoins no Vietnam 
+    description: Compre e venda bitcoins no Vietnam
+    keywords: Compra e venda de bitcoins no Vietnam, bolsa de bitcoins no Vietnam, venda bitcoins no Vietnam, compre bitcoins no Vietnam
+    lead: Compre e venda bitcoins no Vietnam
   yuanbit:
     title: YuanBit.com - Compre e venda bitcoins na China
     description: Compre e venda bitcoins na China
@@ -43,6 +48,10 @@ exchanges:
     lead: Compre e venda bitcoins na China
 
 views:
+  footer:
+    latency: Latency
+    version: Version
+
   toolbar:
     faq: Ajuda
     trading: Negociações
@@ -163,6 +172,9 @@ views:
     enable_two_factor: Você pode aumentar a segurança da sua conta apenas habilitando a autenticação em dois passos
     frozen_account: A sua conta foi congelada pelo administrador, por favor contate o suporte.
 
+  line_of_credit:
+    title: Linha de crédito
+
   sidebar:
     market: "Mercado:"
     menu: Menu
@@ -177,6 +189,7 @@ views:
     deposit: Depósitos
     withdraw: Saques
     verification: Verificar a sua conta
+    line_of_credit: Linha de crédito
     support: Suporte e Sugestões
     api: API
     logout: Sair

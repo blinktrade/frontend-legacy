@@ -1,0 +1,195 @@
+global:
+  portuguese: Tiếng Bồ Đào Nha
+  english: Tiếng Anh
+  spanish: Tiếng Tây Ban Nha
+  tagline: Tiếng Việt
+  about: Về chúng tôi
+  twitter: Twitter
+exchanges:
+  demo:
+    title: BlinkDemo - Open Source Bitcoin Exchange demo website
+    description: Open Source Bitcoin Exchange demo website
+    keywords: bitcoin, bitcoin exchange, open source bitcoin exchange, bitcoin trading plataform, open source bitcoin trading plataform
+    lead: See our open source Bitcoin exchange in action
+  chilebit:
+    title: ChileBit.NET - The first bitcoin exchange in Chile
+    description: The first bitcoin exchange in Chile
+    keywords: Buy and sell bitcoin in Chile, bitcoin exchange in Chile, sell bitcoins in Chile, buy bitcoins in Chile
+    lead: The first bitcoin exchange in Chile
+  surbitcoin:
+    title: SurBitcoin - The first bitcoin exchange in Venezuela
+    description: The first bitcoin exchange in Venezuela
+    keywords: Buy and sell bitcoin in Venezuela, bitcoin exchange in Venezuela, sell bitcoins in Venezuela, buy bitcoins in Venezuela
+    lead: The first bitcoin exchange in Venezuela
+  urdubit:
+    title: UrduBit - The first bitcoin exchange in Pakistan
+    description: The first bitcoin exchange in Pakistan
+    keywords: Buy and sell bitcoin in Pakistan, bitcoin exchange in Pakistan, sell bitcoins in Pakistan, buy bitcoins in Pakistan
+    lead: The first bitcoin exchange in Pakistan
+  foxbit:
+    title: FoxBit - Buy or sell bitcoins in Brazil
+    description: Compre e venda bitcoins no Brasil de maneira segura através da FoxBit. Com o FoxBit você pode começar a comprar e vender bitcoins hoje. O processo de registro dura menos de um minuto.
+    keywords: Buy and sell bitcoin in Brazil, bitcoin exchange in Brazil, sell bitcoins in Brazil, buy bitcoins in Brazil, Bitcoin exchange in Brazil
+    lead: Compre ou venda seus Bitcoins no Brasil
+  romaniabex:
+    title: RomaniaBitcoin.Exchange - Buy or sell bitcoins in Romania
+    description: Buy and sell bitcoin in Romania
+    keywords: Buy and sell bitcoin in Romania, bitcoin exchange in Romania, sell bitcoins in Romania, buy bitcoins in Romania
+    lead: Buy and sell bitcoin in Romania
+  bitcoinvietnam:
+    title: VBTC - Mua và bán Bitcoin tại Việt Nam
+    description: Mua và bán Bitcoin tại Việt Nam
+    keywords: Mua và bán Bitcoin, sàn giao dịch Bitcoin, mua Bitcoin, bán Bitcoin, Buy and sell bitcoin in Vietnam, bitcoin exchange in Vietnam, sell bitcoins in Vietnam, buy bitcoins in Vietnam
+    lead: Mua và bán Bitcoin tại Việt Nam
+  yuanbit:
+    title: YuanBit.com - Buy or sell bitcoins in China
+    description: Buy and sell bitcoin in China
+    keywords: Buy and sell bitcoin in China, bitcoin exchange in China, sell bitcoins in China, buy bitcoins in China
+    lead: Buy and sell bitcoin in China
+views:
+  footer:
+    latency: Độ trễ
+    version: Phiên bản
+
+  toolbar:
+    faq: Hỏi & Đáp
+    trading: Giao dịch
+    market: Thị trường
+    signin: Đăng nhập
+    signup: Đăng ký
+    connect: Kết nối
+
+  start:
+    username: "Tên đăng nhập:"
+    password: "Mật khẩu:"
+    login: Đăng nhập
+    signup: Đăng ký
+
+  faq:
+    title: Hỏi & Đáp - Những câu hỏi thường gặp
+    get_in_touch: Hãy liên hệ với chúng tôi nếu bạn không tìm thấy câu trả lời tại đây
+
+  signup:
+    title: Đăng ký
+    already_registered:  Bạn đã đăng ký?
+    login: Đăng nhập
+    username: Tên đăng nhập
+    email: Địa chỉ Email
+    email_placeholder: "Ví dụ: ngoctrinh@gmail.com"
+    password: Mật khẩu
+    password_help: Ít nhất 8 ký tự
+    confirm_password: Xác nhận mật khẩu
+    country: Quốc gia
+    state: Tỉnh/Thành phố
+    broker: Broker
+    terms_of_service: Điều Khoản Sử Dụng
+    i_agree_with_terms_of_service: Tôi đồng ý với các điều khoản dịch vụ
+    signup_button_label: Đăng ký
+
+  signin:
+    title: Đăng nhập
+    dont_have_an_account: Không có tài khoản?
+    signup: Đăng ký
+    username: Tên đăng nhập
+    password: Mật khẩu
+    forgot_your_password: Bạn đã quên mật khẩu?
+    login_button_label: Đăng nhập
+
+  forgot_password:
+    title: Khôi phục mật khẩu
+    email: Email
+    recover_password_button_label: Khôi phục
+
+  set_new_password:
+    title: Đặt mật khẩu mới
+    security_code: Mã bảo mật
+    security_code_help: Chúng tôi vừa gửi một mã bảo mật tới email của bạn.
+    new_password: Mật khẩu mới
+    new_password_help: Ít nhất 8 ký tự
+    confirm_password: Xác nhận mật khẩu của bạn
+    set_new_password_button_label: Đặt lại mật khẩu
+
+  profile:
+    title: Hồ sơ
+    two_factor_auth_section:
+      title: Xác thực 2 lớp (2FA)
+      key: Khoá
+      authentication_code: Mã xác thực
+      authentication_code_title: Mã xác thực từ Google Authenticator
+      authentication_code_placeholder: "Ví dụ: 123456"
+      enable: Bật
+      disable: Tắt
+
+  trading:
+    title: Mua và Bán
+
+  offerbook:
+    title: Sổ lệnh
+    cumulative: Lũy kế
+    fees: Phí
+
+  customers:
+    title: Khách hàng
+
+  account_overview:
+    title:  Tổng quan về tài khoản
+    set_user_fees_button_label: Thiết lập phí dịch vụ
+
+  withdraw:
+    title: Các lệnh rút tiền
+
+  withdraw_requests:
+    title: Lệnh rút tiền của khách
+
+  deposit:
+    title: Các lệnh gửi tiền
+
+  deposit_requests:
+    title: Lệnh gửi tiền của khách
+
+  ledger:
+    title: Sổ kế toán
+
+  algotrading:
+    title: Thuật toán cho giao dịch
+
+  api:
+    title: Các khoá API
+    new_api_key: Khoá API Mới
+
+  settings:
+    title: Cài Đặt
+
+  verification:
+    title: Xác minh tài khoản
+
+  market:
+    title: Thị trường
+
+  alerts:
+    verification: Bạn chưa gửi tài liệu xác minh. Vui lòng xác minh tài khoản của bạn.
+    enable_two_factor: Bạn có thể tăng mức độ an ninh cho tài khoản của bạn bằng cách bật chức năng xác thực 2 lớp.
+    frozen_account: Tài khoản của bạn đã bị khoá. Xin vui lòng liên hệ với bộ phận hỗ trợ khách hàng.
+
+  line_of_credit:
+    title: Hạn mức tín dụng
+
+  sidebar:
+    market: "Thị trường:"
+    menu: Menu
+    my_profile: Hồ sơ
+    my_broker: Về sàn giao dịch
+    trading: Mua và Bán
+    offerbook: Sổ lệnh
+    ledger: Sổ kế toán
+    customers: Khách hàng
+    deposit_requests: Lệnh gửi tiền của khách
+    withdraw_requests: Lệnh rút tiền của khách
+    deposit: Các lệnh gửi tiền
+    withdraw: Các lệnh rút tiền
+    verification: Xác minh tài khoản của bạn
+    line_of_credit: Hạn mức tín dụng
+    support: Ý kiến & Hỗ trợ
+    api: API
+    logout: Thoát
+    algotrading: Thuật toán cho giao dịch

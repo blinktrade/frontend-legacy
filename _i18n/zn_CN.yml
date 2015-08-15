@@ -31,12 +31,17 @@ exchanges:
     title: FoxBit - 巴西的第一家比特币交易平台
     description: -巴西的第一家比特币交易平台
     keywords: 在巴西购买和卖出比特币
-    lead: 巴西的第一家比特币交易平台
+    lead: 购买和出售比特币在巴西
   romaniabex:
     title: 罗马尼亚的第一家比特币交易平台
     description: 在罗马尼亚买进和卖出比特币
     keywords: 在罗马尼亚如何购买比特币
     lead: 在罗马尼亚如果买进和卖出比特币
+  bitcoinvietnam:
+    title: BitcoinVietnam-中国第一家blinktrade技术的交易平台
+    description: 如果购买比特币
+    keywords: 比特币购买，买比特币，如果买比特币
+    lead: 购买和出售越南比特币
   yuanbit:
     title: yuanbit-中国第一家blinktrade技术的交易平台
     description: 如果购买比特币
@@ -44,6 +49,10 @@ exchanges:
     lead: 中国第一家blinktrade技术的交易平台
 
 views:
+  footer:
+    latency: Latency
+    version: Version
+
   toolbar:
     faq: 常见问题
     trading: 交易
@@ -164,6 +173,9 @@ views:
     enable_two_factor: 为了您的账户的安全性，请启用二重验证系统。
     frozen_account: 你的账户已经被管理员冻结，请联系管理员。
 
+  line_of_credit:
+    title: 信用额度
+
   sidebar:
     market: "市场:"
     menu: 菜单
@@ -178,6 +190,7 @@ views:
     deposit: 我的充值
     withdraw: 我的提现
     verification: 验证我的账户
+    line_of_credit: 信用额度
     support: 建议和问题
     api: API
     logout: 退出

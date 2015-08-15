@@ -3,17 +3,16 @@
         <p>
           {% if page.load_application %}
           <a href="" data-switch-view="admin">admin</a> |
-          Latency: <span class="bitex-model" data-model-key="latency">0</span> ms |
-          Version: {{ site.deploy_version }} |
+          {% t views.footer.latency %}: <span class="bitex-model" data-model-key="latency">0</span> ms |
+          {% t views.footer.version %}: {{ site.deploy_version }} |
           {% endif %}
-          <a href="http://blinktrade.com/" target="_blank">© 2014 BlinkTrade Inc</a>
+		      <a href="http://blinktrade.com/" target="_blank">© 2014 BlinkTrade Inc</a>
           | <a href="#themes">Themes</a>
           | <a href="https://github.com/blinktrade/" target="_blank">Proudly 100% open source <span class="bitex-model" data-model-key="JSVersion"></span></a>
-          | <a href="http://nytm.org/made-in-nyc/" target="_blank">Made with <span style="color: #d11f0d;font-size: 19px;">♥</span> in NYC</a>
+          | <a href="http://nytm.org/made-in-nyc/" target="_blank">Made with <span style="color: #d11f0d;font-size: 19px;">♥</span> in NYC</a> 
         </p>
       </div>
     </footer>
-
 
     {% if page.load_application %}
     <script data-cfasync="false" type="text/javascript">
@@ -23,7 +22,9 @@
         var country_code = "{% if page.default_country_code %}{{ page.default_country_code}}{% else %}{{ site.default_country_code}}{% endif %}";
         var blinktrade_api = "{% if page.blinktrade_backend_api %}{{ page.blinktrade_backend_api}}{% else %}{{ site.blinktrade_backend_api}}{% endif %}";
 
-        _app = new BlinkTradeApp(broker_id, country_code );
+        var remittance_box = {{ site.remittance_box  }};
+
+        _app = new BlinkTradeApp(broker_id, remittance_box,  country_code );
         _app.run(blinktrade_api);
       })();
     </script>
@@ -60,25 +61,6 @@
     </script>
     <!--End of Zopim Live Chat Script-->
     {% endif %}
-
-    {% if site.embedded_chat_id %}
-    <script type='text/javascript'>
-      (function() {
-        var s = document.createElement('script');
-        s.type = 'text/javascript';
-        s.async = true;
-        s.src = '//d3a5udlxrolr3e.cloudfront.net/resource/chat.js';
-        var x = document.getElementsByTagName('script')[0];
-        x.parentNode.insertBefore(s, x);
-      })();
-
-      window.embeddedChatAsyncInit = function() {
-        embeddedChat.init("{{site.embedded_chat_id}}");
-      }
-
-    </script>
-    {% endif %}
-
 
   </body>
 </html>

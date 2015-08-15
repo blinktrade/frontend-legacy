@@ -323,9 +323,9 @@
                     {if $crypto_currencies['CurrencyCode'] == 'BTC' }
                       {switch $wallets['address'][0]}
                         {case 'm','n','2','9','c'}
-                          <a href="https://test-insight.bitpay.com/address/{$wallets['address']}/" target="_blank">{$wallets['address'] }</a>
+                          <a href="https://www.blocktrail.com/tBTC/address/{$wallets['address']}/" target="_blank">{$wallets['address'] }</a>
                         {default}
-                          <a href="https://blockchain.info/address/{$wallets['address']}/" target="_blank">{$wallets['address'] }</a>
+                          <a href="https://www.blocktrail.com/BTC/address/{$wallets['address']}/" target="_blank">{$wallets['address'] }</a>
                       {/switch}
                     {else}
                       {$wallets['address'] }
@@ -379,7 +379,7 @@
       <label class="control-label" for="{$reason_id}" >{msg desc="Cancel deposit reason label"}Reason:{/msg}</label>
       <div class="controls">
         <select id="{$reason_id}">
-          <option value=0 selected>{msg desc="reason for cancelling deposit"}Other{/msg}</option>
+          <option value="0" selected>{msg desc="reason for cancelling deposit"}Other{/msg}</option>
         </select>
       </div>
     </div>
@@ -405,15 +405,15 @@
       <label class="control-label" for="{$reason_id}" >{msg desc="Cancel withdraw reason label"}Reason:{/msg}</label>
       <div class="controls">
         <select id="{$reason_id}">
-          <option value=0>{msg desc="reason for cancelling withdraw"}Other{/msg}</option>
-          <option value=-1 selected>{msg desc="reason for cancelling withdraw"}Insufficient funds{/msg}</option>
-          <option value=-2>{msg desc="reason for cancelling withdraw"}Account not verified{/msg}</option>
-          <option value=-3>{msg desc="reason for cancelling withdraw"}Suspicion of fraud{/msg}</option>
-          <option value=-4>{msg desc="reason for cancelling withdraw"}Withdrawing to a different account than yours{/msg}</option>
-          <option value=-5>{msg desc="reason for cancelling withdraw"}Invalid wallet{/msg}</option>
-          <option value=-6>{msg desc="reason for cancelling withdraw"}Invalid bank account{/msg}</option>
-          <option value=-7>{msg desc="reason for cancelling withdraw"}Amount exceeded your daily withdraw limit{/msg}</option>
-          <option value=-8>{msg desc="reason for cancelling withdraw"}User has deposits that are not yet confirmed{/msg}</option>
+          <option value="0">{msg desc="reason for cancelling withdraw"}Other{/msg}</option>
+          <option value="-1" selected>{msg desc="reason for cancelling withdraw"}Insufficient funds{/msg}</option>
+          <option value="-2">{msg desc="reason for cancelling withdraw"}Account not verified{/msg}</option>
+          <option value="-3">{msg desc="reason for cancelling withdraw"}Suspicion of fraud{/msg}</option>
+          <option value="-4">{msg desc="reason for cancelling withdraw"}Withdrawing to a different account than yours{/msg}</option>
+          <option value="-5">{msg desc="reason for cancelling withdraw"}Invalid wallet{/msg}</option>
+          <option value="-6">{msg desc="reason for cancelling withdraw"}Invalid bank account{/msg}</option>
+          <option value="-7">{msg desc="reason for cancelling withdraw"}Amount exceeded your daily withdraw limit{/msg}</option>
+          <option value="-8">{msg desc="reason for cancelling withdraw"}User has deposits that are not yet confirmed{/msg}</option>
         </select>
       </div>
     </div>
@@ -507,70 +507,74 @@
 
 {/template}
 
+
 /**
-  * @param accounts
+  * @param boxes
   */
 {template .YourAccountSummary}
-    {foreach $account in $accounts}
-    <table class="account-summary-table" style="width:100%;border-bottom:1px solid #eee;margin-top:15px;" >
-        <tbody>
+  {foreach $box in $boxes}
+    <table class="account-summary-table" style="width:100%;border-bottom:1px solid #eee;margin-top:15px;">
+      <tbody>
 
-      <tr id="id_account_summary_{$account['brokerID']}"
-          class='account-summary-broker model-action-set'
-          data-key="SelectedBrokerID"
-          data-value="{$account['brokerID']}"
-          {if length($accounts) <= 1 or length($account['currencies']) == 0 }style="display:none;"{/if}>
-            <td colspan="3"><h4>{$account['brokerName']}</h4></td>
-      </tr>
-
-      {foreach $currency_info in $account['currencies']}
-        <tr>
-
-          <td style="{if not isFirst($currency_info) }border-top: 0;{/if}">
-            <strong>{$currency_info['currency']}</strong>
-          </td>
-
-          <td style="text-align: right;{if not isFirst($currency_info) }border-top: 0;{/if}">
-            <span class="bitex-model"
-               data-model-key="formatted_balance_{$account['brokerID']}:{$account['clientID']}_{$currency_info['currency']}"
-               data-blink-class="balance-info-blink">{$currency_info['formattedBalance']}
-            </span>
-            <abbr title="{msg desc="Unconfirmed deposits"}Unconfirmed deposits from your confirmed addresses{/msg}">
-              <em>
-                 <span class="bitex-model"
-                    data-model-key="formatted_position_{$account['brokerID']}:{$account['clientID']}_{$currency_info['currency']}"
-                    data-blink-class="balance-info-blink"></span>
-               </em>
-            </abbr>
-
-         </td>
-          <td style="text-align: right;border-left:0;{if not isFirst($currency_info) }border-top: 0;{/if}">
-            {if $currency_info['showDeposit'] and  $currency_info['showWithdraw']}
-              <div class="btn-group">
-            {/if}
-
-            {if $currency_info['showDeposit'] }
-              <a class="flaticon-download164 b" data-action="deposit" data-currency="{$currency_info['currency']}">
-                <!-- <i data-action="deposit" data-currency="{$currency_info['currency']}" class="icon-download-alt"></i> -->
-              </a>
-            {/if}
-            {if $currency_info['showWithdraw'] }
-              <a class="flaticon-upload119 b" data-action="withdraw" data-currency="{$currency_info['currency']}">
-                <!-- <i data-action="withdraw" data-currency="{$currency_info['currency']}" class="icon-upload-alt"></i> -->
-              </a>
-            {/if}
-
-            {if $currency_info['showDeposit'] and  $currency_info['showWithdraw']}
-              </div>
-            {/if}
-
-          </td>
+        <tr class='account-summary-broker'>
+          <td colspan="3"><strong>{$box['title']}</strong></td>
         </tr>
-      {/foreach}
 
-        </tbody>
-      </table>
-    {/foreach}
+        {foreach $balance_info in $box['balances']}
+          <tr>
+            <td style="padding: 4px;">
+              <strong>{$balance_info['currency']}</strong>
+            </td>
+
+            <td style="padding: 4px;">
+              <span class="bitex-model"
+                    data-model-key-list="Balance_{$balance_info['brokerID']}_{$balance_info['accountID']}_{$balance_info['currency']}"
+                    data-model-formula="Balance_{$balance_info['brokerID']}_{$balance_info['accountID']}_{$balance_info['currency']} / 100000000"
+                    data-model-formatter="currency"
+                    data-model-formatter-pattern="{$balance_info['currencyPattern']}"
+                    data-blink-class="balance-info-blink"></span>
+
+              {sp}<abbr title="{msg desc="Unconfirmed deposits"}Unconfirmed deposits{/msg}"
+                        class="bitex-model"
+                        data-model-action="show_element"
+                        data-model-key-list="Position_{$balance_info['brokerID']}_{$balance_info['accountID']}_{$balance_info['currency']}"
+                        data-model-formula="Position_{$balance_info['brokerID']}_{$balance_info['accountID']}_{$balance_info['currency']}">
+                <em>
+                  <span class="bitex-model"
+                        data-model-key-list="Position_{$balance_info['brokerID']}_{$balance_info['accountID']}_{$balance_info['currency']}"
+                        data-model-formula="Position_{$balance_info['brokerID']}_{$balance_info['accountID']}_{$balance_info['currency']} / 100000000"
+                        data-model-formatter="currency"
+                        data-model-formatter-pattern="{$balance_info['currencyPattern']}"
+                        data-blink-class="balance-info-blink"></span>
+                </em>
+              </abbr>
+
+           </td>
+           <td style="padding: 4px;border-left:0;">
+
+              {if $balance_info['showDeposit'] and  $balance_info['showWithdraw']}
+                <div class="btn-group">
+              {/if}
+
+              {if $balance_info['showDeposit'] }
+                <a class="flaticon-download164 b" data-action="deposit" data-currency="{$balance_info['currency']}">
+                </a>
+              {/if}
+              {if $balance_info['showWithdraw'] }
+                <a class="flaticon-upload119 b" data-action="withdraw" data-currency="{$balance_info['currency']}">
+                </a>
+              {/if}
+
+              {if $balance_info['showDeposit'] and  $balance_info['showWithdraw']}
+                </div>
+              {/if}
+
+            </td>
+          </tr>
+        {/foreach}
+      </tbody>
+    </table>
+  {/foreach}
 {/template}
 
 /**
@@ -901,6 +905,7 @@
   * @param netValueID
   * @param hideNetAmount
   * @param? verificationLevel
+  * @param netAmountLabel
   */
 {template .DepositWithdrawDialogContent}
   <form class="form-horizontal" data-deposit-status="prepare" data-uniform-control-holder-class="control-group">
@@ -921,7 +926,7 @@
             <label class="control-label">{msg desc="method"}Method{/msg}</label>
             <select id="{$methodID}" name="Method" class="withdraw-method-selector">
               {foreach $method in $methods }
-               <option {if isFirst($method)}selected{/if} value="{$method['method']}"
+               <option value="{$method['method']}"
                     data-net-value="{$method['method']}_{$netValueID}"
                     data-percent-fee="{$method['method']}_{$percentFeeID}"
                     data-fixed-fee="{$method['method']}_{$fixedFeeID}">{$method['description']}</option>
@@ -1023,7 +1028,7 @@
               </li>
 
               <li {if $hideNetAmount} style="display:none;" {/if} >
-                <label class="control-label">{msg desc="Net amount"}Net amount{/msg}</label>
+                <label class="control-label">{$netAmountLabel}:</label>
                 <label id="{$method['method']}_{$netValueID}" class="control-label" style="text-align: left;"></label>
                 <input id="{$method['method']}_{$netValueID}_value" type="hidden" value="">
                 <input id="{$method['method']}_{$netValueID}_validator" type="hidden" value=""
@@ -1055,7 +1060,7 @@
           {/if}
         </ul>
         {else}
-          <div class="withdraw-method" data-withdraw-method="{$method['method']}" style="{if not isFirst($method)}display:none;{/if}" >
+          <div class="withdraw-method" data-withdraw-method="{$method['method']}" style="{if length($methods) > 1}display:none;{/if}">
             <ul class="ul-form">
 
             {if $side == 'client'}
@@ -1104,7 +1109,7 @@
 
             <br>
             <div class="control-group" {if $hideNetAmount} style="display:none;" {/if}>
-              <label class="control-label">{msg desc="Net amount"}Net amount{/msg}</label>
+              <label class="control-label">{$netAmountLabel}:</label>
               <label id="{$method['method']}_{$netValueID}" class="control-label broker-confirm-deposit-net-amount" style="text-align: left;"></label>
               <input id="{$method['method']}_{$netValueID}_value" type="hidden" value="">
               <input id="{$method['method']}_{$netValueID}_validator" type="hidden" value=""
@@ -1222,12 +1227,12 @@
   */
 {template .AccountOverviewHeaderVerified}
   <select id="id_select_new_verification_level" data-profile-change="Verified" >
-    <option value=0 {if $msg_customer_detail['Verified']==0}selected{/if}>{msg desc="label on  overview header"}No{/msg}</option>
-    <option value=1 {if $msg_customer_detail['Verified']==1}selected{/if}>{msg desc="label on  overview header"}Pending{/msg}</option>
-    <option value=2 {if $msg_customer_detail['Verified']==2}selected{/if}>{msg desc="label on  overview header"}Progress{/msg}</option>
-    <option value=3 {if $msg_customer_detail['Verified']==3}selected{/if}>{msg desc="label on  overview header"}Yes - Level I {/msg}</option>
-    <option value=4 {if $msg_customer_detail['Verified']==4}selected{/if}>{msg desc="label on  overview header"}Yes - Level II {/msg}</option>
-    <option value=5 {if $msg_customer_detail['Verified']==5}selected{/if}>{msg desc="label on  overview header"}Yes - Level III {/msg}</option>
+    <option value="0" {if $msg_customer_detail['Verified']==0}selected{/if}>{msg desc="label on  overview header"}No{/msg}</option>
+    <option value="1" {if $msg_customer_detail['Verified']==1}selected{/if}>{msg desc="label on  overview header"}Pending{/msg}</option>
+    <option value="2" {if $msg_customer_detail['Verified']==2}selected{/if}>{msg desc="label on  overview header"}Progress{/msg}</option>
+    <option value="3" {if $msg_customer_detail['Verified']==3}selected{/if}>{msg desc="label on  overview header"}Yes - Level I {/msg}</option>
+    <option value="4" {if $msg_customer_detail['Verified']==4}selected{/if}>{msg desc="label on  overview header"}Yes - Level II {/msg}</option>
+    <option value="5" {if $msg_customer_detail['Verified']==5}selected{/if}>{msg desc="label on  overview header"}Yes - Level III {/msg}</option>
   </select>
 {/template}
 
@@ -1323,63 +1328,6 @@
         </tbody>
     </table>
 {/template}
-
-
-/**
-  * @param msg_customer_detail
-  */
-{template .AccountOverviewUser}
-
-  <div class="ls-box ls-board-box">
-    <header class="ls-info-header">
-        <h2 class="ls-title-3 ls-ico-user">Details</h2>
-    </header>
-    <table class="ls-table ls-table-striped ls-bg-header account-overview-table">
-        <tbody>
-        <tr>
-            <td><strong>{msg desc="label on overview header"}ID{/msg}</strong></td>
-            <td>{$msg_customer_detail['ID']}</td>
-        </tr>
-        <tr>
-            <td><strong>{msg desc="label on  overview header"}Username{/msg}</strong></td>
-            <td>{$msg_customer_detail['Username']}</td>
-        </tr>
-        <tr>
-            <td><strong>{msg desc="label on  overview header"}Email{/msg}</strong></td>
-            <td>{$msg_customer_detail['Email']}</td>
-        </tr>
-        <tr>
-            <td><strong>{msg desc="label on  overview header"}State{/msg}</strong></td>
-            <td>{$msg_customer_detail['State']}</td>
-        </tr>
-        <tr>
-            <td><strong>{msg desc="label on  overview header"}Country{/msg}</strong></td>
-            <td>{$msg_customer_detail['CountryCode']}</td>
-        </tr>
-        <tr>
-            <td><strong>{msg desc="label on  overview header"}Is verified{/msg}</strong></td>
-            <td class="account-overview-val account-overview-verified">
-                {switch $msg_customer_detail['Verified'] }
-                {case 0}
-                    <b class="ls-tag-primary label label-important">{msg desc="label on  overview header"}No{/msg}</b>
-                {case 1}
-                    <b class="ls-tag-primary label label-important">{msg desc="label on  overview header"}Pending{/msg}</b>
-                {case 2}
-                    <b class="ls-tag-primary label label-success">{msg desc="label on  overview header"}Yes{/msg}</b>
-                {case 3}
-                    <b class="ls-tag-primary label label-success">{msg desc="label on  overview header"}Yes - Level II{/msg}</b>
-                {case 4}
-                    <b class="ls-tag-primary label label-success">{msg desc="label on  overview header"}Yes - Level III{/msg}</b>
-                {case 5}
-                    <b class="ls-tag-primary label label-success">{msg desc="label on  overview header"}Yes - Level IV{/msg}</b>
-                {/switch}
-            </td>
-        </tr>
-        </tbody>
-    </table>
-  </div>
-{/template}
-
 
 
 /**

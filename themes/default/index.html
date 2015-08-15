@@ -23,6 +23,8 @@ load_application:       True
             {% t exchanges.foxbit.lead  %}
           {% when 'romaniabex' %}
             {% t exchanges.romaniabex.lead  %}
+          {% when 'bitcoinvietnam' %}
+            {% t exchanges.bitcoinvietnam.lead  %}
           {% else %}
             {% t exchanges.demo.lead  %}
           {% endcase %}
@@ -50,7 +52,7 @@ load_application:       True
     </div>
   </div>
 
-  <div id="faq" class="page row-fluid bitex-view">
+  <div id="faq" class="page row-fluid bitex-view" style="display: none">
     <div class="page-header">
       <h1 class="bitex-view-title">{% t views.faq.title %}</h1>
     </div>
@@ -81,7 +83,7 @@ load_application:       True
   </div>
 
   <!-- signup page-->
-  <div id="signup" class="page  row-fluid bitex-view">
+  <div id="signup" class="page  row-fluid bitex-view" style="display: none">
     <div class="page-header">
       <h1 class="bitex-view-title">{% t views.signup.title %}</h1>
     </div>
@@ -167,7 +169,7 @@ load_application:       True
   </div>
 
   <!-- signin page-->
-  <div id="signin" class="page  row-fluid bitex-view">
+  <div id="signin" class="page  row-fluid bitex-view" style="display: none">
     <div class="page-header">
       <h1 class="bitex-view-title">{% t views.signin.title %}</h1>
     </div>
@@ -196,7 +198,7 @@ load_application:       True
     </div>
   </div>
 
-  <div id="forgot_password" class="page row bitex-view">
+  <div id="forgot_password" class="page row bitex-view" style="display: none">
     <div class="page-header">
       <h1 class="bitex-view-title">{% t views.forgot_password.title %}</h1>
     </div>
@@ -216,7 +218,7 @@ load_application:       True
     </div>
   </div>
 
-  <div id="set_new_password" class="page  row bitex-view">
+  <div id="set_new_password" class="page  row bitex-view" style="display: none">
     <div class="page-header">
       <h1 class="bitex-view-title">{% t views.set_new_password.title %}</h1>
     </div>
@@ -467,6 +469,14 @@ load_application:       True
         <div class="bitex-view-content"></div>
       </div>
 
+
+      <div id="line_of_credit" class="bitex-view">
+        <div class="section-title">
+          <h3 class="bitex-view-title">{% t views.line_of_credit.title %}</h3>
+        </div>
+        <div class="bitex-view-content"></div>
+      </div>
+
       <div id="verification" class="bitex-view">
         <div class="section-title">
           <h3 class="bitex-view-title">{% t views.verification.title %}</h3>
@@ -521,6 +531,7 @@ load_application:       True
                                                 bitex-view-settings
                                                 bitex-view-algotrading
                                                 bitex-view-api
+                                                bitex-view-line_of_credit 
                                                 bitex-view-my_broker
                                                 bitex-view-verification">
       <h3><span class="bitex-model bitex-view-title" data-model-key="DisplayName"></span></h3>
@@ -600,6 +611,12 @@ load_application:       True
               <i data-switch-view="verification" class="icon-check"></i> {% t views.sidebar.verification %}</a>
           </li>
 
+
+          <li style="" class="bitex-display-if-non-broker bitex-model" style="display: none"  id="line_of_credit_menu_id" data-model-key="HasLineOfCredit" data-model-action="show_element">
+            <a href="" data-switch-view="line_of_credit">
+              <i data-switch-view="line_of_credit" class="icon-retweet"></i> {% t views.sidebar.line_of_credit %}</a>
+          </li>
+
           <li style="">
             <a href="" data-switch-view="faq">
               <i data-switch-view="faq" class="icon-question"></i> {% t views.sidebar.support %}</a>
@@ -620,7 +637,7 @@ load_application:       True
     </div>
   </div>
 
-  <div id="market" class="page row bitex-view">
+  <div id="market" class="page row bitex-view" style="display: none">
     <div class="row-fluid">
       <div class="page-header">
         <h2 class="bitex-view-title">{% t views.market.title %}</h2>
@@ -630,7 +647,7 @@ load_application:       True
     </div>
   </div>
 
-  <div id="themes" class="bitex-view container page">
+  <div id="themes" class="bitex-view container page" style="display: none">
     <div class="page-header ls-title-4">
         <h1 class="bitex-view-title">Themes</h1>
     </div>

@@ -16,14 +16,13 @@
 /**
  * @fileoverview CanvasGraphics sub class that uses the canvas tag for drawing.
  * @author robbyw@google.com (Robby Walker)
- * @author wcrosby@google.com (Wayne Crosby)
  */
 
 
 goog.provide('goog.graphics.CanvasGraphics');
 
 
-goog.require('goog.dom');
+goog.require('goog.dom.TagName');
 goog.require('goog.events.EventType');
 goog.require('goog.graphics.AbstractGraphics');
 goog.require('goog.graphics.CanvasEllipseElement');
@@ -32,11 +31,9 @@ goog.require('goog.graphics.CanvasImageElement');
 goog.require('goog.graphics.CanvasPathElement');
 goog.require('goog.graphics.CanvasRectElement');
 goog.require('goog.graphics.CanvasTextElement');
-goog.require('goog.graphics.Font');
-goog.require('goog.graphics.LinearGradient');
 goog.require('goog.graphics.SolidFill');
-goog.require('goog.graphics.Stroke');
 goog.require('goog.math.Size');
+goog.require('goog.style');
 
 
 
@@ -54,6 +51,9 @@ goog.require('goog.math.Size');
  *     document we want to render in.
  * @constructor
  * @extends {goog.graphics.AbstractGraphics}
+ * @deprecated goog.graphics is deprecated. It existed to abstract over browser
+ *     differences before the canvas tag was widely supported.  See
+ *     http://en.wikipedia.org/wiki/Canvas_element for details.
  */
 goog.graphics.CanvasGraphics = function(width, height,
                                         opt_coordWidth, opt_coordHeight,
@@ -92,7 +92,10 @@ goog.graphics.CanvasGraphics.prototype.setElementStroke = function(
 
 
 /**
- * Set the transformation of an element.
+ * Set the translation and rotation of an element.
+ *
+ * If a more general affine transform is needed than this provides
+ * (e.g. skew and scale) then use setElementAffineTransform.
  * @param {goog.graphics.Element} element The element wrapper.
  * @param {number} x The x coordinate of the translation transform.
  * @param {number} y The y coordinate of the translation transform.
@@ -103,6 +106,22 @@ goog.graphics.CanvasGraphics.prototype.setElementStroke = function(
  */
 goog.graphics.CanvasGraphics.prototype.setElementTransform = function(element,
     x, y, angle, centerX, centerY) {
+  this.redraw();
+};
+
+
+/**
+ * Set the transformation of an element.
+ *
+ * Note that in this implementation this method just calls this.redraw()
+ * and the affineTransform param is unused.
+ * @param {!goog.graphics.Element} element The element wrapper.
+ * @param {!goog.graphics.AffineTransform} affineTransform The
+ *     transformation applied to this element.
+ * @override
+ */
+goog.graphics.CanvasGraphics.prototype.setElementAffineTransform =
+    function(element, affineTransform) {
   this.redraw();
 };
 
@@ -145,11 +164,11 @@ goog.graphics.CanvasGraphics.prototype.popElementTransform = function() {
  * @override
  */
 goog.graphics.CanvasGraphics.prototype.createDom = function() {
-  var element = this.dom_.createDom('div',
+  var element = this.dom_.createDom(goog.dom.TagName.DIV,
       {'style': 'position:relative;overflow:hidden'});
   this.setElementInternal(element);
 
-  this.canvas_ = this.dom_.createDom('canvas');
+  this.canvas_ = this.dom_.createDom(goog.dom.TagName.CANVAS);
   element.appendChild(this.canvas_);
 
   /**
@@ -406,20 +425,6 @@ goog.graphics.CanvasGraphics.prototype.drawElement = function(element) {
  * Append an element.
  *
  * @param {goog.graphics.Element} element The element to draw.
- * @param {goog.graphics.CanvasGroupElement|undefined} group The group to draw
- *     it in. If null or undefined, defaults to the root group.
- * @private
- * @deprecated Use append instead.
- */
-goog.graphics.CanvasGraphics.prototype.append_ = function(element, group) {
-  this.append(element, group);
-};
-
-
-/**
- * Append an element.
- *
- * @param {goog.graphics.Element} element The element to draw.
  * @param {goog.graphics.GroupElement|undefined} group The group to draw
  *     it in. If null or undefined, defaults to the root group.
  * @protected
@@ -447,7 +452,7 @@ goog.graphics.CanvasGraphics.prototype.append = function(element, group) {
  * @param {goog.graphics.GroupElement=} opt_group The group wrapper
  *     element to append to.  If not specified, appends to the main canvas.
  *
- * @return {goog.graphics.EllipseElement} The newly created element.
+ * @return {!goog.graphics.EllipseElement} The newly created element.
  * @override
  */
 goog.graphics.CanvasGraphics.prototype.drawEllipse = function(cx, cy, rx, ry,
@@ -472,7 +477,7 @@ goog.graphics.CanvasGraphics.prototype.drawEllipse = function(cx, cy, rx, ry,
  * @param {goog.graphics.GroupElement=} opt_group The group wrapper
  *     element to append to. If not specified, appends to the main canvas.
  *
- * @return {goog.graphics.RectElement} The newly created element.
+ * @return {!goog.graphics.RectElement} The newly created element.
  * @override
  */
 goog.graphics.CanvasGraphics.prototype.drawRect = function(x, y, width, height,
@@ -495,7 +500,7 @@ goog.graphics.CanvasGraphics.prototype.drawRect = function(x, y, width, height,
  * @param {goog.graphics.GroupElement=} opt_group The group wrapper
  *     element to append to. If not specified, appends to the main canvas.
  *
- * @return {goog.graphics.ImageElement} The newly created element.
+ * @return {!goog.graphics.ImageElement} The newly created element.
  */
 goog.graphics.CanvasGraphics.prototype.drawImage = function(x, y, width, height,
     src, opt_group) {
@@ -521,7 +526,7 @@ goog.graphics.CanvasGraphics.prototype.drawImage = function(x, y, width, height,
  * @param {goog.graphics.GroupElement=} opt_group The group wrapper
  *     element to append to. If not specified, appends to the main canvas.
  *
- * @return {goog.graphics.TextElement} The newly created element.
+ * @return {!goog.graphics.TextElement} The newly created element.
  * @override
  */
 goog.graphics.CanvasGraphics.prototype.drawTextOnLine = function(
@@ -542,7 +547,7 @@ goog.graphics.CanvasGraphics.prototype.drawTextOnLine = function(
  * @param {goog.graphics.GroupElement=} opt_group The group wrapper
  *     element to append to. If not specified, appends to the main canvas.
  *
- * @return {goog.graphics.PathElement} The newly created element.
+ * @return {!goog.graphics.PathElement} The newly created element.
  * @override
  */
 goog.graphics.CanvasGraphics.prototype.drawPath = function(path, stroke, fill,
@@ -582,7 +587,7 @@ goog.graphics.CanvasGraphics.prototype.isRedrawRequired = function(group) {
  * @param {goog.graphics.GroupElement=} opt_group The group wrapper
  *     element to append to. If not specified, appends to the main canvas.
  *
- * @return {goog.graphics.CanvasGroupElement} The newly created group.
+ * @return {!goog.graphics.CanvasGroupElement} The newly created group.
  * @override
  */
 goog.graphics.CanvasGraphics.prototype.createGroup = function(opt_group) {
@@ -610,43 +615,9 @@ goog.graphics.CanvasGraphics.prototype.createGroup = function(opt_group) {
  *
  * @param {string} text The text string to measure.
  * @param {goog.graphics.Font} font The font object describing the font style.
- *
- * @return {number} The width in pixels of the text strings.
  * @override
  */
-goog.graphics.CanvasGraphics.prototype.getTextWidth = function(text, font) {
-  /** @type {goog.dom.DomHelper} */
-  var domHelper = goog.dom.getDomHelper();
-
-  /**
-   * The ruler is used to measure the pixel width of Strings The style given
-   * allows the ruler to be off the page (out of sight), with the correct font
-   * and style properties.
-   *
-   * @type {Element}
-   */
-  var ruler_ = domHelper.createDom(
-      'div',
-      {
-        style: 'position:absolute; visibility:hidden; font-family:' +
-            font.family + '; font-size:' +
-            font.size + 'px;'
-      });
-
-  // Add the ruler to the dom
-  document.body.appendChild(ruler_);
-
-  // Set the inner html of the ruler to be the text
-  ruler_.innerHTML = text;
-
-  /** @type {number} */
-  var result = ruler_.offsetWidth;
-
-  // Remove the ruler
-  domHelper.removeNode(ruler_);
-
-  return result;
-};
+goog.graphics.CanvasGraphics.prototype.getTextWidth = goog.abstractMethod;
 
 
 /**

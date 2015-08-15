@@ -36,12 +36,21 @@ exchanges:
     description: Buy and sell bitcoin in Romania
     keywords: Buy and sell bitcoin in Romania, bitcoin exchange in Romania, sell bitcoins in Romania, buy bitcoins in Romania
     lead: Buy and sell bitcoin in Romania
+  bitcoinvietnam:
+    title: BitcoinVietnam - Buy or sell bitcoins in Vietnam
+    description: Buy and sell bitcoin in Vietnam
+    keywords: Buy and sell bitcoin in Vietnam, bitcoin exchange in Vietnam, sell bitcoins in Vietnam, buy bitcoins in Vietnam
+    lead: Buy and sell bitcoin in Vietnam
   yuanbit:
     title: YuanBit.com - Buy or sell bitcoins in China
     description: Buy and sell bitcoin in China
     keywords: Buy and sell bitcoin in China, bitcoin exchange in China, sell bitcoins in China, buy bitcoins in China
     lead: Buy and sell bitcoin in China
 views:
+  footer:
+    latency: Latency
+    version: Version
+
   toolbar:
     faq: FAQ
     trading: Trading
@@ -162,6 +171,9 @@ views:
     enable_two_factor: You can increase the security of your account by enabling authentication in two steps
     frozen_account: Your account has been frozen by the administrator, please contact support.
 
+  line_of_credit:
+    title: Line of credit
+
   sidebar:
     market: "Market:"
     menu: Menu
@@ -176,6 +188,7 @@ views:
     deposit: My Deposits
     withdraw: My Withdrawals
     verification: Verify your account
+    line_of_credit: Line of credit
     support: Suggestions & Support
     api: API
     logout: Logout
