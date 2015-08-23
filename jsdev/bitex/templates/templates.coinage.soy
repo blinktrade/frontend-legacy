@@ -261,18 +261,30 @@
                 {if $msg_broker['FormattedTransactionFeeBuy'] == $msg_broker['FormattedTransactionFeeSell']}
                   <tr>
                     <td>{msg desc="label in broker fees table"}Trade fee{/msg}</td>
-                    <td>{$msg_broker['FormattedTransactionFeeBuy']}</td>
+                    {if $msg_broker['FormattedTakerTransactionFeeBuy'] == $msg_broker['FormattedTransactionFeeBuy']}
+                      <td>{$msg_broker['FormattedTransactionFeeBuy']}</td>
+                    {else}
+                      <td>{$msg_broker['FormattedTakerTransactionFeeBuy']} / {$msg_broker['FormattedTransactionFeeBuy']}</td>
+                    {/if}
                     <td></td>
                   </tr>
                 {else}
                   <tr>
                     <td>{msg desc="label in broker fees table"}Trade fee - Buy side{/msg}</td>
-                    <td>{$msg_broker['FormattedTransactionFeeBuy']}</td>
+                    {if $msg_broker['FormattedTakerTransactionFeeBuy'] == $msg_broker['FormattedTransactionFeeBuy']}
+                      <td>{$msg_broker['FormattedTransactionFeeBuy']}</td>
+                    {else}
+                      <td>{$msg_broker['FormattedTakerTransactionFeeBuy']} / {$msg_broker['FormattedTransactionFeeBuy']}</td>
+                    {/if}
                     <td></td>
                   </tr>
                   <tr>
                     <td>{msg desc="label in broker fees table"}Trade fee - Sell side{/msg}</td>
-                    <td>{$msg_broker['FormattedTransactionFeeSell']} %</td>
+                    {if $msg_broker['FormattedTakerTransactionFeeSell'] == $msg_broker['FormattedTransactionFeeSell']}
+                      <td>{$msg_broker['FormattedTransactionFeeSell']} %</td>
+                    {else}
+                      <td>{$msg_broker['FormattedTakerTransactionFeeSell']} / {$msg_broker['FormattedTransactionFeeSell']}</td>
+                    {/if}
                     <td></td>
                   </tr>
                 {/if}
@@ -462,6 +474,8 @@
 
 /**
   * @param id
+  * @param taker_buy_fee
+  * @param taker_sell_fee
   * @param buy_fee
   * @param sell_fee
   */
@@ -470,8 +484,18 @@
   <form class="form-horizontal">
 
     <div class="control-group">
-
-      <label class="control-label" for="{$id}_buy_fee">{msg desc="Buy fee"}Buy fee {/msg}</label>
+      <label class="control-label" for="{$id}_buy_fee">{msg desc="Buy fee"}Taker Buy fee {/msg}</label>
+      <div class="controls">
+        <input type="text" id="{$id}_taker_buy_fee"  style="text-align: right;" value="{$taker_buy_fee}"/>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" id="{$id}_broker_taker_buy_fee"> Use Broker Fee
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="{$id}_buy_fee">{msg desc="Buy fee"}Maker Buy fee {/msg}</label>
       <div class="controls">
         <input type="text" id="{$id}_buy_fee"  style="text-align: right;" value="{$buy_fee}"/>
         <div class="checkbox">
@@ -483,7 +507,19 @@
     </div>
 
     <div class="control-group">
-      <label class="control-label" for="{$id}_sell_fee">{msg desc="Buy fee"}Sell fee{/msg}</label>
+      <label class="control-label" for="{$id}_sell_fee">{msg desc="Buy fee"}Taker Sell fee{/msg}</label>
+      <div class="controls">
+        <input type="text" id="{$id}_taker_sell_fee"  style="text-align: right;" value="{$taker_sell_fee}"/>
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" id="{$id}_broker_taker_sell_fee"> Use Broker Fee
+            </label>
+          </div>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" for="{$id}_sell_fee">{msg desc="Buy fee"}Maker Sell fee{/msg}</label>
       <div class="controls">
         <input type="text" id="{$id}_sell_fee"  style="text-align: right;" value="{$sell_fee}"/>
           <div class="checkbox">
@@ -496,65 +532,6 @@
 
   </form>
 
-{/template}
-
-/**
-  * @param boxes
-  */
-{template .YourAccountSummary}
-  {foreach $box in $boxes}
-    <ul class="balance__currencies">
-        <div>
-          <div>
-            <div><strong>{$box['title']}</strong></div>
-          </div>
-        </div>
-
-
-        {foreach $balance_info in $box['balances']}
-          <!-- .balance-currency -->
-          <li class="balance-currency">
-            <span class="balance-currency__name">{$balance_info['currency']}</span>
-            {sp}
-            <span class="balance-currency__amount bitex-model"
-                    data-model-key-list="Balance_{$balance_info['brokerID']}_{$balance_info['accountID']}_{$balance_info['currency']}"
-                    data-model-formula="Balance_{$balance_info['brokerID']}_{$balance_info['accountID']}_{$balance_info['currency']} / 100000000"
-                    data-model-formatter="currency"
-                    data-model-formatter-pattern="{$balance_info['currencyPattern']}"
-                    data-blink-class="balance-info-blink"></span>
-            </span>
-            {sp}
-            <abbr title="{msg desc="Unconfirmed deposits"}Unconfirmed deposits{/msg}"
-                        class="bitex-model"
-                        data-model-action="show_element"
-                        data-model-key-list="Position_{$balance_info['brokerID']}_{$balance_info['accountID']}_{$balance_info['currency']}"
-                        data-model-formula="Position_{$balance_info['brokerID']}_{$balance_info['accountID']}_{$balance_info['currency']}">
-                <em>
-                <span class="bitex-model"
-                        data-model-key-list="Position_{$balance_info['brokerID']}_{$balance_info['accountID']}_{$balance_info['currency']}"
-                        data-model-formula="Position_{$balance_info['brokerID']}_{$balance_info['accountID']}_{$balance_info['currency']} / 100000000"
-                        data-model-formatter="currency"
-                        data-model-formatter-pattern="{$balance_info['currencyPattern']}"
-                        data-blink-class="balance-info-blink"></span>
-                </em>
-            </abbr>
-            {sp}
-            {if $balance_info['showDeposit'] }
-              <a href="#" data-action="deposit" data-currency="{$balance_info['currency']}">
-                <i data-action="deposit" data-currency="{$balance_info['currency']}" class="glyphicon glyphicon-save"></i>
-              </a>
-            {/if}
-            {sp}
-            {if $balance_info['showWithdraw'] }
-              <a href="#" data-action="withdraw" data-currency="{$balance_info['currency']}">
-                <i data-action="withdraw" data-currency="{$balance_info['currency']}" class="glyphicon glyphicon-open"></i>
-              </a>
-            {/if}
-          </li>
-          <!-- /.balance-currency -->
-        {/foreach}
-     </ul>
-  {/foreach}
 {/template}
 
 /**
@@ -837,6 +814,7 @@
   * @param netValueID
   * @param hideNetAmount
   * @param? verificationLevel
+  * @param type
   * @param netAmountLabel
   */
 {template .DepositWithdrawDialogContent}
@@ -849,6 +827,18 @@
     {/if}
 
     <div class="error"></div>
+
+    {if $type == 'withdrawal'}
+      <div class="alert alert-warning text-left bitex-model"
+           data-model-action="show_element"
+           data-model-key-list="HasAnyPosition"
+           data-model-formula="HasAnyPosition"
+           style="display:none;">
+      {msg desc="Warning message when the user has unconfirmed deposits."}
+        You can't withdraw funds from the exchange while you have unconfirmed deposits.
+      {/msg}
+      </div>
+    {/if}
 
     {if not $force_method}
       {if length($methods) > 1}
@@ -948,13 +938,6 @@
                     <div {if $hideNetAmount} style="display:none;"{/if}>{$netAmountLabel}:</label>
                         <label id="{$method['method']}_{$netValueID}" class="control-label" style="text-align: left;"></label>
                         <input id="{$method['method']}_{$netValueID}_value" type="hidden" value="">
-                        <input id="{$method['method']}_{$netValueID}_validator" type="hidden" value=""
-                            data-uniform-validators="required; validateNumber {if $method['limits'][$verificationLevel]['enabled']} {if $method['limits'][$verificationLevel]['min']}; validateMin {$method['limits'][$verificationLevel]['formatted_min_value'] }{/if}{if $method['limits'][$verificationLevel]['max']}; validateMax {$method['limits'][$verificationLevel]['formatted_max_value'] } {/if} {/if}"
-                            data-uniform-type="number"
-                            class="withdraw-field"
-                            data-uniform-filters="positive_number"
-                            {if not isFirst($method)}disabled{/if}>
-
                     </div>
                 {else}
                     {if $side == 'broker'}
@@ -1015,13 +998,6 @@
                     <label class="modal-form__label">{$netAmountLabel}:</label>
                     <label id="{$method['method']}_{$netValueID}" class="control-label broker-confirm-deposit-net-amount" style="text-align: left;"></label>
                     <input id="{$method['method']}_{$netValueID}_value" type="hidden" value="">
-                    <input id="{$method['method']}_{$netValueID}_validator" type="hidden" value=""
-                        data-uniform-validators="required; validateNumber {if $method['limits'][$verificationLevel]['enabled']} {if $method['limits'][$verificationLevel]['min']}; validateMin {$method['limits'][$verificationLevel]['formatted_min_value'] }{/if}{if $method['limits'][$verificationLevel]['max']}; validateMax {$method['limits'][$verificationLevel]['formatted_max_value'] } {/if} {/if}"
-                        data-uniform-type="number"
-                        class="withdraw-field"
-                        data-uniform-filters="positive_number"
-                        {if not isFirst($method)}disabled{/if}>
-
                 </div>
 
                 {foreach $field in $method['fields'] }
@@ -1050,6 +1026,8 @@
 
 
 /**
+  * @param taker_buy_fee
+  * @param taker_sell_fee
   * @param buy_fee
   * @param sell_fee
   */
@@ -1059,7 +1037,24 @@
       <tr>
         <td>
           <strong>
-             {msg desc="label for user buy fee"}Buy Fee{/msg}
+             {msg desc="label for user buy fee"}Taker Buy Fee{/msg}
+          </strong>
+        </td>
+        <td>
+          <span class="bitex-model">
+            {if $taker_buy_fee }
+              {$taker_buy_fee}
+            {else}
+              {msg desc="Using broker fee data"}-{/msg}
+            {/if}
+          </span>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <strong>
+             {msg desc="label for user buy fee"}Maker Buy Fee{/msg}
           </strong>
         </td>
         <td>
@@ -1073,10 +1068,28 @@
         </td>
       </tr>
 
+
       <tr>
         <td>
           <strong>
-             {msg desc="label for user sell fee"}Sell Fee{/msg}
+             {msg desc="label for user sell fee"}Taker Sell Fee{/msg}
+          </strong>
+        </td>
+        <td>
+          <span class="bitex-model">
+            {if $taker_sell_fee}
+              {$taker_sell_fee}
+            {else}
+              {msg desc="Using broker fee data"}-{/msg}
+            {/if}
+          </span>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <strong>
+             {msg desc="label for user sell fee"}Maker Sell Fee{/msg}
           </strong>
         </td>
         <td>

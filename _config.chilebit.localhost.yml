@@ -1,20 +1,18 @@
 # Site settings
-#url: "https://testnet.foxbit.exchange"
-url: "//localhost"
+url: "//localhost"   # activate this to test on your localhost
 author: "BlinkTrade"
 baseurl: ""
 deploy_version: "HEAD"
 
-exchange: "foxbit"
-exchange_logo: "foxbit"
+exchange: "chilebit"
+exchange_logo: "chilebit"
 
-default_country_code: "BR"
-blinktrade_broker_id: 4  # 4 is the id for the demo backend. Don't change that if you don't understand what you doing.
+default_country_code: "CL"
+blinktrade_broker_id: 9 # 9 is the id for the demo backend. Don't change that if you don't understand what you doing.
 
-blinktrade_backend_api: "api.testnet.blinktrade.com"
-google_analytics_id: "UA-57478613-1"
-zopim_key: "2ZQbAVSILzBFbO31Z6EletdDQaW7H9xj"
-
+blinktrade_backend_api: "localhost"
+google_analytics_id: "UA-56565606-1"
+zopim_key: "2aIJdGCoaI6qy2YO4oK2zPAM8h1NoILb"
 
 
 # Build settings
@@ -35,14 +33,12 @@ remittance_box: "{
             ['USD -> BTC -> CLP',  'CLP', 'BLINK_BTCCLP_BEST_BID /  BITFINEX_BTCUSD_BEST_ASK', 'BLINK_BTCCLP_BEST_ASK /  BITFINEX_BTCUSD_BEST_BID' ] ,
             ['BRL -> BTC -> CLP',  'CLP', 'BLINK_BTCCLP_BEST_BID /  BLINK_BTCBRL_BEST_ASK',    'BLINK_BTCCLP_BEST_ASK /  BLINK_BTCBRL_BEST_BID' ] ,
             ['VEF -> BTC -> CLP',  'CLP', 'BLINK_BTCCLP_BEST_BID /  BLINK_BTCVEF_BEST_ASK',    'BLINK_BTCCLP_BEST_ASK /  BLINK_BTCVEF_BEST_BID' ] ],
-    'VND':[ ['BitFinexUSD',        'USD', 'BITFINEX_BTCUSD_BEST_BID / 100000000', 'BITFINEX_BTCUSD_BEST_ASK / 100000000'  ],
-            ['USD -> BTC -> VND',  'VND', 'BLINK_BTCVND_BEST_BID /  BITFINEX_BTCUSD_BEST_ASK', 'BLINK_BTCPKR_BEST_ASK /  BITFINEX_BTCVND_BEST_BID' ] ],
     'PKR':[ ['BitFinexUSD',        'USD', 'BITFINEX_BTCUSD_BEST_BID / 100000000', 'BITFINEX_BTCUSD_BEST_ASK / 100000000'  ],
             ['USD -> BTC -> PKR',  'PKR', 'BLINK_BTCPKR_BEST_BID /  BITFINEX_BTCUSD_BEST_ASK', 'BLINK_BTCPKR_BEST_ASK /  BITFINEX_BTCUSD_BEST_BID' ] ]
     }"
 
 
-languages: ["pt_BR", "en_US", "es", "ro", "zn_CN", "vi"]
+languages: ["es", "en_US", "pt_BR", "ro", "zn_CN", "vi"]
 
 exclude:     [ "jsdev", "LICENSE", "README.md", "config.rb", "deploy.sh", "build_javascript.sh" ]
 source:      .
