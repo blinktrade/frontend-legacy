@@ -371,8 +371,8 @@ bitex.view.SideBarView.prototype.showPortfolioValue_ = function(opt_currency) {
     }, this);
 
     portfolio_value_el.innerHTML = bitex.view.SideBarView.templates.YourAccountPortfolioValue({
-          currencyDescription: this.getApplication().getCurrencyDescription(portfolio_currency),
-          currencyPattern: this.getApplication().getCurrencyHumanFormat(portfolio_currency),
+          desc: this.getApplication().getCurrencyDescription(portfolio_currency),
+          pattern: this.getApplication().getCurrencyHumanFormat(portfolio_currency),
           variables: variable_list.getValues().join(','),
           formula:  formula_list.join(' + ')
         });
