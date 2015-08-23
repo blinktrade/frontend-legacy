@@ -4,10 +4,13 @@ goog.require('bitex.view.View');
 
 goog.require('bitex.model.Model');
 goog.require('goog.style');
+goog.require('goog.string');
+goog.require('goog.object');
 
 goog.require('bitex.ui.RemittanceBox');
 
 goog.require('expression_evaluator.Parser');
+goog.require('bitex.view.SideBarView.templates')
 
 /**
  * @param {*} app
@@ -138,9 +141,13 @@ bitex.view.SideBarView.prototype.enterDocument = function() {
 
         }, this);
 
-        goog.soy.renderElement(goog.dom.getElement('id_account_summary_content'), bitex.templates.YourAccountSummary, {
-          boxes: account_boxes
-        });
+        goog.soy.renderElement(goog.dom.getElement('id_account_summary_content'),
+                               bitex.view.SideBarView.templates.YourAccountSummary, {
+                                id: this.makeId('summary'),
+                                boxes: account_boxes
+                              });
+
+        this.showPortfolioValue_();
         model.updateDom();
       }, this);
 
@@ -196,9 +203,11 @@ bitex.view.SideBarView.prototype.enterDocument = function() {
               },this);
             }, this);
           }
-          goog.soy.renderElement(goog.dom.getElement('id_account_summary_content'), bitex.templates.YourAccountSummary, {
-            boxes: account_boxes
-          });
+          goog.soy.renderElement(goog.dom.getElement('id_account_summary_content'),
+                                 bitex.view.SideBarView.templates.YourAccountSummary, {
+                                  id: this.makeId('summary'),
+                                  boxes: account_boxes
+                                });
           model.updateDom();
         }, this);
       }
@@ -276,10 +285,14 @@ bitex.view.SideBarView.prototype.enterDocument = function() {
   }, this);
 
   handler.listen(goog.dom.getElement('id_instrument_1'), goog.events.EventType.CHANGE  , function(e) {
+    var symbol = this.getSymbol();
+    var currency = this.getApplication().getPriceCurrencyFromSymbol(symbol);
+
+    this.showPortfolioValue_(currency);
+
     this.dispatchEvent(bitex.view.SideBarView.EventType.CHANGE_MARKET);
+
     if (goog.isDefAndNotNull(this.remittance_box_)) {
-      var symbol = this.getSymbol();
-      var currency = this.getApplication().getPriceCurrencyFromSymbol(symbol);
       this.remittance_box_.setCurrentCurrency(currency);
     }
   }, this);
@@ -296,6 +309,77 @@ bitex.view.SideBarView.prototype.enterDocument = function() {
   }, this);
 };
 
+/**
+ * @param {string=} opt_currency
+ * @private
+ */
+bitex.view.SideBarView.prototype.showPortfolioValue_ = function(opt_currency) {
+  var portfolio_currency = opt_currency;
+  if (!goog.isDefAndNotNull(opt_currency)) {
+    portfolio_currency = this.getApplication().getPriceCurrencyFromSymbol(this.getSymbol());
+  }
+
+  var appModel = this.getApplication().getModel();
+  var portfolio_value_el =  goog.dom.getElement( this.makeId('summary_portfolio_value') );
+  if (goog.isDefAndNotNull(portfolio_value_el)) {
+    portfolio_value_el.innerHTML = '';
+  }
+
+  if (goog.isDefAndNotNull(portfolio_value_el)) {
+    var variable_list = new goog.structs.Set();;
+    var formula_list = [];
+    var balance_model_key = 'Balance_' + appModel.get('Broker')['BrokerID'] +  '_' + appModel.get('UserID');
+
+    var balance_portfolio_currency_key = balance_model_key + '_' + portfolio_currency;
+    var balance_portfolio_currency = appModel.get(balance_portfolio_currency_key);
+    if (goog.isDefAndNotNull(balance_portfolio_currency)) {
+      variable_list.add(balance_portfolio_currency_key);
+      formula_list.push('(' + balance_portfolio_currency_key + ' / 100000000 )' );
+    }
+
+
+    var user_balances = appModel.get(balance_model_key);
+    goog.object.forEach(user_balances, function(balance, balance_currency){
+      if ( ! goog.string.endsWith(balance_currency, '_locked') &&
+          balance_currency.length == 3 &&
+          portfolio_currency != balance_currency) {
+
+        if (this.getApplication().isCryptoCurrency(balance_currency)) {
+          var portfolio_currency_exchange_ticker = 'BLINK_' + balance_currency + portfolio_currency + '_BEST_BID';
+          variable_list.add(portfolio_currency_exchange_ticker);
+          variable_list.add(balance_model_key + '_' + balance_currency);
+
+          formula_list.push(
+              '( (' + balance_model_key + '_' + balance_currency + ' / 100000000 ) * ' +
+                '(' + portfolio_currency_exchange_ticker + ' / 100000000' + ') )');
+        }  else {
+          var currency_bitcoin_exchange_ticker = 'BLINK_BTC' + balance_currency + '_BEST_ASK';
+          var portfolio_bitcoin_exchange_ticker = 'BLINK_BTC' + portfolio_currency + '_BEST_BID';
+          var balance_currency_key = balance_model_key + '_' + balance_currency;
+
+          variable_list.add(currency_bitcoin_exchange_ticker);
+          variable_list.add(portfolio_bitcoin_exchange_ticker);
+          variable_list.add(balance_currency_key);
+
+          formula_list.push(
+              '(' + balance_currency_key
+              + ' / ' + currency_bitcoin_exchange_ticker
+              + ' * ' + portfolio_bitcoin_exchange_ticker
+              + ' / 100000000 )' );
+        }
+      }
+    }, this);
+
+    portfolio_value_el.innerHTML = bitex.view.SideBarView.templates.YourAccountPortfolioValue({
+          desc: this.getApplication().getCurrencyDescription(portfolio_currency),
+          pattern: this.getApplication().getCurrencyHumanFormat(portfolio_currency),
+          variables: variable_list.getValues().join(','),
+          formula:  formula_list.join(' + ')
+        });
+  }
+  appModel.updateDom();
+
+};
 
 /**
  * @return {number}
