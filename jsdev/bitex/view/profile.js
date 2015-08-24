@@ -231,6 +231,10 @@ bitex.view.ProfileView.prototype.onModelSetTwoFactorSecret_ = function(e) {
 
     goog.dom.getElement('id_secret_qr').setAttribute('src', qr_code);
   }
+
+  var divEl = goog.dom.getElement('id_enable_two_factor_div');
+  var enabled = this.getApplication().getModel().get('TwoFactorEnabled');
+  goog.style.showElement( divEl , has_secret && !enabled);
 };
 
 /**
@@ -249,7 +253,7 @@ bitex.view.ProfileView.prototype.onModelSetTwoFactorEnabled_ = function(e) {
 
   goog.style.showElement( btnEnableEl , !enabled);
   goog.style.showElement( btnDisableEl , enabled);
-  goog.style.showElement( divEl , has_secret);
+  goog.style.showElement( divEl , has_secret && !enabled);
 
 };
 

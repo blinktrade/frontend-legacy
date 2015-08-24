@@ -37,6 +37,7 @@ SOY_TEMPLATES="
                ui/dialog
                view/line_of_credit
                view/profile
+               view/side_bar
 "
 
 for template in $SOY_TEMPLATES ; do 
