@@ -633,4 +633,18 @@
 	<translation id="2791342424109102417" key="MSG_DEPOSIT_NOTIFICATION_CANCELLED" source="bitex/app/blinktrade.js" desc="Fiat deposit confirmed user notification">O pedido de depósito número <ph name="id" /> foi cancelado</translation>
 	<translation id="3641848634189779910" key="MSG_DEPOSIT_NOTIFICATION_USER_CONFIRMATION" source="bitex/app/blinktrade.js" desc="Fiat deposit confirmed user notification">Usuário enviou um comprovante de deposito para o depósito número: <ph name="id" /></translation>
 	<translation id="1925869758888458607" key="MSG_SHOW_KYC_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="kyc dialog title">KYC</translation>
+	<translation id="4574756693902547785" key="MSG_4CLNLHLYFCU6" source="bitex/templates/templates.soy.js" desc="Buy fee">Taker Buy fee </translation>
+	<translation id="3256062434209357726" key="MSG_LZ4W66CYUOQ6" source="bitex/templates/templates.soy.js" desc="Buy fee">Maker Buy fee </translation>
+	<translation id="7619387045529344097" key="MSG_HVE6CEO79EVF" source="bitex/templates/templates.soy.js" desc="Buy fee">Taker Sell fee</translation>
+	<translation id="6460200421528784062" key="MSG_1XNKETUFNFDAQ" source="bitex/templates/templates.soy.js" desc="Buy fee">Maker Sell fee</translation>
+	<translation id="4303464165741998219" key="MSG_1AH13ZSSEV68D" source="bitex/templates/templates.soy.js" desc="Warning message when the user has unconfirmed deposits.">Não se pode solicitar saques enquanto tiver depósitos pendentes ainda não confirmados.</translation>
+	<translation id="8774415182082825766" key="MSG_RUQOJ34NMJ22" source="bitex/templates/templates.soy.js" desc="amount help block"> Máximo: <ph name="xxx" /></translation>
+	<translation id="3861815940477749873" key="MSG_TANOQ05DP37" source="bitex/templates/templates.soy.js" desc="label for user buy fee">Taxa do taker (compra) </translation>
+	<translation id="2801674324506835393" key="MSG_BYU7ZF0YXRKZ" source="bitex/templates/templates.soy.js" desc="label for user buy fee">Taxa do maker (compra)</translation>
+	<translation id="3419989546519926321" key="MSG_EH5JLBSI4U1O" source="bitex/templates/templates.soy.js" desc="label for user sell fee">Taxa do taker (venda)</translation>
+	<translation id="2782020849674112063" key="MSG_NHK4DATEL1YA" source="bitex/templates/templates.soy.js" desc="label for user sell fee">Taxa do maker (venda)</translation>
+	<translation id="5171753693615061213" key="MSG_GOOG_UI_DIALOG_CLOSE_" source="closure-library/closure/goog/ui/dialog.js" desc="Standard label for the dialog 'X' (close) button.">Fechar</translation>
+	<translation id="2981761047899562481" key="MSG_1XZLB64GCHIUE" source="bitex/view/side_bar.soy.js" desc="Approx. balance help message in the Your Balance widget in the Sidebar">Valor total do seu saldo convertido em <ph name="desc" /> com base no último negócio. Poderá variar de acordo com o mercado. Esteja avisado de que este valor é apenas uma simulação e não representa seu saldo ou nenhum comprometimento das cotações aplicadas para esta simulação.</translation>
+	<translation id="6555497921319708564" key="MSG_TYQTJ3GHEY4B" source="bitex/view/side_bar.soy.js" desc="Approx. balance title in the Your Balance widget in the Sidebar">Valor aprox.</translation>
+	<translation id="3770184608323186160" key="MSG_WITHDRAWAL_UNCONFIRMED_DEPOSITS" source="bitex/app/blinktrade.js" desc="User has unconfirmed deposits warning message during the withdrawal.">Você tem depósitos que ainda não foram confirmados</translation>
 </translationbundle>
