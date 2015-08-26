@@ -362,7 +362,7 @@ bitex.view.AccountOverview.prototype.recreateComponents_ = function(customer) {
 
 
   handler.listen(this.getApplication().getBitexConnection(),
-                 bitex.api.BitEx.EventType.BALANCE_RESPONSE,
+                 bitex.api.BitEx.EventType.BALANCE_RESPONSE + '.' + this.request_id_,
                  this.onBalanceResponse_);
 
   this.addChild(this.deposit_list_table_, true);
@@ -396,7 +396,7 @@ bitex.view.AccountOverview.prototype.recreateComponents_ = function(customer) {
   handler.listen(this.getElement(), goog.events.EventType.CHANGE, this.onElementChange_ );
   handler.listen(this.getElement(), goog.events.EventType.CLICK, this.onViewClick_);
 
-  this.getApplication().getBitexConnection().requestBalances( customer['ID'] );
+  this.getApplication().getBitexConnection().requestBalances( customer['ID'], this.request_id_ );
 
 
   this.recreateUserFeeComponents_(customer);
