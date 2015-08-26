@@ -14,6 +14,7 @@ goog.require('goog.dom.classes');
 
 goog.require('goog.i18n.NumberFormat');
 goog.require('expression_evaluator.Parser')
+goog.require('bitex.primitives.Price')
 
 /**
  * @typedef {{ symbol:String, currency:String, description:String }}
@@ -156,8 +157,6 @@ bitex.model.Model.prototype.setElementValue_ = function(el, value, opt_blinkOnCh
       fmt.setMinimumFractionDigits(parseInt(el.getAttribute('data-model-formatter-min-faction-digits'),10));
     }
   }
-
-
 
   var should_add_blink_class = false;
 
