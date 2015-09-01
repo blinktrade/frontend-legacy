@@ -112,47 +112,8 @@ bitex.view.SideBarView.prototype.enterDocument = function() {
 
   handler.listen( model, bitex.model.Model.EventType.SET + 'UserLogged', function(){
     if (model.get('UserLogged')) {
-
-      var balance_model_key = 'Balance_' + model.get('Broker')['BrokerID'] +  '_' + model.get('UserID');
-      handler.listenOnce( model, bitex.model.Model.EventType.SET + balance_model_key, function(e){
-        goog.dom.removeChildren( goog.dom.getElement("id_account_summary_content"));
-
-        var account_boxes = [];
-
-        account_boxes.push({
-          'title': MSG_MY_ACCOUNTS_BALANCE_LABEL,
-          'balances': []
-        });
-
-        var broker_currencies = model.get('BrokerCurrencies');
-        goog.object.forEach(model.get(balance_model_key), function(balance, currency) {
-          currency_code = currency;
-          var show_deposit = goog.array.contains(broker_currencies, currency);
-          var currency_pattern = this.getApplication().getCurrencyHumanFormat(currency_code);
-
-          account_boxes[account_boxes.length-1]['balances'].push({
-            'currency': currency,
-            'currencyPattern': currency_pattern,
-            'brokerID': model.get('Broker')['BrokerID'],
-            'accountID': model.get('UserID'),
-            'showDeposit': show_deposit,
-            'showWithdraw': show_deposit
-           });
-
-        }, this);
-
-        goog.soy.renderElement(goog.dom.getElement('id_account_summary_content'),
-                               bitex.view.SideBarView.templates.YourAccountSummary, {
-                                id: this.makeId('summary'),
-                                boxes: account_boxes
-                              });
-
-        this.showPortfolioValue_();
-        model.updateDom();
-      }, this);
-
       if (model.get('IsBroker')) {
-        var broker_balance_model_key = 'Balance_' + model.get('Profile')['BrokerID'] +  '_' + model.get('UserID');
+        var broker_balance_model_key = 'Balance_' + model.get('UserID') +  '_' + model.get('UserID');
         handler.listenOnce( model, bitex.model.Model.EventType.SET + broker_balance_model_key, function(e){
           goog.dom.removeChildren( goog.dom.getElement("id_account_summary_content"));
           var account_boxes = [];
@@ -165,6 +126,7 @@ bitex.view.SideBarView.prototype.enterDocument = function() {
             account_boxes[account_boxes.length-1]['balances'].push({
               'currency': currency,
               'currencyPattern': this.getApplication().getCurrencyHumanFormat(currency),
+              'currencyPip': this.getApplication().getCurrencyPip(currency),
               'brokerID': model.get('Profile')['BrokerID'],
               'accountID': model.get('UserID'),
               'showDeposit': false,
@@ -177,6 +139,7 @@ bitex.view.SideBarView.prototype.enterDocument = function() {
             account_boxes[account_boxes.length-1]['balances'].push({
               'currency': currency,
               'currencyPattern': this.getApplication().getCurrencyHumanFormat(currency),
+              'currencyPip': this.getApplication().getCurrencyPip(currency),
               'brokerID': model.get('Profile')['BrokerID'],
               'accountID': model.get('UserID'),
               'showDeposit': false,
@@ -195,6 +158,7 @@ bitex.view.SideBarView.prototype.enterDocument = function() {
                 account_boxes[account_boxes.length-1]['balances'].push({
                   'currency': currency,
                   'currencyPattern': this.getApplication().getCurrencyHumanFormat(currency),
+                  'currencyPip': this.getApplication().getCurrencyPip(currency),
                   'brokerID':  model.get('Profile')['BrokerID'],
                   'accountID': account_data[0],
                   'showDeposit': false,
@@ -208,6 +172,45 @@ bitex.view.SideBarView.prototype.enterDocument = function() {
                                   id: this.makeId('summary'),
                                   boxes: account_boxes
                                 });
+          model.updateDom();
+        }, this);
+      } else {
+        var balance_model_key = 'Balance_' + model.get('Broker')['BrokerID'] +  '_' + model.get('UserID');
+        handler.listenOnce( model, bitex.model.Model.EventType.SET + balance_model_key, function(e){
+          goog.dom.removeChildren( goog.dom.getElement("id_account_summary_content"));
+
+          var account_boxes = [];
+
+          account_boxes.push({
+            'title': MSG_MY_ACCOUNTS_BALANCE_LABEL,
+            'balances': []
+          });
+
+          var broker_currencies = model.get('BrokerCurrencies');
+          goog.object.forEach(model.get(balance_model_key), function(balance, currency) {
+            currency_code = currency;
+            var show_deposit = goog.array.contains(broker_currencies, currency);
+            var currency_pattern = this.getApplication().getCurrencyHumanFormat(currency_code);
+
+            account_boxes[account_boxes.length-1]['balances'].push({
+              'currency': currency,
+              'currencyPattern': currency_pattern,
+              'currencyPip': this.getApplication().getCurrencyPip(currency_code),
+              'brokerID': model.get('Broker')['BrokerID'],
+              'accountID': model.get('UserID'),
+              'showDeposit': show_deposit,
+              'showWithdraw': show_deposit
+             });
+
+          }, this);
+
+          goog.soy.renderElement(goog.dom.getElement('id_account_summary_content'),
+                                 bitex.view.SideBarView.templates.YourAccountSummary, {
+                                  id: this.makeId('summary'),
+                                  boxes: account_boxes
+                                });
+
+          this.showPortfolioValue_();
           model.updateDom();
         }, this);
       }

@@ -323,14 +323,10 @@ bitex.view.OfferBookView.prototype.onSelectedBrokerID_ = function(e){
   var market = selectedBroker['AllowedMarkets'][selected_symbol];
   goog.style.showElement( this.sell_order_entry_.getElement(), goog.isDefAndNotNull( market));
   goog.style.showElement( this.buy_order_entry_.getElement(), goog.isDefAndNotNull( market));
+  goog.style.showElement( this.locked_balance_display_.getElement(), goog.isDefAndNotNull( market));
 
-  if (model.get('IsBroker')) {
-    this.buy_order_entry_.setBrokerMode(selected_broker_id == model.get('Profile')['BrokerID']);
-    this.sell_order_entry_.setBrokerMode(selected_broker_id == model.get('Profile')['BrokerID']);
-  } else {
-    this.buy_order_entry_.setBrokerMode(false);
-    this.sell_order_entry_.setBrokerMode(false);
-  }
+  this.buy_order_entry_.setBrokerMode(model.get('IsBroker'));
+  this.sell_order_entry_.setBrokerMode(model.get('IsBroker'));
 
   model.updateDom();
 };
@@ -397,8 +393,8 @@ bitex.view.OfferBookView.prototype.onSelectedSymbol_ = function(e){
   goog.style.showElement( this.buy_order_entry_.getElement(), goog.isDefAndNotNull( market));
 
   if (model.get('IsBroker')) {
-    this.buy_order_entry_.setBrokerMode(selected_broker_id == model.get('Profile')['BrokerID']);
-    this.sell_order_entry_.setBrokerMode(selected_broker_id == model.get('Profile')['BrokerID']);
+    this.buy_order_entry_.setBrokerMode(true);
+    this.sell_order_entry_.setBrokerMode(true);
   } else {
     this.buy_order_entry_.setBrokerMode(false);
     this.sell_order_entry_.setBrokerMode(false);
