@@ -43,7 +43,7 @@
     <translation id="4207630095317176089" key="MSG_1TI4K0AT1GKPJ" source="bitex/templates/templates.default.soy.js" desc="Terms of service section subtitle on Broker view">Điều khoản sử dụng</translation>
     <translation id="6241362437101811864" key="MSG_K0BWX8ZXUB0" source="bitex/templates/templates.default.soy.js" desc="label in broker general information table">Số điện thoại</translation>
     <translation id="6440404554676146532" key="MSG_1UH38TH122H29" source="bitex/templates/templates.default.soy.js" desc="label in broker general information table">ĐT:</translation>
-    <translation id="4569609450753675511" key="MSG_60G2HW0XAKG8" source="bitex/templates/templates.default.soy.js" desc="Allowed markets section subtitle on broker view">Các thị trường</translation>
+    <translation id="4569609450753675511" key="MSG_60G2HW0XAKG8" source="bitex/templates/templates.default.soy.js" desc="Allowed markets section subtitle on broker view">Thị trường điều hành</translation>
     <translation id="3286501474082002816" key="MSG_1FRGGYRQB1SMP" source="bitex/ui/withdraw_method_editor.default.soy.js" desc="Method Fees label">Phí</translation>
     <translation id="2264145908146364599" key="MSG_129WPKBYL0W7J" source="bitex/templates/templates.default.soy.js" desc="Operation column on Broker fees table">Điều hành</translation>
     <translation id="389040683792211882" key="MSG_1PQP8MMPC7OUU" source="bitex/templates/templates.default.soy.js" desc="Terms column on Broker fees table">Các điều khoản</translation>
@@ -154,8 +154,8 @@
     <translation id="3047142040844767261" key="MSG_ORDER_MANAGER_ACTIVITY_TABLE_COLUMN_QTY" source="bitex/ui/order_manager.js" desc="Column Qty of the Order Manager">Số lượng</translation>
     <translation id="5243658742939585719" key="MSG_ORDER_MANAGER_ACTIVITY_TABLE_COLUMN_PRICE" source="bitex/ui/order_manager.js" desc="Column Price of the Order Manager">Giá</translation>
     <translation id="855787899268641726" key="MSG_ORDER_MANAGER_ACTIVITY_TABLE_COLUMN_LEAVES_QTY" source="bitex/ui/order_manager.js" desc="Column  Leaves Qty of the Order Manager">Khối lượng biên</translation>
-    <translation id="3065658996020402684" key="MSG_ORDER_MANAGER_ACTIVITY_TABLE_COLUMN_CUM_QTY" source="bitex/ui/order_manager.js" desc="Column  Cum Qty of the Order Manager">Số lượng Lũy kế</translation>
-    <translation id="3855320384584179456" key="MSG_ORDER_MANAGER_ACTIVITY_TABLE_COLUMN_AVG_PX" source="bitex/ui/order_manager.js" desc="Column Average Price of the Order Manager">Giá Trung bình</translation>
+    <translation id="3065658996020402684" key="MSG_ORDER_MANAGER_ACTIVITY_TABLE_COLUMN_CUM_QTY" source="bitex/ui/order_manager.js" desc="Column  Cum Qty of the Order Manager">Số lượng lũy kế</translation>
+    <translation id="3855320384584179456" key="MSG_ORDER_MANAGER_ACTIVITY_TABLE_COLUMN_AVG_PX" source="bitex/ui/order_manager.js" desc="Column Average Price of the Order Manager">Giá trung bình</translation>
     <translation id="8913382455121937812" key="MSG_ORDER_MANAGER_ACTIVITY_TABLE_COLUMN_VOLUME" source="bitex/ui/order_manager.js" desc="Column Volume Price of the Order Manager">Tổng số</translation>
     <translation id="3817231532322370617" key="MSG_ORDER_MANAGER_ACTIVITY_TABLE_COLUMN_ORDER_DATE" source="bitex/ui/order_manager.js" desc="Column Order Date of the Order Manager">Ngày/giờ</translation>
     <translation id="3836894406109783409" key="MSG_ORDER_MANAGER_ACTIVITY_TABLE_COLUMN_ACTIONS" source="bitex/ui/order_manager.js" desc="Column Actions of the Order Manager">Hành động</translation>
@@ -304,8 +304,8 @@
     <translation id="1068484197751585966" key="MSG_CUSTOMERS_TABLE_TITLE" source="bitex/ui/customers.js" desc="Title  for the customers table">Khách hàng</translation>
     <translation id="1015136929938913559" key="MSG_CUSTOMERS_TABLE_SEARCH_PLACEHOLDER" source="bitex/ui/customers.js" desc="placeholder for the search input text in the customers table">Tên đăng nhập hoặc email...</translation>
     <translation id="1646545861057431513" key="MSG_CUSTOMERS_LIST_BUTTON_FILTER_ALL" source="bitex/ui/customers.js" desc="Customers filter all select option">Tất cả</translation>
-    <translation id="8930308327400940205" key="MSG_ORDER_BOOK_BID_TITLE" source="bitex/ui/order_book.js" desc="Title in the bid side on the order book">CHÀO BÁN</translation>
-    <translation id="6857802332739485005" key="MSG_ORDER_BOOK_ASK_TITLE" source="bitex/ui/order_book.js" desc="Title in the ask side on the order book">HỎI MUA</translation>
+    <translation id="8930308327400940205" key="MSG_ORDER_BOOK_BID_TITLE" source="bitex/ui/order_book.js" desc="Title in the bid side on the order book">HỎI MUA</translation>
+    <translation id="6857802332739485005" key="MSG_ORDER_BOOK_ASK_TITLE" source="bitex/ui/order_book.js" desc="Title in the ask side on the order book">CHÀO BÁN</translation>
     <translation id="8752744574554067957" key="MSG_ORDER_BOOK_BUYER_COLUMN" source="bitex/ui/order_book.js" desc="Buyer column on the order book">Người mua</translation>
     <translation id="7114430755693068053" key="MSG_ORDER_BOOK_SELLER_COLUMN" source="bitex/ui/order_book.js" desc="Seller column on the order book">Người bán</translation>
     <translation id="6540154733894385338" key="MSG_ORDER_BOOK_AMOUNT_COLUMN" source="bitex/ui/order_book.js" desc="Amount column on the order book">Số lượng</translation>
@@ -387,8 +387,8 @@
     <translation id="8956923086586785808" key="MSG_MY_CUSTOMERS_ACCOUNT_BALANCE_LABEL" source="bitex/view/side_bar.js" desc="My customers account balance label">Số dư của khách hàng</translation>
     <translation id="540371278665799483" key="MSG_PZ1480CFEALI" source="bitex/ui/market_view_table.default.soy.js" desc="Method field header">Cặp</translation>
     <translation id="6144131012087048413" key="MSG_1PYSWLOXZPYIJ" source="bitex/ui/market_view_table.default.soy.js" desc="Method field header">Cuối</translation>
-    <translation id="4862560589674900513" key="MSG_ZU872NP5G4IZ" source="bitex/ui/market_view_table.default.soy.js" desc="Method field header">Chào bán</translation>
-    <translation id="359126399564616939" key="MSG_7O7PIFIBMY6J" source="bitex/ui/market_view_table.default.soy.js" desc="Method field header">Hỏi mua</translation>
+    <translation id="4862560589674900513" key="MSG_ZU872NP5G4IZ" source="bitex/ui/market_view_table.default.soy.js" desc="Method field header">Hỏi mua</translation>
+    <translation id="359126399564616939" key="MSG_7O7PIFIBMY6J" source="bitex/ui/market_view_table.default.soy.js" desc="Method field header">Chào bán</translation>
     <translation id="2804697564508208450" key="MSG_1XOT5DC40Y74P" source="bitex/ui/market_view_table.default.soy.js" desc="Method field header">Khối lượng (BTC)</translation>
     <translation id="2810122694573914334" key="MSG_4ZVCLEHQ7SCW" source="bitex/ui/market_view_table.default.soy.js" desc="Method field header">Khối lượng</translation>
     <translation id="9069641955420533662" key="MSG_11PK3QCKDL93G" source="bitex/ui/market_view_table.default.soy.js" desc="Method field header">Cao</translation>
@@ -494,7 +494,7 @@
     <translation id="8358547692552283763" key="MSG_1TS7VWG80DSMP" source="bitex/templates/templates.default.soy.js" desc="Permission in Algo Permissions Dialog"> Gửi lệnh bán theo giá thị trường</translation>
     <translation id="8413172216296041152" key="MSG_51LKTS4JRUP7" source="bitex/templates/templates.default.soy.js" desc="Permission in Algo Permissions Dialog"> Huỷ các giao dịch</translation>
     <translation id="6069267902329163934" key="MSG_1WJM2Y66OJV4V" source="bitex/templates/templates.default.soy.js" desc="amount help block"> Số dư: <ph name="xxx" /></translation>
-    <translation id="4262057046720410410" key="MSG_C7Q37EIVLA6B" source="bitex/ui/algorithm_selector.default.soy.js" desc="Help message that appears bellow the algorithm trading input box on the algorithm trading view">   Tìm hiểu cách thuật toán giao dịch hoạt động</translation>
+    <translation id="4262057046720410410" key="MSG_C7Q37EIVLA6B" source="bitex/ui/algorithm_selector.default.soy.js" desc="Help message that appears bellow the algorithm trading input box on the algorithm trading view">**Hướng dẫn cách sử dụng thuật toán giao dịch</translation>
     <translation id="6128801024546160717" key="MSG_ALGO_REQUEST_PERMISSION" source="bitex/app/blinktrade.js" desc="dialog shown to the user requesting his permissions to run the selected algorithm trading">Uỷ quyền cho thuật toán</translation>
     <translation id="4224560933977011233" key="MSG_ILLEGAL_OPERATION_ALGORITHM_NOTIFICATION" source="bitex/app/blinktrade.js" desc="notification shown when the algorithm executed a illegal operation">Thuật toán đang cố gắng làm một hành động không hợp lệ.</translation>
     <translation id="1814724116698926674" key="MSG_IEXXY1PQWR66" source="bitex/ui/locked_balance_display.whitedev.soy.js" desc="Shown above the order book bids">Bạn đang mua tổng cộng </translation>
