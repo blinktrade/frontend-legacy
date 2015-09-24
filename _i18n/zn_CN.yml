@@ -10,7 +10,7 @@ exchanges:
   demo:
     title: Blink演示：开源的比特币交易平台
     description: 开源的比特币交易平台
-    keywords: 比特币，比特币交易所，开源的比特币交易平台, 开源，交易平台
+    keywords: 比特币，比特币交易所，开源的比特币交易平台，开源，交易平台
     lead: 请关注我们的开源的比特币交易平台
   chilebit:
     title: ChileBit.NET - 智利的第一家比特币交易平台
@@ -38,7 +38,7 @@ exchanges:
     keywords: 在罗马尼亚如何购买比特币
     lead: 在罗马尼亚如果买进和卖出比特币
   bitcoinvietnam:
-    title: VBTC-中国第一家blinktrade技术的交易平台
+    title: VBTC - 比特币交易所在越南 - Bitcoin Exchange in Vietnam
     description: 如果购买比特币
     keywords: 比特币购买，买比特币，如果买比特币
     lead: 购买和出售越南比特币

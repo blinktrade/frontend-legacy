@@ -304,8 +304,8 @@
     <translation id="1068484197751585966" key="MSG_CUSTOMERS_TABLE_TITLE" source="bitex/ui/customers.js" desc="Title  for the customers table">Khách hàng</translation>
     <translation id="1015136929938913559" key="MSG_CUSTOMERS_TABLE_SEARCH_PLACEHOLDER" source="bitex/ui/customers.js" desc="placeholder for the search input text in the customers table">Tên đăng nhập hoặc email...</translation>
     <translation id="1646545861057431513" key="MSG_CUSTOMERS_LIST_BUTTON_FILTER_ALL" source="bitex/ui/customers.js" desc="Customers filter all select option">Tất cả</translation>
-    <translation id="8930308327400940205" key="MSG_ORDER_BOOK_BID_TITLE" source="bitex/ui/order_book.js" desc="Title in the bid side on the order book">CHÀO BÁN</translation>
-    <translation id="6857802332739485005" key="MSG_ORDER_BOOK_ASK_TITLE" source="bitex/ui/order_book.js" desc="Title in the ask side on the order book">HỎI MUA</translation>
+    <translation id="8930308327400940205" key="MSG_ORDER_BOOK_BID_TITLE" source="bitex/ui/order_book.js" desc="Title in the bid side on the order book">HỎI MUA</translation>
+    <translation id="6857802332739485005" key="MSG_ORDER_BOOK_ASK_TITLE" source="bitex/ui/order_book.js" desc="Title in the ask side on the order book">CHÀO BÁN</translation>
     <translation id="8752744574554067957" key="MSG_ORDER_BOOK_BUYER_COLUMN" source="bitex/ui/order_book.js" desc="Buyer column on the order book">Người mua</translation>
     <translation id="7114430755693068053" key="MSG_ORDER_BOOK_SELLER_COLUMN" source="bitex/ui/order_book.js" desc="Seller column on the order book">Người bán</translation>
     <translation id="6540154733894385338" key="MSG_ORDER_BOOK_AMOUNT_COLUMN" source="bitex/ui/order_book.js" desc="Amount column on the order book">Số lượng</translation>
@@ -387,8 +387,8 @@
     <translation id="8956923086586785808" key="MSG_MY_CUSTOMERS_ACCOUNT_BALANCE_LABEL" source="bitex/view/side_bar.js" desc="My customers account balance label">Số dư của khách hàng</translation>
     <translation id="540371278665799483" key="MSG_PZ1480CFEALI" source="bitex/ui/market_view_table.default.soy.js" desc="Method field header">Cặp</translation>
     <translation id="6144131012087048413" key="MSG_1PYSWLOXZPYIJ" source="bitex/ui/market_view_table.default.soy.js" desc="Method field header">Cuối</translation>
-    <translation id="4862560589674900513" key="MSG_ZU872NP5G4IZ" source="bitex/ui/market_view_table.default.soy.js" desc="Method field header">Chào bán</translation>
-    <translation id="359126399564616939" key="MSG_7O7PIFIBMY6J" source="bitex/ui/market_view_table.default.soy.js" desc="Method field header">Hỏi mua</translation>
+    <translation id="4862560589674900513" key="MSG_ZU872NP5G4IZ" source="bitex/ui/market_view_table.default.soy.js" desc="Method field header">Hỏi mua</translation>
+    <translation id="359126399564616939" key="MSG_7O7PIFIBMY6J" source="bitex/ui/market_view_table.default.soy.js" desc="Method field header">Chào bán</translation>
     <translation id="2804697564508208450" key="MSG_1XOT5DC40Y74P" source="bitex/ui/market_view_table.default.soy.js" desc="Method field header">Khối lượng (BTC)</translation>
     <translation id="2810122694573914334" key="MSG_4ZVCLEHQ7SCW" source="bitex/ui/market_view_table.default.soy.js" desc="Method field header">Khối lượng</translation>
     <translation id="9069641955420533662" key="MSG_11PK3QCKDL93G" source="bitex/ui/market_view_table.default.soy.js" desc="Method field header">Cao</translation>
