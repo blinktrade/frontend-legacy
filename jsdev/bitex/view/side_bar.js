@@ -300,7 +300,7 @@ bitex.view.SideBarView.prototype.enterDocument = function() {
     }
   }, this);
 
-
+  /*
   handler.listen( this.getElement(), goog.events.EventType.CLICK, function(e){
     if (e.target.getAttribute('data-action') === 'withdraw' ) {
       this.currency_ = e.target.getAttribute('data-currency');
@@ -310,6 +310,7 @@ bitex.view.SideBarView.prototype.enterDocument = function() {
       this.dispatchEvent(bitex.view.View.EventType.DEPOSIT_REQUEST);
     }
   }, this);
+  */
 };
 
 /**

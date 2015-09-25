@@ -890,12 +890,13 @@ bitex.api.BitEx.prototype.requestWithdraw = function( opt_request_id, amount, me
  * @param {string=} opt_confirmation_token
  * @param {string=} opt_withdrawId
  * @param {string=} opt_secondFactor
+ * @param {number=} opt_requestId. Defaults to random generated number
  */
-bitex.api.BitEx.prototype.confirmWithdraw = function( opt_confirmation_token, opt_withdrawId, opt_secondFactor  ) {
-  var reqId = parseInt(Math.random() * 1000000, 10);
+bitex.api.BitEx.prototype.confirmWithdraw = function( opt_confirmation_token, opt_withdrawId, opt_secondFactor,opt_requestId  ) {
+  var requestId = opt_requestId || parseInt( 1e7 * Math.random() , 10 );
   var msg = {
     'MsgType': 'U24',
-    'WithdrawReqID': reqId
+    'WithdrawReqID': requestId
   };
 
   if (goog.isDefAndNotNull(opt_confirmation_token)) {
@@ -911,6 +912,25 @@ bitex.api.BitEx.prototype.confirmWithdraw = function( opt_confirmation_token, op
   }
 
   this.sendMessage(msg);
+
+  return requestId;
+};
+
+/**
+ * @param {string} withdrawId
+ * @param {number=} opt_requestId. Defaults to random generated number
+ */
+bitex.api.BitEx.prototype.cancelWithdraw = function( withdrawId, opt_requestId ) {
+  var requestId = opt_requestId || parseInt( 1e7 * Math.random() , 10 );
+  var msg = {
+    'MsgType': 'U70',
+    'WithdrawCancelReqID': requestId,
+    'WithdrawID' : withdrawId
+  };
+
+  this.sendMessage(msg);
+
+  return requestId;
 };
 
 /**
@@ -2000,6 +2020,7 @@ goog.exportProperty(BitEx.prototype, 'requestWithdraw', bitex.api.BitEx.prototyp
 goog.exportProperty(BitEx.prototype, 'processWithdraw', bitex.api.BitEx.prototype.processWithdraw);
 goog.exportProperty(BitEx.prototype, 'requestWithdrawList', bitex.api.BitEx.prototype.requestWithdrawList);
 goog.exportProperty(BitEx.prototype, 'confirmWithdraw', bitex.api.BitEx.prototype.confirmWithdraw);
+goog.exportProperty(BitEx.prototype, 'cancelWithdraw', bitex.api.BitEx.prototype.cancelWithdraw);
 
 goog.exportProperty(BitEx.prototype, 'requestCustomerList', bitex.api.BitEx.prototype.requestCustomerList);
 goog.exportProperty(BitEx.prototype, 'requestCustomerDetails', bitex.api.BitEx.prototype.requestCustomerDetails);
