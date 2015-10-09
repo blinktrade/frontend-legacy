@@ -1775,14 +1775,6 @@ bitex.app.BlinkTrade.prototype.showWithdrawalDialog = function(currency){
                                            "label": MSG_WITHDRAW_FIELD_SENDER_PHONE_NUMBER,
                                            "placeholder":""});
       }
-      withdrawal_method['fields'].push({"side":"client",
-                                         "name": "SenderKYC",
-                                         "validator":"validatePhrase",
-                                         "type":"text",
-                                         "value":"",
-                                         "label": MSG_WITHDRAW_FIELD_SENDER_KYC,
-                                         "placeholder":"https://link.com/user_kyc"});
-
 
       if (!goog.array.contains(withdrawal_method['fields'], "AccountName" )) {
         withdrawal_method['fields'].push({"side":"client",
@@ -1791,16 +1783,6 @@ bitex.app.BlinkTrade.prototype.showWithdrawalDialog = function(currency){
                                            "type":"text",
                                            "value":"",
                                            "label": MSG_WITHDRAW_FIELD_ACCT_HOLDER,
-                                           "placeholder":""});
-      }
-
-      if (!goog.array.contains(withdrawal_method['fields'], "AccountHolderID" )) {
-        withdrawal_method['fields'].push({"side":"client",
-                                           "name": "AccountHolderID",
-                                           "validator":"required",
-                                           "type":"text",
-                                           "value":"",
-                                           "label": MSG_WITHDRAW_FIELD_ACCT_HOLDER_ID,
                                            "placeholder":""});
       }
 
@@ -1814,13 +1796,6 @@ bitex.app.BlinkTrade.prototype.showWithdrawalDialog = function(currency){
                                            "placeholder":""});
       }
 
-      withdrawal_method['fields'].push({"side":"client",
-                                         "name": "KYC",
-                                         "validator":"validatePhrase",
-                                         "type":"text",
-                                         "value":"",
-                                         "label": MSG_WITHDRAW_FIELD_KYC,
-                                         "placeholder":"https://link.com/user_kyc"});
     }
 
     goog.array.forEach(withdrawal_method['fields'], function(field) {
