@@ -1738,7 +1738,8 @@ bitex.app.BlinkTrade.prototype.showWithdrawalDialog = function(currency, opt_pre
 
   var balance_key = 'available_balance_' +
       this.getModel().get('Broker')['BrokerID'] + ':' + this.getModel().get('UserID') + '_' + currency;
-  var user_balance = parseInt(this.getModel().get(balance_key,0), 10);
+  var user_balance = new bitex.primitives.Price(this.getModel().get(balance_key,0),
+                                                this.getCurrencyPip(currency)).floor();
 
   var user_verified_withdraw_methods = [];
   goog.array.forEach(withdraw_methods, function(withdrawal_method){
@@ -1933,36 +1934,6 @@ bitex.app.BlinkTrade.prototype.showWithdrawalDialog = function(currency, opt_pre
     }
   }, this);
 
-/*
-  var method_element_id = goog.string.getRandomString();
-  var withdraw_amount_element_id = goog.string.getRandomString();
-  var fixed_fee_element_id = goog.string.getRandomString();
-  var percent_fee_element_id = goog.string.getRandomString();
-  var total_fees_element_id = goog.string.getRandomString();
-  var net_value_element_id = goog.string.getRandomString();
-  var fmt = new goog.i18n.NumberFormat( goog.i18n.NumberFormat.Format.DECIMAL);
-
-
-  var dialogContent = bitex.templates.DepositWithdrawDialogContent({
-    fmt:fmt,
-    side: 'client',
-    currency: currency,
-    verificationLevel: this.getModel().get('Profile')['Verified'],
-    currencySign: this.getCurrencySign(currency),
-    methods: user_verified_withdraw_methods,
-    methodID: method_element_id,
-    showFeeDataEntry:false,
-    amountID: withdraw_amount_element_id,
-    fixedFeeID: fixed_fee_element_id,
-    percentFeeID: percent_fee_element_id,
-    totalFeesID: total_fees_element_id,
-    netValueID: net_value_element_id,
-    hideNetAmount:false,
-    type:'withdrawal',
-    netAmountLabel:MSG_NET_AMOUNT_LABEL_TOTAL
-  });
-*/
-
   var form_id = goog.string.getRandomString();
   var fmt = new goog.i18n.NumberFormat( goog.i18n.NumberFormat.Format.DECIMAL);
   var dialogContent = bitex.view.WithdrawView.templates.UserWithdrawDialogContent({
@@ -2080,7 +2051,8 @@ bitex.app.BlinkTrade.prototype.showWithdrawalDialog = function(currency, opt_pre
             e.preventDefault();
             return;
           }
-          amount = parseInt(amount * 1e8, 10);
+          amount = new bitex.primitives.Price(amount * 1e8,
+                                              this.getCurrencyPip(currency)).floor();
 
           var pos = [0];
           var net_amount_el_value_id = form_id + '_method_' + withdraw_data['Method'] + '_net_value_value';

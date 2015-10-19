@@ -162,6 +162,9 @@ bitex.ui.WithdrawList = function( methodDescriptionObj, opt_broker_mode,  opt_sh
           var MSG_WITHDRAW_REASON_OVER_LIMIT = goog.getMsg('Amount exceeded your daily withdraw limit');
           /** @desc reason for cancelling withdraw */
           var MSG_WITHDRAW_REASON_UNCONFIRMED_DEPOSITS = goog.getMsg('User has deposits that are not yet confirmed');
+          /** @desc reason for cancelling withdraw */
+          var MSG_WITHDRAW_REASON_ACCOUNT_HAS_WITHDRAWAL_BLOCK = goog.getMsg('The withdraw function is temporarily blocked for your account');
+
 
           var status_el = goog.dom.createDom('span', ['label', 'label-' + label_class_text[0] ] );
           var reason_el;
@@ -193,8 +196,11 @@ bitex.ui.WithdrawList = function( methodDescriptionObj, opt_broker_mode,  opt_sh
             case -8:
               reason_el = goog.dom.createDom('abbr', {'title': MSG_WITHDRAW_REASON_UNCONFIRMED_DEPOSITS},  label_class_text[1] );
               break;
+            case -9:
+              reason_el = goog.dom.createDom('abbr', {'title': MSG_WITHDRAW_REASON_ACCOUNT_HAS_WITHDRAWAL_BLOCK},  label_class_text[1] );
+              break;
             default:
-              return goog.dom.createDom('span', ['label', 'label-' + label_class_text[0] ],  label_class_text[1]  );
+              return goog.dom.createDom('span', ['label', 'label-' + label_class_text[0] ],  label_class_text[1] );
           }
           goog.dom.appendChild(status_el, reason_el);
           return status_el;
@@ -382,25 +388,27 @@ bitex.ui.WithdrawList = function( methodDescriptionObj, opt_broker_mode,  opt_sh
                     break;
                 }
 
-                if (key == 'KYC' || key == 'SenderKYC' ) {
-                  /** @desc KYC View buttom label on withdrawal list */
-                  var MSG_WITHDRAW_VIEW_KYC_BUTTON_LABEL = goog.getMsg('view');
+                if (key != 'Instant' || (key == 'Instant' && broker_mode) ){
+                  if (key == 'KYC' || key == 'SenderKYC' ) {
+                    /** @desc KYC View buttom label on withdrawal list */
+                    var MSG_WITHDRAW_VIEW_KYC_BUTTON_LABEL = goog.getMsg('view');
 
-                  goog.dom.appendChild(element, goog.dom.createDom('tr', goog.getCssName(bitex.ui.WithdrawList.CSS_CLASS, 'details-tr'),
-                      goog.dom.createDom('td', goog.getCssName(bitex.ui.WithdrawList.CSS_CLASS, 'details-td-key'), key_description ),
-                      goog.dom.createDom('td', goog.getCssName(bitex.ui.WithdrawList.CSS_CLASS, 'details-td-value'),
-                        goog.dom.createDom('a', {
-                          'class':'btn btn-mini btn-primary',
-                          'target':'_blank',
-                          'href': data['KYC']
-                        }, MSG_WITHDRAW_VIEW_KYC_BUTTON_LABEL,' ' ,goog.dom.createDom( 'i', ['icon-white', 'icon-eye-open'] )
-                      ))));
-                } else {
-                  goog.dom.appendChild(element,
-                     goog.dom.createDom('tr', goog.getCssName(bitex.ui.WithdrawList.CSS_CLASS, 'details-tr'),
-                       goog.dom.createDom('td', goog.getCssName(bitex.ui.WithdrawList.CSS_CLASS, 'details-td-key'), key_description ),
-                       goog.dom.createDom('td', goog.getCssName(bitex.ui.WithdrawList.CSS_CLASS, 'details-td-value'), value ))
-                  );
+                    goog.dom.appendChild(element, goog.dom.createDom('tr', goog.getCssName(bitex.ui.WithdrawList.CSS_CLASS, 'details-tr'),
+                        goog.dom.createDom('td', goog.getCssName(bitex.ui.WithdrawList.CSS_CLASS, 'details-td-key'), key_description ),
+                        goog.dom.createDom('td', goog.getCssName(bitex.ui.WithdrawList.CSS_CLASS, 'details-td-value'),
+                          goog.dom.createDom('a', {
+                            'class':'btn btn-mini btn-primary',
+                            'target':'_blank',
+                            'href': data['KYC']
+                          }, MSG_WITHDRAW_VIEW_KYC_BUTTON_LABEL,' ' ,goog.dom.createDom( 'i', ['icon-white', 'icon-eye-open'] )
+                        ))));
+                  } else {
+                    goog.dom.appendChild(element,
+                       goog.dom.createDom('tr', goog.getCssName(bitex.ui.WithdrawList.CSS_CLASS, 'details-tr'),
+                         goog.dom.createDom('td', goog.getCssName(bitex.ui.WithdrawList.CSS_CLASS, 'details-td-key'), key_description ),
+                         goog.dom.createDom('td', goog.getCssName(bitex.ui.WithdrawList.CSS_CLASS, 'details-td-value'), value ))
+                    );
+                  }
                 }
               }
             }
