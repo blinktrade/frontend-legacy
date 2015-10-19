@@ -9,6 +9,7 @@ goog.require('bitex.api.BitEx');
 
 goog.require('goog.soy');
 goog.require('bitex.templates');
+goog.require('bitex.ui.WithdrawRequestDataEntry.templates');
 
 goog.require('bitex.ui.OrderBook');
 goog.require('bitex.ui.OrderBook.Side');
@@ -1784,14 +1785,6 @@ bitex.app.BlinkTrade.prototype.showWithdrawalDialog = function(currency, opt_pre
                                            "label": MSG_WITHDRAW_FIELD_SENDER_PHONE_NUMBER,
                                            "placeholder":""});
       }
-      withdrawal_method['fields'].push({"side":"client",
-                                         "name": "SenderKYC",
-                                         "validator":"validatePhrase",
-                                         "type":"text",
-                                         "value":"",
-                                         "label": MSG_WITHDRAW_FIELD_SENDER_KYC,
-                                         "placeholder":"https://link.com/user_kyc"});
-
 
       if (!goog.array.contains(withdrawal_method['fields'], "AccountName" )) {
         withdrawal_method['fields'].push({"side":"client",
@@ -1800,16 +1793,6 @@ bitex.app.BlinkTrade.prototype.showWithdrawalDialog = function(currency, opt_pre
                                            "type":"text",
                                            "value":"",
                                            "label": MSG_WITHDRAW_FIELD_ACCT_HOLDER,
-                                           "placeholder":""});
-      }
-
-      if (!goog.array.contains(withdrawal_method['fields'], "AccountHolderID" )) {
-        withdrawal_method['fields'].push({"side":"client",
-                                           "name": "AccountHolderID",
-                                           "validator":"required",
-                                           "type":"text",
-                                           "value":"",
-                                           "label": MSG_WITHDRAW_FIELD_ACCT_HOLDER_ID,
                                            "placeholder":""});
       }
 
@@ -1823,13 +1806,6 @@ bitex.app.BlinkTrade.prototype.showWithdrawalDialog = function(currency, opt_pre
                                            "placeholder":""});
       }
 
-      withdrawal_method['fields'].push({"side":"client",
-                                         "name": "KYC",
-                                         "validator":"validatePhrase",
-                                         "type":"text",
-                                         "value":"",
-                                         "label": MSG_WITHDRAW_FIELD_KYC,
-                                         "placeholder":"https://link.com/user_kyc"});
     }
 
     goog.array.forEach(withdrawal_method['fields'], function(field) {
@@ -1936,7 +1912,7 @@ bitex.app.BlinkTrade.prototype.showWithdrawalDialog = function(currency, opt_pre
 
   var form_id = goog.string.getRandomString();
   var fmt = new goog.i18n.NumberFormat( goog.i18n.NumberFormat.Format.DECIMAL);
-  var dialogContent = bitex.view.WithdrawView.templates.UserWithdrawDialogContent({
+  var dialogContent = bitex.ui.WithdrawRequestDataEntry.templates.WithdrawRequestDataEntry({
     id:form_id,
     fmt:fmt,
     currency: currency,

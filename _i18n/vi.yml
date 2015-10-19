@@ -1,51 +1,52 @@
 global:
-  portuguese: Tiếng Bồ Đào Nha
-  english: Tiếng Anh
-  spanish: Tiếng Tây Ban Nha
+  portuguese: Português
+  english: English
+  spanish: Español
+  Chinese: 中文
   tagline: Tiếng Việt
   about: Về chúng tôi
   twitter: Twitter
 exchanges:
   demo:
-    title: BlinkDemo - Open Source Bitcoin Exchange demo website
-    description: Open Source Bitcoin Exchange demo website
-    keywords: bitcoin, bitcoin exchange, open source bitcoin exchange, bitcoin trading plataform, open source bitcoin trading plataform
+    title: BlinkDemo - Trang mẫu sàn giao dịch Bitcoin mã nguồn mở
+    description: Trang mẫu sàn giao dịch Bitcoin mã nguồn mở
+    keywords: bitcoin, bitcoin exchange, open source bitcoin exchange, bitcoin trading platform, open source bitcoin trading plataform
     lead: See our open source Bitcoin exchange in action
   chilebit:
-    title: ChileBit.NET - The first bitcoin exchange in Chile
-    description: The first bitcoin exchange in Chile
+    title: ChileBit.NET - Mua và bán Bitcoin tại Chile
+    description: Mua và bán Bitcoin tại Chile
     keywords: Buy and sell bitcoin in Chile, bitcoin exchange in Chile, sell bitcoins in Chile, buy bitcoins in Chile
-    lead: The first bitcoin exchange in Chile
+    lead: Sàn giao dịch Bitcoin đầu tiên tại Chile
   surbitcoin:
-    title: SurBitcoin - The first bitcoin exchange in Venezuela
-    description: The first bitcoin exchange in Venezuela
+    title: SurBitcoin - Mua và bán Bitcoin tại Venezuela
+    description: Mua và bán Bitcoin tại Venezuela
     keywords: Buy and sell bitcoin in Venezuela, bitcoin exchange in Venezuela, sell bitcoins in Venezuela, buy bitcoins in Venezuela
-    lead: The first bitcoin exchange in Venezuela
+    lead: Sàn giao dịch Bitcoin đầu tiên tại Venezuela
   urdubit:
-    title: UrduBit - The first bitcoin exchange in Pakistan
-    description: The first bitcoin exchange in Pakistan
+    title: UrduBit - Mua và bán Bitcoin tại Pakistan
+    description: Mua và bán Bitcoin tại Pakistan
     keywords: Buy and sell bitcoin in Pakistan, bitcoin exchange in Pakistan, sell bitcoins in Pakistan, buy bitcoins in Pakistan
-    lead: The first bitcoin exchange in Pakistan
+    lead: Sàn giao dịch Bitcoin đầu tiên tại Pakistan
   foxbit:
-    title: FoxBit - Buy or sell bitcoins in Brazil
-    description: Compre e venda bitcoins no Brasil de maneira segura através da FoxBit. Com o FoxBit você pode começar a comprar e vender bitcoins hoje. O processo de registro dura menos de um minuto.
+    title: FoxBit - Mua và bán Bitcoin tại Brazil
+    description: Mua và bán Bitcoin tại Brazil
     keywords: Buy and sell bitcoin in Brazil, bitcoin exchange in Brazil, sell bitcoins in Brazil, buy bitcoins in Brazil, Bitcoin exchange in Brazil
-    lead: Compre ou venda seus Bitcoins no Brasil
+    lead: Sàn giao dịch Bitcoin đầu tiên tại Brasil
   romaniabex:
-    title: RomaniaBitcoin.Exchange - Buy or sell bitcoins in Romania
-    description: Buy and sell bitcoin in Romania
+    title: RomaniaBitcoin.Exchange - Mua và bán Bitcoin tại Romania
+    description: Mua và bán Bitcoin tại Romania
     keywords: Buy and sell bitcoin in Romania, bitcoin exchange in Romania, sell bitcoins in Romania, buy bitcoins in Romania
-    lead: Buy and sell bitcoin in Romania
+    lead: Sàn giao dịch Bitcoin đầu tiên tại Romania
   bitcoinvietnam:
     title: VBTC - Mua và bán Bitcoin tại Việt Nam
     description: Mua và bán Bitcoin tại Việt Nam
-    keywords: Mua và bán Bitcoin, sàn giao dịch Bitcoin, mua Bitcoin, bán Bitcoin, Buy and sell bitcoin in Vietnam, bitcoin exchange in Vietnam, sell bitcoins in Vietnam, buy bitcoins in Vietnam
+    keywords: Mua và bán Bitcoin, sàn giao dịch Bitcoin, mua Bitcoin, bán Bitcoin, Buy and sell bitcoin in Vietnam, bitcoin exchange in Vietnam, sell bitcoins in Vietnam, buy bitcoins in Vietnam, VBTC
     lead: Mua và bán Bitcoin tại Việt Nam
   yuanbit:
-    title: YuanBit.com - Buy or sell bitcoins in China
-    description: Buy and sell bitcoin in China
+    title: YuanBit.com - Mua và bán Bitcoin tại Trung Quốc
+    description: Mua và bán Bitcoin tại Trung Quốc
     keywords: Buy and sell bitcoin in China, bitcoin exchange in China, sell bitcoins in China, buy bitcoins in China
-    lead: Buy and sell bitcoin in China
+    lead: Mua và bán Bitcoin tại Trung Quốc
 views:
   footer:
     latency: Độ trễ

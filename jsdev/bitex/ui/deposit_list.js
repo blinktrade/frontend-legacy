@@ -148,6 +148,12 @@ bitex.ui.DepositList = function( crypto_currencies_def, opt_broker_mode, opt_sho
               }
 
 
+              var number_of_node_count = 0;
+              if (goog.isDef(rowSet['Data']) && goog.isDef(rowSet['Data']['NodeCount'] ) ) {
+                number_of_node_count = rowSet['Data']['NodeCount'] ;
+              }
+
+
               /**
                * @desc status message for double spent on crypto coin deposits
                */
@@ -162,10 +168,24 @@ bitex.ui.DepositList = function( crypto_currencies_def, opt_broker_mode, opt_sho
                     'necessaryconfirmations': number_of_necessary_confirmations
                   });
 
+
+              /**
+               * @desc status message for confirming crypto coin deposits
+               */
+              var MSG_0_CONFIRMATION_MESSAGE_FOR_CRYPTO_CURRENCY =
+                  goog.getMsg('Unconfirmed.  - {$nodecount} nodes',{
+                    'nodecount': number_of_node_count
+                  });
+
+
               if (number_of_confirmations < 0) {
                 progress_message = MSG_DOUBLE_SPENT_MESSAGE_FOR_CRYPTO_CURRENCY;
               } else {
-                progress_message = MSG_PROGRESS_MESSAGE_FOR_CRYPTO_CURRENCY;
+                if (number_of_confirmations == 0 && number_of_node_count > 0){
+                  progress_message = MSG_0_CONFIRMATION_MESSAGE_FOR_CRYPTO_CURRENCY;
+                } else {
+                  progress_message = MSG_PROGRESS_MESSAGE_FOR_CRYPTO_CURRENCY;
+                }
               }
             }
           }
