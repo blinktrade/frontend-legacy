@@ -1,0 +1,10 @@
+---
+layout:     post
+title:      "Tôi bị mất thiết bị lấy mã xác thực 2 lớp"
+date:       2015-09-20 00:02:00
+categories: vi faq
+---
+
+Xin bạn vui lòng gửi ảnh chụp chứng minh thư hoặc hộ chiếu để xác nhận việc tắt chế độ xác thực 2 lớp cho tài khoản của bạn tới support@vbtc.vn. Chúng tôi sẽ mất 24 giờ để xác minh lại tài khoản của bạn.
+
+Sau khi tắt xong, bạn có thể kích hoạt lại chức năng này sau khi đăng nhập.

@@ -4604,6 +4604,7 @@ function $uniform$Validators$$() {
   this.$metaMap_$.set("validatePhrase", this.$validatePhrase_$);
   this.$metaMap_$.set("validatePhoneNumber", this.$validatePhoneNumber_$);
   this.$metaMap_$.set("validateUsername", this.$validateUsername_$);
+  this.$metaMap_$.set("validateCPFCNPJ", this.$validateCPFCNPJ_$);
 }
 $goog$addSingletonGetter$$($uniform$Validators$$);
 $JSCompiler_prototypeAlias$$ = $uniform$Validators$$.prototype;
@@ -4701,71 +4702,78 @@ $JSCompiler_prototypeAlias$$.$validateInteger_$ = function $$JSCompiler_prototyp
     }
   }
 };
-$JSCompiler_prototypeAlias$$.$validateAlpha_$ = function $$JSCompiler_prototypeAlias$$$$validateAlpha_$$($el$$66_elValue$$4$$, $condition$$15$$, $params$$10$$, $caption$$9$$) {
+$JSCompiler_prototypeAlias$$.$validateCPFCNPJ_$ = function $$JSCompiler_prototypeAlias$$$$validateCPFCNPJ_$$($el$$66_elValue$$4$$, $condition$$15$$, $params$$10$$, $caption$$9$$) {
   if (!$condition$$15$$ || eval($condition$$15$$)) {
-    if ($el$$66_elValue$$4$$ = $goog$dom$forms$getValue$$($el$$66_elValue$$4$$), /[^a-zA-Z]/.test($el$$66_elValue$$4$$)) {
-      throw $caption$$9$$ + " s\u00f3 pode ter apenas letras ( sem carateres especiais ou n\u00fameros )";
+    if ($el$$66_elValue$$4$$ = $goog$dom$forms$getValue$$($el$$66_elValue$$4$$), /[^0-9]/.test($el$$66_elValue$$4$$)) {
+      throw $caption$$9$$ + " needs to be a valid CPF or CNPJ";
     }
   }
 };
-$JSCompiler_prototypeAlias$$.$validateAlphaNum_$ = function $$JSCompiler_prototypeAlias$$$$validateAlphaNum_$$($el$$67_elValue$$5$$, $condition$$16$$, $params$$11$$, $caption$$10$$) {
+$JSCompiler_prototypeAlias$$.$validateAlpha_$ = function $$JSCompiler_prototypeAlias$$$$validateAlpha_$$($el$$67_elValue$$5$$, $condition$$16$$, $params$$11$$, $caption$$10$$) {
   if (!$condition$$16$$ || eval($condition$$16$$)) {
-    if ($el$$67_elValue$$5$$ = $goog$dom$forms$getValue$$($el$$67_elValue$$5$$), /[^a-zA-Z0-9]/.test($el$$67_elValue$$5$$)) {
-      throw $caption$$10$$ + " s\u00f3 pode conter apenas n\u00fameros e letras (sem caracteres especiais)";
+    if ($el$$67_elValue$$5$$ = $goog$dom$forms$getValue$$($el$$67_elValue$$5$$), /[^a-zA-Z]/.test($el$$67_elValue$$5$$)) {
+      throw $caption$$10$$ + " s\u00f3 pode ter apenas letras ( sem carateres especiais ou n\u00fameros )";
     }
   }
 };
-$JSCompiler_prototypeAlias$$.$validatePhoneNumber_$ = function $$JSCompiler_prototypeAlias$$$$validatePhoneNumber_$$($el$$68$$, $MSG_ERROR_VALIDATE_INVALID_COUNTRY_CODE_condition$$17$$, $MSG_ERROR_VALIDATE_PHONE_NUMBER_TO_SHORT_params$$12$$, $MSG_ERROR_VALIDATE_INVALID_NUMBER_caption$$11$$) {
-  if (!$MSG_ERROR_VALIDATE_INVALID_COUNTRY_CODE_condition$$17$$ || eval($MSG_ERROR_VALIDATE_INVALID_COUNTRY_CODE_condition$$17$$)) {
-    $MSG_ERROR_VALIDATE_INVALID_COUNTRY_CODE_condition$$17$$ = "O campo " + ($MSG_ERROR_VALIDATE_INVALID_NUMBER_caption$$11$$ + " n\u00e3o cont\u00e9m um n\u00famero de telefone v\u00e1lido. [C\u00f3digo do Pa\u00eds inv\u00e1lido]");
-    $MSG_ERROR_VALIDATE_PHONE_NUMBER_TO_SHORT_params$$12$$ = "O campo " + ($MSG_ERROR_VALIDATE_INVALID_NUMBER_caption$$11$$ + " n\u00e3o cont\u00e9m um n\u00famero de telefone v\u00e1lido. [N\u00famero muito curto]");
-    var $MSG_ERROR_VALIDATE_PHONE_NUMBER_TO_LONG$$ = "O campo " + ($MSG_ERROR_VALIDATE_INVALID_NUMBER_caption$$11$$ + " n\u00e3o cont\u00e9m um n\u00famero de telefone v\u00e1lido. [N\u00famero muito comprido]");
-    $MSG_ERROR_VALIDATE_INVALID_NUMBER_caption$$11$$ = "O campo " + ($MSG_ERROR_VALIDATE_INVALID_NUMBER_caption$$11$$ + " n\u00e3o \u00e9 um n\u00famero de telefone v\u00e1lido.");
+$JSCompiler_prototypeAlias$$.$validateAlphaNum_$ = function $$JSCompiler_prototypeAlias$$$$validateAlphaNum_$$($el$$68_elValue$$6$$, $condition$$17$$, $params$$12$$, $caption$$11$$) {
+  if (!$condition$$17$$ || eval($condition$$17$$)) {
+    if ($el$$68_elValue$$6$$ = $goog$dom$forms$getValue$$($el$$68_elValue$$6$$), /[^a-zA-Z0-9]/.test($el$$68_elValue$$6$$)) {
+      throw $caption$$11$$ + " s\u00f3 pode conter apenas n\u00fameros e letras (sem caracteres especiais)";
+    }
+  }
+};
+$JSCompiler_prototypeAlias$$.$validatePhoneNumber_$ = function $$JSCompiler_prototypeAlias$$$$validatePhoneNumber_$$($el$$69$$, $MSG_ERROR_VALIDATE_INVALID_COUNTRY_CODE_condition$$18$$, $MSG_ERROR_VALIDATE_PHONE_NUMBER_TO_SHORT_params$$13$$, $MSG_ERROR_VALIDATE_INVALID_NUMBER_caption$$12$$) {
+  if (!$MSG_ERROR_VALIDATE_INVALID_COUNTRY_CODE_condition$$18$$ || eval($MSG_ERROR_VALIDATE_INVALID_COUNTRY_CODE_condition$$18$$)) {
+    $MSG_ERROR_VALIDATE_INVALID_COUNTRY_CODE_condition$$18$$ = "O campo " + ($MSG_ERROR_VALIDATE_INVALID_NUMBER_caption$$12$$ + " n\u00e3o cont\u00e9m um n\u00famero de telefone v\u00e1lido. [C\u00f3digo do Pa\u00eds inv\u00e1lido]");
+    $MSG_ERROR_VALIDATE_PHONE_NUMBER_TO_SHORT_params$$13$$ = "O campo " + ($MSG_ERROR_VALIDATE_INVALID_NUMBER_caption$$12$$ + " n\u00e3o cont\u00e9m um n\u00famero de telefone v\u00e1lido. [N\u00famero muito curto]");
+    var $MSG_ERROR_VALIDATE_PHONE_NUMBER_TO_LONG$$ = "O campo " + ($MSG_ERROR_VALIDATE_INVALID_NUMBER_caption$$12$$ + " n\u00e3o cont\u00e9m um n\u00famero de telefone v\u00e1lido. [N\u00famero muito comprido]");
+    $MSG_ERROR_VALIDATE_INVALID_NUMBER_caption$$12$$ = "O campo " + ($MSG_ERROR_VALIDATE_INVALID_NUMBER_caption$$12$$ + " n\u00e3o \u00e9 um n\u00famero de telefone v\u00e1lido.");
     var $phoneUtil$$ = $i18n$phonenumbers$PhoneNumberUtil$$.$getInstance$();
     try {
-      var $number$$47$$ = $JSCompiler_StaticMethods_parseAndKeepRawInput$$($phoneUtil$$, $goog$dom$forms$getValue$$($el$$68$$)), $isPossible$$ = 0 == $JSCompiler_StaticMethods_isPossibleNumberWithReason$$($phoneUtil$$, $number$$47$$);
+      var $number$$47$$ = $JSCompiler_StaticMethods_parseAndKeepRawInput$$($phoneUtil$$, $goog$dom$forms$getValue$$($el$$69$$)), $isPossible$$ = 0 == $JSCompiler_StaticMethods_isPossibleNumberWithReason$$($phoneUtil$$, $number$$47$$);
     } catch ($err$$9$$) {
       switch($err$$9$$) {
         case "Invalid country calling code":
-          throw $MSG_ERROR_VALIDATE_INVALID_COUNTRY_CODE_condition$$17$$;;
+          throw $MSG_ERROR_VALIDATE_INVALID_COUNTRY_CODE_condition$$18$$;;
         case "The string supplied did not seem to be a phone number":
-          throw $MSG_ERROR_VALIDATE_INVALID_NUMBER_caption$$11$$;;
+          throw $MSG_ERROR_VALIDATE_INVALID_NUMBER_caption$$12$$;;
         case "Phone number too short after IDD":
         ;
         case "The string supplied is too short to be a phone number":
-          throw $MSG_ERROR_VALIDATE_PHONE_NUMBER_TO_SHORT_params$$12$$;;
+          throw $MSG_ERROR_VALIDATE_PHONE_NUMBER_TO_SHORT_params$$13$$;;
         case "The string supplied is too long to be a phone number":
-          throw $MSG_ERROR_VALIDATE_PHONE_NUMBER_TO_SHORT_params$$12$$;;
+          throw $MSG_ERROR_VALIDATE_PHONE_NUMBER_TO_SHORT_params$$13$$;;
       }
       throw $err$$9$$;
     }
     if (!$isPossible$$) {
       switch($JSCompiler_StaticMethods_isPossibleNumberWithReason$$($phoneUtil$$, $number$$47$$)) {
         case 1:
-          throw $MSG_ERROR_VALIDATE_INVALID_COUNTRY_CODE_condition$$17$$;;
+          throw $MSG_ERROR_VALIDATE_INVALID_COUNTRY_CODE_condition$$18$$;;
         case 2:
-          throw $MSG_ERROR_VALIDATE_PHONE_NUMBER_TO_SHORT_params$$12$$;;
+          throw $MSG_ERROR_VALIDATE_PHONE_NUMBER_TO_SHORT_params$$13$$;;
         case 3:
           throw $MSG_ERROR_VALIDATE_PHONE_NUMBER_TO_LONG$$;;
       }
     } else {
       if (!$JSCompiler_StaticMethods_isValidNumber$$($phoneUtil$$, $number$$47$$)) {
-        throw $MSG_ERROR_VALIDATE_INVALID_NUMBER_caption$$11$$;
+        throw $MSG_ERROR_VALIDATE_INVALID_NUMBER_caption$$12$$;
       }
     }
   }
 };
-$JSCompiler_prototypeAlias$$.$validatePhrase_$ = function $$JSCompiler_prototypeAlias$$$$validatePhrase_$$($el$$69_elValue$$6$$, $condition$$18$$, $params$$13$$, $caption$$12$$) {
-  if (!$condition$$18$$ || eval($condition$$18$$)) {
-    if ($el$$69_elValue$$6$$ = $goog$dom$forms$getValue$$($el$$69_elValue$$6$$), !$el$$69_elValue$$6$$.match(/^[\w\d\.\-_\(\)\*'# :,]+$/i) && !$goog$string$isEmptyOrWhitespace$$($el$$69_elValue$$6$$)) {
-      throw $caption$$12$$ + " s\u00f3 pode conter letras, n\u00fameros, espa\u00e7o e os seguintes caracteres: . , - _ () * # :";
+$JSCompiler_prototypeAlias$$.$validatePhrase_$ = function $$JSCompiler_prototypeAlias$$$$validatePhrase_$$($el$$70_elValue$$7$$, $condition$$19$$, $params$$14$$, $caption$$13$$) {
+  if (!$condition$$19$$ || eval($condition$$19$$)) {
+    if ($el$$70_elValue$$7$$ = $goog$dom$forms$getValue$$($el$$70_elValue$$7$$), !$el$$70_elValue$$7$$.match(/^[\w\d\.\-_\(\)\*'# :,]+$/i) && !$goog$string$isEmptyOrWhitespace$$($el$$70_elValue$$7$$)) {
+      throw $caption$$13$$ + " s\u00f3 pode conter letras, n\u00fameros, espa\u00e7o e os seguintes caracteres: . , - _ () * # :";
     }
   }
 };
-$JSCompiler_prototypeAlias$$.$validateUsername_$ = function $$JSCompiler_prototypeAlias$$$$validateUsername_$$($el$$70_elValue$$7$$, $condition$$19$$, $params$$14$$, $caption$$13$$) {
-  if (!$condition$$19$$ || eval($condition$$19$$)) {
-    if ($el$$70_elValue$$7$$ = $goog$dom$forms$getValue$$($el$$70_elValue$$7$$), !$el$$70_elValue$$7$$.match(/^[a-zA-Z0-9](_(?!(\.|_))|\.(?!(_|\.))|[a-zA-Z0-9]){1,18}[a-zA-Z0-9]$/) && !$goog$string$isEmptyOrWhitespace$$($el$$70_elValue$$7$$)) {
-      throw $caption$$13$$ + " s\u00f3 pode conter letras, n\u00fameros e os seguintes caracteres: . _ -";
+$JSCompiler_prototypeAlias$$.$validateUsername_$ = function $$JSCompiler_prototypeAlias$$$$validateUsername_$$($el$$71_elValue$$8$$, $condition$$20$$, $params$$15$$, $caption$$14$$) {
+  if (!$condition$$20$$ || eval($condition$$20$$)) {
+    if ($el$$71_elValue$$8$$ = $goog$dom$forms$getValue$$($el$$71_elValue$$8$$), !$el$$71_elValue$$8$$.match(/^[a-zA-Z0-9](_(?!(\.|_))|\.(?!(_|\.))|[a-zA-Z0-9]){1,18}[a-zA-Z0-9]$/) && !$goog$string$isEmptyOrWhitespace$$($el$$71_elValue$$8$$)) {
+      throw $caption$$14$$ + " s\u00f3 pode conter letras, n\u00fameros e os seguintes caracteres: . _ -";
     }
   }
 };
@@ -5036,11 +5044,11 @@ $JSCompiler_prototypeAlias$$.$decorateInternal$ = function $$JSCompiler_prototyp
   this.$model_$.target = $element$$117$$.getAttribute("target");
   this.$model_$.$control_holder_class$ = $element$$117$$.getAttribute("data-uniform-control-holder-class") || $uniform$Uniform$CTRLHOLDER_CLASS$$;
   $goog$dom$classes$add$$($element$$117$$, this.$getCssClass$());
-  for (var $els$$6$$ = this.$getElement$().elements, $el$$71$$, $i$$151$$ = 0;$el$$71$$ = $els$$6$$[$i$$151$$];$i$$151$$++) {
-    if ("INPUT" === $el$$71$$.tagName) {
+  for (var $els$$6$$ = this.$getElement$().elements, $el$$72$$, $i$$151$$ = 0;$el$$72$$ = $els$$6$$[$i$$151$$];$i$$151$$++) {
+    if ("INPUT" === $el$$72$$.tagName) {
       var $labelInput$$ = new $goog$ui$LabelInput$$;
       $JSCompiler_StaticMethods_addChild$$(this, $labelInput$$);
-      $labelInput$$.$decorate$($el$$71$$);
+      $labelInput$$.$decorate$($el$$72$$);
     }
   }
   return $element$$117$$;
@@ -5060,10 +5068,10 @@ $JSCompiler_prototypeAlias$$.$enterDocument$ = function $$JSCompiler_prototypeAl
   var $handler$$49$$ = this.$getHandler$();
   $goog$dom$classes$has$$(this.$getElement$(), "askOnLeave") && $handler$$49$$.$listen$(window, "beforeunload", this.$onWindowBeforeUnload_$);
   $handler$$49$$.$listen$(this.$getElement$(), "submit", this.$onFormSubmit_$);
-  for (var $els$$7$$ = this.$getElement$().elements, $el$$72$$, $i$$152$$ = 0;$el$$72$$ = $els$$7$$[$i$$152$$];$i$$152$$++) {
-    if (!$el$$72$$.disabled && $el$$72$$.tagName.toLowerCase() !== "INPUT".$FIELDSET$ && ($handler$$49$$.$listen$($el$$72$$, "focus", this.$onFormElementFocus_$), $handler$$49$$.$listen$($el$$72$$, "blur", this.$onFormElementBlur_$), $handler$$49$$.$listen$($el$$72$$, "click", this.$onFormElementClick_$), "SELECT" === $el$$72$$.tagName && $handler$$49$$.$listen$($el$$72$$, "change", this.$onFormElementSelect_$), "INPUT" === $el$$72$$.tagName)) {
+  for (var $els$$7$$ = this.$getElement$().elements, $el$$73$$, $i$$152$$ = 0;$el$$73$$ = $els$$7$$[$i$$152$$];$i$$152$$++) {
+    if (!$el$$73$$.disabled && $el$$73$$.tagName.toLowerCase() !== "INPUT".$FIELDSET$ && ($handler$$49$$.$listen$($el$$73$$, "focus", this.$onFormElementFocus_$), $handler$$49$$.$listen$($el$$73$$, "blur", this.$onFormElementBlur_$), $handler$$49$$.$listen$($el$$73$$, "click", this.$onFormElementClick_$), "SELECT" === $el$$73$$.tagName && $handler$$49$$.$listen$($el$$73$$, "change", this.$onFormElementSelect_$), "INPUT" === $el$$73$$.tagName)) {
       var $ih$$ = new $goog$events$KeyHandler$$;
-      $JSCompiler_StaticMethods_attach$$($ih$$, $el$$72$$);
+      $JSCompiler_StaticMethods_attach$$($ih$$, $el$$73$$);
       $handler$$49$$.$listen$($ih$$, "key", this.$handleKeyEvent_$);
     }
   }
@@ -5075,11 +5083,11 @@ $JSCompiler_prototypeAlias$$.$enterDocument$ = function $$JSCompiler_prototypeAl
   }
 };
 function $JSCompiler_StaticMethods_getAsJSON$$($JSCompiler_StaticMethods_getAsJSON$self$$) {
-  for (var $json_res$$ = {}, $el$$73_pos$$12_value$$196$$, $i$$153$$ = 0;$el$$73_pos$$12_value$$196$$ = $JSCompiler_StaticMethods_getAsJSON$self$$.$getElement$().elements[$i$$153$$];$i$$153$$++) {
-    if (!$el$$73_pos$$12_value$$196$$.disabled && "fieldset" != $el$$73_pos$$12_value$$196$$.tagName.toLowerCase()) {
-      var $name$$91$$ = $el$$73_pos$$12_value$$196$$.name;
+  for (var $json_res$$ = {}, $el$$74_pos$$12_value$$196$$, $i$$153$$ = 0;$el$$74_pos$$12_value$$196$$ = $JSCompiler_StaticMethods_getAsJSON$self$$.$getElement$().elements[$i$$153$$];$i$$153$$++) {
+    if (!$el$$74_pos$$12_value$$196$$.disabled && "fieldset" != $el$$74_pos$$12_value$$196$$.tagName.toLowerCase()) {
+      var $name$$91$$ = $el$$74_pos$$12_value$$196$$.name;
       if (!$goog$string$isEmptyOrWhitespace$$($name$$91$$)) {
-        switch($el$$73_pos$$12_value$$196$$.type.toLowerCase()) {
+        switch($el$$74_pos$$12_value$$196$$.type.toLowerCase()) {
           case "file":
           ;
           case "submit":
@@ -5089,23 +5097,23 @@ function $JSCompiler_StaticMethods_getAsJSON$$($JSCompiler_StaticMethods_getAsJS
           case "button":
             break;
           case "select-multiple":
-            var $form_value_values$$18$$ = $goog$dom$forms$getValue$$($el$$73_pos$$12_value$$196$$);
+            var $form_value_values$$18$$ = $goog$dom$forms$getValue$$($el$$74_pos$$12_value$$196$$);
             if (null != $form_value_values$$18$$) {
               $json_res$$[$name$$91$$] = [];
-              for (var $form_value_number_j$$16_value_fmt$$ = 0;$el$$73_pos$$12_value$$196$$ = $form_value_values$$18$$[$form_value_number_j$$16_value_fmt$$];$form_value_number_j$$16_value_fmt$$++) {
-                $json_res$$[$name$$91$$].push($el$$73_pos$$12_value$$196$$);
+              for (var $form_value_number_j$$16_value_fmt$$ = 0;$el$$74_pos$$12_value$$196$$ = $form_value_values$$18$$[$form_value_number_j$$16_value_fmt$$];$form_value_number_j$$16_value_fmt$$++) {
+                $json_res$$[$name$$91$$].push($el$$74_pos$$12_value$$196$$);
               }
             }
             break;
           default:
-            if ($form_value_values$$18$$ = $goog$dom$forms$getValue$$($el$$73_pos$$12_value$$196$$), null != $form_value_values$$18$$) {
-              if ("number" == $el$$73_pos$$12_value$$196$$.getAttribute("data-uniform-type")) {
+            if ($form_value_values$$18$$ = $goog$dom$forms$getValue$$($el$$74_pos$$12_value$$196$$), null != $form_value_values$$18$$) {
+              if ("number" == $el$$74_pos$$12_value$$196$$.getAttribute("data-uniform-type")) {
                 $form_value_number_j$$16_value_fmt$$ = new $goog$i18n$NumberFormat$$(1);
                 $form_value_number_j$$16_value_fmt$$.$maximumFractionDigits_$ = 8;
                 $JSCompiler_StaticMethods_setMinimumFractionDigits$$($form_value_number_j$$16_value_fmt$$, 2);
-                $el$$73_pos$$12_value$$196$$ = [0];
-                $form_value_number_j$$16_value_fmt$$ = $form_value_number_j$$16_value_fmt$$.parse($form_value_values$$18$$, $el$$73_pos$$12_value$$196$$);
-                if ($el$$73_pos$$12_value$$196$$[0] != $form_value_values$$18$$.length || isNaN($form_value_number_j$$16_value_fmt$$)) {
+                $el$$74_pos$$12_value$$196$$ = [0];
+                $form_value_number_j$$16_value_fmt$$ = $form_value_number_j$$16_value_fmt$$.parse($form_value_values$$18$$, $el$$74_pos$$12_value$$196$$);
+                if ($el$$74_pos$$12_value$$196$$[0] != $form_value_values$$18$$.length || isNaN($form_value_number_j$$16_value_fmt$$)) {
                   $form_value_number_j$$16_value_fmt$$ = 0;
                 }
                 $json_res$$[$name$$91$$] = $form_value_number_j$$16_value_fmt$$;
@@ -5165,7 +5173,7 @@ $JSCompiler_prototypeAlias$$.$onFormElementSelect_$ = function $$JSCompiler_prot
 };
 $JSCompiler_prototypeAlias$$.$onFormElementBlur_$ = function $$JSCompiler_prototypeAlias$$$$onFormElementBlur_$$($e$$65$$) {
   $JSCompiler_StaticMethods_processFieldEvent_$$(this, 1, $e$$65$$.target);
-  var $caption$$14$$ = $JSCompiler_StaticMethods_getCaptionForElement$$(this, $e$$65$$.target);
+  var $caption$$15$$ = $JSCompiler_StaticMethods_getCaptionForElement$$(this, $e$$65$$.target);
   try {
     var $JSCompiler_StaticMethods_runMeta$self$$inline_670$$ = $uniform$Meta$$.$getInstance$();
     $uniform$util$executeFormMetaTags$$(this.$getElement$(), $JSCompiler_StaticMethods_runMeta$self$$inline_670$$.$metaMap_$);
@@ -5174,7 +5182,7 @@ $JSCompiler_prototypeAlias$$.$onFormElementBlur_$ = function $$JSCompiler_protot
   }
   try {
     var $JSCompiler_StaticMethods_runValidation$self$$inline_673$$ = $uniform$Validators$$.$getInstance$();
-    $uniform$util$executeElementMetaTags$$($e$$65$$.target, "data-uniform-validators", $JSCompiler_StaticMethods_runValidation$self$$inline_673$$.$metaMap_$, $caption$$14$$);
+    $uniform$util$executeElementMetaTags$$($e$$65$$.target, "data-uniform-validators", $JSCompiler_StaticMethods_runValidation$self$$inline_673$$.$metaMap_$, $caption$$15$$);
     $JSCompiler_StaticMethods_processFieldEvent_$$(this, 2, $e$$65$$.target);
   } catch ($validationError$$) {
     this.$logger_$.info($validationError$$), $JSCompiler_StaticMethods_processFieldEvent_$$(this, 3, $e$$65$$.target);
@@ -5185,16 +5193,16 @@ $JSCompiler_prototypeAlias$$.$onWindowBeforeUnload_$ = function $$JSCompiler_pro
   return this.$initialFormValue_$ != $finalFormValue$$ && $goog$dom$classes$has$$(this.$getElement$(), "askOnLeave") ? confirm("Voc\u00ea est\u00e1 prestes a sair desta p\u00e1gina sem salvar os dados. Confirma a sa\u00edda?") : !0;
 };
 $JSCompiler_prototypeAlias$$.focus = function $$JSCompiler_prototypeAlias$$$focus$() {
-  for (var $el$$inline_677_el$$inline_679_els$$8$$ = this.$getElement$().elements, $el$$74$$, $i$$154$$ = 0;$el$$74$$ = $el$$inline_677_el$$inline_679_els$$8$$[$i$$154$$];$i$$154$$++) {
-    if (!$el$$74$$.disabled && $el$$74$$.tagName.toLowerCase() !== "INPUT".$FIELDSET$) {
-      if ("SELECT" === $el$$74$$.tagName) {
-        $el$$inline_677_el$$inline_679_els$$8$$ = $el$$74$$;
+  for (var $el$$inline_677_el$$inline_679_els$$8$$ = this.$getElement$().elements, $el$$75$$, $i$$154$$ = 0;$el$$75$$ = $el$$inline_677_el$$inline_679_els$$8$$[$i$$154$$];$i$$154$$++) {
+    if (!$el$$75$$.disabled && $el$$75$$.tagName.toLowerCase() !== "INPUT".$FIELDSET$) {
+      if ("SELECT" === $el$$75$$.tagName) {
+        $el$$inline_677_el$$inline_679_els$$8$$ = $el$$75$$;
         $el$$inline_677_el$$inline_679_els$$8$$.focus();
         $el$$inline_677_el$$inline_679_els$$8$$.select && $el$$inline_677_el$$inline_679_els$$8$$.select();
         break;
       } else {
-        if ("INPUT" === $el$$74$$.tagName) {
-          $el$$inline_677_el$$inline_679_els$$8$$ = $el$$74$$;
+        if ("INPUT" === $el$$75$$.tagName) {
+          $el$$inline_677_el$$inline_679_els$$8$$ = $el$$75$$;
           $el$$inline_677_el$$inline_679_els$$8$$.focus();
           $el$$inline_677_el$$inline_679_els$$8$$.select && $el$$inline_677_el$$inline_679_els$$8$$.select();
           break;
@@ -5213,32 +5221,32 @@ function $JSCompiler_StaticMethods_showFormError$$($JSCompiler_StaticMethods_sho
   $currentErrorMsgEl_newErrorMsgEl$$ = $dom$$5$$.$createDom$("div", {id:"errorMsg"}, $dom$$5$$.$createDom$("h3", void 0, "Desculpe, mas este formul\u00e1rio necessita de algumas corre\u00e7\u00f5es."), $errorMessagesList$$);
   $dom$$5$$.$insertSiblingBefore$($currentErrorMsgEl_newErrorMsgEl$$, $dom$$5$$.$getFirstElementChild$($JSCompiler_StaticMethods_showFormError$self$$.$getElement$()));
 }
-function $JSCompiler_StaticMethods_getCaptionForElement$$($JSCompiler_StaticMethods_getCaptionForElement$self$$, $el$$76$$) {
-  if ($goog$isDefAndNotNull$$($el$$76$$.getAttribute("data-uniform-label"))) {
-    return $el$$76$$.getAttribute("data-uniform-label");
+function $JSCompiler_StaticMethods_getCaptionForElement$$($JSCompiler_StaticMethods_getCaptionForElement$self$$, $el$$77$$) {
+  if ($goog$isDefAndNotNull$$($el$$77$$.getAttribute("data-uniform-label"))) {
+    return $el$$77$$.getAttribute("data-uniform-label");
   }
-  var $controlHolderEl$$1_labelEl$$ = $goog$dom$getAncestorByTagNameAndClass$$($el$$76$$, "label");
+  var $controlHolderEl$$1_labelEl$$ = $goog$dom$getAncestorByTagNameAndClass$$($el$$77$$, "label");
   if (null == $controlHolderEl$$1_labelEl$$) {
-    var $controlHolderEl$$1_labelEl$$ = $goog$dom$getAncestorByClass$$($el$$76$$, $JSCompiler_StaticMethods_getCaptionForElement$self$$.$model_$.$control_holder_class$), $allLabels_caption$$15$$ = $goog$dom$getElementsByTagNameAndClass$$("label", void 0, $controlHolderEl$$1_labelEl$$), $controlHolderEl$$1_labelEl$$ = $goog$array$find$$($allLabels_caption$$15$$, function($lbEl$$) {
-      if ($goog$dom$getNextElementSibling$$($lbEl$$) == $el$$76$$) {
+    var $controlHolderEl$$1_labelEl$$ = $goog$dom$getAncestorByClass$$($el$$77$$, $JSCompiler_StaticMethods_getCaptionForElement$self$$.$model_$.$control_holder_class$), $allLabels_caption$$16$$ = $goog$dom$getElementsByTagNameAndClass$$("label", void 0, $controlHolderEl$$1_labelEl$$), $controlHolderEl$$1_labelEl$$ = $goog$array$find$$($allLabels_caption$$16$$, function($lbEl$$) {
+      if ($goog$dom$getNextElementSibling$$($lbEl$$) == $el$$77$$) {
         return!0;
       }
     });
-    null != $controlHolderEl$$1_labelEl$$ || ($controlHolderEl$$1_labelEl$$ = $allLabels_caption$$15$$[0]);
+    null != $controlHolderEl$$1_labelEl$$ || ($controlHolderEl$$1_labelEl$$ = $allLabels_caption$$16$$[0]);
   }
-  $allLabels_caption$$15$$ = "";
-  null != $controlHolderEl$$1_labelEl$$ && ($allLabels_caption$$15$$ = $goog$dom$getTextContent$$($controlHolderEl$$1_labelEl$$));
-  return $allLabels_caption$$15$$;
+  $allLabels_caption$$16$$ = "";
+  null != $controlHolderEl$$1_labelEl$$ && ($allLabels_caption$$16$$ = $goog$dom$getTextContent$$($controlHolderEl$$1_labelEl$$));
+  return $allLabels_caption$$16$$;
 }
 $JSCompiler_prototypeAlias$$.$validate$ = function $$JSCompiler_prototypeAlias$$$$validate$$($opt_control_holder_class$$2$$) {
-  for (var $errors$$ = [], $els$$9$$ = this.$getElement$().elements, $controlHolderEl$$2_el$$77$$, $i$$155$$ = 0;$controlHolderEl$$2_el$$77$$ = $els$$9$$[$i$$155$$];$i$$155$$++) {
-    if (!$controlHolderEl$$2_el$$77$$.disabled && "fieldset" != $controlHolderEl$$2_el$$77$$.tagName.toLowerCase()) {
-      var $caption$$16$$ = $JSCompiler_StaticMethods_getCaptionForElement$$(this, $controlHolderEl$$2_el$$77$$);
+  for (var $errors$$ = [], $els$$9$$ = this.$getElement$().elements, $controlHolderEl$$2_el$$78$$, $i$$155$$ = 0;$controlHolderEl$$2_el$$78$$ = $els$$9$$[$i$$155$$];$i$$155$$++) {
+    if (!$controlHolderEl$$2_el$$78$$.disabled && "fieldset" != $controlHolderEl$$2_el$$78$$.tagName.toLowerCase()) {
+      var $caption$$17$$ = $JSCompiler_StaticMethods_getCaptionForElement$$(this, $controlHolderEl$$2_el$$78$$);
       try {
         var $JSCompiler_StaticMethods_runValidation$self$$inline_681$$ = $uniform$Validators$$.$getInstance$();
-        $uniform$util$executeElementMetaTags$$($controlHolderEl$$2_el$$77$$, "data-uniform-validators", $JSCompiler_StaticMethods_runValidation$self$$inline_681$$.$metaMap_$, $caption$$16$$);
+        $uniform$util$executeElementMetaTags$$($controlHolderEl$$2_el$$78$$, "data-uniform-validators", $JSCompiler_StaticMethods_runValidation$self$$inline_681$$.$metaMap_$, $caption$$17$$);
       } catch ($validationError$$1$$) {
-        this.$logger_$.info($validationError$$1$$), $controlHolderEl$$2_el$$77$$ = $goog$dom$getAncestorByClass$$($controlHolderEl$$2_el$$77$$, $opt_control_holder_class$$2$$ || this.$model_$.$control_holder_class$), null != $controlHolderEl$$2_el$$77$$ && $goog$dom$classes$add$$($controlHolderEl$$2_el$$77$$, "error"), $errors$$.push($validationError$$1$$);
+        this.$logger_$.info($validationError$$1$$), $controlHolderEl$$2_el$$78$$ = $goog$dom$getAncestorByClass$$($controlHolderEl$$2_el$$78$$, $opt_control_holder_class$$2$$ || this.$model_$.$control_holder_class$), null != $controlHolderEl$$2_el$$78$$ && $goog$dom$classes$add$$($controlHolderEl$$2_el$$78$$, "error"), $errors$$.push($validationError$$1$$);
       }
     }
   }
@@ -5623,11 +5631,11 @@ function $bitex$util$convertServerUTCDateTimeStrToTimestamp$$($ymd_string$$, $op
   return $timestamp$$;
 }
 function $bitex$util$getFormAsJSON$$($element$$118$$) {
-  for (var $json_res$$1$$ = {}, $el$$78_form_value$$1_values$$19$$, $i$$165$$ = 0;$el$$78_form_value$$1_values$$19$$ = $element$$118$$.elements[$i$$165$$];$i$$165$$++) {
-    if (!$el$$78_form_value$$1_values$$19$$.disabled && "fieldset" != $el$$78_form_value$$1_values$$19$$.tagName.toLowerCase()) {
-      var $name$$92$$ = $el$$78_form_value$$1_values$$19$$.name;
+  for (var $json_res$$1$$ = {}, $el$$79_form_value$$1_values$$19$$, $i$$165$$ = 0;$el$$79_form_value$$1_values$$19$$ = $element$$118$$.elements[$i$$165$$];$i$$165$$++) {
+    if (!$el$$79_form_value$$1_values$$19$$.disabled && "fieldset" != $el$$79_form_value$$1_values$$19$$.tagName.toLowerCase()) {
+      var $name$$92$$ = $el$$79_form_value$$1_values$$19$$.name;
       if (!$goog$string$isEmptyOrWhitespace$$($name$$92$$)) {
-        switch($el$$78_form_value$$1_values$$19$$.type.toLowerCase()) {
+        switch($el$$79_form_value$$1_values$$19$$.type.toLowerCase()) {
           case "file":
           ;
           case "submit":
@@ -5637,16 +5645,16 @@ function $bitex$util$getFormAsJSON$$($element$$118$$) {
           case "button":
             break;
           case "select-multiple":
-            $el$$78_form_value$$1_values$$19$$ = $goog$dom$forms$getValue$$($el$$78_form_value$$1_values$$19$$);
-            if (null != $el$$78_form_value$$1_values$$19$$) {
+            $el$$79_form_value$$1_values$$19$$ = $goog$dom$forms$getValue$$($el$$79_form_value$$1_values$$19$$);
+            if (null != $el$$79_form_value$$1_values$$19$$) {
               $json_res$$1$$[$name$$92$$] = [];
-              for (var $value$$204$$, $j$$18$$ = 0;$value$$204$$ = $el$$78_form_value$$1_values$$19$$[$j$$18$$];$j$$18$$++) {
+              for (var $value$$204$$, $j$$18$$ = 0;$value$$204$$ = $el$$79_form_value$$1_values$$19$$[$j$$18$$];$j$$18$$++) {
                 $json_res$$1$$[$name$$92$$].push($value$$204$$);
               }
             }
             break;
           default:
-            $el$$78_form_value$$1_values$$19$$ = $goog$dom$forms$getValue$$($el$$78_form_value$$1_values$$19$$), null != $el$$78_form_value$$1_values$$19$$ && ($json_res$$1$$[$name$$92$$] = $el$$78_form_value$$1_values$$19$$);
+            $el$$79_form_value$$1_values$$19$$ = $goog$dom$forms$getValue$$($el$$79_form_value$$1_values$$19$$), null != $el$$79_form_value$$1_values$$19$$ && ($json_res$$1$$[$name$$92$$] = $el$$79_form_value$$1_values$$19$$);
         }
       }
     }
@@ -6024,8 +6032,8 @@ $JSCompiler_prototypeAlias$$.$getBaseCssClass$ = function $$JSCompiler_prototype
   return "datagrid";
 };
 $JSCompiler_prototypeAlias$$.$createDom$ = function $$JSCompiler_prototypeAlias$$$$createDom$$() {
-  var $el$$80$$ = $goog$soy$renderAsElement$$($bitex$ui$DataGrid$templates$DataGrid$$, {id:$JSCompiler_StaticMethods_makeId$$(this, "grid"), title:this.$model_$.title, $wrapper_height$:this.$model_$.$wrapperHeight$, $base_class$:this.$getBaseCssClass$(), $show_search$:this.$model_$.$showSearch$, $search_placeholder$:this.$model_$.$searchPlaceholder$, $button_filters$:this.$model_$.$buttonFilters$});
-  this.$decorateInternal$($el$$80$$);
+  var $el$$81$$ = $goog$soy$renderAsElement$$($bitex$ui$DataGrid$templates$DataGrid$$, {id:$JSCompiler_StaticMethods_makeId$$(this, "grid"), title:this.$model_$.title, $wrapper_height$:this.$model_$.$wrapperHeight$, $base_class$:this.$getBaseCssClass$(), $show_search$:this.$model_$.$showSearch$, $search_placeholder$:this.$model_$.$searchPlaceholder$, $button_filters$:this.$model_$.$buttonFilters$});
+  this.$decorateInternal$($el$$81$$);
 };
 $JSCompiler_prototypeAlias$$.$decorateInternal$ = function $$JSCompiler_prototypeAlias$$$$decorateInternal$$($element$$129_filter_div_selected_filter_option_el$$) {
   this.$element_$ = $element$$129_filter_div_selected_filter_option_el$$;
@@ -6163,12 +6171,15 @@ function $JSCompiler_StaticMethods_insertOrUpdateRecord$$($JSCompiler_StaticMeth
   null != $tr$$1$$ ? $tr$$1$$.className = $rowClassFn$$($record$$) : ($tr$$1$$ = $goog$dom$createDom$$("tr", $rowClassFn$$($record$$)), $tr$$1$$.id = $row_id$$, $is_new_record$$ = !0);
   var $td_elements$$ = {};
   $goog$array$forEach$$($first_row_row_set$$, function($value$$236$$, $result_set_index$$) {
-    var $index$$90$$ = $result_set_col_index$$2$$[$result_set_index$$];
-    if (null != $index$$90$$) {
-      var $formatter$$5_td$$1$$ = this.$model_$.$columns$[$index$$90$$].formatter || function() {
+    var $index$$90_previous_td_record$$ = $result_set_col_index$$2$$[$result_set_index$$];
+    if (null != $index$$90_previous_td_record$$) {
+      var $formatter$$5$$ = this.$model_$.$columns$[$index$$90_previous_td_record$$].formatter || function() {
         return "" + $value$$236$$;
-      }, $formatter$$5_td$$1$$ = $goog$dom$createDom$$("td", (this.$model_$.$columns$[$index$$90$$].classes || $goog$nullFunction$$)($value$$236$$), $formatter$$5_td$$1$$($value$$236$$, $record$$));
-      $td_elements$$[this.$model_$.$columns$[$index$$90$$].property] = $formatter$$5_td$$1$$;
+      }, $classes$$5$$ = this.$model_$.$columns$[$index$$90_previous_td_record$$].classes || $goog$nullFunction$$, $td$$1$$ = $goog$dom$createDom$$("td", $classes$$5$$($value$$236$$), $formatter$$5$$($value$$236$$, $record$$));
+      $td_elements$$[this.$model_$.$columns$[$index$$90_previous_td_record$$].property] = $td$$1$$;
+      $is_new_record$$ || ($index$$90_previous_td_record$$ = $goog$dom$getElementByClass$$($classes$$5$$($value$$236$$), $tr$$1$$), null != $index$$90_previous_td_record$$ && $index$$90_previous_td_record$$.innerHTML != $td$$1$$.innerHTML && ($goog$dom$classes$add$$($td$$1$$, "md-blink"), $goog$Timer$callOnce$$(function() {
+        $goog$dom$classes$remove$$($td$$1$$, "md-blink");
+      }, this.$model_$.$blinkDelay$, this)));
     }
   }, $JSCompiler_StaticMethods_insertOrUpdateRecord$self$$);
   $is_new_record$$ || $goog$dom$removeChildren$$($tr$$1$$);
@@ -6180,10 +6191,9 @@ function $JSCompiler_StaticMethods_insertOrUpdateRecord$$($JSCompiler_StaticMeth
   $is_new_record$$ && ($goog$isNumber$$(0) ? $goog$dom$insertChildAt$$($JSCompiler_StaticMethods_insertOrUpdateRecord$self$$.$table_data_body_el_$, $tr$$1$$, 0) : $JSCompiler_StaticMethods_insertOrUpdateRecord$self$$.$table_data_body_el_$.appendChild($tr$$1$$));
   $first_row_row_set$$ = $goog$dom$getFirstElementChild$$($JSCompiler_StaticMethods_insertOrUpdateRecord$self$$.$table_data_body_el_$);
   null != $first_row_row_set$$ && $JSCompiler_StaticMethods_adjustSizes_$$($JSCompiler_StaticMethods_insertOrUpdateRecord$self$$, $first_row_row_set$$);
-  $goog$dom$classes$add$$($tr$$1$$, "md-blink");
-  $goog$Timer$callOnce$$(function() {
+  $is_new_record$$ && ($goog$dom$classes$add$$($tr$$1$$, "md-blink"), $goog$Timer$callOnce$$(function() {
     $goog$dom$classes$remove$$($tr$$1$$, "md-blink");
-  }, $JSCompiler_StaticMethods_insertOrUpdateRecord$self$$.$model_$.$blinkDelay$, $JSCompiler_StaticMethods_insertOrUpdateRecord$self$$);
+  }, $JSCompiler_StaticMethods_insertOrUpdateRecord$self$$.$model_$.$blinkDelay$, $JSCompiler_StaticMethods_insertOrUpdateRecord$self$$));
 }
 function $JSCompiler_StaticMethods_resultSetToElements$$($JSCompiler_StaticMethods_resultSetToElements$self$$, $resultSet$$, $columns$$4$$) {
   var $elements$$4$$ = [], $result_set_col_index$$3$$ = {};
@@ -7090,38 +7100,38 @@ $bitex$model$Model$$.prototype.remove = function $$bitex$model$Model$$$$remove$(
 };
 function $JSCompiler_StaticMethods_updateDom$$($JSCompiler_StaticMethods_updateDom$self$$) {
   var $elements$$6$$ = $goog$dom$getElementsByClass$$("bitex-model", $JSCompiler_StaticMethods_updateDom$self$$.$element_$);
-  $goog$array$forEach$$($elements$$6$$, function($el$$81$$) {
-    var $model_key_model_key_list$$ = $el$$81$$.getAttribute("data-model-key"), $model_formula$$ = $el$$81$$.getAttribute("data-model-formula"), $value$$242$$ = this.get($model_key_model_key_list$$);
+  $goog$array$forEach$$($elements$$6$$, function($el$$82$$) {
+    var $model_key_model_key_list$$ = $el$$82$$.getAttribute("data-model-key"), $model_formula$$ = $el$$82$$.getAttribute("data-model-formula"), $value$$242$$ = this.get($model_key_model_key_list$$);
     if (null != $model_formula$$) {
-      var $model_key_model_key_list$$ = $el$$81$$.getAttribute("data-model-key-list"), $model_key_model_key_list$$ = $model_key_model_key_list$$.split(","), $variables$$1$$ = {};
+      var $model_key_model_key_list$$ = $el$$82$$.getAttribute("data-model-key-list"), $model_key_model_key_list$$ = $model_key_model_key_list$$.split(","), $variables$$1$$ = {};
       $goog$array$forEach$$($model_key_model_key_list$$, function($model_key$$1$$) {
         $variables$$1$$[$model_key$$1$$] = this.get($model_key$$1$$, 0);
       }, this);
       $value$$242$$ = (new $expression_evaluator$Parser$$).parse($model_formula$$).evaluate($variables$$1$$);
-      $JSCompiler_StaticMethods_setElementValue_$$(this, $el$$81$$, $value$$242$$, !1);
+      $JSCompiler_StaticMethods_setElementValue_$$(this, $el$$82$$, $value$$242$$, !1);
     } else {
-      null != $model_key_model_key_list$$ && $JSCompiler_StaticMethods_setElementValue_$$(this, $el$$81$$, $value$$242$$, !1);
+      null != $model_key_model_key_list$$ && $JSCompiler_StaticMethods_setElementValue_$$(this, $el$$82$$, $value$$242$$, !1);
     }
   }, $JSCompiler_StaticMethods_updateDom$self$$);
 }
-function $JSCompiler_StaticMethods_setElementValue_$$($JSCompiler_StaticMethods_setElementValue_$self$$, $el$$82$$, $blink_delay_value$$243$$, $opt_blinkOnChange$$) {
-  var $model_action_tmp_value$$ = $el$$82$$.getAttribute("data-model-action");
+function $JSCompiler_StaticMethods_setElementValue_$$($JSCompiler_StaticMethods_setElementValue_$self$$, $el$$83$$, $blink_delay_value$$243$$, $opt_blinkOnChange$$) {
+  var $model_action_tmp_value$$ = $el$$83$$.getAttribute("data-model-action");
   null != $model_action_tmp_value$$ || ($model_action_tmp_value$$ = "text_content");
-  var $el_formatter_should_add_blink_class$$ = $el$$82$$.getAttribute("data-model-formatter");
+  var $el_formatter_should_add_blink_class$$ = $el$$83$$.getAttribute("data-model-formatter");
   null != $el_formatter_should_add_blink_class$$ || ($el_formatter_should_add_blink_class$$ = "text");
   var $fmt_pattern$$8$$, $currency_pos$$16$$ = [0];
-  "currency" == $el_formatter_should_add_blink_class$$ ? ($fmt_pattern$$8$$ = $el$$82$$.getAttribute("data-model-formatter-pattern"), $currency_pos$$16$$ = $el$$82$$.getAttribute("data-model-formatter-currency"), $fmt_pattern$$8$$ = new $goog$i18n$NumberFormat$$($fmt_pattern$$8$$, $currency_pos$$16$$)) : "decimal" == $el_formatter_should_add_blink_class$$ ? ($fmt_pattern$$8$$ = new $goog$i18n$NumberFormat$$(1), $goog$isDefAndNotNull$$($el$$82$$.getAttribute("data-model-formatter-max-faction-digits")) && 
-  $JSCompiler_StaticMethods_setMaximumFractionDigits$$($fmt_pattern$$8$$, parseInt($el$$82$$.getAttribute("data-model-formatter-max-faction-digits"), 10)), $goog$isDefAndNotNull$$($el$$82$$.getAttribute("data-model-formatter-min-faction-digits")) && $JSCompiler_StaticMethods_setMinimumFractionDigits$$($fmt_pattern$$8$$, parseInt($el$$82$$.getAttribute("data-model-formatter-min-faction-digits"), 10))) : "percent" == $el_formatter_should_add_blink_class$$ && ($fmt_pattern$$8$$ = new $goog$i18n$NumberFormat$$(3), 
-  $goog$isDefAndNotNull$$($el$$82$$.getAttribute("data-model-formatter-max-faction-digits")) && $JSCompiler_StaticMethods_setMaximumFractionDigits$$($fmt_pattern$$8$$, parseInt($el$$82$$.getAttribute("data-model-formatter-max-faction-digits"), 10)), $goog$isDefAndNotNull$$($el$$82$$.getAttribute("data-model-formatter-min-faction-digits")) && $JSCompiler_StaticMethods_setMinimumFractionDigits$$($fmt_pattern$$8$$, parseInt($el$$82$$.getAttribute("data-model-formatter-min-faction-digits"), 10)));
+  "currency" == $el_formatter_should_add_blink_class$$ ? ($fmt_pattern$$8$$ = $el$$83$$.getAttribute("data-model-formatter-pattern"), $currency_pos$$16$$ = $el$$83$$.getAttribute("data-model-formatter-currency"), $fmt_pattern$$8$$ = new $goog$i18n$NumberFormat$$($fmt_pattern$$8$$, $currency_pos$$16$$)) : "decimal" == $el_formatter_should_add_blink_class$$ ? ($fmt_pattern$$8$$ = new $goog$i18n$NumberFormat$$(1), $goog$isDefAndNotNull$$($el$$83$$.getAttribute("data-model-formatter-max-faction-digits")) && 
+  $JSCompiler_StaticMethods_setMaximumFractionDigits$$($fmt_pattern$$8$$, parseInt($el$$83$$.getAttribute("data-model-formatter-max-faction-digits"), 10)), $goog$isDefAndNotNull$$($el$$83$$.getAttribute("data-model-formatter-min-faction-digits")) && $JSCompiler_StaticMethods_setMinimumFractionDigits$$($fmt_pattern$$8$$, parseInt($el$$83$$.getAttribute("data-model-formatter-min-faction-digits"), 10))) : "percent" == $el_formatter_should_add_blink_class$$ && ($fmt_pattern$$8$$ = new $goog$i18n$NumberFormat$$(3), 
+  $goog$isDefAndNotNull$$($el$$83$$.getAttribute("data-model-formatter-max-faction-digits")) && $JSCompiler_StaticMethods_setMaximumFractionDigits$$($fmt_pattern$$8$$, parseInt($el$$83$$.getAttribute("data-model-formatter-max-faction-digits"), 10)), $goog$isDefAndNotNull$$($el$$83$$.getAttribute("data-model-formatter-min-faction-digits")) && $JSCompiler_StaticMethods_setMinimumFractionDigits$$($fmt_pattern$$8$$, parseInt($el$$83$$.getAttribute("data-model-formatter-min-faction-digits"), 10)));
   $el_formatter_should_add_blink_class$$ = !1;
-  "value" == $model_action_tmp_value$$ ? (current_value = $goog$dom$forms$getValue$$($el$$82$$), null != $fmt_pattern$$8$$ && ($currency_pos$$16$$ = [0], $model_action_tmp_value$$ = $fmt_pattern$$8$$.parse(current_value, $currency_pos$$16$$), $currency_pos$$16$$[0] != current_value.length || isNaN($model_action_tmp_value$$) || 0 >= $model_action_tmp_value$$ || (current_value = $model_action_tmp_value$$)), current_value !== $blink_delay_value$$243$$ && (null != $fmt_pattern$$8$$ ? $goog$dom$forms$setValue$$($el$$82$$, 
-  $fmt_pattern$$8$$.format($blink_delay_value$$243$$)) : $goog$dom$forms$setValue$$($el$$82$$, $blink_delay_value$$243$$))) : "text_content" == $model_action_tmp_value$$ ? (current_text_content = $goog$dom$getTextContent$$($el$$82$$), null != $fmt_pattern$$8$$ && ($currency_pos$$16$$ = [0], $model_action_tmp_value$$ = $fmt_pattern$$8$$.parse(current_text_content, $currency_pos$$16$$), $currency_pos$$16$$[0] != current_text_content.length || isNaN($model_action_tmp_value$$) || 0 >= $model_action_tmp_value$$ || 
-  (current_text_content = $model_action_tmp_value$$)), current_text_content !== $blink_delay_value$$243$$ && ($goog$dom$forms$setValue$$($el$$82$$, $blink_delay_value$$243$$), null != $fmt_pattern$$8$$ ? $goog$dom$setTextContent$$($el$$82$$, $fmt_pattern$$8$$.format($blink_delay_value$$243$$)) : $goog$dom$setTextContent$$($el$$82$$, $blink_delay_value$$243$$), $el_formatter_should_add_blink_class$$ = !0)) : "show_element" == $model_action_tmp_value$$ ? (current_value = "none" != $el$$82$$.style.display, 
-  current_value !== $blink_delay_value$$243$$ && $goog$style$setElementShown$$($el$$82$$, $blink_delay_value$$243$$)) : "hide_element" == $model_action_tmp_value$$ && (current_value = "none" == $el$$82$$.style.display, current_value !== $blink_delay_value$$243$$ && $goog$style$setElementShown$$($el$$82$$, !$blink_delay_value$$243$$));
+  "value" == $model_action_tmp_value$$ ? (current_value = $goog$dom$forms$getValue$$($el$$83$$), null != $fmt_pattern$$8$$ && ($currency_pos$$16$$ = [0], $model_action_tmp_value$$ = $fmt_pattern$$8$$.parse(current_value, $currency_pos$$16$$), $currency_pos$$16$$[0] != current_value.length || isNaN($model_action_tmp_value$$) || 0 >= $model_action_tmp_value$$ || (current_value = $model_action_tmp_value$$)), current_value !== $blink_delay_value$$243$$ && (null != $fmt_pattern$$8$$ ? $goog$dom$forms$setValue$$($el$$83$$, 
+  $fmt_pattern$$8$$.format($blink_delay_value$$243$$)) : $goog$dom$forms$setValue$$($el$$83$$, $blink_delay_value$$243$$))) : "text_content" == $model_action_tmp_value$$ ? (current_text_content = $goog$dom$getTextContent$$($el$$83$$), null != $fmt_pattern$$8$$ && ($currency_pos$$16$$ = [0], $model_action_tmp_value$$ = $fmt_pattern$$8$$.parse(current_text_content, $currency_pos$$16$$), $currency_pos$$16$$[0] != current_text_content.length || isNaN($model_action_tmp_value$$) || 0 >= $model_action_tmp_value$$ || 
+  (current_text_content = $model_action_tmp_value$$)), current_text_content !== $blink_delay_value$$243$$ && ($goog$dom$forms$setValue$$($el$$83$$, $blink_delay_value$$243$$), null != $fmt_pattern$$8$$ ? $goog$dom$setTextContent$$($el$$83$$, $fmt_pattern$$8$$.format($blink_delay_value$$243$$)) : $goog$dom$setTextContent$$($el$$83$$, $blink_delay_value$$243$$), $el_formatter_should_add_blink_class$$ = !0)) : "show_element" == $model_action_tmp_value$$ ? (current_value = "none" != $el$$83$$.style.display, 
+  current_value !== $blink_delay_value$$243$$ && $goog$style$setElementShown$$($el$$83$$, $blink_delay_value$$243$$)) : "hide_element" == $model_action_tmp_value$$ && (current_value = "none" == $el$$83$$.style.display, current_value !== $blink_delay_value$$243$$ && $goog$style$setElementShown$$($el$$83$$, !$blink_delay_value$$243$$));
   if (!0 === $opt_blinkOnChange$$ && $el_formatter_should_add_blink_class$$) {
-    var $blink_class$$1$$ = $el$$82$$.getAttribute("data-blink-class");
-    null != $blink_class$$1$$ && ($blink_delay_value$$243$$ = $el$$82$$.getAttribute("data-blink-delay") || 700, $blink_delay_value$$243$$ = parseInt($blink_delay_value$$243$$, 10), $goog$dom$classes$add$$($el$$82$$, $blink_class$$1$$), $goog$Timer$callOnce$$(function() {
-      $goog$dom$classes$remove$$($el$$82$$, $blink_class$$1$$);
+    var $blink_class$$1$$ = $el$$83$$.getAttribute("data-blink-class");
+    null != $blink_class$$1$$ && ($blink_delay_value$$243$$ = $el$$83$$.getAttribute("data-blink-delay") || 700, $blink_delay_value$$243$$ = parseInt($blink_delay_value$$243$$, 10), $goog$dom$classes$add$$($el$$83$$, $blink_class$$1$$), $goog$Timer$callOnce$$(function() {
+      $goog$dom$classes$remove$$($el$$83$$, $blink_class$$1$$);
     }, $blink_delay_value$$243$$, $JSCompiler_StaticMethods_setElementValue_$self$$));
   }
 }
@@ -7149,19 +7159,19 @@ $bitex$model$Model$$.prototype.set = function $$bitex$model$Model$$$$set$($key$$
       }
     }
   }
-  $elements$$7_update_dom$$ && ($elements$$7_update_dom$$ = $goog$dom$getElementsByClass$$("bitex-model", this.$element_$), $goog$array$forEach$$($elements$$7_update_dom$$, function($el$$83$$) {
-    var $formula_result_match_model_key$$ = $el$$83$$.getAttribute("data-model-key") === $key$$94$$, $key_in_key_list$$ = !1, $model_key_list$$1$$ = $el$$83$$.getAttribute("data-model-key-list");
+  $elements$$7_update_dom$$ && ($elements$$7_update_dom$$ = $goog$dom$getElementsByClass$$("bitex-model", this.$element_$), $goog$array$forEach$$($elements$$7_update_dom$$, function($el$$84$$) {
+    var $formula_result_match_model_key$$ = $el$$84$$.getAttribute("data-model-key") === $key$$94$$, $key_in_key_list$$ = !1, $model_key_list$$1$$ = $el$$84$$.getAttribute("data-model-key-list");
     null != $model_key_list$$1$$ && ($model_key_list$$1$$ = $model_key_list$$1$$.split(","), $key_in_key_list$$ = $goog$array$contains$$($model_key_list$$1$$, $key$$94$$));
-    var $model_formula$$1$$ = $el$$83$$.getAttribute("data-model-formula");
+    var $model_formula$$1$$ = $el$$84$$.getAttribute("data-model-formula");
     if ($key_in_key_list$$ && null != $model_formula$$1$$) {
       var $variables$$2$$ = {};
       $goog$array$forEach$$($model_key_list$$1$$, function($model_key$$3$$) {
         $variables$$2$$[$model_key$$3$$] = this.get($model_key$$3$$, 0);
       }, this);
       $formula_result_match_model_key$$ = (new $expression_evaluator$Parser$$).parse($model_formula$$1$$).evaluate($variables$$2$$);
-      $JSCompiler_StaticMethods_setElementValue_$$(this, $el$$83$$, $formula_result_match_model_key$$, !0);
+      $JSCompiler_StaticMethods_setElementValue_$$(this, $el$$84$$, $formula_result_match_model_key$$, !0);
     } else {
-      $formula_result_match_model_key$$ && $JSCompiler_StaticMethods_setElementValue_$$(this, $el$$83$$, $value$$244$$, !0);
+      $formula_result_match_model_key$$ && $JSCompiler_StaticMethods_setElementValue_$$(this, $el$$84$$, $value$$244$$, !0);
     }
   }, this));
   this.dispatchEvent(new $bitex$model$ModelEvent$$("model_set" + $key$$94$$, $key$$94$$, $value$$244$$, $old_value_opt_deepExpose$$));
@@ -7539,10 +7549,10 @@ $JSCompiler_prototypeAlias$$.$enterDocument$ = function $$JSCompiler_prototypeAl
   $bitex$view$SignupView$$.$superClass_$.$enterDocument$.call(this);
   var $handler$$52$$ = this.$getHandler$(), $model$$2$$ = this.$app_$.$model_$, $signup_country_el$$ = $goog$dom$getElement$$("id_signup_country"), $signup_state_el$$ = $goog$dom$getElement$$("id_signup_state"), $broker_el$$ = $goog$dom$getElement$$("id_signup_broker");
   $goog$object$forEach$$($bitex$util$getCountries$$(), function($country_info$$, $country_code$$) {
-    var $country_el$$84$$ = $country_info$$;
-    $goog$isArrayLike$$($country_el$$84$$) && ($country_el$$84$$ = $country_el$$84$$[0]);
-    $country_el$$84$$ = $goog$dom$createDom$$("option", {value:$country_code$$}, $country_el$$84$$);
-    $signup_country_el$$.appendChild($country_el$$84$$);
+    var $country_el$$85$$ = $country_info$$;
+    $goog$isArrayLike$$($country_el$$85$$) && ($country_el$$85$$ = $country_el$$85$$[0]);
+    $country_el$$85$$ = $goog$dom$createDom$$("option", {value:$country_code$$}, $country_el$$85$$);
+    $signup_country_el$$.appendChild($country_el$$85$$);
   }, this);
   $handler$$52$$.$listen$($signup_country_el$$, "change", this.$onChangeCountry_$);
   $handler$$52$$.$listen$($signup_state_el$$, "change", this.$onChangeState_$);
@@ -7585,15 +7595,15 @@ $JSCompiler_prototypeAlias$$.$onBrokerList_$ = function $$JSCompiler_prototypeAl
   if (null != $broker_list$$) {
     $goog$dom$removeChildren$$($goog$dom$getElement$$("id_signup_broker"));
     if ($goog$isDefAndNotNull$$($model$$3$$.get("DefaultBrokerID"))) {
-      var $broker_info_el$$85$$ = $goog$array$find$$($broker_list$$, function($broker_info$$1$$) {
+      var $broker_info_el$$86$$ = $goog$array$find$$($broker_list$$, function($broker_info$$1$$) {
         if ($broker_info$$1$$.BrokerID === $model$$3$$.get("DefaultBrokerID")) {
           return!0;
         }
-      }), $broker_info_el$$85$$ = $goog$dom$createDom$$("option", {value:$broker_info_el$$85$$.BrokerID}, $broker_info_el$$85$$.SignupLabel);
-      $goog$dom$getElement$$("id_signup_broker").appendChild($broker_info_el$$85$$);
+      }), $broker_info_el$$86$$ = $goog$dom$createDom$$("option", {value:$broker_info_el$$86$$.BrokerID}, $broker_info_el$$86$$.SignupLabel);
+      $goog$dom$getElement$$("id_signup_broker").appendChild($broker_info_el$$86$$);
     }
-    $goog$object$forEach$$(this.$app_$.$getBrokersByCountry$(""), function($broker_info$$2_el$$86$$) {
-      $model$$3$$.get("DefaultBrokerID") != $broker_info$$2_el$$86$$.BrokerID && ($broker_info$$2_el$$86$$ = $goog$dom$createDom$$("option", {value:$broker_info$$2_el$$86$$.BrokerID}, $broker_info$$2_el$$86$$.SignupLabel), $goog$dom$getElement$$("id_signup_broker").appendChild($broker_info$$2_el$$86$$));
+    $goog$object$forEach$$(this.$app_$.$getBrokersByCountry$(""), function($broker_info$$2_el$$87$$) {
+      $model$$3$$.get("DefaultBrokerID") != $broker_info$$2_el$$87$$.BrokerID && ($broker_info$$2_el$$87$$ = $goog$dom$createDom$$("option", {value:$broker_info$$2_el$$87$$.BrokerID}, $broker_info$$2_el$$87$$.SignupLabel), $goog$dom$getElement$$("id_signup_broker").appendChild($broker_info$$2_el$$87$$));
     }, this);
     $goog$isDefAndNotNull$$($model$$3$$.get("DefaultBrokerID")) && ($goog$dom$forms$setValue$$($goog$dom$getElement$$("id_signup_broker"), "" + $model$$3$$.get("DefaultBrokerID")), this.$onChangeBroker_$());
     var $last_country_code$$ = "", $number_of_countries$$ = 0, $brokers_by_country$$ = {};
@@ -7640,8 +7650,8 @@ function $JSCompiler_StaticMethods_onSelectCountry_$$($JSCompiler_StaticMethods_
   if ($goog$isArrayLike$$($countries$$1_country_info$$1$$)) {
     var $states_name_array$$ = $countries$$1_country_info$$1$$[2].split("|"), $number_of_states_with_brokers$$ = 0, $last_state_with_broker$$ = "";
     $goog$array$forEach$$($countries$$1_country_info$$1$$[1].split("|"), function($state_code$$, $index$$94$$) {
-      var $el$$87$$ = $goog$dom$createDom$$("option", {value:$state_code$$}, $states_name_array$$[$index$$94$$]);
-      $goog$dom$getElement$$("id_signup_state").appendChild($el$$87$$);
+      var $el$$88$$ = $goog$dom$createDom$$("option", {value:$state_code$$}, $states_name_array$$[$index$$94$$]);
+      $goog$dom$getElement$$("id_signup_state").appendChild($el$$88$$);
       0 <= $goog$array$findIndex$$(this.$app_$.$getBrokersByCountry$($selected_country$$2$$), function($broker_info$$4$$) {
         if ($broker_info$$4$$.IsBrokerHub) {
           return!1;
@@ -7660,8 +7670,8 @@ function $JSCompiler_StaticMethods_onSelectCountry_$$($JSCompiler_StaticMethods_
   }
   var $number_of_available_brokers$$ = 0, $number_of_brokers_in_same_country$$ = 0, $last_available_broker$$ = "";
   $goog$object$forEach$$($JSCompiler_StaticMethods_onSelectCountry_$self$$.$app_$.$getBrokersByCountry$($selected_country$$2$$), function($broker_info$$5$$) {
-    var $el$$88$$ = $goog$dom$createDom$$("option", {value:$broker_info$$5$$.BrokerID}, $broker_info$$5$$.SignupLabel);
-    $goog$dom$getElement$$("id_signup_broker").appendChild($el$$88$$);
+    var $el$$89$$ = $goog$dom$createDom$$("option", {value:$broker_info$$5$$.BrokerID}, $broker_info$$5$$.SignupLabel);
+    $goog$dom$getElement$$("id_signup_broker").appendChild($el$$89$$);
     $broker_info$$5$$.IsBrokerHub || (++$number_of_available_brokers$$, $broker_info$$5$$.CountryCode === $selected_country$$2$$ && (++$number_of_brokers_in_same_country$$, $last_available_broker$$ = $broker_info$$5$$.BrokerID));
   }, $JSCompiler_StaticMethods_onSelectCountry_$self$$);
   $goog$isDefAndNotNull$$($model$$5$$.get("DefaultBrokerID")) ? $goog$dom$forms$setValue$$($goog$dom$getElement$$("id_signup_broker"), "" + $model$$5$$.get("DefaultBrokerID")) : 1 == $number_of_brokers_in_same_country$$ && $goog$dom$forms$setValue$$($goog$dom$getElement$$("id_signup_broker"), "" + $last_available_broker$$);
@@ -7670,10 +7680,10 @@ function $JSCompiler_StaticMethods_onSelectCountry_$$($JSCompiler_StaticMethods_
 function $JSCompiler_StaticMethods_onSelectState_$$($JSCompiler_StaticMethods_onSelectState_$self$$, $selected_country$$3$$, $selected_state$$1$$) {
   $goog$dom$removeChildren$$($goog$dom$getElement$$("id_signup_broker"));
   var $model$$6$$ = $JSCompiler_StaticMethods_onSelectState_$self$$.$app_$.$model_$, $number_of_available_brokers$$1$$ = 0, $number_of_brokers_in_same_country_state$$ = 0, $last_available_broker$$1$$ = "";
-  $goog$array$forEach$$($JSCompiler_StaticMethods_onSelectState_$self$$.$app_$.$getBrokersByCountry$($selected_country$$3$$, $selected_state$$1$$), function($broker_info$$6_el$$89$$) {
-    $broker_info$$6_el$$89$$.IsBrokerHub || (++$number_of_available_brokers$$1$$, $broker_info$$6_el$$89$$.CountryCode === $selected_country$$3$$ && $broker_info$$6_el$$89$$.State === $selected_state$$1$$ && (++$number_of_brokers_in_same_country_state$$, $last_available_broker$$1$$ = $broker_info$$6_el$$89$$.BrokerID));
-    $broker_info$$6_el$$89$$ = $goog$dom$createDom$$("option", {value:$broker_info$$6_el$$89$$.BrokerID}, $broker_info$$6_el$$89$$.SignupLabel);
-    $goog$dom$getElement$$("id_signup_broker").appendChild($broker_info$$6_el$$89$$);
+  $goog$array$forEach$$($JSCompiler_StaticMethods_onSelectState_$self$$.$app_$.$getBrokersByCountry$($selected_country$$3$$, $selected_state$$1$$), function($broker_info$$6_el$$90$$) {
+    $broker_info$$6_el$$90$$.IsBrokerHub || (++$number_of_available_brokers$$1$$, $broker_info$$6_el$$90$$.CountryCode === $selected_country$$3$$ && $broker_info$$6_el$$90$$.State === $selected_state$$1$$ && (++$number_of_brokers_in_same_country_state$$, $last_available_broker$$1$$ = $broker_info$$6_el$$90$$.BrokerID));
+    $broker_info$$6_el$$90$$ = $goog$dom$createDom$$("option", {value:$broker_info$$6_el$$90$$.BrokerID}, $broker_info$$6_el$$90$$.SignupLabel);
+    $goog$dom$getElement$$("id_signup_broker").appendChild($broker_info$$6_el$$90$$);
   }, $JSCompiler_StaticMethods_onSelectState_$self$$);
   $goog$isDefAndNotNull$$($model$$6$$.get("DefaultBrokerID")) ? $goog$dom$forms$setValue$$($goog$dom$getElement$$("id_signup_broker"), "" + $model$$6$$.get("DefaultBrokerID")) : 1 == $number_of_brokers_in_same_country_state$$ && $goog$dom$forms$setValue$$($goog$dom$getElement$$("id_signup_broker"), "" + $last_available_broker$$1$$);
   $JSCompiler_StaticMethods_onSelectState_$self$$.$onChangeBroker_$();
@@ -8335,6 +8345,9 @@ function $bitex$ui$WithdrawList$$($methodDescriptionObj$$, $opt_broker_mode_show
         case -8:
           $label_class_text_reason_el$$ = $goog$dom$createDom$$("abbr", {title:"Possui dep\u00f3sitos que ainda n\u00e3o est\u00e3o confirmados"}, $label_class_text_reason_el$$[1]);
           break;
+        case -9:
+          $label_class_text_reason_el$$ = $goog$dom$createDom$$("abbr", {title:"The withdraw function is temporarily blocked for your account"}, $label_class_text_reason_el$$[1]);
+          break;
         default:
           return $goog$dom$createDom$$("span", ["label", "label-" + $label_class_text_reason_el$$[0]], $label_class_text_reason_el$$[1]);
       }
@@ -8355,7 +8368,8 @@ function $bitex$ui$WithdrawList$$($methodDescriptionObj$$, $opt_broker_mode_show
       if ("Link" != $key$$96$$ && "Currency" != $key$$96$$ && "Fees" != $key$$96$$ && "TransactionID" != $key$$96$$ && null != $value$$251$$ && !$goog$string$isEmptyOrWhitespace$$($value$$251$$)) {
         if ("Wallet" == $key$$96$$) {
           var $btn_qr_child$$inline_968_child$$inline_971_child$$inline_974_key_description$$ = $goog$dom$createDom$$("a", {"class":"btn btn-mini btn-info btn-withdraw-list-qr", href:"#", "data-action":"SHOW_QR", "data-row":$goog$json$serialize$$($rowSet$$9$$)}, "QR", " ", $goog$dom$createDom$$("i", ["icon-white", "icon-qrcode"])), $btn_qr_child$$inline_968_child$$inline_971_child$$inline_974_key_description$$ = $goog$dom$createDom$$("tr", $bitex$ui$WithdrawList$CSS_CLASS$$ + "-details-tr", $goog$dom$createDom$$("td", 
-          $bitex$ui$WithdrawList$CSS_CLASS$$ + "-details-td-key", "Carteira"), $goog$dom$createDom$$("td", $bitex$ui$WithdrawList$CSS_CLASS$$ + "-details-td-value", $btn_qr_child$$inline_968_child$$inline_971_child$$inline_974_key_description$$))
+          $bitex$ui$WithdrawList$CSS_CLASS$$ + "-details-td-key", "Carteira"), $goog$dom$createDom$$("td", $bitex$ui$WithdrawList$CSS_CLASS$$ + "-details-td-value", $btn_qr_child$$inline_968_child$$inline_971_child$$inline_974_key_description$$));
+          $element$$157$$.appendChild($btn_qr_child$$inline_968_child$$inline_971_child$$inline_974_key_description$$);
         } else {
           $btn_qr_child$$inline_968_child$$inline_971_child$$inline_974_key_description$$ = $key$$96$$;
           switch($key$$96$$) {
@@ -8414,11 +8428,12 @@ function $bitex$ui$WithdrawList$$($methodDescriptionObj$$, $opt_broker_mode_show
             case "Email":
               $btn_qr_child$$inline_968_child$$inline_971_child$$inline_974_key_description$$ = "Email";
           }
-          $btn_qr_child$$inline_968_child$$inline_971_child$$inline_974_key_description$$ = "KYC" == $key$$96$$ || "SenderKYC" == $key$$96$$ ? $goog$dom$createDom$$("tr", $bitex$ui$WithdrawList$CSS_CLASS$$ + "-details-tr", $goog$dom$createDom$$("td", $bitex$ui$WithdrawList$CSS_CLASS$$ + "-details-td-key", $btn_qr_child$$inline_968_child$$inline_971_child$$inline_974_key_description$$), $goog$dom$createDom$$("td", $bitex$ui$WithdrawList$CSS_CLASS$$ + "-details-td-value", $goog$dom$createDom$$("a", 
-          {"class":"btn btn-mini btn-primary", target:"_blank", href:$data$$49$$.KYC}, "visualizar", " ", $goog$dom$createDom$$("i", ["icon-white", "icon-eye-open"])))) : $goog$dom$createDom$$("tr", $bitex$ui$WithdrawList$CSS_CLASS$$ + "-details-tr", $goog$dom$createDom$$("td", $bitex$ui$WithdrawList$CSS_CLASS$$ + "-details-td-key", $btn_qr_child$$inline_968_child$$inline_971_child$$inline_974_key_description$$), $goog$dom$createDom$$("td", $bitex$ui$WithdrawList$CSS_CLASS$$ + "-details-td-value", 
-          $value$$251$$));
+          if ("Instant" != $key$$96$$ || "Instant" == $key$$96$$ && $broker_mode$$) {
+            $btn_qr_child$$inline_968_child$$inline_971_child$$inline_974_key_description$$ = "KYC" == $key$$96$$ || "SenderKYC" == $key$$96$$ ? $goog$dom$createDom$$("tr", $bitex$ui$WithdrawList$CSS_CLASS$$ + "-details-tr", $goog$dom$createDom$$("td", $bitex$ui$WithdrawList$CSS_CLASS$$ + "-details-td-key", $btn_qr_child$$inline_968_child$$inline_971_child$$inline_974_key_description$$), $goog$dom$createDom$$("td", $bitex$ui$WithdrawList$CSS_CLASS$$ + "-details-td-value", $goog$dom$createDom$$("a", 
+            {"class":"btn btn-mini btn-primary", target:"_blank", href:$data$$49$$.KYC}, "visualizar", " ", $goog$dom$createDom$$("i", ["icon-white", "icon-eye-open"])))) : $goog$dom$createDom$$("tr", $bitex$ui$WithdrawList$CSS_CLASS$$ + "-details-tr", $goog$dom$createDom$$("td", $bitex$ui$WithdrawList$CSS_CLASS$$ + "-details-td-key", $btn_qr_child$$inline_968_child$$inline_971_child$$inline_974_key_description$$), $goog$dom$createDom$$("td", $bitex$ui$WithdrawList$CSS_CLASS$$ + "-details-td-value", 
+            $value$$251$$)), $element$$157$$.appendChild($btn_qr_child$$inline_968_child$$inline_971_child$$inline_974_key_description$$);
+          }
         }
-        $element$$157$$.appendChild($btn_qr_child$$inline_968_child$$inline_971_child$$inline_974_key_description$$);
       }
     }, this);
     if (null != $data$$49$$.Fees) {
@@ -8591,8 +8606,8 @@ $bitex$view$ToolBarView$$.prototype.$enterDocument$ = function $$bitex$view$Tool
   });
   $handler$$64$$.$listen$($model$$14$$, "model_setBroker", function() {
     var $support_link_elements$$ = $goog$dom$getElementsByClass$$("bitex-support-link");
-    $goog$array$forEach$$($support_link_elements$$, function($el$$93$$) {
-      $el$$93$$.href = $model$$14$$.get("Broker").SupportURL;
+    $goog$array$forEach$$($support_link_elements$$, function($el$$94$$) {
+      $el$$94$$.href = $model$$14$$.get("Broker").SupportURL;
     });
   });
   $handler$$64$$.$listen$($model$$14$$, "model_setSecurityList", function() {
@@ -9428,8 +9443,8 @@ function $JSCompiler_StaticMethods_adjustAvailableBadge_$$($JSCompiler_StaticMet
 }
 function $JSCompiler_StaticMethods_setAmountCurrency$$($JSCompiler_StaticMethods_setAmountCurrency$self$$, $sign$$1$$, $code$$16$$, $pip$$1$$, $number_of_decimals$$) {
   var $elements$$8$$ = $JSCompiler_StaticMethods_setAmountCurrency$self$$.$getDomHelper$().$getElementsByClass$($JSCompiler_StaticMethods_setAmountCurrency$self$$.$getBaseCssClass$() + "-amount-sign", $JSCompiler_StaticMethods_setAmountCurrency$self$$.$getElement$());
-  $goog$array$forEach$$($elements$$8$$, function($el$$96$$) {
-    $goog$dom$setTextContent$$($el$$96$$, $sign$$1$$);
+  $goog$array$forEach$$($elements$$8$$, function($el$$97$$) {
+    $goog$dom$setTextContent$$($el$$97$$, $sign$$1$$);
   });
   $JSCompiler_StaticMethods_setAmountCurrency$self$$.$model_$.$amount_currency_code$ = $code$$16$$;
   $JSCompiler_StaticMethods_setAmountCurrency$self$$.$model_$.$amount_currency_symbol$ = $sign$$1$$;
@@ -9438,8 +9453,8 @@ function $JSCompiler_StaticMethods_setAmountCurrency$$($JSCompiler_StaticMethods
 }
 function $JSCompiler_StaticMethods_setPriceCurrency$$($JSCompiler_StaticMethods_setPriceCurrency$self$$, $sign$$2$$, $code$$17$$, $pip$$2$$, $number_of_decimals$$1$$) {
   var $elements$$9$$ = $JSCompiler_StaticMethods_setPriceCurrency$self$$.$getDomHelper$().$getElementsByClass$($JSCompiler_StaticMethods_setPriceCurrency$self$$.$getBaseCssClass$() + "-price-sign", $JSCompiler_StaticMethods_setPriceCurrency$self$$.$getElement$());
-  $goog$array$forEach$$($elements$$9$$, function($el$$97$$) {
-    $goog$dom$setTextContent$$($el$$97$$, $sign$$2$$);
+  $goog$array$forEach$$($elements$$9$$, function($el$$98$$) {
+    $goog$dom$setTextContent$$($el$$98$$, $sign$$2$$);
   });
   $JSCompiler_StaticMethods_setPriceCurrency$self$$.$model_$.$price_currency_code$ = $code$$17$$;
   $JSCompiler_StaticMethods_setPriceCurrency$self$$.$model_$.$price_currency_symbol$ = $sign$$2$$;
@@ -9485,43 +9500,43 @@ $JSCompiler_prototypeAlias$$.$getPrice$ = function $$JSCompiler_prototypeAlias$$
   var $value$$258_value_fmt$$4$$ = new $goog$i18n$NumberFormat$$(1);
   $value$$258_value_fmt$$4$$.$maximumFractionDigits_$ = this.$model_$.$price_number_of_decimals$;
   $JSCompiler_StaticMethods_setMinimumFractionDigits$$($value$$258_value_fmt$$4$$, this.$model_$.$price_number_of_decimals$);
-  var $el$$98_inputValue$$4$$ = $goog$dom$getElement$$($JSCompiler_StaticMethods_makeId$$(this, "order_entry_price")), $el$$98_inputValue$$4$$ = $goog$dom$forms$getValue$$($el$$98_inputValue$$4$$), $pos$$17$$ = [0], $value$$258_value_fmt$$4$$ = $value$$258_value_fmt$$4$$.parse($el$$98_inputValue$$4$$, $pos$$17$$);
-  return $pos$$17$$[0] != $el$$98_inputValue$$4$$.length || isNaN($value$$258_value_fmt$$4$$) || 0 >= $value$$258_value_fmt$$4$$ ? 0 : parseInt($value$$258_value_fmt$$4$$ * this.$factor_price_$, 10);
+  var $el$$99_inputValue$$4$$ = $goog$dom$getElement$$($JSCompiler_StaticMethods_makeId$$(this, "order_entry_price")), $el$$99_inputValue$$4$$ = $goog$dom$forms$getValue$$($el$$99_inputValue$$4$$), $pos$$17$$ = [0], $value$$258_value_fmt$$4$$ = $value$$258_value_fmt$$4$$.parse($el$$99_inputValue$$4$$, $pos$$17$$);
+  return $pos$$17$$[0] != $el$$99_inputValue$$4$$.length || isNaN($value$$258_value_fmt$$4$$) || 0 >= $value$$258_value_fmt$$4$$ ? 0 : parseInt($value$$258_value_fmt$$4$$ * this.$factor_price_$, 10);
 };
 function $JSCompiler_StaticMethods_setPrice$$($JSCompiler_StaticMethods_setPrice$self$$, $value$$259$$) {
   var $fmt$$2$$ = new $goog$i18n$NumberFormat$$(1);
   $fmt$$2$$.$maximumFractionDigits_$ = $JSCompiler_StaticMethods_setPrice$self$$.$model_$.$price_number_of_decimals$;
   $JSCompiler_StaticMethods_setMinimumFractionDigits$$($fmt$$2$$, $JSCompiler_StaticMethods_setPrice$self$$.$model_$.$price_number_of_decimals$);
-  var $el$$99$$ = $goog$dom$getElement$$($JSCompiler_StaticMethods_makeId$$($JSCompiler_StaticMethods_setPrice$self$$, "order_entry_price"));
-  $goog$dom$forms$setValue$$($el$$99$$, $fmt$$2$$.format($value$$259$$ / $JSCompiler_StaticMethods_setPrice$self$$.$factor_price_$));
+  var $el$$100$$ = $goog$dom$getElement$$($JSCompiler_StaticMethods_makeId$$($JSCompiler_StaticMethods_setPrice$self$$, "order_entry_price"));
+  $goog$dom$forms$setValue$$($el$$100$$, $fmt$$2$$.format($value$$259$$ / $JSCompiler_StaticMethods_setPrice$self$$.$factor_price_$));
 }
 $JSCompiler_prototypeAlias$$.$getAmount$ = function $$JSCompiler_prototypeAlias$$$$getAmount$$() {
   var $value$$260_value_fmt$$5$$ = new $goog$i18n$NumberFormat$$(1);
   $value$$260_value_fmt$$5$$.$maximumFractionDigits_$ = this.$model_$.$amount_number_of_decimals$;
   $JSCompiler_StaticMethods_setMinimumFractionDigits$$($value$$260_value_fmt$$5$$, this.$model_$.$amount_number_of_decimals$);
-  var $el$$100_inputValue$$5$$ = $goog$dom$getElement$$($JSCompiler_StaticMethods_makeId$$(this, "order_entry_amount")), $el$$100_inputValue$$5$$ = $goog$dom$forms$getValue$$($el$$100_inputValue$$5$$), $pos$$18$$ = [0], $value$$260_value_fmt$$5$$ = $value$$260_value_fmt$$5$$.parse($el$$100_inputValue$$5$$, $pos$$18$$);
-  return $pos$$18$$[0] != $el$$100_inputValue$$5$$.length || isNaN($value$$260_value_fmt$$5$$) || 0 >= $value$$260_value_fmt$$5$$ ? 0 : parseInt($value$$260_value_fmt$$5$$ * this.$factor_amount_$, 10);
+  var $el$$101_inputValue$$5$$ = $goog$dom$getElement$$($JSCompiler_StaticMethods_makeId$$(this, "order_entry_amount")), $el$$101_inputValue$$5$$ = $goog$dom$forms$getValue$$($el$$101_inputValue$$5$$), $pos$$18$$ = [0], $value$$260_value_fmt$$5$$ = $value$$260_value_fmt$$5$$.parse($el$$101_inputValue$$5$$, $pos$$18$$);
+  return $pos$$18$$[0] != $el$$101_inputValue$$5$$.length || isNaN($value$$260_value_fmt$$5$$) || 0 >= $value$$260_value_fmt$$5$$ ? 0 : parseInt($value$$260_value_fmt$$5$$ * this.$factor_amount_$, 10);
 };
 function $JSCompiler_StaticMethods_setAmount$$($JSCompiler_StaticMethods_setAmount$self$$, $value$$261$$) {
   var $fmt$$3$$ = new $goog$i18n$NumberFormat$$(1);
   $fmt$$3$$.$maximumFractionDigits_$ = $JSCompiler_StaticMethods_setAmount$self$$.$model_$.$amount_number_of_decimals$;
   $JSCompiler_StaticMethods_setMinimumFractionDigits$$($fmt$$3$$, $JSCompiler_StaticMethods_setAmount$self$$.$model_$.$amount_number_of_decimals$);
-  var $el$$101$$ = $goog$dom$getElement$$($JSCompiler_StaticMethods_makeId$$($JSCompiler_StaticMethods_setAmount$self$$, "order_entry_amount"));
-  $goog$dom$forms$setValue$$($el$$101$$, $fmt$$3$$.format($value$$261$$ / $JSCompiler_StaticMethods_setAmount$self$$.$factor_amount_$));
+  var $el$$102$$ = $goog$dom$getElement$$($JSCompiler_StaticMethods_makeId$$($JSCompiler_StaticMethods_setAmount$self$$, "order_entry_amount"));
+  $goog$dom$forms$setValue$$($el$$102$$, $fmt$$3$$.format($value$$261$$ / $JSCompiler_StaticMethods_setAmount$self$$.$factor_amount_$));
 }
 $JSCompiler_prototypeAlias$$.$getTotal$ = function $$JSCompiler_prototypeAlias$$$$getTotal$$() {
   var $value$$262_value_fmt$$6$$ = new $goog$i18n$NumberFormat$$(1);
   $value$$262_value_fmt$$6$$.$maximumFractionDigits_$ = this.$model_$.$price_number_of_decimals$;
   $JSCompiler_StaticMethods_setMinimumFractionDigits$$($value$$262_value_fmt$$6$$, this.$model_$.$price_number_of_decimals$);
-  var $el$$102_inputValue$$6$$ = $goog$dom$getElement$$($JSCompiler_StaticMethods_makeId$$(this, "order_entry_total")), $el$$102_inputValue$$6$$ = $goog$dom$forms$getValue$$($el$$102_inputValue$$6$$), $pos$$19$$ = [0], $value$$262_value_fmt$$6$$ = $value$$262_value_fmt$$6$$.parse($el$$102_inputValue$$6$$, $pos$$19$$);
-  return $pos$$19$$[0] != $el$$102_inputValue$$6$$.length || isNaN($value$$262_value_fmt$$6$$) || 0 >= $value$$262_value_fmt$$6$$ ? 0 : parseInt($value$$262_value_fmt$$6$$ * this.$factor_price_$, 10);
+  var $el$$103_inputValue$$6$$ = $goog$dom$getElement$$($JSCompiler_StaticMethods_makeId$$(this, "order_entry_total")), $el$$103_inputValue$$6$$ = $goog$dom$forms$getValue$$($el$$103_inputValue$$6$$), $pos$$19$$ = [0], $value$$262_value_fmt$$6$$ = $value$$262_value_fmt$$6$$.parse($el$$103_inputValue$$6$$, $pos$$19$$);
+  return $pos$$19$$[0] != $el$$103_inputValue$$6$$.length || isNaN($value$$262_value_fmt$$6$$) || 0 >= $value$$262_value_fmt$$6$$ ? 0 : parseInt($value$$262_value_fmt$$6$$ * this.$factor_price_$, 10);
 };
 function $JSCompiler_StaticMethods_setTotal$$($JSCompiler_StaticMethods_setTotal$self$$, $value$$263$$) {
   var $fmt$$4$$ = new $goog$i18n$NumberFormat$$(1);
   $fmt$$4$$.$maximumFractionDigits_$ = $JSCompiler_StaticMethods_setTotal$self$$.$model_$.$price_number_of_decimals$;
   $JSCompiler_StaticMethods_setMinimumFractionDigits$$($fmt$$4$$, $JSCompiler_StaticMethods_setTotal$self$$.$model_$.$price_number_of_decimals$);
-  var $el$$103$$ = $goog$dom$getElement$$($JSCompiler_StaticMethods_makeId$$($JSCompiler_StaticMethods_setTotal$self$$, "order_entry_total"));
-  $goog$dom$forms$setValue$$($el$$103$$, $fmt$$4$$.format($value$$263$$ / $JSCompiler_StaticMethods_setTotal$self$$.$factor_price_$));
+  var $el$$104$$ = $goog$dom$getElement$$($JSCompiler_StaticMethods_makeId$$($JSCompiler_StaticMethods_setTotal$self$$, "order_entry_total"));
+  $goog$dom$forms$setValue$$($el$$104$$, $fmt$$4$$.format($value$$263$$ / $JSCompiler_StaticMethods_setTotal$self$$.$factor_price_$));
 }
 ;
 // Input 182
@@ -9740,8 +9755,8 @@ $JSCompiler_prototypeAlias$$.$onPriceQtyClick_$ = function $$JSCompiler_prototyp
   $JSCompiler_StaticMethods_setPrice$$(this.$buy_order_entry_$, $e$$149$$.$price$);
   $JSCompiler_StaticMethods_setPrice$$(this.$sell_order_entry_$, $e$$149$$.$price$);
   var $available_qty_symbol$$4$$ = this.$buy_order_entry_$.$getSymbol$(), $available_price_currency_max_bid_amount_qty_currency$$ = this.$app_$.$getQtyCurrencyFromSymbol$($available_qty_symbol$$4$$), $price_currency$$1$$ = this.$app_$.$getPriceCurrencyFromSymbol$($available_qty_symbol$$4$$), $available_qty_symbol$$4$$ = this.$app_$.$getBalance$($available_price_currency_max_bid_amount_qty_currency$$, "available"), $available_qty_symbol$$4$$ = (new $bitex$primitives$Price$$($available_qty_symbol$$4$$, 
-  this.$app_$.$currency_info_$[$available_price_currency_max_bid_amount_qty_currency$$].$pip$)).floor(), $available_price_currency_max_bid_amount_qty_currency$$ = this.$app_$.$getBalance$($price_currency$$1$$, "available"), $available_price_currency_max_bid_amount_qty_currency$$ = (new $bitex$primitives$Price$$($available_price_currency_max_bid_amount_qty_currency$$, this.$app_$.$currency_info_$[$price_currency$$1$$].$pip$)).floor(), $available_price_currency_max_bid_amount_qty_currency$$ = parseInt($available_price_currency_max_bid_amount_qty_currency$$ / 
-  $e$$149$$.$price$ * 1E8, 10);
+  $JSCompiler_StaticMethods_getCurrencyPip$$(this.$app_$, $available_price_currency_max_bid_amount_qty_currency$$))).floor(), $available_price_currency_max_bid_amount_qty_currency$$ = this.$app_$.$getBalance$($price_currency$$1$$, "available"), $available_price_currency_max_bid_amount_qty_currency$$ = (new $bitex$primitives$Price$$($available_price_currency_max_bid_amount_qty_currency$$, $JSCompiler_StaticMethods_getCurrencyPip$$(this.$app_$, $price_currency$$1$$))).floor(), $available_price_currency_max_bid_amount_qty_currency$$ = 
+  parseInt($available_price_currency_max_bid_amount_qty_currency$$ / $e$$149$$.$price$ * 1E8, 10);
   "bid" == $side$$7$$ ? ($JSCompiler_StaticMethods_setAmount$$(this.$sell_order_entry_$, Math.min($available_qty_symbol$$4$$, $e$$149$$.$cum_qty$)), $JSCompiler_StaticMethods_setAmount$$(this.$buy_order_entry_$, Math.min($e$$149$$.$qty$, $available_price_currency_max_bid_amount_qty_currency$$))) : ($JSCompiler_StaticMethods_setAmount$$(this.$buy_order_entry_$, Math.min($e$$149$$.$cum_qty$, $available_price_currency_max_bid_amount_qty_currency$$)), $JSCompiler_StaticMethods_setAmount$$(this.$sell_order_entry_$, 
   Math.min($available_qty_symbol$$4$$, $e$$149$$.$qty$)));
   $JSCompiler_StaticMethods_setTotal$$(this.$buy_order_entry_$, this.$buy_order_entry_$.$getPrice$() * this.$buy_order_entry_$.$getAmount$() / 1E8);
@@ -10273,8 +10288,8 @@ $JSCompiler_prototypeAlias$$.$onTitleCloseClick_$ = function $$JSCompiler_protot
 };
 function $JSCompiler_StaticMethods_handleTitleClose_$$($JSCompiler_StaticMethods_handleTitleClose_$self$$) {
   if ($JSCompiler_StaticMethods_handleTitleClose_$self$$.$hasTitleCloseButton_$) {
-    var $bs_caption$$19$$ = $JSCompiler_StaticMethods_handleTitleClose_$self$$.$buttons_$, $key$$97$$ = $bs_caption$$19$$ && $bs_caption$$19$$.$cancelButton_$;
-    $key$$97$$ ? ($bs_caption$$19$$ = $bs_caption$$19$$.get($key$$97$$), $JSCompiler_StaticMethods_handleTitleClose_$self$$.dispatchEvent(new $goog$ui$Dialog$Event$$($key$$97$$, $bs_caption$$19$$)) && $JSCompiler_StaticMethods_handleTitleClose_$self$$.$setVisible$(!1)) : $JSCompiler_StaticMethods_handleTitleClose_$self$$.$setVisible$(!1);
+    var $bs_caption$$20$$ = $JSCompiler_StaticMethods_handleTitleClose_$self$$.$buttons_$, $key$$97$$ = $bs_caption$$20$$ && $bs_caption$$20$$.$cancelButton_$;
+    $key$$97$$ ? ($bs_caption$$20$$ = $bs_caption$$20$$.get($key$$97$$), $JSCompiler_StaticMethods_handleTitleClose_$self$$.dispatchEvent(new $goog$ui$Dialog$Event$$($key$$97$$, $bs_caption$$20$$)) && $JSCompiler_StaticMethods_handleTitleClose_$self$$.$setVisible$(!1)) : $JSCompiler_StaticMethods_handleTitleClose_$self$$.$setVisible$(!1);
   }
 }
 $JSCompiler_prototypeAlias$$.$disposeInternal$ = function $$JSCompiler_prototypeAlias$$$$disposeInternal$$() {
@@ -10306,16 +10321,16 @@ $JSCompiler_prototypeAlias$$.$onButtonClick_$ = function $$JSCompiler_prototypeA
   }
   if ($button$$13_e$$170_el$$inline_1248_key$$98$$ && !$button$$13_e$$170_el$$inline_1248_key$$98$$.disabled) {
     $button$$13_e$$170_el$$inline_1248_key$$98$$ = $button$$13_e$$170_el$$inline_1248_key$$98$$.name;
-    var $caption$$20$$ = this.$buttons_$.get($button$$13_e$$170_el$$inline_1248_key$$98$$);
-    this.dispatchEvent(new $goog$ui$Dialog$Event$$($button$$13_e$$170_el$$inline_1248_key$$98$$, $caption$$20$$)) && this.$setVisible$(!1);
+    var $caption$$21$$ = this.$buttons_$.get($button$$13_e$$170_el$$inline_1248_key$$98$$);
+    this.dispatchEvent(new $goog$ui$Dialog$Event$$($button$$13_e$$170_el$$inline_1248_key$$98$$, $caption$$21$$)) && this.$setVisible$(!1);
   }
 };
 $JSCompiler_prototypeAlias$$.$onKey_$ = function $$JSCompiler_prototypeAlias$$$$onKey_$$($e$$171$$) {
-  var $caption$$21_close$$ = !1, $hasHandler$$ = !1, $buttonSet$$ = this.$buttons_$, $isSpecialFormElement_target$$60$$ = $e$$171$$.target;
+  var $caption$$22_close$$ = !1, $hasHandler$$ = !1, $buttonSet$$ = this.$buttons_$, $isSpecialFormElement_target$$60$$ = $e$$171$$.target;
   if ("keydown" == $e$$171$$.type) {
     if (this.$escapeToCancel_$ && 27 == $e$$171$$.keyCode) {
       var $cancel_key$$99$$ = $buttonSet$$ && $buttonSet$$.$cancelButton_$, $isSpecialFormElement_target$$60$$ = "SELECT" == $isSpecialFormElement_target$$60$$.tagName && !$isSpecialFormElement_target$$60$$.disabled;
-      $cancel_key$$99$$ && !$isSpecialFormElement_target$$60$$ ? ($hasHandler$$ = !0, $caption$$21_close$$ = $buttonSet$$.get($cancel_key$$99$$), $caption$$21_close$$ = this.dispatchEvent(new $goog$ui$Dialog$Event$$($cancel_key$$99$$, $caption$$21_close$$))) : $isSpecialFormElement_target$$60$$ || ($caption$$21_close$$ = !0);
+      $cancel_key$$99$$ && !$isSpecialFormElement_target$$60$$ ? ($hasHandler$$ = !0, $caption$$22_close$$ = $buttonSet$$.get($cancel_key$$99$$), $caption$$22_close$$ = this.dispatchEvent(new $goog$ui$Dialog$Event$$($cancel_key$$99$$, $caption$$22_close$$))) : $isSpecialFormElement_target$$60$$ || ($caption$$22_close$$ = !0);
     } else {
       if ($e$$171$$.keyCode == $goog$events$KeyCodes$TAB$$ && $e$$171$$.shiftKey && $isSpecialFormElement_target$$60$$ == this.$getElement$()) {
         this.$backwardTabWrapInProgress_$ = !0;
@@ -10353,20 +10368,20 @@ $JSCompiler_prototypeAlias$$.$onKey_$ = function $$JSCompiler_prototypeAlias$$$$
           }
         }
       }
-      $cancel_key$$99$$ && $buttonSet$$ && ($hasHandler$$ = !0, $caption$$21_close$$ = this.dispatchEvent(new $goog$ui$Dialog$Event$$($cancel_key$$99$$, String($buttonSet$$.get($cancel_key$$99$$)))));
+      $cancel_key$$99$$ && $buttonSet$$ && ($hasHandler$$ = !0, $caption$$22_close$$ = this.dispatchEvent(new $goog$ui$Dialog$Event$$($cancel_key$$99$$, String($buttonSet$$.get($cancel_key$$99$$)))));
     } else {
       $isSpecialFormElement_target$$60$$ == this.$titleCloseEl_$ && $e$$171$$.keyCode == $goog$events$KeyCodes$SPACE$$ && $JSCompiler_StaticMethods_handleTitleClose_$$(this);
     }
   }
-  if ($caption$$21_close$$ || $hasHandler$$) {
+  if ($caption$$22_close$$ || $hasHandler$$) {
     $e$$171$$.stopPropagation(), $e$$171$$.preventDefault();
   }
-  $caption$$21_close$$ && this.$setVisible$(!1);
+  $caption$$22_close$$ && this.$setVisible$(!1);
 };
-function $goog$ui$Dialog$Event$$($key$$100$$, $caption$$22$$) {
+function $goog$ui$Dialog$Event$$($key$$100$$, $caption$$23$$) {
   this.type = $goog$ui$Dialog$EventType$SELECT$$;
   this.key = $key$$100$$;
-  this.caption = $caption$$22$$;
+  this.caption = $caption$$23$$;
 }
 $goog$inherits$$($goog$ui$Dialog$Event$$, $goog$events$Event$$);
 var $goog$ui$Dialog$EventType$SELECT$$ = "dialogselect", $goog$ui$Dialog$EventType$AFTER_HIDE$$ = "afterhide", $goog$ui$Dialog$EventType$AFTER_SHOW$$ = "aftershow";
@@ -10380,8 +10395,8 @@ $JSCompiler_prototypeAlias$$.$class_$ = "goog-buttonset";
 $JSCompiler_prototypeAlias$$.$defaultButton_$ = null;
 $JSCompiler_prototypeAlias$$.$element_$ = null;
 $JSCompiler_prototypeAlias$$.$cancelButton_$ = null;
-$JSCompiler_prototypeAlias$$.set = function $$JSCompiler_prototypeAlias$$$set$($key$$101$$, $caption$$23$$, $opt_isDefault$$, $opt_isCancel$$) {
-  $goog$structs$Map$$.prototype.set.call(this, $key$$101$$, $caption$$23$$);
+$JSCompiler_prototypeAlias$$.set = function $$JSCompiler_prototypeAlias$$$set$($key$$101$$, $caption$$24$$, $opt_isDefault$$, $opt_isCancel$$) {
+  $goog$structs$Map$$.prototype.set.call(this, $key$$101$$, $caption$$24$$);
   $opt_isDefault$$ && (this.$defaultButton_$ = $key$$101$$);
   $opt_isCancel$$ && (this.$cancelButton_$ = $key$$101$$);
   return this;
@@ -10393,8 +10408,8 @@ $JSCompiler_prototypeAlias$$.render = function $$JSCompiler_prototypeAlias$$$ren
   if (this.$element_$) {
     this.$element_$.innerHTML = $goog$html$SafeHtml$unwrap$$($goog$html$SafeHtml$EMPTY$$);
     var $domHelper$$3$$ = $goog$dom$getDomHelper$$(this.$element_$);
-    this.forEach(function($caption$$24$$, $key$$102$$) {
-      var $button$$15$$ = $domHelper$$3$$.$createDom$("BUTTON", {name:$key$$102$$}, $caption$$24$$);
+    this.forEach(function($caption$$25$$, $key$$102$$) {
+      var $button$$15$$ = $domHelper$$3$$.$createDom$("BUTTON", {name:$key$$102$$}, $caption$$25$$);
       $key$$102$$ == this.$defaultButton_$ && ($button$$15$$.className = this.$class_$ + "-default");
       this.$element_$.appendChild($button$$15$$);
     }, this);
@@ -10404,10 +10419,10 @@ $JSCompiler_prototypeAlias$$.$decorate$ = function $$JSCompiler_prototypeAlias$$
   if ($buttons$$1_element$$216$$ && 1 == $buttons$$1_element$$216$$.nodeType) {
     this.$element_$ = $buttons$$1_element$$216$$;
     $buttons$$1_element$$216$$ = this.$element_$.getElementsByTagName("BUTTON");
-    for (var $i$$190$$ = 0, $button$$16$$, $key$$103$$, $caption$$25$$;$button$$16$$ = $buttons$$1_element$$216$$[$i$$190$$];$i$$190$$++) {
-      if ($key$$103$$ = $button$$16$$.name || $button$$16$$.id, $caption$$25$$ = $goog$dom$getTextContent$$($button$$16$$) || $button$$16$$.value, $key$$103$$) {
+    for (var $i$$190$$ = 0, $button$$16$$, $key$$103$$, $caption$$26$$;$button$$16$$ = $buttons$$1_element$$216$$[$i$$190$$];$i$$190$$++) {
+      if ($key$$103$$ = $button$$16$$.name || $button$$16$$.id, $caption$$26$$ = $goog$dom$getTextContent$$($button$$16$$) || $button$$16$$.value, $key$$103$$) {
         var $isDefault$$ = 0 == $i$$190$$;
-        this.set($key$$103$$, $caption$$25$$, $isDefault$$, $button$$16$$.name == $goog$ui$Dialog$DefaultButtonKeys$CANCEL$$);
+        this.set($key$$103$$, $caption$$26$$, $isDefault$$, $button$$16$$.name == $goog$ui$Dialog$DefaultButtonKeys$CANCEL$$);
         $isDefault$$ && $goog$dom$classlist$add$$($button$$16$$, this.$class_$ + "-default");
       }
     }
@@ -10476,8 +10491,8 @@ $bitex$ui$Dialog$ButtonSet$$.prototype.render = function $$bitex$ui$Dialog$Butto
   if (this.$element_$) {
     this.$element_$.innerHTML = "";
     var $domHelper$$4$$ = $goog$dom$getDomHelper$$(this.$element_$);
-    $goog$structs$forEach$$(this, function($caption$$26$$, $key$$108$$) {
-      var $button$$19$$ = $domHelper$$4$$.$createDom$("button", {name:$key$$108$$}, $caption$$26$$);
+    $goog$structs$forEach$$(this, function($caption$$27$$, $key$$108$$) {
+      var $button$$19$$ = $domHelper$$4$$.$createDom$("button", {name:$key$$108$$}, $caption$$27$$);
       $button$$19$$.className = $key$$108$$ == this.$defaultButton_$ ? "btn btn-primary" : "btn";
       this.$element_$.appendChild($button$$19$$);
     }, this);
@@ -10526,29 +10541,29 @@ $JSCompiler_prototypeAlias$$.$createDom$ = function $$JSCompiler_prototypeAlias$
 };
 function $JSCompiler_StaticMethods_setDirty$$($JSCompiler_StaticMethods_setDirty$self$$, $isDirty$$) {
   $JSCompiler_StaticMethods_setDirty$self$$.$model_$.$is_dirty$ = $isDirty$$;
-  $goog$array$forEach$$($goog$dom$getElementsByClass$$("withdraw-methods-show-when-dirty-state", $JSCompiler_StaticMethods_setDirty$self$$.$getElement$()), function($el$$106$$) {
-    $goog$style$setElementShown$$($el$$106$$, $isDirty$$);
+  $goog$array$forEach$$($goog$dom$getElementsByClass$$("withdraw-methods-show-when-dirty-state", $JSCompiler_StaticMethods_setDirty$self$$.$getElement$()), function($el$$107$$) {
+    $goog$style$setElementShown$$($el$$107$$, $isDirty$$);
   });
-  $goog$array$forEach$$($goog$dom$getElementsByClass$$("withdraw-methods-show-when-clean-state", $JSCompiler_StaticMethods_setDirty$self$$.$getElement$()), function($el$$107$$) {
-    $goog$style$setElementShown$$($el$$107$$, !$isDirty$$);
+  $goog$array$forEach$$($goog$dom$getElementsByClass$$("withdraw-methods-show-when-clean-state", $JSCompiler_StaticMethods_setDirty$self$$.$getElement$()), function($el$$108$$) {
+    $goog$style$setElementShown$$($el$$108$$, !$isDirty$$);
   });
-  $goog$array$forEach$$($goog$dom$getElementsByClass$$("withdraw-methods-show-when-saving-state", $JSCompiler_StaticMethods_setDirty$self$$.$getElement$()), function($el$$108$$) {
-    $goog$style$setElementShown$$($el$$108$$, !1);
+  $goog$array$forEach$$($goog$dom$getElementsByClass$$("withdraw-methods-show-when-saving-state", $JSCompiler_StaticMethods_setDirty$self$$.$getElement$()), function($el$$109$$) {
+    $goog$style$setElementShown$$($el$$109$$, !1);
   }, $JSCompiler_StaticMethods_setDirty$self$$);
 }
 function $JSCompiler_StaticMethods_setSavingStatus$$($JSCompiler_StaticMethods_setSavingStatus$self$$, $saving$$) {
-  $saving$$ ? ($goog$array$forEach$$($goog$dom$getElementsByClass$$("withdraw-methods-show-when-dirty-state", $JSCompiler_StaticMethods_setSavingStatus$self$$.$getElement$()), function($el$$109$$) {
-    $goog$style$setElementShown$$($el$$109$$, !1);
-  }, $JSCompiler_StaticMethods_setSavingStatus$self$$), $goog$array$forEach$$($goog$dom$getElementsByClass$$("withdraw-methods-show-when-clean-state", $JSCompiler_StaticMethods_setSavingStatus$self$$.$getElement$()), function($el$$110$$) {
+  $saving$$ ? ($goog$array$forEach$$($goog$dom$getElementsByClass$$("withdraw-methods-show-when-dirty-state", $JSCompiler_StaticMethods_setSavingStatus$self$$.$getElement$()), function($el$$110$$) {
     $goog$style$setElementShown$$($el$$110$$, !1);
-  }, $JSCompiler_StaticMethods_setSavingStatus$self$$), $goog$array$forEach$$($goog$dom$getElementsByClass$$("withdraw-methods-show-when-saving-state", $JSCompiler_StaticMethods_setSavingStatus$self$$.$getElement$()), function($el$$111$$) {
-    $goog$style$setElementShown$$($el$$111$$, !0);
-  }, $JSCompiler_StaticMethods_setSavingStatus$self$$)) : ($goog$array$forEach$$($goog$dom$getElementsByClass$$("withdraw-methods-show-when-dirty-state", $JSCompiler_StaticMethods_setSavingStatus$self$$.$getElement$()), function($el$$112$$) {
-    $goog$style$setElementShown$$($el$$112$$, this.$model_$.$is_dirty$);
-  }, $JSCompiler_StaticMethods_setSavingStatus$self$$), $goog$array$forEach$$($goog$dom$getElementsByClass$$("withdraw-methods-show-when-clean-state", $JSCompiler_StaticMethods_setSavingStatus$self$$.$getElement$()), function($el$$113$$) {
-    $goog$style$setElementShown$$($el$$113$$, !this.$model_$.$is_dirty$);
-  }, $JSCompiler_StaticMethods_setSavingStatus$self$$), $goog$array$forEach$$($goog$dom$getElementsByClass$$("withdraw-methods-show-when-saving-state", $JSCompiler_StaticMethods_setSavingStatus$self$$.$getElement$()), function($el$$114$$) {
-    $goog$style$setElementShown$$($el$$114$$, !1);
+  }, $JSCompiler_StaticMethods_setSavingStatus$self$$), $goog$array$forEach$$($goog$dom$getElementsByClass$$("withdraw-methods-show-when-clean-state", $JSCompiler_StaticMethods_setSavingStatus$self$$.$getElement$()), function($el$$111$$) {
+    $goog$style$setElementShown$$($el$$111$$, !1);
+  }, $JSCompiler_StaticMethods_setSavingStatus$self$$), $goog$array$forEach$$($goog$dom$getElementsByClass$$("withdraw-methods-show-when-saving-state", $JSCompiler_StaticMethods_setSavingStatus$self$$.$getElement$()), function($el$$112$$) {
+    $goog$style$setElementShown$$($el$$112$$, !0);
+  }, $JSCompiler_StaticMethods_setSavingStatus$self$$)) : ($goog$array$forEach$$($goog$dom$getElementsByClass$$("withdraw-methods-show-when-dirty-state", $JSCompiler_StaticMethods_setSavingStatus$self$$.$getElement$()), function($el$$113$$) {
+    $goog$style$setElementShown$$($el$$113$$, this.$model_$.$is_dirty$);
+  }, $JSCompiler_StaticMethods_setSavingStatus$self$$), $goog$array$forEach$$($goog$dom$getElementsByClass$$("withdraw-methods-show-when-clean-state", $JSCompiler_StaticMethods_setSavingStatus$self$$.$getElement$()), function($el$$114$$) {
+    $goog$style$setElementShown$$($el$$114$$, !this.$model_$.$is_dirty$);
+  }, $JSCompiler_StaticMethods_setSavingStatus$self$$), $goog$array$forEach$$($goog$dom$getElementsByClass$$("withdraw-methods-show-when-saving-state", $JSCompiler_StaticMethods_setSavingStatus$self$$.$getElement$()), function($el$$115$$) {
+    $goog$style$setElementShown$$($el$$115$$, !1);
   }, $JSCompiler_StaticMethods_setSavingStatus$self$$));
 }
 $JSCompiler_prototypeAlias$$.$enterDocument$ = function $$JSCompiler_prototypeAlias$$$$enterDocument$$() {
@@ -10666,8 +10681,9 @@ function $bitex$ui$withdraw_method_editor$templates$WithdrawMethodFieldLineEdito
   "selected" : "") + '>Texto</option></select></td><td><select id="' + $soy$$0$0escapeHtml$$($opt_data$$48_output$$41$$.id) + "_field_validator_" + $soy$$0$0escapeHtml$$($opt_data$$48_output$$41$$.$idx$) + '" class="withdraw-method-editor-field-validator"><option value="required" ' + ("required" == $opt_data$$48_output$$41$$.data.validator ? "selected" : "") + ' >Required</option><option value="validateEmail" ' + ("validateEmail" == $opt_data$$48_output$$41$$.data.validator ? "selected" : "") + ' >Email</option><option value="validateNumber" ' + 
   ("validateNumber" == $opt_data$$48_output$$41$$.data.validator ? "selected" : "") + ' >Number</option><option value="validateInteger" ' + ("validateInteger" == $opt_data$$48_output$$41$$.data.validator ? "selected" : "") + ' >Integer</option><option value="validateAlpha" ' + ("validateAlpha" == $opt_data$$48_output$$41$$.data.validator ? "selected" : "") + ' >Alpha</option><option value="validateUsername" ' + ("validateUsername" == $opt_data$$48_output$$41$$.data.validator ? "selected" : "") + 
   ' >Username</option><option value="validateAlphaNum" ' + ("validateAlphaNum" == $opt_data$$48_output$$41$$.data.validator ? "selected" : "") + ' >Alpha Numeric</option><option value="validatePhrase" ' + ("validatePhrase" == $opt_data$$48_output$$41$$.data.validator ? "selected" : "") + ' >Phrase</option><option value="validatePhoneNumber" ' + ("validatePhoneNumber" == $opt_data$$48_output$$41$$.data.validator ? "selected" : "") + ' >Phone Number</option><option value="validateAddress" ' + ("validateAddress" == 
-  $opt_data$$48_output$$41$$.data.validator ? "selected" : "") + '  >BTC Address</option></select></td><td><input id="' + $soy$$0$0escapeHtml$$($opt_data$$48_output$$41$$.id) + "_field_value_" + $soy$$0$0escapeHtml$$($opt_data$$48_output$$41$$.$idx$) + '" type="text" class="input-block-level withdraw-method-editor-field-value" placeholder="" value="' + $soy$$0$0escapeHtml$$($opt_data$$48_output$$41$$.data.value) + '"></td><td><button id="' + $soy$$0$0escapeHtml$$($opt_data$$48_output$$41$$.id) + 
-  "_field_delete_" + $soy$$0$0escapeHtml$$($opt_data$$48_output$$41$$.$idx$) + '" data-index="' + $soy$$0$0escapeHtml$$($opt_data$$48_output$$41$$.$idx$) + '" class="btn btn-mini btn-danger withdraw-method-editor-field-action-delete withdraw-method-editor-field-action">deletar</button></td></tr>');
+  $opt_data$$48_output$$41$$.data.validator ? "selected" : "") + '  >BTC Address</option><option value="validateCPFCNPJ" ' + ("validateCPFCNPJ" == $opt_data$$48_output$$41$$.data.validator ? "selected" : "") + ' >CPF/CNPJ</option></select></td><td><select id="' + $soy$$0$0escapeHtml$$($opt_data$$48_output$$41$$.id) + "_field_required_" + $soy$$0$0escapeHtml$$($opt_data$$48_output$$41$$.$idx$) + '" class="withdraw-method-editor-field-required"><option value="text" ' + ("Yes" == $opt_data$$48_output$$41$$.data.required ? 
+  "selected" : "") + '>Sim</option><option value="text" ' + ("No" == $opt_data$$48_output$$41$$.data.required ? "selected" : "") + '>N\u00e3o</option></select></td><td><input id="' + $soy$$0$0escapeHtml$$($opt_data$$48_output$$41$$.id) + "_field_value_" + $soy$$0$0escapeHtml$$($opt_data$$48_output$$41$$.$idx$) + '" type="text" class="input-block-level withdraw-method-editor-field-value" placeholder="" value="' + $soy$$0$0escapeHtml$$($opt_data$$48_output$$41$$.data.value) + '"></td><td><button id="' + 
+  $soy$$0$0escapeHtml$$($opt_data$$48_output$$41$$.id) + "_field_delete_" + $soy$$0$0escapeHtml$$($opt_data$$48_output$$41$$.$idx$) + '" data-index="' + $soy$$0$0escapeHtml$$($opt_data$$48_output$$41$$.$idx$) + '" class="btn btn-mini btn-danger withdraw-method-editor-field-action-delete withdraw-method-editor-field-action">deletar</button></td></tr>');
 }
 function $bitex$ui$withdraw_method_editor$templates$WithdrawMethodEditor$$($opt_data$$49$$) {
   var $output$$42$$;
@@ -10677,14 +10693,14 @@ function $bitex$ui$withdraw_method_editor$templates$WithdrawMethodEditor$$($opt_
   $soy$$0$0escapeHtml$$($opt_data$$49$$.$model$.percent_fee) + '"><span class="add-on">%</span></div></div><div class="span6"><div class="input-prepend"><span class="add-on">' + $soy$$0$0escapeHtml$$($opt_data$$49$$.$model$.currency) + '</span><input id="' + $soy$$0$0escapeHtml$$($opt_data$$49$$.id) + '_fixed_fee" type="text" class="input-block-level" autocomplete="off" data-uniform-validators="required ; validateNumber; validateMin 0" label="Taxa fixa" required value="' + $soy$$0$0escapeHtml$$($opt_data$$49$$.$model$.fixed_fee) + 
   '"></div></div></div></div></div><div class="control-group"><label class="control-label">Custos</label><div class="controls"><div class="row-fluid"><div class="span6"><div class="input-append"><input id="' + $soy$$0$0escapeHtml$$($opt_data$$49$$.id) + '_percent_cost" type="text" class="input-block-level" autocomplete="off" maxlength="4" data-uniform-validators="required ; validateNumber; validateMin 0; validateMax 25" label="Custo percentual" required value="' + $soy$$0$0escapeHtml$$($opt_data$$49$$.$model$.percent_cost) + 
   '"><span class="add-on">%</span></div></div><div class="span6"><div class="input-prepend"><span class="add-on">' + $soy$$0$0escapeHtml$$($opt_data$$49$$.$model$.currency) + '</span><input id="' + $soy$$0$0escapeHtml$$($opt_data$$49$$.id) + '_fixed_cost" type="text" class="input-block-level" autocomplete="off" data-uniform-validators="required ; validateNumber; validateMin 0" label="Custo fixo" required value="' + $soy$$0$0escapeHtml$$($opt_data$$49$$.$model$.fixed_cost) + '"></div></div></div></div></div><div class="control-group"><table id="' + 
-  $soy$$0$0escapeHtml$$($opt_data$$49$$.id) + '_table" class="table table-condensed table-bordered table-hover"><thead><tr><td colspan="7" style="text-align: center">Campos</td></tr><tr><th> Lado</th><th> Nome </th><th> R\u00f3tulo </th><th> Placeholder </th><th> Tipo </th><th> Valida\u00e7\u00e3o </th><th> Valor </th><th> A\u00e7\u00f5es </th></tr></thead><tbody>');
-  for (var $fieldList212_level241$$ = $opt_data$$49$$.$model$.fields, $fieldListLen212$$ = $fieldList212_level241$$.length, $fieldIndex212$$ = 0;$fieldIndex212$$ < $fieldListLen212$$;$fieldIndex212$$++) {
-    $output$$42$$ += $bitex$ui$withdraw_method_editor$templates$WithdrawMethodFieldLineEditor$$({id:$opt_data$$49$$.id, $idx$:$fieldIndex212$$, data:$fieldList212_level241$$[$fieldIndex212$$]});
+  $soy$$0$0escapeHtml$$($opt_data$$49$$.id) + '_table" class="table table-condensed table-bordered table-hover"><thead><tr><td colspan="7" style="text-align: center">Campos</td></tr><tr><th> Lado</th><th> Nome </th><th> R\u00f3tulo </th><th> Placeholder </th><th> Tipo </th><th> Valida\u00e7\u00e3o </th><th> Required </th><th> Valor </th><th> A\u00e7\u00f5es </th></tr></thead><tbody>');
+  for (var $fieldList237_level266$$ = $opt_data$$49$$.$model$.fields, $fieldListLen237$$ = $fieldList237_level266$$.length, $fieldIndex237$$ = 0;$fieldIndex237$$ < $fieldListLen237$$;$fieldIndex237$$++) {
+    $output$$42$$ += $bitex$ui$withdraw_method_editor$templates$WithdrawMethodFieldLineEditor$$({id:$opt_data$$49$$.id, $idx$:$fieldIndex237$$, data:$fieldList237_level266$$[$fieldIndex237$$]});
   }
   $output$$42$$ += '</tbody></table><button id="' + $soy$$0$0escapeHtml$$($opt_data$$49$$.id) + '_add" class="btn btn-primary"><i class="icon-white icon-plus"></i> Adicionar campo</button></div><div class="control-group"><table id="' + $soy$$0$0escapeHtml$$($opt_data$$49$$.id) + '_limits" class="table table-condensed table-bordered table-hover"><thead><tr><td colspan="4" style="text-align: center">Limites</td></tr><tr><th>N\u00edvel de verifica\u00e7\u00e3o</th><th>Ativado</th><th>M\u00edn</th><th>M\u00e1x</th></tr></thead><tbody>';
-  for ($fieldList212_level241$$ = 0;6 > $fieldList212_level241$$;$fieldList212_level241$$++) {
+  for ($fieldList237_level266$$ = 0;6 > $fieldList237_level266$$;$fieldList237_level266$$++) {
     $output$$42$$ += "<tr>";
-    switch($fieldList212_level241$$) {
+    switch($fieldList237_level266$$) {
       case 0:
         $output$$42$$ += "<td>N\u00e3o verificado</td>";
         break;
@@ -10703,11 +10719,11 @@ function $bitex$ui$withdraw_method_editor$templates$WithdrawMethodEditor$$($opt_
       case 5:
         $output$$42$$ += "<td>Verificado - N\u00edvel III</td>";
     }
-    $output$$42$$ += '<td><input id="' + $soy$$0$0escapeHtml$$($opt_data$$49$$.id) + "_level_" + $soy$$0$0escapeHtml$$($fieldList212_level241$$) + '_enabled" type="checkbox" class="withdraw-method-editor-limit-enabled"' + ($opt_data$$49$$.$model$.limits && $opt_data$$49$$.$model$.limits[$fieldList212_level241$$] && $opt_data$$49$$.$model$.limits[$fieldList212_level241$$].enabled ? "checked" : "") + '/></td><td><input id="' + $soy$$0$0escapeHtml$$($opt_data$$49$$.id) + "_level_" + $soy$$0$0escapeHtml$$($fieldList212_level241$$) + 
-    '_min" name="min_' + $soy$$0$0escapeHtml$$($fieldList212_level241$$) + '" type="text" autocomplete="off" class="input-small withdraw-method-editor-limit-max" data-uniform-label="M\u00edn" data-uniform-validators="validateNumber; validateMin 0" data-uniform-meta="display If ' + $soy$$0$0escapeHtml$$($opt_data$$49$$.id) + "_level_" + $soy$$0$0escapeHtml$$($fieldList212_level241$$) + "_enabled == 'on'; enable If " + $soy$$0$0escapeHtml$$($opt_data$$49$$.id) + "_level_" + $soy$$0$0escapeHtml$$($fieldList212_level241$$) + 
-    "_enabled == 'on'\" value=\"" + ($opt_data$$49$$.$model$.limits && $opt_data$$49$$.$model$.limits[$fieldList212_level241$$] && $opt_data$$49$$.$model$.limits[$fieldList212_level241$$].min ? $soy$$0$0escapeHtml$$($opt_data$$49$$.$model$.limits[$fieldList212_level241$$].min) : "0") + '"' + ($opt_data$$49$$.$model$.limits && $opt_data$$49$$.$model$.limits[$fieldList212_level241$$] && !$opt_data$$49$$.$model$.limits[$fieldList212_level241$$].enabled ? 'style="display: none;" disabled' : "") + '/></td><td><input id="' + 
-    $soy$$0$0escapeHtml$$($opt_data$$49$$.id) + "_level_" + $soy$$0$0escapeHtml$$($fieldList212_level241$$) + '_max" name="max_' + $soy$$0$0escapeHtml$$($fieldList212_level241$$) + '" type="text" autocomplete="off" class="input-small withdraw-method-editor-limit-max" data-uniform-label="M\u00e1x" data-uniform-validators="validateNumber" data-uniform-meta="display If ' + $soy$$0$0escapeHtml$$($opt_data$$49$$.id) + "_level_" + $soy$$0$0escapeHtml$$($fieldList212_level241$$) + "_enabled == 'on'; enable If " + 
-    $soy$$0$0escapeHtml$$($opt_data$$49$$.id) + "_level_" + $soy$$0$0escapeHtml$$($fieldList212_level241$$) + '_enabled == \'on\'"" value="' + ($opt_data$$49$$.$model$.limits && $opt_data$$49$$.$model$.limits[$fieldList212_level241$$] && $opt_data$$49$$.$model$.limits[$fieldList212_level241$$].max ? $soy$$0$0escapeHtml$$($opt_data$$49$$.$model$.limits[$fieldList212_level241$$].max) : "") + '"' + ($opt_data$$49$$.$model$.limits && $opt_data$$49$$.$model$.limits[$fieldList212_level241$$] && !$opt_data$$49$$.$model$.limits[$fieldList212_level241$$].enabled ? 
+    $output$$42$$ += '<td><input id="' + $soy$$0$0escapeHtml$$($opt_data$$49$$.id) + "_level_" + $soy$$0$0escapeHtml$$($fieldList237_level266$$) + '_enabled" type="checkbox" class="withdraw-method-editor-limit-enabled"' + ($opt_data$$49$$.$model$.limits && $opt_data$$49$$.$model$.limits[$fieldList237_level266$$] && $opt_data$$49$$.$model$.limits[$fieldList237_level266$$].enabled ? "checked" : "") + '/></td><td><input id="' + $soy$$0$0escapeHtml$$($opt_data$$49$$.id) + "_level_" + $soy$$0$0escapeHtml$$($fieldList237_level266$$) + 
+    '_min" name="min_' + $soy$$0$0escapeHtml$$($fieldList237_level266$$) + '" type="text" autocomplete="off" class="input-small withdraw-method-editor-limit-max" data-uniform-label="M\u00edn" data-uniform-validators="validateNumber; validateMin 0" data-uniform-meta="display If ' + $soy$$0$0escapeHtml$$($opt_data$$49$$.id) + "_level_" + $soy$$0$0escapeHtml$$($fieldList237_level266$$) + "_enabled == 'on'; enable If " + $soy$$0$0escapeHtml$$($opt_data$$49$$.id) + "_level_" + $soy$$0$0escapeHtml$$($fieldList237_level266$$) + 
+    "_enabled == 'on'\" value=\"" + ($opt_data$$49$$.$model$.limits && $opt_data$$49$$.$model$.limits[$fieldList237_level266$$] && $opt_data$$49$$.$model$.limits[$fieldList237_level266$$].min ? $soy$$0$0escapeHtml$$($opt_data$$49$$.$model$.limits[$fieldList237_level266$$].min) : "0") + '"' + ($opt_data$$49$$.$model$.limits && $opt_data$$49$$.$model$.limits[$fieldList237_level266$$] && !$opt_data$$49$$.$model$.limits[$fieldList237_level266$$].enabled ? 'style="display: none;" disabled' : "") + '/></td><td><input id="' + 
+    $soy$$0$0escapeHtml$$($opt_data$$49$$.id) + "_level_" + $soy$$0$0escapeHtml$$($fieldList237_level266$$) + '_max" name="max_' + $soy$$0$0escapeHtml$$($fieldList237_level266$$) + '" type="text" autocomplete="off" class="input-small withdraw-method-editor-limit-max" data-uniform-label="M\u00e1x" data-uniform-validators="validateNumber" data-uniform-meta="display If ' + $soy$$0$0escapeHtml$$($opt_data$$49$$.id) + "_level_" + $soy$$0$0escapeHtml$$($fieldList237_level266$$) + "_enabled == 'on'; enable If " + 
+    $soy$$0$0escapeHtml$$($opt_data$$49$$.id) + "_level_" + $soy$$0$0escapeHtml$$($fieldList237_level266$$) + '_enabled == \'on\'"" value="' + ($opt_data$$49$$.$model$.limits && $opt_data$$49$$.$model$.limits[$fieldList237_level266$$] && $opt_data$$49$$.$model$.limits[$fieldList237_level266$$].max ? $soy$$0$0escapeHtml$$($opt_data$$49$$.$model$.limits[$fieldList237_level266$$].max) : "") + '"' + ($opt_data$$49$$.$model$.limits && $opt_data$$49$$.$model$.limits[$fieldList237_level266$$] && !$opt_data$$49$$.$model$.limits[$fieldList237_level266$$].enabled ? 
     'style="display: none;" disabled' : "") + "/></td></tr>";
   }
   return $output$$42$$ + "</tbody></table></div></fieldset></form></div></div>";
@@ -10807,10 +10823,10 @@ function $JSCompiler_StaticMethods_getWithdrawMethodJSON$$($JSCompiler_StaticMet
   $result$$35$$.fields = [];
   $JSCompiler_StaticMethods_getWithdrawMethodJSON$self_field_row_fields_table_tbody_element$$ = $goog$dom$getFirstElementChild$$($JSCompiler_StaticMethods_getWithdrawMethodJSON$self_field_row_fields_table_tbody_element$$);
   for ($fmt$$7_row_number$$ = 0;null != $JSCompiler_StaticMethods_getWithdrawMethodJSON$self_field_row_fields_table_tbody_element$$;) {
-    $enabled$$10_field_record_fields_limits_tbody_element_pos$$22$$ = {side:$goog$dom$forms$getValue$$($goog$dom$getElementByClass$$("withdraw-method-editor-field-side", $JSCompiler_StaticMethods_getWithdrawMethodJSON$self_field_row_fields_table_tbody_element$$)), name:$goog$dom$forms$getValue$$($goog$dom$getElementByClass$$("withdraw-method-editor-field-name", $JSCompiler_StaticMethods_getWithdrawMethodJSON$self_field_row_fields_table_tbody_element$$)), label:$goog$dom$forms$getValue$$($goog$dom$getElementByClass$$("withdraw-method-editor-field-label", 
-    $JSCompiler_StaticMethods_getWithdrawMethodJSON$self_field_row_fields_table_tbody_element$$)), placeholder:$goog$dom$forms$getValue$$($goog$dom$getElementByClass$$("withdraw-method-editor-field-placeholder", $JSCompiler_StaticMethods_getWithdrawMethodJSON$self_field_row_fields_table_tbody_element$$)), type:$goog$dom$forms$getValue$$($goog$dom$getElementByClass$$("withdraw-method-editor-field-type", $JSCompiler_StaticMethods_getWithdrawMethodJSON$self_field_row_fields_table_tbody_element$$)), 
-    validator:$goog$dom$forms$getValue$$($goog$dom$getElementByClass$$("withdraw-method-editor-field-validator", $JSCompiler_StaticMethods_getWithdrawMethodJSON$self_field_row_fields_table_tbody_element$$)), value:$goog$dom$forms$getValue$$($goog$dom$getElementByClass$$("withdraw-method-editor-field-value", $JSCompiler_StaticMethods_getWithdrawMethodJSON$self_field_row_fields_table_tbody_element$$))}, $result$$35$$.fields.push($enabled$$10_field_record_fields_limits_tbody_element_pos$$22$$), $fmt$$7_row_number$$++, 
-    $JSCompiler_StaticMethods_getWithdrawMethodJSON$self_field_row_fields_table_tbody_element$$ = $goog$dom$getNextElementSibling$$($JSCompiler_StaticMethods_getWithdrawMethodJSON$self_field_row_fields_table_tbody_element$$);
+    $enabled$$10_field_record_fields_limits_tbody_element_pos$$22$$ = {required:$goog$dom$forms$getValue$$($goog$dom$getElementByClass$$("withdraw-method-editor-field-required", $JSCompiler_StaticMethods_getWithdrawMethodJSON$self_field_row_fields_table_tbody_element$$)), side:$goog$dom$forms$getValue$$($goog$dom$getElementByClass$$("withdraw-method-editor-field-side", $JSCompiler_StaticMethods_getWithdrawMethodJSON$self_field_row_fields_table_tbody_element$$)), name:$goog$dom$forms$getValue$$($goog$dom$getElementByClass$$("withdraw-method-editor-field-name", 
+    $JSCompiler_StaticMethods_getWithdrawMethodJSON$self_field_row_fields_table_tbody_element$$)), label:$goog$dom$forms$getValue$$($goog$dom$getElementByClass$$("withdraw-method-editor-field-label", $JSCompiler_StaticMethods_getWithdrawMethodJSON$self_field_row_fields_table_tbody_element$$)), placeholder:$goog$dom$forms$getValue$$($goog$dom$getElementByClass$$("withdraw-method-editor-field-placeholder", $JSCompiler_StaticMethods_getWithdrawMethodJSON$self_field_row_fields_table_tbody_element$$)), 
+    type:$goog$dom$forms$getValue$$($goog$dom$getElementByClass$$("withdraw-method-editor-field-type", $JSCompiler_StaticMethods_getWithdrawMethodJSON$self_field_row_fields_table_tbody_element$$)), validator:$goog$dom$forms$getValue$$($goog$dom$getElementByClass$$("withdraw-method-editor-field-validator", $JSCompiler_StaticMethods_getWithdrawMethodJSON$self_field_row_fields_table_tbody_element$$)), value:$goog$dom$forms$getValue$$($goog$dom$getElementByClass$$("withdraw-method-editor-field-value", 
+    $JSCompiler_StaticMethods_getWithdrawMethodJSON$self_field_row_fields_table_tbody_element$$))}, $result$$35$$.fields.push($enabled$$10_field_record_fields_limits_tbody_element_pos$$22$$), $fmt$$7_row_number$$++, $JSCompiler_StaticMethods_getWithdrawMethodJSON$self_field_row_fields_table_tbody_element$$ = $goog$dom$getNextElementSibling$$($JSCompiler_StaticMethods_getWithdrawMethodJSON$self_field_row_fields_table_tbody_element$$);
   }
   return $result$$35$$;
 }
@@ -10827,7 +10843,7 @@ $JSCompiler_prototypeAlias$$.$onAddField_$ = function $$JSCompiler_prototypeAlia
   $e$$177_table_tbody_el$$.stopPropagation();
   $e$$177_table_tbody_el$$ = $goog$dom$getElementsByTagNameAndClass$$("TBODY", void 0, $goog$dom$getElement$$($JSCompiler_StaticMethods_makeId$$(this, "form_table")))[0];
   var $wrapper$$7$$ = this.$getDomHelper$().createElement("tbody");
-  $wrapper$$7$$.innerHTML = $bitex$ui$withdraw_method_editor$templates$WithdrawMethodFieldLineEditor$$({id:$JSCompiler_StaticMethods_makeId$$(this, "form"), $idx$:"", data:{side:"client", name:"", validator:"", label:"", placeholder:"", type:"", value:""}});
+  $wrapper$$7$$.innerHTML = $bitex$ui$withdraw_method_editor$templates$WithdrawMethodFieldLineEditor$$({id:$JSCompiler_StaticMethods_makeId$$(this, "form"), $idx$:"", data:{side:"client", name:"", validator:"", label:"", placeholder:"", type:"", value:"", required:!1}});
   $e$$177_table_tbody_el$$.appendChild($wrapper$$7$$.firstChild);
 };
 // Input 197
@@ -10995,8 +11011,8 @@ $JSCompiler_prototypeAlias$$.$getClientID$ = function $$JSCompiler_prototypeAlia
   return this.$client_id_$;
 };
 $JSCompiler_prototypeAlias$$.$onElementChange_$ = function $$JSCompiler_prototypeAlias$$$$onElementChange_$$($changed_attribute_e$$188$$) {
-  var $el$$115_new_value$$1$$ = $changed_attribute_e$$188$$.target;
-  null != $el$$115_new_value$$1$$.getAttribute("data-profile-change") && ($changed_attribute_e$$188$$ = $el$$115_new_value$$1$$.getAttribute("data-profile-change"), this.$client_id_$ = null, $el$$115_new_value$$1$$ = $goog$dom$forms$getValue$$($el$$115_new_value$$1$$), this.$update_profile_data_$ = {}, this.$update_profile_data_$[$changed_attribute_e$$188$$] = $el$$115_new_value$$1$$, this.dispatchEvent("update_profile"));
+  var $el$$116_new_value$$1$$ = $changed_attribute_e$$188$$.target;
+  null != $el$$116_new_value$$1$$.getAttribute("data-profile-change") && ($changed_attribute_e$$188$$ = $el$$116_new_value$$1$$.getAttribute("data-profile-change"), this.$client_id_$ = null, $el$$116_new_value$$1$$ = $goog$dom$forms$getValue$$($el$$116_new_value$$1$$), this.$update_profile_data_$ = {}, this.$update_profile_data_$[$changed_attribute_e$$188$$] = $el$$116_new_value$$1$$, this.dispatchEvent("update_profile"));
 };
 $JSCompiler_prototypeAlias$$.$onValidationErrorWithdrawStructure_$ = function $$JSCompiler_prototypeAlias$$$$onValidationErrorWithdrawStructure_$$($e$$189$$) {
   this.$app_$.$showNotification$("error", $e$$189$$.target.$last_error_$);
@@ -11241,18 +11257,18 @@ $JSCompiler_prototypeAlias$$.$startDrag$ = function $$JSCompiler_prototypeAlias$
     if (this.$dragItem_$ = $item$$20$$, 0 == this.dispatchEvent(new $goog$fx$DragDropEvent$$("dragstart", 0, this.$dragItem_$))) {
       this.$dragItem_$ = null;
     } else {
-      var $bottom$$inline_2252_el$$116_i$$inline_2134$$ = $item$$20$$.$currentDragElement_$;
-      this.$dragEl_$ = this.$createDragElement$($bottom$$inline_2252_el$$116_i$$inline_2134$$);
-      var $container$$inline_1363_container$$inline_1371_doc$$51_target$$inline_1357$$ = $goog$dom$getOwnerDocument$$($bottom$$inline_2252_el$$116_i$$inline_2134$$);
+      var $bottom$$inline_2252_el$$117_i$$inline_2134$$ = $item$$20$$.$currentDragElement_$;
+      this.$dragEl_$ = this.$createDragElement$($bottom$$inline_2252_el$$117_i$$inline_2134$$);
+      var $container$$inline_1363_container$$inline_1371_doc$$51_target$$inline_1357$$ = $goog$dom$getOwnerDocument$$($bottom$$inline_2252_el$$117_i$$inline_2134$$);
       $container$$inline_1363_container$$inline_1371_doc$$51_target$$inline_1357$$.body.appendChild(this.$dragEl_$);
-      var $el$$inline_1352_i$$inline_1358_i$$inline_1364_i$$inline_1372$$ = this.$dragEl_$, $j$$inline_1360_j$$inline_1365_pos$$inline_1367_pos$$inline_2127$$ = $goog$style$getPageOffset$$($bottom$$inline_2252_el$$116_i$$inline_2134$$), $left$$inline_2249_marginBox$$inline_2128_size$$inline_1368_target$$inline_1366_target$$inline_2131$$;
+      var $el$$inline_1352_i$$inline_1358_i$$inline_1364_i$$inline_1372$$ = this.$dragEl_$, $j$$inline_1360_j$$inline_1365_pos$$inline_1367_pos$$inline_2127$$ = $goog$style$getPageOffset$$($bottom$$inline_2252_el$$117_i$$inline_2134$$), $left$$inline_2249_marginBox$$inline_2128_size$$inline_1368_target$$inline_1366_target$$inline_2131$$;
       if ($goog$userAgent$IE$$) {
-        $left$$inline_2249_marginBox$$inline_2128_size$$inline_1368_target$$inline_1366_target$$inline_2131$$ = $goog$style$getIePixelDistance_$$($bottom$$inline_2252_el$$116_i$$inline_2134$$, "marginLeft");
-        var $item$$inline_2132_itm$$inline_1359_right$$inline_2250$$ = $goog$style$getIePixelDistance_$$($bottom$$inline_2252_el$$116_i$$inline_2134$$, "marginRight"), $draggableElements$$inline_2133_top$$inline_2251$$ = $goog$style$getIePixelDistance_$$($bottom$$inline_2252_el$$116_i$$inline_2134$$, "marginTop"), $bottom$$inline_2252_el$$116_i$$inline_2134$$ = $goog$style$getIePixelDistance_$$($bottom$$inline_2252_el$$116_i$$inline_2134$$, "marginBottom");
-        $left$$inline_2249_marginBox$$inline_2128_size$$inline_1368_target$$inline_1366_target$$inline_2131$$ = new $goog$math$Box$$($draggableElements$$inline_2133_top$$inline_2251$$, $item$$inline_2132_itm$$inline_1359_right$$inline_2250$$, $bottom$$inline_2252_el$$116_i$$inline_2134$$, $left$$inline_2249_marginBox$$inline_2128_size$$inline_1368_target$$inline_1366_target$$inline_2131$$);
+        $left$$inline_2249_marginBox$$inline_2128_size$$inline_1368_target$$inline_1366_target$$inline_2131$$ = $goog$style$getIePixelDistance_$$($bottom$$inline_2252_el$$117_i$$inline_2134$$, "marginLeft");
+        var $item$$inline_2132_itm$$inline_1359_right$$inline_2250$$ = $goog$style$getIePixelDistance_$$($bottom$$inline_2252_el$$117_i$$inline_2134$$, "marginRight"), $draggableElements$$inline_2133_top$$inline_2251$$ = $goog$style$getIePixelDistance_$$($bottom$$inline_2252_el$$117_i$$inline_2134$$, "marginTop"), $bottom$$inline_2252_el$$117_i$$inline_2134$$ = $goog$style$getIePixelDistance_$$($bottom$$inline_2252_el$$117_i$$inline_2134$$, "marginBottom");
+        $left$$inline_2249_marginBox$$inline_2128_size$$inline_1368_target$$inline_1366_target$$inline_2131$$ = new $goog$math$Box$$($draggableElements$$inline_2133_top$$inline_2251$$, $item$$inline_2132_itm$$inline_1359_right$$inline_2250$$, $bottom$$inline_2252_el$$117_i$$inline_2134$$, $left$$inline_2249_marginBox$$inline_2128_size$$inline_1368_target$$inline_1366_target$$inline_2131$$);
       } else {
-        $left$$inline_2249_marginBox$$inline_2128_size$$inline_1368_target$$inline_1366_target$$inline_2131$$ = $goog$style$getComputedStyle$$($bottom$$inline_2252_el$$116_i$$inline_2134$$, "marginLeft"), $item$$inline_2132_itm$$inline_1359_right$$inline_2250$$ = $goog$style$getComputedStyle$$($bottom$$inline_2252_el$$116_i$$inline_2134$$, "marginRight"), $draggableElements$$inline_2133_top$$inline_2251$$ = $goog$style$getComputedStyle$$($bottom$$inline_2252_el$$116_i$$inline_2134$$, "marginTop"), 
-        $bottom$$inline_2252_el$$116_i$$inline_2134$$ = $goog$style$getComputedStyle$$($bottom$$inline_2252_el$$116_i$$inline_2134$$, "marginBottom"), $left$$inline_2249_marginBox$$inline_2128_size$$inline_1368_target$$inline_1366_target$$inline_2131$$ = new $goog$math$Box$$(parseFloat($draggableElements$$inline_2133_top$$inline_2251$$), parseFloat($item$$inline_2132_itm$$inline_1359_right$$inline_2250$$), parseFloat($bottom$$inline_2252_el$$116_i$$inline_2134$$), parseFloat($left$$inline_2249_marginBox$$inline_2128_size$$inline_1368_target$$inline_1366_target$$inline_2131$$))
+        $left$$inline_2249_marginBox$$inline_2128_size$$inline_1368_target$$inline_1366_target$$inline_2131$$ = $goog$style$getComputedStyle$$($bottom$$inline_2252_el$$117_i$$inline_2134$$, "marginLeft"), $item$$inline_2132_itm$$inline_1359_right$$inline_2250$$ = $goog$style$getComputedStyle$$($bottom$$inline_2252_el$$117_i$$inline_2134$$, "marginRight"), $draggableElements$$inline_2133_top$$inline_2251$$ = $goog$style$getComputedStyle$$($bottom$$inline_2252_el$$117_i$$inline_2134$$, "marginTop"), 
+        $bottom$$inline_2252_el$$117_i$$inline_2134$$ = $goog$style$getComputedStyle$$($bottom$$inline_2252_el$$117_i$$inline_2134$$, "marginBottom"), $left$$inline_2249_marginBox$$inline_2128_size$$inline_1368_target$$inline_1366_target$$inline_2131$$ = new $goog$math$Box$$(parseFloat($draggableElements$$inline_2133_top$$inline_2251$$), parseFloat($item$$inline_2132_itm$$inline_1359_right$$inline_2250$$), parseFloat($bottom$$inline_2252_el$$117_i$$inline_2134$$), parseFloat($left$$inline_2249_marginBox$$inline_2128_size$$inline_1368_target$$inline_1366_target$$inline_2131$$))
         ;
       }
       $j$$inline_1360_j$$inline_1365_pos$$inline_1367_pos$$inline_2127$$.x -= 2 * ($left$$inline_2249_marginBox$$inline_2128_size$$inline_1368_target$$inline_1366_target$$inline_2131$$.left || 0);
@@ -11268,8 +11284,8 @@ $JSCompiler_prototypeAlias$$.$startDrag$ = function $$JSCompiler_prototypeAlias$
       this.$targetList_$ = [];
       for ($el$$inline_1352_i$$inline_1358_i$$inline_1364_i$$inline_1372$$ = 0;$container$$inline_1363_container$$inline_1371_doc$$51_target$$inline_1357$$ = this.$targets_$[$el$$inline_1352_i$$inline_1358_i$$inline_1364_i$$inline_1372$$];$el$$inline_1352_i$$inline_1358_i$$inline_1364_i$$inline_1372$$++) {
         for ($j$$inline_1360_j$$inline_1365_pos$$inline_1367_pos$$inline_2127$$ = 0;$item$$inline_2132_itm$$inline_1359_right$$inline_2250$$ = $container$$inline_1363_container$$inline_1371_doc$$51_target$$inline_1357$$.$items_$[$j$$inline_1360_j$$inline_1365_pos$$inline_1367_pos$$inline_2127$$];$j$$inline_1360_j$$inline_1365_pos$$inline_1367_pos$$inline_2127$$++) {
-          for ($left$$inline_2249_marginBox$$inline_2128_size$$inline_1368_target$$inline_1366_target$$inline_2131$$ = $container$$inline_1363_container$$inline_1371_doc$$51_target$$inline_1357$$, $draggableElements$$inline_2133_top$$inline_2251$$ = [$item$$inline_2132_itm$$inline_1359_right$$inline_2250$$.element], $bottom$$inline_2252_el$$116_i$$inline_2134$$ = 0;$bottom$$inline_2252_el$$116_i$$inline_2134$$ < $draggableElements$$inline_2133_top$$inline_2251$$.length;$bottom$$inline_2252_el$$116_i$$inline_2134$$++) {
-            var $draggableElement$$inline_2135$$ = $draggableElements$$inline_2133_top$$inline_2251$$[$bottom$$inline_2252_el$$116_i$$inline_2134$$], $box$$inline_2136_pos$$inline_2138$$, $element$$inline_2137_size$$inline_2139$$ = $draggableElement$$inline_2135$$;
+          for ($left$$inline_2249_marginBox$$inline_2128_size$$inline_1368_target$$inline_1366_target$$inline_2131$$ = $container$$inline_1363_container$$inline_1371_doc$$51_target$$inline_1357$$, $draggableElements$$inline_2133_top$$inline_2251$$ = [$item$$inline_2132_itm$$inline_1359_right$$inline_2250$$.element], $bottom$$inline_2252_el$$117_i$$inline_2134$$ = 0;$bottom$$inline_2252_el$$117_i$$inline_2134$$ < $draggableElements$$inline_2133_top$$inline_2251$$.length;$bottom$$inline_2252_el$$117_i$$inline_2134$$++) {
+            var $draggableElement$$inline_2135$$ = $draggableElements$$inline_2133_top$$inline_2251$$[$bottom$$inline_2252_el$$117_i$$inline_2134$$], $box$$inline_2136_pos$$inline_2138$$, $element$$inline_2137_size$$inline_2139$$ = $draggableElement$$inline_2135$$;
             $box$$inline_2136_pos$$inline_2138$$ = $goog$style$getPageOffset$$($element$$inline_2137_size$$inline_2139$$);
             $element$$inline_2137_size$$inline_2139$$ = $goog$style$evaluateWithTemporaryDisplay_$$($element$$inline_2137_size$$inline_2139$$);
             $box$$inline_2136_pos$$inline_2138$$ = new $goog$math$Box$$($box$$inline_2136_pos$$inline_2138$$.y, $box$$inline_2136_pos$$inline_2138$$.x + $element$$inline_2137_size$$inline_2139$$.width, $box$$inline_2136_pos$$inline_2138$$.y + $element$$inline_2137_size$$inline_2139$$.height, $box$$inline_2136_pos$$inline_2138$$.x);
@@ -11550,10 +11566,10 @@ $JSCompiler_prototypeAlias$$.$getBaseCssClass$ = function $$JSCompiler_prototype
   return "order-book";
 };
 $JSCompiler_prototypeAlias$$.$createDom$ = function $$JSCompiler_prototypeAlias$$$$createDom$$() {
-  var $el$$119_title$$10$$ = "COMPRA", $columns$$6$$ = ["Comprador", "Quantidade", "Pre\u00e7o"];
-  this.$side_$ == $bitex$ui$OrderBook$Side$SELL$$ && ($el$$119_title$$10$$ = "VENDA", $columns$$6$$ = ["Pre\u00e7o", "Quantidade", "Vendedor"]);
-  $el$$119_title$$10$$ = $goog$soy$renderAsElement$$($bitex$ui$OrderBook$templates$OrderBook$$, {title:$el$$119_title$$10$$, $columns$:$columns$$6$$});
-  this.$decorateInternal$($el$$119_title$$10$$);
+  var $el$$120_title$$10$$ = "COMPRA", $columns$$6$$ = ["Comprador", "Quantidade", "Pre\u00e7o"];
+  this.$side_$ == $bitex$ui$OrderBook$Side$SELL$$ && ($el$$120_title$$10$$ = "VENDA", $columns$$6$$ = ["Pre\u00e7o", "Quantidade", "Vendedor"]);
+  $el$$120_title$$10$$ = $goog$soy$renderAsElement$$($bitex$ui$OrderBook$templates$OrderBook$$, {title:$el$$120_title$$10$$, $columns$:$columns$$6$$});
+  this.$decorateInternal$($el$$120_title$$10$$);
 };
 function $JSCompiler_StaticMethods_showFees$$($JSCompiler_StaticMethods_showFees$self$$, $show$$) {
   $JSCompiler_StaticMethods_showFees$self$$.$show_fees_$ = $show$$;
@@ -11638,15 +11654,15 @@ $JSCompiler_prototypeAlias$$.$onDragEnd_$ = function $$JSCompiler_prototypeAlias
   $goog$style$setOpacity$$($e$$199$$.$dragSourceItem$.element, 1);
 };
 $JSCompiler_prototypeAlias$$.$onClick_$ = function $$JSCompiler_prototypeAlias$$$$onClick_$$($e$$200_price$$4$$) {
-  var $el$$120_orderId$$3$$ = $e$$200_price$$4$$.target, $cum_qty$$2_tr_element$$ = $goog$dom$getAncestorByTagNameAndClass$$($el$$120_orderId$$3$$, "TR");
+  var $el$$121_orderId$$3$$ = $e$$200_price$$4$$.target, $cum_qty$$2_tr_element$$ = $goog$dom$getAncestorByTagNameAndClass$$($el$$121_orderId$$3$$, "TR");
   if (null != $cum_qty$$2_tr_element$$) {
-    if ("A" == $el$$120_orderId$$3$$.tagName || "I" == $el$$120_orderId$$3$$.tagName) {
-      $el$$120_orderId$$3$$ = $el$$120_orderId$$3$$.getAttribute("data-order-id"), null != $el$$120_orderId$$3$$ && (this.dispatchEvent(new $bitex$ui$OrderBookEvent$$($bitex$ui$OrderBook$EventType$CANCEL$$, $el$$120_orderId$$3$$)), $e$$200_price$$4$$.preventDefault(), $e$$200_price$$4$$.stopPropagation());
+    if ("A" == $el$$121_orderId$$3$$.tagName || "I" == $el$$121_orderId$$3$$.tagName) {
+      $el$$121_orderId$$3$$ = $el$$121_orderId$$3$$.getAttribute("data-order-id"), null != $el$$121_orderId$$3$$ && (this.dispatchEvent(new $bitex$ui$OrderBookEvent$$($bitex$ui$OrderBook$EventType$CANCEL$$, $el$$121_orderId$$3$$)), $e$$200_price$$4$$.preventDefault(), $e$$200_price$$4$$.stopPropagation());
     } else {
       $e$$200_price$$4$$ = parseInt($cum_qty$$2_tr_element$$.getAttribute("data-price-value"));
       var $qty$$4$$ = parseInt($cum_qty$$2_tr_element$$.getAttribute("data-qty-value")), $cum_qty$$2_tr_element$$ = parseInt($cum_qty$$2_tr_element$$.getAttribute("data-cum-qty-value"));
-      $goog$dom$classes$has$$($el$$120_orderId$$3$$, this.$getBaseCssClass$() + "-price") && this.dispatchEvent(new $bitex$ui$OrderBookEvent$$($bitex$ui$OrderBook$EventType$PRICE_CLICK$$, void 0, $qty$$4$$, $cum_qty$$2_tr_element$$, $e$$200_price$$4$$));
-      $goog$dom$classes$has$$($el$$120_orderId$$3$$, this.$getBaseCssClass$() + "-qty") && this.dispatchEvent(new $bitex$ui$OrderBookEvent$$($bitex$ui$OrderBook$EventType$QTY_CLICK$$, void 0, $qty$$4$$, $cum_qty$$2_tr_element$$, $e$$200_price$$4$$));
+      $goog$dom$classes$has$$($el$$121_orderId$$3$$, this.$getBaseCssClass$() + "-price") && this.dispatchEvent(new $bitex$ui$OrderBookEvent$$($bitex$ui$OrderBook$EventType$PRICE_CLICK$$, void 0, $qty$$4$$, $cum_qty$$2_tr_element$$, $e$$200_price$$4$$));
+      $goog$dom$classes$has$$($el$$121_orderId$$3$$, this.$getBaseCssClass$() + "-qty") && this.dispatchEvent(new $bitex$ui$OrderBookEvent$$($bitex$ui$OrderBook$EventType$QTY_CLICK$$, void 0, $qty$$4$$, $cum_qty$$2_tr_element$$, $e$$200_price$$4$$));
     }
   }
 };
@@ -11994,8 +12010,14 @@ function $bitex$ui$DepositList$$($crypto_currencies_def$$, $opt_broker_mode$$1_s
           return!0;
         }
       }));
-      null != $confirmation_info_array_number_of_confirmations$$ && ($crypto_currency_def_label_class_text$$1_number_of_necessary_confirmations$$ = $confirmation_info_array_number_of_confirmations$$[2], $confirmation_info_array_number_of_confirmations$$ = 0, $goog$isDef$$($rowSet$$11$$.Data) && $goog$isDef$$($rowSet$$11$$.Data.Confirmations) && ($confirmation_info_array_number_of_confirmations$$ = $rowSet$$11$$.Data.Confirmations), $progress_message$$ = $confirmation_info_array_number_of_confirmations$$ + 
-      (" de " + ($crypto_currency_def_label_class_text$$1_number_of_necessary_confirmations$$ + " confirma\u00e7\u00f5es")));
+      if (null != $confirmation_info_array_number_of_confirmations$$) {
+        $crypto_currency_def_label_class_text$$1_number_of_necessary_confirmations$$ = $confirmation_info_array_number_of_confirmations$$[2];
+        $confirmation_info_array_number_of_confirmations$$ = 0;
+        $goog$isDef$$($rowSet$$11$$.Data) && $goog$isDef$$($rowSet$$11$$.Data.Confirmations) && ($confirmation_info_array_number_of_confirmations$$ = $rowSet$$11$$.Data.Confirmations);
+        var $number_of_node_count$$ = 0;
+        $goog$isDef$$($rowSet$$11$$.Data) && $goog$isDef$$($rowSet$$11$$.Data.NodeCount) && ($number_of_node_count$$ = $rowSet$$11$$.Data.NodeCount);
+        $progress_message$$ = 0 > $confirmation_info_array_number_of_confirmations$$ ? "Double spent" : 0 == $confirmation_info_array_number_of_confirmations$$ && 0 < $number_of_node_count$$ ? "Unconfirmed.  - " + ($number_of_node_count$$ + " nodes") : $confirmation_info_array_number_of_confirmations$$ + (" de " + ($crypto_currency_def_label_class_text$$1_number_of_necessary_confirmations$$ + " confirma\u00e7\u00f5es"));
+      }
     }
     $crypto_currency_def_label_class_text$$1_number_of_necessary_confirmations$$ = function($s$$52$$) {
       switch($s$$52$$) {
@@ -12323,6 +12345,8 @@ $JSCompiler_prototypeAlias$$.$onDepositListReponse_$ = function $$JSCompiler_pro
   null != this.$deposit_list_table_$ && ($e$$211_msg$$25$$ = $e$$211_msg$$25$$.data, $JSCompiler_StaticMethods_setResultSet$$(this.$deposit_list_table_$, $e$$211_msg$$25$$.DepositListGrp, $e$$211_msg$$25$$.Columns));
 };
 // Input 226
+// Input 227
+// Input 228
 function $bitex$view$TradingView$$($app$$15$$, $opt_domHelper$$43$$) {
   $bitex$view$View$$.call(this, $app$$15$$, $opt_domHelper$$43$$);
   this.$request_order_id_$ = this.$client_order_id$ = this.$order_id_$ = this.$market_data_subscription_symbol_$ = this.$market_data_subscription_id_$ = null;
@@ -12480,7 +12504,7 @@ $JSCompiler_prototypeAlias$$.$onOBNewOrder_$ = function $$JSCompiler_prototypeAl
   var $price$$6$$ = $msg$$30_side$$13$$.MDEntryPx, $qty$$9$$ = $msg$$30_side$$13$$.MDEntrySize, $username$$6$$ = $msg$$30_side$$13$$.Username, $msg$$30_side$$13$$ = $msg$$30_side$$13$$.MDEntryType;
   "0" == $msg$$30_side$$13$$ ? ($goog$array$splice$$(this.$bids_$, $e$$222_index$$108$$, 0, [$price$$6$$, $qty$$9$$, $username$$6$$]), $JSCompiler_StaticMethods_setOrderDepth$$(this.$ask_order_entry_$, this.$bids_$)) : "1" == $msg$$30_side$$13$$ && ($goog$array$splice$$(this.$asks_$, $e$$222_index$$108$$, 0, [$price$$6$$, $qty$$9$$, $username$$6$$]), $JSCompiler_StaticMethods_setOrderDepth$$(this.$bid_order_entry_$, this.$asks_$));
 };
-// Input 227
+// Input 229
 function $bitex$view$LineOfCreditView$templates$PayLineOfCredit$$($opt_data$$62$$) {
   var $output$$48$$;
   $output$$48$$ = "" + ('<form  id="' + $soy$$0$0escapeHtml$$($opt_data$$62$$.id) + '_form" class="pay-line-of-credit-data-entry-form form-horizontal"><input type="hidden" name="ID"  value="' + $soy$$0$0escapeHtml$$($opt_data$$62$$.data.ID) + '"/><fieldset>');
@@ -12559,7 +12583,7 @@ function $bitex$view$LineOfCreditView$templates$GetLineOfCredit$$($opt_data$$63$
   return $output$$49$$ + "</fieldset></form>";
 }
 ;
-// Input 228
+// Input 230
 function $bitex$ui$LineOfCreditTable$$($accountID$$, $opt_domHelper$$44$$) {
   $bitex$ui$DataGrid$$.call(this, {title:"Linha de cr\u00e9dito", showSearch:!1, rowIDFn:this.$getRowId$, columns:[{property:"Currency", label:"Moeda", sortable:!1, classes:function() {
     return $bitex$ui$LineOfCreditTable$CSS_CLASS$$ + "-currency";
@@ -12614,7 +12638,7 @@ $bitex$ui$LineOfCreditTable$$.prototype.$getRowId$ = function $$bitex$ui$LineOfC
 $goog$ui$registry$setDecoratorByClassName$$($bitex$ui$LineOfCreditTable$CSS_CLASS$$, function() {
   return new $bitex$ui$LineOfCreditTable$$;
 });
-// Input 229
+// Input 231
 function $bitex$view$LineOfCreditView$$($app$$16$$, $opt_domHelper$$45$$) {
   $bitex$view$View$$.call(this, $app$$16$$, $opt_domHelper$$45$$);
   this.$request_id_$ = null;
@@ -12732,9 +12756,9 @@ $JSCompiler_prototypeAlias$$.$onLineOfCreditGet_$ = function $$JSCompiler_protot
   }, this);
   $handler$$93$$.$listen$($goog$dom$getElement$$($JSCompiler_StaticMethods_makeId$$(this, "loc_form_delivery_currency")), "change", function() {
     var $delivery_currency$$4$$ = $goog$dom$forms$getValue$$($goog$dom$getElement$$($JSCompiler_StaticMethods_makeId$$(this, "loc_form_delivery_currency")));
-    $goog$array$forEach$$($goog$dom$getElementsByClass$$("line-of-credit-delivery-currency"), function($el$$123$$) {
-      $goog$style$setElementShown$$($el$$123$$, !1);
-      $el$$123$$.getAttribute("data-delivery-currency") == $delivery_currency$$4$$ && $goog$style$setElementShown$$($el$$123$$, !0);
+    $goog$array$forEach$$($goog$dom$getElementsByClass$$("line-of-credit-delivery-currency"), function($el$$124$$) {
+      $goog$style$setElementShown$$($el$$124$$, !1);
+      $el$$124$$.getAttribute("data-delivery-currency") == $delivery_currency$$4$$ && $goog$style$setElementShown$$($el$$124$$, !0);
     }, this);
   }, this);
   $goog$array$forEach$$(line_of_credit.DeliveryCurrencies, function($delivery_currency$$5$$) {
@@ -12801,9 +12825,9 @@ $JSCompiler_prototypeAlias$$.$onLineOfCreditPayback_$ = function $$JSCompiler_pr
   }, this);
   $handler$$94$$.$listen$($goog$dom$getElement$$($JSCompiler_StaticMethods_makeId$$(this, "loc_form_delivery_currency")), "change", function() {
     var $delivery_currency$$7$$ = $goog$dom$forms$getValue$$($goog$dom$getElement$$($JSCompiler_StaticMethods_makeId$$(this, "loc_form_delivery_currency")));
-    $goog$array$forEach$$($goog$dom$getElementsByClass$$("line-of-credit-delivery-currency"), function($el$$124$$) {
-      $goog$style$setElementShown$$($el$$124$$, !1);
-      $el$$124$$.getAttribute("data-delivery-currency") == $delivery_currency$$7$$ && $goog$style$setElementShown$$($el$$124$$, !0);
+    $goog$array$forEach$$($goog$dom$getElementsByClass$$("line-of-credit-delivery-currency"), function($el$$125$$) {
+      $goog$style$setElementShown$$($el$$125$$, !1);
+      $el$$125$$.getAttribute("data-delivery-currency") == $delivery_currency$$7$$ && $goog$style$setElementShown$$($el$$125$$, !0);
     }, this);
   }, this);
   $goog$array$forEach$$(line_of_credit.DeliveryCurrencies, function($delivery_currency$$8$$) {
@@ -12868,8 +12892,8 @@ $JSCompiler_prototypeAlias$$.$onLineOfCreditListRefresh_$ = function $$JSCompile
 $JSCompiler_prototypeAlias$$.$onLineOfCreditListResponse_$ = function $$JSCompiler_prototypeAlias$$$$onLineOfCreditListResponse_$$($e$$237_msg$$32$$) {
   null != this.$line_of_credit_table_$ && ($e$$237_msg$$32$$ = $e$$237_msg$$32$$.data, $JSCompiler_StaticMethods_setResultSet$$(this.$line_of_credit_table_$, $e$$237_msg$$32$$.LineOfCreditListGrp, $e$$237_msg$$32$$.Columns));
 };
-// Input 230
-// Input 231
+// Input 232
+// Input 233
 function $goog$net$WebSocket$$($opt_autoReconnect$$, $opt_getNextReconnect$$) {
   $goog$events$EventTarget$$.call(this);
   this.$autoReconnect_$ = $goog$isDef$$($opt_autoReconnect$$) ? $opt_autoReconnect$$ : !0;
@@ -12941,7 +12965,7 @@ function $goog$net$WebSocket$ErrorEvent$$($data$$52$$) {
   this.data = $data$$52$$;
 }
 $goog$inherits$$($goog$net$WebSocket$ErrorEvent$$, $goog$events$Event$$);
-// Input 232
+// Input 234
 function $bitex$api$BitEx$$($opt_browser_finger_print$$) {
   $goog$events$EventTarget$$.call(this);
   this.$all_markets_$ = this.$currency_info_$ = null;
@@ -13593,7 +13617,7 @@ BitEx.prototype.payLineOfCredit = $bitex$api$BitEx$$.prototype.$payLineOfCredit$
 BitEx.prototype.enableLineOfCredit = $bitex$api$BitEx$$.prototype.$enableLineOfCredit$;
 BitEx.prototype.addEventListener = $bitex$api$BitEx$$.prototype.addEventListener;
 BitEx.prototype.removeEventListener = $bitex$api$BitEx$$.prototype.removeEventListener;
-// Input 233
+// Input 235
 function $bitex$ui$RankingViewTable$$($opt_domHelper$$46$$) {
   $bitex$ui$DataGrid$$.call(this, {rowIDFn:this.$getRowId$, columns:[{property:"Rank", label:"#", sortable:!1, classes:function() {
     return $bitex$ui$RankingViewTable$CSS_CLASS$$ + "-rank";
@@ -13615,7 +13639,7 @@ $bitex$ui$RankingViewTable$$.prototype.$getRowId$ = function $$bitex$ui$RankingV
 $goog$ui$registry$setDecoratorByClassName$$($bitex$ui$RankingViewTable$CSS_CLASS$$, function() {
   return new $bitex$ui$RankingViewTable$$;
 });
-// Input 234
+// Input 236
 function $bitex$view$RankingView$$($app$$17$$, $opt_domHelper$$47$$) {
   $bitex$view$View$$.call(this, $app$$17$$, $opt_domHelper$$47$$);
 }
@@ -13658,7 +13682,7 @@ $JSCompiler_prototypeAlias$$.$onRankingTableRequestData_$ = function $$JSCompile
 $JSCompiler_prototypeAlias$$.$onTradeRankResponse_$ = function $$JSCompiler_prototypeAlias$$$$onTradeRankResponse_$$($e$$242_msg$$83$$) {
   null != this.$ranking_table_$ && ($e$$242_msg$$83$$ = $e$$242_msg$$83$$.data, $JSCompiler_StaticMethods_setResultSet$$(this.$ranking_table_$, $e$$242_msg$$83$$.TradersRankGrp, $e$$242_msg$$83$$.Columns));
 };
-// Input 235
+// Input 237
 function $bitex$ui$APIKeyDataEntry$templates$APIKeyDataEntry$$($opt_data$$66$$) {
   var $output$$50$$;
   $output$$50$$ = "" + ('<form  id="' + $soy$$0$0escapeHtml$$($opt_data$$66$$.id) + '_form" class="api-key-data-entry-form"><fieldset><h2>Create API Key</h2><div class="api-key-data-entry-form-block control-group"><label>API Key Label<input id="' + $soy$$0$0escapeHtml$$($opt_data$$66$$.id) + '_label" type="text" class="input-block-level"></label></div><div class="api-key-data-entry-form-block control-group"><div class="pull-right"><label class="no-selection">Clear all</label></div><div class="pull-right api-key-data-entry-form-pipe">|</div><div class="pull-right"><label class="no-selection">Select all</label></div><h3>Permissions</h3><table id="' + 
@@ -13674,11 +13698,11 @@ function $bitex$ui$APIKeyDataEntry$templates$APIKeyDataEntry$$($opt_data$$66$$) 
     $mData64_mData77$$ = $mList64_mList77$$[$mIndex64_mIndex77$$], $output$$50$$ += '<tr><td colspan="2" class="no-selection"><label class="checkbox"><input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="U6" data-permission-filters=\'[ ["Method", "eq", "' + $soy$$0$0escapeHtml$$($mData64_mData77$$.id) + "\" ] ]' >" + $soy$$0$0escapeHtml$$($mData64_mData77$$.currency) + " - " + $soy$$0$0escapeHtml$$($mData64_mData77$$.description) + "</input></label></td></tr>"
     ;
   }
-  return $output$$50$$ += '</tbody></table></div><div class="api-key-data-entry-form-block control-group"><h3>IP Whitelist</h3><label>IP Addresses<input id="' + $soy$$0$0escapeHtml$$($opt_data$$66$$.id) + '_ip_whitelist" type="text" class="input-block-level"><span class="helpblock">Enter a list of IP Address separated by comma (ie. 55.55.55.55,44.44.44.44) that you want to white list. Not specifying an IP Address means that you are allowing this API Key to be used from any IP</span></label></div><div class="text-center"><button id="' + 
+  return $output$$50$$ += '<tr><td colspan="2" class="no-selection"><label class="checkbox"><input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="U24">Confirm Withdrawal</input></label></td></tr></tbody></table></div><div class="api-key-data-entry-form-block control-group"><h3>IP Whitelist</h3><label>IP Addresses<input id="' + $soy$$0$0escapeHtml$$($opt_data$$66$$.id) + '_ip_whitelist" type="text" class="input-block-level"><span class="helpblock">Enter a list of IP Address separated by comma (ie. 55.55.55.55,44.44.44.44) that you want to white list. Not specifying an IP Address means that you are allowing this API Key to be used from any IP</span></label></div><div class="text-center"><button id="' + 
   $soy$$0$0escapeHtml$$($opt_data$$66$$.id) + '_cancel_btn" class="btn">Cancel</button><button id="' + $soy$$0$0escapeHtml$$($opt_data$$66$$.id) + '_create_btn" type="submit" class="btn btn-primary">Create</button></div></fieldset></form>';
 }
 ;
-// Input 236
+// Input 238
 function $bitex$ui$APIKeyDataEntry$$($opt_model$$2$$, $opt_domHelper$$48$$) {
   $goog$ui$Component$$.call(this, $opt_domHelper$$48$$);
   this.$setModel$($opt_model$$2$$ || {deposit_methods:[], withdrawal_methods:[]});
@@ -13739,7 +13763,7 @@ $JSCompiler_prototypeAlias$$.$onSubmit_$ = function $$JSCompiler_prototypeAlias$
   $e$$245$$.preventDefault();
   0 < this.$uniform_$.$validate$().length ? $e$$245$$.stopPropagation() : this.dispatchEvent("api_key_data_entry_submit");
 };
-// Input 237
+// Input 239
 function $bitex$ui$ApiList$$($opt_domHelper$$49$$) {
   $bitex$ui$DataGrid$$.call(this, {rowIDFn:this.$getRowId$, rowClassFn:this.$getRowClass$, columns:[{property:"LastUsed", label:"Last Used", sortable:!1, formatter:function($s$$56$$) {
     return $bitex$util$convertServerUTCDateTimeStrToTimestamp$$($s$$56$$.substr(0, 10), $s$$56$$.substr(11)).toLocaleString();
@@ -13777,7 +13801,7 @@ $JSCompiler_prototypeAlias$$.$getRowId$ = function $$JSCompiler_prototypeAlias$$
 $goog$ui$registry$setDecoratorByClassName$$($bitex$ui$ApiList$CSS_CLASS$$, function() {
   return new $bitex$ui$ApiList$$;
 });
-// Input 238
+// Input 240
 function $bitex$view$APIView$$($app$$18$$, $opt_domHelper$$50$$) {
   $bitex$view$View$$.call(this, $app$$18$$, $opt_domHelper$$50$$);
 }
@@ -13867,7 +13891,7 @@ $JSCompiler_prototypeAlias$$.$onApiListRequestData_$ = function $$JSCompiler_pro
 $JSCompiler_prototypeAlias$$.$onTradeRankResponse_$ = function $$JSCompiler_prototypeAlias$$$$onTradeRankResponse_$$($e$$252_msg$$85$$) {
   null != this.$api_list_$ && ($e$$252_msg$$85$$ = $e$$252_msg$$85$$.data, $JSCompiler_StaticMethods_setResultSet$$(this.$api_list_$, $e$$252_msg$$85$$.ApiKeyListGrp, $e$$252_msg$$85$$.Columns));
 };
-// Input 239
+// Input 241
 function $bitex$view$ForgotPasswordView$$($app$$19$$, $opt_domHelper$$51$$) {
   $bitex$view$View$$.call(this, $app$$19$$, $opt_domHelper$$51$$);
 }
@@ -13883,72 +13907,16 @@ $bitex$view$ForgotPasswordView$$.prototype.$enterDocument$ = function $$bitex$vi
 $bitex$view$ForgotPasswordView$$.prototype.$getEmail$ = function $$bitex$view$ForgotPasswordView$$$$$getEmail$$() {
   return $goog$dom$forms$getValue$$($goog$dom$getElement$$("id_forgot_password_email"));
 };
-// Input 240
-// Input 241
 // Input 242
+// Input 243
+// Input 244
 function $bitex$view$WithdrawView$templates$CancelWithdrawDialogContent$$() {
   var $output$$51$$;
   return $output$$51$$ = "" + ('<p>Entre com uma raz\u00e3o para estar cancelando o pedido de saque do usu\u00e1rio</p><form class="form-horizontal"><fieldset><div class="control-group"><label class="control-label" for="' + $soy$$0$0escapeHtml$$("id_select_reason") + '" >Raz\u00e3o:</label><div class="controls"><select id="' + $soy$$0$0escapeHtml$$("id_select_reason") + '"><option value="0">Outra</option><option value="-1" selected>Fundos insuficientes</option><option value="-2">Conta n\u00e3o verificada</option><option value="-3">Suspeita de fraude</option><option value="-4">Saque para uma conta diferente da sua</option><option value="-5">Carteira inv\u00e1lida</option><option value="-6">Conta banc\u00e1ria inv\u00e1lida</option><option value="-7">O valor ultrapassou o limite di\u00e1rio de saques</option><option value="-8">Possui dep\u00f3sitos que ainda n\u00e3o est\u00e3o confirmados</option></select></div></div><div class="control-group"><div class="controls"><textarea id="' + 
   $soy$$0$0escapeHtml$$("id_custom_reason_text") + '" rows="2" style="display:none;"></textarea></div></div></fieldset></form>');
 }
-function $bitex$view$WithdrawView$templates$UserWithdrawDialogContent$$($opt_data$$68$$) {
-  var $output$$52$$;
-  $output$$52$$ = "" + ('<form id="' + $soy$$0$0escapeHtml$$($opt_data$$68$$.id) + '_form" class="form-horizontal" data-deposit-status="prepare" data-uniform-control-holder-class="control-group"><fieldset><input id="' + $soy$$0$0escapeHtml$$($opt_data$$68$$.id) + '_currency" type="hidden" name="Currency" value="' + $soy$$0$0escapeHtml$$($opt_data$$68$$.$currency$) + '"><div class="error"></div><div class="alert alert-warning text-left bitex-model" data-model-action="show_element" data-model-key-list="HasAnyPosition" data-model-formula="HasAnyPosition" style="display:none;">N\u00e3o se pode solicitar saques enquanto tiver dep\u00f3sitos pendentes ainda n\u00e3o confirmados.</div>');
-  if (0 == $opt_data$$68$$.methods.length) {
-    2 >= $opt_data$$68$$.$verificationLevel$ ? ($output$$52$$ += '<div class="alert alert-warning text-left">Devido a leis internacionais contra lavagem de dinheiro e leis federais, os dep\u00f3sitos e saques em moeda local s\u00f3 estar\u00e3o dispon\u00edveis para clientes com contas verificadas.<br/>Sentimos muito pela inconveni\u00eancia.</div>', 0 == $opt_data$$68$$.$verificationLevel$ && ($output$$52$$ += '<a href="" data-switch-view="verification"> Verifique a sua conta </a>')) : $output$$52$$ += 
-    '<div class="alert alert-danger text-center">N\u00e3o estamos aceitando dep\u00f3sitos neste momento. Sentimos muito pela inconveni\u00eancia.</div>';
-  } else {
-    if (1 == $opt_data$$68$$.methods.length) {
-      for (var $methodList108_methodList129_methodList82$$ = $opt_data$$68$$.methods, $methodListLen108_methodListLen129_methodListLen82$$ = $methodList108_methodList129_methodList82$$.length, $methodIndex108_methodIndex129_methodIndex82$$ = 0;$methodIndex108_methodIndex129_methodIndex82$$ < $methodListLen108_methodListLen129_methodListLen82$$;$methodIndex108_methodIndex129_methodIndex82$$++) {
-        var $fieldList214_methodData108_methodData129_methodData82$$ = $methodList108_methodList129_methodList82$$[$methodIndex108_methodIndex129_methodIndex82$$];
-        $output$$52$$ += '<input id="' + $soy$$0$0escapeHtml$$($opt_data$$68$$.id) + '_method" type="hidden" name="Method" value="' + $soy$$0$0escapeHtml$$($fieldList214_methodData108_methodData129_methodData82$$.method) + '" data-net-value="' + $soy$$0$0escapeHtml$$($opt_data$$68$$.id) + "_method_" + $soy$$0$0escapeHtml$$($fieldList214_methodData108_methodData129_methodData82$$.method) + '_net_value" data-percent-fee="' + $soy$$0$0escapeHtml$$($opt_data$$68$$.id) + "_method_" + $soy$$0$0escapeHtml$$($fieldList214_methodData108_methodData129_methodData82$$.method) + 
-        '_percent_fee" data-fixed-fee="' + $soy$$0$0escapeHtml$$($opt_data$$68$$.id) + "_method_" + $soy$$0$0escapeHtml$$($fieldList214_methodData108_methodData129_methodData82$$.method) + '_fixed_fee">';
-      }
-    } else {
-      $output$$52$$ += '<div class="control-group"><label class="control-label">M\u00e9todo</label><div class="controls"><select id="' + $soy$$0$0escapeHtml$$($opt_data$$68$$.id) + '_method" name="Method" class="withdraw-method-selector">';
-      $methodList108_methodList129_methodList82$$ = $opt_data$$68$$.methods;
-      $methodListLen108_methodListLen129_methodListLen82$$ = $methodList108_methodList129_methodList82$$.length;
-      for ($methodIndex108_methodIndex129_methodIndex82$$ = 0;$methodIndex108_methodIndex129_methodIndex82$$ < $methodListLen108_methodListLen129_methodListLen82$$;$methodIndex108_methodIndex129_methodIndex82$$++) {
-        $fieldList214_methodData108_methodData129_methodData82$$ = $methodList108_methodList129_methodList82$$[$methodIndex108_methodIndex129_methodIndex82$$], $output$$52$$ += '<option value="' + $soy$$0$0escapeHtml$$($fieldList214_methodData108_methodData129_methodData82$$.method) + '" data-net-value="' + $soy$$0$0escapeHtml$$($opt_data$$68$$.id) + "_method_" + $soy$$0$0escapeHtml$$($fieldList214_methodData108_methodData129_methodData82$$.method) + '_net_value" data-percent-fee="' + $soy$$0$0escapeHtml$$($opt_data$$68$$.id) + 
-        "_method_" + $soy$$0$0escapeHtml$$($fieldList214_methodData108_methodData129_methodData82$$.method) + '_percent_fee" data-fixed-fee="' + $soy$$0$0escapeHtml$$($opt_data$$68$$.id) + "_method_" + $soy$$0$0escapeHtml$$($fieldList214_methodData108_methodData129_methodData82$$.method) + '_fixed_fee">' + $soy$$0$0escapeHtml$$($fieldList214_methodData108_methodData129_methodData82$$.description) + "</option>";
-      }
-      $output$$52$$ += "</select></div></div>";
-    }
-    $output$$52$$ += '<div class="withdraw-methods">';
-    $methodList108_methodList129_methodList82$$ = $opt_data$$68$$.methods;
-    $methodListLen108_methodListLen129_methodListLen82$$ = $methodList108_methodList129_methodList82$$.length;
-    for ($methodIndex108_methodIndex129_methodIndex82$$ = 0;$methodIndex108_methodIndex129_methodIndex82$$ < $methodListLen108_methodListLen129_methodListLen82$$;$methodIndex108_methodIndex129_methodIndex82$$++) {
-      $fieldList214_methodData108_methodData129_methodData82$$ = $methodList108_methodList129_methodList82$$[$methodIndex108_methodIndex129_methodIndex82$$];
-      $output$$52$$ += '<div class="withdraw-method" data-withdraw-method="' + $soy$$0$0escapeHtml$$($fieldList214_methodData108_methodData129_methodData82$$.method) + '" style="' + (1 < $opt_data$$68$$.methods.length ? "display:none;" : "") + '"><div class="control-group"><label class="control-label">Quantidade</label><div class="controls"><div class="input-prepend"><span class="add-on">' + $soy$$0$0escapeHtml$$($opt_data$$68$$.$currencySign$) + '</span><input id="' + $soy$$0$0escapeHtml$$($opt_data$$68$$.id) + 
-      "_method_" + $soy$$0$0escapeHtml$$($fieldList214_methodData108_methodData129_methodData82$$.method) + '_amount" data-uniform-validators="required; validateNumber ' + ($fieldList214_methodData108_methodData129_methodData82$$.limits[$opt_data$$68$$.$verificationLevel$].enabled ? " " + ($fieldList214_methodData108_methodData129_methodData82$$.limits[$opt_data$$68$$.$verificationLevel$].min ? "; validateMin " + $soy$$0$0escapeHtml$$($fieldList214_methodData108_methodData129_methodData82$$.limits[$opt_data$$68$$.$verificationLevel$].formatted_min_value) : 
-      "") + ($fieldList214_methodData108_methodData129_methodData82$$.limits[$opt_data$$68$$.$verificationLevel$].max ? "; validateMax " + $soy$$0$0escapeHtml$$($fieldList214_methodData108_methodData129_methodData82$$.limits[$opt_data$$68$$.$verificationLevel$].formatted_max_value) + " " : "") + " " : "") + '" data-uniform-type="number" data-uniform-filters="positive_number" value="" type="text" class="withdraw-field input-small" size="16" name="Amount" ' + (0 != $methodIndex108_methodIndex129_methodIndex82$$ ? 
-      "disabled" : "") + "></div>";
-      if ($fieldList214_methodData108_methodData129_methodData82$$.limits[$opt_data$$68$$.$verificationLevel$].enabled) {
-        $output$$52$$ += "<div><em><small>";
-        if ($fieldList214_methodData108_methodData129_methodData82$$.limits[$opt_data$$68$$.$verificationLevel$].max) {
-          var $MSG_UNNAMED_327_MSG_UNNAMED_329_fieldListLen214$$ = " M\u00e1ximo: " + $soy$$0$0escapeHtml$$($fieldList214_methodData108_methodData129_methodData82$$.limits[$opt_data$$68$$.$verificationLevel$].formatted_max);
-          $output$$52$$ += $MSG_UNNAMED_327_MSG_UNNAMED_329_fieldListLen214$$ + "<br>";
-        }
-        $fieldList214_methodData108_methodData129_methodData82$$.limits[$opt_data$$68$$.$verificationLevel$].min && ($MSG_UNNAMED_327_MSG_UNNAMED_329_fieldListLen214$$ = " M\u00ednimo: " + ($soy$$0$0escapeHtml$$($fieldList214_methodData108_methodData129_methodData82$$.limits[$opt_data$$68$$.$verificationLevel$].formatted_min) + " por transa\u00e7\u00e3o.  "), $output$$52$$ += $MSG_UNNAMED_327_MSG_UNNAMED_329_fieldListLen214$$);
-        $output$$52$$ += "</small></em></div>";
-      }
-      $output$$52$$ += '</div></div><div class="control-group" style="margin-bottom: 5px;"><div class="controls"><label>' + $soy$$0$0escapeHtml$$($fieldList214_methodData108_methodData129_methodData82$$.disclaimer) + '</label><input id="' + $soy$$0$0escapeHtml$$($opt_data$$68$$.id) + "_method_" + $soy$$0$0escapeHtml$$($fieldList214_methodData108_methodData129_methodData82$$.method) + '_percent_fee" type="hidden" value="' + $soy$$0$0escapeHtml$$($fieldList214_methodData108_methodData129_methodData82$$.percent_fee) + 
-      '"><input id="' + $soy$$0$0escapeHtml$$($opt_data$$68$$.id) + "_method_" + $soy$$0$0escapeHtml$$($fieldList214_methodData108_methodData129_methodData82$$.method) + '_fixed_fee" type="hidden" value="' + $soy$$0$0escapeHtml$$($fieldList214_methodData108_methodData129_methodData82$$.fixed_fee) + '"></div></div><div class="control-group"><label class="control-label">Taxas:</label><div class="controls"><label id="' + $soy$$0$0escapeHtml$$($opt_data$$68$$.id) + "_method_" + $soy$$0$0escapeHtml$$($fieldList214_methodData108_methodData129_methodData82$$.method) + 
-      '_fees" class="control-label" style="text-align: left;"></label></div></div><div class="control-group"><label class="control-label net-amount">' + $soy$$0$0escapeHtml$$($opt_data$$68$$.$netAmountLabel$) + ':</label><div class="controls"><label id="' + $soy$$0$0escapeHtml$$($opt_data$$68$$.id) + "_method_" + $soy$$0$0escapeHtml$$($fieldList214_methodData108_methodData129_methodData82$$.method) + '_net_value" class="control-label net-amount" style="text-align: left;"></label><input id="' + $soy$$0$0escapeHtml$$($opt_data$$68$$.id) + 
-      "_method_" + $soy$$0$0escapeHtml$$($fieldList214_methodData108_methodData129_methodData82$$.method) + '_net_value_value" type="hidden" value=""></div></div>';
-      for (var $fieldList214_methodData108_methodData129_methodData82$$ = $fieldList214_methodData108_methodData129_methodData82$$.fields, $MSG_UNNAMED_327_MSG_UNNAMED_329_fieldListLen214$$ = $fieldList214_methodData108_methodData129_methodData82$$.length, $fieldIndex214$$ = 0;$fieldIndex214$$ < $MSG_UNNAMED_327_MSG_UNNAMED_329_fieldListLen214$$;$fieldIndex214$$++) {
-        var $fieldData214$$ = $fieldList214_methodData108_methodData129_methodData82$$[$fieldIndex214$$];
-        $output$$52$$ += "client" == $fieldData214$$.side ? '<div class="control-group"><label class="control-label">' + $soy$$0$0escapeHtml$$($fieldData214$$.label) + '</label><div class="controls"><input class="withdraw-field" data-uniform-validators="' + ($fieldData214$$.required ? "required;" : "") + $soy$$0$0escapeHtml$$($fieldData214$$.validator) + '" type="' + $soy$$0$0escapeHtml$$($fieldData214$$.type) + '" name="' + $soy$$0$0escapeHtml$$($fieldData214$$.name) + '" label="' + $soy$$0$0escapeHtml$$($fieldData214$$.placeholder) + 
-        '" value="' + $soy$$0$0escapeHtml$$($fieldData214$$.value) + '"' + (0 != $methodIndex108_methodIndex129_methodIndex82$$ ? "disabled" : "") + " /></div></div>" : "";
-      }
-      $output$$52$$ += "</div>";
-    }
-    $output$$52$$ += "</div>";
-  }
-  return $output$$52$$ + "</fieldset></form>";
-}
 ;
-// Input 243
+// Input 245
 function $bitex$view$WithdrawView$$($app$$20$$, $opt_requests_from_customers$$1$$, $opt_domHelper$$52$$) {
   $bitex$view$View$$.call(this, $app$$20$$, $opt_domHelper$$52$$);
   this.$is_requests_from_customers_$ = !1;
@@ -14088,7 +14056,7 @@ $JSCompiler_prototypeAlias$$.$onWithdrawRefresh_$ = function $$JSCompiler_protot
 $JSCompiler_prototypeAlias$$.$onWithdrawListReponse_$ = function $$JSCompiler_prototypeAlias$$$$onWithdrawListReponse_$$($e$$263_msg$$87$$) {
   null != this.$withdraw_list_table_$ && ($e$$263_msg$$87$$ = $e$$263_msg$$87$$.data, $JSCompiler_StaticMethods_setResultSet$$(this.$withdraw_list_table_$, $e$$263_msg$$87$$.WithdrawListGrp, $e$$263_msg$$87$$.Columns));
 };
-// Input 244
+// Input 246
 function $bitex$ui$LedgerActivity$$($button_filters$$, $pseudoNameFunction$$, $opt_broker_mode$$2$$, $opt_domHelper$$53$$) {
   $bitex$ui$DataGrid$$.call(this, {title:"Livro cont\u00e1bil", showSearch:!0, searchPlaceholder:"Pesquisar ...", buttonFilters:$button_filters$$, rowClassFn:this.$getRowClass$, columns:[{property:"Created", label:"Data/Hora", sortable:!1, formatter:function($s$$57$$) {
     return $bitex$util$convertServerUTCDateTimeStrToTimestamp$$($s$$57$$.substr(0, 10), $s$$57$$.substr(11)).toLocaleString();
@@ -14170,7 +14138,7 @@ $bitex$ui$LedgerActivity$$.prototype.$getRowClass$ = function $$bitex$ui$LedgerA
 $goog$ui$registry$setDecoratorByClassName$$($bitex$ui$LedgerActivity$CSS_CLASS$$, function() {
   return new $bitex$ui$LedgerActivity$$;
 });
-// Input 245
+// Input 247
 function $bitex$view$LedgerView$$($app$$22$$, $opt_domHelper$$54$$) {
   $bitex$view$View$$.call(this, $app$$22$$, $opt_domHelper$$54$$);
   this.$request_id_$ = null;
@@ -14245,7 +14213,7 @@ $JSCompiler_prototypeAlias$$.$onLedgerTableRequestData_$ = function $$JSCompiler
 $JSCompiler_prototypeAlias$$.$onLedgerListResponse_$ = function $$JSCompiler_prototypeAlias$$$$onLedgerListResponse_$$($e$$265_msg$$88$$) {
   null != this.$ledger_table_$ && ($e$$265_msg$$88$$ = $e$$265_msg$$88$$.data, $JSCompiler_StaticMethods_setResultSet$$(this.$ledger_table_$, $e$$265_msg$$88$$.LedgerListGrp, $e$$265_msg$$88$$.Columns));
 };
-// Input 246
+// Input 248
 function $bitex$view$AccountOverview$$($app$$23$$, $opt_domHelper$$55$$) {
   $bitex$view$View$$.call(this, $app$$23$$, $opt_domHelper$$55$$);
   this.$verification_data_$ = this.$qr_data_verb_$ = this.$qr_data_$ = this.$deposit_data_$ = this.$deposit_action_$ = this.$withdraw_action_$ = this.$request_id_$ = null;
@@ -14385,20 +14353,20 @@ $JSCompiler_prototypeAlias$$.$onVerifyCustomerResponse_$ = function $$JSCompiler
   null != $account_overview_verify_el$$1$$ && ($account_overview_verify_el$$1$$.innerHTML = $JSCompiler_StaticMethods_formatVerificationData_$$($e$$270_msg$$91$$.VerificationData));
 };
 $JSCompiler_prototypeAlias$$.$onViewClick_$ = function $$JSCompiler_prototypeAlias$$$$onViewClick_$$($e$$271$$) {
-  var $el$$127$$ = $e$$271$$.target;
-  if (null != $el$$127$$.getAttribute("data-action")) {
-    switch($el$$127$$.getAttribute("data-action")) {
+  var $el$$128$$ = $e$$271$$.target;
+  if (null != $el$$128$$.getAttribute("data-action")) {
+    switch($el$$128$$.getAttribute("data-action")) {
       case "file-view":
-        $e$$271$$.preventDefault(), $e$$271$$.stopPropagation(), this.$file_name_$ = $el$$127$$.getAttribute("data-filename"), this.dispatchEvent("file_view");
+        $e$$271$$.preventDefault(), $e$$271$$.stopPropagation(), this.$file_name_$ = $el$$128$$.getAttribute("data-filename"), this.dispatchEvent("file_view");
     }
   }
 };
 $JSCompiler_prototypeAlias$$.$onElementChange_$ = function $$JSCompiler_prototypeAlias$$$$onElementChange_$$($changed_attribute$$1_e$$272$$) {
-  var $el$$128_new_value$$2$$ = $changed_attribute$$1_e$$272$$.target;
-  if (null != $el$$128_new_value$$2$$.getAttribute("data-profile-change")) {
-    switch($changed_attribute$$1_e$$272$$ = $el$$128_new_value$$2$$.getAttribute("data-profile-change"), this.$client_id_$ = this.$app_$.$model_$.get("SelectedCustomer").ID, this.$update_profile_data_$ = {}, $el$$128_new_value$$2$$ = $goog$dom$forms$getValue$$($el$$128_new_value$$2$$), $changed_attribute$$1_e$$272$$) {
+  var $el$$129_new_value$$2$$ = $changed_attribute$$1_e$$272$$.target;
+  if (null != $el$$129_new_value$$2$$.getAttribute("data-profile-change")) {
+    switch($changed_attribute$$1_e$$272$$ = $el$$129_new_value$$2$$.getAttribute("data-profile-change"), this.$client_id_$ = this.$app_$.$model_$.get("SelectedCustomer").ID, this.$update_profile_data_$ = {}, $el$$129_new_value$$2$$ = $goog$dom$forms$getValue$$($el$$129_new_value$$2$$), $changed_attribute$$1_e$$272$$) {
       case "Verified":
-        $el$$128_new_value$$2$$ = $goog$string$toNumber$$($el$$128_new_value$$2$$), this.$verification_data_$ = null, this.$verification_level_$ = $el$$128_new_value$$2$$, this.dispatchEvent("set_verified");
+        $el$$129_new_value$$2$$ = $goog$string$toNumber$$($el$$129_new_value$$2$$), this.$verification_data_$ = null, this.$verification_level_$ = $el$$129_new_value$$2$$, this.dispatchEvent("set_verified");
     }
   }
 };
@@ -14585,7 +14553,65 @@ $JSCompiler_prototypeAlias$$.$onBalanceResponse_$ = function $$JSCompiler_protot
 $JSCompiler_prototypeAlias$$.$onWithdrawRefresh_$ = function $$JSCompiler_prototypeAlias$$$$onWithdrawRefresh_$$($e$$292$$) {
   $JSCompiler_StaticMethods_insertOrUpdateRecord$$(this.$withdraw_list_table_$, $e$$292$$.data);
 };
-// Input 247
+// Input 249
+function $bitex$ui$WithdrawRequestDataEntry$templates$WithdrawRequestDataEntry$$($opt_data$$68$$) {
+  var $output$$52$$;
+  $output$$52$$ = "" + ('<form id="' + $soy$$0$0escapeHtml$$($opt_data$$68$$.id) + '_form" class="form-horizontal" data-deposit-status="prepare" data-uniform-control-holder-class="control-group"><fieldset><input id="' + $soy$$0$0escapeHtml$$($opt_data$$68$$.id) + '_currency" type="hidden" name="Currency" value="' + $soy$$0$0escapeHtml$$($opt_data$$68$$.$currency$) + '"><div class="error"></div><div class="alert alert-warning text-left bitex-model" data-model-action="show_element" data-model-key-list="HasAnyPosition" data-model-formula="HasAnyPosition" style="display:none;">N\u00e3o se pode solicitar saques enquanto tiver dep\u00f3sitos pendentes ainda n\u00e3o confirmados.</div>');
+  if (0 == $opt_data$$68$$.methods.length) {
+    2 >= $opt_data$$68$$.$verificationLevel$ ? ($output$$52$$ += '<div class="alert alert-warning text-left">Devido a leis internacionais contra lavagem de dinheiro e leis federais, os dep\u00f3sitos e saques em moeda local s\u00f3 estar\u00e3o dispon\u00edveis para clientes com contas verificadas.<br/>Sentimos muito pela inconveni\u00eancia.</div>', 0 == $opt_data$$68$$.$verificationLevel$ && ($output$$52$$ += '<a href="" data-switch-view="verification"> Verifique a sua conta </a>')) : $output$$52$$ += 
+    '<div class="alert alert-danger text-center">N\u00e3o estamos aceitando dep\u00f3sitos neste momento. Sentimos muito pela inconveni\u00eancia.</div>';
+  } else {
+    if (1 == $opt_data$$68$$.methods.length) {
+      for (var $methodList41_methodList67_methodList88$$ = $opt_data$$68$$.methods, $methodListLen41_methodListLen67_methodListLen88$$ = $methodList41_methodList67_methodList88$$.length, $methodIndex41_methodIndex67_methodIndex88$$ = 0;$methodIndex41_methodIndex67_methodIndex88$$ < $methodListLen41_methodListLen67_methodListLen88$$;$methodIndex41_methodIndex67_methodIndex88$$++) {
+        var $fieldList173_methodData41_methodData67_methodData88$$ = $methodList41_methodList67_methodList88$$[$methodIndex41_methodIndex67_methodIndex88$$];
+        $output$$52$$ += '<input id="' + $soy$$0$0escapeHtml$$($opt_data$$68$$.id) + '_method" type="hidden" name="Method" value="' + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.method) + '" data-net-value="' + $soy$$0$0escapeHtml$$($opt_data$$68$$.id) + "_method_" + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.method) + '_net_value" data-percent-fee="' + $soy$$0$0escapeHtml$$($opt_data$$68$$.id) + "_method_" + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.method) + 
+        '_percent_fee" data-fixed-fee="' + $soy$$0$0escapeHtml$$($opt_data$$68$$.id) + "_method_" + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.method) + '_fixed_fee">';
+      }
+    } else {
+      $output$$52$$ += '<div class="control-group"><label class="control-label">M\u00e9todo</label><div class="controls"><select id="' + $soy$$0$0escapeHtml$$($opt_data$$68$$.id) + '_method" name="Method" class="withdraw-method-selector">';
+      $methodList41_methodList67_methodList88$$ = $opt_data$$68$$.methods;
+      $methodListLen41_methodListLen67_methodListLen88$$ = $methodList41_methodList67_methodList88$$.length;
+      for ($methodIndex41_methodIndex67_methodIndex88$$ = 0;$methodIndex41_methodIndex67_methodIndex88$$ < $methodListLen41_methodListLen67_methodListLen88$$;$methodIndex41_methodIndex67_methodIndex88$$++) {
+        $fieldList173_methodData41_methodData67_methodData88$$ = $methodList41_methodList67_methodList88$$[$methodIndex41_methodIndex67_methodIndex88$$], $output$$52$$ += '<option value="' + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.method) + '" data-net-value="' + $soy$$0$0escapeHtml$$($opt_data$$68$$.id) + "_method_" + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.method) + '_net_value" data-percent-fee="' + $soy$$0$0escapeHtml$$($opt_data$$68$$.id) + 
+        "_method_" + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.method) + '_percent_fee" data-fixed-fee="' + $soy$$0$0escapeHtml$$($opt_data$$68$$.id) + "_method_" + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.method) + '_fixed_fee">' + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.description) + "</option>";
+      }
+      $output$$52$$ += "</select></div></div>";
+    }
+    $output$$52$$ += '<div class="withdraw-methods">';
+    $methodList41_methodList67_methodList88$$ = $opt_data$$68$$.methods;
+    $methodListLen41_methodListLen67_methodListLen88$$ = $methodList41_methodList67_methodList88$$.length;
+    for ($methodIndex41_methodIndex67_methodIndex88$$ = 0;$methodIndex41_methodIndex67_methodIndex88$$ < $methodListLen41_methodListLen67_methodListLen88$$;$methodIndex41_methodIndex67_methodIndex88$$++) {
+      $fieldList173_methodData41_methodData67_methodData88$$ = $methodList41_methodList67_methodList88$$[$methodIndex41_methodIndex67_methodIndex88$$];
+      $output$$52$$ += '<div class="withdraw-method" data-withdraw-method="' + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.method) + '" style="' + (1 < $opt_data$$68$$.methods.length ? "display:none;" : "") + '"><div class="control-group"><label class="control-label">Quantidade</label><div class="controls"><div class="input-prepend"><span class="add-on">' + $soy$$0$0escapeHtml$$($opt_data$$68$$.$currencySign$) + '</span><input id="' + $soy$$0$0escapeHtml$$($opt_data$$68$$.id) + 
+      "_method_" + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.method) + '_amount" data-uniform-validators="required; validateNumber ' + ($fieldList173_methodData41_methodData67_methodData88$$.limits[$opt_data$$68$$.$verificationLevel$].enabled ? " " + ($fieldList173_methodData41_methodData67_methodData88$$.limits[$opt_data$$68$$.$verificationLevel$].min ? "; validateMin " + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.limits[$opt_data$$68$$.$verificationLevel$].formatted_min_value) : 
+      "") + ($fieldList173_methodData41_methodData67_methodData88$$.limits[$opt_data$$68$$.$verificationLevel$].max ? "; validateMax " + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.limits[$opt_data$$68$$.$verificationLevel$].formatted_max_value) + " " : "") + " " : "") + '" data-uniform-type="number" data-uniform-filters="positive_number" value="" type="text" class="withdraw-field input-small" size="16" name="Amount" ' + (0 != $methodIndex41_methodIndex67_methodIndex88$$ ? 
+      "disabled" : "") + "></div>";
+      if ($fieldList173_methodData41_methodData67_methodData88$$.limits[$opt_data$$68$$.$verificationLevel$].enabled) {
+        $output$$52$$ += "<div><em><small>";
+        if ($fieldList173_methodData41_methodData67_methodData88$$.limits[$opt_data$$68$$.$verificationLevel$].max) {
+          var $MSG_UNNAMED_273_MSG_UNNAMED_275_fieldListLen173$$ = " M\u00e1ximo: " + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.limits[$opt_data$$68$$.$verificationLevel$].formatted_max);
+          $output$$52$$ += $MSG_UNNAMED_273_MSG_UNNAMED_275_fieldListLen173$$ + "<br>";
+        }
+        $fieldList173_methodData41_methodData67_methodData88$$.limits[$opt_data$$68$$.$verificationLevel$].min && ($MSG_UNNAMED_273_MSG_UNNAMED_275_fieldListLen173$$ = " M\u00ednimo: " + ($soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.limits[$opt_data$$68$$.$verificationLevel$].formatted_min) + " por transa\u00e7\u00e3o.  "), $output$$52$$ += $MSG_UNNAMED_273_MSG_UNNAMED_275_fieldListLen173$$);
+        $output$$52$$ += "</small></em></div>";
+      }
+      $output$$52$$ += '</div></div><div class="control-group" style="margin-bottom: 5px;"><div class="controls"><label>' + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.disclaimer) + '</label><input id="' + $soy$$0$0escapeHtml$$($opt_data$$68$$.id) + "_method_" + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.method) + '_percent_fee" type="hidden" value="' + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.percent_fee) + 
+      '"><input id="' + $soy$$0$0escapeHtml$$($opt_data$$68$$.id) + "_method_" + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.method) + '_fixed_fee" type="hidden" value="' + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.fixed_fee) + '"></div></div><div class="control-group"><label class="control-label">Taxas:</label><div class="controls"><label id="' + $soy$$0$0escapeHtml$$($opt_data$$68$$.id) + "_method_" + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.method) + 
+      '_fees" class="control-label" style="text-align: left;"></label></div></div><div class="control-group"><label class="control-label net-amount">' + $soy$$0$0escapeHtml$$($opt_data$$68$$.$netAmountLabel$) + ':</label><div class="controls"><label id="' + $soy$$0$0escapeHtml$$($opt_data$$68$$.id) + "_method_" + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.method) + '_net_value" class="control-label net-amount" style="text-align: left;"></label><input id="' + $soy$$0$0escapeHtml$$($opt_data$$68$$.id) + 
+      "_method_" + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.method) + '_net_value_value" type="hidden" value=""></div></div>';
+      for (var $fieldList173_methodData41_methodData67_methodData88$$ = $fieldList173_methodData41_methodData67_methodData88$$.fields, $MSG_UNNAMED_273_MSG_UNNAMED_275_fieldListLen173$$ = $fieldList173_methodData41_methodData67_methodData88$$.length, $fieldIndex173$$ = 0;$fieldIndex173$$ < $MSG_UNNAMED_273_MSG_UNNAMED_275_fieldListLen173$$;$fieldIndex173$$++) {
+        var $fieldData173$$ = $fieldList173_methodData41_methodData67_methodData88$$[$fieldIndex173$$];
+        $output$$52$$ += "client" == $fieldData173$$.side ? '<div class="control-group"><label class="control-label">' + $soy$$0$0escapeHtml$$($fieldData173$$.label) + '</label><div class="controls"><input class="withdraw-field" data-uniform-validators="' + ($fieldData173$$.required ? "required;" : "") + $soy$$0$0escapeHtml$$($fieldData173$$.validator) + '" type="' + $soy$$0$0escapeHtml$$($fieldData173$$.type) + '" name="' + $soy$$0$0escapeHtml$$($fieldData173$$.name) + '" label="' + $soy$$0$0escapeHtml$$($fieldData173$$.placeholder) + 
+        '" value="' + $soy$$0$0escapeHtml$$($fieldData173$$.value) + '"' + (0 != $methodIndex41_methodIndex67_methodIndex88$$ ? "disabled" : "") + " /></div></div>" : "";
+      }
+      $output$$52$$ += "</div>";
+    }
+    $output$$52$$ += "</div>";
+  }
+  return $output$$52$$ += '<div class="text-center"><button id="' + $soy$$0$0escapeHtml$$($opt_data$$68$$.id) + '_cancel_btn" class="btn">Cancelar</button><button id="' + $soy$$0$0escapeHtml$$($opt_data$$68$$.id) + '_create_btn" type="submit" class="btn btn-primary">Ok</button></div></fieldset></form>';
+}
+;
+// Input 250
 function $bitex$view$VerificationView$$($app$$24$$, $opt_domHelper$$56$$) {
   $bitex$view$View$$.call(this, $app$$24$$, $opt_domHelper$$56$$);
   this.$loaded_jot_form_$ = !1;
@@ -14607,7 +14633,7 @@ $bitex$view$VerificationView$$.prototype.$enterView$ = function $$bitex$view$Ver
 $bitex$view$VerificationView$$.prototype.$enterDocument$ = function $$bitex$view$VerificationView$$$$$enterDocument$$() {
   $bitex$view$VerificationView$$.$superClass_$.$enterDocument$.call(this);
 };
-// Input 248
+// Input 251
 function $bitex$ui$RemittancesBox$templates$RemittancesBox$$($opt_data$$70$$) {
   for (var $JSCompiler_temp$$160_JSCompiler_temp_const$$161_output$$54$$ = '<div id="' + $soy$$0$0escapeHtml$$($opt_data$$70$$.id) + '" class="remittance-box">', $remittance_data_recordList25$$ = $opt_data$$70$$.$remittance_data_table$, $remittance_data_recordListLen25$$ = $remittance_data_recordList25$$.length, $remittance_data_recordIndex25$$ = 0;$remittance_data_recordIndex25$$ < $remittance_data_recordListLen25$$;$remittance_data_recordIndex25$$++) {
     var $JSCompiler_object_inline_remittance_data_record_1890_remittance_data_recordData25$$ = $remittance_data_recordList25$$[$remittance_data_recordIndex25$$];
@@ -14627,7 +14653,7 @@ function $bitex$ui$RemittancesBox$templates$RemittancesBox$$($opt_data$$70$$) {
   return $JSCompiler_temp$$160_JSCompiler_temp_const$$161_output$$54$$ + "</div>";
 }
 ;
-// Input 249
+// Input 252
 function $bitex$ui$RemittanceBox$$($opt_domHelper$$57$$) {
   $goog$ui$Component$$.call(this, $opt_domHelper$$57$$);
 }
@@ -14647,8 +14673,8 @@ $JSCompiler_prototypeAlias$$.$decorateInternal$ = function $$JSCompiler_prototyp
 };
 function $JSCompiler_StaticMethods_setCurrentCurrency$$($JSCompiler_StaticMethods_setCurrentCurrency$self$$, $currency$$17$$) {
   var $remittance_box_elements$$ = $goog$dom$getElementsByClass$$("remittance-box-table", $JSCompiler_StaticMethods_setCurrentCurrency$self$$.$getElement$());
-  $goog$array$forEach$$($remittance_box_elements$$, function($el$$130$$) {
-    $goog$style$setElementShown$$($el$$130$$, !1);
+  $goog$array$forEach$$($remittance_box_elements$$, function($el$$131$$) {
+    $goog$style$setElementShown$$($el$$131$$, !1);
   }, $JSCompiler_StaticMethods_setCurrentCurrency$self$$);
   $goog$style$showElement$$($goog$dom$getElement$$($JSCompiler_StaticMethods_makeId$$($JSCompiler_StaticMethods_setCurrentCurrency$self$$, "remittance_box_" + $currency$$17$$)), !0);
 }
@@ -14660,10 +14686,10 @@ $JSCompiler_prototypeAlias$$.$enterDocument$ = function $$JSCompiler_prototypeAl
 $JSCompiler_prototypeAlias$$.$exitDocument$ = function $$JSCompiler_prototypeAlias$$$$exitDocument$$() {
   $bitex$ui$RemittanceBox$$.$superClass_$.$exitDocument$.call(this);
 };
-// Input 250
+// Input 253
 function $bitex$view$SideBarView$templates$YourAccountPortfolioValue$$($opt_data$$71$$) {
-  var $output$$55$$ = "", $MSG_UNNAMED_130$$1$$ = "Valor total do seu saldo convertido em " + ($soy$$0$0escapeHtml$$($opt_data$$71$$.$desc$) + " com base no \u00faltimo neg\u00f3cio. Poder\u00e1 variar de acordo com o mercado. Esteja avisado de que este valor \u00e9 apenas uma simula\u00e7\u00e3o e n\u00e3o representa seu saldo ou nenhum comprometimento das cota\u00e7\u00f5es aplicadas para esta simula\u00e7\u00e3o.");
-  return $output$$55$$ += '<td style="padding: 4px;"><span><i><abbr title="' + $MSG_UNNAMED_130$$1$$ + '">Valor aprox.</abbr></i></span></td><td style="padding: 4px;" colspan="2"><i><span class="bitex-model" data-model-key-list="' + $soy$$0$0escapeHtml$$($opt_data$$71$$.$variables$) + '" data-model-formula="' + $soy$$0$0escapeHtml$$($opt_data$$71$$.$formula$) + '" data-model-formatter="currency" data-model-formatter-pattern="' + $soy$$0$0escapeHtml$$($opt_data$$71$$.pattern) + '" data-blink-class="balance-info-blink"></span></i></td>';
+  var $output$$55$$ = "", $MSG_UNNAMED_130$$ = "Valor total do seu saldo convertido em " + ($soy$$0$0escapeHtml$$($opt_data$$71$$.$desc$) + " com base no \u00faltimo neg\u00f3cio. Poder\u00e1 variar de acordo com o mercado. Esteja avisado de que este valor \u00e9 apenas uma simula\u00e7\u00e3o e n\u00e3o representa seu saldo ou nenhum comprometimento das cota\u00e7\u00f5es aplicadas para esta simula\u00e7\u00e3o.");
+  return $output$$55$$ += '<td style="padding: 4px;"><span><i><abbr title="' + $MSG_UNNAMED_130$$ + '">Valor aprox.</abbr></i></span></td><td style="padding: 4px;" colspan="2"><i><span class="bitex-model" data-model-key-list="' + $soy$$0$0escapeHtml$$($opt_data$$71$$.$variables$) + '" data-model-formula="' + $soy$$0$0escapeHtml$$($opt_data$$71$$.$formula$) + '" data-model-formatter="currency" data-model-formatter-pattern="' + $soy$$0$0escapeHtml$$($opt_data$$71$$.pattern) + '" data-blink-class="balance-info-blink"></span></i></td>';
 }
 function $bitex$view$SideBarView$templates$YourAccountSummary$$($opt_data$$72$$) {
   for (var $output$$56$$ = "", $boxList20$$ = $opt_data$$72$$.$boxes$, $boxListLen20$$ = $boxList20$$.length, $boxIndex20$$ = 0;$boxIndex20$$ < $boxListLen20$$;$boxIndex20$$++) {
@@ -14681,7 +14707,7 @@ function $bitex$view$SideBarView$templates$YourAccountSummary$$($opt_data$$72$$)
   return $output$$56$$;
 }
 ;
-// Input 251
+// Input 254
 function $bitex$view$SideBarView$$($app$$25$$, $opt_domHelper$$58$$) {
   $bitex$view$View$$.call(this, $app$$25$$, $opt_domHelper$$58$$);
 }
@@ -14713,16 +14739,16 @@ $bitex$view$SideBarView$$.prototype.$enterDocument$ = function $$bitex$view$Side
           var $account_boxes$$ = [];
           $account_boxes$$.push({title:"Meus clientes", balances:[]});
           $goog$array$forEach$$($model$$49$$.get("Profile").BrokerCurrencies, function($currency$$18$$) {
-            $account_boxes$$[$account_boxes$$.length - 1].balances.push({currency:$currency$$18$$, currencyPattern:this.$app_$.$getCurrencyHumanFormat$($currency$$18$$), currencyPip:this.$app_$.$currency_info_$[$currency$$18$$].$pip$, brokerID:$model$$49$$.get("Profile").BrokerID, accountID:$model$$49$$.get("UserID"), showDeposit:!1, showWithdraw:!1});
+            $account_boxes$$[$account_boxes$$.length - 1].balances.push({currency:$currency$$18$$, currencyPattern:this.$app_$.$getCurrencyHumanFormat$($currency$$18$$), currencyPip:$JSCompiler_StaticMethods_getCurrencyPip$$(this.$app_$, $currency$$18$$), brokerID:$model$$49$$.get("Profile").BrokerID, accountID:$model$$49$$.get("UserID"), showDeposit:!1, showWithdraw:!1});
           }, this);
           $goog$object$forEach$$($model$$49$$.get("Profile").AllowedMarkets, function($market$$5$$, $symbol$$14$$) {
             var $currency$$19$$ = "MMP_" + $symbol$$14$$;
-            $account_boxes$$[$account_boxes$$.length - 1].balances.push({currency:$currency$$19$$, currencyPattern:this.$app_$.$getCurrencyHumanFormat$($currency$$19$$), currencyPip:this.$app_$.$currency_info_$[$currency$$19$$].$pip$, brokerID:$model$$49$$.get("Profile").BrokerID, accountID:$model$$49$$.get("UserID"), showDeposit:!1, showWithdraw:!1});
+            $account_boxes$$[$account_boxes$$.length - 1].balances.push({currency:$currency$$19$$, currencyPattern:this.$app_$.$getCurrencyHumanFormat$($currency$$19$$), currencyPip:$JSCompiler_StaticMethods_getCurrencyPip$$(this.$app_$, $currency$$19$$), brokerID:$model$$49$$.get("Profile").BrokerID, accountID:$model$$49$$.get("UserID"), showDeposit:!1, showWithdraw:!1});
           }, this);
           $goog$isDefAndNotNull$$($model$$49$$.get("Profile").Accounts) && $goog$object$forEach$$($model$$49$$.get("Profile").Accounts, function($account_data$$1$$, $account_name$$1$$) {
             $account_boxes$$.push({title:$account_name$$1$$, balances:[]});
             $goog$array$forEach$$($model$$49$$.get("Profile").BrokerCurrencies, function($currency$$20$$) {
-              $account_boxes$$[$account_boxes$$.length - 1].balances.push({currency:$currency$$20$$, currencyPattern:this.$app_$.$getCurrencyHumanFormat$($currency$$20$$), currencyPip:this.$app_$.$currency_info_$[$currency$$20$$].$pip$, brokerID:$model$$49$$.get("Profile").BrokerID, accountID:$account_data$$1$$[0], showDeposit:!1, showWithdraw:!1});
+              $account_boxes$$[$account_boxes$$.length - 1].balances.push({currency:$currency$$20$$, currencyPattern:this.$app_$.$getCurrencyHumanFormat$($currency$$20$$), currencyPip:$JSCompiler_StaticMethods_getCurrencyPip$$(this.$app_$, $currency$$20$$), brokerID:$model$$49$$.get("Profile").BrokerID, accountID:$account_data$$1$$[0], showDeposit:!1, showWithdraw:!1});
             }, this);
           }, this);
           $goog$soy$renderElement$$($goog$dom$getElement$$("id_account_summary_content"), $bitex$view$SideBarView$templates$YourAccountSummary$$, {id:$JSCompiler_StaticMethods_makeId$$(this, "summary"), $boxes$:$account_boxes$$});
@@ -14738,7 +14764,7 @@ $bitex$view$SideBarView$$.prototype.$enterDocument$ = function $$bitex$view$Side
           $goog$object$forEach$$($model$$49$$.get($balance_model_key$$), function($balance$$1$$, $currency$$21$$) {
             currency_code = $currency$$21$$;
             var $show_deposit$$ = $goog$array$contains$$($broker_currencies$$3$$, $currency$$21$$);
-            $account_boxes$$1$$[$account_boxes$$1$$.length - 1].balances.push({currency:$currency$$21$$, currencyPattern:this.$app_$.$getCurrencyHumanFormat$(currency_code), currencyPip:this.$app_$.$currency_info_$[currency_code].$pip$, brokerID:$model$$49$$.get("Broker").BrokerID, accountID:$model$$49$$.get("UserID"), showDeposit:$show_deposit$$, showWithdraw:$show_deposit$$});
+            $account_boxes$$1$$[$account_boxes$$1$$.length - 1].balances.push({currency:$currency$$21$$, currencyPattern:this.$app_$.$getCurrencyHumanFormat$(currency_code), currencyPip:$JSCompiler_StaticMethods_getCurrencyPip$$(this.$app_$, currency_code), brokerID:$model$$49$$.get("Broker").BrokerID, accountID:$model$$49$$.get("UserID"), showDeposit:$show_deposit$$, showWithdraw:$show_deposit$$});
           }, this);
           $goog$soy$renderElement$$($goog$dom$getElement$$("id_account_summary_content"), $bitex$view$SideBarView$templates$YourAccountSummary$$, {id:$JSCompiler_StaticMethods_makeId$$(this, "summary"), $boxes$:$account_boxes$$1$$});
           $JSCompiler_StaticMethods_showPortfolioValue_$$(this);
@@ -14755,8 +14781,8 @@ $bitex$view$SideBarView$$.prototype.$enterDocument$ = function $$bitex$view$Side
       this.$market_data_subscription_symbol_$.push($instrument_info$$.Symbol);
     }, this);
     $goog$dom$removeChildren$$($goog$dom$getElement$$("id_instrument_1"));
-    $goog$array$forEach$$($msg$$97_remittance_box_el$$.Instruments, function($el$$131_instrument$$1$$) {
-      "BLINK" == $el$$131_instrument$$1$$.Market && ($el$$131_instrument$$1$$ = $goog$dom$createDom$$("option", {value:$el$$131_instrument$$1$$.Symbol}, $el$$131_instrument$$1$$.Description), $goog$dom$getElement$$("id_instrument_1").appendChild($el$$131_instrument$$1$$));
+    $goog$array$forEach$$($msg$$97_remittance_box_el$$.Instruments, function($el$$132_instrument$$1$$) {
+      "BLINK" == $el$$132_instrument$$1$$.Market && ($el$$132_instrument$$1$$ = $goog$dom$createDom$$("option", {value:$el$$132_instrument$$1$$.Symbol}, $el$$132_instrument$$1$$.Description), $goog$dom$getElement$$("id_instrument_1").appendChild($el$$132_instrument$$1$$));
     }, this);
     if (null == this.$remittance_box_$) {
       var $remittance_box_model$$ = [];
@@ -14821,7 +14847,7 @@ function $JSCompiler_StaticMethods_showPortfolioValue_$$($JSCompiler_StaticMetho
 $bitex$view$SideBarView$$.prototype.$getSymbol$ = function $$bitex$view$SideBarView$$$$$getSymbol$$() {
   return $goog$dom$forms$getValue$$($goog$dom$getElement$$("id_instrument_1"));
 };
-// Input 252
+// Input 255
 function $bitex$ui$market_view_table$templates$MarketViewTable$$($instList30_opt_data$$73$$) {
   var $output$$57$$;
   $output$$57$$ = "" + ('<div class="row-fluid"><div class="span12"><table id="' + $soy$$0$0escapeHtml$$($instList30_opt_data$$73$$.id) + '_table" class="table table-bordered table-condensed"><thead><tr><th> Par</th><th> \u00daltimo </th><th> Compra </th><th> Venda </th><th> Volume (BTC) </th><th> Volume </th><th> Alta </th><th> Baixa </th></tr></thead><tbody>');
@@ -14835,7 +14861,7 @@ function $bitex$ui$market_view_table$templates$MarketViewTable$$($instList30_opt
   return $output$$57$$ + "</tbody></table></div></div>";
 }
 ;
-// Input 253
+// Input 256
 function $bitex$ui$MarketViewTable$$($opt_domHelper$$59$$) {
   $goog$ui$Component$$.call(this, $opt_domHelper$$59$$);
 }
@@ -14875,12 +14901,12 @@ $bitex$ui$MarketViewTable$$.prototype.$onTableClick_$ = function $$bitex$ui$Mark
     $e$$300$$.stopPropagation();
   }
 };
-// Input 254
+// Input 257
 function $bitex$ui$SimpleChart$templates$SimpleChart$$($opt_data$$74$$) {
   return'<iframe id="HighChartIFrame" allowtransparency="true" src="' + ($opt_data$$74$$.$symbol$ ? "./chart.html?s=" + $soy$$0$0escapeHtml$$($opt_data$$74$$.$symbol$) : "") + '" data-symbol="' + ($opt_data$$74$$.$symbol$ ? "./chart.html?s=" + $soy$$0$0escapeHtml$$($opt_data$$74$$.$symbol$) : "") + '" style="width: 100%; height: ' + ($opt_data$$74$$.height ? $soy$$0$0escapeHtml$$($opt_data$$74$$.height) : "400") + 'px" frameborder="0" scrolling="no"></iframe>';
 }
 ;
-// Input 255
+// Input 258
 function $bitex$ui$SimpleChart$$($opt_domHelper$$60$$) {
   $goog$ui$Component$$.call(this, $opt_domHelper$$60$$);
 }
@@ -14904,7 +14930,7 @@ $JSCompiler_prototypeAlias$$.$setSymbol$ = function $$JSCompiler_prototypeAlias$
   this.$getElement$().src = "./chart.html?s=" + $symbol$$16$$;
   this.$getElement$().setAttribute("data-symbol", $symbol$$16$$);
 };
-// Input 256
+// Input 259
 function $bitex$ui$TradeHistory$$($pseudoNameFunction$$1$$, $opt_blinkDelay$$3$$, $opt_domHelper$$61$$) {
   $bitex$ui$DataGrid$$.call(this, {title:"\u00daltimos trades", rowIDFn:this.$getRowId$, rowClassFn:this.$getRowClass$, columns:[{property:"Market", label:"Mercado", sortable:!1, formatter:function($s$$60$$) {
     size_currency = $s$$60$$.substring(0, 3);
@@ -14972,7 +14998,7 @@ $bitex$ui$TradeHistory$$.prototype.$getRowClass$ = function $$bitex$ui$TradeHist
 $goog$ui$registry$setDecoratorByClassName$$($bitex$ui$TradeHistory$CSS_CLASS$$, function() {
   return new $bitex$ui$TradeHistory$$;
 });
-// Input 257
+// Input 260
 function $bitex$view$MarketView$$($app$$27$$, $opt_domHelper$$62$$) {
   $bitex$view$View$$.call(this, $app$$27$$, $opt_domHelper$$62$$);
   this.$market_data_subscription_symbol_$ = this.$market_data_subscription_id_$ = null;
@@ -15114,9 +15140,7 @@ $JSCompiler_prototypeAlias$$.$exitDocument$ = function $$JSCompiler_prototypeAli
   $bitex$view$MarketView$$.$superClass_$.$exitDocument$.call(this);
   this.$destroyComponents_$();
 };
-// Input 258
-// Input 259
-// Input 260
+// Input 261
 function $bootstrap$Alert$$($opt_type$$14$$, $opt_content$$6$$, $opt_close$$, $opt_domHelper$$63$$) {
   $goog$ui$Component$$.call(this, $opt_domHelper$$63$$);
   this.$type_$ = $opt_type$$14$$;
@@ -15148,7 +15172,7 @@ $bootstrap$Alert$$.prototype.$enterDocument$ = function $$bootstrap$Alert$$$$$en
     $e$$309$$.preventDefault();
   });
 };
-// Input 261
+// Input 262
 function $bootstrap$Accordion$closeAll$$() {
   var $accordion_body_elements_accordion_toggle_elements$$ = $goog$dom$getElementsByClass$$("accordion-toggle", document.body);
   $goog$array$forEach$$($accordion_body_elements_accordion_toggle_elements$$, function($element$$249$$) {
@@ -15170,7 +15194,7 @@ function $bootstrap$Accordion$install$$() {
   });
 }
 ;
-// Input 262
+// Input 263
 function $bitex$app$BlinkTrade$$($broker_id$$7$$, $remittance_box$$, $opt_default_country$$, $opt_default_state$$, $opt_test_request_timer_in_ms$$, $opt_maximum_allowed_delay_in_ms$$) {
   $goog$events$EventTarget$$.call(this);
   $bootstrap$Dropdown$install$$();
@@ -15211,16 +15235,16 @@ $JSCompiler_prototypeAlias$$.$getHandler$ = function $$JSCompiler_prototypeAlias
 $JSCompiler_prototypeAlias$$.$onSTUNTIpAddressCallback_$ = function $$JSCompiler_prototypeAlias$$$$onSTUNTIpAddressCallback_$$($ip_address$$) {
   null != $ip_address$$ && ($ip_address$$.match(/^(192\.168\.|169\.254\.|10\.|172\.(1[6-9]|2\d|3[01]))/) ? this.$ip_addresses_$.local = $ip_address$$ : this.$ip_addresses_$["public"].push($ip_address$$), this.$conn_$.$setSTUNTIp$(this.$ip_addresses_$));
 };
-function $bitex$app$BlinkTrade$validateBitcoinAddress_$$($el$$132_elValue$$8$$, $MSG_BITEX_ERROR_VALIDATE_REQUIRED_condition$$20$$, $minLength$$2$$, $MSG_BITEX_ERROR_VALIDATE_BTC_ADDRESS_caption$$27$$) {
-  if (!$MSG_BITEX_ERROR_VALIDATE_REQUIRED_condition$$20$$ || eval($MSG_BITEX_ERROR_VALIDATE_REQUIRED_condition$$20$$)) {
-    $MSG_BITEX_ERROR_VALIDATE_REQUIRED_condition$$20$$ = "O campo " + ($MSG_BITEX_ERROR_VALIDATE_BTC_ADDRESS_caption$$27$$ + " \u00e9 de preenchimento obrigat\u00f3rio");
-    $MSG_BITEX_ERROR_VALIDATE_BTC_ADDRESS_caption$$27$$ += " n\u00e3o \u00e9 um endere\u00e7o v\u00e1lido";
-    $el$$132_elValue$$8$$ = $goog$dom$forms$getValue$$($el$$132_elValue$$8$$);
-    if (null == $el$$132_elValue$$8$$ || $goog$string$isEmptyOrWhitespace$$($el$$132_elValue$$8$$)) {
-      throw $MSG_BITEX_ERROR_VALIDATE_REQUIRED_condition$$20$$;
+function $bitex$app$BlinkTrade$validateBitcoinAddress_$$($el$$133_elValue$$9$$, $MSG_BITEX_ERROR_VALIDATE_REQUIRED_condition$$21$$, $minLength$$2$$, $MSG_BITEX_ERROR_VALIDATE_BTC_ADDRESS_caption$$28$$) {
+  if (!$MSG_BITEX_ERROR_VALIDATE_REQUIRED_condition$$21$$ || eval($MSG_BITEX_ERROR_VALIDATE_REQUIRED_condition$$21$$)) {
+    $MSG_BITEX_ERROR_VALIDATE_REQUIRED_condition$$21$$ = "O campo " + ($MSG_BITEX_ERROR_VALIDATE_BTC_ADDRESS_caption$$28$$ + " \u00e9 de preenchimento obrigat\u00f3rio");
+    $MSG_BITEX_ERROR_VALIDATE_BTC_ADDRESS_caption$$28$$ += " n\u00e3o \u00e9 um endere\u00e7o v\u00e1lido";
+    $el$$133_elValue$$9$$ = $goog$dom$forms$getValue$$($el$$133_elValue$$9$$);
+    if (null == $el$$133_elValue$$9$$ || $goog$string$isEmptyOrWhitespace$$($el$$133_elValue$$9$$)) {
+      throw $MSG_BITEX_ERROR_VALIDATE_REQUIRED_condition$$21$$;
     }
-    if (!$bitex$util$isValidAddress$$($el$$132_elValue$$8$$)) {
-      throw $MSG_BITEX_ERROR_VALIDATE_BTC_ADDRESS_caption$$27$$;
+    if (!$bitex$util$isValidAddress$$($el$$133_elValue$$9$$)) {
+      throw $MSG_BITEX_ERROR_VALIDATE_BTC_ADDRESS_caption$$28$$;
     }
   }
 }
@@ -15401,7 +15425,7 @@ $JSCompiler_prototypeAlias$$.$onUpdateAvailableBalance_$ = function $$JSCompiler
       $goog$object$forEach$$($account_balance$$, function($balance$$3$$, $currency$$28$$) {
         var $available_balance_key$$ = "available_balance_" + $broker_id$$8$$ + ":" + $account_id$$1$$ + "_" + $currency$$28$$;
         this.$model_$.set($available_balance_key$$, $balance$$3$$);
-        $balance$$3$$ = (new $bitex$primitives$Price$$($balance$$3$$, this.$currency_info_$[$currency$$28$$].$pip$)).floor();
+        $balance$$3$$ = (new $bitex$primitives$Price$$($balance$$3$$, $JSCompiler_StaticMethods_getCurrencyPip$$(this, $currency$$28$$))).floor();
         this.$model_$.set("formatted_" + $available_balance_key$$, this.$formatCurrency$($balance$$3$$ / 1E8, $currency$$28$$, !0));
         this.$model_$.set("formatted_" + $available_balance_key$$ + "_value", $value_fmt$$7$$.format($balance$$3$$ / 1E8));
       }, this);
@@ -15465,7 +15489,7 @@ $JSCompiler_prototypeAlias$$.$onUpdateBalance_$ = function $$JSCompiler_prototyp
         }
         var $balance_key$$1$$ = "balance_" + $broker_id$$10$$ + ":" + $account_id$$3$$ + "_" + $currency$$30$$;
         this.$model_$.set($balance_key$$1$$, $balance$$5$$);
-        $balance$$5$$ = (new $bitex$primitives$Price$$($balance$$5$$, this.$currency_info_$[$currency$$30$$].$pip$)).floor();
+        $balance$$5$$ = (new $bitex$primitives$Price$$($balance$$5$$, $JSCompiler_StaticMethods_getCurrencyPip$$(this, $currency$$30$$))).floor();
         this.$model_$.set("formatted_" + $balance_key$$1$$, this.$formatCurrency$($balance$$5$$ / 1E8, $currency$$30$$, !0));
         this.$model_$.set("formatted_" + $balance_key$$1$$ + "_value", $value_fmt$$9$$.format($balance$$5$$ / 1E8));
       }, this);
@@ -15671,8 +15695,8 @@ $JSCompiler_prototypeAlias$$.$onBitexPositionResponse_$ = function $$JSCompiler_
   var $changed_balance$$ = !1;
   $goog$object$forEach$$($e$$341_msg$$115$$, function($balances$$, $brokerID$$4$$) {
     $goog$object$forEach$$($balances$$, function($balance$$6$$, $currency$$32$$) {
-      $goog$string$endsWith$$($currency$$32$$) || (null != $model_balances$$[$brokerID$$4$$] || ($model_balances$$[$brokerID$$4$$] = {}), null != $model_balances$$[$brokerID$$4$$][$clientID$$2$$] || ($model_balances$$[$brokerID$$4$$][$clientID$$2$$] = {}), $balance$$6$$ = (new $bitex$primitives$Price$$($balance$$6$$, this.$currency_info_$[$currency$$32$$].$pip$)).floor(), $model_balances$$[$brokerID$$4$$][$clientID$$2$$][$currency$$32$$] = $balance$$6$$, 0 != $balance$$6$$ && ($has_any_position$$ = 
-      !0), $changed_balance$$ = !0);
+      $goog$string$endsWith$$($currency$$32$$) || (null != $model_balances$$[$brokerID$$4$$] || ($model_balances$$[$brokerID$$4$$] = {}), null != $model_balances$$[$brokerID$$4$$][$clientID$$2$$] || ($model_balances$$[$brokerID$$4$$][$clientID$$2$$] = {}), $balance$$6$$ = (new $bitex$primitives$Price$$($balance$$6$$, $JSCompiler_StaticMethods_getCurrencyPip$$(this, $currency$$32$$))).floor(), $model_balances$$[$brokerID$$4$$][$clientID$$2$$][$currency$$32$$] = $balance$$6$$, 0 != $balance$$6$$ && 
+      ($has_any_position$$ = !0), $changed_balance$$ = !0);
     }, this);
   }, this);
   $changed_balance$$ && this.$model_$.set("Position", $model_balances$$, !0);
@@ -15700,8 +15724,8 @@ $JSCompiler_prototypeAlias$$.$onBitexBalanceResponse_$ = function $$JSCompiler_p
   var $model_balances$$1$$ = this.$model_$.get("Balance"), $changed_balance$$1$$ = !1;
   $goog$object$forEach$$($msg$$116$$, function($balances$$1$$, $brokerID$$5$$) {
     $goog$object$forEach$$($balances$$1$$, function($balance$$7$$, $currency$$34$$) {
-      $goog$string$caseInsensitiveEndsWith$$($currency$$34$$, "_locked") || (null != $model_balances$$1$$[$brokerID$$5$$] || ($model_balances$$1$$[$brokerID$$5$$] = {}), null != $model_balances$$1$$[$brokerID$$5$$][$clientID$$3$$] || ($model_balances$$1$$[$brokerID$$5$$][$clientID$$3$$] = {}), $balance$$7$$ = (new $bitex$primitives$Price$$($balance$$7$$, this.$currency_info_$[$currency$$34$$].$pip$)).floor(), $model_balances$$1$$[$brokerID$$5$$][$clientID$$3$$][$currency$$34$$] = $balance$$7$$, $changed_balance$$1$$ = 
-      !0);
+      $goog$string$caseInsensitiveEndsWith$$($currency$$34$$, "_locked") || (null != $model_balances$$1$$[$brokerID$$5$$] || ($model_balances$$1$$[$brokerID$$5$$] = {}), null != $model_balances$$1$$[$brokerID$$5$$][$clientID$$3$$] || ($model_balances$$1$$[$brokerID$$5$$][$clientID$$3$$] = {}), $balance$$7$$ = (new $bitex$primitives$Price$$($balance$$7$$, $JSCompiler_StaticMethods_getCurrencyPip$$(this, $currency$$34$$))).floor(), $model_balances$$1$$[$brokerID$$5$$][$clientID$$3$$][$currency$$34$$] = 
+      $balance$$7$$, $changed_balance$$1$$ = !0);
     }, this);
   }, this);
   $changed_balance$$1$$ && this.$model_$.set("Balance", $model_balances$$1$$, !0);
@@ -15709,7 +15733,7 @@ $JSCompiler_prototypeAlias$$.$onBitexBalanceResponse_$ = function $$JSCompiler_p
   model_locked_balances = this.$model_$.get("LockedBalance");
   $goog$object$forEach$$($msg$$116$$, function($locked_balances$$, $brokerID$$6$$) {
     $goog$object$forEach$$($locked_balances$$, function($locked_balance$$1$$, $currency$$35$$) {
-      $goog$string$endsWith$$($currency$$35$$) && ($currency$$35$$ = $goog$string$remove$$($currency$$35$$, "_locked"), null != model_locked_balances[$brokerID$$6$$] || (model_locked_balances[$brokerID$$6$$] = {}), null != model_locked_balances[$brokerID$$6$$][$clientID$$3$$] || (model_locked_balances[$brokerID$$6$$][$clientID$$3$$] = {}), $locked_balance$$1$$ = (new $bitex$primitives$Price$$($locked_balance$$1$$, this.$currency_info_$[$currency$$35$$].$pip$)).ceil(), model_locked_balances[$brokerID$$6$$][$clientID$$3$$][$currency$$35$$] = 
+      $goog$string$endsWith$$($currency$$35$$) && ($currency$$35$$ = $goog$string$remove$$($currency$$35$$, "_locked"), null != model_locked_balances[$brokerID$$6$$] || (model_locked_balances[$brokerID$$6$$] = {}), null != model_locked_balances[$brokerID$$6$$][$clientID$$3$$] || (model_locked_balances[$brokerID$$6$$][$clientID$$3$$] = {}), $locked_balance$$1$$ = (new $bitex$primitives$Price$$($locked_balance$$1$$, $JSCompiler_StaticMethods_getCurrencyPip$$(this, $currency$$35$$))).ceil(), model_locked_balances[$brokerID$$6$$][$clientID$$3$$][$currency$$35$$] = 
       $locked_balance$$1$$, changed_locked_balance = !0);
     }, this);
   }, this);
@@ -15742,16 +15766,16 @@ function $JSCompiler_StaticMethods_showWithdrawalDialog$$($JSCompiler_StaticMeth
   null != $user_withdrawal_percent_fee$$ && ($user_withdrawal_percent_fee$$ = parseFloat($user_withdrawal_percent_fee$$));
   var $user_withdrawal_fixed_fee$$ = $JSCompiler_StaticMethods_showWithdrawalDialog$self$$.$model_$.get("Profile").WithdrawFixedFee;
   null != $user_withdrawal_fixed_fee$$ && ($user_withdrawal_fixed_fee$$ = parseFloat($user_withdrawal_fixed_fee$$));
-  var $balance_key$$5_value_fmt$$10_withdrawal_form_el$$ = "available_balance_" + $JSCompiler_StaticMethods_showWithdrawalDialog$self$$.$model_$.get("Broker").BrokerID + ":" + $JSCompiler_StaticMethods_showWithdrawalDialog$self$$.$model_$.get("UserID") + "_" + $currency$$40$$, $user_balance$$ = parseInt($JSCompiler_StaticMethods_showWithdrawalDialog$self$$.$model_$.get($balance_key$$5_value_fmt$$10_withdrawal_form_el$$, 0), 10), $user_verified_withdraw_methods$$ = [];
+  var $balance_key$$5_value_fmt$$10_withdrawal_form_el$$ = "available_balance_" + $JSCompiler_StaticMethods_showWithdrawalDialog$self$$.$model_$.get("Broker").BrokerID + ":" + $JSCompiler_StaticMethods_showWithdrawalDialog$self$$.$model_$.get("UserID") + "_" + $currency$$40$$, $user_balance$$ = (new $bitex$primitives$Price$$($JSCompiler_StaticMethods_showWithdrawalDialog$self$$.$model_$.get($balance_key$$5_value_fmt$$10_withdrawal_form_el$$, 0), $JSCompiler_StaticMethods_getCurrencyPip$$($JSCompiler_StaticMethods_showWithdrawalDialog$self$$, 
+  $currency$$40$$))).floor(), $user_verified_withdraw_methods$$ = [];
   $goog$array$forEach$$($dialogContent$$1_dlg$$4_fmt$$12_opt_preData_withdraw_methods$$2$$, function($withdrawal_method$$1$$) {
     var $preData_data$$ = {};
     "Method" in $preData$$ && ($preData_data$$ = $preData$$.Data);
     null != $user_withdrawal_percent_fee$$ && ($withdrawal_method$$1$$.percent_fee = $user_withdrawal_percent_fee$$);
     null != $user_withdrawal_fixed_fee$$ && ($withdrawal_method$$1$$.fixed_fee = $user_withdrawal_fixed_fee$$);
     this.$model_$.get("IsMSB") && ($goog$array$contains$$($withdrawal_method$$1$$.fields, "SenderName") || $withdrawal_method$$1$$.fields.push({side:"client", name:"SenderName", validator:"required", type:"text", value:"", label:"Nome do remetente", placeholder:""}), $goog$array$contains$$($withdrawal_method$$1$$.fields, "SenderID") || $withdrawal_method$$1$$.fields.push({side:"client", name:"SenderID", validator:"required", type:"text", value:"", label:"Doc. Ident. do remetente", placeholder:""}), 
-    $goog$array$contains$$($withdrawal_method$$1$$.fields, "SenderPhone") || $withdrawal_method$$1$$.fields.push({side:"client", name:"SenderPhone", validator:"validatePhoneNumber", type:"text", value:"", label:"Tel. do remetente", placeholder:""}), $withdrawal_method$$1$$.fields.push({side:"client", name:"SenderKYC", validator:"validatePhrase", type:"text", value:"", label:"KYC do remetente", placeholder:"https://link.com/user_kyc"}), $goog$array$contains$$($withdrawal_method$$1$$.fields, "AccountName") || 
-    $withdrawal_method$$1$$.fields.push({side:"client", name:"AccountName", validator:"required", type:"text", value:"", label:"Nome do T\u00edtular", placeholder:""}), $goog$array$contains$$($withdrawal_method$$1$$.fields, "AccountHolderID") || $withdrawal_method$$1$$.fields.push({side:"client", name:"AccountHolderID", validator:"required", type:"text", value:"", label:"Doc. Ident. do correntista", placeholder:""}), $goog$array$contains$$($withdrawal_method$$1$$.fields, "AccountHolderPhone") || 
-    $withdrawal_method$$1$$.fields.push({side:"client", name:"AccountHolderPhone", validator:"validatePhoneNumber", type:"text", value:"", label:"Tel. do correntista #", placeholder:""}), $withdrawal_method$$1$$.fields.push({side:"client", name:"KYC", validator:"validatePhrase", type:"text", value:"", label:"KYC", placeholder:"https://link.com/user_kyc"}));
+    $goog$array$contains$$($withdrawal_method$$1$$.fields, "SenderPhone") || $withdrawal_method$$1$$.fields.push({side:"client", name:"SenderPhone", validator:"validatePhoneNumber", type:"text", value:"", label:"Tel. do remetente", placeholder:""}), $goog$array$contains$$($withdrawal_method$$1$$.fields, "AccountName") || $withdrawal_method$$1$$.fields.push({side:"client", name:"AccountName", validator:"required", type:"text", value:"", label:"Nome do T\u00edtular", placeholder:""}), $goog$array$contains$$($withdrawal_method$$1$$.fields, 
+    "AccountHolderPhone") || $withdrawal_method$$1$$.fields.push({side:"client", name:"AccountHolderPhone", validator:"validatePhoneNumber", type:"text", value:"", label:"Tel. do correntista #", placeholder:""}));
     $goog$array$forEach$$($withdrawal_method$$1$$.fields, function($field$$24$$) {
       $field$$24$$.name in $preData_data$$ && ($field$$24$$.value = $preData_data$$[$field$$24$$.name]);
       switch($field$$24$$.name) {
@@ -15811,7 +15835,7 @@ function $JSCompiler_StaticMethods_showWithdrawalDialog$$($JSCompiler_StaticMeth
       this.$model_$.get("Broker"), this.$model_$.get("UserID"), $withdrawal_limit$$.max = $user_balance$$;
     }
     if ($has_limits_enabled$$) {
-      var $max_witdrawal_amount$$ = (new $bitex$primitives$Price$$(($withdrawal_limit$$.max - $withdrawal_method$$1$$.fixed_fee) / (1 + $withdrawal_method$$1$$.percent_fee / 100), this.$currency_info_$[$currency$$40$$].$pip$)).floor();
+      var $max_witdrawal_amount$$ = (new $bitex$primitives$Price$$(($withdrawal_limit$$.max - $withdrawal_method$$1$$.fixed_fee) / (1 + $withdrawal_method$$1$$.percent_fee / 100), $JSCompiler_StaticMethods_getCurrencyPip$$(this, $currency$$40$$))).floor();
       $withdrawal_limit$$.max = $max_witdrawal_amount$$;
       $withdrawal_limit$$.formatted_max = this.$formatCurrency$($max_witdrawal_amount$$ / 1E8, $currency$$40$$, !0);
       $currency_value_fmt$$.$maximumFractionDigits_$ = this.$currency_info_$[$currency$$40$$].$number_of_decimals$;
@@ -15823,7 +15847,7 @@ function $JSCompiler_StaticMethods_showWithdrawalDialog$$($JSCompiler_StaticMeth
   }, $JSCompiler_StaticMethods_showWithdrawalDialog$self$$);
   var $form_id$$ = $goog$string$getRandomString$$();
   $dialogContent$$1_dlg$$4_fmt$$12_opt_preData_withdraw_methods$$2$$ = new $goog$i18n$NumberFormat$$(1);
-  $dialogContent$$1_dlg$$4_fmt$$12_opt_preData_withdraw_methods$$2$$ = $bitex$view$WithdrawView$templates$UserWithdrawDialogContent$$({id:$form_id$$, $fmt$:$dialogContent$$1_dlg$$4_fmt$$12_opt_preData_withdraw_methods$$2$$, $currency$:$currency$$40$$, $currencySign$:$JSCompiler_StaticMethods_showWithdrawalDialog$self$$.$getCurrencySign$($currency$$40$$), methods:$user_verified_withdraw_methods$$, $verificationLevel$:$JSCompiler_StaticMethods_showWithdrawalDialog$self$$.$model_$.get("Profile").Verified, 
+  $dialogContent$$1_dlg$$4_fmt$$12_opt_preData_withdraw_methods$$2$$ = $bitex$ui$WithdrawRequestDataEntry$templates$WithdrawRequestDataEntry$$({id:$form_id$$, $fmt$:$dialogContent$$1_dlg$$4_fmt$$12_opt_preData_withdraw_methods$$2$$, $currency$:$currency$$40$$, $currencySign$:$JSCompiler_StaticMethods_showWithdrawalDialog$self$$.$getCurrencySign$($currency$$40$$), methods:$user_verified_withdraw_methods$$, $verificationLevel$:$JSCompiler_StaticMethods_showWithdrawalDialog$self$$.$model_$.get("Profile").Verified, 
   $netAmountLabel$:"Total"});
   $dialogContent$$1_dlg$$4_fmt$$12_opt_preData_withdraw_methods$$2$$ = $JSCompiler_StaticMethods_showWithdrawalDialog$self$$.$showDialog$($dialogContent$$1_dlg$$4_fmt$$12_opt_preData_withdraw_methods$$2$$, "Pedido de saque em " + $JSCompiler_StaticMethods_showWithdrawalDialog$self$$.$getCurrencyDescription$($currency$$40$$), $bitex$ui$Dialog$ButtonSet$createOkCancel$$());
   $JSCompiler_StaticMethods_updateDom$$($JSCompiler_StaticMethods_showWithdrawalDialog$self$$.$model_$);
@@ -15868,7 +15892,7 @@ function $JSCompiler_StaticMethods_showWithdrawalDialog$$($JSCompiler_StaticMeth
         if (0 > $amount$$7_position_key$$1$$) {
           this.$showNotification$("error", "Quantidade inv\u00e1lida"), $e$$345$$.stopPropagation(), $e$$345$$.preventDefault();
         } else {
-          $amount$$7_position_key$$1$$ = parseInt(1E8 * $amount$$7_position_key$$1$$, 10);
+          $amount$$7_position_key$$1$$ = (new $bitex$primitives$Price$$(1E8 * $amount$$7_position_key$$1$$, $JSCompiler_StaticMethods_getCurrencyPip$$(this, $currency$$41$$))).floor();
           $goog$dom$forms$getValue$$($goog$dom$getElement$$($form_id$$ + "_method_" + $error_list$$12_withdraw_data$$.Method + "_net_value_value"));
           $error_list$$12_withdraw_data$$.Fees = $goog$dom$getTextContent$$($goog$dom$getElement$$($form_id$$ + "_method_" + $error_list$$12_withdraw_data$$.Method + "_fees"));
           delete $error_list$$12_withdraw_data$$.Amount;
@@ -15983,7 +16007,7 @@ $JSCompiler_prototypeAlias$$.$onUserOrderEntry_$ = function $$JSCompiler_prototy
       $MSG_INSUFFICIENT_BALANCE_DEPOSIT_BUTTON_CAPTION_MSG_SEND_ORDER_NOTIFICATION_CONTENT_option_buttons_side_msg$$ = (new $bitex$ui$Dialog$ButtonSet$$).$addButton$({key:"deposit", caption:$MSG_INSUFFICIENT_BALANCE_DEPOSIT_BUTTON_CAPTION_MSG_SEND_ORDER_NOTIFICATION_CONTENT_option_buttons_side_msg$$}, !0, !0).$addButton$($goog$ui$Dialog$ButtonSet$DefaultButtons$CANCEL$$, !1, !0);
       $confirmDialogContent_dlgConfirm_e$$357$$ = this.$showDialog$($confirmDialogContent_dlgConfirm_e$$357$$, "Fundos insuficientes", $MSG_INSUFFICIENT_BALANCE_DEPOSIT_BUTTON_CAPTION_MSG_SEND_ORDER_NOTIFICATION_CONTENT_option_buttons_side_msg$$);
       this.$getHandler$().$listen$($confirmDialogContent_dlgConfirm_e$$357$$, $goog$ui$Dialog$EventType$SELECT$$, function($e$$358_formatted_amount$$1$$) {
-        "deposit" == $e$$358_formatted_amount$$1$$.key && ($e$$358_formatted_amount$$1$$.preventDefault(), $e$$358_formatted_amount$$1$$.stopPropagation(), $e$$358_formatted_amount$$1$$ = (new $bitex$primitives$Price$$($amount$$8$$, this.$currency_info_$[$balance_currency$$1$$].$pip$)).format(), $JSCompiler_StaticMethods_showDepositDialog$$(this, $balance_currency$$1$$, ($amount$$8$$ / 1E8).toFixed(8), $e$$358_formatted_amount$$1$$, !1, $instructions$$));
+        "deposit" == $e$$358_formatted_amount$$1$$.key && ($e$$358_formatted_amount$$1$$.preventDefault(), $e$$358_formatted_amount$$1$$.stopPropagation(), $e$$358_formatted_amount$$1$$ = (new $bitex$primitives$Price$$($amount$$8$$, $JSCompiler_StaticMethods_getCurrencyPip$$(this, $balance_currency$$1$$))).format(), $JSCompiler_StaticMethods_showDepositDialog$$(this, $balance_currency$$1$$, ($amount$$8$$ / 1E8).toFixed(8), $e$$358_formatted_amount$$1$$, !1, $instructions$$));
       }, this);
       return;
     }
@@ -16538,6 +16562,9 @@ $JSCompiler_prototypeAlias$$.$isCryptoCurrency$ = function $$JSCompiler_prototyp
 $JSCompiler_prototypeAlias$$.$getCurrencySign$ = function $$JSCompiler_prototypeAlias$$$$getCurrencySign$$($currency_code$$13$$) {
   return this.$currency_info_$[$currency_code$$13$$].sign;
 };
+function $JSCompiler_StaticMethods_getCurrencyPip$$($JSCompiler_StaticMethods_getCurrencyPip$self$$, $currency_code$$14$$) {
+  return $JSCompiler_StaticMethods_getCurrencyPip$self$$.$currency_info_$[$currency_code$$14$$].$pip$;
+}
 $JSCompiler_prototypeAlias$$.$getCurrencyHumanFormat$ = function $$JSCompiler_prototypeAlias$$$$getCurrencyHumanFormat$$($currency_code$$16$$) {
   return this.$currency_info_$[$currency_code$$16$$].$human_format$;
 };
@@ -16730,7 +16757,7 @@ function $JSCompiler_StaticMethods_registerAlgorithmInstance$$($JSCompiler_Stati
   $JSCompiler_StaticMethods_registerAlgorithmInstance$self$$.$showNotification$("info", "iniciando algor\u00edtimo ...");
   $handler$$138$$.$listen$($JSCompiler_StaticMethods_registerAlgorithmInstance$self$$.$model_$, "model_set" + $algo_instance_id$$3$$ + "_params", $JSCompiler_StaticMethods_registerAlgorithmInstance$self$$.$onAlgoParams_$);
   $handler$$138$$.$listen$($JSCompiler_StaticMethods_registerAlgorithmInstance$self$$.$model_$, "model_set" + $algo_instance_id$$3$$ + "_status", $JSCompiler_StaticMethods_registerAlgorithmInstance$self$$.$onAlgoStatusChange_$);
-  var $params$$15$$ = $JSCompiler_StaticMethods_registerAlgorithmInstance$self$$.$model_$.get($algo_instance_id$$3$$ + "_params"), $algo$$ = $JSCompiler_StaticMethods_registerAlgorithmInstance$self$$.$model_$.get($algo_instance_id$$3$$ + "_algo"), $symbol$$26$$ = $JSCompiler_StaticMethods_registerAlgorithmInstance$self$$.$model_$.get($algo_instance_id$$3$$ + "_symbol"), $algo_definition$$1$$ = $JSCompiler_StaticMethods_registerAlgorithmInstance$self$$.$model_$.get($algo_instance_id$$3$$ + "_definition"), 
+  var $params$$16$$ = $JSCompiler_StaticMethods_registerAlgorithmInstance$self$$.$model_$.get($algo_instance_id$$3$$ + "_params"), $algo$$ = $JSCompiler_StaticMethods_registerAlgorithmInstance$self$$.$model_$.get($algo_instance_id$$3$$ + "_algo"), $symbol$$26$$ = $JSCompiler_StaticMethods_registerAlgorithmInstance$self$$.$model_$.get($algo_instance_id$$3$$ + "_symbol"), $algo_definition$$1$$ = $JSCompiler_StaticMethods_registerAlgorithmInstance$self$$.$model_$.get($algo_instance_id$$3$$ + "_definition"), 
   $deposited_balance_broker_dlg$$9_open_orders_index$$ = $JSCompiler_StaticMethods_registerAlgorithmInstance$self$$.$model_$.get("OpenOrdersIndex"), $open_orders$$1$$ = {};
   null != $deposited_balance_broker_dlg$$9_open_orders_index$$ && $goog$array$forEach$$($deposited_balance_broker_dlg$$9_open_orders_index$$, function($order_id$$2$$) {
     $open_orders$$1$$[$order_id$$2$$] = this.$model_$.get("order_" + $order_id$$2$$);
@@ -16823,7 +16850,7 @@ function $JSCompiler_StaticMethods_registerAlgorithmInstance$$($JSCompiler_Stati
           }
         }
       }, this);
-      $worker$$2$$.postMessage({req:"create", params:$params$$15$$});
+      $worker$$2$$.postMessage({req:"create", params:$params$$16$$});
     }
   }, $JSCompiler_StaticMethods_registerAlgorithmInstance$self$$);
 }

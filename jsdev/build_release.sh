@@ -35,6 +35,7 @@ SOY_TEMPLATES="
                ui/remittance_box
                ui/api_key_data_entry
                ui/dialog
+               ui/withdraw_request_data_entry
                view/line_of_credit
                view/profile
                view/side_bar
