@@ -36,6 +36,7 @@ SOY_TEMPLATES="
                ui/api_key_data_entry
                ui/dialog
                ui/withdraw_request_data_entry
+               ui/deposit_list
                view/line_of_credit
                view/profile
                view/side_bar

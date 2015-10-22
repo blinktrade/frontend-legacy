@@ -5,6 +5,7 @@ goog.require('goog.object');
 goog.require('bitex.ui.DataGrid');
 goog.require('goog.ui.registry');
 
+goog.require('bitex.ui.DepositList.templates');
 goog.require('goog.dom.TagName');
 goog.require('bitex.util');
 
@@ -148,12 +149,6 @@ bitex.ui.DepositList = function( crypto_currencies_def, opt_broker_mode, opt_sho
               }
 
 
-              var number_of_node_count = 0;
-              if (goog.isDef(rowSet['Data']) && goog.isDef(rowSet['Data']['NodeCount'] ) ) {
-                number_of_node_count = rowSet['Data']['NodeCount'] ;
-              }
-
-
               /**
                * @desc status message for double spent on crypto coin deposits
                */
@@ -168,24 +163,10 @@ bitex.ui.DepositList = function( crypto_currencies_def, opt_broker_mode, opt_sho
                     'necessaryconfirmations': number_of_necessary_confirmations
                   });
 
-
-              /**
-               * @desc status message for confirming crypto coin deposits
-               */
-              var MSG_0_CONFIRMATION_MESSAGE_FOR_CRYPTO_CURRENCY =
-                  goog.getMsg('Unconfirmed.  - {$nodecount} nodes',{
-                    'nodecount': number_of_node_count
-                  });
-
-
               if (number_of_confirmations < 0) {
                 progress_message = MSG_DOUBLE_SPENT_MESSAGE_FOR_CRYPTO_CURRENCY;
               } else {
-                if (number_of_confirmations == 0 && number_of_node_count > 0){
-                  progress_message = MSG_0_CONFIRMATION_MESSAGE_FOR_CRYPTO_CURRENCY;
-                } else {
-                  progress_message = MSG_PROGRESS_MESSAGE_FOR_CRYPTO_CURRENCY;
-                }
+                progress_message = MSG_PROGRESS_MESSAGE_FOR_CRYPTO_CURRENCY;
               }
             }
           }
@@ -315,6 +296,36 @@ bitex.ui.DepositList = function( crypto_currencies_def, opt_broker_mode, opt_sho
               case '1':
                 return goog.dom.createDom('div', 'btn-group',[btn_qr] ) ;
               case '2':
+                var progress_bar_el;
+
+                var number_of_node_count = 0;
+                var confidence_factor = 0;
+                if (goog.isDef(rowSet['Data'])){
+                  if (goog.isDef(rowSet['Data']['NodeCount'] ) ) {
+                    number_of_node_count = rowSet['Data']['NodeCount'];
+                  }
+                  if (goog.isDef(rowSet['Data']['Confidence'] ) ) {
+                    confidence_factor = rowSet['Data']['Confidence'];
+                  }
+                }
+
+                if (number_of_node_count > 0 || confidence_factor > 0) {
+                  confidence_factor -= 80;
+                  if (confidence_factor < 0) {
+                    confidence_factor = 0;
+                  }
+                  confidence_factor = (confidence_factor / 20) * 100;
+
+                  progress_bar_el = goog.soy.renderAsElement(bitex.ui.DepositList.templates.NodesProgressBar, {
+                    nodeCount: number_of_node_count,
+                    confidence: confidence_factor
+                  });
+                }
+
+                if (goog.isDefAndNotNull(progress_bar_el)) {
+                  return progress_bar_el;
+                }
+
               case '4':
               case '8':
                 return '';

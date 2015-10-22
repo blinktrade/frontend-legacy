@@ -11986,6 +11986,12 @@ $JSCompiler_prototypeAlias$$.$enterDocument$ = function $$JSCompiler_prototypeAl
   $bitex$ui$DepositWithdrawButtonGroup$$.$superClass_$.$enterDocument$.call(this);
 };
 // Input 224
+function $bitex$ui$DepositList$templates$NodesProgressBar$$($opt_data$$61$$) {
+  var $output$$47$$ = "", $MSG_UNNAMED_16$$ = $soy$$0$0escapeHtml$$($opt_data$$61$$.$nodeCount$) + " nodes";
+  return $output$$47$$ += '<div class="progress progress-success progress-striped active" style="margin: 0px;position: relative;"><div class="bar" role="progressbar" aria-valuenow="' + $soy$$0$0escapeHtml$$($opt_data$$61$$.$confidence$) + '" aria-valuemin="0" aria-valuemax="100" style="width:' + $soy$$0$0escapeHtml$$($opt_data$$61$$.$confidence$) + '%"></div><div style="position:absolute;width:100%;font-size:12px;color:#ffffff;height:100%;text-align:center">' + $MSG_UNNAMED_16$$ + "</div></div>";
+}
+;
+// Input 225
 function $bitex$ui$DepositList$$($crypto_currencies_def$$, $opt_broker_mode$$1_show_customers$$1$$, $grid_columns$$3_opt_show_customers$$1$$, $opt_rest_url$$, $opt_domHelper$$41$$) {
   var $broker_mode$$1$$ = !1;
   !0 === $opt_broker_mode$$1_show_customers$$1$$ && ($broker_mode$$1$$ = $opt_broker_mode$$1_show_customers$$1$$);
@@ -12008,14 +12014,8 @@ function $bitex$ui$DepositList$$($crypto_currencies_def$$, $opt_broker_mode$$1_s
           return!0;
         }
       }));
-      if (null != $confirmation_info_array_number_of_confirmations$$) {
-        $crypto_currency_def_label_class_text$$1_number_of_necessary_confirmations$$ = $confirmation_info_array_number_of_confirmations$$[2];
-        $confirmation_info_array_number_of_confirmations$$ = 0;
-        $goog$isDef$$($rowSet$$11$$.Data) && $goog$isDef$$($rowSet$$11$$.Data.Confirmations) && ($confirmation_info_array_number_of_confirmations$$ = $rowSet$$11$$.Data.Confirmations);
-        var $number_of_node_count$$ = 0;
-        $goog$isDef$$($rowSet$$11$$.Data) && $goog$isDef$$($rowSet$$11$$.Data.NodeCount) && ($number_of_node_count$$ = $rowSet$$11$$.Data.NodeCount);
-        $progress_message$$ = 0 > $confirmation_info_array_number_of_confirmations$$ ? "Double spent" : 0 == $confirmation_info_array_number_of_confirmations$$ && 0 < $number_of_node_count$$ ? "Unconfirmed.  - " + ($number_of_node_count$$ + " nodes") : $confirmation_info_array_number_of_confirmations$$ + (" of " + ($crypto_currency_def_label_class_text$$1_number_of_necessary_confirmations$$ + " confirmations"));
-      }
+      null != $confirmation_info_array_number_of_confirmations$$ && ($crypto_currency_def_label_class_text$$1_number_of_necessary_confirmations$$ = $confirmation_info_array_number_of_confirmations$$[2], $confirmation_info_array_number_of_confirmations$$ = 0, $goog$isDef$$($rowSet$$11$$.Data) && $goog$isDef$$($rowSet$$11$$.Data.Confirmations) && ($confirmation_info_array_number_of_confirmations$$ = $rowSet$$11$$.Data.Confirmations), $progress_message$$ = 0 > $confirmation_info_array_number_of_confirmations$$ ? 
+      "Double spent" : $confirmation_info_array_number_of_confirmations$$ + (" of " + ($crypto_currency_def_label_class_text$$1_number_of_necessary_confirmations$$ + " confirmations")));
     }
     $crypto_currency_def_label_class_text$$1_number_of_necessary_confirmations$$ = function($s$$52$$) {
       switch($s$$52$$) {
@@ -12075,18 +12075,26 @@ function $bitex$ui$DepositList$$($crypto_currencies_def$$, $opt_broker_mode$$1_s
   }, classes:function() {
     return $bitex$ui$DepositList$CSS_CLASS$$ + "-method";
   }}, {property:"Data", label:"Details", sortable:!1, formatter:function($value$$275$$, $rowSet$$13$$) {
-    var $btn_qr$$1_data_row$$3$$ = $goog$json$serialize$$($rowSet$$13$$), $btn_view$$;
-    $btn_view$$ = "Data" in $rowSet$$13$$ && "DepositReceipt" in $rowSet$$13$$.Data ? $goog$dom$createDom$$("a", {"class":"btn btn-mini btn-success btn-deposit-show-receipt", "data-action":"SHOW_RECEIPT", "data-row":$btn_qr$$1_data_row$$3$$}, "view", " ", $goog$dom$createDom$$("i", ["icon-white", "icon-file"])) : $goog$dom$createDom$$("a", {"class":"btn btn-mini btn-info btn-deposit-view", href:$opt_rest_url$$ + "/get_deposit?deposit_id=" + $rowSet$$13$$.DepositID, target:"_blank"}, "view", " ", 
-    $goog$dom$createDom$$("i", ["icon-white", "icon-eye-open"]));
-    $btn_qr$$1_data_row$$3$$ = $goog$dom$createDom$$("a", {"class":"btn btn-mini btn-info btn-deposit-view-qr", href:"#", "data-action":"SHOW_QR", "data-row":$btn_qr$$1_data_row$$3$$}, "qr", " ", $goog$dom$createDom$$("i", ["icon-white", "icon-qrcode"]));
+    var $btn_qr$$1_confidence_factor_data_row$$3$$ = $goog$json$serialize$$($rowSet$$13$$), $btn_view_number_of_node_count$$;
+    $btn_view_number_of_node_count$$ = "Data" in $rowSet$$13$$ && "DepositReceipt" in $rowSet$$13$$.Data ? $goog$dom$createDom$$("a", {"class":"btn btn-mini btn-success btn-deposit-show-receipt", "data-action":"SHOW_RECEIPT", "data-row":$btn_qr$$1_confidence_factor_data_row$$3$$}, "view", " ", $goog$dom$createDom$$("i", ["icon-white", "icon-file"])) : $goog$dom$createDom$$("a", {"class":"btn btn-mini btn-info btn-deposit-view", href:$opt_rest_url$$ + "/get_deposit?deposit_id=" + $rowSet$$13$$.DepositID, 
+    target:"_blank"}, "view", " ", $goog$dom$createDom$$("i", ["icon-white", "icon-eye-open"]));
+    $btn_qr$$1_confidence_factor_data_row$$3$$ = $goog$dom$createDom$$("a", {"class":"btn btn-mini btn-info btn-deposit-view-qr", href:"#", "data-action":"SHOW_QR", "data-row":$btn_qr$$1_confidence_factor_data_row$$3$$}, "qr", " ", $goog$dom$createDom$$("i", ["icon-white", "icon-qrcode"]));
     switch($rowSet$$13$$.Type) {
       case "CRY":
         switch($rowSet$$13$$.Status) {
           case "0":
           ;
           case "1":
-            return $goog$dom$createDom$$("div", "btn-group", [$btn_qr$$1_data_row$$3$$]);
+            return $goog$dom$createDom$$("div", "btn-group", [$btn_qr$$1_confidence_factor_data_row$$3$$]);
           case "2":
+            var $progress_bar_el$$, $btn_qr$$1_confidence_factor_data_row$$3$$ = $btn_view_number_of_node_count$$ = 0;
+            $goog$isDef$$($rowSet$$13$$.Data) && ($goog$isDef$$($rowSet$$13$$.Data.NodeCount) && ($btn_view_number_of_node_count$$ = $rowSet$$13$$.Data.NodeCount), $goog$isDef$$($rowSet$$13$$.Data.Confidence) && ($btn_qr$$1_confidence_factor_data_row$$3$$ = $rowSet$$13$$.Data.Confidence));
+            if (0 < $btn_view_number_of_node_count$$ || 0 < $btn_qr$$1_confidence_factor_data_row$$3$$) {
+              $btn_qr$$1_confidence_factor_data_row$$3$$ -= 80, 0 > $btn_qr$$1_confidence_factor_data_row$$3$$ && ($btn_qr$$1_confidence_factor_data_row$$3$$ = 0), $progress_bar_el$$ = $goog$soy$renderAsElement$$($bitex$ui$DepositList$templates$NodesProgressBar$$, {$nodeCount$:$btn_view_number_of_node_count$$, $confidence$:$btn_qr$$1_confidence_factor_data_row$$3$$ / 20 * 100});
+            }
+            if (null != $progress_bar_el$$) {
+              return $progress_bar_el$$;
+            }
           ;
           case "4":
           ;
@@ -12109,7 +12117,7 @@ function $bitex$ui$DepositList$$($crypto_currencies_def$$, $opt_broker_mode$$1_s
           case "4":
           ;
           case "8":
-            return $goog$dom$createDom$$("div", "btn-group", [$btn_view$$]);
+            return $goog$dom$createDom$$("div", "btn-group", [$btn_view_number_of_node_count$$]);
         }
       ;
     }
@@ -12235,7 +12243,7 @@ $JSCompiler_prototypeAlias$$.$getRowClass$ = function $$JSCompiler_prototypeAlia
 $goog$ui$registry$setDecoratorByClassName$$($bitex$ui$DepositList$CSS_CLASS$$, function() {
   return new $bitex$ui$DepositList$$;
 });
-// Input 225
+// Input 226
 function $bitex$view$DepositView$$($app$$13$$, $opt_requests_from_customers$$, $opt_domHelper$$42$$) {
   $bitex$view$View$$.call(this, $app$$13$$, $opt_domHelper$$42$$);
   this.$is_requests_from_customers_$ = !1;
@@ -12342,9 +12350,9 @@ $JSCompiler_prototypeAlias$$.$onDepositRefresh_$ = function $$JSCompiler_prototy
 $JSCompiler_prototypeAlias$$.$onDepositListReponse_$ = function $$JSCompiler_prototypeAlias$$$$onDepositListReponse_$$($e$$211_msg$$25$$) {
   null != this.$deposit_list_table_$ && ($e$$211_msg$$25$$ = $e$$211_msg$$25$$.data, $JSCompiler_StaticMethods_setResultSet$$(this.$deposit_list_table_$, $e$$211_msg$$25$$.DepositListGrp, $e$$211_msg$$25$$.Columns));
 };
-// Input 226
 // Input 227
 // Input 228
+// Input 229
 function $bitex$view$TradingView$$($app$$15$$, $opt_domHelper$$43$$) {
   $bitex$view$View$$.call(this, $app$$15$$, $opt_domHelper$$43$$);
   this.$request_order_id_$ = this.$client_order_id$ = this.$order_id_$ = this.$market_data_subscription_symbol_$ = this.$market_data_subscription_id_$ = null;
@@ -12502,86 +12510,86 @@ $JSCompiler_prototypeAlias$$.$onOBNewOrder_$ = function $$JSCompiler_prototypeAl
   var $price$$6$$ = $msg$$30_side$$13$$.MDEntryPx, $qty$$9$$ = $msg$$30_side$$13$$.MDEntrySize, $username$$6$$ = $msg$$30_side$$13$$.Username, $msg$$30_side$$13$$ = $msg$$30_side$$13$$.MDEntryType;
   "0" == $msg$$30_side$$13$$ ? ($goog$array$splice$$(this.$bids_$, $e$$222_index$$108$$, 0, [$price$$6$$, $qty$$9$$, $username$$6$$]), $JSCompiler_StaticMethods_setOrderDepth$$(this.$ask_order_entry_$, this.$bids_$)) : "1" == $msg$$30_side$$13$$ && ($goog$array$splice$$(this.$asks_$, $e$$222_index$$108$$, 0, [$price$$6$$, $qty$$9$$, $username$$6$$]), $JSCompiler_StaticMethods_setOrderDepth$$(this.$bid_order_entry_$, this.$asks_$));
 };
-// Input 229
-function $bitex$view$LineOfCreditView$templates$PayLineOfCredit$$($opt_data$$62$$) {
-  var $output$$48$$;
-  $output$$48$$ = "" + ('<form  id="' + $soy$$0$0escapeHtml$$($opt_data$$62$$.id) + '_form" class="pay-line-of-credit-data-entry-form form-horizontal"><input type="hidden" name="ID"  value="' + $soy$$0$0escapeHtml$$($opt_data$$62$$.data.ID) + '"/><fieldset>');
-  if (1 < $opt_data$$62$$.data.DeliveryCurrencies.length) {
-    $output$$48$$ += '<div class="control-group"><label class="control-label">Currency</label><div class="controls"><select id="' + $soy$$0$0escapeHtml$$($opt_data$$62$$.id) + '_form_delivery_currency" name="Currency" class="delivery-method-selector">';
-    for (var $cList114_cList127_cList134$$ = $opt_data$$62$$.data.DeliveryCurrencies, $cListLen114_cListLen127_cListLen134$$ = $cList114_cList127_cList134$$.length, $cIndex114_cIndex127_cIndex134$$ = 0;$cIndex114_cIndex127_cIndex134$$ < $cListLen114_cListLen127_cListLen134$$;$cIndex114_cIndex127_cIndex134$$++) {
-      var $cData114_cData127_cData134$$ = $cList114_cList127_cList134$$[$cIndex114_cIndex127_cIndex134$$];
-      $output$$48$$ += "<option " + (0 == $cIndex114_cIndex127_cIndex134$$ ? "selected" : "") + ' value="' + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + '">' + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + "</option>";
-    }
-    $output$$48$$ += "</select></div></div>";
-  } else {
-    for ($cList114_cList127_cList134$$ = $opt_data$$62$$.data.DeliveryCurrencies, $cListLen114_cListLen127_cListLen134$$ = $cList114_cList127_cList134$$.length, $cIndex114_cIndex127_cIndex134$$ = 0;$cIndex114_cIndex127_cIndex134$$ < $cListLen114_cListLen127_cListLen134$$;$cIndex114_cIndex127_cIndex134$$++) {
-      $cData114_cData127_cData134$$ = $cList114_cList127_cList134$$[$cIndex114_cIndex127_cIndex134$$], $output$$48$$ += '<input  id="' + $soy$$0$0escapeHtml$$($opt_data$$62$$.id) + '_form_delivery_currency" type="hidden" name="Currency"  value="' + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + '"/>';
-    }
-  }
-  $cList114_cList127_cList134$$ = $opt_data$$62$$.data.DeliveryCurrencies;
-  $cListLen114_cListLen127_cListLen134$$ = $cList114_cList127_cList134$$.length;
-  for ($cIndex114_cIndex127_cIndex134$$ = 0;$cIndex114_cIndex127_cIndex134$$ < $cListLen114_cListLen127_cListLen134$$;$cIndex114_cIndex127_cIndex134$$++) {
-    $cData114_cData127_cData134$$ = $cList114_cList127_cList134$$[$cIndex114_cIndex127_cIndex134$$], $output$$48$$ += '<div class="line-of-credit-delivery-currency" data-delivery-currency="' + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + '" style=""><div class="control-group"><label class="control-label">Amount:</label><div class="controls"><div class="input-prepend"><span class="add-on">' + $soy$$0$0escapeHtml$$($opt_data$$62$$.data.ContractInfo[$cData114_cData127_cData134$$].CurrencySign) + 
-    '</span><input id="' + $soy$$0$0escapeHtml$$($opt_data$$62$$.id) + "_form_amount_" + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + "_" + $soy$$0$0escapeHtml$$($opt_data$$62$$.data.Currency) + '" data-uniform-validators="required; validateNumber;" data-uniform-type="number" data-uniform-filters="positive_number" value="" type="text" class="input-small label-input-label" size="16" name="Amount" placeholder=""/></div></div></div></div>', $cData114_cData127_cData134$$ != $opt_data$$62$$.data.Currency && 
-    ($output$$48$$ += '<div class="control-group"><label class="control-label">Exchange rate:</label><div class="controls"><label id="' + $soy$$0$0escapeHtml$$($opt_data$$62$$.id) + "_form_exchange_rate_" + $soy$$0$0escapeHtml$$($opt_data$$62$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + '" style="text-align: left;" class="bitex-model control-label" data-model-formatter="currency" data-blink-class="balance-info-blink" data-model-formatter-pattern="' + $soy$$0$0escapeHtml$$($opt_data$$62$$.data.ContractInfo[$cData114_cData127_cData134$$].payback_ticker.currency_pattern) + 
-    '" data-model-formula="(' + $soy$$0$0escapeHtml$$($opt_data$$62$$.data.ContractInfo[$cData114_cData127_cData134$$].payback_ticker.ticker) + " - ( (ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + "_" + $soy$$0$0escapeHtml$$($opt_data$$62$$.data.Currency) + "_PREMIUM / 100) * (" + $soy$$0$0escapeHtml$$($opt_data$$62$$.data.ContractInfo[$cData114_cData127_cData134$$].payback_ticker.ticker) + ' ) ) ) / 100000000" data-model-key-list="' + $soy$$0$0escapeHtml$$($opt_data$$62$$.data.ContractInfo[$cData114_cData127_cData134$$].payback_ticker.ticker) + 
-    ",ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + "_" + $soy$$0$0escapeHtml$$($opt_data$$62$$.data.Currency) + '_PREMIUM"></label></div></div><div class="control-group"><label class="control-label">Total:</label><div class="controls"><label id="' + $soy$$0$0escapeHtml$$($opt_data$$62$$.id) + "_form_total_" + $soy$$0$0escapeHtml$$($opt_data$$62$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + '" style="text-align: left;" class="bitex-model control-label" data-model-formatter="currency" data-blink-class="balance-info-blink" data-model-formatter-pattern="' + 
-    $soy$$0$0escapeHtml$$($opt_data$$62$$.data.ContractInfo[$cData114_cData127_cData134$$].payback_ticker.currency_pattern) + '" data-model-formula="ID_LOC_FORM_AMOUNT_' + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + "_" + $soy$$0$0escapeHtml$$($opt_data$$62$$.data.Currency) + " / 100000000 * ( (" + $soy$$0$0escapeHtml$$($opt_data$$62$$.data.ContractInfo[$cData114_cData127_cData134$$].payback_ticker.ticker) + " - ( (ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + 
-    "_" + $soy$$0$0escapeHtml$$($opt_data$$62$$.data.Currency) + "_PREMIUM / 100) * (" + $soy$$0$0escapeHtml$$($opt_data$$62$$.data.ContractInfo[$cData114_cData127_cData134$$].payback_ticker.ticker) + ' ) ) ) ) / 100000000 " data-model-key-list="ID_LOC_FORM_AMOUNT_' + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + "_" + $soy$$0$0escapeHtml$$($opt_data$$62$$.data.Currency) + ",ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + "_" + $soy$$0$0escapeHtml$$($opt_data$$62$$.data.Currency) + 
-    "_PREMIUM," + $soy$$0$0escapeHtml$$($opt_data$$62$$.data.ContractInfo[$cData114_cData127_cData134$$].payback_ticker.ticker) + '"></label></div></div>'), $output$$48$$ += '<div class="control-group"><label class="control-label">Fees:</label><div class="controls"><label id="' + $soy$$0$0escapeHtml$$($opt_data$$62$$.id) + "_form_fee_" + $soy$$0$0escapeHtml$$($opt_data$$62$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + '" style="text-align: left;" class="bitex-model control-label" data-model-formatter="currency" data-blink-class="balance-info-blink" data-model-formatter-pattern="' + 
-    $soy$$0$0escapeHtml$$($opt_data$$62$$.data.ContractInfo[$cData114_cData127_cData134$$].CurrencyPattern) + '" data-model-formula="(' + $soy$$0$0escapeHtml$$($opt_data$$62$$.data.PercentFee) + "/100 * ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + "_" + $soy$$0$0escapeHtml$$($opt_data$$62$$.data.Currency) + ' ) " data-model-key-list="ID_LOC_FORM_AMOUNT_' + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + "_" + $soy$$0$0escapeHtml$$($opt_data$$62$$.data.Currency) + 
-    ",ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + "_" + $soy$$0$0escapeHtml$$($opt_data$$62$$.data.Currency) + "_PREMIUM," + $soy$$0$0escapeHtml$$($opt_data$$62$$.data.ContractInfo[$cData114_cData127_cData134$$].payback_ticker.ticker) + '"></label></div></div><div class="control-group"><label class="control-label">Net total:</label><div class="controls"><label id="' + $soy$$0$0escapeHtml$$($opt_data$$62$$.id) + "_form_net_total_" + $soy$$0$0escapeHtml$$($opt_data$$62$$.data.Currency) + 
-    "_" + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + '" style="text-align: left;" class="bitex-model control-label" data-model-formatter="currency" data-blink-class="balance-info-blink" data-model-formatter-pattern="' + $soy$$0$0escapeHtml$$($opt_data$$62$$.data.ContractInfo[$cData114_cData127_cData134$$].payback_ticker.currency_pattern) + '" data-model-formula="(ID_LOC_FORM_AMOUNT_' + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + "_" + $soy$$0$0escapeHtml$$($opt_data$$62$$.data.Currency) + 
-    " - (" + $soy$$0$0escapeHtml$$($opt_data$$62$$.data.PercentFee) + "/100 * ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + "_" + $soy$$0$0escapeHtml$$($opt_data$$62$$.data.Currency) + " ) ) / 100000000 * ( (" + $soy$$0$0escapeHtml$$($opt_data$$62$$.data.ContractInfo[$cData114_cData127_cData134$$].payback_ticker.ticker) + " - ( (ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + "_" + $soy$$0$0escapeHtml$$($opt_data$$62$$.data.Currency) + 
-    "_PREMIUM / 100) * (" + $soy$$0$0escapeHtml$$($opt_data$$62$$.data.ContractInfo[$cData114_cData127_cData134$$].payback_ticker.ticker) + ' ) ) ) ) / 100000000  " data-model-key-list="ID_LOC_FORM_AMOUNT_' + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + "_" + $soy$$0$0escapeHtml$$($opt_data$$62$$.data.Currency) + ",ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + "_" + $soy$$0$0escapeHtml$$($opt_data$$62$$.data.Currency) + "_PREMIUM," + $soy$$0$0escapeHtml$$($opt_data$$62$$.data.ContractInfo[$cData114_cData127_cData134$$].payback_ticker.ticker) + 
-    '"></label></div></div>';
-  }
-  return $output$$48$$ + "</fieldset></form>";
-}
-function $bitex$view$LineOfCreditView$templates$GetLineOfCredit$$($opt_data$$63$$) {
+// Input 230
+function $bitex$view$LineOfCreditView$templates$PayLineOfCredit$$($opt_data$$63$$) {
   var $output$$49$$;
-  $output$$49$$ = "" + ('<form  id="' + $soy$$0$0escapeHtml$$($opt_data$$63$$.id) + '_form" class="get-line-of-credit-data-entry-form form-horizontal"><input type="hidden" name="ID"  value="' + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.ID) + '"/><fieldset>');
+  $output$$49$$ = "" + ('<form  id="' + $soy$$0$0escapeHtml$$($opt_data$$63$$.id) + '_form" class="pay-line-of-credit-data-entry-form form-horizontal"><input type="hidden" name="ID"  value="' + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.ID) + '"/><fieldset>');
   if (1 < $opt_data$$63$$.data.DeliveryCurrencies.length) {
-    $output$$49$$ += '<div class="control-group"><label class="control-label">Delivery method</label><div class="controls"><select id="' + $soy$$0$0escapeHtml$$($opt_data$$63$$.id) + '_form_delivery_currency" name="DeliveryMethod" class="delivery-method-selector">';
-    for (var $cList293_cList306_cList313$$ = $opt_data$$63$$.data.DeliveryCurrencies, $cListLen293_cListLen306_cListLen313$$ = $cList293_cList306_cList313$$.length, $cIndex293_cIndex306_cIndex313$$ = 0;$cIndex293_cIndex306_cIndex313$$ < $cListLen293_cListLen306_cListLen313$$;$cIndex293_cIndex306_cIndex313$$++) {
-      var $cData293_cData306_cData313$$ = $cList293_cList306_cList313$$[$cIndex293_cIndex306_cIndex313$$];
-      $output$$49$$ += "<option " + (0 == $cIndex293_cIndex306_cIndex313$$ ? "selected" : "") + ' value="' + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + '">' + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + "</option>";
+    $output$$49$$ += '<div class="control-group"><label class="control-label">Currency</label><div class="controls"><select id="' + $soy$$0$0escapeHtml$$($opt_data$$63$$.id) + '_form_delivery_currency" name="Currency" class="delivery-method-selector">';
+    for (var $cList114_cList127_cList134$$ = $opt_data$$63$$.data.DeliveryCurrencies, $cListLen114_cListLen127_cListLen134$$ = $cList114_cList127_cList134$$.length, $cIndex114_cIndex127_cIndex134$$ = 0;$cIndex114_cIndex127_cIndex134$$ < $cListLen114_cListLen127_cListLen134$$;$cIndex114_cIndex127_cIndex134$$++) {
+      var $cData114_cData127_cData134$$ = $cList114_cList127_cList134$$[$cIndex114_cIndex127_cIndex134$$];
+      $output$$49$$ += "<option " + (0 == $cIndex114_cIndex127_cIndex134$$ ? "selected" : "") + ' value="' + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + '">' + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + "</option>";
     }
     $output$$49$$ += "</select></div></div>";
   } else {
-    for ($cList293_cList306_cList313$$ = $opt_data$$63$$.data.DeliveryCurrencies, $cListLen293_cListLen306_cListLen313$$ = $cList293_cList306_cList313$$.length, $cIndex293_cIndex306_cIndex313$$ = 0;$cIndex293_cIndex306_cIndex313$$ < $cListLen293_cListLen306_cListLen313$$;$cIndex293_cIndex306_cIndex313$$++) {
-      $cData293_cData306_cData313$$ = $cList293_cList306_cList313$$[$cIndex293_cIndex306_cIndex313$$], $output$$49$$ += '<input  id="' + $soy$$0$0escapeHtml$$($opt_data$$63$$.id) + '_form_delivery_currency" type="hidden" name="DeliveryMethod"  value="' + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + '"/>';
+    for ($cList114_cList127_cList134$$ = $opt_data$$63$$.data.DeliveryCurrencies, $cListLen114_cListLen127_cListLen134$$ = $cList114_cList127_cList134$$.length, $cIndex114_cIndex127_cIndex134$$ = 0;$cIndex114_cIndex127_cIndex134$$ < $cListLen114_cListLen127_cListLen134$$;$cIndex114_cIndex127_cIndex134$$++) {
+      $cData114_cData127_cData134$$ = $cList114_cList127_cList134$$[$cIndex114_cIndex127_cIndex134$$], $output$$49$$ += '<input  id="' + $soy$$0$0escapeHtml$$($opt_data$$63$$.id) + '_form_delivery_currency" type="hidden" name="Currency"  value="' + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + '"/>';
     }
   }
-  $cList293_cList306_cList313$$ = $opt_data$$63$$.data.DeliveryCurrencies;
-  $cListLen293_cListLen306_cListLen313$$ = $cList293_cList306_cList313$$.length;
-  for ($cIndex293_cIndex306_cIndex313$$ = 0;$cIndex293_cIndex306_cIndex313$$ < $cListLen293_cListLen306_cListLen313$$;$cIndex293_cIndex306_cIndex313$$++) {
-    var $cData293_cData306_cData313$$ = $cList293_cList306_cList313$$[$cIndex293_cIndex306_cIndex313$$], $MSG_UNNAMED_753$$ = "Minimum of " + ($soy$$0$0escapeHtml$$($opt_data$$63$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.min_size_human_format) + (" and Maximum of " + ($soy$$0$0escapeHtml$$($opt_data$$63$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.max_size_human_format) + " per transaction.")));
-    $output$$49$$ += '<div class="line-of-credit-delivery-currency" data-delivery-currency="' + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + '" style=""><div class="control-group"><label class="control-label">Amount:</label><div class="controls"><div class="input-prepend"><span class="add-on">' + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.CurrencySign) + '</span><input id="' + $soy$$0$0escapeHtml$$($opt_data$$63$$.id) + "_form_amount_" + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.Currency) + 
-    "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + '" data-uniform-validators="required; validateNumber; validateMin ' + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.min_size_decimal) + "; validateMax " + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.max_size_decimal) + '" data-uniform-type="number" data-uniform-filters="positive_number" value="" type="text" class="input-small label-input-label" size="16" name="Amount" placeholder=""/></div><div><em><small> ' + 
-    $MSG_UNNAMED_753$$ + "</small></em></div></div></div></div>";
-    $cData293_cData306_cData313$$ != $opt_data$$63$$.data.Currency && ($output$$49$$ += '<div class="control-group"><label class="control-label">Exchange rate:</label><div class="controls"><label id="' + $soy$$0$0escapeHtml$$($opt_data$$63$$.id) + "_form_exchange_rate_" + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + '" style="text-align: left;" class="bitex-model control-label" data-model-formatter="currency" data-blink-class="balance-info-blink" data-model-formatter-pattern="' + 
-    $soy$$0$0escapeHtml$$($opt_data$$63$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.currency_pattern) + '" data-model-formula="(' + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.ticker) + " +  ( (ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + "_PREMIUM / 100) * (" + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.ticker) + 
-    ' ) ) ) / 100000000" data-model-key-list="' + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.ticker) + ",ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + '_PREMIUM"></label></div></div><div class="control-group"><label class="control-label">Total:</label><div class="controls"><label id="' + $soy$$0$0escapeHtml$$($opt_data$$63$$.id) + "_form_total_" + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.Currency) + 
-    "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + '" style="text-align: left;" class="bitex-model control-label" data-model-formatter="currency" data-blink-class="balance-info-blink" data-model-formatter-pattern="' + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.ContractInfo[$cData293_cData306_cData313$$].CurrencyPattern) + '" data-model-formula="ID_LOC_FORM_AMOUNT_' + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + " / ( (" + 
-    $soy$$0$0escapeHtml$$($opt_data$$63$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.ticker) + " +  ( (ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + "_PREMIUM / 100) * (" + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.ticker) + ' ) ) ) ) " data-model-key-list="ID_LOC_FORM_AMOUNT_' + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.Currency) + 
-    "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + ",ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + "_PREMIUM," + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.ticker) + '"></label></div></div>');
-    $output$$49$$ += '<div class="control-group"><label class="control-label">Fees:</label><div class="controls"><label id="' + $soy$$0$0escapeHtml$$($opt_data$$63$$.id) + "_form_fee_" + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + '" style="text-align: left;" class="bitex-model control-label" data-model-formatter="currency" data-blink-class="balance-info-blink" data-model-formatter-pattern="' + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.ContractInfo[$cData293_cData306_cData313$$].CurrencyPattern) + 
-    '" data-model-formula="( ( (ID_LOC_FORM_AMOUNT_' + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + "_PREMIUM / 100) * (" + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.ticker) + " ) ) ) ) + ( (" + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.PercentFee) + "/100)  * (ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + 
-    " / ( (" + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.ticker) + " +  ( (ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + "_PREMIUM / 100) * (" + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.ticker) + " ) ) ) ) - ( ( (ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.Currency) + "_" + 
-    $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + "_PREMIUM / 100) * (" + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.ticker) + ' ) ) ) ) ) )" data-model-key-list="ID_LOC_FORM_AMOUNT_' + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + ",ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + 
-    "_PREMIUM," + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.ticker) + '"></label></div></div><div class="control-group"><label class="control-label">Net total:</label><div class="controls"><label id="' + $soy$$0$0escapeHtml$$($opt_data$$63$$.id) + "_form_net_total_" + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + '" style="text-align: left;" class="bitex-model control-label" data-model-formatter="currency" data-blink-class="balance-info-blink" data-model-formatter-pattern="' + 
-    $soy$$0$0escapeHtml$$($opt_data$$63$$.data.ContractInfo[$cData293_cData306_cData313$$].CurrencyPattern) + '" data-model-formula="(ID_LOC_FORM_AMOUNT_' + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + " / ( (" + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.ticker) + " +  ( (ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + 
-    "_PREMIUM / 100) * (" + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.ticker) + " ) ) ) ) ) - ( ( ( (ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + "_PREMIUM / 100) * (" + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.ticker) + " ) ) ) ) + ( (" + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.PercentFee) + 
-    "/100)  * (ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + " / ( (" + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.ticker) + " +  ( (ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + "_PREMIUM / 100) * (" + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.ticker) + 
-    " ) ) ) ) - ( ( (ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + "_PREMIUM / 100) * (" + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.ticker) + ' ) ) ) ) ) ) ) " data-model-key-list="ID_LOC_FORM_AMOUNT_' + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + ",ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.Currency) + 
-    "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + "_PREMIUM," + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.ticker) + '"></label></div></div><div class="control-group"><label class="control-label">Daily interest rate:</label><div class="controls"><label id="' + $soy$$0$0escapeHtml$$($opt_data$$63$$.id) + "_form_interest_rate_" + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + 
-    '" class="control-label" style="text-align: left;">' + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.ContractInfo.interest_rate_human_format) + "</label></div></div>";
+  $cList114_cList127_cList134$$ = $opt_data$$63$$.data.DeliveryCurrencies;
+  $cListLen114_cListLen127_cListLen134$$ = $cList114_cList127_cList134$$.length;
+  for ($cIndex114_cIndex127_cIndex134$$ = 0;$cIndex114_cIndex127_cIndex134$$ < $cListLen114_cListLen127_cListLen134$$;$cIndex114_cIndex127_cIndex134$$++) {
+    $cData114_cData127_cData134$$ = $cList114_cList127_cList134$$[$cIndex114_cIndex127_cIndex134$$], $output$$49$$ += '<div class="line-of-credit-delivery-currency" data-delivery-currency="' + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + '" style=""><div class="control-group"><label class="control-label">Amount:</label><div class="controls"><div class="input-prepend"><span class="add-on">' + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.ContractInfo[$cData114_cData127_cData134$$].CurrencySign) + 
+    '</span><input id="' + $soy$$0$0escapeHtml$$($opt_data$$63$$.id) + "_form_amount_" + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + "_" + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.Currency) + '" data-uniform-validators="required; validateNumber;" data-uniform-type="number" data-uniform-filters="positive_number" value="" type="text" class="input-small label-input-label" size="16" name="Amount" placeholder=""/></div></div></div></div>', $cData114_cData127_cData134$$ != $opt_data$$63$$.data.Currency && 
+    ($output$$49$$ += '<div class="control-group"><label class="control-label">Exchange rate:</label><div class="controls"><label id="' + $soy$$0$0escapeHtml$$($opt_data$$63$$.id) + "_form_exchange_rate_" + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + '" style="text-align: left;" class="bitex-model control-label" data-model-formatter="currency" data-blink-class="balance-info-blink" data-model-formatter-pattern="' + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.ContractInfo[$cData114_cData127_cData134$$].payback_ticker.currency_pattern) + 
+    '" data-model-formula="(' + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.ContractInfo[$cData114_cData127_cData134$$].payback_ticker.ticker) + " - ( (ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + "_" + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.Currency) + "_PREMIUM / 100) * (" + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.ContractInfo[$cData114_cData127_cData134$$].payback_ticker.ticker) + ' ) ) ) / 100000000" data-model-key-list="' + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.ContractInfo[$cData114_cData127_cData134$$].payback_ticker.ticker) + 
+    ",ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + "_" + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.Currency) + '_PREMIUM"></label></div></div><div class="control-group"><label class="control-label">Total:</label><div class="controls"><label id="' + $soy$$0$0escapeHtml$$($opt_data$$63$$.id) + "_form_total_" + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + '" style="text-align: left;" class="bitex-model control-label" data-model-formatter="currency" data-blink-class="balance-info-blink" data-model-formatter-pattern="' + 
+    $soy$$0$0escapeHtml$$($opt_data$$63$$.data.ContractInfo[$cData114_cData127_cData134$$].payback_ticker.currency_pattern) + '" data-model-formula="ID_LOC_FORM_AMOUNT_' + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + "_" + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.Currency) + " / 100000000 * ( (" + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.ContractInfo[$cData114_cData127_cData134$$].payback_ticker.ticker) + " - ( (ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + 
+    "_" + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.Currency) + "_PREMIUM / 100) * (" + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.ContractInfo[$cData114_cData127_cData134$$].payback_ticker.ticker) + ' ) ) ) ) / 100000000 " data-model-key-list="ID_LOC_FORM_AMOUNT_' + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + "_" + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.Currency) + ",ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + "_" + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.Currency) + 
+    "_PREMIUM," + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.ContractInfo[$cData114_cData127_cData134$$].payback_ticker.ticker) + '"></label></div></div>'), $output$$49$$ += '<div class="control-group"><label class="control-label">Fees:</label><div class="controls"><label id="' + $soy$$0$0escapeHtml$$($opt_data$$63$$.id) + "_form_fee_" + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + '" style="text-align: left;" class="bitex-model control-label" data-model-formatter="currency" data-blink-class="balance-info-blink" data-model-formatter-pattern="' + 
+    $soy$$0$0escapeHtml$$($opt_data$$63$$.data.ContractInfo[$cData114_cData127_cData134$$].CurrencyPattern) + '" data-model-formula="(' + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.PercentFee) + "/100 * ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + "_" + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.Currency) + ' ) " data-model-key-list="ID_LOC_FORM_AMOUNT_' + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + "_" + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.Currency) + 
+    ",ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + "_" + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.Currency) + "_PREMIUM," + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.ContractInfo[$cData114_cData127_cData134$$].payback_ticker.ticker) + '"></label></div></div><div class="control-group"><label class="control-label">Net total:</label><div class="controls"><label id="' + $soy$$0$0escapeHtml$$($opt_data$$63$$.id) + "_form_net_total_" + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.Currency) + 
+    "_" + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + '" style="text-align: left;" class="bitex-model control-label" data-model-formatter="currency" data-blink-class="balance-info-blink" data-model-formatter-pattern="' + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.ContractInfo[$cData114_cData127_cData134$$].payback_ticker.currency_pattern) + '" data-model-formula="(ID_LOC_FORM_AMOUNT_' + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + "_" + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.Currency) + 
+    " - (" + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.PercentFee) + "/100 * ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + "_" + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.Currency) + " ) ) / 100000000 * ( (" + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.ContractInfo[$cData114_cData127_cData134$$].payback_ticker.ticker) + " - ( (ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + "_" + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.Currency) + 
+    "_PREMIUM / 100) * (" + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.ContractInfo[$cData114_cData127_cData134$$].payback_ticker.ticker) + ' ) ) ) ) / 100000000  " data-model-key-list="ID_LOC_FORM_AMOUNT_' + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + "_" + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.Currency) + ",ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + "_" + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.Currency) + "_PREMIUM," + $soy$$0$0escapeHtml$$($opt_data$$63$$.data.ContractInfo[$cData114_cData127_cData134$$].payback_ticker.ticker) + 
+    '"></label></div></div>';
   }
   return $output$$49$$ + "</fieldset></form>";
 }
+function $bitex$view$LineOfCreditView$templates$GetLineOfCredit$$($opt_data$$64$$) {
+  var $output$$50$$;
+  $output$$50$$ = "" + ('<form  id="' + $soy$$0$0escapeHtml$$($opt_data$$64$$.id) + '_form" class="get-line-of-credit-data-entry-form form-horizontal"><input type="hidden" name="ID"  value="' + $soy$$0$0escapeHtml$$($opt_data$$64$$.data.ID) + '"/><fieldset>');
+  if (1 < $opt_data$$64$$.data.DeliveryCurrencies.length) {
+    $output$$50$$ += '<div class="control-group"><label class="control-label">Delivery method</label><div class="controls"><select id="' + $soy$$0$0escapeHtml$$($opt_data$$64$$.id) + '_form_delivery_currency" name="DeliveryMethod" class="delivery-method-selector">';
+    for (var $cList293_cList306_cList313$$ = $opt_data$$64$$.data.DeliveryCurrencies, $cListLen293_cListLen306_cListLen313$$ = $cList293_cList306_cList313$$.length, $cIndex293_cIndex306_cIndex313$$ = 0;$cIndex293_cIndex306_cIndex313$$ < $cListLen293_cListLen306_cListLen313$$;$cIndex293_cIndex306_cIndex313$$++) {
+      var $cData293_cData306_cData313$$ = $cList293_cList306_cList313$$[$cIndex293_cIndex306_cIndex313$$];
+      $output$$50$$ += "<option " + (0 == $cIndex293_cIndex306_cIndex313$$ ? "selected" : "") + ' value="' + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + '">' + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + "</option>";
+    }
+    $output$$50$$ += "</select></div></div>";
+  } else {
+    for ($cList293_cList306_cList313$$ = $opt_data$$64$$.data.DeliveryCurrencies, $cListLen293_cListLen306_cListLen313$$ = $cList293_cList306_cList313$$.length, $cIndex293_cIndex306_cIndex313$$ = 0;$cIndex293_cIndex306_cIndex313$$ < $cListLen293_cListLen306_cListLen313$$;$cIndex293_cIndex306_cIndex313$$++) {
+      $cData293_cData306_cData313$$ = $cList293_cList306_cList313$$[$cIndex293_cIndex306_cIndex313$$], $output$$50$$ += '<input  id="' + $soy$$0$0escapeHtml$$($opt_data$$64$$.id) + '_form_delivery_currency" type="hidden" name="DeliveryMethod"  value="' + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + '"/>';
+    }
+  }
+  $cList293_cList306_cList313$$ = $opt_data$$64$$.data.DeliveryCurrencies;
+  $cListLen293_cListLen306_cListLen313$$ = $cList293_cList306_cList313$$.length;
+  for ($cIndex293_cIndex306_cIndex313$$ = 0;$cIndex293_cIndex306_cIndex313$$ < $cListLen293_cListLen306_cListLen313$$;$cIndex293_cIndex306_cIndex313$$++) {
+    var $cData293_cData306_cData313$$ = $cList293_cList306_cList313$$[$cIndex293_cIndex306_cIndex313$$], $MSG_UNNAMED_753$$ = "Minimum of " + ($soy$$0$0escapeHtml$$($opt_data$$64$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.min_size_human_format) + (" and Maximum of " + ($soy$$0$0escapeHtml$$($opt_data$$64$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.max_size_human_format) + " per transaction.")));
+    $output$$50$$ += '<div class="line-of-credit-delivery-currency" data-delivery-currency="' + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + '" style=""><div class="control-group"><label class="control-label">Amount:</label><div class="controls"><div class="input-prepend"><span class="add-on">' + $soy$$0$0escapeHtml$$($opt_data$$64$$.data.CurrencySign) + '</span><input id="' + $soy$$0$0escapeHtml$$($opt_data$$64$$.id) + "_form_amount_" + $soy$$0$0escapeHtml$$($opt_data$$64$$.data.Currency) + 
+    "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + '" data-uniform-validators="required; validateNumber; validateMin ' + $soy$$0$0escapeHtml$$($opt_data$$64$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.min_size_decimal) + "; validateMax " + $soy$$0$0escapeHtml$$($opt_data$$64$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.max_size_decimal) + '" data-uniform-type="number" data-uniform-filters="positive_number" value="" type="text" class="input-small label-input-label" size="16" name="Amount" placeholder=""/></div><div><em><small> ' + 
+    $MSG_UNNAMED_753$$ + "</small></em></div></div></div></div>";
+    $cData293_cData306_cData313$$ != $opt_data$$64$$.data.Currency && ($output$$50$$ += '<div class="control-group"><label class="control-label">Exchange rate:</label><div class="controls"><label id="' + $soy$$0$0escapeHtml$$($opt_data$$64$$.id) + "_form_exchange_rate_" + $soy$$0$0escapeHtml$$($opt_data$$64$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + '" style="text-align: left;" class="bitex-model control-label" data-model-formatter="currency" data-blink-class="balance-info-blink" data-model-formatter-pattern="' + 
+    $soy$$0$0escapeHtml$$($opt_data$$64$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.currency_pattern) + '" data-model-formula="(' + $soy$$0$0escapeHtml$$($opt_data$$64$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.ticker) + " +  ( (ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($opt_data$$64$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + "_PREMIUM / 100) * (" + $soy$$0$0escapeHtml$$($opt_data$$64$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.ticker) + 
+    ' ) ) ) / 100000000" data-model-key-list="' + $soy$$0$0escapeHtml$$($opt_data$$64$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.ticker) + ",ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($opt_data$$64$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + '_PREMIUM"></label></div></div><div class="control-group"><label class="control-label">Total:</label><div class="controls"><label id="' + $soy$$0$0escapeHtml$$($opt_data$$64$$.id) + "_form_total_" + $soy$$0$0escapeHtml$$($opt_data$$64$$.data.Currency) + 
+    "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + '" style="text-align: left;" class="bitex-model control-label" data-model-formatter="currency" data-blink-class="balance-info-blink" data-model-formatter-pattern="' + $soy$$0$0escapeHtml$$($opt_data$$64$$.data.ContractInfo[$cData293_cData306_cData313$$].CurrencyPattern) + '" data-model-formula="ID_LOC_FORM_AMOUNT_' + $soy$$0$0escapeHtml$$($opt_data$$64$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + " / ( (" + 
+    $soy$$0$0escapeHtml$$($opt_data$$64$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.ticker) + " +  ( (ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($opt_data$$64$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + "_PREMIUM / 100) * (" + $soy$$0$0escapeHtml$$($opt_data$$64$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.ticker) + ' ) ) ) ) " data-model-key-list="ID_LOC_FORM_AMOUNT_' + $soy$$0$0escapeHtml$$($opt_data$$64$$.data.Currency) + 
+    "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + ",ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($opt_data$$64$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + "_PREMIUM," + $soy$$0$0escapeHtml$$($opt_data$$64$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.ticker) + '"></label></div></div>');
+    $output$$50$$ += '<div class="control-group"><label class="control-label">Fees:</label><div class="controls"><label id="' + $soy$$0$0escapeHtml$$($opt_data$$64$$.id) + "_form_fee_" + $soy$$0$0escapeHtml$$($opt_data$$64$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + '" style="text-align: left;" class="bitex-model control-label" data-model-formatter="currency" data-blink-class="balance-info-blink" data-model-formatter-pattern="' + $soy$$0$0escapeHtml$$($opt_data$$64$$.data.ContractInfo[$cData293_cData306_cData313$$].CurrencyPattern) + 
+    '" data-model-formula="( ( (ID_LOC_FORM_AMOUNT_' + $soy$$0$0escapeHtml$$($opt_data$$64$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + "_PREMIUM / 100) * (" + $soy$$0$0escapeHtml$$($opt_data$$64$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.ticker) + " ) ) ) ) + ( (" + $soy$$0$0escapeHtml$$($opt_data$$64$$.data.PercentFee) + "/100)  * (ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($opt_data$$64$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + 
+    " / ( (" + $soy$$0$0escapeHtml$$($opt_data$$64$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.ticker) + " +  ( (ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($opt_data$$64$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + "_PREMIUM / 100) * (" + $soy$$0$0escapeHtml$$($opt_data$$64$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.ticker) + " ) ) ) ) - ( ( (ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($opt_data$$64$$.data.Currency) + "_" + 
+    $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + "_PREMIUM / 100) * (" + $soy$$0$0escapeHtml$$($opt_data$$64$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.ticker) + ' ) ) ) ) ) )" data-model-key-list="ID_LOC_FORM_AMOUNT_' + $soy$$0$0escapeHtml$$($opt_data$$64$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + ",ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($opt_data$$64$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + 
+    "_PREMIUM," + $soy$$0$0escapeHtml$$($opt_data$$64$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.ticker) + '"></label></div></div><div class="control-group"><label class="control-label">Net total:</label><div class="controls"><label id="' + $soy$$0$0escapeHtml$$($opt_data$$64$$.id) + "_form_net_total_" + $soy$$0$0escapeHtml$$($opt_data$$64$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + '" style="text-align: left;" class="bitex-model control-label" data-model-formatter="currency" data-blink-class="balance-info-blink" data-model-formatter-pattern="' + 
+    $soy$$0$0escapeHtml$$($opt_data$$64$$.data.ContractInfo[$cData293_cData306_cData313$$].CurrencyPattern) + '" data-model-formula="(ID_LOC_FORM_AMOUNT_' + $soy$$0$0escapeHtml$$($opt_data$$64$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + " / ( (" + $soy$$0$0escapeHtml$$($opt_data$$64$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.ticker) + " +  ( (ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($opt_data$$64$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + 
+    "_PREMIUM / 100) * (" + $soy$$0$0escapeHtml$$($opt_data$$64$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.ticker) + " ) ) ) ) ) - ( ( ( (ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($opt_data$$64$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + "_PREMIUM / 100) * (" + $soy$$0$0escapeHtml$$($opt_data$$64$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.ticker) + " ) ) ) ) + ( (" + $soy$$0$0escapeHtml$$($opt_data$$64$$.data.PercentFee) + 
+    "/100)  * (ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($opt_data$$64$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + " / ( (" + $soy$$0$0escapeHtml$$($opt_data$$64$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.ticker) + " +  ( (ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($opt_data$$64$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + "_PREMIUM / 100) * (" + $soy$$0$0escapeHtml$$($opt_data$$64$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.ticker) + 
+    " ) ) ) ) - ( ( (ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($opt_data$$64$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + "_PREMIUM / 100) * (" + $soy$$0$0escapeHtml$$($opt_data$$64$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.ticker) + ' ) ) ) ) ) ) ) " data-model-key-list="ID_LOC_FORM_AMOUNT_' + $soy$$0$0escapeHtml$$($opt_data$$64$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + ",ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($opt_data$$64$$.data.Currency) + 
+    "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + "_PREMIUM," + $soy$$0$0escapeHtml$$($opt_data$$64$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.ticker) + '"></label></div></div><div class="control-group"><label class="control-label">Daily interest rate:</label><div class="controls"><label id="' + $soy$$0$0escapeHtml$$($opt_data$$64$$.id) + "_form_interest_rate_" + $soy$$0$0escapeHtml$$($opt_data$$64$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + 
+    '" class="control-label" style="text-align: left;">' + $soy$$0$0escapeHtml$$($opt_data$$64$$.data.ContractInfo.interest_rate_human_format) + "</label></div></div>";
+  }
+  return $output$$50$$ + "</fieldset></form>";
+}
 ;
-// Input 230
+// Input 231
 function $bitex$ui$LineOfCreditTable$$($accountID$$, $opt_domHelper$$44$$) {
   $bitex$ui$DataGrid$$.call(this, {title:"Line of Credit", showSearch:!1, rowIDFn:this.$getRowId$, columns:[{property:"Currency", label:"Currency", sortable:!1, classes:function() {
     return $bitex$ui$LineOfCreditTable$CSS_CLASS$$ + "-currency";
@@ -12636,7 +12644,7 @@ $bitex$ui$LineOfCreditTable$$.prototype.$getRowId$ = function $$bitex$ui$LineOfC
 $goog$ui$registry$setDecoratorByClassName$$($bitex$ui$LineOfCreditTable$CSS_CLASS$$, function() {
   return new $bitex$ui$LineOfCreditTable$$;
 });
-// Input 231
+// Input 232
 function $bitex$view$LineOfCreditView$$($app$$16$$, $opt_domHelper$$45$$) {
   $bitex$view$View$$.call(this, $app$$16$$, $opt_domHelper$$45$$);
   this.$request_id_$ = null;
@@ -12890,8 +12898,8 @@ $JSCompiler_prototypeAlias$$.$onLineOfCreditListRefresh_$ = function $$JSCompile
 $JSCompiler_prototypeAlias$$.$onLineOfCreditListResponse_$ = function $$JSCompiler_prototypeAlias$$$$onLineOfCreditListResponse_$$($e$$237_msg$$32$$) {
   null != this.$line_of_credit_table_$ && ($e$$237_msg$$32$$ = $e$$237_msg$$32$$.data, $JSCompiler_StaticMethods_setResultSet$$(this.$line_of_credit_table_$, $e$$237_msg$$32$$.LineOfCreditListGrp, $e$$237_msg$$32$$.Columns));
 };
-// Input 232
 // Input 233
+// Input 234
 function $goog$net$WebSocket$$($opt_autoReconnect$$, $opt_getNextReconnect$$) {
   $goog$events$EventTarget$$.call(this);
   this.$autoReconnect_$ = $goog$isDef$$($opt_autoReconnect$$) ? $opt_autoReconnect$$ : !0;
@@ -12963,7 +12971,7 @@ function $goog$net$WebSocket$ErrorEvent$$($data$$52$$) {
   this.data = $data$$52$$;
 }
 $goog$inherits$$($goog$net$WebSocket$ErrorEvent$$, $goog$events$Event$$);
-// Input 234
+// Input 235
 function $bitex$api$BitEx$$($opt_browser_finger_print$$) {
   $goog$events$EventTarget$$.call(this);
   this.$all_markets_$ = this.$currency_info_$ = null;
@@ -13403,12 +13411,12 @@ $JSCompiler_prototypeAlias$$.$verifyCustomer$ = function $$JSCompiler_prototypeA
   $JSCompiler_StaticMethods_sendMessage$$(this, $clientId$$1_msg$$57$$);
   return $opt_requestId$$11_requestId$$12$$;
 };
-$JSCompiler_prototypeAlias$$.$processWithdraw$ = function $$JSCompiler_prototypeAlias$$$$processWithdraw$$($opt_requestId$$12_requestId$$13$$, $action$$2_msg$$58$$, $withdrawId$$1$$, $opt_reasonId$$, $opt_reason$$1$$, $opt_data$$64$$, $opt_percent_fee$$, $opt_fixed_fee$$) {
+$JSCompiler_prototypeAlias$$.$processWithdraw$ = function $$JSCompiler_prototypeAlias$$$$processWithdraw$$($opt_requestId$$12_requestId$$13$$, $action$$2_msg$$58$$, $withdrawId$$1$$, $opt_reasonId$$, $opt_reason$$1$$, $opt_data$$65$$, $opt_percent_fee$$, $opt_fixed_fee$$) {
   $opt_requestId$$12_requestId$$13$$ = $opt_requestId$$12_requestId$$13$$ || parseInt(1E7 * Math.random(), 10);
   $action$$2_msg$$58$$ = {MsgType:"B6", ProcessWithdrawReqID:$opt_requestId$$12_requestId$$13$$, WithdrawID:$withdrawId$$1$$, Action:$action$$2_msg$$58$$};
   null != $opt_reasonId$$ && ($action$$2_msg$$58$$.ReasonID = $opt_reasonId$$);
   null != $opt_reason$$1$$ && ($action$$2_msg$$58$$.Reason = $opt_reason$$1$$);
-  null != $opt_data$$64$$ && ($action$$2_msg$$58$$.Data = $opt_data$$64$$);
+  null != $opt_data$$65$$ && ($action$$2_msg$$58$$.Data = $opt_data$$65$$);
   null != $opt_percent_fee$$ && ($action$$2_msg$$58$$.PercentFee = $opt_percent_fee$$);
   null != $opt_fixed_fee$$ && ($action$$2_msg$$58$$.FixedFee = $opt_fixed_fee$$);
   $JSCompiler_StaticMethods_sendMessage$$(this, $action$$2_msg$$58$$);
@@ -13564,9 +13572,9 @@ $JSCompiler_prototypeAlias$$.$enableLineOfCredit$ = function $$JSCompiler_protot
   $JSCompiler_StaticMethods_sendMessage$$(this, {MsgType:"U62", EnableCreditLineOfCreditReqID:$line_of_credit_id$$2_requestId$$31$$, Enable:$enable$$25_opt_requestId$$30$$});
   return $line_of_credit_id$$2_requestId$$31$$;
 };
-function $bitex$api$BitExEvent$$($type$$149$$, $opt_data$$65$$) {
+function $bitex$api$BitExEvent$$($type$$149$$, $opt_data$$66$$) {
   $goog$events$Event$$.call(this, $type$$149$$);
-  this.data = $opt_data$$65$$;
+  this.data = $opt_data$$66$$;
 }
 $goog$inherits$$($bitex$api$BitExEvent$$, $goog$events$Event$$);
 $goog$exportSymbol$$("BitEx", $bitex$api$BitEx$$);
@@ -13615,7 +13623,7 @@ BitEx.prototype.payLineOfCredit = $bitex$api$BitEx$$.prototype.$payLineOfCredit$
 BitEx.prototype.enableLineOfCredit = $bitex$api$BitEx$$.prototype.$enableLineOfCredit$;
 BitEx.prototype.addEventListener = $bitex$api$BitEx$$.prototype.addEventListener;
 BitEx.prototype.removeEventListener = $bitex$api$BitEx$$.prototype.removeEventListener;
-// Input 235
+// Input 236
 function $bitex$ui$RankingViewTable$$($opt_domHelper$$46$$) {
   $bitex$ui$DataGrid$$.call(this, {rowIDFn:this.$getRowId$, columns:[{property:"Rank", label:"#", sortable:!1, classes:function() {
     return $bitex$ui$RankingViewTable$CSS_CLASS$$ + "-rank";
@@ -13637,7 +13645,7 @@ $bitex$ui$RankingViewTable$$.prototype.$getRowId$ = function $$bitex$ui$RankingV
 $goog$ui$registry$setDecoratorByClassName$$($bitex$ui$RankingViewTable$CSS_CLASS$$, function() {
   return new $bitex$ui$RankingViewTable$$;
 });
-// Input 236
+// Input 237
 function $bitex$view$RankingView$$($app$$17$$, $opt_domHelper$$47$$) {
   $bitex$view$View$$.call(this, $app$$17$$, $opt_domHelper$$47$$);
 }
@@ -13680,27 +13688,27 @@ $JSCompiler_prototypeAlias$$.$onRankingTableRequestData_$ = function $$JSCompile
 $JSCompiler_prototypeAlias$$.$onTradeRankResponse_$ = function $$JSCompiler_prototypeAlias$$$$onTradeRankResponse_$$($e$$242_msg$$83$$) {
   null != this.$ranking_table_$ && ($e$$242_msg$$83$$ = $e$$242_msg$$83$$.data, $JSCompiler_StaticMethods_setResultSet$$(this.$ranking_table_$, $e$$242_msg$$83$$.TradersRankGrp, $e$$242_msg$$83$$.Columns));
 };
-// Input 237
-function $bitex$ui$APIKeyDataEntry$templates$APIKeyDataEntry$$($opt_data$$66$$) {
-  var $output$$50$$;
-  $output$$50$$ = "" + ('<form  id="' + $soy$$0$0escapeHtml$$($opt_data$$66$$.id) + '_form" class="api-key-data-entry-form"><fieldset><h2>Create API Key</h2><div class="api-key-data-entry-form-block control-group"><label>API Key Label<input id="' + $soy$$0$0escapeHtml$$($opt_data$$66$$.id) + '_label" type="text" class="input-block-level"></label></div><div class="api-key-data-entry-form-block control-group"><div class="pull-right"><label class="no-selection">Clear all</label></div><div class="pull-right api-key-data-entry-form-pipe">|</div><div class="pull-right"><label class="no-selection">Select all</label></div><h3>Permissions</h3><table id="' + 
-  $soy$$0$0escapeHtml$$($opt_data$$66$$.id) + '_permissions_table" class="api-key-data-entry-form-permissions-table"><tbody><tr><td colspan="2"><h4>Your Account</h4></td></tr><tr><td class="no-selection"><label class="checkbox"><input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="BF">Account info</input></label></td><td class="no-selection"><label class="checkbox"><input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="U4">Order history</input></label></td></tr><tr><td class="no-selection"><label class="checkbox"><input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="U34">Ledger</input></label></td><td class="no-selection"><label class="checkbox"><input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="U26">View withdrawals</input></label></td></tr><tr><td class="no-selection"><label class="checkbox"><input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="U2">Balance info</input></label></td><td  class="no-selection"><label class="checkbox"><input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="U30">View deposits</input></label></td></tr><tr><td colspan="2"><h4>Buy and Sell Orders</h4></td></tr><tr><td class="no-selection"><label class="checkbox"><input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="D" data-permission-filters=\'[ ["Side","eq", "1", "OrdType","eq","2"]]\'>Create Buy Limited Order</input></label></td><td class="no-selection"><label class="checkbox"><input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="D" data-permission-filters=\'[ ["Side","eq", "2", "OrdType","eq","2"]]\'>Create Sell Limited Order</input></label></td></tr><tr><td class="no-selection"><label class="checkbox"><input type="checkbox" class="api-key-data-entry-form-permissions-check"  data-permission-msg="D" data-permission-filters=\'[ ["Side","eq", "1", "OrdType","eq","1"]]\'>Create Buy Market Order</input></label></td><td class="no-selection"><label class="checkbox"><input type="checkbox" class="api-key-data-entry-form-permissions-check"  data-permission-msg="D" data-permission-filters=\'[ ["Side","eq", "2" , "OrdType","eq","1"]]\'>Create Sell Market Order</input></label></td></tr><tr><td colspan="2" class="no-selection"><label class="checkbox"><input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="F">Cancel Orders</input></label></td></tr><tr><td colspan="2"><h4>Deposit</h4></td></tr><tr><td colspan="2" class="no-selection"><label class="checkbox"><input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="U18" data-permission-filters=\'[ ["Currency","eq", "BTC"]]\'>Bitcoin</input></label></td></tr>');
-  for (var $mList64_mList77$$ = $opt_data$$66$$.$depositMethods$, $mListLen64_mListLen77$$ = $mList64_mList77$$.length, $mIndex64_mIndex77$$ = 0;$mIndex64_mIndex77$$ < $mListLen64_mListLen77$$;$mIndex64_mIndex77$$++) {
+// Input 238
+function $bitex$ui$APIKeyDataEntry$templates$APIKeyDataEntry$$($opt_data$$67$$) {
+  var $output$$51$$;
+  $output$$51$$ = "" + ('<form  id="' + $soy$$0$0escapeHtml$$($opt_data$$67$$.id) + '_form" class="api-key-data-entry-form"><fieldset><h2>Create API Key</h2><div class="api-key-data-entry-form-block control-group"><label>API Key Label<input id="' + $soy$$0$0escapeHtml$$($opt_data$$67$$.id) + '_label" type="text" class="input-block-level"></label></div><div class="api-key-data-entry-form-block control-group"><div class="pull-right"><label class="no-selection">Clear all</label></div><div class="pull-right api-key-data-entry-form-pipe">|</div><div class="pull-right"><label class="no-selection">Select all</label></div><h3>Permissions</h3><table id="' + 
+  $soy$$0$0escapeHtml$$($opt_data$$67$$.id) + '_permissions_table" class="api-key-data-entry-form-permissions-table"><tbody><tr><td colspan="2"><h4>Your Account</h4></td></tr><tr><td class="no-selection"><label class="checkbox"><input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="BF">Account info</input></label></td><td class="no-selection"><label class="checkbox"><input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="U4">Order history</input></label></td></tr><tr><td class="no-selection"><label class="checkbox"><input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="U34">Ledger</input></label></td><td class="no-selection"><label class="checkbox"><input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="U26">View withdrawals</input></label></td></tr><tr><td class="no-selection"><label class="checkbox"><input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="U2">Balance info</input></label></td><td  class="no-selection"><label class="checkbox"><input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="U30">View deposits</input></label></td></tr><tr><td colspan="2"><h4>Buy and Sell Orders</h4></td></tr><tr><td class="no-selection"><label class="checkbox"><input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="D" data-permission-filters=\'[ ["Side","eq", "1", "OrdType","eq","2"]]\'>Create Buy Limited Order</input></label></td><td class="no-selection"><label class="checkbox"><input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="D" data-permission-filters=\'[ ["Side","eq", "2", "OrdType","eq","2"]]\'>Create Sell Limited Order</input></label></td></tr><tr><td class="no-selection"><label class="checkbox"><input type="checkbox" class="api-key-data-entry-form-permissions-check"  data-permission-msg="D" data-permission-filters=\'[ ["Side","eq", "1", "OrdType","eq","1"]]\'>Create Buy Market Order</input></label></td><td class="no-selection"><label class="checkbox"><input type="checkbox" class="api-key-data-entry-form-permissions-check"  data-permission-msg="D" data-permission-filters=\'[ ["Side","eq", "2" , "OrdType","eq","1"]]\'>Create Sell Market Order</input></label></td></tr><tr><td colspan="2" class="no-selection"><label class="checkbox"><input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="F">Cancel Orders</input></label></td></tr><tr><td colspan="2"><h4>Deposit</h4></td></tr><tr><td colspan="2" class="no-selection"><label class="checkbox"><input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="U18" data-permission-filters=\'[ ["Currency","eq", "BTC"]]\'>Bitcoin</input></label></td></tr>');
+  for (var $mList64_mList77$$ = $opt_data$$67$$.$depositMethods$, $mListLen64_mListLen77$$ = $mList64_mList77$$.length, $mIndex64_mIndex77$$ = 0;$mIndex64_mIndex77$$ < $mListLen64_mListLen77$$;$mIndex64_mIndex77$$++) {
     var $mData64_mData77$$ = $mList64_mList77$$[$mIndex64_mIndex77$$];
-    $output$$50$$ += '<tr><td colspan="2" class="no-selection"><label class="checkbox"><input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="U18" data-permission-filters=\'[ ["DepositMethodID","eq", "' + $soy$$0$0escapeHtml$$($mData64_mData77$$.id) + "\"]]' >" + $soy$$0$0escapeHtml$$($mData64_mData77$$.currency) + " - " + $soy$$0$0escapeHtml$$($mData64_mData77$$.description) + "</input></label></td></tr>";
+    $output$$51$$ += '<tr><td colspan="2" class="no-selection"><label class="checkbox"><input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="U18" data-permission-filters=\'[ ["DepositMethodID","eq", "' + $soy$$0$0escapeHtml$$($mData64_mData77$$.id) + "\"]]' >" + $soy$$0$0escapeHtml$$($mData64_mData77$$.currency) + " - " + $soy$$0$0escapeHtml$$($mData64_mData77$$.description) + "</input></label></td></tr>";
   }
-  $output$$50$$ += '<tr><td colspan="2"><h4>Withdrawals</h4></td></tr>';
-  $mList64_mList77$$ = $opt_data$$66$$.$withdrawalMethods$;
+  $output$$51$$ += '<tr><td colspan="2"><h4>Withdrawals</h4></td></tr>';
+  $mList64_mList77$$ = $opt_data$$67$$.$withdrawalMethods$;
   $mListLen64_mListLen77$$ = $mList64_mList77$$.length;
   for ($mIndex64_mIndex77$$ = 0;$mIndex64_mIndex77$$ < $mListLen64_mListLen77$$;$mIndex64_mIndex77$$++) {
-    $mData64_mData77$$ = $mList64_mList77$$[$mIndex64_mIndex77$$], $output$$50$$ += '<tr><td colspan="2" class="no-selection"><label class="checkbox"><input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="U6" data-permission-filters=\'[ ["Method", "eq", "' + $soy$$0$0escapeHtml$$($mData64_mData77$$.id) + "\" ] ]' >" + $soy$$0$0escapeHtml$$($mData64_mData77$$.currency) + " - " + $soy$$0$0escapeHtml$$($mData64_mData77$$.description) + "</input></label></td></tr>"
+    $mData64_mData77$$ = $mList64_mList77$$[$mIndex64_mIndex77$$], $output$$51$$ += '<tr><td colspan="2" class="no-selection"><label class="checkbox"><input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="U6" data-permission-filters=\'[ ["Method", "eq", "' + $soy$$0$0escapeHtml$$($mData64_mData77$$.id) + "\" ] ]' >" + $soy$$0$0escapeHtml$$($mData64_mData77$$.currency) + " - " + $soy$$0$0escapeHtml$$($mData64_mData77$$.description) + "</input></label></td></tr>"
     ;
   }
-  return $output$$50$$ += '<tr><td colspan="2" class="no-selection"><label class="checkbox"><input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="U24">Confirm Withdrawal</input></label></td></tr></tbody></table></div><div class="api-key-data-entry-form-block control-group"><h3>IP Whitelist</h3><label>IP Addresses<input id="' + $soy$$0$0escapeHtml$$($opt_data$$66$$.id) + '_ip_whitelist" type="text" class="input-block-level"><span class="helpblock">Enter a list of IP Address separated by comma (ie. 55.55.55.55,44.44.44.44) that you want to white list. Not specifying an IP Address means that you are allowing this API Key to be used from any IP</span></label></div><div class="text-center"><button id="' + 
-  $soy$$0$0escapeHtml$$($opt_data$$66$$.id) + '_cancel_btn" class="btn">Cancel</button><button id="' + $soy$$0$0escapeHtml$$($opt_data$$66$$.id) + '_create_btn" type="submit" class="btn btn-primary">Create</button></div></fieldset></form>';
+  return $output$$51$$ += '<tr><td colspan="2" class="no-selection"><label class="checkbox"><input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="U24">Confirm Withdrawal</input></label></td></tr></tbody></table></div><div class="api-key-data-entry-form-block control-group"><h3>IP Whitelist</h3><label>IP Addresses<input id="' + $soy$$0$0escapeHtml$$($opt_data$$67$$.id) + '_ip_whitelist" type="text" class="input-block-level"><span class="helpblock">Enter a list of IP Address separated by comma (ie. 55.55.55.55,44.44.44.44) that you want to white list. Not specifying an IP Address means that you are allowing this API Key to be used from any IP</span></label></div><div class="text-center"><button id="' + 
+  $soy$$0$0escapeHtml$$($opt_data$$67$$.id) + '_cancel_btn" class="btn">Cancel</button><button id="' + $soy$$0$0escapeHtml$$($opt_data$$67$$.id) + '_create_btn" type="submit" class="btn btn-primary">Create</button></div></fieldset></form>';
 }
 ;
-// Input 238
+// Input 239
 function $bitex$ui$APIKeyDataEntry$$($opt_model$$2$$, $opt_domHelper$$48$$) {
   $goog$ui$Component$$.call(this, $opt_domHelper$$48$$);
   this.$setModel$($opt_model$$2$$ || {deposit_methods:[], withdrawal_methods:[]});
@@ -13761,7 +13769,7 @@ $JSCompiler_prototypeAlias$$.$onSubmit_$ = function $$JSCompiler_prototypeAlias$
   $e$$245$$.preventDefault();
   0 < this.$uniform_$.$validate$().length ? $e$$245$$.stopPropagation() : this.dispatchEvent("api_key_data_entry_submit");
 };
-// Input 239
+// Input 240
 function $bitex$ui$ApiList$$($opt_domHelper$$49$$) {
   $bitex$ui$DataGrid$$.call(this, {rowIDFn:this.$getRowId$, rowClassFn:this.$getRowClass$, columns:[{property:"LastUsed", label:"Last Used", sortable:!1, formatter:function($s$$56$$) {
     return $bitex$util$convertServerUTCDateTimeStrToTimestamp$$($s$$56$$.substr(0, 10), $s$$56$$.substr(11)).toLocaleString();
@@ -13799,7 +13807,7 @@ $JSCompiler_prototypeAlias$$.$getRowId$ = function $$JSCompiler_prototypeAlias$$
 $goog$ui$registry$setDecoratorByClassName$$($bitex$ui$ApiList$CSS_CLASS$$, function() {
   return new $bitex$ui$ApiList$$;
 });
-// Input 240
+// Input 241
 function $bitex$view$APIView$$($app$$18$$, $opt_domHelper$$50$$) {
   $bitex$view$View$$.call(this, $app$$18$$, $opt_domHelper$$50$$);
 }
@@ -13889,7 +13897,7 @@ $JSCompiler_prototypeAlias$$.$onApiListRequestData_$ = function $$JSCompiler_pro
 $JSCompiler_prototypeAlias$$.$onTradeRankResponse_$ = function $$JSCompiler_prototypeAlias$$$$onTradeRankResponse_$$($e$$252_msg$$85$$) {
   null != this.$api_list_$ && ($e$$252_msg$$85$$ = $e$$252_msg$$85$$.data, $JSCompiler_StaticMethods_setResultSet$$(this.$api_list_$, $e$$252_msg$$85$$.ApiKeyListGrp, $e$$252_msg$$85$$.Columns));
 };
-// Input 241
+// Input 242
 function $bitex$view$ForgotPasswordView$$($app$$19$$, $opt_domHelper$$51$$) {
   $bitex$view$View$$.call(this, $app$$19$$, $opt_domHelper$$51$$);
 }
@@ -13905,16 +13913,16 @@ $bitex$view$ForgotPasswordView$$.prototype.$enterDocument$ = function $$bitex$vi
 $bitex$view$ForgotPasswordView$$.prototype.$getEmail$ = function $$bitex$view$ForgotPasswordView$$$$$getEmail$$() {
   return $goog$dom$forms$getValue$$($goog$dom$getElement$$("id_forgot_password_email"));
 };
-// Input 242
 // Input 243
 // Input 244
+// Input 245
 function $bitex$view$WithdrawView$templates$CancelWithdrawDialogContent$$() {
-  var $output$$51$$;
-  return $output$$51$$ = "" + ('<p>Enter a reason for cancelling the user withdraw</p><form class="form-horizontal"><fieldset><div class="control-group"><label class="control-label" for="' + $soy$$0$0escapeHtml$$("id_select_reason") + '" >Reason:</label><div class="controls"><select id="' + $soy$$0$0escapeHtml$$("id_select_reason") + '"><option value="0">Other</option><option value="-1" selected>Insufficient funds</option><option value="-2">Account not verified</option><option value="-3">Suspicion of fraud</option><option value="-4">Withdrawing to a different account than yours</option><option value="-5">Invalid wallet</option><option value="-6">Invalid bank account</option><option value="-7">Amount exceeded your daily withdraw limit</option><option value="-8">User has deposits that are not yet confirmed</option></select></div></div><div class="control-group"><div class="controls"><textarea id="' + 
+  var $output$$52$$;
+  return $output$$52$$ = "" + ('<p>Enter a reason for cancelling the user withdraw</p><form class="form-horizontal"><fieldset><div class="control-group"><label class="control-label" for="' + $soy$$0$0escapeHtml$$("id_select_reason") + '" >Reason:</label><div class="controls"><select id="' + $soy$$0$0escapeHtml$$("id_select_reason") + '"><option value="0">Other</option><option value="-1" selected>Insufficient funds</option><option value="-2">Account not verified</option><option value="-3">Suspicion of fraud</option><option value="-4">Withdrawing to a different account than yours</option><option value="-5">Invalid wallet</option><option value="-6">Invalid bank account</option><option value="-7">Amount exceeded your daily withdraw limit</option><option value="-8">User has deposits that are not yet confirmed</option></select></div></div><div class="control-group"><div class="controls"><textarea id="' + 
   $soy$$0$0escapeHtml$$("id_custom_reason_text") + '" rows="2" style="display:none;"></textarea></div></div></fieldset></form>');
 }
 ;
-// Input 245
+// Input 246
 function $bitex$view$WithdrawView$$($app$$20$$, $opt_requests_from_customers$$1$$, $opt_domHelper$$52$$) {
   $bitex$view$View$$.call(this, $app$$20$$, $opt_domHelper$$52$$);
   this.$is_requests_from_customers_$ = !1;
@@ -14054,7 +14062,7 @@ $JSCompiler_prototypeAlias$$.$onWithdrawRefresh_$ = function $$JSCompiler_protot
 $JSCompiler_prototypeAlias$$.$onWithdrawListReponse_$ = function $$JSCompiler_prototypeAlias$$$$onWithdrawListReponse_$$($e$$263_msg$$87$$) {
   null != this.$withdraw_list_table_$ && ($e$$263_msg$$87$$ = $e$$263_msg$$87$$.data, $JSCompiler_StaticMethods_setResultSet$$(this.$withdraw_list_table_$, $e$$263_msg$$87$$.WithdrawListGrp, $e$$263_msg$$87$$.Columns));
 };
-// Input 246
+// Input 247
 function $bitex$ui$LedgerActivity$$($button_filters$$, $pseudoNameFunction$$, $opt_broker_mode$$2$$, $opt_domHelper$$53$$) {
   $bitex$ui$DataGrid$$.call(this, {title:"Ledger", showSearch:!0, searchPlaceholder:"Search ...", buttonFilters:$button_filters$$, rowClassFn:this.$getRowClass$, columns:[{property:"Created", label:"Date/Time", sortable:!1, formatter:function($s$$57$$) {
     return $bitex$util$convertServerUTCDateTimeStrToTimestamp$$($s$$57$$.substr(0, 10), $s$$57$$.substr(11)).toLocaleString();
@@ -14136,7 +14144,7 @@ $bitex$ui$LedgerActivity$$.prototype.$getRowClass$ = function $$bitex$ui$LedgerA
 $goog$ui$registry$setDecoratorByClassName$$($bitex$ui$LedgerActivity$CSS_CLASS$$, function() {
   return new $bitex$ui$LedgerActivity$$;
 });
-// Input 247
+// Input 248
 function $bitex$view$LedgerView$$($app$$22$$, $opt_domHelper$$54$$) {
   $bitex$view$View$$.call(this, $app$$22$$, $opt_domHelper$$54$$);
   this.$request_id_$ = null;
@@ -14211,7 +14219,7 @@ $JSCompiler_prototypeAlias$$.$onLedgerTableRequestData_$ = function $$JSCompiler
 $JSCompiler_prototypeAlias$$.$onLedgerListResponse_$ = function $$JSCompiler_prototypeAlias$$$$onLedgerListResponse_$$($e$$265_msg$$88$$) {
   null != this.$ledger_table_$ && ($e$$265_msg$$88$$ = $e$$265_msg$$88$$.data, $JSCompiler_StaticMethods_setResultSet$$(this.$ledger_table_$, $e$$265_msg$$88$$.LedgerListGrp, $e$$265_msg$$88$$.Columns));
 };
-// Input 248
+// Input 249
 function $bitex$view$AccountOverview$$($app$$23$$, $opt_domHelper$$55$$) {
   $bitex$view$View$$.call(this, $app$$23$$, $opt_domHelper$$55$$);
   this.$verification_data_$ = this.$qr_data_verb_$ = this.$qr_data_$ = this.$deposit_data_$ = this.$deposit_action_$ = this.$withdraw_action_$ = this.$request_id_$ = null;
@@ -14551,65 +14559,65 @@ $JSCompiler_prototypeAlias$$.$onBalanceResponse_$ = function $$JSCompiler_protot
 $JSCompiler_prototypeAlias$$.$onWithdrawRefresh_$ = function $$JSCompiler_prototypeAlias$$$$onWithdrawRefresh_$$($e$$292$$) {
   $JSCompiler_StaticMethods_insertOrUpdateRecord$$(this.$withdraw_list_table_$, $e$$292$$.data);
 };
-// Input 249
-function $bitex$ui$WithdrawRequestDataEntry$templates$WithdrawRequestDataEntry$$($opt_data$$68$$) {
-  var $output$$52$$;
-  $output$$52$$ = "" + ('<form id="' + $soy$$0$0escapeHtml$$($opt_data$$68$$.id) + '_form" class="form-horizontal" data-deposit-status="prepare" data-uniform-control-holder-class="control-group"><fieldset><input id="' + $soy$$0$0escapeHtml$$($opt_data$$68$$.id) + '_currency" type="hidden" name="Currency" value="' + $soy$$0$0escapeHtml$$($opt_data$$68$$.$currency$) + '"><div class="error"></div><div class="alert alert-warning text-left bitex-model" data-model-action="show_element" data-model-key-list="HasAnyPosition" data-model-formula="HasAnyPosition" style="display:none;">You can\'t withdraw funds from the exchange while you have unconfirmed deposits.</div>');
-  if (0 == $opt_data$$68$$.methods.length) {
-    2 >= $opt_data$$68$$.$verificationLevel$ ? ($output$$52$$ += '<div class="alert alert-warning text-left">Due to anti-money laundry international laws and government regulations, deposits/withdrawals in the local currency are only available to verified customers.<br/>We are very sorry for the inconvenience.</div>', 0 == $opt_data$$68$$.$verificationLevel$ && ($output$$52$$ += '<a href="" data-switch-view="verification"> Verify your account </a>')) : $output$$52$$ += '<div class="alert alert-danger text-center">We are not accepting deposits at this moment. We sorry for the inconvenience.</div>'
+// Input 250
+function $bitex$ui$WithdrawRequestDataEntry$templates$WithdrawRequestDataEntry$$($opt_data$$69$$) {
+  var $output$$53$$;
+  $output$$53$$ = "" + ('<form id="' + $soy$$0$0escapeHtml$$($opt_data$$69$$.id) + '_form" class="form-horizontal" data-deposit-status="prepare" data-uniform-control-holder-class="control-group"><fieldset><input id="' + $soy$$0$0escapeHtml$$($opt_data$$69$$.id) + '_currency" type="hidden" name="Currency" value="' + $soy$$0$0escapeHtml$$($opt_data$$69$$.$currency$) + '"><div class="error"></div><div class="alert alert-warning text-left bitex-model" data-model-action="show_element" data-model-key-list="HasAnyPosition" data-model-formula="HasAnyPosition" style="display:none;">You can\'t withdraw funds from the exchange while you have unconfirmed deposits.</div>');
+  if (0 == $opt_data$$69$$.methods.length) {
+    2 >= $opt_data$$69$$.$verificationLevel$ ? ($output$$53$$ += '<div class="alert alert-warning text-left">Due to anti-money laundry international laws and government regulations, deposits/withdrawals in the local currency are only available to verified customers.<br/>We are very sorry for the inconvenience.</div>', 0 == $opt_data$$69$$.$verificationLevel$ && ($output$$53$$ += '<a href="" data-switch-view="verification"> Verify your account </a>')) : $output$$53$$ += '<div class="alert alert-danger text-center">We are not accepting deposits at this moment. We sorry for the inconvenience.</div>'
     ;
   } else {
-    if (1 == $opt_data$$68$$.methods.length) {
-      for (var $methodList41_methodList67_methodList88$$ = $opt_data$$68$$.methods, $methodListLen41_methodListLen67_methodListLen88$$ = $methodList41_methodList67_methodList88$$.length, $methodIndex41_methodIndex67_methodIndex88$$ = 0;$methodIndex41_methodIndex67_methodIndex88$$ < $methodListLen41_methodListLen67_methodListLen88$$;$methodIndex41_methodIndex67_methodIndex88$$++) {
+    if (1 == $opt_data$$69$$.methods.length) {
+      for (var $methodList41_methodList67_methodList88$$ = $opt_data$$69$$.methods, $methodListLen41_methodListLen67_methodListLen88$$ = $methodList41_methodList67_methodList88$$.length, $methodIndex41_methodIndex67_methodIndex88$$ = 0;$methodIndex41_methodIndex67_methodIndex88$$ < $methodListLen41_methodListLen67_methodListLen88$$;$methodIndex41_methodIndex67_methodIndex88$$++) {
         var $fieldList173_methodData41_methodData67_methodData88$$ = $methodList41_methodList67_methodList88$$[$methodIndex41_methodIndex67_methodIndex88$$];
-        $output$$52$$ += '<input id="' + $soy$$0$0escapeHtml$$($opt_data$$68$$.id) + '_method" type="hidden" name="Method" value="' + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.method) + '" data-net-value="' + $soy$$0$0escapeHtml$$($opt_data$$68$$.id) + "_method_" + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.method) + '_net_value" data-percent-fee="' + $soy$$0$0escapeHtml$$($opt_data$$68$$.id) + "_method_" + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.method) + 
-        '_percent_fee" data-fixed-fee="' + $soy$$0$0escapeHtml$$($opt_data$$68$$.id) + "_method_" + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.method) + '_fixed_fee">';
+        $output$$53$$ += '<input id="' + $soy$$0$0escapeHtml$$($opt_data$$69$$.id) + '_method" type="hidden" name="Method" value="' + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.method) + '" data-net-value="' + $soy$$0$0escapeHtml$$($opt_data$$69$$.id) + "_method_" + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.method) + '_net_value" data-percent-fee="' + $soy$$0$0escapeHtml$$($opt_data$$69$$.id) + "_method_" + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.method) + 
+        '_percent_fee" data-fixed-fee="' + $soy$$0$0escapeHtml$$($opt_data$$69$$.id) + "_method_" + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.method) + '_fixed_fee">';
       }
     } else {
-      $output$$52$$ += '<div class="control-group"><label class="control-label">Method</label><div class="controls"><select id="' + $soy$$0$0escapeHtml$$($opt_data$$68$$.id) + '_method" name="Method" class="withdraw-method-selector">';
-      $methodList41_methodList67_methodList88$$ = $opt_data$$68$$.methods;
+      $output$$53$$ += '<div class="control-group"><label class="control-label">Method</label><div class="controls"><select id="' + $soy$$0$0escapeHtml$$($opt_data$$69$$.id) + '_method" name="Method" class="withdraw-method-selector">';
+      $methodList41_methodList67_methodList88$$ = $opt_data$$69$$.methods;
       $methodListLen41_methodListLen67_methodListLen88$$ = $methodList41_methodList67_methodList88$$.length;
       for ($methodIndex41_methodIndex67_methodIndex88$$ = 0;$methodIndex41_methodIndex67_methodIndex88$$ < $methodListLen41_methodListLen67_methodListLen88$$;$methodIndex41_methodIndex67_methodIndex88$$++) {
-        $fieldList173_methodData41_methodData67_methodData88$$ = $methodList41_methodList67_methodList88$$[$methodIndex41_methodIndex67_methodIndex88$$], $output$$52$$ += '<option value="' + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.method) + '" data-net-value="' + $soy$$0$0escapeHtml$$($opt_data$$68$$.id) + "_method_" + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.method) + '_net_value" data-percent-fee="' + $soy$$0$0escapeHtml$$($opt_data$$68$$.id) + 
-        "_method_" + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.method) + '_percent_fee" data-fixed-fee="' + $soy$$0$0escapeHtml$$($opt_data$$68$$.id) + "_method_" + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.method) + '_fixed_fee">' + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.description) + "</option>";
+        $fieldList173_methodData41_methodData67_methodData88$$ = $methodList41_methodList67_methodList88$$[$methodIndex41_methodIndex67_methodIndex88$$], $output$$53$$ += '<option value="' + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.method) + '" data-net-value="' + $soy$$0$0escapeHtml$$($opt_data$$69$$.id) + "_method_" + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.method) + '_net_value" data-percent-fee="' + $soy$$0$0escapeHtml$$($opt_data$$69$$.id) + 
+        "_method_" + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.method) + '_percent_fee" data-fixed-fee="' + $soy$$0$0escapeHtml$$($opt_data$$69$$.id) + "_method_" + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.method) + '_fixed_fee">' + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.description) + "</option>";
       }
-      $output$$52$$ += "</select></div></div>";
+      $output$$53$$ += "</select></div></div>";
     }
-    $output$$52$$ += '<div class="withdraw-methods">';
-    $methodList41_methodList67_methodList88$$ = $opt_data$$68$$.methods;
+    $output$$53$$ += '<div class="withdraw-methods">';
+    $methodList41_methodList67_methodList88$$ = $opt_data$$69$$.methods;
     $methodListLen41_methodListLen67_methodListLen88$$ = $methodList41_methodList67_methodList88$$.length;
     for ($methodIndex41_methodIndex67_methodIndex88$$ = 0;$methodIndex41_methodIndex67_methodIndex88$$ < $methodListLen41_methodListLen67_methodListLen88$$;$methodIndex41_methodIndex67_methodIndex88$$++) {
       $fieldList173_methodData41_methodData67_methodData88$$ = $methodList41_methodList67_methodList88$$[$methodIndex41_methodIndex67_methodIndex88$$];
-      $output$$52$$ += '<div class="withdraw-method" data-withdraw-method="' + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.method) + '" style="' + (1 < $opt_data$$68$$.methods.length ? "display:none;" : "") + '"><div class="control-group"><label class="control-label">Amount</label><div class="controls"><div class="input-prepend"><span class="add-on">' + $soy$$0$0escapeHtml$$($opt_data$$68$$.$currencySign$) + '</span><input id="' + $soy$$0$0escapeHtml$$($opt_data$$68$$.id) + 
-      "_method_" + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.method) + '_amount" data-uniform-validators="required; validateNumber ' + ($fieldList173_methodData41_methodData67_methodData88$$.limits[$opt_data$$68$$.$verificationLevel$].enabled ? " " + ($fieldList173_methodData41_methodData67_methodData88$$.limits[$opt_data$$68$$.$verificationLevel$].min ? "; validateMin " + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.limits[$opt_data$$68$$.$verificationLevel$].formatted_min_value) : 
-      "") + ($fieldList173_methodData41_methodData67_methodData88$$.limits[$opt_data$$68$$.$verificationLevel$].max ? "; validateMax " + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.limits[$opt_data$$68$$.$verificationLevel$].formatted_max_value) + " " : "") + " " : "") + '" data-uniform-type="number" data-uniform-filters="positive_number" value="" type="text" class="withdraw-field input-small" size="16" name="Amount" ' + (0 != $methodIndex41_methodIndex67_methodIndex88$$ ? 
+      $output$$53$$ += '<div class="withdraw-method" data-withdraw-method="' + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.method) + '" style="' + (1 < $opt_data$$69$$.methods.length ? "display:none;" : "") + '"><div class="control-group"><label class="control-label">Amount</label><div class="controls"><div class="input-prepend"><span class="add-on">' + $soy$$0$0escapeHtml$$($opt_data$$69$$.$currencySign$) + '</span><input id="' + $soy$$0$0escapeHtml$$($opt_data$$69$$.id) + 
+      "_method_" + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.method) + '_amount" data-uniform-validators="required; validateNumber ' + ($fieldList173_methodData41_methodData67_methodData88$$.limits[$opt_data$$69$$.$verificationLevel$].enabled ? " " + ($fieldList173_methodData41_methodData67_methodData88$$.limits[$opt_data$$69$$.$verificationLevel$].min ? "; validateMin " + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.limits[$opt_data$$69$$.$verificationLevel$].formatted_min_value) : 
+      "") + ($fieldList173_methodData41_methodData67_methodData88$$.limits[$opt_data$$69$$.$verificationLevel$].max ? "; validateMax " + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.limits[$opt_data$$69$$.$verificationLevel$].formatted_max_value) + " " : "") + " " : "") + '" data-uniform-type="number" data-uniform-filters="positive_number" value="" type="text" class="withdraw-field input-small" size="16" name="Amount" ' + (0 != $methodIndex41_methodIndex67_methodIndex88$$ ? 
       "disabled" : "") + "></div>";
-      if ($fieldList173_methodData41_methodData67_methodData88$$.limits[$opt_data$$68$$.$verificationLevel$].enabled) {
-        $output$$52$$ += "<div><em><small>";
-        if ($fieldList173_methodData41_methodData67_methodData88$$.limits[$opt_data$$68$$.$verificationLevel$].max) {
-          var $MSG_UNNAMED_273_MSG_UNNAMED_275_fieldListLen173$$ = " Maximum: " + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.limits[$opt_data$$68$$.$verificationLevel$].formatted_max);
-          $output$$52$$ += $MSG_UNNAMED_273_MSG_UNNAMED_275_fieldListLen173$$ + "<br>";
+      if ($fieldList173_methodData41_methodData67_methodData88$$.limits[$opt_data$$69$$.$verificationLevel$].enabled) {
+        $output$$53$$ += "<div><em><small>";
+        if ($fieldList173_methodData41_methodData67_methodData88$$.limits[$opt_data$$69$$.$verificationLevel$].max) {
+          var $MSG_UNNAMED_273_MSG_UNNAMED_275_fieldListLen173$$ = " Maximum: " + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.limits[$opt_data$$69$$.$verificationLevel$].formatted_max);
+          $output$$53$$ += $MSG_UNNAMED_273_MSG_UNNAMED_275_fieldListLen173$$ + "<br>";
         }
-        $fieldList173_methodData41_methodData67_methodData88$$.limits[$opt_data$$68$$.$verificationLevel$].min && ($MSG_UNNAMED_273_MSG_UNNAMED_275_fieldListLen173$$ = " Minimum: " + ($soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.limits[$opt_data$$68$$.$verificationLevel$].formatted_min) + " per transaction.  "), $output$$52$$ += $MSG_UNNAMED_273_MSG_UNNAMED_275_fieldListLen173$$);
-        $output$$52$$ += "</small></em></div>";
+        $fieldList173_methodData41_methodData67_methodData88$$.limits[$opt_data$$69$$.$verificationLevel$].min && ($MSG_UNNAMED_273_MSG_UNNAMED_275_fieldListLen173$$ = " Minimum: " + ($soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.limits[$opt_data$$69$$.$verificationLevel$].formatted_min) + " per transaction.  "), $output$$53$$ += $MSG_UNNAMED_273_MSG_UNNAMED_275_fieldListLen173$$);
+        $output$$53$$ += "</small></em></div>";
       }
-      $output$$52$$ += '</div></div><div class="control-group" style="margin-bottom: 5px;"><div class="controls"><label>' + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.disclaimer) + '</label><input id="' + $soy$$0$0escapeHtml$$($opt_data$$68$$.id) + "_method_" + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.method) + '_percent_fee" type="hidden" value="' + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.percent_fee) + 
-      '"><input id="' + $soy$$0$0escapeHtml$$($opt_data$$68$$.id) + "_method_" + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.method) + '_fixed_fee" type="hidden" value="' + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.fixed_fee) + '"></div></div><div class="control-group"><label class="control-label">Fees:</label><div class="controls"><label id="' + $soy$$0$0escapeHtml$$($opt_data$$68$$.id) + "_method_" + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.method) + 
-      '_fees" class="control-label" style="text-align: left;"></label></div></div><div class="control-group"><label class="control-label net-amount">' + $soy$$0$0escapeHtml$$($opt_data$$68$$.$netAmountLabel$) + ':</label><div class="controls"><label id="' + $soy$$0$0escapeHtml$$($opt_data$$68$$.id) + "_method_" + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.method) + '_net_value" class="control-label net-amount" style="text-align: left;"></label><input id="' + $soy$$0$0escapeHtml$$($opt_data$$68$$.id) + 
+      $output$$53$$ += '</div></div><div class="control-group" style="margin-bottom: 5px;"><div class="controls"><label>' + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.disclaimer) + '</label><input id="' + $soy$$0$0escapeHtml$$($opt_data$$69$$.id) + "_method_" + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.method) + '_percent_fee" type="hidden" value="' + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.percent_fee) + 
+      '"><input id="' + $soy$$0$0escapeHtml$$($opt_data$$69$$.id) + "_method_" + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.method) + '_fixed_fee" type="hidden" value="' + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.fixed_fee) + '"></div></div><div class="control-group"><label class="control-label">Fees:</label><div class="controls"><label id="' + $soy$$0$0escapeHtml$$($opt_data$$69$$.id) + "_method_" + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.method) + 
+      '_fees" class="control-label" style="text-align: left;"></label></div></div><div class="control-group"><label class="control-label net-amount">' + $soy$$0$0escapeHtml$$($opt_data$$69$$.$netAmountLabel$) + ':</label><div class="controls"><label id="' + $soy$$0$0escapeHtml$$($opt_data$$69$$.id) + "_method_" + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.method) + '_net_value" class="control-label net-amount" style="text-align: left;"></label><input id="' + $soy$$0$0escapeHtml$$($opt_data$$69$$.id) + 
       "_method_" + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.method) + '_net_value_value" type="hidden" value=""></div></div>';
       for (var $fieldList173_methodData41_methodData67_methodData88$$ = $fieldList173_methodData41_methodData67_methodData88$$.fields, $MSG_UNNAMED_273_MSG_UNNAMED_275_fieldListLen173$$ = $fieldList173_methodData41_methodData67_methodData88$$.length, $fieldIndex173$$ = 0;$fieldIndex173$$ < $MSG_UNNAMED_273_MSG_UNNAMED_275_fieldListLen173$$;$fieldIndex173$$++) {
         var $fieldData173$$ = $fieldList173_methodData41_methodData67_methodData88$$[$fieldIndex173$$];
-        $output$$52$$ += "client" == $fieldData173$$.side ? '<div class="control-group"><label class="control-label">' + $soy$$0$0escapeHtml$$($fieldData173$$.label) + '</label><div class="controls"><input class="withdraw-field" data-uniform-validators="' + ($fieldData173$$.required ? "required;" : "") + $soy$$0$0escapeHtml$$($fieldData173$$.validator) + '" type="' + $soy$$0$0escapeHtml$$($fieldData173$$.type) + '" name="' + $soy$$0$0escapeHtml$$($fieldData173$$.name) + '" label="' + $soy$$0$0escapeHtml$$($fieldData173$$.placeholder) + 
+        $output$$53$$ += "client" == $fieldData173$$.side ? '<div class="control-group"><label class="control-label">' + $soy$$0$0escapeHtml$$($fieldData173$$.label) + '</label><div class="controls"><input class="withdraw-field" data-uniform-validators="' + ($fieldData173$$.required ? "required;" : "") + $soy$$0$0escapeHtml$$($fieldData173$$.validator) + '" type="' + $soy$$0$0escapeHtml$$($fieldData173$$.type) + '" name="' + $soy$$0$0escapeHtml$$($fieldData173$$.name) + '" label="' + $soy$$0$0escapeHtml$$($fieldData173$$.placeholder) + 
         '" value="' + $soy$$0$0escapeHtml$$($fieldData173$$.value) + '"' + (0 != $methodIndex41_methodIndex67_methodIndex88$$ ? "disabled" : "") + " /></div></div>" : "";
       }
-      $output$$52$$ += "</div>";
+      $output$$53$$ += "</div>";
     }
-    $output$$52$$ += "</div>";
+    $output$$53$$ += "</div>";
   }
-  return $output$$52$$ += '<div class="text-center"><button id="' + $soy$$0$0escapeHtml$$($opt_data$$68$$.id) + '_cancel_btn" class="btn">Cancel</button><button id="' + $soy$$0$0escapeHtml$$($opt_data$$68$$.id) + '_create_btn" type="submit" class="btn btn-primary">Ok</button></div></fieldset></form>';
+  return $output$$53$$ += '<div class="text-center"><button id="' + $soy$$0$0escapeHtml$$($opt_data$$69$$.id) + '_cancel_btn" class="btn">Cancel</button><button id="' + $soy$$0$0escapeHtml$$($opt_data$$69$$.id) + '_create_btn" type="submit" class="btn btn-primary">Ok</button></div></fieldset></form>';
 }
 ;
-// Input 250
+// Input 251
 function $bitex$view$VerificationView$$($app$$24$$, $opt_domHelper$$56$$) {
   $bitex$view$View$$.call(this, $app$$24$$, $opt_domHelper$$56$$);
   this.$loaded_jot_form_$ = !1;
@@ -14631,27 +14639,27 @@ $bitex$view$VerificationView$$.prototype.$enterView$ = function $$bitex$view$Ver
 $bitex$view$VerificationView$$.prototype.$enterDocument$ = function $$bitex$view$VerificationView$$$$$enterDocument$$() {
   $bitex$view$VerificationView$$.$superClass_$.$enterDocument$.call(this);
 };
-// Input 251
-function $bitex$ui$RemittancesBox$templates$RemittancesBox$$($opt_data$$70$$) {
-  for (var $JSCompiler_temp$$160_JSCompiler_temp_const$$161_output$$54$$ = '<div id="' + $soy$$0$0escapeHtml$$($opt_data$$70$$.id) + '" class="remittance-box">', $remittance_data_recordList25$$ = $opt_data$$70$$.$remittance_data_table$, $remittance_data_recordListLen25$$ = $remittance_data_recordList25$$.length, $remittance_data_recordIndex25$$ = 0;$remittance_data_recordIndex25$$ < $remittance_data_recordListLen25$$;$remittance_data_recordIndex25$$++) {
+// Input 252
+function $bitex$ui$RemittancesBox$templates$RemittancesBox$$($opt_data$$71$$) {
+  for (var $JSCompiler_temp$$160_JSCompiler_temp_const$$161_output$$55$$ = '<div id="' + $soy$$0$0escapeHtml$$($opt_data$$71$$.id) + '" class="remittance-box">', $remittance_data_recordList25$$ = $opt_data$$71$$.$remittance_data_table$, $remittance_data_recordListLen25$$ = $remittance_data_recordList25$$.length, $remittance_data_recordIndex25$$ = 0;$remittance_data_recordIndex25$$ < $remittance_data_recordListLen25$$;$remittance_data_recordIndex25$$++) {
     var $JSCompiler_object_inline_remittance_data_record_1890_remittance_data_recordData25$$ = $remittance_data_recordList25$$[$remittance_data_recordIndex25$$];
     if (1 == $JSCompiler_object_inline_remittance_data_record_1890_remittance_data_recordData25$$.length) {
-      $JSCompiler_temp$$160_JSCompiler_temp_const$$161_output$$54$$ += (0 != $remittance_data_recordIndex25$$ ? "</tbody></table>" : "") + '<table id="' + $soy$$0$0escapeHtml$$($opt_data$$70$$.id) + "_" + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_remittance_data_record_1890_remittance_data_recordData25$$[0]) + '" style="display:none" class="table table-bordered table-condensed remittance-box-table"><thead><tr><td colspan="2"><strong>Exchange rates via BTC</strong></td></tr></thead><tbody class="remittance-box-content">'
+      $JSCompiler_temp$$160_JSCompiler_temp_const$$161_output$$55$$ += (0 != $remittance_data_recordIndex25$$ ? "</tbody></table>" : "") + '<table id="' + $soy$$0$0escapeHtml$$($opt_data$$71$$.id) + "_" + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_remittance_data_record_1890_remittance_data_recordData25$$[0]) + '" style="display:none" class="table table-bordered table-condensed remittance-box-table"><thead><tr><td colspan="2"><strong>Exchange rates via BTC</strong></td></tr></thead><tbody class="remittance-box-content">'
       ;
     } else {
-      for (var $JSCompiler_object_inline_id_1889_output$$inline_1738$$ = $opt_data$$70$$.id, $JSCompiler_object_inline_id_1889_output$$inline_1738$$ = '<tr><td style="padding: 4px;"><strong>' + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_remittance_data_record_1890_remittance_data_recordData25$$[0]) + '</strong></td><td style="padding: 4px;">\x3c!-- ' + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_id_1889_output$$inline_1738$$) + " --\x3e", $field_dataList8$$inline_1739$$ = $JSCompiler_object_inline_remittance_data_record_1890_remittance_data_recordData25$$[3], 
+      for (var $JSCompiler_object_inline_id_1889_output$$inline_1738$$ = $opt_data$$71$$.id, $JSCompiler_object_inline_id_1889_output$$inline_1738$$ = '<tr><td style="padding: 4px;"><strong>' + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_remittance_data_record_1890_remittance_data_recordData25$$[0]) + '</strong></td><td style="padding: 4px;">\x3c!-- ' + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_id_1889_output$$inline_1738$$) + " --\x3e", $field_dataList8$$inline_1739$$ = $JSCompiler_object_inline_remittance_data_record_1890_remittance_data_recordData25$$[3], 
       $field_dataListLen8$$inline_1740$$ = $field_dataList8$$inline_1739$$.length, $field_dataIndex8$$inline_1741$$ = 0;$field_dataIndex8$$inline_1741$$ < $field_dataListLen8$$inline_1740$$;$field_dataIndex8$$inline_1741$$++) {
         var $field_dataData8$$inline_1742$$ = $field_dataList8$$inline_1739$$[$field_dataIndex8$$inline_1741$$], $JSCompiler_object_inline_id_1889_output$$inline_1738$$ = $JSCompiler_object_inline_id_1889_output$$inline_1738$$ + ('<span class="bitex-model" data-model-key-list="' + $soy$$0$0escapeHtml$$($field_dataData8$$inline_1742$$[1]) + '" data-model-formula="' + $soy$$0$0escapeHtml$$($field_dataData8$$inline_1742$$[0]) + '" data-model-formatter="currency" data-model-formatter-pattern="' + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_remittance_data_record_1890_remittance_data_recordData25$$[2]) + 
         '" data-blink-class="md-blink"></span>' + ($field_dataIndex8$$inline_1741$$ != $field_dataListLen8$$inline_1740$$ - 1 ? " / " : ""))
       }
       $JSCompiler_object_inline_id_1889_output$$inline_1738$$ += "</td></tr>";
-      $JSCompiler_temp$$160_JSCompiler_temp_const$$161_output$$54$$ += $JSCompiler_object_inline_id_1889_output$$inline_1738$$;
+      $JSCompiler_temp$$160_JSCompiler_temp_const$$161_output$$55$$ += $JSCompiler_object_inline_id_1889_output$$inline_1738$$;
     }
   }
-  return $JSCompiler_temp$$160_JSCompiler_temp_const$$161_output$$54$$ + "</div>";
+  return $JSCompiler_temp$$160_JSCompiler_temp_const$$161_output$$55$$ + "</div>";
 }
 ;
-// Input 252
+// Input 253
 function $bitex$ui$RemittanceBox$$($opt_domHelper$$57$$) {
   $goog$ui$Component$$.call(this, $opt_domHelper$$57$$);
 }
@@ -14684,28 +14692,28 @@ $JSCompiler_prototypeAlias$$.$enterDocument$ = function $$JSCompiler_prototypeAl
 $JSCompiler_prototypeAlias$$.$exitDocument$ = function $$JSCompiler_prototypeAlias$$$$exitDocument$$() {
   $bitex$ui$RemittanceBox$$.$superClass_$.$exitDocument$.call(this);
 };
-// Input 253
-function $bitex$view$SideBarView$templates$YourAccountPortfolioValue$$($opt_data$$71$$) {
-  var $output$$55$$ = "", $MSG_UNNAMED_130$$ = "Your total balance in " + ($soy$$0$0escapeHtml$$($opt_data$$71$$.$desc$) + " according to the most recent trade. This value varies according to the market. Be advised that this value doesn't represent your total balance or any commitment to the exchange rate.");
-  return $output$$55$$ += '<td style="padding: 4px;"><span><i><abbr title="' + $MSG_UNNAMED_130$$ + '">Approx. value</abbr></i></span></td><td style="padding: 4px;" colspan="2"><i><span class="bitex-model" data-model-key-list="' + $soy$$0$0escapeHtml$$($opt_data$$71$$.$variables$) + '" data-model-formula="' + $soy$$0$0escapeHtml$$($opt_data$$71$$.$formula$) + '" data-model-formatter="currency" data-model-formatter-pattern="' + $soy$$0$0escapeHtml$$($opt_data$$71$$.pattern) + '" data-blink-class="balance-info-blink"></span></i></td>';
+// Input 254
+function $bitex$view$SideBarView$templates$YourAccountPortfolioValue$$($opt_data$$72$$) {
+  var $output$$56$$ = "", $MSG_UNNAMED_130$$ = "Your total balance in " + ($soy$$0$0escapeHtml$$($opt_data$$72$$.$desc$) + " according to the most recent trade. This value varies according to the market. Be advised that this value doesn't represent your total balance or any commitment to the exchange rate.");
+  return $output$$56$$ += '<td style="padding: 4px;"><span><i><abbr title="' + $MSG_UNNAMED_130$$ + '">Approx. value</abbr></i></span></td><td style="padding: 4px;" colspan="2"><i><span class="bitex-model" data-model-key-list="' + $soy$$0$0escapeHtml$$($opt_data$$72$$.$variables$) + '" data-model-formula="' + $soy$$0$0escapeHtml$$($opt_data$$72$$.$formula$) + '" data-model-formatter="currency" data-model-formatter-pattern="' + $soy$$0$0escapeHtml$$($opt_data$$72$$.pattern) + '" data-blink-class="balance-info-blink"></span></i></td>';
 }
-function $bitex$view$SideBarView$templates$YourAccountSummary$$($opt_data$$72$$) {
-  for (var $output$$56$$ = "", $boxList20$$ = $opt_data$$72$$.$boxes$, $boxListLen20$$ = $boxList20$$.length, $boxIndex20$$ = 0;$boxIndex20$$ < $boxListLen20$$;$boxIndex20$$++) {
-    for (var $balance_infoList24_boxData20$$ = $boxList20$$[$boxIndex20$$], $output$$56$$ = $output$$56$$ + ('<table class="table table-bordered account-summary-table" ><tbody><tr class=\'account-summary-broker\'><td colspan="3"><strong>' + $soy$$0$0escapeHtml$$($balance_infoList24_boxData20$$.title) + "</strong></td></tr>"), $balance_infoList24_boxData20$$ = $balance_infoList24_boxData20$$.balances, $balance_infoListLen24$$ = $balance_infoList24_boxData20$$.length, $balance_infoIndex24$$ = 0;$balance_infoIndex24$$ < 
+function $bitex$view$SideBarView$templates$YourAccountSummary$$($opt_data$$73$$) {
+  for (var $output$$57$$ = "", $boxList20$$ = $opt_data$$73$$.$boxes$, $boxListLen20$$ = $boxList20$$.length, $boxIndex20$$ = 0;$boxIndex20$$ < $boxListLen20$$;$boxIndex20$$++) {
+    for (var $balance_infoList24_boxData20$$ = $boxList20$$[$boxIndex20$$], $output$$57$$ = $output$$57$$ + ('<table class="table table-bordered account-summary-table" ><tbody><tr class=\'account-summary-broker\'><td colspan="3"><strong>' + $soy$$0$0escapeHtml$$($balance_infoList24_boxData20$$.title) + "</strong></td></tr>"), $balance_infoList24_boxData20$$ = $balance_infoList24_boxData20$$.balances, $balance_infoListLen24$$ = $balance_infoList24_boxData20$$.length, $balance_infoIndex24$$ = 0;$balance_infoIndex24$$ < 
     $balance_infoListLen24$$;$balance_infoIndex24$$++) {
-      var $balance_infoData24$$ = $balance_infoList24_boxData20$$[$balance_infoIndex24$$], $output$$56$$ = $output$$56$$ + ('<tr><td style="padding: 4px;"><strong>' + $soy$$0$0escapeHtml$$($balance_infoData24$$.currency) + '</strong></td><td style="padding: 4px;"' + ($balance_infoData24$$.showDeposit || $balance_infoData24$$.showWithdraw ? "" : 'colspan="2"') + '><span class="bitex-model" data-model-key-list="Balance_' + $soy$$0$0escapeHtml$$($balance_infoData24$$.brokerID) + "_" + $soy$$0$0escapeHtml$$($balance_infoData24$$.accountID) + 
+      var $balance_infoData24$$ = $balance_infoList24_boxData20$$[$balance_infoIndex24$$], $output$$57$$ = $output$$57$$ + ('<tr><td style="padding: 4px;"><strong>' + $soy$$0$0escapeHtml$$($balance_infoData24$$.currency) + '</strong></td><td style="padding: 4px;"' + ($balance_infoData24$$.showDeposit || $balance_infoData24$$.showWithdraw ? "" : 'colspan="2"') + '><span class="bitex-model" data-model-key-list="Balance_' + $soy$$0$0escapeHtml$$($balance_infoData24$$.brokerID) + "_" + $soy$$0$0escapeHtml$$($balance_infoData24$$.accountID) + 
       "_" + $soy$$0$0escapeHtml$$($balance_infoData24$$.currency) + '" data-model-formula="Balance_' + $soy$$0$0escapeHtml$$($balance_infoData24$$.brokerID) + "_" + $soy$$0$0escapeHtml$$($balance_infoData24$$.accountID) + "_" + $soy$$0$0escapeHtml$$($balance_infoData24$$.currency) + ' / 100000000" data-model-formatter="currency" data-model-formatter-pattern="' + $soy$$0$0escapeHtml$$($balance_infoData24$$.currencyPattern) + '" data-blink-class="balance-info-blink"></span> <abbr title="Unconfirmed deposits" class="bitex-model" data-model-action="show_element" data-model-key-list="Position_' + 
       $soy$$0$0escapeHtml$$($balance_infoData24$$.brokerID) + "_" + $soy$$0$0escapeHtml$$($balance_infoData24$$.accountID) + "_" + $soy$$0$0escapeHtml$$($balance_infoData24$$.currency) + '" data-model-formula="Position_' + $soy$$0$0escapeHtml$$($balance_infoData24$$.brokerID) + "_" + $soy$$0$0escapeHtml$$($balance_infoData24$$.accountID) + "_" + $soy$$0$0escapeHtml$$($balance_infoData24$$.currency) + '"><em><span class="bitex-model" data-model-key-list="Position_' + $soy$$0$0escapeHtml$$($balance_infoData24$$.brokerID) + 
       "_" + $soy$$0$0escapeHtml$$($balance_infoData24$$.accountID) + "_" + $soy$$0$0escapeHtml$$($balance_infoData24$$.currency) + '" data-model-formula="Position_' + $soy$$0$0escapeHtml$$($balance_infoData24$$.brokerID) + "_" + $soy$$0$0escapeHtml$$($balance_infoData24$$.accountID) + "_" + $soy$$0$0escapeHtml$$($balance_infoData24$$.currency) + ' / 100000000" data-model-formatter="currency" data-model-formatter-pattern="' + $soy$$0$0escapeHtml$$($balance_infoData24$$.currencyPattern) + '" data-blink-class="balance-info-blink"></span></em></abbr></td>' + 
       ($balance_infoData24$$.showDeposit && $balance_infoData24$$.showWithdraw ? '<td style="padding: 4px;border-left:0;"><div class="btn-group">' + ($balance_infoData24$$.showDeposit ? '<button class="btn btn-mini" data-action="deposit" data-currency="' + $soy$$0$0escapeHtml$$($balance_infoData24$$.currency) + '"><i data-action="deposit" data-currency="' + $soy$$0$0escapeHtml$$($balance_infoData24$$.currency) + '" class="icon-download-alt"></i></button>' : "") + ($balance_infoData24$$.showWithdraw ? 
       '<button class="btn btn-mini" data-action="withdraw" data-currency="' + $soy$$0$0escapeHtml$$($balance_infoData24$$.currency) + '"><i data-action="withdraw" data-currency="' + $soy$$0$0escapeHtml$$($balance_infoData24$$.currency) + '" class="icon-upload-alt"></i></button>' : "") + "</div></td>" : "") + "</tr>")
     }
-    $output$$56$$ += '<tr id="' + $soy$$0$0escapeHtml$$($opt_data$$72$$.id) + '_portfolio_value"></tr></tbody></table>';
+    $output$$57$$ += '<tr id="' + $soy$$0$0escapeHtml$$($opt_data$$73$$.id) + '_portfolio_value"></tr></tbody></table>';
   }
-  return $output$$56$$;
+  return $output$$57$$;
 }
 ;
-// Input 254
+// Input 255
 function $bitex$view$SideBarView$$($app$$25$$, $opt_domHelper$$58$$) {
   $bitex$view$View$$.call(this, $app$$25$$, $opt_domHelper$$58$$);
 }
@@ -14845,21 +14853,21 @@ function $JSCompiler_StaticMethods_showPortfolioValue_$$($JSCompiler_StaticMetho
 $bitex$view$SideBarView$$.prototype.$getSymbol$ = function $$bitex$view$SideBarView$$$$$getSymbol$$() {
   return $goog$dom$forms$getValue$$($goog$dom$getElement$$("id_instrument_1"));
 };
-// Input 255
-function $bitex$ui$market_view_table$templates$MarketViewTable$$($instList30_opt_data$$73$$) {
-  var $output$$57$$;
-  $output$$57$$ = "" + ('<div class="row-fluid"><div class="span12"><table id="' + $soy$$0$0escapeHtml$$($instList30_opt_data$$73$$.id) + '_table" class="table table-bordered table-condensed"><thead><tr><th> Pair</th><th> Last </th><th> Bid </th><th> Ask </th><th> Volume (BTC) </th><th> Volume </th><th> High </th><th> Low </th></tr></thead><tbody>');
-  $instList30_opt_data$$73$$ = $instList30_opt_data$$73$$.$instruments$;
-  for (var $instListLen30$$ = $instList30_opt_data$$73$$.length, $instIndex30$$ = 0;$instIndex30$$ < $instListLen30$$;$instIndex30$$++) {
-    var $instData30$$ = $instList30_opt_data$$73$$[$instIndex30$$];
-    $output$$57$$ += '<tr data-symbol="' + $soy$$0$0escapeHtml$$($instData30$$.Symbol) + '" ><td>' + $soy$$0$0escapeHtml$$($instData30$$.Description) + ' </td><td><span class="bitex-model" data-model-key="formatted_' + $soy$$0$0escapeHtml$$($instData30$$.Market) + "_" + $soy$$0$0escapeHtml$$($instData30$$.Symbol) + '_LAST_PX"></span></td><td><span class="bitex-model" data-model-key="formatted_' + $soy$$0$0escapeHtml$$($instData30$$.Market) + "_" + $soy$$0$0escapeHtml$$($instData30$$.Symbol) + '_BEST_BID"></span></td><td><span class="bitex-model" data-model-key="formatted_' + 
+// Input 256
+function $bitex$ui$market_view_table$templates$MarketViewTable$$($instList30_opt_data$$74$$) {
+  var $output$$58$$;
+  $output$$58$$ = "" + ('<div class="row-fluid"><div class="span12"><table id="' + $soy$$0$0escapeHtml$$($instList30_opt_data$$74$$.id) + '_table" class="table table-bordered table-condensed"><thead><tr><th> Pair</th><th> Last </th><th> Bid </th><th> Ask </th><th> Volume (BTC) </th><th> Volume </th><th> High </th><th> Low </th></tr></thead><tbody>');
+  $instList30_opt_data$$74$$ = $instList30_opt_data$$74$$.$instruments$;
+  for (var $instListLen30$$ = $instList30_opt_data$$74$$.length, $instIndex30$$ = 0;$instIndex30$$ < $instListLen30$$;$instIndex30$$++) {
+    var $instData30$$ = $instList30_opt_data$$74$$[$instIndex30$$];
+    $output$$58$$ += '<tr data-symbol="' + $soy$$0$0escapeHtml$$($instData30$$.Symbol) + '" ><td>' + $soy$$0$0escapeHtml$$($instData30$$.Description) + ' </td><td><span class="bitex-model" data-model-key="formatted_' + $soy$$0$0escapeHtml$$($instData30$$.Market) + "_" + $soy$$0$0escapeHtml$$($instData30$$.Symbol) + '_LAST_PX"></span></td><td><span class="bitex-model" data-model-key="formatted_' + $soy$$0$0escapeHtml$$($instData30$$.Market) + "_" + $soy$$0$0escapeHtml$$($instData30$$.Symbol) + '_BEST_BID"></span></td><td><span class="bitex-model" data-model-key="formatted_' + 
     $soy$$0$0escapeHtml$$($instData30$$.Market) + "_" + $soy$$0$0escapeHtml$$($instData30$$.Symbol) + '_BEST_ASK"></span></td><td><span class="bitex-model" data-model-key="formatted_' + $soy$$0$0escapeHtml$$($instData30$$.Market) + "_" + $soy$$0$0escapeHtml$$($instData30$$.Symbol) + '_SELL_VOLUME"></span></td><td><span class="bitex-model" data-model-key="formatted_' + $soy$$0$0escapeHtml$$($instData30$$.Market) + "_" + $soy$$0$0escapeHtml$$($instData30$$.Symbol) + '_BUY_VOLUME"></span></td><td><span class="bitex-model" data-model-key="formatted_' + 
     $soy$$0$0escapeHtml$$($instData30$$.Market) + "_" + $soy$$0$0escapeHtml$$($instData30$$.Symbol) + '_HIGH_PX"></span></td><td><span class="bitex-model" data-model-key="formatted_' + $soy$$0$0escapeHtml$$($instData30$$.Market) + "_" + $soy$$0$0escapeHtml$$($instData30$$.Symbol) + '_LOW_PX"></span></td></tr>';
   }
-  return $output$$57$$ + "</tbody></table></div></div>";
+  return $output$$58$$ + "</tbody></table></div></div>";
 }
 ;
-// Input 256
+// Input 257
 function $bitex$ui$MarketViewTable$$($opt_domHelper$$59$$) {
   $goog$ui$Component$$.call(this, $opt_domHelper$$59$$);
 }
@@ -14899,12 +14907,12 @@ $bitex$ui$MarketViewTable$$.prototype.$onTableClick_$ = function $$bitex$ui$Mark
     $e$$300$$.stopPropagation();
   }
 };
-// Input 257
-function $bitex$ui$SimpleChart$templates$SimpleChart$$($opt_data$$74$$) {
-  return'<iframe id="HighChartIFrame" allowtransparency="true" src="' + ($opt_data$$74$$.$symbol$ ? "./chart.html?s=" + $soy$$0$0escapeHtml$$($opt_data$$74$$.$symbol$) : "") + '" data-symbol="' + ($opt_data$$74$$.$symbol$ ? "./chart.html?s=" + $soy$$0$0escapeHtml$$($opt_data$$74$$.$symbol$) : "") + '" style="width: 100%; height: ' + ($opt_data$$74$$.height ? $soy$$0$0escapeHtml$$($opt_data$$74$$.height) : "400") + 'px" frameborder="0" scrolling="no"></iframe>';
+// Input 258
+function $bitex$ui$SimpleChart$templates$SimpleChart$$($opt_data$$75$$) {
+  return'<iframe id="HighChartIFrame" allowtransparency="true" src="' + ($opt_data$$75$$.$symbol$ ? "./chart.html?s=" + $soy$$0$0escapeHtml$$($opt_data$$75$$.$symbol$) : "") + '" data-symbol="' + ($opt_data$$75$$.$symbol$ ? "./chart.html?s=" + $soy$$0$0escapeHtml$$($opt_data$$75$$.$symbol$) : "") + '" style="width: 100%; height: ' + ($opt_data$$75$$.height ? $soy$$0$0escapeHtml$$($opt_data$$75$$.height) : "400") + 'px" frameborder="0" scrolling="no"></iframe>';
 }
 ;
-// Input 258
+// Input 259
 function $bitex$ui$SimpleChart$$($opt_domHelper$$60$$) {
   $goog$ui$Component$$.call(this, $opt_domHelper$$60$$);
 }
@@ -14928,7 +14936,7 @@ $JSCompiler_prototypeAlias$$.$setSymbol$ = function $$JSCompiler_prototypeAlias$
   this.$getElement$().src = "./chart.html?s=" + $symbol$$16$$;
   this.$getElement$().setAttribute("data-symbol", $symbol$$16$$);
 };
-// Input 259
+// Input 260
 function $bitex$ui$TradeHistory$$($pseudoNameFunction$$1$$, $opt_blinkDelay$$3$$, $opt_domHelper$$61$$) {
   $bitex$ui$DataGrid$$.call(this, {title:"Last trades", rowIDFn:this.$getRowId$, rowClassFn:this.$getRowClass$, columns:[{property:"Market", label:"Market", sortable:!1, formatter:function($s$$60$$) {
     size_currency = $s$$60$$.substring(0, 3);
@@ -14996,7 +15004,7 @@ $bitex$ui$TradeHistory$$.prototype.$getRowClass$ = function $$bitex$ui$TradeHist
 $goog$ui$registry$setDecoratorByClassName$$($bitex$ui$TradeHistory$CSS_CLASS$$, function() {
   return new $bitex$ui$TradeHistory$$;
 });
-// Input 260
+// Input 261
 function $bitex$view$MarketView$$($app$$27$$, $opt_domHelper$$62$$) {
   $bitex$view$View$$.call(this, $app$$27$$, $opt_domHelper$$62$$);
   this.$market_data_subscription_symbol_$ = this.$market_data_subscription_id_$ = null;
@@ -15138,7 +15146,7 @@ $JSCompiler_prototypeAlias$$.$exitDocument$ = function $$JSCompiler_prototypeAli
   $bitex$view$MarketView$$.$superClass_$.$exitDocument$.call(this);
   this.$destroyComponents_$();
 };
-// Input 261
+// Input 262
 function $bootstrap$Alert$$($opt_type$$14$$, $opt_content$$6$$, $opt_close$$, $opt_domHelper$$63$$) {
   $goog$ui$Component$$.call(this, $opt_domHelper$$63$$);
   this.$type_$ = $opt_type$$14$$;
@@ -15170,7 +15178,7 @@ $bootstrap$Alert$$.prototype.$enterDocument$ = function $$bootstrap$Alert$$$$$en
     $e$$309$$.preventDefault();
   });
 };
-// Input 262
+// Input 263
 function $bootstrap$Accordion$closeAll$$() {
   var $accordion_body_elements_accordion_toggle_elements$$ = $goog$dom$getElementsByClass$$("accordion-toggle", document.body);
   $goog$array$forEach$$($accordion_body_elements_accordion_toggle_elements$$, function($element$$249$$) {
@@ -15192,7 +15200,7 @@ function $bootstrap$Accordion$install$$() {
   });
 }
 ;
-// Input 263
+// Input 264
 function $bitex$app$BlinkTrade$$($broker_id$$7$$, $remittance_box$$, $opt_default_country$$, $opt_default_state$$, $opt_test_request_timer_in_ms$$, $opt_maximum_allowed_delay_in_ms$$) {
   $goog$events$EventTarget$$.call(this);
   $bootstrap$Dropdown$install$$();
