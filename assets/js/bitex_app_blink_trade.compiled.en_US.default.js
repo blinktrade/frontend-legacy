@@ -11988,7 +11988,8 @@ $JSCompiler_prototypeAlias$$.$enterDocument$ = function $$JSCompiler_prototypeAl
 // Input 224
 function $bitex$ui$DepositList$templates$NodesProgressBar$$($opt_data$$61$$) {
   var $output$$47$$ = "", $MSG_UNNAMED_16$$ = $soy$$0$0escapeHtml$$($opt_data$$61$$.$nodeCount$) + " nodes";
-  return $output$$47$$ += '<div class="progress progress-success progress-striped active" style="margin: 0px;position: relative;"><div class="bar" role="progressbar" aria-valuenow="' + $soy$$0$0escapeHtml$$($opt_data$$61$$.$confidence$) + '" aria-valuemin="0" aria-valuemax="100" style="width:' + $soy$$0$0escapeHtml$$($opt_data$$61$$.$confidence$) + '%"></div><div style="position:absolute;width:100%;font-size:12px;color:#ffffff;height:100%;text-align:center">' + $MSG_UNNAMED_16$$ + "</div></div>";
+  return $output$$47$$ += '<div class="progress progress-success progress-striped active" style="margin: 0px;position: relative;"><div class="bar" role="progressbar" aria-valuenow="' + $soy$$0$0escapeHtml$$($opt_data$$61$$.$confidence$) + '" aria-valuemin="0" aria-valuemax="100" style="width:' + $soy$$0$0escapeHtml$$($opt_data$$61$$.$confidence$) + '%"></div><div style="position:absolute;width:100%;font-size:13px;color:black;height:100%;text-align:center;font-weight:300;">' + $MSG_UNNAMED_16$$ + 
+  "</div></div>";
 }
 ;
 // Input 225
