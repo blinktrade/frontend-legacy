@@ -13,8 +13,8 @@ goog.require('goog.Timer');
 goog.require('goog.dom.classes');
 
 goog.require('goog.i18n.NumberFormat');
-goog.require('expression_evaluator.Parser')
-goog.require('bitex.primitives.Price')
+goog.require('expression_evaluator.Parser');
+goog.require('bitex.primitives.Price');
 
 /**
  * @typedef {{ symbol:String, currency:String, description:String }}
