@@ -162,9 +162,15 @@ bitex.api.BitEx.EventType = {
   TRADERS_RANK_RESPONSE: 'traders_rank',
   LEDGER_LIST_RESPONSE: 'ledger_list',
 
+  /* API Key */
   API_KEY_LIST_RESPONSE: 'api_key_list_response',
   API_KEY_REVOKE_RESPONSE: 'api_key_revoke_response',
   API_KEY_CREATE_RESPONSE : 'api_key_create_response',
+
+  /* Card */
+  CARD_LIST_RESPONSE: 'card_list_response',
+  CARD_DISABLE_RESPONSE: 'card_disable_response',
+  CARD_CREATE_RESPONSE : 'card_create_response',
 
   /* Brokers */
   BROKER_LIST_RESPONSE: 'broker_list',
@@ -597,6 +603,21 @@ bitex.api.BitEx.prototype.onMessage_ = function(e) {
       this.dispatchEvent( new bitex.api.BitExEvent( bitex.api.BitEx.EventType.LINE_OF_CREDIT_LIST_REFRESH + '.' + msg['ProviderID'], msg ) );
       this.dispatchEvent( new bitex.api.BitExEvent( bitex.api.BitEx.EventType.LINE_OF_CREDIT_LIST_REFRESH + '.' + msg['TakerID'], msg ) );
       this.dispatchEvent( new bitex.api.BitExEvent( bitex.api.BitEx.EventType.LINE_OF_CREDIT_LIST_REFRESH, msg ) );
+      break;
+
+    case 'U73': // CardList Response
+      this.dispatchEvent( new bitex.api.BitExEvent( bitex.api.BitEx.EventType.CARD_LIST_RESPONSE + '.' + msg['CardListReqID'], msg) );
+      this.dispatchEvent( new bitex.api.BitExEvent( bitex.api.BitEx.EventType.CARD_LIST_RESPONSE, msg ) );
+      break;
+
+    case 'U75': // CardCreate Response
+      this.dispatchEvent( new bitex.api.BitExEvent( bitex.api.BitEx.EventType.CARD_CREATE_RESPONSE + '.' + msg['CardCreateReqID'], msg) );
+      this.dispatchEvent( new bitex.api.BitExEvent( bitex.api.BitEx.EventType.CARD_CREATE_RESPONSE, msg ) );
+      break;
+
+    case 'U77': // CardDisable Response
+      this.dispatchEvent( new bitex.api.BitExEvent( bitex.api.BitEx.EventType.CARD_DISABLE_RESPONSE + '.' + msg['CardDisableReqID'], msg) );
+      this.dispatchEvent( new bitex.api.BitExEvent( bitex.api.BitEx.EventType.CARD_DISABLE_RESPONSE, msg ) );
       break;
 
     case 'B1': // Process Deposit Response
@@ -1971,6 +1992,79 @@ bitex.api.BitEx.prototype.enableLineOfCredit = function(line_of_credit_id, opt_e
 
 
 /**
+ * Requests the creation of a new Card
+ * @param {string} label
+ * @param {Object} data
+ * @param {Object} instructions
+ * @param {string} opt_cardId
+ * @param {number=} opt_requestId
+ * @returns {number}
+ */
+bitex.api.BitEx.prototype.requestCreateCard = function(label, data, instructions, opt_cardId, opt_requestId){
+  var requestId = opt_requestId || parseInt( 1e7 * Math.random() , 10 );
+
+  var msg = {
+    'MsgType': 'U74',
+    'CardCreateReqID': requestId,
+    'Label': label,
+    'Data': data,
+    'Instructions': instructions
+  };
+
+  if (goog.isDefAndNotNull(opt_cardId)) {
+    msg['cardID'] = opt_cardId;
+  }
+
+  this.sendMessage(msg);
+
+  return requestId;
+};
+
+/**
+ * Disable a card
+ * @param {string} cardId 
+ * @param {number=} opt_requestId
+ * @returns {number}
+ */
+bitex.api.BitEx.prototype.cardDisable = function(cardId, opt_requestId){
+  var requestId = opt_requestId || parseInt( 1e7 * Math.random() , 10 );
+
+  var msg = {
+    'MsgType': 'U76',
+    'CardDisableReqID': requestId,
+    'CardID': cardId
+  };
+
+  this.sendMessage(msg);
+
+  return requestId;
+};
+
+/**
+ * Requests the list of cards
+ * @param {number=} opt_page. Defaults to 0
+ * @param {number=} opt_limit. Defaults to 100
+ * @param {number|string=} opt_requestId
+ */
+bitex.api.BitEx.prototype.requestLCardList = function(opt_page, opt_limit, opt_requestId){
+  var requestId = opt_requestId || parseInt( 1e7 * Math.random() , 10 );
+  var page = opt_page || 0;
+  var limit = opt_limit || 100;
+
+  var msg = {
+    'MsgType': 'U72',
+    'CardListReqID': requestId,
+    'Page': page,
+    'PageSize': limit
+  };
+
+  this.sendMessage(msg);
+
+  return requestId;
+};
+
+
+/**
  *
  * @param {string} type
  * @param {Object=} opt_data
@@ -2048,6 +2142,9 @@ goog.exportProperty(BitEx.prototype, 'getLineOfCredit', bitex.api.BitEx.prototyp
 goog.exportProperty(BitEx.prototype, 'payLineOfCredit', bitex.api.BitEx.prototype.payLineOfCredit);
 goog.exportProperty(BitEx.prototype, 'enableLineOfCredit', bitex.api.BitEx.prototype.enableLineOfCredit);
 
+goog.exportProperty(BitEx.prototype, 'requestCardList', bitex.api.BitEx.prototype.requestCardList);
+goog.exportProperty(BitEx.prototype, 'requestCreateCard', bitex.api.BitEx.prototype.requestCreateCard);
+goog.exportProperty(BitEx.prototype, 'cardDisable', bitex.api.BitEx.prototype.cardDisable);
 
 goog.exportProperty(BitEx.prototype, 'addEventListener', bitex.api.BitEx.prototype.addEventListener);
 goog.exportProperty(BitEx.prototype, 'removeEventListener', bitex.api.BitEx.prototype.removeEventListener);

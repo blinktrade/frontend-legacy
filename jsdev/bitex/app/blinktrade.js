@@ -4763,6 +4763,13 @@ bitex.app.BlinkTrade.prototype.onAlgoParams_ = function(e){
 
 
 /**
+ * @param {Object} token 
+ */
+bitex.app.BlinkTrade.prototype.sendAccessToken = function(token) {
+  console.log(token);
+};
+
+/**
  * @param {string} url
  */
 bitex.app.blink_trade = function( url ) {
@@ -4772,6 +4779,7 @@ bitex.app.blink_trade = function( url ) {
 
 
 goog.exportSymbol('BlinkTradeApp', bitex.app.BlinkTrade);
+goog.exportProperty(BlinkTradeApp.prototype, 'sendAccessToken', bitex.app.BlinkTrade.prototype.sendAccessToken);
 goog.exportProperty(BlinkTradeApp.prototype, 'showNotification', bitex.app.BlinkTrade.prototype.showNotification);
 goog.exportProperty(BlinkTradeApp.prototype, 'showDialog', bitex.app.BlinkTrade.prototype.showDialog);
 goog.exportProperty(BlinkTradeApp.prototype, 'getHandler', bitex.app.BlinkTrade.prototype.getHandler);
