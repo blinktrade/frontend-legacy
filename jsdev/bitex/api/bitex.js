@@ -166,6 +166,10 @@ bitex.api.BitEx.EventType = {
   API_KEY_REVOKE_RESPONSE: 'api_key_revoke_response',
   API_KEY_CREATE_RESPONSE : 'api_key_create_response',
 
+  /* Card */
+  CARD_LIST_RESPONSE: 'card_list_response',
+  CARD_CREATE_RESPONSE: 'card_create_response',
+
   /* Brokers */
   BROKER_LIST_RESPONSE: 'broker_list',
   CUSTOMER_LIST_RESPONSE: 'customer_list',

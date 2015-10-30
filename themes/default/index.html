@@ -447,6 +447,25 @@ load_application:       True
         </div>
       </div>
 
+      <div id="card" class="bitex-view">
+          <div class="section-title">
+              <h3 class="bitex-view-title">
+                  <i class="icon-tag"></i>
+                  <span>BlinkCard</span>
+              </h3>
+          </div>
+          <div class="content bitex-view-content">
+              <img src="{{ site.url }}{{ site.base_url }}/assets/exchange_logos/foxbit_card.png" alt="">
+              <hr>
+              <div id="id_card_button_group" class="row-fluid text-right">
+                  <a id="id_btn_new_card" class="btn btn-primary">
+                      <i class="icon-plus">New Card</i>
+                  </a>
+              </div>
+              <br>
+          </div>
+      </div>
+
       <div id="ledger" class="bitex-view">
         <div class="section-title">
           <h3 class="bitex-view-title">{% t views.ledger.title %}</h3>
@@ -534,6 +553,7 @@ load_application:       True
                                                 bitex-view-account_overview
                                                 bitex-view-withdraw
                                                 bitex-view-withdraw_requests
+                                                bitex-view-card
                                                 bitex-view-deposit
                                                 bitex-view-deposit_requests
                                                 bitex-view-ledger
@@ -562,11 +582,11 @@ load_application:       True
 
         <h6>{% t views.sidebar.menu %}</h6>
         <ul class="nav nav-list">
-          <li style="">
+          <li>
             <a href="" data-switch-view="profile">
               <i data-switch-view="profile" class="icon-user"></i> {% t views.sidebar.my_profile %}</a>
           </li>
-          <li style="">
+          <li>
             <a href="" data-switch-view="my_broker">
               <i data-switch-view="my_broker" class="icon-search"></i> {% t views.sidebar.my_broker %}</a></li>
 
@@ -586,39 +606,45 @@ load_application:       True
             </a>
           </li>
 
-          <li style="">
+          <li>
             <a href="" data-switch-view="algotrading">
               <i data-switch-view="algotrading" class="icon-cog"></i> {% t views.sidebar.algotrading %}</a>
           </li>
 
-          <li style="">
+          <li>
             <a href="" data-switch-view="ledger">
               <i data-switch-view="ledger" class="icon-list"></i> {% t views.sidebar.ledger %}</a>
           </li>
 
-          <li style="" class="bitex-display-if-broker">
+          <li class="bitex-display-if-broker">
             <a href="" data-switch-view="customers">
               <i data-switch-view="customers" class="icon-user"></i> {% t views.sidebar.customers %}</a>
           </li>
 
-          <li style="" class="bitex-display-if-broker">
+          <li class="bitex-display-if-broker">
             <a href="" data-switch-view="deposit_requests">
               <i data-switch-view="deposit_requests" class="icon-plus"></i> {% t views.sidebar.deposit_requests %}</a>
           </li>
 
-          <li style="" class="bitex-display-if-broker">
+          <li class="bitex-display-if-broker">
             <a href="" data-switch-view="withdraw_requests">
               <i data-switch-view="withdraw_requests" class="icon-minus"></i> {% t views.sidebar.withdraw_requests %}</a>
           </li>
 
-          <li style="">
+          <li>
             <a href="" data-switch-view="deposit">
               <i data-switch-view="deposit" class="icon-plus"></i> {% t views.sidebar.deposit %}</a>
           </li>
 
-          <li style="">
+          <li>
             <a href="" data-switch-view="withdraw">
               <i data-switch-view="withdraw" class="icon-minus"></i> {% t views.sidebar.withdraw %}</a>
+          </li>
+
+          <li>
+              <a href="" data-switch-view="card">
+                  <i data-switch-view="card" class="icon-tag"> Card</i>
+              </a>
           </li>
 
           <li style="" class="bitex-display-if-non-broker" id="verification_menu_id">

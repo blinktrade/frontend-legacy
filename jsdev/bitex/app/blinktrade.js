@@ -24,6 +24,7 @@ goog.require('bitex.ui.AccountActivity');
 goog.require('bitex.ui.WithdrawList');
 
 goog.require('bitex.ui.Customers');
+
 goog.require('goog.Uri');
 
 goog.require('goog.fx');
@@ -68,6 +69,7 @@ goog.require('bitex.view.OfferBookView');
 goog.require('bitex.view.HistoryView');
 goog.require('bitex.view.SideBarView');
 goog.require('bitex.view.WithdrawView');
+goog.require('bitex.view.CardView');
 goog.require('bitex.view.CustomersView');
 goog.require('bitex.view.AccountOverview');
 goog.require('bitex.view.BrokerView');
@@ -444,6 +446,7 @@ bitex.app.BlinkTrade.prototype.run = function(host_api) {
   var historyView         = new bitex.view.HistoryView(this);
   var withdrawView        = new bitex.view.WithdrawView(this, false);
   var withdrawRequestsView= new bitex.view.WithdrawView(this, true);
+  var cardView            = new bitex.view.CardView(this);
   var customersView       = new bitex.view.CustomersView(this);
   var accountOverviewView = new bitex.view.AccountOverview(this);
   var brokerView          = new bitex.view.BrokerView(this);
@@ -476,6 +479,7 @@ bitex.app.BlinkTrade.prototype.run = function(host_api) {
   this.views_.addChild( depositRequestsView );
   this.views_.addChild( withdrawView        );
   this.views_.addChild( withdrawRequestsView);
+  this.views_.addChild( cardView            );
   this.views_.addChild( customersView       );
   this.views_.addChild( accountOverviewView );
   this.views_.addChild( verificationView    );
@@ -515,6 +519,7 @@ bitex.app.BlinkTrade.prototype.run = function(host_api) {
   this.router_.addView( '(deposit)'                     , depositView         );
   this.router_.addView( '(withdraw_requests)'           , withdrawRequestsView);
   this.router_.addView( '(withdraw)'                    , withdrawView        );
+  this.router_.addView( '(card)'                        , cardView            );
   this.router_.addView( '(customers)'                   , customersView       );
   this.router_.addView( '(verification)'                , verificationView    );
   this.router_.addView( '(my_broker)'                   , brokerView          );
