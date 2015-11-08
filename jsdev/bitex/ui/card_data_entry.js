@@ -102,6 +102,13 @@ bitex.ui.CardDataEntry.prototype.getLabel = function(){
 };
 
 /**
+ * @returns {string}
+ */
+bitex.ui.CardDataEntry.prototype.getCardID = function(){
+  return goog.dom.forms.getValue(goog.dom.getElement(this.makeId('card_id')));
+};
+
+/**
  * @param {goog.events.Event} e
  * @private
  */

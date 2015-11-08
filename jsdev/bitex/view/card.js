@@ -116,13 +116,13 @@ bitex.view.CardView.prototype.onNewCardButtonClick_ = function(){
 
   handler.listenOnce(data_entry, bitex.ui.CardDataEntry.EventType.SUBMIT, function(e){
 
-    var label = e.target.getLabel();
+    var label  = e.target.getLabel();
+    var cardId = e.target.getCardID();
 
-    this.removeChildAt(1, true);
     goog.style.showElement(goog.dom.getElement('id_btn_new_card'), true);
     goog.style.showElement(this.getChildAt(0).getElement(), true);
 
-    conn.requestCreateCard(label);
+    conn.requestCreateCard(label, cardId);
 
   }, this);
 
