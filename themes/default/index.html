@@ -55,7 +55,7 @@ load_application:       True
         <form action="" class="form-inline">
           <div class="row-fluid">
             <label for="id_landing_username">{% t views.start.username %}</label>
-            <input class="focus" id="id_landing_username" placeholder="" size="30" type="text">
+            <input class="focus" id="id_landing_username" placeholder="" size="30" type="text" autofocus>
             <label for="id_landing_password">{% t views.start.password %}</label>
             <input id="id_landing_password" placeholder="" size="30"  type="password">
             <button id="id_landing_signin" class="btn btn-primary">{% t views.start.login %}</button>
@@ -427,10 +427,10 @@ load_application:       True
       </div>
 
       <div id="withdraw" class="bitex-view">
-        <div class="section-title">
+        <div class="section-title title-float">
           <h3 class="bitex-view-title">{% t views.withdraw.title %}</h3>
         </div>
-        <div class="content bitex-view-content">
+        <div class="content bitex-view-content content-padding">
           <div id="id_withdraw_button_group" class="row-fluid text-right" style="margin-bottom:20px" ></div>
           <div id="id_user_balances_well"></div>
 
@@ -448,10 +448,10 @@ load_application:       True
       </div>
 
       <div id="deposit" class="bitex-view">
-        <div class="section-title">
+        <div class="section-title title-float">
           <h3 class="bitex-view-title">{% t views.deposit.title %}</h3>
         </div>
-        <div class="content bitex-view-content">
+        <div class="content bitex-view-content content-padding">
           <div id="id_deposit_button_group" class="row-fluid text-right" style="margin-bottom:20px" ></div>
           <div id="id_deposit_balances_container"></div>
 

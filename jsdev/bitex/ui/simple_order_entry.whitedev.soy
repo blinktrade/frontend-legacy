@@ -11,7 +11,7 @@
 {template .SimpleOrderEntry}
 <form id="{$id}" class="simple-order-entry col-md-6 ls-box" >
   <header class='ls-info-header'>
-    <h2 class='ls-title-3'>Buy</h2>
+      <h2 class='ls-title-3'>{if $side == 1 } Buy {else} Sell {/if}</h2>
   </header>
   <div class="row row-padding-mobile">
     <div class="row-fluid">

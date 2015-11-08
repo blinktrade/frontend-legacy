@@ -56,7 +56,7 @@
       {else}
 
         <label class="modal-form__label">{msg desc="method"}Method{/msg}:</label>
-        <select id="{$methodID}" name="Method" class="withdraw-method-selector">
+        <select id="{$id}_method" name="Method" class="withdraw-method-selector">
           {foreach $method in $methods }
            <option value="{$method['method']}"
                 data-net-value="{$id}_method_{$method['method']}_net_value"

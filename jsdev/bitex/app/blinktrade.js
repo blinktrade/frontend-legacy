@@ -3752,6 +3752,9 @@ bitex.app.BlinkTrade.prototype.onUserLoginError_ = function(e) {
     var gauth_uniform = new uniform.Uniform();
     gauth_uniform.decorate(goog.dom.getFirstElementChild(dlg_.getContentElement()));
 
+    var input_element = goog.dom.getElement('id_input_google_authenticator');
+    input_element.focus();
+
     var handler = this.getHandler();
     handler.listen(dlg_, goog.ui.Dialog.EventType.SELECT, function(e) {
       if (e.key == 'ok') {
