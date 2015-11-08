@@ -5,6 +5,25 @@ body_classes:           ws-not-connected bitex-not-logged active-view-start
 load_application:       True
 ---
 
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '101242993572265',
+      xfbml      : true,
+      version    : 'v2.5'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
+
 <!-- div.container -->
 <div class="container">
   <!-- landing page-->
@@ -42,6 +61,8 @@ load_application:       True
             <button id="id_landing_signin" class="btn btn-primary">{% t views.start.login %}</button>
           </div>
           <div class="clearfix" style="height: 20px"></div>
+          <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+          </fb:login-button>
           <div class="row-fluid">
             <span class="text-center">
               <a href="" class="btn btn-success btn-large" data-switch-view="signup">{% t views.start.signup %}</a>

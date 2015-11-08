@@ -1,10 +1,6 @@
 # Site settings
-# url: "https://testnet.blinktrade.com"
-# url: "https://cesardeazevedo.github.io"
-url: "//localhost:4000"
+url: "//localhost"
 author: "BlinkTrade"
-author: "BlinkTrade"
-# baseurl: "/frontend"
 baseurl: ""
 deploy_version: "HEAD"
 

@@ -35,10 +35,13 @@ SOY_TEMPLATES="
                ui/remittance_box
                ui/api_key_data_entry
                ui/dialog
-               ui/card_data_entry
+               ui/withdraw_request_data_entry
+               ui/deposit_list
                view/line_of_credit
+               ui/card_data_entry
                view/profile
                view/side_bar
+               view/withdraw
 "
 
 for template in $SOY_TEMPLATES ; do 
@@ -81,6 +84,9 @@ python ./closure-library/closure/bin/build/closurebuilder.py  \
   --compiler_flags="--externs=./externs/w3c_rtc.js" \
   --compiler_flags="--externs=./externs/facebook_javascript_sdk.js" \
   --compiler_flags="--translations_file=./translations/$LANG.xtb.xml" \
+  --compiler_flags="--debug=TRUE" \
+  --compiler_flags="--formatting=PRETTY_PRINT" \
+  --compiler_flags="--formatting=PRINT_INPUT_DELIMITER" \
    > ../assets/js/bitex_app_blink_trade.compiled.$LANG.$THEME.js
 
 # enable those flags to debug the compiled code.

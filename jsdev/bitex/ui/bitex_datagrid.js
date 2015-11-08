@@ -587,6 +587,7 @@ bitex.ui.DataGrid.prototype.insertOrUpdateRecord = function(record, opt_index) {
     });
     result_set_col_index[index] = index_row_set;
   });
+  var blink_class = 'md-blink';
 
   var rowIDFn = goog.bind(this.getModel().rowIDFn, this);
   var row_id = rowIDFn(record);
@@ -616,6 +617,20 @@ bitex.ui.DataGrid.prototype.insertOrUpdateRecord = function(record, opt_index) {
 
       var td = goog.dom.createDom( 'td', classes(value), formatter(value, record ) );
       td_elements[this.getModel().columns[ index]['property'] ]  = td;
+
+      if (!is_new_record) {
+        var previous_td_record = goog.dom.getElementByClass( classes(value), tr );
+        if (goog.isDefAndNotNull(previous_td_record)) {
+          if (previous_td_record.innerHTML != td.innerHTML ) {
+
+            goog.dom.classes.add( td,  blink_class );
+            goog.Timer.callOnce( function(){
+              goog.dom.classes.remove( td,  blink_class );
+            }, this.getModel().blinkDelay , this);
+
+          }
+        }
+      }
     } else {
 
     }
@@ -647,11 +662,12 @@ bitex.ui.DataGrid.prototype.insertOrUpdateRecord = function(record, opt_index) {
     this.adjustSizes_(first_row);
   }
 
-  var blink_class = 'md-blink';
-  goog.dom.classes.add( tr,  blink_class );
-  goog.Timer.callOnce( function(){
-    goog.dom.classes.remove( tr,  blink_class );
-  }, this.getModel().blinkDelay , this);
+  if (is_new_record) {
+    goog.dom.classes.add( tr,  blink_class );
+    goog.Timer.callOnce( function(){
+      goog.dom.classes.remove( tr,  blink_class );
+    }, this.getModel().blinkDelay , this);
+  }
 
 };
 
