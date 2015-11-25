@@ -2,64 +2,21 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml">
   <head>
     <meta charset="utf-8">
-    {% case site.exchange %}
-      {% when 'chilebit' %}
-        <title>{% t exchanges.chilebit.title %}</title>
-      {% when 'surbitcoin' %}
-        <title>{% t exchanges.surbitcoin.title %}</title>
-      {% when 'urdubit' %}
-        <title>{% t exchanges.urdubit.title %}</title>
-      {% when 'foxbit' %}
-        <title>{% t exchanges.foxbit.title %}</title>
-      {% when 'romaniabex' %}
-        <title>{% t exchanges.romaniabex.title %}</title>
-      {% when 'bitcoinvietnam' %}
-        <title>{% t exchanges.bitcoinvietnam.title %}</title>
-      {% else %}
-        <title>{% t exchanges.demo.title %}</title>
-    {% endcase %}
+    {% assign exchange = "exchanges." | append: site.exchange %}
+    {% assign title = exchange | append: ".title" %}
+    <title> {% t title %} </title>
 
     <!-- Meta -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="{{ site.author }}">
 
-    {% case site.exchange %}
-      {% when 'chilebit' %}
-        <meta name="description" content="{% t exchanges.chilebit.description %}">
-        <meta name="keywords" content="{% t exchanges.chilebit.keywords %}">
-        <meta property="og:title" content="{% t exchanges.chilebit.title %}">
-        <meta property="og:description" content="{% t exchanges.chilebit.description %}">
-      {% when 'surbitcoin' %}
-        <meta name="description" content="{% t exchanges.surbitcoin.description %}">
-        <meta name="keywords" content="{% t exchanges.surbitcoin.keywords %}">
-        <meta property="og:title" content="{% t exchanges.surbitcoin.title %}">
-        <meta property="og:description" content="{% t exchanges.surbitcoin.description %}">
-      {% when 'urdubit' %}
-        <meta name="description" content="{% t exchanges.urdubit.description %}">
-        <meta name="keywords" content="{% t exchanges.urdubit.keywords %}">
-        <meta property="og:title" content="{% t exchanges.urdubit.title %}">
-        <meta property="og:description" content="{% t exchanges.urdubit.description %}">
-      {% when 'foxbit' %}
-        <meta name="description" content="{% t exchanges.foxbit.description %}">
-        <meta name="keywords" content="{% t exchanges.foxbit.keywords %}">
-        <meta property="og:title" content="{% t exchanges.foxbit.title %}">
-        <meta property="og:description" content="{% t exchanges.foxbit.description %}">
-      {% when 'romaniabex' %}
-        <meta name="description" content="{% t exchanges.romaniabex.description %}">
-        <meta name="keywords" content="{% t exchanges.romaniabex.keywords %}">
-        <meta property="og:title" content="{% t exchanges.romaniabex.title %}">
-        <meta property="og:description" content="{% t exchanges.romaniabex.description %}">
-      {% when 'bitcoinvietnam' %}
-        <meta name="description" content="{% t exchanges.bitcoinvietnam.description %}">
-        <meta name="keywords" content="{% t exchanges.bitcoinvietnam.keywords %}">
-        <meta property="og:title" content="{% t exchanges.bitcoinvietnam.title %}">
-        <meta property="og:description" content="{% t exchanges.bitcoinvietnam.description %}">
-      {% else %}
-        <meta name="description" content="{% t exchanges.demo.description %}">
-        <meta name="keywords" content="{% t exchanges.demo.keywords %}">
-        <meta property="og:title" content="{% t exchanges.demo.title %}">
-        <meta property="og:description" content="{% t exchanges.demo.description %}">
-    {% endcase %}
+    {% assign description = exchange | append: ".description" %}
+    {% assign keywords = exchange    | append: ".keywords" %}
+
+    <meta name="description" content="{% t description %}">
+    <meta name="keywords" content="{% t keywords %}">
+    <meta property="og:title" content="{% t title %}">
+    <meta property="og:description" content="{% t description %}">
 
     <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
     <meta property="og:url" content="{{ site.url }}{{ site.baseurl }}{% if page.url != '/index.html' %}{{ page.url }}{% endif %}">
