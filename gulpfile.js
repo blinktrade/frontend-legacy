@@ -6,13 +6,17 @@ var replace = require('gulp-replace-task');
 var git = require('git-rev-sync');
 var prompt = require('gulp-prompt');
 var yaml = require('js-yaml');
-var branch = 'master';
+var branch = 'gh-pages';
 
 gulp.task('build', function(done){
+    console.log('Building...');
     exec('jekyll build', function(err, stdout, stderr){
+        if(err)
+            done(err);
+
         console.log(stdout);
         console.log(stderr);
-        done(err);
+        done();
     });
 });
 
@@ -26,7 +30,7 @@ gulp.task('config', function(done){
     var baseUrl = config.baseurl;
     var newBaseUrl = '';
 
-    gulp.src('_config.yml')
+    return gulp.src('_config.yml')
     .pipe(prompt.prompt({
         type: 'input',
         name: 'baseurl',
@@ -68,8 +72,9 @@ gulp.task('config', function(done){
     .pipe(gulp.dest('./'));
 });
 
-gulp.task('deploy', ['config', 'build'], function(){
-    return gulp.src("./_site/**/*").pipe(deploy({branch: branch}));
+gulp.task('deploy', ['config','build'], function(done){
+    console.log('Deploying...');
+    return gulp.src("./_site/**/*").pipe(deploy({ branch: branch }));
 });
 
 gulp.task('default',[]);
