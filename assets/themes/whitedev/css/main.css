@@ -33,7 +33,10 @@
 .ls-menu{
     background: #444 url(../images/blur.png) center no-repeat;
     background-size: 200%;
-    height: calc(100% - 360px)!important;
+    height: calc(100% - 430px)!important;
+}
+.brand-menu {
+    max-height: 55px;
 }
 /* FONTES*/
 @font-face{
@@ -42,6 +45,20 @@
 }
 .ls-box{
 	border-radius: 0 !important;
+}
+#account_balance {
+    margin-bottom: -2px;
+    padding-bottom: 0px;
+    /* display: inline-block; */
+    width: 100%;
+    overflow-y: auto;
+}
+#id_remittance_box {
+    max-height: 150px;
+    overflow-y: auto;
+}
+#id_remittance_box table {
+    margin:0;
 }
 .youraccount strong,.b{ 
 	color: #E8683E;
@@ -56,16 +73,33 @@ a:hover:not(.ls-btn),a:focus,a{
 .youraccount [class^="flaticon-"]:before{
 	margin-left: 0 !important;
 }
-.youraccount{
-  padding-right: 0;
-}
 .ls-menu{
-    margin-top: -20px!important;
+    /* margin-top: -20px!important; */
 	overflow-y: auto;
 }
 #id_account_summary_content{
     max-height:200px;
-    overflow-y: auto;
+}
+
+.api-key-data-entry-form-block {
+    padding: 10px;
+    padding-left: 0;
+}
+.api-key-data-entry-form-block .lsbox {
+    padding: 15px;
+}
+.api-key-data-entry-form-block input {
+    margin-left: 10px;
+}
+
+.api-key-data-entry-form-permissions-table{
+    width: 50%
+}
+.api-key-data-entry-form-permissions-table tr{
+    height: 30px;
+}
+.api-key-data-entry-form-permissions-table tr input{
+    margin-right: 10px;
 }
 
 /* mudar os botoes */
@@ -326,6 +360,17 @@ footer{
     display: table-cell;
 }
 
+.order-entry-row {
+    height: 60px;
+    border-bottom: 1px solid #eee;
+    padding-top: 15px;
+    padding-bottom: 50px;
+}
+
+.order-entry-row > div > span {
+    vertical-align: middle;
+}
+
 .md-blink,
 .md-blink > td,
 .order-manager-blink td,
@@ -352,7 +397,7 @@ footer{
 
 #id_order_book_ask_content .ls-table td,
 #id_order_book_bid_content .ls-table td {
-    padding:7px;
+    padding:5px;
 }
 
 .flaticon-refresh56{
@@ -441,6 +486,12 @@ footer{
 }
 .withdraw-list-details > table {
     width : 100%;
+}
+
+label.control-label.withdraw-method-label {
+    vertical-align: middle;
+    font-size: initial;
+    width: 15%;
 }
 
 /* accordion */
@@ -566,4 +617,9 @@ footer{
 
 .ws-not-connected .bitex-display-if-ws-connected {
   display: none;
+}
+
+.zopim {
+    right: 10px;
+    left: initial!important;
 }

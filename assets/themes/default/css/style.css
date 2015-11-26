@@ -242,6 +242,7 @@ ul.parsley-error-list li {
 }
 .order-book-row td {
   line-height: 2px;
+  white-space: nowrap;
 }
 .order-book-qty,
 .order-book-price {

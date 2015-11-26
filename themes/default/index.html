@@ -31,22 +31,8 @@ load_application:       True
     <header class="jumbotron">
       <img src="{{ site.baseurl }}/assets/exchange_logos/{{ site.exchange_logo }}_landing_page_logo.png" style="">
       <p class="lead bitex-view-title bitex-view-title">
-        {% case site.exchange %}
-          {% when 'chilebit' %}
-            {% t exchanges.chilebit.lead  %}
-          {% when 'surbitcoin' %}
-            {% t exchanges.surbitcoin.lead  %}
-          {% when 'urdubit' %}
-            {% t exchanges.urdubit.lead  %}
-          {% when 'foxbit' %}
-            {% t exchanges.foxbit.lead  %}
-          {% when 'romaniabex' %}
-            {% t exchanges.romaniabex.lead  %}
-          {% when 'bitcoinvietnam' %}
-            {% t exchanges.bitcoinvietnam.lead  %}
-          {% else %}
-            {% t exchanges.demo.lead  %}
-          {% endcase %}
+        {% assign lead = "exchanges." | append: site.exchange | append: ".lead" %}
+        {% t lead %}
       </p>
     </header>
 
@@ -61,13 +47,14 @@ load_application:       True
             <button id="id_landing_signin" class="btn btn-primary">{% t views.start.login %}</button>
           </div>
           <div class="clearfix" style="height: 20px"></div>
-          <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-          </fb:login-button>
           <div class="row-fluid">
             <span class="text-center">
               <a href="" class="btn btn-success btn-large" data-switch-view="signup">{% t views.start.signup %}</a>
             </span>
           </div>
+          <br>
+          <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+          </fb:login-button>
         </form>
       </div>
     </div>
@@ -584,8 +571,7 @@ load_application:       True
                                                 bitex-view-line_of_credit 
                                                 bitex-view-my_broker
                                                 bitex-view-verification">
-      <h3><span class="bitex-model bitex-view-title" data-model-key="DisplayName"></span></h3>
-
+      <h3><span class="bitex-model bitex-view-title" data-model-key="DisplayName"></span></h3> 
       <div class="bitex-view-content">
         <div id="account_balance" style="">
 
