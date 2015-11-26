@@ -5,7 +5,7 @@ url: "https://cesardeazevedo.github.io"
 author: "BlinkTrade"
 baseurl: "/frontend"
 # baseurl: ""
-deploy_version: "HEAD"
+deploy_version: "79e6d7a"
 
 exchange: "demo"
 exchange_logo: "demo"
