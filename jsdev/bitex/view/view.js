@@ -54,6 +54,7 @@ bitex.view.View.EventType = {
 
   DEPOSIT_REQUEST: 'request_deposit',
   PROCESS_DEPOSIT: 'process_deposit',
+  INSTANTANEOUS_DEPOSIT: 'instantaneous_deposit',
 
   SHOW_KYC: 'show_kyc',
   SHOW_QR: 'show_qr',

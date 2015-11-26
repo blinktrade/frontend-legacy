@@ -361,6 +361,11 @@ bitex.ui.DepositList = function( crypto_currencies_def, opt_broker_mode, opt_sho
    */
   var MSG_DEPOSIT_TABLE_DETAILS_COLUMN_BTN_UPLOAD  = goog.getMsg('send receipt');
 
+  /**
+   * @desc Deposit instantaneous button label in the deposit list
+   */
+  var MSG_DEPOSIT_TABLE_INSTANTANEOUS_BTN = goog.getMsg('Instantaneous');
+
 
   /**
    * @desc Withdraw progress button label in the  broker's withdraw list
@@ -464,6 +469,12 @@ bitex.ui.DepositList = function( crypto_currencies_def, opt_broker_mode, opt_sho
           'data-row': data_row
         },MSG_DEPOSIT_TABLE_DETAILS_COLUMN_BTN_UPLOAD, ' ' ,goog.dom.createDom( 'i', ['icon-white', 'icon-file']));
 
+        var btn_deposit_instantaneous = goog.dom.createDom('a', {
+            'class': 'btn btn-mini btn-success btn-deposit-instantaneous',
+            'data-action': 'INSTANTANEOUS',
+            'data-row': data_row
+        }, MSG_DEPOSIT_TABLE_INSTANTANEOUS_BTN, '', goog.dom.createDom('i', ['icon-white', 'icon-fire']));
+
         switch (rowSet['Type'] ) {
           case 'CRY':
             switch( rowSet['Status'] ) {
@@ -482,6 +493,7 @@ bitex.ui.DepositList = function( crypto_currencies_def, opt_broker_mode, opt_sho
                 return goog.dom.createDom('div', 'btn-group',[btn_upload]);
               case '1':
               case '2':
+                return goog.dom.createDom('div', 'btn-group', [btn_deposit_instantaneous]);
               case '4':
               case '8':
                 return '';
