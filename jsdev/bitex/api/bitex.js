@@ -40,25 +40,25 @@ goog.inherits(bitex.api.BitEx, goog.events.EventTarget);
  * @type {Object}
  * @private
  */
-bitex.app.BitEx.prototype.currency_info_;
+bitex.api.BitEx.prototype.currency_info_;
 
 /**
  * @type {Object}
  * @private
  */
-bitex.app.BitEx.prototype.stunt_ip_info_;
+bitex.api.BitEx.prototype.stunt_ip_info_;
 
 /**
  * @type {Object}
  * @private
  */
-bitex.app.BitEx.prototype.all_markets_;
+bitex.api.BitEx.prototype.all_markets_;
 
 /**
  * @type {number}
  * @private
  */
-bitex.app.BitEx.prototype.browser_finger_print_;
+bitex.api.BitEx.prototype.browser_finger_print_;
 
 /**
  * @type {goog.net.WebSocket}
