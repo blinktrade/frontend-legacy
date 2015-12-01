@@ -5242,7 +5242,6 @@ $JSCompiler_prototypeAlias$$.$validate$ = function $$JSCompiler_prototypeAlias$$
   for (var $errors$$ = [], $els$$9$$ = this.$getElement$().elements, $controlHolderEl$$2_el$$78$$, $i$$155$$ = 0;$controlHolderEl$$2_el$$78$$ = $els$$9$$[$i$$155$$];$i$$155$$++) {
     if (!$controlHolderEl$$2_el$$78$$.disabled && "fieldset" != $controlHolderEl$$2_el$$78$$.tagName.toLowerCase()) {
       var $caption$$17$$ = $JSCompiler_StaticMethods_getCaptionForElement$$(this, $controlHolderEl$$2_el$$78$$);
-      console.log($caption$$17$$);
       try {
         var $JSCompiler_StaticMethods_runValidation$self$$inline_681$$ = $uniform$Validators$$.$getInstance$();
         $uniform$util$executeElementMetaTags$$($controlHolderEl$$2_el$$78$$, "data-uniform-validators", $JSCompiler_StaticMethods_runValidation$self$$inline_681$$.$metaMap_$, $caption$$17$$);
@@ -12459,9 +12458,9 @@ function $bitex$ui$DepositList$$($crypto_currencies_def$$, $opt_broker_mode$$1_s
           case "0":
             return $goog$dom$createDom$$("div", "btn-group", [$btn_upload$$]);
           case "1":
-          ;
-          case "2":
             return $goog$dom$createDom$$("div", "btn-group", [$btn_deposit_instantaneous_data_row$$5$$]);
+          case "2":
+          ;
           case "4":
           ;
           case "8":
