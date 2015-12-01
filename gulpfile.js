@@ -6,6 +6,7 @@ var replace = require('gulp-replace-task');
 var git = require('git-rev-sync');
 var prompt = require('gulp-prompt');
 var yaml = require('js-yaml');
+var runSequence = require('run-sequence');
 var branch = 'gh-pages';
 
 gulp.task('build', function(done){
@@ -72,9 +73,16 @@ gulp.task('config', function(done){
     .pipe(gulp.dest('./'));
 });
 
-gulp.task('deploy', ['config','build'], function(done){
+gulp.task('deployBranch', function(done){
     console.log('Deploying...');
-    return gulp.src("./_site/**/*").pipe(deploy({ branch: branch }));
+    return gulp.src("./_site/**/*")
+    .pipe(deploy({ branch: branch }));
+});
+
+gulp.task('deploy', function(done){
+    runSequence('config', 'build', 'deployBranch', function(){
+        console.log('Finish');
+    })
 });
 
 gulp.task('default',[]);
