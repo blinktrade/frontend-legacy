@@ -492,8 +492,8 @@ bitex.ui.DepositList = function( crypto_currencies_def, opt_broker_mode, opt_sho
               case '0':
                 return goog.dom.createDom('div', 'btn-group',[btn_upload]);
               case '1':
-              case '2':
                 return goog.dom.createDom('div', 'btn-group', [btn_deposit_instantaneous]);
+              case '2':
               case '4':
               case '8':
                 return '';
