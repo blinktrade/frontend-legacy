@@ -3238,7 +3238,7 @@ bitex.app.BlinkTrade.prototype.showDepositDialog = function(currency,
 
     var dlgConfirm =  this.showDialog(confirmDialogContent,
                                       MSG_CURRENCY_DEPOSIT_DIALOG_TITLE,
-                                      bitex.ui.Dialog.ButtonSet.createOkCancel());
+                                      bitex.ui.Dialog.ButtonSet.createYesNoCancel());
 
     handler.listen(dlgConfirm, goog.ui.Dialog.EventType.SELECT, function(e) {
       if (e.key == 'yes') {
