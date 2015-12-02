@@ -930,9 +930,10 @@ bitex.app.BlinkTrade.prototype.onBitexWithdrawResponse_ = function(e) {
  * Prevent reload page
  */
 bitex.app.BlinkTrade.prototype.preventReload = function() {
+    var MSG_PREVENT_RELOAD = goog.getMsg('You will lose your connection');
     window.onbeforeunload = function(e){
         if(this.conn_.isLogged())
-            return "You will lose your connection";
+            return MSG_PREVENT_RELOAD;
         else
             e.preventDefault();
     }.bind(this);
