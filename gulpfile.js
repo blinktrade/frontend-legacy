@@ -1,4 +1,5 @@
 var fs = require('fs');
+var path = require('path');
 var gulp = require('gulp');
 var deploy = require('gulp-gh-pages');
 var exec = require("child_process").exec;
@@ -8,6 +9,23 @@ var prompt = require('gulp-prompt');
 var yaml = require('js-yaml');
 var runSequence = require('run-sequence');
 var branch = 'gh-pages';
+
+var newUrl = '';
+var newBaseUrl = '';
+
+var URL_MSG = "Your Domain: \n\nThe name of your domain."+
+              "\ne.g.:\nhttps://username.github.io or https://myexchange.com \n\ndefault: ";
+
+var BASEURL_MSG = "Your Base URL: \n\nYou can choose a base url followed by your domain:"+
+                  "\ne.g.:\n/mybaseurl \n\nOr Just: `/`\n\nIt will result as"+
+                  " https://myexchange.com/mybaseurl \n\ndefault: ";
+
+var BRANCH_MSG = "Github Branch: \n\n"+
+                 "If your using your repository as `organization.github.io` you should use the `master` branch,\n"+
+                 "otherwise, `gh-pages` branch."+
+                 "\n\nSee more at: https://help.github.com/articles/user-organization-and-project-pages/"+
+                 "\n\nChoose: ";
+
 
 gulp.task('build', function(done){
     console.log('Building...');
@@ -28,14 +46,22 @@ gulp.task('config', function(done){
     if(config.baseurl === undefined)
         return done(new Error('Baseurl not defined'));
 
+    var url     = config.url;
     var baseUrl = config.baseurl;
-    var newBaseUrl = '';
 
     return gulp.src('_config.yml')
     .pipe(prompt.prompt({
         type: 'input',
+        name: 'url',
+        message: URL_MSG,
+        default: url
+    }, function(res){
+        newUrl = res.url;
+    }))
+    .pipe(prompt.prompt({
+        type: 'input',
         name: 'baseurl',
-        message: 'BaseURL?',
+        message: BASEURL_MSG,
         default: baseUrl
     }, function(res){
         newBaseUrl = res.baseurl.charAt(0) === '/' ?
@@ -45,7 +71,7 @@ gulp.task('config', function(done){
     .pipe(prompt.prompt({
         type: 'list',
         name: 'branch',
-        message: 'Git Branch?',
+        message: BRANCH_MSG,
         choices: ['master', 'gh-pages']
     }, function(res){
         console.log('Git Rev : '+rev);
@@ -61,6 +87,11 @@ gulp.task('config', function(done){
                 match: /^deploy_version:.*$/m,
                 replacement: function(){
                     return 'deploy_version: "'+rev+'"'
+                }
+            }, {
+                match: /^url:.*$/m,
+                replacement: function(){
+                    return 'url: "'+newUrl+'"'
                 }
             }, {
                 match: /^baseurl:.*$/m,
@@ -81,7 +112,8 @@ gulp.task('deployBranch', function(done){
 
 gulp.task('deploy', function(done){
     runSequence('config', 'build', 'deployBranch', function(){
-        console.log('Finish');
+        console.log('\nOpen your browser at: '+ path.join(newUrl, newBaseUrl));
+        console.log('Done');
     })
 });
 
