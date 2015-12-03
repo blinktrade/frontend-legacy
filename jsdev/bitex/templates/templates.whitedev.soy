@@ -198,6 +198,40 @@
   </form>
 {/template}
 
+/**
+  * @param variables
+  * @param pattern
+  * @param formula
+  * @param value
+  */
+{template .InstantFiatDepositDialogContent}
+  <div class="row-fluid" data-deposit-status="confirm">
+      <p>{msg desc="Instant deposit fiat description 1"}Limite de crédito instantâneo: {/msg}
+            <span class="bitex-model"
+                    data-model-key-list="{$variables}"
+                    data-model-formula="{$formula} * 3"
+                    data-model-formatter="currency"
+                    data-model-formatter-pattern="{$pattern}"
+                    data-blink-class="balance-info-blink">
+            </span>
+            {msg desc="Instant deposit fiat description 2"}(Até 3x o seu saldo total){/msg}
+      </p>
+      <p>{msg desc="Instant deposit fiat description 3"}Valor a ser creditado para este depósito: {$value}{/msg}</p>
+
+    <div class="well">
+        <p>
+            {msg desc="Instant deposit fiat message"}
+                One credit per deposit request You won't be able to withdrawal funds 
+                while your DEPOSIT IS NOT CONFIRMED.. In case of a fake deposit receipt 
+                or any attempt of fraud, an administrative fee of 1 BTC will applied and 
+                your account will be TERMINATED.
+            {/msg}
+        </p>
+    </div>
+    <br/>
+    <br/>
+  </div>
+{/template}
 
 /**
   * @param show_title
@@ -404,40 +438,6 @@
 </form>
 {/template}
 
-
-/**
-  * @param reason_id
-  * @param custom_reason_id
-  */
-{template .CancelWithdrawDialogContent}
-<p>{msg desc="Cancel withdraw dialog message"}Enter a reason for cancelling the user withdraw{/msg}</p>
-<form class="form-horizontal">
-  <fieldset>
-    <div class="control-group">
-      <label class="control-label" for="{$reason_id}" >{msg desc="Cancel withdraw reason label"}Reason:{/msg}</label>
-      <div class="controls">
-        <select id="{$reason_id}">
-          <option value="0">{msg desc="reason for cancelling withdraw"}Other{/msg}</option>
-          <option value="-1" selected>{msg desc="reason for cancelling withdraw"}Insufficient funds{/msg}</option>
-          <option value="-2">{msg desc="reason for cancelling withdraw"}Account not verified{/msg}</option>
-          <option value="-3">{msg desc="reason for cancelling withdraw"}Suspicion of fraud{/msg}</option>
-          <option value="-4">{msg desc="reason for cancelling withdraw"}Withdrawing to a different account than yours{/msg}</option>
-          <option value="-5">{msg desc="reason for cancelling withdraw"}Invalid wallet{/msg}</option>
-          <option value="-6">{msg desc="reason for cancelling withdraw"}Invalid bank account{/msg}</option>
-          <option value="-7">{msg desc="reason for cancelling withdraw"}Amount exceeded your daily withdraw limit{/msg}</option>
-          <option value="-8">{msg desc="reason for cancelling withdraw"}User has deposits that are not yet confirmed{/msg}</option>
-        </select>
-      </div>
-    </div>
-    <div class="control-group">
-      <div class="controls">
-        <textarea id="{$custom_reason_id}" rows="2" style="display:none;"></textarea>
-      </div>
-    </div>
-  </fieldset>
-</form>
-
-{/template}
 
 /**
   */
@@ -915,8 +915,8 @@
           </li>
         </ul>
       {else}
-        {foreach $method in $methods }
-          <input  id="{$methodID}" type="hidden" name="Method"  value="{$method['method']}"
+        {foreach $method in $methods}
+          <input id="{$methodID}" type="hidden" name="Method"  value="{$method['method']}"
                 data-net-value="{$method['method']}_{$netValueID}"
                 data-percent-fee="{$method['method']}_{$percentFeeID}"
                 data-fixed-fee="{$method['method']}_{$fixedFeeID}">

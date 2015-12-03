@@ -650,9 +650,10 @@ bitex.util.PriceAmountCalculatorVerb = {
  * @param {.Array<.Array<Object>>} order_depth
  * @param {string} username
  * @param {number} fee
+ * @param {number} side
  * @return {Array.<number>=}
  */
-bitex.util.calculatePriceAmountAndFee = function(user_input, verb, order_depth, username, fee) {
+bitex.util.calculatePriceAmountAndFee = function(user_input, verb, order_depth, username, fee, side) {
   var amount = 0;
   var price = 0;
   var vwap = 0;
@@ -670,8 +671,7 @@ bitex.util.calculatePriceAmountAndFee = function(user_input, verb, order_depth, 
   };
 
   var total = user_input;
-  fee =  total * fee / 10000;
-  var work_total = total - fee;
+  var work_total = total;
 
   for ( var order_idx in order_depth) {
     order = order_depth[order_idx];
@@ -686,7 +686,7 @@ bitex.util.calculatePriceAmountAndFee = function(user_input, verb, order_depth, 
         amount += (work_total / order[OrderDepthIndex.PRICE] ) * 1e8;
         price = order[OrderDepthIndex.PRICE];
         work_total = 0;
-        vwap =  (total - fee) / amount;
+        vwap =  total / amount;
         break;
       } else if (order_volume < work_total) {
         amount += order[OrderDepthIndex.SIZE];
@@ -696,8 +696,8 @@ bitex.util.calculatePriceAmountAndFee = function(user_input, verb, order_depth, 
       if (order[OrderDepthIndex.SIZE] >= work_total) {
         price = order[OrderDepthIndex.PRICE];
         total_volume += (order[OrderDepthIndex.PRICE] * work_total /1e8 );
-        vwap = total_volume / (total - fee);
-        amount = vwap * (total - fee);
+        vwap = total_volume / total;
+        amount = vwap * total;
         work_total = 0;
         break;
       } else if (order[OrderDepthIndex.SIZE] < work_total) {
@@ -707,8 +707,22 @@ bitex.util.calculatePriceAmountAndFee = function(user_input, verb, order_depth, 
     }
   }
 
+  if(side == 1) {
+    if (verb == bitex.util.PriceAmountCalculatorVerb.SPEND) {
+      fee = amount * fee / 10000;
+    } else {
+      fee = total  * fee / 10000;
+    }
+  } else {
+    if (verb == bitex.util.PriceAmountCalculatorVerb.SPEND) {
+      fee = (amount * vwap) * fee / 10000;
+    } else {
+      fee = (((total/1e8) * vwap) * fee / 10000) * 1e8;
+    }
+  }
+
   if (work_total === 0 && amount > 0) {
-    return [ price, parseInt(amount,10),  parseInt(fee, 10),  vwap  ];
+    return [ price, parseInt(amount,10),  parseInt(fee, 10),  vwap ];
   }
   return undefined;
 };

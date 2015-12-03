@@ -8,20 +8,27 @@
 {template .APIKeyDataEntry}
   <form  id="{$id}_form" class="api-key-data-entry-form">
     <fieldset>
-      <h2>{msg desc="API Key Data Entry form legend"}Create API Key{/msg}</h2>
+      <div class="ls-box">
+        <header class='ls-info-header'>
+          <h2 class='ls-title-3'>{msg desc="API Key Data Entry form legend"}Create API Key{/msg}</h2>
+        </header>
 
-      <div class="api-key-data-entry-form-block control-group">
-        <label>API Key Label
-          <input id="{$id}_label" type="text" class="input-block-level">
-        </label>
+        <div>
+          <div class="ls-prefix-group">
+            <span class='ls-label-text-prefix'>API Key Label </span>
+            <input id="{$id}_label" type="text" class="input-block-level">
+          </div>
+        </div>
       </div>
 
-      <div class="api-key-data-entry-form-block control-group">
+      <div class="ls-box">
         <div class="pull-right"><label class="no-selection">{msg desc="Permissions clear all button on the API Key Data Entry form"}Clear all{/msg}</label></div>
         <div class="pull-right api-key-data-entry-form-pipe">|</div>
         <div class="pull-right"><label class="no-selection">{msg desc="Permissions select all button on the API Key Data Entry form"}Select all{/msg}</label></div>
 
-        <h3>{msg desc="Permissions title on the API Key Data Entry form"}Permissions{/msg}</h3>
+        <header class='ls-info-header'>
+            <h2 class='ls-title-3'>{msg desc="Permissions title on the API Key Data Entry form"}Permissions{/msg}</h2>
+        </header>
 
         <table id="{$id}_permissions_table" class="api-key-data-entry-form-permissions-table">
           <tbody>
@@ -142,26 +149,40 @@
                 </td>
               </tr>
             {/foreach}
+              <tr>
+                <td colspan="2" class="no-selection">
+                  <label class="checkbox">
+                    <input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="U24">{msg desc="Confirm Withdraw on the API Key Data Entry form permissions section"}Confirm Withdrawal{/msg}</input>
+                  </label>
+                </td>
+              </tr>
 
           </tbody>
         </table>
       </div>
 
-      <div class="api-key-data-entry-form-block control-group">
-        <h3>{msg desc="IP Whitelist title on the API Key Data Entry form"}IP Whitelist{/msg}</h3>
+      <div class="ls-box">
+          <header class='ls-info-header'>
+              <h2 class='ls-title-3'>{msg desc="IP Whitelist title on the API Key Data Entry form"}IP Whitelist{/msg}</h2>
+          </header>
 
-        <label>{msg desc="IP Addresses on the API Key Data Entry form IP Whitelist section"}IP Addresses{/msg}
-          <input id="{$id}_ip_whitelist" type="text" class="input-block-level"><span class="helpblock">
-          {msg desc="IP Whitelist help on the API Key Data Entry form"}
-          Enter a list of IP Address separated by comma (ie. 55.55.55.55,44.44.44.44) that you want to white list. Not specifying an IP Address means that you are allowing this API Key to be used from any IP
-          {/msg}
+          <div class="ls-prefix-group">
+            <span class="ls-label-text-prefix">{msg desc="IP Addresses on the API Key Data Entry form IP Whitelist section"}IP Addresses{/msg}</span>
+            <input id="{$id}_ip_whitelist" type="text" class="input-block-level">
+          </div>
+          <span class="helpblock">
+              <hr>
+              <small>
+                  {msg desc="IP Whitelist help on the API Key Data Entry form"}
+                  Enter a list of IP Address separated by comma (ie. 55.55.55.55,44.44.44.44) that you want to white list. Not specifying an IP Address means that you are allowing this API Key to be used from any IP
+                  {/msg}
+              </small>
           </span>
-        </label>
       </div>
 
-      <div class="text-center">
-        <button id="{$id}_cancel_btn" class="btn">Cancel</button>
-        <button id="{$id}_create_btn" type="submit" class="btn btn-primary">Create</button>
+      <div class="row-fluid">
+        <button id="{$id}_cancel_btn" class="ls-btn">Cancel</button>
+        <button id="{$id}_create_btn" type="submit" class="ls-btn">Create</button>
       </div>
 
     </fieldset>

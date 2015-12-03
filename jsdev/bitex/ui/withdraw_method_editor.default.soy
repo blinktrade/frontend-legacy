@@ -35,8 +35,17 @@
             <option value="validatePhrase" {if $data['validator'] == 'validatePhrase'}selected{/if} >Phrase</option>
             <option value="validatePhoneNumber" {if $data['validator'] == 'validatePhoneNumber'}selected{/if} >Phone Number</option>
             <option value="validateAddress" {if $data['validator'] == 'validateAddress'}selected{/if}  >BTC Address</option>
+            <option value="validateCPFCNPJ" {if $data['validator'] == 'validateCPFCNPJ'}selected{/if} >CPF/CNPJ</option>
         </select>
     </td>
+
+    <td>
+        <select id="{$id}_field_required_{$idx}" class="withdraw-method-editor-field-required">
+            <option value="text" {if $data['required'] == 'Yes'}selected{/if}>{msg desc="Yes option on required select"}Yes{/msg}</option>
+            <option value="text" {if $data['required'] == 'No'}selected{/if}>{msg desc="No option on required select"}No{/msg}</option>
+        </select>
+    </td>
+
 
     <td><input id="{$id}_field_value_{$idx}" type="text" class="input-block-level withdraw-method-editor-field-value" placeholder="" value="{$data['value']}"></td>
     <td><button id="{$id}_field_delete_{$idx}" data-index="{$idx}" class="btn btn-mini btn-danger withdraw-method-editor-field-action-delete withdraw-method-editor-field-action">{msg desc="Field delete action"}delete{/msg}</button></td>
@@ -161,6 +170,7 @@
                       <th> {msg desc="Method field header"}Placeholder{/msg} </th>
                       <th> {msg desc="Method field header"}Type{/msg} </th>
                       <th> {msg desc="Method field header"}Validator{/msg} </th>
+                      <th> {msg desc="Method field header"}Required{/msg} </th>
                       <th> {msg desc="Method field header"}Value{/msg} </th>
                       <th> {msg desc="Method field header"}Actions{/msg} </th>
                   </tr>

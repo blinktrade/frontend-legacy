@@ -234,7 +234,9 @@ bitex.view.ProfileView.prototype.onModelSetTwoFactorSecret_ = function(e) {
 
   var divEl = goog.dom.getElement('id_enable_two_factor_div');
   var enabled = this.getApplication().getModel().get('TwoFactorEnabled');
-  goog.style.showElement( divEl , has_secret && !enabled);
+
+  goog.style.showElement(divEl, has_secret && !enabled);
+  goog.dom.getElement('id_second_step_verification').focus();
 };
 
 /**
