@@ -1369,7 +1369,24 @@ bitex.api.BitEx.prototype.processDeposit = function(opt_requestId, action, opt_s
   return requestId;
 };
 
+/**
+ * @param {number=} deposit_id
+ * @param {number=} opt_requestId. Defaults to random generated number
+ */
+bitex.api.BitEx.prototype.processInstantDepositFiat = function(deposit_id, opt_requestId){
+    var requestId = opt_requestId || parseInt(1e7 * Math.random(), 10);
 
+    var msg = {
+        'MsgType': 'U18',
+        'DepositReqID': requestId,
+        'DepositID': deposit_id,
+        'Action': 'CREDIT'
+    };
+
+    console.log('Sending');
+    this.sendMessage(msg);
+    return requestId;
+};
 
 
 /**
@@ -2107,6 +2124,7 @@ goog.exportProperty(BitEx.prototype, 'requestLedgerList', bitex.api.BitEx.protot
 
 goog.exportProperty(BitEx.prototype, 'requestDeposit', bitex.api.BitEx.prototype.requestDeposit);
 goog.exportProperty(BitEx.prototype, 'processDeposit', bitex.api.BitEx.prototype.processDeposit);
+goog.exportProperty(BitEx.prototype, 'processInstantDepositFiat', bitex.api.BitEx.prototype.processInstantDepositFiat);
 goog.exportProperty(BitEx.prototype, 'requestDepositList', bitex.api.BitEx.prototype.requestDepositList);
 
 

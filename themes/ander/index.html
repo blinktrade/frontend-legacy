@@ -20,22 +20,8 @@ load_application:       True
 
         <!-- .home__title -->
         <h1 class="home__title">
-          {% case site.exchange %}
-            {% when 'chilebit' %}
-              {% t exchanges.chilebit.lead  %}
-            {% when 'surbitcoin' %}
-              {% t exchanges.surbitcoin.lead  %}
-            {% when 'urdubit' %}
-              {% t exchanges.urdubit.lead  %}
-            {% when 'foxbit' %}
-              {% t exchanges.foxbit.lead  %}
-            {% when 'romaniabex' %}
-              {% t exchanges.romaniabex.lead  %}
-            {% when 'bitcoinvietnam' %}
-              {% t exchanges.bitcoinvietnam.lead  %}
-            {% else %}
-              {% t exchanges.demo.lead  %}
-          {% endcase %}
+          {% assign lead = "exchanges." | append: site.exchange | append: ".lead" %}
+          {% t lead %}
         </h1>
         <!-- /.home__title -->
 
@@ -52,7 +38,7 @@ load_application:       True
               <!-- .layout__item -->
               <div class="layout__item one-whole desk--six-tenths">
                 <label for="id_landing_username" class="home-form__label">{% t views.start.username %}</label>
-                <input class="home-form__input input input--large input--full" id="id_landing_username" type="text" size="30">
+                <input class="home-form__input input input--large input--full" id="id_landing_username" type="text" size="30" autofocus>
               </div>
               <!-- /.layout__item -->
 
@@ -140,8 +126,34 @@ load_application:       True
   <!-- /#market -->
 
   <!-- /#themes -->
-  <div id="themes" class="bitex-view">
-  
+  <div id="themes" class="bitex-view container page bitex-view" style="display: none">
+    <div class="page__head">
+        <h1 class="page__title beta bitex-view-title">Themes</h1>
+        <p>Choose a Theme</p>
+    </div>
+    <hr>
+    <div class="bitex-view-content">
+        <div class="layout row" style="text-align:center;margin:auto">
+            <div class="layout__item" style="width: 380px">
+                <a href="{{ site.url}}{{ site.baseurl}}/themes/default/">
+                    <img src="{{ site.url}}{{ site.baseurl }}/assets/exchange_logos/thumb-themes/default-theme.jpg" alt="Default Theme">
+                    <h3>Default Theme</h3>
+                </a>
+            </div>
+            <div class="layout__item" style="width: 380px">
+                <a href="{{ site.url}}{{ site.baseurl}}/themes/ander/">
+                    <img src="{{ site.url}}{{ site.baseurl }}/assets/exchange_logos/thumb-themes/ander-theme.jpg" alt="Ander Theme">
+                    <h3>Ander</h3>
+                </a>
+            </div>
+            <div class="layout__item" style="width: 380px">
+                <a href="{{ site.url}}{{ site.baseurl}}/themes/whitedev/">
+                    <img src="{{ site.url}}{{ site.baseurl }}/assets/exchange_logos/thumb-themes/whitedev-theme.jpg" alt="Whitedev Theme">
+                    <h3>Whitedev</h3>
+                </a>
+            </div>
+        </div>
+    </div>
   </div>
   <!-- #themes -->
 

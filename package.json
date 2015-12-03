@@ -1,0 +1,32 @@
+{
+  "name": "blinktrade-frontend",
+  "version": "1.0.0",
+  "description": "Blinktrade Frontend exchange",
+  "main": "gulpfile.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/blinktrade/frontend"
+  },
+  "keywords": [
+    "Blinktrade",
+    "frontend",
+    "bitcoin",
+    "exchange"
+  ],
+  "author": "Rodrigo Souza, Cesar Augusto",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/blinktrade/frontend/issues"
+  },
+  "homepage": "https://github.com/blinktrade/frontend",
+  "devDependencies": {
+    "git-rev-sync": "^1.4.0",
+    "gulp": "^3.9.0",
+    "gulp-exec": "^2.1.2",
+    "gulp-gh-pages": "^0.5.4",
+    "gulp-prompt": "^0.1.2",
+    "gulp-replace-task": "^0.11.0",
+    "js-yaml": "^3.4.5",
+    "run-sequence": "^1.1.5"
+  }
+}

@@ -12,22 +12,8 @@ load_application:       True
                     <br>
                     <img src="{{ site.baseurl }}/assets/exchange_logos/{{ site.exchange_logo }}_landing_page_logo.png" style="max-width:60%;">
                     <h1 class="ls-title-intro">
-                        {% case site.exchange %}
-                        {% when 'chilebit' %}
-                            {% t exchanges.chilebit.lead  %}
-                        {% when 'surbitcoin' %}
-                            {% t exchanges.surbitcoin.lead  %}
-                        {% when 'urdubit' %}
-                            {% t exchanges.urdubit.lead  %}
-                        {% when 'foxbit' %}
-                            {% t exchanges.foxbit.lead  %}
-                        {% when 'romaniabex' %}
-                            {% t exchanges.romaniabex.lead  %}
-                        {% when 'bitcoinvietnam' %}
-                            {% t exchanges.bitcoinvietnam.lead  %}
-                        {% else %}
-                            {% t exchanges.demo.lead  %}
-                        {% endcase %}
+                        {% assign lead = "exchanges." | append: site.exchange | append: ".lead" %}
+                        {% t lead %}
                     </h1>
                 <form action="" class="form-inline">
                     <div class="row">
@@ -40,7 +26,7 @@ load_application:       True
                         <div class="col-md-3"></div>
                         <div class="col-md-6">
                             <div class="col-md-12 login-input">
-                                    <input class="focus" id="id_landing_username" placeholder="{% t views.start.username %}" size="30" type="text">
+                                    <input class="focus" id="id_landing_username" placeholder="{% t views.start.username %}" size="30" type="text" autofocus>
                                     <input id="id_landing_password" placeholder="{% t views.start.password %}" size="30"  type="password">
                             </div>
                         </div>
@@ -469,8 +455,9 @@ load_application:       True
           <h3 class="ls-title-intro ls-ico-list">{% t views.api.title %}</h3>
         </div>
         <div class="content bitex-view-content">
-          <div id="id_api_button_group"></div>
-          <div id="id_api_list"></div>
+          <div id="id_api_button_group" class="row-fluid text-right" style="margin-bottom:20px">
+            <a id="id_btn_new_api_key" class="ls-btn ls-btn-primary"><i class="icon-plus "> {% t views.api.new_api_key %}</i></a>
+          </div>
         </div>
       </div>
 

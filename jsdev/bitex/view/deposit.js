@@ -310,6 +310,9 @@ bitex.view.DepositView.prototype.onDepositListTableClick_ = function(e) {
       case 'COMPLETE':
         this.dispatchEvent(bitex.view.View.EventType.PROCESS_DEPOSIT);
         break;
+      case 'INSTANTANEOUS':
+        this.dispatchEvent(bitex.view.View.EventType.INSTANTANEOUS_DEPOSIT);
+        break;
     }
   }
 };

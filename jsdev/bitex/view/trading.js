@@ -170,7 +170,7 @@ bitex.view.TradingView.prototype.recreateComponents_ = function( selected_symbol
 
   this.bid_order_entry_ = new bitex.ui.SimpleOrderEntry();
   this.bid_order_entry_.setModel( {
-    username: model.get('Username'),
+    username: model.get('UserID'),
     symbol: selected_symbol.symbol,
     crypto_currency_symbol: this.getApplication().getCurrencySign( selected_symbol.symbol.substr(0,3) ) ,
     crypto_currency_description: this.getApplication().getCurrencyDescription(selected_symbol.symbol.substr(0,3)),
@@ -192,7 +192,7 @@ bitex.view.TradingView.prototype.recreateComponents_ = function( selected_symbol
 
   this.ask_order_entry_ = new bitex.ui.SimpleOrderEntry();
   this.ask_order_entry_.setModel({
-    username: model.get('Username'),
+    username: model.get('UserID'),
     symbol: selected_symbol.symbol,
     crypto_currency_symbol: this.getApplication().getCurrencySign( selected_symbol.symbol.substr(0,3) ) ,
     crypto_currency_description: this.getApplication().getCurrencyDescription(selected_symbol.symbol.substr(0,3)),
@@ -202,10 +202,10 @@ bitex.view.TradingView.prototype.recreateComponents_ = function( selected_symbol
     type:'2',
     client_id: model.get('UserID'),
     broker_id: model.get('BrokerID'),
-    currency_code: selected_symbol.symbol.substr(3),
+    currency_code: selected_symbol.symbol.substr(3,3),
     currency_format:this.getApplication().getCurrencyHumanFormat(selected_symbol.symbol.substr(3)),
-    crypto_currency_code: selected_symbol.symbol.substr(0,3),
-    crypto_currency_format:this.getApplication().getCurrencyHumanFormat(selected_symbol.symbol.substr(0,3)),
+    crypto_currency_code: selected_symbol.symbol.substr(3,3),
+    crypto_currency_format:this.getApplication().getCurrencyHumanFormat(selected_symbol.symbol.substr(3,3)),
     fee: model.get('Broker')['TakerTransactionFeeBuy'],
     formatted_fee: model.get('Broker')['FormattedTakerTransactionFeeSell']
   });
@@ -600,7 +600,7 @@ bitex.view.TradingView.prototype.onOBNewOrder_ = function(e){
   var index     = msg['MDEntryPositionNo'] - 1;
   var price     = msg['MDEntryPx'];
   var qty       = msg['MDEntrySize'];
-  var username  = msg['Username'];
+  var username  = msg['UserID'];
   var broker    = msg['Broker'];
   var orderId   = msg['OrderID'];
   var side      = msg['MDEntryType'];

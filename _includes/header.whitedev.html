@@ -2,65 +2,22 @@
 <!DOCTYPE html>
 <html class="ls-theme-orange  ls-pre-panel">
 <head>
-  {% case site.exchange %}
-    {% when 'chilebit' %}
-      <title>{% t exchanges.chilebit.title %}</title>
-    {% when 'surbitcoin' %}
-      <title>{% t exchanges.surbitcoin.title %}</title>
-    {% when 'urdubit' %}
-      <title>{% t exchanges.urdubit.title %}</title>
-    {% when 'foxbit' %}
-      <title>{% t exchanges.foxbit.title %}</title>
-    {% when 'romaniabex' %}
-      <title>{% t exchanges.romaniabex.title %}</title>
-    {% when 'bitcoinvietnam' %}
-      <title>{% t exchanges.bitcoinvietnam.title %}</title>
-    {% else %}
-      <title>{% t exchanges.demo.title %}</title>
-  {% endcase %}
+  {% assign exchange = "exchanges." | append: site.exchange %}
+  {% assign title = exchange | append: ".title" %}
+  <title> {% t title %} </title>
 
   <meta charset="utf-8">
   <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
   <meta name="author" content="{{ site.author }}">
 
-  {% case site.exchange %}
-    {% when 'chilebit' %}
-      <meta name="description" content="{% t exchanges.chilebit.description %}">
-      <meta name="keywords" content="{% t exchanges.chilebit.keywords %}">
-      <meta property="og:title" content="{% t exchanges.chilebit.title %}">
-      <meta property="og:description" content="{% t exchanges.chilebit.description %}">
-    {% when 'surbitcoin' %}
-      <meta name="description" content="{% t exchanges.surbitcoin.description %}">
-      <meta name="keywords" content="{% t exchanges.surbitcoin.keywords %}">
-      <meta property="og:title" content="{% t exchanges.surbitcoin.title %}">
-      <meta property="og:description" content="{% t exchanges.surbitcoin.description %}">
-    {% when 'urdubit' %}
-      <meta name="description" content="{% t exchanges.urdubit.description %}">
-      <meta name="keywords" content="{% t exchanges.urdubit.keywords %}">
-      <meta property="og:title" content="{% t exchanges.urdubit.title %}">
-      <meta property="og:description" content="{% t exchanges.urdubit.description %}">
-    {% when 'foxbit' %}
-      <meta name="description" content="{% t exchanges.foxbit.description %}">
-      <meta name="keywords" content="{% t exchanges.foxbit.keywords %}">
-      <meta property="og:title" content="{% t exchanges.foxbit.title %}">
-      <meta property="og:description" content="{% t exchanges.foxbit.description %}">
-    {% when 'romaniabex' %}
-      <meta name="description" content="{% t exchanges.romaniabex.description %}">
-      <meta name="keywords" content="{% t exchanges.romaniabex.keywords %}">
-      <meta property="og:title" content="{% t exchanges.romaniabex.title %}">
-      <meta property="og:description" content="{% t exchanges.romaniabex.description %}">
-    {% when 'bitcoinvietnam' %}
-      <meta name="description" content="{% t exchanges.bitcoinvietnam.description %}">
-      <meta name="keywords" content="{% t exchanges.bitcoinvietnam.keywords %}">
-      <meta property="og:title" content="{% t exchanges.bitcoinvietnam.title %}">
-      <meta property="og:description" content="{% t exchanges.bitcoinvietnam.description %}">
-    {% else %}
-      <meta name="description" content="{% t exchanges.demo.description %}">
-      <meta name="keywords" content="{% t exchanges.demo.keywords %}">
-      <meta property="og:title" content="{% t exchanges.demo.title %}">
-      <meta property="og:description" content="{% t exchanges.demo.description %}">
-  {% endcase %}
+  {% assign description = exchange | append: ".description" %}
+  {% assign keywords = exchange    | append: ".keywords" %}
+
+  <meta name="description" content="{% t description %}">
+  <meta name="keywords" content="{% t keywords %}">
+  <meta property="og:title" content="{% t title %}">
+  <meta property="og:description" content="{% t description %}">
 
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -85,16 +42,9 @@
   <link href="{{ site.url }}{{ site.baseurl }}/assets/themes/default/css/default.uni-form.css" rel="stylesheet">
   <link href="{{ site.url }}{{ site.baseurl }}/assets/themes/whitedev/css/main.css" rel="stylesheet">
 
-  {% case site.exchange %}
-    {% when 'surbitcoin' %}
-      <link href="{{ site.url }}{{ site.baseurl }}/assets/themes/whitedev/css/main.surbitcoin.css" rel="stylesheet">
-    {% when 'urdubit' %}
-      <link href="{{ site.url }}{{ site.baseurl }}/assets/themes/whitedev/css/main.urdubit.css" rel="stylesheet">
-    {% when 'romaniabex' %}
-      <link href="{{ site.url }}{{ site.baseurl }}/assets/themes/whitedev/css/main.romaniabex.css" rel="stylesheet">
-    {% when 'chilebit' %}
-      <link href="{{ site.url }}{{ site.baseurl }}/assets/themes/whitedev/css/main.chilebit.css" rel="stylesheet">
-  {% endcase %}
+
+  <!--Custom CSS -->
+  <link href="{{ site.url }}{{ site.baseurl }}/assets/themes/whitedev/css/main.{{site.exchange}}.css" rel="stylesheet">
 
   <script data-cfasync="false" src="{{ site.url }}{{ site.baseurl }}/assets/js/bitex_app_blink_trade.compiled.{{site.lang}}.whitedev.js?v={{ site.deploy_version }}" type="text/javascript"></script>
 </head>
@@ -194,6 +144,7 @@
                                             bitex-view-settings
                                             bitex-view-settings
                                             bitex-view-algotrading
+                                            bitex-view-api
                                             bitex-view-my_broker
                                             bitex-view-verification">
 
@@ -210,7 +161,7 @@
                 <li><a href="" data-switch-view="trading" role="option">{% t views.sidebar.trading %}</a></li>
                 <li><a href="" data-switch-view="offerbook" role="option">{% t views.sidebar.offerbook %}</a></li>
             </ul>
-            <a href="javascript:location.reload()" class="ls-btn-logout" role="combobox" aria-expanded="false">Sair</a>
+            <a href="javascript:location.reload()" class="ls-btn-logout" role="combobox" aria-expanded="false">{% t views.sidebar.logout %}</a>
         </nav>
 
     </div>
@@ -219,18 +170,10 @@
     <div class="bitex-display-if-non-broker">
         <h1 data-switch-view="offerbook" class="ls-brand-name">
             <a href="#" data-switch-view="offerbook">
-                {% case site.exchange %}
-                    {% when 'foxbit' %}
-                        <img data-switch-view="offerbook" src="{{ site.url }}{{ site.baseurl }}/assets/themes/whitedev/images/logo-1.svg">
-                    {% when 'surbitcoin' %}
-                        <img data-switch-view="offerbook" src="{{ site.url }}{{ site.baseurl }}/assets/themes/whitedev/images/brand-surbitcoin.svg">
-                    {% when 'urdubit' %}
-                        <img data-switch-view="offerbook" src="{{ site.url }}{{ site.baseurl }}/assets/themes/whitedev/images/brand-urdubit.svg">
-                    {% when 'romaniabex' %}
-                        <img data-switch-view="offerbook" src="{{ site.url }}{{ site.baseurl }}/assets/themes/whitedev/images/brand-romaniabex.svg">
-                    {% when 'chilebit' %}
-                        <img data-switch-view="offerbook" src="{{ site.url }}{{ site.baseurl }}/assets/themes/whitedev/images/brand-chilebit.png">
-                {% endcase %}
+
+                {% if site.exchange != "demo" %}
+                    <img data-switch-view="offerbook" src="{{ site.url }}{{ site.baseurl }}/assets/themes/whitedev/images/brand-{{ site.exchange }}.png" class="brand-menu">
+                {% endif %}
             </a>
         </h1>
     </div>
@@ -247,12 +190,10 @@
             </select>
         </div>
     </form>
-    <hr>
-
     <div id="id_account_summary_content" ></div>
     </div>
 
-    <div id="id_remittance_box" style="margin-top:-35px;border-right:1px solid #eee" class="youraccount"></div>
+    <div id="id_remittance_box" style="border-right:1px solid #eee" class="youraccount"></div>
 
     <nav class="ls-menu" role="navigation">
         <ul role="menu">

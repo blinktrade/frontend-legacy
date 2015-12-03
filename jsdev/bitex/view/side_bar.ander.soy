@@ -1,8 +1,8 @@
 {namespace bitex.view.SideBarView.templates}
 
 /**
-  * @param currencyPattern
-  * @param currencyDescription
+  * @param pattern
+  * @param desc
   * @param variables
   * @param formula
   */
@@ -11,7 +11,7 @@
     <span>
       <i>
         <abbr title="{msg desc="Approx. balance help message in the Your Balance widget in the Sidebar"}
-            Your total balance in {$currencyDescription} according to the most recent trade.
+            Your total balance in {$desc} according to the most recent trade.
             This value varies according to the market. Be advised that this value doesn't represent
             your total balance or any commitment to the exchange rate.
           {/msg}">
@@ -26,7 +26,7 @@
             data-model-key-list="{$variables}"
             data-model-formula="{$formula}"
             data-model-formatter="currency"
-            data-model-formatter-pattern="{$currencyPattern}"
+            data-model-formatter-pattern="{$pattern}"
             data-blink-class="balance-info-blink">
       </span>
     </i>

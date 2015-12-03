@@ -39,22 +39,8 @@ load_application:       True
 
         <!-- .home__title -->
         <h1 class="home__title">
-          {% case site.exchange %}
-            {% when 'chilebit' %}
-              {% t exchanges.chilebit.lead  %}
-            {% when 'surbitcoin' %}
-              {% t exchanges.surbitcoin.lead  %}
-            {% when 'urdubit' %}
-              {% t exchanges.urdubit.lead  %}
-            {% when 'foxbit' %}
-              {% t exchanges.foxbit.lead  %}
-            {% when 'romaniabex' %}
-              {% t exchanges.romaniabex.lead  %}
-            {% when 'bitcoinvietnam' %}
-              {% t exchanges.bitcoinvietnam.lead  %}
-            {% else %}
-              {% t exchanges.demo.lead  %}
-          {% endcase %}
+          {% assign lead = "exchanges." | append: site.exchange | append: ".lead" %}
+          {% t lead %}
         </h1>
         <!-- /.home__title -->
 
@@ -71,7 +57,7 @@ load_application:       True
               <!-- .layout__item -->
               <div class="layout__item one-whole desk--six-tenths">
                 <label for="id_landing_username" class="home-form__label">{% t views.start.username %}</label>
-                <input class="home-form__input input input--large input--full" id="id_landing_username" type="text" size="30">
+                <input class="home-form__input input input--large input--full" id="id_landing_username" type="text" size="30" autofocus>
               </div>
               <!-- /.layout__item -->
 
