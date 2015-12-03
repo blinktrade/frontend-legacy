@@ -28,6 +28,7 @@ bitex.ui.SimpleOrderEntry = function(opt_blinkDelay, opt_domHelper) {
 
   this.order_depth_ = [];
   this.uniform_ = new uniform.Uniform( { 'control_holder_class' : 'uniform-control-holder' } );
+  this.uniformAdvanced_ = new uniform.Uniform({ 'control_holder_class': 'uniform-control-holder' });
 
   this.factor_amount_ = 1e8;
   this.factor_price_ = 1e8;
@@ -39,6 +40,12 @@ goog.inherits(bitex.ui.SimpleOrderEntry, goog.ui.Component);
  * @private
  */
 bitex.ui.SimpleOrderEntry.prototype.uniform_;
+
+/**
+ * @type {uniform.Uniform}
+ * @private
+ */
+bitex.ui.SimpleOrderEntry.prototype.uniformAdvanced_;
 
 
 /**
@@ -153,6 +160,7 @@ bitex.ui.SimpleOrderEntry.prototype.enterDocument = function() {
   var dom  = this.getDomHelper();
 
   this.uniform_.decorate( goog.dom.getElement( this.makeId('order_entry') ) );
+  this.uniformAdvanced_.decorate(goog.dom.getElement(this.makeId('order_entry_advanced')));
 
   this.qty_element_ = goog.dom.getElement( this.makeId('order_entry_qty') );
   this.total_element_ = goog.dom.getElement( this.makeId('order_entry_total') );
@@ -215,7 +223,13 @@ bitex.ui.SimpleOrderEntry.prototype.onActionSimple_ = function(e) {
 
 bitex.ui.SimpleOrderEntry.prototype.onActionAdvanced_ = function(e) {
   e.preventDefault();
-  this.dispatchEvent(bitex.ui.SimpleOrderEntry.EventType.SUBMIT);
+
+  var error_list = this.uniformAdvanced_.validate();
+  if(error_list.length > 0){
+    e.stopPropagation();
+  } else {
+    this.dispatchEvent(bitex.ui.SimpleOrderEntry.EventType.SUBMIT);
+  }
 };
 
 bitex.ui.SimpleOrderEntry.prototype.disableActions_ = function(enabled) {
