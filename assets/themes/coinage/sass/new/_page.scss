@@ -1,11 +1,30 @@
 .page {
     padding-bottom: 25px;
+    padding-top: 75px;
+
+    @media (min-width: $screen-tablet) {
+        padding-top: 120px;
+    }
 }
 
 .page__head {
     margin-bottom: 20px;
+    position: relative;
 }
 
 .page__title {
     margin: 0;
+}
+
+.page__nav {
+    list-style: none;
+    margin: 15px 0 0;
+    padding: 0;
+
+    @media (min-width: $screen-phone) {
+        margin: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
 }

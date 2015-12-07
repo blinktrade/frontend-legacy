@@ -1,26 +1,29 @@
 .order {
+    background: #fff;
     border-radius: 4px;
     border: 1px solid #eee;
-    margin-bottom: 20px;
-
-    &:last-child {
-        margin-bottom: 0;
-    }
+    margin-bottom: 30px;
 
     @media (min-width: $screen-phone) {
         display: table;
         width: 100%;
     }
+
+    @media (min-width: $screen-desktop) {
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
 }
 
 .order__cell {
-    @media (max-width: $screen-phone) {
+    @media (max-width: $screen-tablet) {
         &:first-child {
             border-bottom: 1px solid #eee;
         }
     }
 
-    @media (min-width: $screen-phone) {
+    @media (min-width: $screen-tablet) {
         display: table-cell;
         width: 50%;
 
@@ -46,6 +49,7 @@
 }
 
 .order-form__balance {
+    cursor: pointer;
     display: table-cell;
     text-align: right;
     vertical-align: baseline;
@@ -94,15 +98,23 @@
 }
 
 .order-form__total {
-    display: table-cell;
-    position: relative;
-    vertical-align: top;
+    @media (min-width: $screen-desktop) {
+        display: table-cell;
+        position: relative;
+        padding-right: 7px;
+        vertical-align: top;
+    }
 }
 
 .order-form__action {
-    display: table-cell;
-    text-align: right;
-    vertical-align: bottom;
+    margin-top: 15px;
+
+    @media (min-width: $screen-desktop) {
+        display: table-cell;
+        margin-top: 0;
+        padding-left: 8px;
+        vertical-align: bottom;
+    }
 }
 
 .orders__head {
@@ -115,13 +127,13 @@
 
 .orders__title {
     display: table-cell;
-    vertical-align: baseline;
+    vertical-align: middle;
 }
 
 .orders__status {
     display: table-cell;
     font-size: 13px;
-    vertical-align: baseline;
+    vertical-align: middle;
     text-align: right;
 }
 
@@ -139,7 +151,7 @@
 
     th,
     td {
-        border-bottom-color: #eee !important;
+        border-top-color: #eee !important;
         width: 33.333%;
     }
 }

@@ -27,15 +27,16 @@
         <div class="order-form__mid">
             <!-- .form-group -->
             <div class="form-group uniform-control-holder">
+                <label for="{$id}_qty" class="order-form__label">
+                    {if $side == 1}
+                      {msg desc="I want to buy"}I want to buy:{/msg}
+                    {else}
+                      {msg desc="I want to sell"}I want to sell:{/msg}
+                    {/if}
+                    <span class="add-on"></span>
+                </label>
+
                 <div class="input-group">
-                    <label for="{$id}_qty" class="order-form__label">
-                        {if $side == 1}
-                          {msg desc="I want to buy"}I want to buy:{/msg}
-                        {else}
-                          {msg desc="I want to sell"}I want to sell:{/msg}
-                        {/if}
-                        <span class="add-on"></span>
-                    </label>
                     <input id="{$id}_qty"
                            name="qty"
                            data-uniform-label="{msg desc="I want to sell"}Quantity{/msg}"
@@ -52,11 +53,11 @@
 
             <!-- .form-group -->
             <div class="form-group uniform-control-holder">
-                <div class="input-group">
-                    <label for="{$id}_total" class="order-form__label">
-                        {msg desc="for a total of"} for a total of:{/msg}
-                    </label>
+                <label for="{$id}_total" class="order-form__label">
+                    {msg desc="for a total of"} for a total of:{/msg}
+                </label>
 
+                <div class="input-group">
                     <input id="{$id}_total"
                            name="total"
                            data-uniform-label="{msg desc="I want to sell"}Total{/msg}"
@@ -74,15 +75,14 @@
 
         <!-- .order-form__bot -->
         <footer class="order-form__bot">
-            <div class="order-form__total uniform-control-holder" style="padding-right: 10px; width: 60%;">
+            <div class="order-form__total uniform-control-holder">
                 {msg desc="Fee label on simple order entry"}Fee{/msg} ( {$formatted_fee} ): <span id="{$id}_fee"></span>
                 <br />
                 {msg desc="Price per crypto currency label on simple order entry"}Price per {$cryptocurrencydescription}:{/msg}
                 <strong><span id="{$id}_avg_price"></span></strong>
-                <a id="{$id}_open_action_advanced" style="cursor:pointer"> {msg desc="Too expensive"}Too expensive{/msg}</a>
             </div>
 
-            <div class="order-form__action" style="padding-left: 10px; width: 40%;">
+            <div class="order-form__action">
                 {if $side == 1}
                   <button id="{$id}_action_simple" class="btn btn-lg btn-success" style="display: block; width: 100%;">{msg desc="Buy button in Order Entry"}BUY{/msg}</button>
                 {else}
@@ -94,7 +94,7 @@
     </div>
     <!-- /.order-form -->
 </form>
-<form id="{$id}_advanced" class="simple-order-entry well" >
+<form id="{$id}_advanced" class="order__cell" >
   <input id="{$id}_type" type="hidden" name="type" value="{$type}">
   <input id="{$id}_broker_id" type="hidden" name="broker_id" value="{$broker_id}">
   <input id="{$id}_is_broker" type="hidden" value="{$is_broker}">

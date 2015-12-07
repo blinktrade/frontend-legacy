@@ -50,6 +50,10 @@
 @import "bootstrap/responsive-utilities";
 
 // Coinage
+@import "new/head";
+@import "new/algo";
+@import "new/main";
+@import "new/home";
 @import "new/page";
 @import "new/order";
 @import "new/balance";
@@ -57,3 +61,9 @@
 @import "new/market";
 @import "new/broker";
 @import "new/sidebar";
+
+// Coinage Themed
+@import "themed/head";
+@import "themed/home";
+@import "themed/balance";
+@import "themed/sidebar";

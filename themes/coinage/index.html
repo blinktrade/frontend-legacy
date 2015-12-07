@@ -6,82 +6,328 @@ load_application:       True
 ---
 
 <!-- .container-fluid -->
-<div class="container-fluid">
-  <!-- .bitex-display-if-logged -->
-  <div class="bitex-display-if-logged">
-      <div class="alert | bitex-model" style="display: none" data-model-key="IsMissingVerification" data-model-action="show_element">
-        <button type="button" class="close pull-right" data-dismiss="alert">&times;</button>
-        <a href="" data-switch-view="verification"> {% t views.alerts.verification %} </a>
-      </div>
-
-      <div class="alert alert-success | bitex-model" style="display: none" data-model-key="TwoFactorEnabled" data-model-action="hide_element">
-        <button type="button" class="close pull-right" data-dismiss="alert">&times;</button>
-        <a href="" data-switch-view="profile"> {% t views.alerts.enable_two_factor %} </a>
-      </div>
-
-      <div class="alert alert-error | bitex-model" style="display: none" data-model-key="IsAccountBlocked" data-model-action="show_element">
-        <button type="button" class="close pull-right" data-dismiss="alert">&times;</button>
-        <a href="" data-switch-view="faq"> {% t views.alerts.frozen_account %} </a>
-      </div>
-  </div>
-  <!-- /.bitex-display-if-logged -->
-
+<div class="container-fluid container-fixed">
   <!-- #start -->
-  <div id="start"  class="bitex-view bitex-view-admin">
-    <!-- .main -->
-    <div class="main bitex-view-content">
+  <div id="start" class="bitex-view bitex-view-admin">
+    <div class="bitex-view-content">
       <!-- .home -->
       <div class="home">
-        <!-- .home__img -->
-        <img class="home__img" src="{{ site.baseurl }}/assets/exchange_logos/{{ site.exchange_logo }}_landing_page_logo.png" alt="" />
+        <!-- .home-banner -->
+        <div class="home-banner">
+            <!-- .home-banner__table -->
+            <div class="home-banner__table">
+                <!-- .home-banner__cell -->
+                <div class="home-banner__cell">
+                    <h1 class="home-banner__title">
+                        BITCOIN EXCHANGE
+                        <br />
+                        FOR THE NEW COIN AGE
+                      <!--
+                        {% case site.exchange %}
+                        {% when 'chilebit' %}
+                          {% t exchanges.chilebit.lead  %}
+                        {% when 'surbitcoin' %}
+                          {% t exchanges.surbitcoin.lead  %}
+                        {% when 'urdubit' %}
+                          {% t exchanges.urdubit.lead  %}
+                        {% when 'foxbit' %}
+                          {% t exchanges.foxbit.lead  %}
+                        {% when 'romaniabex' %}
+                          {% t exchanges.romaniabex.lead  %}
+                        {% else %}
+                          {% t exchanges.demo.lead  %}
+                        {% endcase %}
+                      -->
+                    </h1>
 
-        <!-- /.home__img -->
+                    <!-- .home-form -->
+                    <form class="home-form">
+                        <!-- .home-form__field -->
+                        <div class="home-form__field">
+                            <label for="id_landing_username" class="home-form__label">{% t views.start.username %}</label>
+                            <input class="home-form__input form-control" id="id_landing_username" type="text" size="30" placeholder="{% t views.start.username %}">
+                        </div>
+                        <!-- /.home-form__field -->
 
-        <!-- .home__title -->
-        <h1 class="home__title">
-          {% assign lead = "exchanges." | append: site.exchange | append: ".lead" %}
-          {% t lead %}
-        </h1>
-        <!-- /.home__title -->
+                        <!-- .home-form__field -->
+                        <div class="home-form__field">
+                            <label for="id_landing_password" class="home-form__label">{% t views.start.password %}</label>
+                            <input class="home-form__input form-control" id="id_landing_password" type="password" size="30" placeholder="{% t views.start.password %}">
+                        </div>
+                        <!-- /.home-form__field -->
 
+                        <ul class="home-banner__list">
+                            <li>
+                                <button type="submit" id="id_landing_signin" class="btn btn-lg btn-block btn-success">
+                                    <i class="glyphicon glyphicon-user"></i> {% t views.toolbar.signin %}
+                                </button>
+                            </li>
+                            <li>
+                                <a href="#" data-switch-view="signup" class="btn btn-lg btn-block btn-default">
+                                    <i class="glyphicon glyphicon-log-in"></i> {% t views.toolbar.signup %}
+                                </a>
+                            </li>
+                        </ul>
+                    </form>
+                    <!-- /.home-form -->
+                </div>
+                <!-- /.home-banner__cell -->
+            </div>
+            <!-- /.home-banner__table -->
+        </div>
+        <!-- /.home-banner -->
+
+        <!-- .home-news -->
+        <div class="home-news">
+            <!-- .container -->
+            <div class="container">
+                <!-- .row -->
+                <div class="row">
+                    <!-- .col-md-4 -->
+                    <div class="col-md-4">
+                        <!-- .home-news-item -->
+                        <div class="home-news-item">
+                            <div class="home-news-item__icon">
+                                <img src="{{ site.baseurl }}/assets/themes/coinage/img/ico-tradewithus.png" alt="" />
+                            </div>
+
+                            <h2 class="home-news-item__title h3">Lorem ipsum dolor</h2>
+
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            </p>
+
+                            <div class="home-news-item__btn">
+                                <a href="" class="btn btn-default">Learn More</a>
+                            </div>
+                        </div>
+                        <!-- /.home-news-item -->
+                    </div>
+                    <!-- /.col-md-4 -->
+
+                    <!-- .col-md-4 -->
+                    <div class="col-md-4">
+                        <!-- .home-news-item -->
+                        <div class="home-news-item">
+                            <div class="home-news-item__icon">
+                                <img src="{{ site.baseurl }}/assets/themes/coinage/img/ico-secure.png" alt="" />
+                            </div>
+
+                            <h2 class="home-news-item__title h3">Lorem ipsum dolor</h2>
+
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            </p>
+
+                            <div class="home-news-item__btn">
+                                <a href="" class="btn btn-default">Learn More</a>
+                            </div>
+                        </div>
+                        <!-- /.home-news-item -->
+                    </div>
+                    <!-- /.col-md-4 -->
+
+                    <!-- .col-md-4 -->
+                    <div class="col-md-4">
+                        <!-- .home-news-item -->
+                        <div class="home-news-item">
+                            <div class="home-news-item__icon">
+                                <img src="{{ site.baseurl }}/assets/themes/coinage/img/ico-liquidity.png" alt="" />
+                            </div>
+
+                            <h2 class="home-news-item__title h3">Lorem ipsum dolor</h2>
+
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            </p>
+
+                            <div class="home-news-item__btn">
+                                <a href="" class="btn btn-default">Learn More</a>
+                            </div>
+                        </div>
+                        <!-- /.home-news-item -->
+                    </div>
+                    <!-- /.col-md-4 -->
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container -->
+        </div>
+        <!-- /.home-news -->
+
+        <!-- .home-orders -->
+        <div class="home-orders">
+            <!-- .container -->
+            <div class="container">
+                <!-- .home-orders__head -->
+                <header class="home-orders__head">
+                    <h3 class="home-orders__title">Live Order Book</h3>
+                </header>
+                <!-- /.home-orders__head -->
+
+                <!-- .home-orders__body -->
+                <div class="home-orders__body">
+                    <!-- .order -->
+                    <div class="order">
+                        <!-- .order__cell -->
+                        <div class="order__cell">
+                            <!-- .orders -->
+                            <div class="orders">
+                                <!-- .orders__head -->
+                                <header class="orders__head">
+                                    <h4 class="orders__title">BIDs</h4>
+
+                                    <div class="orders__status">
+                                        <span class="label label-success">
+                                            Top 10
+                                        </span>
+                                    </div>
+                                </header>
+                                <!-- /.orders__head -->
+
+                                <!-- .orders__body -->
+                                <div class="orders__body">
+                                    <!-- .table-responsive -->
+                                    <div class="table-responsive">
+                                        <!-- .orders-table -->
+                                        <table class="orders-table table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Buyer</th>
+                                                    <th>Amount</th>
+                                                    <th>Price</th>
+                                                </tr>
+                                            </thead>
+
+                                            <tbody>
+                                                <tr>
+                                                    <td>Oso_899011</td>
+                                                    <td>10.00000000</td>
+                                                    <td>$ 255.32</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Oso_899011</td>
+                                                    <td>10.00000000</td>
+                                                    <td>$ 255.32</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Oso_899011</td>
+                                                    <td>10.00000000</td>
+                                                    <td>$ 255.32</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <!-- /.orders-table -->
+                                    </div>
+                                    <!-- /.table-responsive -->
+                                </div>
+                                <!-- /.orders__body -->
+                            </div>
+                            <!-- /.orders -->
+                        </div>
+                        <!-- /.order__cell -->
+
+                        <!-- .order__cell -->
+                        <div class="order__cell">
+                            <!-- .orders -->
+                            <div class="orders">
+                                <!-- .orders__head -->
+                                <header class="orders__head">
+                                    <h4 class="orders__title">ASKs</h4>
+
+                                    <div class="orders__status">
+                                        <span class="label label-danger">
+                                            Top 10
+                                        </span>
+                                    </div>
+                                </header>
+                                <!-- /.orders__head -->
+
+                                <!-- .orders__body -->
+                                <div class="orders__body">
+                                    <!-- .table-responsive -->
+                                    <div class="table-responsive">
+                                        <!-- .orders-table -->
+                                        <table class="orders-table table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Price</th>
+                                                    <th>Amount</th>
+                                                    <th>Seller</th>
+                                                </tr>
+                                            </thead>
+
+                                            <tbody>
+                                                <tr>
+                                                    <td>$ 255.32</td>
+                                                    <td>10.00000000</td>
+                                                    <td>Oso_899011</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>$ 255.32</td>
+                                                    <td>10.00000000</td>
+                                                    <td>Oso_899011</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>$ 255.32</td>
+                                                    <td>10.00000000</td>
+                                                    <td>Oso_899011</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>$ 255.32</td>
+                                                    <td>10.00000000</td>
+                                                    <td>Oso_899011</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>$ 255.32</td>
+                                                    <td>10.00000000</td>
+                                                    <td>Oso_899011</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>$ 255.32</td>
+                                                    <td>10.00000000</td>
+                                                    <td>Oso_899011</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <!-- /.orders-table -->
+                                    </div>
+                                    <!-- /.table-responsive -->
+                                </div>
+                                <!-- /.orders__body -->
+                            </div>
+                            <!-- /.orders -->
+                        </div>
+                        <!-- /.order__cell -->
+                    </div>
+                    <!-- /.order -->
+                </div>
+                <!-- /.home-orders__body -->
+            </div>
+            <!-- /.container -->
+        </div>
+        <!-- /.home-orders -->
+
+        <!-- .home-contact -->
+        <div class="home-contact">
+            <div class="home-contact__icon">
+                <img src="{{ site.baseurl }}/assets/themes/coinage/img/ico-requestbeta.png" alt="" />
+            </div>
+
+            <h4 class="home-contact__title h3">CREATE YOUR ACCOUNT NOW.</h4>
+
+            <p>Sign up and discover how easy it is to trade with us.</p>
+
+            <div class="home-contact__btn">
+                <a href="#" data-switch-view="signup" class="btn btn-lg btn-success">
+                    <i class="glyphicon glyphicon-log-in"></i> {% t views.toolbar.signup %}
+                </a>
+            </div>
+        </div>
+        <!-- /.home-contact -->
       </div>
       <!-- /.home -->
-
-      <!-- .home-form -->
-      <form class="home-form" action="">
-        <div class="layout layout--half layout--bottom">
-          <!-- .layout__item -->
-          <div class="layout__item one-whole desk--eight-tenths">
-            <!-- .layout -->
-            <div class="layout layout--quarter">
-              <!-- .layout__item -->
-              <div class="layout__item one-whole desk--six-tenths">
-                <label for="id_landing_username" class="home-form__label">{% t views.start.username %}</label>
-                <input class="home-form__input input input--large input--full" id="id_landing_username" type="text" size="30" autofocus>
-              </div>
-              <!-- /.layout__item -->
-
-              <!-- .layout__item -->
-              <div class="layout__item one-whole desk--four-tenths">
-                <label for="id_landing_password" class="home-form__label">{% t views.start.password %}</label>
-                <input class="home-form__input input input--large input--full" id="id_landing_password" type="password" size="30">
-              </div>
-              <!-- /.layout__item -->
-            </div>
-            <!-- /.layout -->
-          </div>
-          <!-- /.layout__item -->
-
-          <!-- .layout__item -->
-          <div class="layout__item one-whole desk--two-tenths">
-            <button type="submit" id="id_landing_signin" class="btn btn--positive btn--full">{% t views.start.login %}</button>
-          </div>
-          <!-- /.layout__item -->
-        </div>
-      </form>
-      <!-- /.home-form -->
     </div>
-    <!-- /.main -->
   </div>
   <!-- /#start -->
 
@@ -97,26 +343,30 @@ load_application:       True
 
       <!-- .page__body -->
       <div class="page__body bitex-view-content">
-        <div class="accordion">
-          {% for post in site.categories['faq'] reversed %}
-          <div class="accordion-group">
-            <div class="accordion-heading">
-              <a class="accordion-toggle collapsed">
-                {{post.title}}
-              </a>
-            </div>
-            <div class="accordion-body collapse ">
-              <div class="accordion-inner">
-                {{post.content}}
+          <!-- .panel-group -->
+          <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+              {% for post in site.categories['faq'] reversed %}
+              <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingOne">
+                  <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        {{post.title}}
+                    </a>
+                  </h4>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                  <div class="panel-body">
+                       {{post.content}}
+                  </div>
+                </div>
               </div>
-            </div>
+              {% endfor %}
           </div>
-          {% endfor %}
-        </div>
+          <!-- /.panel-group -->
 
-        <a href="" class="bitex-support-link" target="_blank">
-          <i class="icon-envelope"></i> {% t views.faq.get_in_touch %}</a>
-
+          <a href="" class="bitex-support-link" target="_blank">
+              <i class="glyphicon glyphicon-envelope"></i> {% t views.faq.get_in_touch %}.
+          </a>
       </div>
       <!-- /.page__body -->
   </div>
@@ -145,7 +395,6 @@ load_application:       True
 
   <!-- /#themes -->
   <div id="themes" class="bitex-view">
-
   </div>
   <!-- #themes -->
 
@@ -275,7 +524,7 @@ load_application:       True
                 <!-- .page__head -->
                 <header class="page__head">
                     <h1 class="page__title h2 bitex-view-title">
-                        <i class="glyphicon glyphicon-dashboard"></i> {% t views.forgot_password.title %}
+                        <i class="glyphicon glyphicon-envelope"></i> {% t views.forgot_password.title %}
                     </h1>
                 </header>
                 <!-- /.page__head -->
@@ -299,8 +548,23 @@ load_application:       True
   </div>
   <!-- /#forgot_password -->
 
-  <!-- .bitex-display-if-logged -->
-  <div class="bitex-display-if-logged">
+  <!-- .page bitex-display-if-logged -->
+  <div class="page bitex-display-if-logged">
+      <div class="alert | bitex-model" style="display: none" data-model-key="IsMissingVerification" data-model-action="show_element">
+        <button type="button" class="close pull-right" data-dismiss="alert">&times;</button>
+        <a href="" data-switch-view="verification"> {% t views.alerts.verification %} </a>
+      </div>
+
+      <div class="alert alert-success | bitex-model" style="display: none" data-model-key="TwoFactorEnabled" data-model-action="hide_element">
+        <button type="button" class="close pull-right" data-dismiss="alert">&times;</button>
+        <a href="" data-switch-view="profile"> {% t views.alerts.enable_two_factor %} </a>
+      </div>
+
+      <div class="alert alert-danger | bitex-model" style="display: none" data-model-key="IsAccountBlocked" data-model-action="show_element">
+        <button type="button" class="close pull-right" data-dismiss="alert">&times;</button>
+        <a href="" data-switch-view="faq"> {% t views.alerts.frozen_account %} </a>
+      </div>
+
     <!-- .row -->
     <div class="row">
         <!-- .col-md-2 -->
@@ -319,6 +583,7 @@ load_application:       True
                                       bitex-view-ledger
                                       bitex-view-settings
                                       bitex-view-algotrading
+                                      bitex-view-api
                                       bitex-view-my_broker
                                       bitex-view-verification">
 
@@ -337,7 +602,7 @@ load_application:       True
                 <h5 class="sidebar-box__title">NAVEGATION</h5>
 
                 <div class="sidebar-box__body">
-                    <ul class="nav nav-pills nav-stacked">
+                    <ul class="sidebar-box-nav nav nav-pills nav-stacked">
                         <li role="presentation">
                             <a href="#" data-switch-view="offerbook">
                                 <i class="glyphicon glyphicon-book"></i> {% t views.sidebar.offerbook %}
@@ -356,6 +621,11 @@ load_application:       True
                         <li role="presentation">
                             <a href="#" data-switch-view="ledger">
                                 <i class="glyphicon glyphicon-th-list"></i> {% t views.sidebar.ledger %}
+                            </a>
+                        </li>
+                        <li style="">
+                            <a href="#" data-switch-view="api">
+                                <i class="glyphicon glyphicon-dashboard"></i> {% t views.sidebar.api %}
                             </a>
                         </li>
                         <li role="presentation">
@@ -384,8 +654,8 @@ load_application:       True
 
         <!-- .col-md-8 -->
         <div class="col-md-8">
-            <!-- .page -->
-            <div class="page">
+            <!-- .page-dashboard -->
+            <div class="page-dashboard">
               <!-- #offerbook -->
               <div id="offerbook" class="bitex-view">
                 <!-- .page__head -->
@@ -475,6 +745,31 @@ load_application:       True
                 <!-- /.page__body -->
               </div>
               <!-- /#profile -->
+
+              <!-- #api -->
+              <div id="api" class="bitex-view">
+                <!-- .page__head -->
+                <header class="page__head section-title">
+                    <h1 class="page__title h2 bitex-view-title">
+                        <i class="glyphicon glyphicon-dashboard"></i> {% t views.api.title %}
+                    </h1>
+
+                    <ul id="id_api_button_group" class="page__nav">
+                        <li>
+                            <a id="id_btn_new_api_key" class="btn btn-success">
+                                <i class="glyphicon glyphicon-plus"></i> {% t views.api.new_api_key %}
+                            </a>
+                        </li>
+                    </ul>
+                </header>
+                <!-- /.page__head -->
+
+                <!-- .page__body -->
+                <div class="page__body bitex-view-content">
+                </div>
+                <!-- /.page__body -->
+              </div>
+              <!-- /#api -->
 
               <!-- #my_broker -->
               <div id="my_broker" class="bitex-view">
@@ -781,7 +1076,7 @@ load_application:       True
               </div>
               <!-- /#verification -->
             </div>
-            <!-- /.page -->
+            <!-- /.page-dashboard -->
         </div>
         <!-- /.col-md-8 -->
 
@@ -799,6 +1094,7 @@ load_application:       True
                              bitex-view-ledger
                              bitex-view-settings
                              bitex-view-algotrading
+                             bitex-view-api
                              bitex-view-my_broker
                              bitex-view-verification">
             <!-- .sidebar-box -->
@@ -827,3 +1123,4 @@ load_application:       True
   <!-- /.bitex-display-if-logged -->
 </div>
 <!-- /.container-fluid -->
+

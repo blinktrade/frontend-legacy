@@ -1,0 +1,16 @@
+.sidebar-box-nav {
+    > li {
+        > a {
+            color: #607381;
+
+            &:hover {
+                background: #f2f7fa;
+            }
+
+            &:focus {
+                background: #00dd9f;
+                color: #fff;
+            }
+        }
+    }
+}

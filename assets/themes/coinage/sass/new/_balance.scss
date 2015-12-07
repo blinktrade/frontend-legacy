@@ -8,22 +8,35 @@
     color: #fff;
     display: inline-block;
     font-weight: 700;
+    margin-bottom: 5px;
+
+    @media (min-width: $screen-desktop) {
+        margin-bottom: 0;
+    }
 }
 
 .balance__currencies {
-    display: inline-block;
     list-style: none;
     margin: 0;
     padding-left: 0;
+
+    @media (min-width: $screen-desktop) {
+        display: inline-block;
+    }
 }
 
 .balance-currency {
-    border-right: 1px solid #9d9d9d;
-    display: inline-block;
-    padding: 0 8px;
+    padding: 5px 0;
 
-    &:last-child {
-        border-right: none;
+    @media (min-width: $screen-desktop) {
+        border-right: 1px solid #9d9d9d;
+        display: inline-block;
+        padding: 0 8px;
+
+        &:last-child {
+            border-right: none;
+            padding-right: 0;
+        }
     }
 }
 

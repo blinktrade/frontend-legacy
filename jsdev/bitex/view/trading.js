@@ -161,9 +161,9 @@ bitex.view.TradingView.prototype.recreateComponents_ = function( selected_symbol
   var handler = this.getHandler();
   var model = this.getApplication().getModel();
 
-  if (this.market_data_subscription_symbol_ === selected_symbol.symbol) {
-    return;
-  }
+  // if (this.market_data_subscription_symbol_ === selected_symbol.symbol) {
+    // return;
+  // }
 
   this.destroyComponents_();
 

@@ -5819,6 +5819,7 @@ function $bitex$ui$SimpleOrderEntry$$($opt_blinkDelay$$, $opt_domHelper$$7$$) {
   $goog$ui$Component$$.call(this, $opt_domHelper$$7$$);
   this.$order_depth_$ = [];
   this.$uniform_$ = new $uniform$Uniform$$({control_holder_class:"uniform-control-holder"});
+  this.$uniformAdvanced_$ = new $uniform$Uniform$$({control_holder_class:"uniform-control-holder"});
   this.$factor_price_$ = this.$factor_amount_$ = 1E8;
 }
 $goog$inherits$$($bitex$ui$SimpleOrderEntry$$, $goog$ui$Component$$);
@@ -5838,6 +5839,7 @@ $JSCompiler_prototypeAlias$$.$enterDocument$ = function $$JSCompiler_prototypeAl
   var $el$$inline_711_handler$$50$$ = this.$getHandler$();
   this.$getDomHelper$();
   this.$uniform_$.$decorate$($goog$dom$getElement$$($JSCompiler_StaticMethods_makeId$$(this, "order_entry")));
+  this.$uniformAdvanced_$.$decorate$($goog$dom$getElement$$($JSCompiler_StaticMethods_makeId$$(this, "order_entry_advanced")));
   this.$qty_element_$ = $goog$dom$getElement$$($JSCompiler_StaticMethods_makeId$$(this, "order_entry_qty"));
   this.$total_element_$ = $goog$dom$getElement$$($JSCompiler_StaticMethods_makeId$$(this, "order_entry_total"));
   var $open_advanced_order_el$$ = $goog$dom$getElement$$($JSCompiler_StaticMethods_makeId$$(this, "order_entry_open_action_advanced")), $cancel_advanced_order_button_el$$ = $goog$dom$getElement$$($JSCompiler_StaticMethods_makeId$$(this, "order_entry_cancel_action_advanced"));
@@ -5859,7 +5861,7 @@ $JSCompiler_prototypeAlias$$.$onActionSimple_$ = function $$JSCompiler_prototype
 };
 $JSCompiler_prototypeAlias$$.$onActionAdvanced_$ = function $$JSCompiler_prototypeAlias$$$$onActionAdvanced_$$($e$$75$$) {
   $e$$75$$.preventDefault();
-  this.dispatchEvent("simple_order_entry_submitted");
+  0 < this.$uniformAdvanced_$.$validate$().length ? $e$$75$$.stopPropagation() : this.dispatchEvent("simple_order_entry_submitted");
 };
 function $JSCompiler_StaticMethods_disableActions_$$($JSCompiler_StaticMethods_disableActions_$self$$, $enabled$$3$$) {
   var $action_button$$ = new $goog$ui$Button$$;
@@ -8290,9 +8292,9 @@ $JSCompiler_prototypeAlias$$.$onAlgoSelectorSelected_$ = function $$JSCompiler_p
 $JSCompiler_prototypeAlias$$.$onAlgoStop_$ = function $$JSCompiler_prototypeAlias$$$$onAlgoStop_$$($e$$106$$) {
   this.$app_$.$model_$.set($e$$106$$.target.$model_$.$instanceID$ + "_status", "3");
 };
-$JSCompiler_prototypeAlias$$.$onAlgoParamsError_$ = function $$JSCompiler_prototypeAlias$$$$onAlgoParamsError_$$($e$$107_error_list$$1$$) {
-  $e$$107_error_list$$1$$ = $e$$107_error_list$$1$$.target.$error_list_$;
-  0 < $e$$107_error_list$$1$$.length && $goog$array$forEach$$($e$$107_error_list$$1$$, function($error_msg$$) {
+$JSCompiler_prototypeAlias$$.$onAlgoParamsError_$ = function $$JSCompiler_prototypeAlias$$$$onAlgoParamsError_$$($e$$107_error_list$$2$$) {
+  $e$$107_error_list$$2$$ = $e$$107_error_list$$2$$.target.$error_list_$;
+  0 < $e$$107_error_list$$2$$.length && $goog$array$forEach$$($e$$107_error_list$$2$$, function($error_msg$$) {
     this.$app_$.$showNotification$("error", $error_msg$$);
   }, this);
 };
@@ -10789,6 +10791,9 @@ function $bitex$ui$Dialog$ButtonSet$createOk$$() {
 function $bitex$ui$Dialog$ButtonSet$createOkCancel$$() {
   return(new $bitex$ui$Dialog$ButtonSet$$).$addButton$($goog$ui$Dialog$ButtonSet$DefaultButtons$OK$$, !0).$addButton$($goog$ui$Dialog$ButtonSet$DefaultButtons$CANCEL$$, !1, !0);
 }
+function $bitex$ui$Dialog$ButtonSet$createYesNoCancel$$() {
+  return(new $bitex$ui$Dialog$ButtonSet$$).$addButton$($goog$ui$Dialog$ButtonSet$DefaultButtons$YES$$).$addButton$($goog$ui$Dialog$ButtonSet$DefaultButtons$NO$$, !0).$addButton$($goog$ui$Dialog$ButtonSet$DefaultButtons$CANCEL$$, !1, !0);
+}
 ;
 // Input 197
 function $bitex$ui$WithdrawMethods$$($currencyFormatterFn$$, $currencyDescriptionFn$$, $opt_domHelper$$33$$) {
@@ -10882,8 +10887,8 @@ function $JSCompiler_StaticMethods_onActionEdit_$$($JSCompiler_StaticMethods_onA
   $goog$style$setWidth$$($dialog_$$.$getElement$(), 850);
   $JSCompiler_StaticMethods_onActionEdit_$self$$.$getHandler$().$listen$($dialog_$$, $goog$ui$Dialog$EventType$SELECT$$, function($e$$188$$) {
     if ("ok" == $e$$188$$.key) {
-      var $error_list$$4$$ = $withdraw_method_editor$$.$validate$();
-      0 < $error_list$$4$$.length ? ($goog$array$forEach$$($error_list$$4$$, function($error_msg$$1$$) {
+      var $error_list$$5$$ = $withdraw_method_editor$$.$validate$();
+      0 < $error_list$$5$$.length ? ($goog$array$forEach$$($error_list$$5$$, function($error_msg$$1$$) {
         this.$last_error_$ = $error_msg$$1$$;
         this.dispatchEvent("withdraw_structure_validation_error");
       }, this), $e$$188$$.stopPropagation(), $e$$188$$.preventDefault()) : (this.$model_$.withdraw_methods[this.$selected_currency_$][$idx$$1$$] = $JSCompiler_StaticMethods_getWithdrawMethodJSON$$($withdraw_method_editor$$), $JSCompiler_StaticMethods_updateWindow$$(this), $JSCompiler_StaticMethods_setDirty$$(this, !0), this.dispatchEvent("withdraw_structure_change"));
@@ -10911,8 +10916,8 @@ $JSCompiler_prototypeAlias$$.$onAddField_$ = function $$JSCompiler_prototypeAlia
     $goog$style$setWidth$$($dialog_$$1$$.$getElement$(), 850);
     this.$getHandler$().$listen$($dialog_$$1$$, $goog$ui$Dialog$EventType$SELECT$$, function($e$$191$$) {
       if ("ok" == $e$$191$$.key) {
-        var $error_list$$5$$ = $withdraw_method_editor$$1$$.$validate$();
-        0 < $error_list$$5$$.length ? ($goog$array$forEach$$($error_list$$5$$, function($error_msg$$2$$) {
+        var $error_list$$6$$ = $withdraw_method_editor$$1$$.$validate$();
+        0 < $error_list$$6$$.length ? ($goog$array$forEach$$($error_list$$6$$, function($error_msg$$2$$) {
           this.$last_error_$ = $error_msg$$2$$;
           this.dispatchEvent("withdraw_structure_validation_error");
         }, this), $e$$191$$.stopPropagation(), $e$$191$$.preventDefault()) : (null != this.$model_$.withdraw_methods[this.$selected_currency_$] ? this.$model_$.withdraw_methods[this.$selected_currency_$].push($JSCompiler_StaticMethods_getWithdrawMethodJSON$$($withdraw_method_editor$$1$$)) : this.$model_$.withdraw_methods[this.$selected_currency_$] = [$JSCompiler_StaticMethods_getWithdrawMethodJSON$$($withdraw_method_editor$$1$$)], $JSCompiler_StaticMethods_updateWindow$$(this), $JSCompiler_StaticMethods_setDirty$$(this, 
@@ -12683,16 +12688,39 @@ $JSCompiler_prototypeAlias$$.$destroyComponents_$ = function $$JSCompiler_protot
 };
 $JSCompiler_prototypeAlias$$.$recreateComponents_$ = function $$JSCompiler_prototypeAlias$$$$recreateComponents_$$($conn$$10_selected_symbol$$7$$) {
   var $handler$$95$$ = this.$getHandler$(), $model$$36$$ = this.$app_$.$model_$;
-  this.$market_data_subscription_symbol_$ !== $conn$$10_selected_symbol$$7$$.$symbol$ && (this.$destroyComponents_$(), this.$bid_order_entry_$ = new $bitex$ui$SimpleOrderEntry$$, this.$bid_order_entry_$.$setModel$({$username$:$model$$36$$.get("UserID"), $symbol$:$conn$$10_selected_symbol$$7$$.$symbol$, $crypto_currency_symbol$:this.$app_$.$getCurrencySign$($conn$$10_selected_symbol$$7$$.$symbol$.substr(0, 3)), $crypto_currency_description$:this.$app_$.$getCurrencyDescription$($conn$$10_selected_symbol$$7$$.$symbol$.substr(0, 
-  3)), $currency_symbol$:this.$app_$.$getCurrencySign$($conn$$10_selected_symbol$$7$$.$symbol$.substr(3)), $currency_description$:this.$app_$.$getCurrencyDescription$($conn$$10_selected_symbol$$7$$.$symbol$.substr(3)), $side$:"1", type:"2", $client_id$:$model$$36$$.get("UserID"), $broker_id$:$model$$36$$.get("BrokerID"), $currency_code$:$conn$$10_selected_symbol$$7$$.$symbol$.substr(3), $currency_format$:this.$app_$.$getCurrencyHumanFormat$($conn$$10_selected_symbol$$7$$.$symbol$.substr(3)), $crypto_currency_code$:$conn$$10_selected_symbol$$7$$.$symbol$.substr(0, 
-  3), $crypto_currency_format$:this.$app_$.$getCurrencyHumanFormat$($conn$$10_selected_symbol$$7$$.$symbol$.substr(0, 3)), $fee$:$model$$36$$.get("Broker").TakerTransactionFeeBuy, $formatted_fee$:$model$$36$$.get("Broker").FormattedTakerTransactionFeeBuy}), $JSCompiler_StaticMethods_addChild$$(this, this.$bid_order_entry_$, !0), this.$ask_order_entry_$ = new $bitex$ui$SimpleOrderEntry$$, this.$ask_order_entry_$.$setModel$({$username$:$model$$36$$.get("UserID"), $symbol$:$conn$$10_selected_symbol$$7$$.$symbol$, 
-  $crypto_currency_symbol$:this.$app_$.$getCurrencySign$($conn$$10_selected_symbol$$7$$.$symbol$.substr(0, 3)), $crypto_currency_description$:this.$app_$.$getCurrencyDescription$($conn$$10_selected_symbol$$7$$.$symbol$.substr(0, 3)), $currency_symbol$:this.$app_$.$getCurrencySign$($conn$$10_selected_symbol$$7$$.$symbol$.substr(3)), $currency_description$:this.$app_$.$getCurrencyDescription$($conn$$10_selected_symbol$$7$$.$symbol$.substr(3)), $side$:"2", type:"2", $client_id$:$model$$36$$.get("UserID"), 
-  $broker_id$:$model$$36$$.get("BrokerID"), $currency_code$:$conn$$10_selected_symbol$$7$$.$symbol$.substr(3, 3), $currency_format$:this.$app_$.$getCurrencyHumanFormat$($conn$$10_selected_symbol$$7$$.$symbol$.substr(3)), $crypto_currency_code$:$conn$$10_selected_symbol$$7$$.$symbol$.substr(3, 3), $crypto_currency_format$:this.$app_$.$getCurrencyHumanFormat$($conn$$10_selected_symbol$$7$$.$symbol$.substr(3, 3)), $fee$:$model$$36$$.get("Broker").TakerTransactionFeeBuy, $formatted_fee$:$model$$36$$.get("Broker").FormattedTakerTransactionFeeSell}), 
-  $JSCompiler_StaticMethods_addChild$$(this, this.$ask_order_entry_$, !0), $handler$$95$$.$listen$(this.$bid_order_entry_$, "simple_order_entry_submitted", this.$onSimpleOrderAction_$), $handler$$95$$.$listen$(this.$ask_order_entry_$, "simple_order_entry_submitted", this.$onSimpleOrderAction_$), this.$request_order_id_$ = parseInt(1E7 * Math.random(), 10), this.$order_manager_table_$ = new $bitex$ui$OrderManager$$("simple"), $handler$$95$$.$listen$(this.$app_$.$conn_$, $bitex$api$BitEx$EventType$EXECUTION_REPORT$$, 
-  this.$onExecutionReport_$), $handler$$95$$.$listen$(this.$order_manager_table_$, "request_data", this.$onOrderManagerRequestData_$), $handler$$95$$.$listen$(this.$app_$.$conn_$, $bitex$api$BitEx$EventType$ORDER_LIST_RESPONSE$$ + "." + this.$request_order_id_$, this.$onOrderListResponse_$), $JSCompiler_StaticMethods_addChild$$(this, this.$order_manager_table_$, !0), $JSCompiler_StaticMethods_setColumnFormatter$$(this.$order_manager_table_$, "Side", this.$orderFormatter_$, this), $JSCompiler_StaticMethods_setColumnFormatter$$(this.$order_manager_table_$, 
-  "OrdStatus", this.$simpleStatusFormatter_$, this), $JSCompiler_StaticMethods_setColumnFormatter$$(this.$order_manager_table_$, "AvgPx", this.$avgPriceFormatter_$, this), $JSCompiler_StaticMethods_setColumnFormatter$$(this.$order_manager_table_$, "Volume", this.$priceFormatter_$, this), $handler$$95$$.$listen$(this.$order_manager_table_$.$getElement$(), "click", this.$onCancelOrder_$), this.$market_data_subscription_id_$ = parseInt(1E7 * Math.random(), 10), this.$market_data_subscription_symbol_$ = 
-  $conn$$10_selected_symbol$$7$$.$symbol$, $conn$$10_selected_symbol$$7$$ = this.$app_$.$conn_$, $handler$$95$$.$listen$($conn$$10_selected_symbol$$7$$, $bitex$api$BitEx$EventType$ORDER_BOOK_CLEAR$$ + "." + this.$market_data_subscription_id_$, this.$onOBClear_$), $handler$$95$$.$listen$($conn$$10_selected_symbol$$7$$, $bitex$api$BitEx$EventType$ORDER_BOOK_DELETE_ORDERS_THRU$$ + "." + this.$market_data_subscription_id_$, this.$onOBDeleteOrdersThru_$), $handler$$95$$.$listen$($conn$$10_selected_symbol$$7$$, 
-  $bitex$api$BitEx$EventType$ORDER_BOOK_DELETE_ORDER$$ + "." + this.$market_data_subscription_id_$, this.$onOBDeleteOrder_$), $handler$$95$$.$listen$($conn$$10_selected_symbol$$7$$, $bitex$api$BitEx$EventType$ORDER_BOOK_UPDATE_ORDER$$ + "." + this.$market_data_subscription_id_$, this.$onOBUpdateOrder_$), $handler$$95$$.$listen$($conn$$10_selected_symbol$$7$$, $bitex$api$BitEx$EventType$ORDER_BOOK_NEW_ORDER$$ + "." + this.$market_data_subscription_id_$, this.$onOBNewOrder_$), this.dispatchEvent("md_subscribe"));
+  this.$destroyComponents_$();
+  this.$bid_order_entry_$ = new $bitex$ui$SimpleOrderEntry$$;
+  this.$bid_order_entry_$.$setModel$({$username$:$model$$36$$.get("UserID"), $symbol$:$conn$$10_selected_symbol$$7$$.$symbol$, $crypto_currency_symbol$:this.$app_$.$getCurrencySign$($conn$$10_selected_symbol$$7$$.$symbol$.substr(0, 3)), $crypto_currency_description$:this.$app_$.$getCurrencyDescription$($conn$$10_selected_symbol$$7$$.$symbol$.substr(0, 3)), $currency_symbol$:this.$app_$.$getCurrencySign$($conn$$10_selected_symbol$$7$$.$symbol$.substr(3)), $currency_description$:this.$app_$.$getCurrencyDescription$($conn$$10_selected_symbol$$7$$.$symbol$.substr(3)), 
+  $side$:"1", type:"2", $client_id$:$model$$36$$.get("UserID"), $broker_id$:$model$$36$$.get("BrokerID"), $currency_code$:$conn$$10_selected_symbol$$7$$.$symbol$.substr(3), $currency_format$:this.$app_$.$getCurrencyHumanFormat$($conn$$10_selected_symbol$$7$$.$symbol$.substr(3)), $crypto_currency_code$:$conn$$10_selected_symbol$$7$$.$symbol$.substr(0, 3), $crypto_currency_format$:this.$app_$.$getCurrencyHumanFormat$($conn$$10_selected_symbol$$7$$.$symbol$.substr(0, 3)), $fee$:$model$$36$$.get("Broker").TakerTransactionFeeBuy, 
+  $formatted_fee$:$model$$36$$.get("Broker").FormattedTakerTransactionFeeBuy});
+  $JSCompiler_StaticMethods_addChild$$(this, this.$bid_order_entry_$, !0);
+  this.$ask_order_entry_$ = new $bitex$ui$SimpleOrderEntry$$;
+  this.$ask_order_entry_$.$setModel$({$username$:$model$$36$$.get("UserID"), $symbol$:$conn$$10_selected_symbol$$7$$.$symbol$, $crypto_currency_symbol$:this.$app_$.$getCurrencySign$($conn$$10_selected_symbol$$7$$.$symbol$.substr(0, 3)), $crypto_currency_description$:this.$app_$.$getCurrencyDescription$($conn$$10_selected_symbol$$7$$.$symbol$.substr(0, 3)), $currency_symbol$:this.$app_$.$getCurrencySign$($conn$$10_selected_symbol$$7$$.$symbol$.substr(3)), $currency_description$:this.$app_$.$getCurrencyDescription$($conn$$10_selected_symbol$$7$$.$symbol$.substr(3)), 
+  $side$:"2", type:"2", $client_id$:$model$$36$$.get("UserID"), $broker_id$:$model$$36$$.get("BrokerID"), $currency_code$:$conn$$10_selected_symbol$$7$$.$symbol$.substr(3, 3), $currency_format$:this.$app_$.$getCurrencyHumanFormat$($conn$$10_selected_symbol$$7$$.$symbol$.substr(3)), $crypto_currency_code$:$conn$$10_selected_symbol$$7$$.$symbol$.substr(3, 3), $crypto_currency_format$:this.$app_$.$getCurrencyHumanFormat$($conn$$10_selected_symbol$$7$$.$symbol$.substr(3, 3)), $fee$:$model$$36$$.get("Broker").TakerTransactionFeeBuy, 
+  $formatted_fee$:$model$$36$$.get("Broker").FormattedTakerTransactionFeeSell});
+  $JSCompiler_StaticMethods_addChild$$(this, this.$ask_order_entry_$, !0);
+  $handler$$95$$.$listen$(this.$bid_order_entry_$, "simple_order_entry_submitted", this.$onSimpleOrderAction_$);
+  $handler$$95$$.$listen$(this.$ask_order_entry_$, "simple_order_entry_submitted", this.$onSimpleOrderAction_$);
+  this.$request_order_id_$ = parseInt(1E7 * Math.random(), 10);
+  this.$order_manager_table_$ = new $bitex$ui$OrderManager$$("simple");
+  $handler$$95$$.$listen$(this.$app_$.$conn_$, $bitex$api$BitEx$EventType$EXECUTION_REPORT$$, this.$onExecutionReport_$);
+  $handler$$95$$.$listen$(this.$order_manager_table_$, "request_data", this.$onOrderManagerRequestData_$);
+  $handler$$95$$.$listen$(this.$app_$.$conn_$, $bitex$api$BitEx$EventType$ORDER_LIST_RESPONSE$$ + "." + this.$request_order_id_$, this.$onOrderListResponse_$);
+  $JSCompiler_StaticMethods_addChild$$(this, this.$order_manager_table_$, !0);
+  $JSCompiler_StaticMethods_setColumnFormatter$$(this.$order_manager_table_$, "Side", this.$orderFormatter_$, this);
+  $JSCompiler_StaticMethods_setColumnFormatter$$(this.$order_manager_table_$, "OrdStatus", this.$simpleStatusFormatter_$, this);
+  $JSCompiler_StaticMethods_setColumnFormatter$$(this.$order_manager_table_$, "AvgPx", this.$avgPriceFormatter_$, this);
+  $JSCompiler_StaticMethods_setColumnFormatter$$(this.$order_manager_table_$, "Volume", this.$priceFormatter_$, this);
+  $handler$$95$$.$listen$(this.$order_manager_table_$.$getElement$(), "click", this.$onCancelOrder_$);
+  this.$market_data_subscription_id_$ = parseInt(1E7 * Math.random(), 10);
+  this.$market_data_subscription_symbol_$ = $conn$$10_selected_symbol$$7$$.$symbol$;
+  $conn$$10_selected_symbol$$7$$ = this.$app_$.$conn_$;
+  $handler$$95$$.$listen$($conn$$10_selected_symbol$$7$$, $bitex$api$BitEx$EventType$ORDER_BOOK_CLEAR$$ + "." + this.$market_data_subscription_id_$, this.$onOBClear_$);
+  $handler$$95$$.$listen$($conn$$10_selected_symbol$$7$$, $bitex$api$BitEx$EventType$ORDER_BOOK_DELETE_ORDERS_THRU$$ + "." + this.$market_data_subscription_id_$, this.$onOBDeleteOrdersThru_$);
+  $handler$$95$$.$listen$($conn$$10_selected_symbol$$7$$, $bitex$api$BitEx$EventType$ORDER_BOOK_DELETE_ORDER$$ + "." + this.$market_data_subscription_id_$, this.$onOBDeleteOrder_$);
+  $handler$$95$$.$listen$($conn$$10_selected_symbol$$7$$, $bitex$api$BitEx$EventType$ORDER_BOOK_UPDATE_ORDER$$ + "." + this.$market_data_subscription_id_$, this.$onOBUpdateOrder_$);
+  $handler$$95$$.$listen$($conn$$10_selected_symbol$$7$$, $bitex$api$BitEx$EventType$ORDER_BOOK_NEW_ORDER$$ + "." + this.$market_data_subscription_id_$, this.$onOBNewOrder_$);
+  this.dispatchEvent("md_subscribe");
 };
 $JSCompiler_prototypeAlias$$.$enterDocument$ = function $$JSCompiler_prototypeAlias$$$$enterDocument$$() {
   $bitex$view$TradingView$$.$superClass_$.$enterDocument$.call(this);
@@ -13088,8 +13116,8 @@ $JSCompiler_prototypeAlias$$.$onLineOfCreditGet_$ = function $$JSCompiler_protot
   $JSCompiler_StaticMethods_setMinimumFractionDigits$$($fmt_currency$$, this.$app_$.$currency_info_$[line_of_credit.Currency].$number_of_decimals$);
   $handler$$103$$.$listen$($dlg_e$$245_get_line_of_credit_content$$, $goog$ui$Dialog$EventType$SELECT$$, function($e$$246_get_line_of_credit_data$$) {
     if ("ok" == $e$$246_get_line_of_credit_data$$.key) {
-      var $error_list$$6$$ = $loc_uniform$$.$validate$();
-      0 < $error_list$$6$$.length ? ($goog$array$forEach$$($error_list$$6$$, function($error_msg$$3$$) {
+      var $error_list$$7$$ = $loc_uniform$$.$validate$();
+      0 < $error_list$$7$$.length ? ($goog$array$forEach$$($error_list$$7$$, function($error_msg$$3$$) {
         this.$app_$.$showNotification$("error", $error_msg$$3$$);
       }, this), $e$$246_get_line_of_credit_data$$.stopPropagation(), $e$$246_get_line_of_credit_data$$.preventDefault()) : ($e$$246_get_line_of_credit_data$$ = $JSCompiler_StaticMethods_getAsJSON$$($loc_uniform$$), this.$app_$.$conn_$.$getLineOfCredit$($e$$246_get_line_of_credit_data$$.ID, 1E8 * $e$$246_get_line_of_credit_data$$.Amount, $e$$246_get_line_of_credit_data$$.DeliveryMethod));
     }
@@ -13107,14 +13135,14 @@ $JSCompiler_prototypeAlias$$.$onLineOfCreditGet_$ = function $$JSCompiler_protot
     $JSCompiler_StaticMethods_setMinimumFractionDigits$$($fmt_delivery_currency$$, this.$app_$.$currency_info_$[line_of_credit.Currency].$number_of_decimals$);
     var $amount_element$$ = $goog$dom$getElement$$($JSCompiler_StaticMethods_makeId$$(this, "loc_form_amount") + "_" + line_of_credit.Currency + "_" + $delivery_currency$$5$$);
     $handler$$103$$.$listen$(new $goog$events$InputHandler$$($amount_element$$), "input", function() {
-      var $error_list$$7_pos$$30_premium$$ = [0], $amount_string$$ = $goog$dom$forms$getValue$$($amount_element$$), $amount_value$$ = $fmt_currency$$.parse($amount_string$$, $error_list$$7_pos$$30_premium$$);
-      $error_list$$7_pos$$30_premium$$[0] != $amount_string$$.length || isNaN($amount_value$$) || 0 > $amount_value$$ || ($error_list$$7_pos$$30_premium$$ = $loc_uniform$$.$validate$(), 0 < $error_list$$7_pos$$30_premium$$.length ? $goog$array$forEach$$($error_list$$7_pos$$30_premium$$, function($error_msg$$4$$) {
+      var $error_list$$8_pos$$30_premium$$ = [0], $amount_string$$ = $goog$dom$forms$getValue$$($amount_element$$), $amount_value$$ = $fmt_currency$$.parse($amount_string$$, $error_list$$8_pos$$30_premium$$);
+      $error_list$$8_pos$$30_premium$$[0] != $amount_string$$.length || isNaN($amount_value$$) || 0 > $amount_value$$ || ($error_list$$8_pos$$30_premium$$ = $loc_uniform$$.$validate$(), 0 < $error_list$$8_pos$$30_premium$$.length ? $goog$array$forEach$$($error_list$$8_pos$$30_premium$$, function($error_msg$$4$$) {
         this.$app_$.$showNotification$("error", $error_msg$$4$$);
-      }, this) : ($amount_value$$ = parseInt(1E8 * $amount_value$$, 10), $error_list$$7_pos$$30_premium$$ = 0, "get_ticker" in line_of_credit.ContractInfo[$delivery_currency$$5$$] && "premium" in line_of_credit.ContractInfo[$delivery_currency$$5$$].get_ticker && ($error_list$$7_pos$$30_premium$$ = $goog$array$find$$(line_of_credit.ContractInfo[$delivery_currency$$5$$].get_ticker.premium, function($premium_info$$) {
+      }, this) : ($amount_value$$ = parseInt(1E8 * $amount_value$$, 10), $error_list$$8_pos$$30_premium$$ = 0, "get_ticker" in line_of_credit.ContractInfo[$delivery_currency$$5$$] && "premium" in line_of_credit.ContractInfo[$delivery_currency$$5$$].get_ticker && ($error_list$$8_pos$$30_premium$$ = $goog$array$find$$(line_of_credit.ContractInfo[$delivery_currency$$5$$].get_ticker.premium, function($premium_info$$) {
         if ($amount_value$$ > $premium_info$$[0] && $amount_value$$ < $premium_info$$[1]) {
           return!0;
         }
-      }, this)), null != $error_list$$7_pos$$30_premium$$ && $model$$41$$.set("ID_LOC_FORM_AMOUNT_" + line_of_credit.Currency + "_" + $delivery_currency$$5$$ + "_PREMIUM", $error_list$$7_pos$$30_premium$$[2]), $model$$41$$.set("ID_LOC_FORM_AMOUNT_" + line_of_credit.Currency + "_" + $delivery_currency$$5$$, $amount_value$$)));
+      }, this)), null != $error_list$$8_pos$$30_premium$$ && $model$$41$$.set("ID_LOC_FORM_AMOUNT_" + line_of_credit.Currency + "_" + $delivery_currency$$5$$ + "_PREMIUM", $error_list$$8_pos$$30_premium$$[2]), $model$$41$$.set("ID_LOC_FORM_AMOUNT_" + line_of_credit.Currency + "_" + $delivery_currency$$5$$, $amount_value$$)));
     }, this);
   }, this);
   $JSCompiler_StaticMethods_updateDom$$(this.$app_$.$model_$);
@@ -13136,15 +13164,15 @@ $JSCompiler_prototypeAlias$$.$onLineOfCreditPayback_$ = function $$JSCompiler_pr
   $JSCompiler_StaticMethods_setMinimumFractionDigits$$($fmt_currency$$1$$, this.$app_$.$currency_info_$[line_of_credit.Currency].$number_of_decimals$);
   $handler$$104$$.$listen$($dlg$$1_e$$249_pay_line_of_credit_content$$, $goog$ui$Dialog$EventType$SELECT$$, function($e$$250$$) {
     if ("ok" == $e$$250$$.key) {
-      var $error_list$$8_pay_line_of_credit_data$$ = $loc_uniform$$1$$.$validate$();
-      if (0 < $error_list$$8_pay_line_of_credit_data$$.length) {
-        $goog$array$forEach$$($error_list$$8_pay_line_of_credit_data$$, function($error_msg$$5$$) {
+      var $error_list$$9_pay_line_of_credit_data$$ = $loc_uniform$$1$$.$validate$();
+      if (0 < $error_list$$9_pay_line_of_credit_data$$.length) {
+        $goog$array$forEach$$($error_list$$9_pay_line_of_credit_data$$, function($error_msg$$5$$) {
           this.$app_$.$showNotification$("error", $error_msg$$5$$);
         }, this), $e$$250$$.stopPropagation(), $e$$250$$.preventDefault();
       } else {
-        var $error_list$$8_pay_line_of_credit_data$$ = $JSCompiler_StaticMethods_getAsJSON$$($loc_uniform$$1$$), $min_size$$ = line_of_credit.ContractInfo[$error_list$$8_pay_line_of_credit_data$$.Currency].payback_ticker.min_size, $max_size$$ = line_of_credit.ContractInfo[$error_list$$8_pay_line_of_credit_data$$.Currency].payback_ticker.max_size;
+        var $error_list$$9_pay_line_of_credit_data$$ = $JSCompiler_StaticMethods_getAsJSON$$($loc_uniform$$1$$), $min_size$$ = line_of_credit.ContractInfo[$error_list$$9_pay_line_of_credit_data$$.Currency].payback_ticker.min_size, $max_size$$ = line_of_credit.ContractInfo[$error_list$$9_pay_line_of_credit_data$$.Currency].payback_ticker.max_size;
         if ("payback_ticker" in line_of_credit.ContractInfo[delivery_currency] && "premium" in line_of_credit.ContractInfo[delivery_currency].payback_ticker) {
-          var $amount_in_currency_value_ticker_value$$ = $model$$42$$.get(line_of_credit.ContractInfo[$error_list$$8_pay_line_of_credit_data$$.Currency].payback_ticker.ticker), $amount_in_currency_value_ticker_value$$ = parseInt($error_list$$8_pay_line_of_credit_data$$.Amount * $amount_in_currency_value_ticker_value$$);
+          var $amount_in_currency_value_ticker_value$$ = $model$$42$$.get(line_of_credit.ContractInfo[$error_list$$9_pay_line_of_credit_data$$.Currency].payback_ticker.ticker), $amount_in_currency_value_ticker_value$$ = parseInt($error_list$$9_pay_line_of_credit_data$$.Amount * $amount_in_currency_value_ticker_value$$);
           if ($amount_in_currency_value_ticker_value$$ < $min_size$$ || $amount_in_currency_value_ticker_value$$ > $max_size$$) {
             this.$app_$.$showNotification$("error", "Invalid amount");
             $e$$250$$.stopPropagation();
@@ -13152,14 +13180,14 @@ $JSCompiler_prototypeAlias$$.$onLineOfCreditPayback_$ = function $$JSCompiler_pr
             return;
           }
         } else {
-          if (1E8 * $error_list$$8_pay_line_of_credit_data$$.Amount < $min_size$$ || 1E8 * $error_list$$8_pay_line_of_credit_data$$.Amount > $max_size$$) {
+          if (1E8 * $error_list$$9_pay_line_of_credit_data$$.Amount < $min_size$$ || 1E8 * $error_list$$9_pay_line_of_credit_data$$.Amount > $max_size$$) {
             this.$app_$.$showNotification$("error", "Invalid amount");
             $e$$250$$.stopPropagation();
             $e$$250$$.preventDefault();
             return;
           }
         }
-        this.$app_$.$conn_$.$payLineOfCredit$($error_list$$8_pay_line_of_credit_data$$.ID, 1E8 * $error_list$$8_pay_line_of_credit_data$$.Amount, $error_list$$8_pay_line_of_credit_data$$.Currency);
+        this.$app_$.$conn_$.$payLineOfCredit$($error_list$$9_pay_line_of_credit_data$$.ID, 1E8 * $error_list$$9_pay_line_of_credit_data$$.Amount, $error_list$$9_pay_line_of_credit_data$$.Currency);
       }
     }
   }, this);
@@ -13176,23 +13204,23 @@ $JSCompiler_prototypeAlias$$.$onLineOfCreditPayback_$ = function $$JSCompiler_pr
     $JSCompiler_StaticMethods_setMinimumFractionDigits$$($fmt_delivery_currency$$1$$, this.$app_$.$currency_info_$[line_of_credit.Currency].$number_of_decimals$);
     var $amount_element$$1$$ = $goog$dom$getElement$$($JSCompiler_StaticMethods_makeId$$(this, "loc_form_amount") + "_" + $delivery_currency$$8$$ + "_" + line_of_credit.Currency);
     $handler$$104$$.$listen$(new $goog$events$InputHandler$$($amount_element$$1$$), "input", function() {
-      var $error_list$$9_pos$$31_premium$$1_ticker_value$$1$$ = [0], $amount_string$$1$$ = $goog$dom$forms$getValue$$($amount_element$$1$$), $amount_value$$1$$ = $fmt_currency$$1$$.parse($amount_string$$1$$, $error_list$$9_pos$$31_premium$$1_ticker_value$$1$$);
-      if (!($error_list$$9_pos$$31_premium$$1_ticker_value$$1$$[0] != $amount_string$$1$$.length || isNaN($amount_value$$1$$) || 0 > $amount_value$$1$$)) {
-        if ($error_list$$9_pos$$31_premium$$1_ticker_value$$1$$ = $loc_uniform$$1$$.$validate$(), 0 < $error_list$$9_pos$$31_premium$$1_ticker_value$$1$$.length) {
-          $goog$array$forEach$$($error_list$$9_pos$$31_premium$$1_ticker_value$$1$$, function($error_msg$$6$$) {
+      var $error_list$$10_pos$$31_premium$$1_ticker_value$$1$$ = [0], $amount_string$$1$$ = $goog$dom$forms$getValue$$($amount_element$$1$$), $amount_value$$1$$ = $fmt_currency$$1$$.parse($amount_string$$1$$, $error_list$$10_pos$$31_premium$$1_ticker_value$$1$$);
+      if (!($error_list$$10_pos$$31_premium$$1_ticker_value$$1$$[0] != $amount_string$$1$$.length || isNaN($amount_value$$1$$) || 0 > $amount_value$$1$$)) {
+        if ($error_list$$10_pos$$31_premium$$1_ticker_value$$1$$ = $loc_uniform$$1$$.$validate$(), 0 < $error_list$$10_pos$$31_premium$$1_ticker_value$$1$$.length) {
+          $goog$array$forEach$$($error_list$$10_pos$$31_premium$$1_ticker_value$$1$$, function($error_msg$$6$$) {
             this.$app_$.$showNotification$("error", $error_msg$$6$$);
           }, this);
         } else {
           $amount_value$$1$$ = parseInt(1E8 * $amount_value$$1$$, 10);
-          $error_list$$9_pos$$31_premium$$1_ticker_value$$1$$ = 0;
+          $error_list$$10_pos$$31_premium$$1_ticker_value$$1$$ = 0;
           if ("payback_ticker" in line_of_credit.ContractInfo[$delivery_currency$$8$$] && "premium" in line_of_credit.ContractInfo[$delivery_currency$$8$$].payback_ticker) {
-            var $error_list$$9_pos$$31_premium$$1_ticker_value$$1$$ = $model$$42$$.get(line_of_credit.ContractInfo[$delivery_currency$$8$$].payback_ticker.ticker), $amount_in_currency_value$$1$$ = parseInt($amount_value$$1$$ * $error_list$$9_pos$$31_premium$$1_ticker_value$$1$$ / 1E8), $error_list$$9_pos$$31_premium$$1_ticker_value$$1$$ = $goog$array$find$$(line_of_credit.ContractInfo[$delivery_currency$$8$$].payback_ticker.premium, function($premium_info$$1$$) {
+            var $error_list$$10_pos$$31_premium$$1_ticker_value$$1$$ = $model$$42$$.get(line_of_credit.ContractInfo[$delivery_currency$$8$$].payback_ticker.ticker), $amount_in_currency_value$$1$$ = parseInt($amount_value$$1$$ * $error_list$$10_pos$$31_premium$$1_ticker_value$$1$$ / 1E8), $error_list$$10_pos$$31_premium$$1_ticker_value$$1$$ = $goog$array$find$$(line_of_credit.ContractInfo[$delivery_currency$$8$$].payback_ticker.premium, function($premium_info$$1$$) {
               if ($amount_in_currency_value$$1$$ > $premium_info$$1$$[0] && $amount_in_currency_value$$1$$ < $premium_info$$1$$[1]) {
                 return!0;
               }
             }, this)
           }
-          null != $error_list$$9_pos$$31_premium$$1_ticker_value$$1$$ && $model$$42$$.set("ID_LOC_FORM_AMOUNT_" + $delivery_currency$$8$$ + "_" + line_of_credit.Currency + "_PREMIUM", $error_list$$9_pos$$31_premium$$1_ticker_value$$1$$[2]);
+          null != $error_list$$10_pos$$31_premium$$1_ticker_value$$1$$ && $model$$42$$.set("ID_LOC_FORM_AMOUNT_" + $delivery_currency$$8$$ + "_" + line_of_credit.Currency + "_PREMIUM", $error_list$$10_pos$$31_premium$$1_ticker_value$$1$$[2]);
           $model$$42$$.set("ID_LOC_FORM_AMOUNT_" + $delivery_currency$$8$$ + "_" + line_of_credit.Currency, $amount_value$$1$$);
         }
       }
@@ -15891,8 +15919,8 @@ $JSCompiler_prototypeAlias$$.$onBitexWithdrawResponse_$ = function $$JSCompiler_
     $withdraw_confirmation_uniform$$.$decorate$($form_element$$);
     this.$getHandler$().$listen$($dlg_content$$2_e$$340_withdrawConfirmationDialog$$, $goog$ui$Dialog$EventType$SELECT$$, function($e$$341_withdraw_confirmation_data$$) {
       if ("ok" == $e$$341_withdraw_confirmation_data$$.key) {
-        var $error_list$$11$$ = $withdraw_confirmation_uniform$$.$validate$();
-        0 < $error_list$$11$$.length ? ($goog$array$forEach$$($error_list$$11$$, function($error_msg$$8$$) {
+        var $error_list$$12$$ = $withdraw_confirmation_uniform$$.$validate$();
+        0 < $error_list$$12$$.length ? ($goog$array$forEach$$($error_list$$12$$, function($error_msg$$8$$) {
           this.$showNotification$("error", $error_msg$$8$$);
         }, this), $e$$341_withdraw_confirmation_data$$.stopPropagation(), $e$$341_withdraw_confirmation_data$$.preventDefault()) : ($e$$341_withdraw_confirmation_data$$ = $JSCompiler_StaticMethods_getAsJSON$$($withdraw_confirmation_uniform$$), this.$model_$.get("TwoFactorEnabled") ? this.$conn_$.$confirmWithdraw$(void 0, $msg$$111$$.WithdrawID, $e$$341_withdraw_confirmation_data$$.token) : this.$conn_$.$confirmWithdraw$($e$$341_withdraw_confirmation_data$$.confirmation_code));
       }
@@ -15912,7 +15940,7 @@ function $JSCompiler_StaticMethods_connectBitEx$$($JSCompiler_StaticMethods_conn
     $JSCompiler_StaticMethods_connectBitEx$self$$.$conn_$.open($JSCompiler_StaticMethods_connectBitEx$self$$.$wss_url_$);
   } catch ($e$$343$$) {
     var $JSCompiler_object_inline_error_code_1949_output$$inline_1844$$ = "WebSocket: " + $e$$343$$, $JSCompiler_object_inline_error_code_1949_output$$inline_1844$$ = "" + ('<p class="lead">' + $soy$$0$0escapeHtml$$("Error connecting to the server. Your browser MUST SUPPORT WebSockets.") + '</p><dl class="dl-horizontal"><dt>Error code</dt><dd>' + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_error_code_1949_output$$inline_1844$$) + "</dd></dl>");
-    $JSCompiler_StaticMethods_connectBitEx$self$$.$showDialog$($JSCompiler_object_inline_error_code_1949_output$$inline_1844$$, void 0, (new $bitex$ui$Dialog$ButtonSet$$).$addButton$($goog$ui$Dialog$ButtonSet$DefaultButtons$YES$$).$addButton$($goog$ui$Dialog$ButtonSet$DefaultButtons$NO$$, !0).$addButton$($goog$ui$Dialog$ButtonSet$DefaultButtons$CANCEL$$, !1, !0));
+    $JSCompiler_StaticMethods_connectBitEx$self$$.$showDialog$($JSCompiler_object_inline_error_code_1949_output$$inline_1844$$, void 0, $bitex$ui$Dialog$ButtonSet$createYesNoCancel$$());
   }
 }
 $JSCompiler_prototypeAlias$$.$setView$ = function $$JSCompiler_prototypeAlias$$$$setView$$($view_id$$4$$) {
@@ -15946,15 +15974,15 @@ $JSCompiler_prototypeAlias$$.$onChangePasswordResponse_$ = function $$JSCompiler
     $gauth_uniform$$.$decorate$($goog$dom$getFirstElementChild$$($dlg_$$.$getContentElement$()));
     this.$getHandler$().$listen$($dlg_$$, $goog$ui$Dialog$EventType$SELECT$$, function($e$$350_second_factor$$) {
       if ("ok" == $e$$350_second_factor$$.key) {
-        var $error_list$$12_password$$7$$ = $gauth_uniform$$.$validate$();
-        if (0 < $error_list$$12_password$$7$$.length) {
-          $goog$array$forEach$$($error_list$$12_password$$7$$, function($error_msg$$9$$) {
+        var $error_list$$13_password$$7$$ = $gauth_uniform$$.$validate$();
+        if (0 < $error_list$$13_password$$7$$.length) {
+          $goog$array$forEach$$($error_list$$13_password$$7$$, function($error_msg$$9$$) {
             this.$showNotification$("error", $error_msg$$9$$);
           }, this), $e$$350_second_factor$$.stopPropagation(), $e$$350_second_factor$$.preventDefault();
         } else {
           $e$$350_second_factor$$ = $JSCompiler_StaticMethods_getAsJSON$$($gauth_uniform$$).token;
-          var $error_list$$12_password$$7$$ = this.$profileView_$.$getCurrentPassword$(), $new_password$$3$$ = this.$profileView_$.$getNewPassword$();
-          this.$conn_$.$changePassword$(this.$model_$.get("SelectedBrokerID"), this.$model_$.get("Username"), $error_list$$12_password$$7$$, $new_password$$3$$, $e$$350_second_factor$$);
+          var $error_list$$13_password$$7$$ = this.$profileView_$.$getCurrentPassword$(), $new_password$$3$$ = this.$profileView_$.$getNewPassword$();
+          this.$conn_$.$changePassword$(this.$model_$.get("SelectedBrokerID"), this.$model_$.get("Username"), $error_list$$13_password$$7$$, $new_password$$3$$, $e$$350_second_factor$$);
           $dlg_$$.$dispose$();
         }
       }
@@ -16252,9 +16280,9 @@ function $JSCompiler_StaticMethods_showWithdrawalDialog$$($JSCompiler_StaticMeth
   $JSCompiler_StaticMethods_setMinimumFractionDigits$$($balance_key$$5_value_fmt$$13_withdrawal_form_el$$, 2);
   $handler$$138$$.$listen$($dialogContent$$1_dlg$$4_fmt$$15_opt_preData_withdraw_methods$$2$$, $goog$ui$Dialog$EventType$SELECT$$, function($e$$365$$) {
     if ("ok" == $e$$365$$.key) {
-      var $error_list$$13_withdraw_data$$ = $withdrawal_uniform$$.$validate$();
-      if (0 < $error_list$$13_withdraw_data$$.length) {
-        $goog$array$forEach$$($error_list$$13_withdraw_data$$, function($error_msg$$10$$) {
+      var $error_list$$14_withdraw_data$$ = $withdrawal_uniform$$.$validate$();
+      if (0 < $error_list$$14_withdraw_data$$.length) {
+        $goog$array$forEach$$($error_list$$14_withdraw_data$$, function($error_msg$$10$$) {
           this.$showNotification$("error", $error_msg$$10$$);
         }, this), $e$$365$$.stopPropagation(), $e$$365$$.preventDefault();
       } else {
@@ -16274,20 +16302,20 @@ function $JSCompiler_StaticMethods_showWithdrawalDialog$$($JSCompiler_StaticMeth
           }
         } catch ($e$$366$$) {
         }
-        $error_list$$13_withdraw_data$$ = $JSCompiler_StaticMethods_getAsJSON$$($withdrawal_uniform$$);
-        $amount$$9_position_key$$1$$ = $error_list$$13_withdraw_data$$.Amount;
+        $error_list$$14_withdraw_data$$ = $JSCompiler_StaticMethods_getAsJSON$$($withdrawal_uniform$$);
+        $amount$$9_position_key$$1$$ = $error_list$$14_withdraw_data$$.Amount;
         if (0 > $amount$$9_position_key$$1$$) {
           this.$showNotification$("error", "Invalid withdrawal amount"), $e$$365$$.stopPropagation(), $e$$365$$.preventDefault();
         } else {
           $amount$$9_position_key$$1$$ = (new $bitex$primitives$Price$$(1E8 * $amount$$9_position_key$$1$$, $JSCompiler_StaticMethods_getCurrencyPip$$(this, $currency$$42$$))).floor();
-          $goog$dom$forms$getValue$$($goog$dom$getElement$$($form_id$$ + "_method_" + $error_list$$13_withdraw_data$$.Method + "_net_value_value"));
-          $error_list$$13_withdraw_data$$.Fees = $goog$dom$getTextContent$$($goog$dom$getElement$$($form_id$$ + "_method_" + $error_list$$13_withdraw_data$$.Method + "_fees"));
-          delete $error_list$$13_withdraw_data$$.Amount;
-          $method$$7_positions$$1$$ = $error_list$$13_withdraw_data$$.Method;
-          delete $error_list$$13_withdraw_data$$.Method;
-          var $currency$$42$$ = $error_list$$13_withdraw_data$$.Currency;
-          delete $error_list$$13_withdraw_data$$.Currency;
-          this.$conn_$.$requestWithdraw$($e$$365$$.target.$request_id_$, $amount$$9_position_key$$1$$, $method$$7_positions$$1$$, $currency$$42$$, $error_list$$13_withdraw_data$$);
+          $goog$dom$forms$getValue$$($goog$dom$getElement$$($form_id$$ + "_method_" + $error_list$$14_withdraw_data$$.Method + "_net_value_value"));
+          $error_list$$14_withdraw_data$$.Fees = $goog$dom$getTextContent$$($goog$dom$getElement$$($form_id$$ + "_method_" + $error_list$$14_withdraw_data$$.Method + "_fees"));
+          delete $error_list$$14_withdraw_data$$.Amount;
+          $method$$7_positions$$1$$ = $error_list$$14_withdraw_data$$.Method;
+          delete $error_list$$14_withdraw_data$$.Method;
+          var $currency$$42$$ = $error_list$$14_withdraw_data$$.Currency;
+          delete $error_list$$14_withdraw_data$$.Currency;
+          this.$conn_$.$requestWithdraw$($e$$365$$.target.$request_id_$, $amount$$9_position_key$$1$$, $method$$7_positions$$1$$, $currency$$42$$, $error_list$$14_withdraw_data$$);
         }
       }
     }
@@ -16614,7 +16642,7 @@ function $JSCompiler_StaticMethods_showDepositDialog$$($JSCompiler_StaticMethods
   !1 !== $MSG_CURRENCY_DEPOSIT_DIALOG_TITLE_opt_switch_view$$ && $JSCompiler_StaticMethods_showDepositDialog$self$$.$setView$("deposit");
   $MSG_CURRENCY_DEPOSIT_DIALOG_TITLE_opt_switch_view$$ = $JSCompiler_StaticMethods_showDepositDialog$self$$.$getCurrencyDescription$($currency$$45$$) + " deposit";
   if ($JSCompiler_StaticMethods_showDepositDialog$self$$.$isCryptoCurrency$($currency$$45$$)) {
-    var $confirmDialogContent$$1_method_element_id$$1$$ = $bitex$templates$ConfirmDepositCryptoCurrencyContentDialog$$({$currencydescription$:$JSCompiler_StaticMethods_showDepositDialog$self$$.$getCurrencyDescription$($currency$$45$$)}), $dlgConfirm$$1$$ = $JSCompiler_StaticMethods_showDepositDialog$self$$.$showDialog$($confirmDialogContent$$1_method_element_id$$1$$, $MSG_CURRENCY_DEPOSIT_DIALOG_TITLE_opt_switch_view$$, $bitex$ui$Dialog$ButtonSet$createOkCancel$$());
+    var $confirmDialogContent$$1_method_element_id$$1$$ = $bitex$templates$ConfirmDepositCryptoCurrencyContentDialog$$({$currencydescription$:$JSCompiler_StaticMethods_showDepositDialog$self$$.$getCurrencyDescription$($currency$$45$$)}), $dlgConfirm$$1$$ = $JSCompiler_StaticMethods_showDepositDialog$self$$.$showDialog$($confirmDialogContent$$1_method_element_id$$1$$, $MSG_CURRENCY_DEPOSIT_DIALOG_TITLE_opt_switch_view$$, $bitex$ui$Dialog$ButtonSet$createYesNoCancel$$());
     $handler$$145$$.$listen$($dlgConfirm$$1$$, $goog$ui$Dialog$EventType$SELECT$$, function($e$$394_request_id$$5$$) {
       "yes" == $e$$394_request_id$$5$$.key && ($e$$394_request_id$$5$$.preventDefault(), $e$$394_request_id$$5$$.stopPropagation(), $e$$394_request_id$$5$$ = parseInt(1E7 * Math.random(), 10), this.$conn_$.$requestDeposit$($e$$394_request_id$$5$$, void 0, $opt_formatted_amount$$, void 0, $currency$$45$$, void 0, $opt_instructions$$1$$), $goog$soy$renderElement$$($goog$dom$getFirstElementChild$$($dlgConfirm$$1$$.$getContentElement$()), $bitex$templates$WaitingForDepositResponseDialogContent$$), $JSCompiler_StaticMethods_setButtonSet$$($dlgConfirm$$1$$, 
       (new $bitex$ui$Dialog$ButtonSet$$).$addButton$($goog$ui$Dialog$ButtonSet$DefaultButtons$CANCEL$$, !1, !0)), $handler$$145$$.$listenOnce$(this.$conn_$, "error_message." + $e$$394_request_id$$5$$, function() {
@@ -16666,16 +16694,16 @@ function $JSCompiler_StaticMethods_showDepositDialog$$($JSCompiler_StaticMethods
         if ($e$$399_request_id$$6$$.preventDefault(), $e$$399_request_id$$6$$.stopPropagation(), "prepare" != $goog$dom$getFirstElementChild$$($dlg$$9$$.$getContentElement$()).getAttribute("data-deposit-status")) {
           $dlg$$9$$.$dispose$();
         } else {
-          var $deposit_data$$3_error_list$$14$$ = $deposit_form_uniform$$.$validate$();
-          if (0 < $deposit_data$$3_error_list$$14$$.length) {
-            $goog$array$forEach$$($deposit_data$$3_error_list$$14$$, function($error_msg$$11$$) {
+          var $deposit_data$$3_error_list$$15$$ = $deposit_form_uniform$$.$validate$();
+          if (0 < $deposit_data$$3_error_list$$15$$.length) {
+            $goog$array$forEach$$($deposit_data$$3_error_list$$15$$, function($error_msg$$11$$) {
               this.$showNotification$("error", $error_msg$$11$$);
             }, this), $e$$399_request_id$$6$$.stopPropagation(), $e$$399_request_id$$6$$.preventDefault();
           } else {
-            var $deposit_data$$3_error_list$$14$$ = $JSCompiler_StaticMethods_getAsJSON$$($deposit_form_uniform$$), $amount$$12$$ = $deposit_data$$3_error_list$$14$$.Amount;
+            var $deposit_data$$3_error_list$$15$$ = $JSCompiler_StaticMethods_getAsJSON$$($deposit_form_uniform$$), $amount$$12$$ = $deposit_data$$3_error_list$$15$$.Amount;
             0 > $amount$$12$$ && ($amount$$12$$ = 0);
-            var $amount$$12$$ = 1E8 * $amount$$12$$, $deposit_method_id$$1$$ = $goog$string$toNumber$$($deposit_data$$3_error_list$$14$$.Method);
-            0 >= $deposit_method_id$$1$$ ? ($e$$399_request_id$$6$$.stopPropagation(), $e$$399_request_id$$6$$.preventDefault()) : ($e$$399_request_id$$6$$ = parseInt(1E7 * Math.random(), 10), this.$conn_$.$requestDeposit$($e$$399_request_id$$6$$, $deposit_method_id$$1$$, $amount$$12$$, void 0, $deposit_data$$3_error_list$$14$$.Currency), $goog$soy$renderElement$$($dlg$$9$$.$getContentElement$(), $bitex$templates$WaitingForDepositResponseDialogContent$$), $handler$$145$$.$listenOnce$(this.$conn_$, 
+            var $amount$$12$$ = 1E8 * $amount$$12$$, $deposit_method_id$$1$$ = $goog$string$toNumber$$($deposit_data$$3_error_list$$15$$.Method);
+            0 >= $deposit_method_id$$1$$ ? ($e$$399_request_id$$6$$.stopPropagation(), $e$$399_request_id$$6$$.preventDefault()) : ($e$$399_request_id$$6$$ = parseInt(1E7 * Math.random(), 10), this.$conn_$.$requestDeposit$($e$$399_request_id$$6$$, $deposit_method_id$$1$$, $amount$$12$$, void 0, $deposit_data$$3_error_list$$15$$.Currency), $goog$soy$renderElement$$($dlg$$9$$.$getContentElement$(), $bitex$templates$WaitingForDepositResponseDialogContent$$), $handler$$145$$.$listenOnce$(this.$conn_$, 
             "deposit_response." + $e$$399_request_id$$6$$, function($e$$400$$) {
               var $msg$$126$$ = $e$$400$$.data;
               $goog$soy$renderElement$$($dlg$$9$$.$getContentElement$(), $bitex$templates$DepositSlipContentDialog$$, {$deposit_id$:$msg$$126$$.DepositID, $rest_url$:this.$rest_url_$});
@@ -16870,8 +16898,8 @@ $JSCompiler_prototypeAlias$$.$onUserLoginError_$ = function $$JSCompiler_prototy
     $goog$dom$getElement$$("id_input_google_authenticator").focus();
     this.$getHandler$().$listen$($dlg_$$1$$, $goog$ui$Dialog$EventType$SELECT$$, function($e$$414_second_factor$$1$$) {
       if ("ok" == $e$$414_second_factor$$1$$.key) {
-        var $error_list$$15$$ = $gauth_uniform$$1$$.$validate$();
-        0 < $error_list$$15$$.length ? ($goog$array$forEach$$($error_list$$15$$, function($error_msg$$12$$) {
+        var $error_list$$16$$ = $gauth_uniform$$1$$.$validate$();
+        0 < $error_list$$16$$.length ? ($goog$array$forEach$$($error_list$$16$$, function($error_msg$$12$$) {
           this.$showNotification$("error", $error_msg$$12$$);
         }, this), $e$$414_second_factor$$1$$.stopPropagation(), $e$$414_second_factor$$1$$.preventDefault()) : ($e$$414_second_factor$$1$$ = $JSCompiler_StaticMethods_getAsJSON$$($gauth_uniform$$1$$).token, this.$conn_$.login(this.$model_$.get("SelectedBrokerID"), this.$loginView_$.$getUsername$(), this.$loginView_$.$getPassword$(), $e$$414_second_factor$$1$$), $dlg_$$1$$.$dispose$());
       }
