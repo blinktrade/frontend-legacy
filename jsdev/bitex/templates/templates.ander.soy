@@ -1234,6 +1234,14 @@
   </table>
 {/template}
 
+/**
+ * @param dataRow
+ */
+{template .CustomerDetailButton}
+  <button class="btn btn-mini btn-primary btn-deposit" data-row="{$dataRow}">
+    {msg desc="details"}details{/msg}
+  </button>
+{/template}
 
 /**
   * @param clientID
