@@ -2052,7 +2052,7 @@ bitex.app.BlinkTrade.prototype.showWithdrawalDialog = function(currency, opt_pre
             return;
           }
           amount = new bitex.primitives.Price(amount * 1e8,
-                                              this.getCurrencyPip(currency)).floor();
+                                              this.getCurrencyPip(withdraw_data['Currency'])).floor();
 
           var pos = [0];
           var net_amount_el_value_id = form_id + '_method_' + withdraw_data['Method'] + '_net_value_value';
