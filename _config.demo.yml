@@ -52,3 +52,7 @@ plugins:     ./_plugins
 paginate:    5
 paginate_path: "post/page:num"
 permalink:     /post/:title/
+
+sass:
+  sass_dir: assets/themes/coinage/sass
+  style: :compressed

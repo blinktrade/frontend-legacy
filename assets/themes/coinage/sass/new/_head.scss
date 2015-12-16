@@ -12,6 +12,16 @@
     .navbar {
         margin-bottom: 0;
     }
+
+    .nav {
+      margin-top: 4px;
+      li {
+        padding: 4px;
+        a {
+          padding: 6px 12px;
+        }
+    }
+    }
 }
 
 .head-top {
@@ -31,7 +41,7 @@
     color: #eee;
     list-style: none;
     margin: 0;
-    padding: 15px 0;
+    padding: 12px 0;
 
     .glyphicon {
         color: #337ab7;
@@ -87,16 +97,27 @@
     }
 }
 
-.head-market {
+.head-top-button {
     background: #383838;
     color: #9d9d9d;
     display: block;
     float: right;
-    padding: 15px;
+    padding: 12px;
 
     &:hover,
     &:focus {
         color: #fff;
         text-decoration: none;
     }
+}
+
+.head-top-nav {
+  margin-top: 0!important;
+  margin-bottom: 0!important;
+  padding-left: 0;
+  list-style: none;
+  li {
+    float: left;
+    padding: 0!important;
+  }
 }

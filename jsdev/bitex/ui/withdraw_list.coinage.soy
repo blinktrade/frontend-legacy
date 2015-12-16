@@ -1,6 +1,17 @@
 {namespace bitex.ui.WithdrawList.templates}
 
 /**
+  * @param label
+  * @param status
+  * @param? reason
+  */
+{template .labelStatus}
+  <h5>
+    <span style="text-transform: uppercase" title="{$reason}" class="label label-{$label}">{$status}</span>
+  </h5>
+{/template}
+
+/**
  * @param button1
  * @param button2
  * @param? button3
@@ -94,7 +105,7 @@
  * @param dataRow
  */
 {template .btnCancel}
-  <a class="btn btn-mini btn-danger btn-withdraw-cancel" href="#" data-row="{$dataRow}" >
+  <a class="btn btn-xs btn-danger btn-withdraw-cancel" href="#" data-row="{$dataRow}" >
    {msg desc="Cancel"}Cancel{/msg}
    <i class="icon-white icon-remove"></i>
   </a>
@@ -104,7 +115,7 @@
  * @param dataRow
  */
 {template .btnProgress}
-  <a class="btn btn-mini btn-primary btn-withdraw-progress" href="#" data-row="{$dataRow}" >
+  <a class="btn btn-xs btn-primary btn-withdraw-progress" href="#" data-row="{$dataRow}" >
    {msg desc="Set in progress"}Set in progress{/msg}
   </a>
 {/template}
@@ -113,7 +124,7 @@
  * @param dataRow
  */
 {template .btnComplete}
-  <a class="btn btn-mini btn-success btn-withdraw-complete" href="#" data-row="{$dataRow}" >
+  <a class="btn btn-xs btn-success btn-withdraw-complete" href="#" data-row="{$dataRow}" >
    {msg desc="Set in progress"}Set in progress{/msg}
   </a>
 {/template}
@@ -122,9 +133,9 @@
  * @param dataRow
  */
 {template .btnKYC}
-  <a class="btn btn-mini btn-warning btn-withdraw-progress" href="#" data-row="{$dataRow}">
+  <a class="btn btn-xs btn-warning btn-withdraw-progress" href="#" data-row="{$dataRow}">
    {msg desc="Set in progress"}Set in progress{/msg}
-   <i class="icon-white icon-remove"></i>
+   <i class="glyphicon glyphicon-remove-sign"></i>
   </a>
 {/template}
 
@@ -133,9 +144,9 @@
  * @param link
  */
 {template .btnBlockchain}
-  <a class="btn btn-mini btn-info btn-btc-blockchain" href="{$link}" target="_blank">
+  <a class="btn btn-xs btn-info btn-btc-blockchain" href="{$link}" target="_blank">
    {msg desc="blockchain"}blockchain{/msg}
-   <i class="icon-white icon-share-alt"></i>
+   <i class="glyphicon glyphicon-share"></i>
   </a>
 {/template}
 
@@ -143,10 +154,10 @@
  * @param dataRow
  */
 {template .btnQR}
-  <a class="btn btn-mini btn-info btn-withdraw-list-qr" href="#" data-action="SHOW_QR"
+  <a class="btn btn-xs btn-info btn-withdraw-list-qr" href="#" data-action="SHOW_QR"
    data-row="{$dataRow}">
    {msg desc="qrcode"}qrcode{/msg}
-   <i class="icon-white icon-qrcode"></i>
+   <i class="glyphicon glyphicon-qrcode"></i>
   </a>
 {/template}
 
@@ -154,9 +165,9 @@
  * @param dataRow
  */
 {template .btnRedo}
-  <a class="btn btn-mini btn-withdraw-redo" data-row="{$dataRow}" href="#">
+  <a class="btn btn-xs btn-default btn-withdraw-redo" data-row="{$dataRow}" href="#">
    {msg desc="Redo"}Redo{/msg}
-   <i class="icon-white icon-refresh"></i>
+   <i class="glyphicon glyphicon-refresh"></i>
   </a>
 {/template}
 
@@ -164,8 +175,8 @@
  * @param link
  */
 {template .btnBrokerReceipt}
-  <a class="btn btn-mini btn-primary btn-btc-blockchain" href="{$link}" target="_blank" >
+  <a class="btn btn-xs btn-primary btn-btc-blockchain" href="{$link}" target="_blank" >
    {msg desc="view"}view{/msg}
-   <i class="icon-white icon-eye-open"></i>
+   <i class="glyphicon glyphicon-eye-open"></i>
   </a>
 {/template}

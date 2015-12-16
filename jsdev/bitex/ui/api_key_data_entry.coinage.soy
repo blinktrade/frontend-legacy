@@ -9,13 +9,13 @@
 <form  id="{$id}_form" class="api-key-data-entry-form">
     <fieldset>
         <h2 class="h3">{msg desc="API Key Data Entry form legend"}Create API Key{/msg}</h2>
-        <div class="api-key-data-entry-form-block well">
+        <div class="api-key-data-entry-form-block page__section_white page__padding">
             <label>API Key Label:</label>
             <input id="{$id}_label" type="text" class="form-control">
         </div>
 
         <h3>{msg desc="Permissions title on the API Key Data Entry form"}Permissions{/msg}</h3>
-        <div class="api-key-data-entry-form-block well">
+        <div class="api-key-data-entry-form-block page__section_white page__padding">
           <div class="pull-right"><label class="no-selection">{msg desc="Permissions clear all button on the API Key Data Entry form"}Clear all{/msg}</label></div>
           <div class="pull-right api-key-data-entry-form-pipe">|</div>
           <div class="pull-right"><label class="no-selection">{msg desc="Permissions select all button on the API Key Data Entry form"}Select all{/msg}</label></div>
@@ -204,7 +204,7 @@
         </div>
 
         <h3>{msg desc="IP Whitelist title on the API Key Data Entry form"}IP Whitelist{/msg}</h3>
-        <div class="api-key-data-entry-form-block well">
+        <div class="api-key-data-entry-form-block page__section_white page__padding">
             <label for="{$id}_ip_whitelist">
                 {msg desc="IP Addresses on the API Key Data Entry form IP Whitelist section"}IP Addresses{/msg}:
             </label>
@@ -218,9 +218,10 @@
             </small>
         </div>
 
-        <div class="text-center">
+        <br>
+        <div class="row-fluid">
             <button id="{$id}_cancel_btn" class="btn">Cancel</button>
-            <button id="{$id}_create_btn" type="submit" class="btn btn-primary">Create</button>
+            <button id="{$id}_create_btn" type="submit" class="btn btn-success" style="margin-left:5px;">Create</button>
         </div>
     </fieldset>
 </form>

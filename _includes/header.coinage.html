@@ -71,9 +71,9 @@
   <script type="text/javascript" src="//apis.google.com/js/plusone.js"></script>
 
   {% if page.load_application %}
-  <link href="{{ site.url }}{{ site.baseurl }}/assets/themes/default/css/fuelux.css" rel="stylesheet">
   <link href="{{ site.url }}{{ site.baseurl }}/assets/themes/default/css/style-new.css?v={{ site.deploy_version }}" rel="stylesheet">
-  <link href="{{ site.url }}{{ site.baseurl }}/assets/themes/coinage/css/coinage.css?v={{ site.deploy_version }}" rel="stylesheet">
+  <link href="{{ site.url }}{{ site.baseurl }}/assets/css/flag-icon.css" rel="stylesheet">
+  <link href="{{ site.url }}{{ site.baseurl }}/assets/themes/coinage/sass/coinage.css?v={{ site.deploy_version }}" rel="stylesheet">
   <script data-cfasync="false" src="{{ site.url }}{{ site.baseurl }}/assets/js/bitex_app_blink_trade.compiled.{{site.lang}}.coinage.js?v={{ site.deploy_version }}" type="text/javascript"></script>
   {% endif %}
 </head>
@@ -92,7 +92,7 @@
                         <i class="glyphicon glyphicon-triangle-top"></i> LAST&nbsp;
                     </span>
                     <span class="head-ticker__value">
-                        USD 11,090.16
+                        PHP 11,090.16
                     </span>
                 </li>
                 <li>
@@ -100,7 +100,7 @@
                         <i class="glyphicon glyphicon-triangle-top"></i> HIGHT&nbsp;
                     </span>
                     <span class="head-ticker__value">
-                        USD 13,441.61
+                        PHP 13,441.61
                     </span>
                 </li>
                 <li>
@@ -108,17 +108,48 @@
                         <i class="glyphicon glyphicon-triangle-bottom"></i> LOW&nbsp;
                     </span>
                     <span class="head-ticker__value">
-                        USD 9,950.00
+                        PHP 9,950.00
                     </span>
                 </li>
             </ul>
             <!-- /.head-ticker -->
 
-            <!-- .head-market -->
-            <a data-switch-view="market" href="#" class="head-market">
-                <i class="glyphicon glyphicon-stats"></i> {% t views.toolbar.market %}
-            </a>
-            <!-- /.head-market -->
+            <ul class="head-top-nav navbar-right">
+              <!-- .head-FAQ -->
+              <li>
+                <a data-switch-view="faq" href="#" class="head-top-button">
+                    <i class="glyphicon glyphicon-question-sign"></i> {% t views.toolbar.faq %}
+                </a>
+              </li>
+              <!-- /.head-FAQ -->
+              <!-- .head-market -->
+              <li>
+                <a data-switch-view="market" href="#" class="head-top-button">
+                    <i class="glyphicon glyphicon-stats"></i> {% t views.toolbar.market %}
+                </a>
+              </li>
+              <!-- /.head-market -->
+              <!-- .head-language -->
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle head-top-button" data-toggle="dropdown" role="button" aria-expanded="false" style="padding:13.5px">
+                    <span class="flag-icon flag-icon-{{ site.lang}}"></span> <b class="caret"></b></a>
+                </a>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="drop1" style="min-width:60px;max-width:61px">
+                {% for lang in site.languages %}
+                  {% if  lang != site.lang  %}
+                    {% if forloop.first %}
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ site.url }}{{ site.baseurl_root }}/">
+                        <span class="flag-icon flag-icon-{{lang}}"></span></a></li>
+                    {% else %}
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ site.url }}{{ site.baseurl_root }}/{{lang}}">
+                        <span class="flag-icon flag-icon-{{lang}}"></span></a></li>
+                    {% endif %}
+                  {% endif %}
+                {% endfor %}
+                </ul>
+              </li>
+              <!-- /.head-language -->
+            </ul>
         </div>
         <!-- /.container-fluid -->
     </div>
@@ -126,7 +157,7 @@
 
     <!-- .navbar -->
     <nav id="id_toolbar" class="navbar navbar-inverse navbar-static-top">
-      <div class="container-fluid">
+      <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -151,58 +182,54 @@
           <ul class="nav navbar-nav navbar-right">
             <li class="bitex-display-if-logged">
                 <!-- .balance -->
-                <div class="balance" id="id_account_summary_content">
-                </div>
+                <div class="balance" id="id_account_summary_content"></div>
                 <!-- /.balance -->
-            </li>
-            <li class="bitex-hide-if-logged">
-              <a href="#" data-switch-view="signin">
-                  <i class="glyphicon glyphicon-user"></i> {% t views.toolbar.signin %}
-              </a>
-            </li>
-            <li class="bitex-hide-if-logged">
-              <a href="#" data-switch-view="signup">
-                  <i class="glyphicon glyphicon-log-in"></i> {% t views.toolbar.signup %}
-              </a>
-            </li>
-            <li>
-              <a href="#" data-switch-view="faq">
-                  <i class="glyphicon glyphicon-question-sign"></i> {% t views.toolbar.faq %}
-              </a>
             </li>
             <li class="bitex-display-if-logged dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                  <i class="glyphicon glyphicon-user"></i> <span class="bitex-model bitex-view-title" data-model-key="DisplayName"></span> <small style="line-height: 1;">(<span class="bitex-model bitex-view-title" data-model-key="PseudoName"></span>)</small> <span class="caret"></span>
+                <img class="thumb thumb-p" src="{{ site.url }}{{ site.baseurl }}/assets/themes/coinage/img/coinage-avatar.png" />
+                <span class="bitex-model bitex-view-title" data-model-key="DisplayName"></span>
+                <span class="caret"></span>
               </a>
-              <ul class="dropdown-menu" role="menu">
-                  <li>
+              <div class="dropdown-arrow"></div>
+              <ul class="dropdown-menu" role="menu" style="min-width: 220px;">
+                  <li class="dropdown-account" role="presentation" data-switch-view="profile">
                       <a href="#" data-switch-view="profile">
-                         <i class="glyphicon glyphicon-user"></i> {% t views.sidebar.my_profile %}
+                        <div class="row">
+                          <div class="col-xs-4">
+                            <img class="thumb thumb-g" src="{{ site.url }}{{ site.baseurl }}/assets/themes/coinage/img/coinage-avatar.png" />
+                          </div>
+                          <div class="col-xs-8">
+                            <strong class="bitex-model bitex-view-title" data-switch-view="profile" data-model-key="DisplayName"></strong>
+                            <br>
+                            <small style="line-height: 1;">(<span class="bitex-model bitex-view-title" data-model-key="PseudoName"></span>)</small>
+                          </div>
+                        </div>
                       </a>
                   </li>
                   <li>
                       <a href="#" data-switch-view="my_broker">
-                         <i class="glyphicon glyphicon-search"></i> {% t views.sidebar.my_broker %}
+                         {% t views.sidebar.my_broker %}
                       </a>
                   </li>
                   <li class="bitex-display-if-broker">
                     <a href="#" data-switch-view="deposit_requests">
-                      <i class="glyphicon glyphicon-plus-sign"></i> {% t views.sidebar.deposit_requests %}
+                      {% t views.sidebar.deposit_requests %}
                     </a>
                   </li>
                   <li class="bitex-display-if-broker">
                     <a href="#" data-switch-view="withdraw_requests">
-                      <i class="glyphicon glyphicon-minus-sign"></i> {% t views.sidebar.withdraw_requests %}
+                      {% t views.sidebar.withdraw_requests %}
                     </a>
                   </li>
                   <li>
                       <a href="#" data-switch-view="deposit">
-                         <i class="glyphicon glyphicon-plus"></i> {% t views.sidebar.deposit %}
+                         {% t views.sidebar.deposit %}
                       </a>
                   </li>
                   <li>
                       <a href="#" data-switch-view="withdraw">
-                         <i class="glyphicon glyphicon-minus"></i> {% t views.sidebar.withdraw %}
+                         {% t views.sidebar.withdraw %}
                       </a>
                   </li>
                 <li class="divider"></li>
@@ -213,22 +240,15 @@
                 </li>
               </ul>
             </li>
-
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                  <i class="glyphicon glyphicon-globe"></i> Language <span class="caret"></span>
+            <li class="bitex-hide-if-logged">
+              <a class="btn btn-outline" href="#" data-switch-view="signup">
+                  {% t views.toolbar.signup %}
               </a>
-              <ul class="dropdown-menu" role="menu">
-                {% for lang in site.languages %}
-                  {% if  lang != site.lang  %}
-                    {% if forloop.first %}
-                      <li><a href="{{ site.url }}{{ site.baseurl_root }}/themes/coinage/">{{ lang|upcase }}</a></li>
-                    {% else %}
-                      <li><a href="{{ site.url }}{{ site.baseurl_root }}/{{lang}}/themes/coinage/">{{ lang|upcase }}</a></li>
-                    {% endif %}
-                  {% endif %}
-                {% endfor %}
-              </ul>
+            </li>
+            <li class="bitex-hide-if-logged">
+              <a class="btn btn-success" href="#" data-switch-view="signin">
+                  {% t views.toolbar.signin %}
+              </a>
             </li>
 
             <li class="bitex-hide-if-ws-connected">
@@ -241,6 +261,28 @@
         {% endif %}
       </div><!-- /.container-fluid -->
     </nav>
+    <div class="alert-box bitex-display-if-logged">
+        <div class="alert | bitex-model" style="display: none" data-model-key="IsMissingVerification" data-model-action="show_element">
+            <div class="container">
+                <button type="button" class="close pull-right" data-dismiss="alert">&times;</button>
+                <a href="" class="alert-link" data-switch-view="verification"> {% t views.alerts.verification %} </a>
+            </div>
+        </div>
+
+        <div class="alert alert-success | bitex-model" style="display: none" data-model-key="TwoFactorEnabled" data-model-action="hide_element">
+            <div class="container">
+                <button type="button" class="close pull-right" data-dismiss="alert">&times;</button>
+                <a href="" class="alert-link" data-switch-view="profile"> {% t views.alerts.enable_two_factor %} </a>
+            </div>
+        </div>
+
+        <div class="alert alert-danger | bitex-model" style="display: none" data-model-key="IsAccountBlocked" data-model-action="show_element">
+            <div class="container">
+                <button type="button" class="close pull-right" data-dismiss="alert">&times;</button>
+                <a href="" class="alert-link" data-switch-view="faq"> {% t views.alerts.frozen_account %} </a>
+            </div>
+        </div>
+    </div>
     <!-- /.navbar -->
 </header>
 <!-- /.head -->

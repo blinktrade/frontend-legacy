@@ -1,6 +1,15 @@
 {namespace bitex.ui.WithdrawList.templates}
 
 /**
+  * @param label
+  * @param status
+  * @param? reason
+  */
+{template .labelStatus}
+  <span title="{$reason}" class="label label-{$label}">{$status}</span>
+{/template}
+
+/**
  * @param button1
  * @param button2
  * @param? button3

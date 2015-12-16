@@ -1,8 +1,8 @@
 .order {
     background: #fff;
-    border-radius: 4px;
+    border-radius: 3px;
     border: 1px solid #eee;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
 
     @media (min-width: $screen-phone) {
         display: table;
@@ -33,9 +33,28 @@
     }
 }
 
-.order-form {
-    padding: 20px;
+.simple-order-form{
+    padding: 24px;
+    margin-bottom: 15px;
 }
+
+.orders-table {
+    tbody {
+        tr{
+            td {
+                line-height: 8px;
+            }
+        }
+    }
+}
+
+.order-form {
+    padding-top: 20px;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-bottom: 5px;
+}
+
 
 .order-form__head {
     display: table;
@@ -46,6 +65,15 @@
 .order-form__title {
     display: table-cell;
     vertical-align: baseline;
+    font-weight: 400;
+}
+
+.order-form__buy {
+  color: #00b482;
+}
+
+.order-form__sell {
+  color: #d70b49;
 }
 
 .order-form__balance {
@@ -123,6 +151,14 @@
     display: table;
     padding: 12px 10px;
     width: 100%;
+    text-align: center;
+}
+
+.orders__head_BID {
+  background-color: #e7fff8;
+}
+.orders__head_ASK {
+  background-color: #fef4f7;
 }
 
 .orders__title {
@@ -154,4 +190,25 @@
         border-top-color: #eee !important;
         width: 33.333%;
     }
+}
+
+
+.md-blink,
+.md-blink > td,
+.order-manager-blink td,
+.balance-info-blink td,
+.order-book-blink td {
+  background: #00E7A7!important;
+}
+
+.order-book-drag td{
+    border-top: 3px solid #00E7A7!important;
+}
+
+.order-book-qty, .order-book-price {
+    cursor: crosshair;
+}
+
+.order-book-movable td{
+    cursor: move;
 }

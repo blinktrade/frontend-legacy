@@ -167,46 +167,108 @@ bitex.ui.WithdrawList = function( methodDescriptionObj, opt_broker_mode,  opt_sh
           var MSG_WITHDRAW_REASON_ACCOUNT_HAS_WITHDRAWAL_BLOCK = goog.getMsg('The withdraw function is temporarily blocked for your account');
 
 
-          var status_el = goog.dom.createDom('span', ['label', 'label-' + label_class_text[0] ] );
+          // var status_el = goog.dom.createDom('span', ['label', 'label-' + label_class_text[0] ] );
+          var status_el = goog.soy.renderAsElement(bitex.ui.WithdrawList.templates.labelStatus, {
+            label: label_class_text[0],
+            status: label_class_text[1]
+          });
           var reason_el;
           switch(reason_id) {
             case 0:
-              reason_el = goog.dom.createDom('abbr', {'title': reason},  label_class_text[1] );
+              // reason_el = goog.dom.createDom('abbr', {'title': reason},  label_class_text[1] );
+              status_el = goog.soy.renderAsElement(bitex.ui.WithdrawList.templates.labelStatus, {
+                label: label_class_text[0],
+                status: label_class_text[1],
+                reason: MSG_WITHDRAW_REASON_INSUFFICIENT_FUNDS
+              });
               break;
             case -1:
-              reason_el = goog.dom.createDom('abbr', {'title': MSG_WITHDRAW_REASON_INSUFFICIENT_FUNDS},  label_class_text[1] );
+              // reason_el = goog.dom.createDom('abbr', {'title': MSG_WITHDRAW_REASON_INSUFFICIENT_FUNDS},  label_class_text[1] );
+              status_el = goog.soy.renderAsElement(bitex.ui.WithdrawList.templates.labelStatus, {
+                label: label_class_text[0],
+                status: label_class_text[1],
+                reason: MSG_WITHDRAW_REASON_ACCOUNT_NOT_VERIFIED
+              });
               break;
             case -2:
-              reason_el = goog.dom.createDom('abbr', {'title': MSG_WITHDRAW_REASON_ACCOUNT_NOT_VERIFIED},  label_class_text[1] );
+              // reason_el = goog.dom.createDom('abbr', {'title': MSG_WITHDRAW_REASON_ACCOUNT_NOT_VERIFIED},  label_class_text[1] );
+              status_el = goog.soy.renderAsElement(bitex.ui.WithdrawList.templates.labelStatus, {
+                label: label_class_text[0],
+                status: label_class_text[1],
+                reason: MSG_WITHDRAW_REASON_ACCOUNT_NOT_VERIFIED
+              });
               break;
             case -3:
-              reason_el = goog.dom.createDom('abbr', {'title': MSG_WITHDRAW_REASON_SUSPICION_OF_FRAUD},  label_class_text[1] );
+              // reason_el = goog.dom.createDom('abbr', {'title': MSG_WITHDRAW_REASON_SUSPICION_OF_FRAUD},  label_class_text[1] );
+              status_el = goog.soy.renderAsElement(bitex.ui.WithdrawList.templates.labelStatus, {
+                label: label_class_text[0],
+                status: label_class_text[1],
+                reason: MSG_WITHDRAW_REASON_SUSPICION_OF_FRAUD
+              });
               break;
             case -4:
-              reason_el = goog.dom.createDom('abbr', {'title': MSG_WITHDRAW_REASON_DIFFERENT_ACCOUNT},  label_class_text[1] );
+              // reason_el = goog.dom.createDom('abbr', {'title': MSG_WITHDRAW_REASON_DIFFERENT_ACCOUNT},  label_class_text[1] );
+              status_el = goog.soy.renderAsElement(bitex.ui.WithdrawList.templates.labelStatus, {
+                label: label_class_text[0],
+                status: label_class_text[1],
+                reason: MSG_WITHDRAW_REASON_DIFFERENT_ACCOUNT
+              });
               break;
             case -5:
-              reason_el = goog.dom.createDom('abbr', {'title': MSG_WITHDRAW_REASON_INVALID_WALLET},  label_class_text[1] );
+              // reason_el = goog.dom.createDom('abbr', {'title': MSG_WITHDRAW_REASON_INVALID_WALLET},  label_class_text[1] );
+              status_el = goog.soy.renderAsElement(bitex.ui.WithdrawList.templates.labelStatus, {
+                label: label_class_text[0],
+                status: label_class_text[1],
+                reason: MSG_WITHDRAW_REASON_INVALID_WALLET
+              });
               break;
             case -6:
-              reason_el = goog.dom.createDom('abbr', {'title': MSG_WITHDRAW_REASON_INVALID_BANK_ACCOUNT},  label_class_text[1] );
+              // reason_el = goog.dom.createDom('abbr', {'title': MSG_WITHDRAW_REASON_INVALID_BANK_ACCOUNT},  label_class_text[1] );
+              status_el = goog.soy.renderAsElement(bitex.ui.WithdrawList.templates.labelStatus, {
+                label: label_class_text[0],
+                status: label_class_text[1],
+                reason: MSG_WITHDRAW_REASON_INVALID_BANK_ACCOUNT
+              });
               break;
             case -7:
-              reason_el = goog.dom.createDom('abbr', {'title': MSG_WITHDRAW_REASON_OVER_LIMIT},  label_class_text[1] );
+              // reason_el = goog.dom.createDom('abbr', {'title': MSG_WITHDRAW_REASON_OVER_LIMIT},  label_class_text[1] );
+              status_el = goog.soy.renderAsElement(bitex.ui.WithdrawList.templates.labelStatus, {
+                label: label_class_text[0],
+                status: label_class_text[1],
+                reason: MSG_WITHDRAW_REASON_OVER_LIMIT
+              });
               break;
             case -8:
-              reason_el = goog.dom.createDom('abbr', {'title': MSG_WITHDRAW_REASON_UNCONFIRMED_DEPOSITS},  label_class_text[1] );
+              // reason_el = goog.dom.createDom('abbr', {'title': MSG_WITHDRAW_REASON_UNCONFIRMED_DEPOSITS},  label_class_text[1] );
+              status_el = goog.soy.renderAsElement(bitex.ui.WithdrawList.templates.labelStatus, {
+                label: label_class_text[0],
+                status: label_class_text[1],
+                reason: MSG_WITHDRAW_REASON_UNCONFIRMED_DEPOSITS
+              });
               break;
             case -9:
-              reason_el = goog.dom.createDom('abbr', {'title': MSG_WITHDRAW_REASON_ACCOUNT_HAS_WITHDRAWAL_BLOCK},  label_class_text[1] );
+              // reason_el = goog.dom.createDom('abbr', {'title': MSG_WITHDRAW_REASON_ACCOUNT_HAS_WITHDRAWAL_BLOCK},  label_class_text[1] );
+              status_el = goog.soy.renderAsElement(bitex.ui.WithdrawList.templates.labelStatus, {
+                label: label_class_text[0],
+                status: label_class_text[1],
+                reason: MSG_WITHDRAW_REASON_ACCOUNT_HAS_WITHDRAWAL_BLOCK
+              });
               break;
             default:
-              return goog.dom.createDom('span', ['label', 'label-' + label_class_text[0] ],  label_class_text[1] );
+              return status_el;
           }
-          goog.dom.appendChild(status_el, reason_el);
+          // return goog.soy.renderAsElement(bitex.ui.WithdrawList.templates.labelStatus, {
+            // label: reason_el,
+            // status: label_class_text[0]
+          // });
+          // goog.dom.appendChild(status_el, reason_el);
           return status_el;
         } else {
-          return goog.dom.createDom('span', ['label', 'label-' + label_class_text[0] ],  label_class_text[1]  );
+          // return goog.dom.createDom('span', ['label', 'label-' + label_class_text[0] ],  label_class_text[1]  );
+          return goog.soy.renderAsElement(bitex.ui.WithdrawList.templates.labelStatus, {
+            label: label_class_text[0],
+            status: label_class_text[1]
+          });
         }
       },
       'classes': function() { return goog.getCssName(bitex.ui.WithdrawList.CSS_CLASS, 'status'); }

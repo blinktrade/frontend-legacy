@@ -146,7 +146,7 @@
       <div class="controls">
         <div class="input-prepend">
           <span class="add-on">{$currencySign}</span>
-          <input id="{$id_value}" type="text" class="input-small" size="16" name="PaidValue" value="{$value}">
+          <input id="{$id_value}" type="text" class="form-control" size="16" name="PaidValue" value="{$value}">
         </div>
       </div>
     </div>
@@ -156,7 +156,7 @@
         <div class="row-fluid">
           <div class="span4">
             <div class="input-append">
-              <input id="{$percentFeeID}" type="text" class="input-mini" size="16" name="Fee" value="{$percentFee}">
+              <input id="{$percentFeeID}" type="text" class="form-control" size="16" name="Fee" value="{$percentFee}">
               <span class="add-on">%</span>
             </div>
           </div>
@@ -164,7 +164,7 @@
           <div class="span4">
             <div class="input-prepend">
               <span class="add-on">{$currencySign}</span>
-              <input id="{$fixedFeeID}" type="text" class="input-mini" size="16" name="Fee" value="{$fixedFee}">
+              <input id="{$fixedFeeID}" type="text" class="form-control" size="16" name="Fee" value="{$fixedFee}">
             </div>
           </div>
 
@@ -206,7 +206,7 @@
       </p>
       <p>{msg desc="Instant deposit fiat description 3"}Valor a ser creditado para este depósito: {$value}{/msg} </p>
 
-    <div class="well">
+    <div class="">
         <p>
             {msg desc="Instant deposit fiat message"}
                 One credit per deposit request You won't be able to withdrawal funds 
@@ -237,7 +237,7 @@
   <div class="page__body content">
     {if $msg_broker['BrokerID'] == -1 }
     {else}
-      <div class="broker-address">
+      <div class="broker-address page__section_white page__padding">
         <h4 class="broker-address__title">
             Address
         </h4>
@@ -259,7 +259,7 @@
       <hr />
 
       {if $msg_broker['BrokerID'] > 0 }
-        <div class="broker-market">
+        <div class="broker-market page__section_white page__padding">
           <h4 class="broker-market__title">
             {msg desc="Allowed markets section subtitle on broker view"}Markets{/msg}
           </h4>
@@ -277,7 +277,7 @@
       {if $msg_broker['BrokerID'] >= 0 }
         {if length($msg_broker['FeeStructure']) > 0 }
         <!-- .broker-fee -->
-        <div class="broker-fee">
+        <div class="broker-fee page__section_white page__padding">
           <h4 class="broker-fee__title">
             {msg desc="Fee section subtitle on Broker view"}Fees{/msg}
           </h4>
@@ -337,9 +337,11 @@
         {/if}
       {/if}
 
+      <hr>
+
       {if not $msg_broker['IsBrokerHub'] }
       <!-- .broker-wallet -->
-      <div class="broker-wallet">
+      <div class="broker-wallet page__section_white page__padding">
         <h4 class="broker-wallet__title">
           {msg desc="Wallet section subtitle on Broker view"}Wallets{/msg}
         </h4>
@@ -444,7 +446,7 @@
                data-uniform-validators="required"
                data-uniform-label="{msg desc="Limit table field header"}Google authenticator code{/msg}"
                label="{msg desc="Google Authenticator code placeholder"}eg. 555555{/msg}"
-               class="input-large"
+               class="form-control"
                type="text"
                size="10">
       </div>
@@ -463,7 +465,7 @@
 
       <div class="control-group">
         <label>Confirmation Code</label>
-        <input name="confirmation_code" type="text" data-uniform-validators="required" label="{msg desc="Confirmation code placeholder on withdraw confirmation dialog"}Confirmation code{/msg}" class="input-block-level">
+        <input name="confirmation_code" type="text" data-uniform-validators="required" label="{msg desc="Confirmation code placeholder on withdraw confirmation dialog"}Confirmation code{/msg}" class="input-block-level form-control">
       </div>
       <p>
         <i>{msg desc="Withdraw confirmation dialog security disclaimer"}This is security measure to improve your account security{/msg}</i>
@@ -487,7 +489,7 @@
     <div class="control-group">
       <label class="control-label" for="{$id}_buy_fee">{msg desc="Buy fee"}Taker Buy fee {/msg}</label>
       <div class="controls">
-        <input type="text" id="{$id}_taker_buy_fee"  style="text-align: right;" value="{$taker_buy_fee}"/>
+        <input type="text" class="form-control" id="{$id}_taker_buy_fee"  style="text-align: right;" value="{$taker_buy_fee}"/>
         <div class="checkbox">
           <label>
             <input type="checkbox" id="{$id}_broker_taker_buy_fee"> Use Broker Fee
@@ -510,7 +512,7 @@
     <div class="control-group">
       <label class="control-label" for="{$id}_sell_fee">{msg desc="Buy fee"}Taker Sell fee{/msg}</label>
       <div class="controls">
-        <input type="text" id="{$id}_taker_sell_fee"  style="text-align: right;" value="{$taker_sell_fee}"/>
+        <input type="text" class="form-control" id="{$id}_taker_sell_fee"  style="text-align: right;" value="{$taker_sell_fee}"/>
           <div class="checkbox">
             <label>
               <input type="checkbox" id="{$id}_broker_taker_sell_fee"> Use Broker Fee
@@ -522,7 +524,7 @@
     <div class="control-group">
       <label class="control-label" for="{$id}_sell_fee">{msg desc="Buy fee"}Maker Sell fee{/msg}</label>
       <div class="controls">
-        <input type="text" id="{$id}_sell_fee"  style="text-align: right;" value="{$sell_fee}"/>
+        <input type="text" class="form-control" id="{$id}_sell_fee"  style="text-align: right;" value="{$sell_fee}"/>
           <div class="checkbox">
             <label>
               <input type="checkbox" id="{$id}_broker_sell_fee"> Use Broker Fee
@@ -653,7 +655,7 @@
     <h5 class="text-center">{$data['Address'] }</h5>
     <div class="text-center">
       <input type="text"
-             class="confirm-trusted-address-label"
+             class="confirm-trusted-address-label form-control"
              size="30"
              placeholder="{msg desc="confirm trusted label placeholder"}Enter a label for this address.{/msg}"></input>
     </div>
@@ -724,7 +726,7 @@
     <div class="row-fluid">
       <div class="span3">
         <div class="input-append">
-          <input id="{$percentFeeID}" type="text" class="input-mini" size="16"  style="width: 40px;" name="PercentFee" value="{$percentFee}">
+          <input id="{$percentFeeID}" type="text" class="form-control" size="16"  style="width: 40px;" name="PercentFee" value="{$percentFee}">
           <span class="add-on">%</span>
         </div>
         <span style="font-style: italic;">{msg desc="Fee percentage label"}Percent fee{/msg}</span>
@@ -736,7 +738,7 @@
       <div class="span3">
         <div class="input-prepend">
           <span class="add-on">{$currencySign}</span>
-          <input id="{$fixedFeeID}" type="text" class="input-mini" size="16" style="width: 40px;" name="FixedFee" value="{$fixedFee}">
+          <input id="{$fixedFeeID}" type="text" class="form-control" size="16" style="width: 40px;" name="FixedFee" value="{$fixedFee}">
         </div>
         <span style="font-style: italic;">{msg desc="Fee fixed label"}Fixed fee{/msg}</span>
       </div>
@@ -897,7 +899,7 @@
                     data-uniform-type="number"
                     data-uniform-filters="positive_number"
                     type="text"
-                    class="withdraw-field input input--full"
+                    class="withdraw-field form-control"
                     size="16"
                     value="{if $formattedAmount}{$formattedAmount}{/if}"
                     name="Amount">
@@ -920,7 +922,7 @@
                     {if $field['side'] == $side}
                         <label class="modal-form__label">{$field['label']}:</label>
 
-                        <input class="withdraw-field input input--full"
+                        <input class="withdraw-field form-control"
                         data-uniform-validators="{$field['validator']}" type="{$field['type']}"
                         name="{$field['name']}"
                         label="{$field['placeholder']}"
@@ -969,7 +971,7 @@
                         data-uniform-filters="positive_number"
                         value="{if $formattedAmount}{$formattedAmount}{/if}"
                         type="text"
-                        class="withdraw-field input input--full"
+                        class="withdraw-field form-control"
                         size="16"
                         name="Amount" {if not isFirst($method)}disabled{/if}>
 
@@ -1004,7 +1006,7 @@
                 {foreach $field in $method['fields'] }
                     {if $field['side'] == $side}
                         <label class="modal-form__label">{$field['label']}:</label>
-                        <input class="withdraw-field input input--full"
+                        <input class="withdraw-field form-control"
                             data-uniform-validators="{$field['validator']}"
                             type="{$field['type']}"
                             name="{$field['name']}"
@@ -1254,7 +1256,7 @@
     <div class="control-group">
       <label class="control-label"> {msg desc="label on  overview header"}Verification data{/msg} </label>
       <div class="controls">
-        <input type="text" class="input-xlarge" size="16" name="VerificationData">
+        <input type="text" class="form-control" size="16" name="VerificationData">
       </div>
     </div>
   </form>
@@ -1280,7 +1282,7 @@
 
             <div class="datagrid-header-left" {if not $show_search}style="display: none;"{/if}>
                 <div class="input-append search datagrid-search">
-                  <input type="text" class="input-medium" placeholder="{$search_placeholder}">
+                  <input type="text" class="form-control" placeholder="{$search_placeholder}">
                   <button type="button" class="btn"><i class="icon-search"></i></button>
                 </div>
             </div>

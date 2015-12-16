@@ -64,3 +64,8 @@ a.label {
 .label-danger {
   @include label-variant($label-danger-bg);
 }
+
+.label-important {
+  @include label-variant($label-danger-bg);
+  cursor: help;
+}

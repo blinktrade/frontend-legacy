@@ -6,7 +6,7 @@ load_application:       True
 ---
 
 <!-- .container-fluid -->
-<div class="container-fluid container-fixed">
+<div class="background">
   <!-- #start -->
   <div id="start" class="bitex-view bitex-view-admin">
     <div class="bitex-view-content">
@@ -23,53 +23,31 @@ load_application:       True
                         <br />
                         FOR THE NEW COIN AGE
                       <!--
-                        {% case site.exchange %}
-                        {% when 'chilebit' %}
-                          {% t exchanges.chilebit.lead  %}
-                        {% when 'surbitcoin' %}
-                          {% t exchanges.surbitcoin.lead  %}
-                        {% when 'urdubit' %}
-                          {% t exchanges.urdubit.lead  %}
-                        {% when 'foxbit' %}
-                          {% t exchanges.foxbit.lead  %}
-                        {% when 'romaniabex' %}
-                          {% t exchanges.romaniabex.lead  %}
-                        {% else %}
-                          {% t exchanges.demo.lead  %}
-                        {% endcase %}
+                        {% assign lead = "exchanges." | append: site.exchange | append: ".lead" %}
+                        {% t lead %}
                       -->
                     </h1>
 
-                    <!-- .home-form -->
-                    <form class="home-form">
-                        <!-- .home-form__field -->
-                        <div class="home-form__field">
-                            <label for="id_landing_username" class="home-form__label">{% t views.start.username %}</label>
-                            <input class="home-form__input form-control" id="id_landing_username" type="text" size="30" placeholder="{% t views.start.username %}">
-                        </div>
-                        <!-- /.home-form__field -->
+                    <!-- .home-->
+                    <div class="col-xs-8 col-md-6 col-xs-offset-3">
 
-                        <!-- .home-form__field -->
-                        <div class="home-form__field">
-                            <label for="id_landing_password" class="home-form__label">{% t views.start.password %}</label>
-                            <input class="home-form__input form-control" id="id_landing_password" type="password" size="30" placeholder="{% t views.start.password %}">
+                        <div class="row">
+                          <div class="col-xs-12 col-md-offset-3">
+                            <div class="col-md-3 col-xs-12">
+                              <a id="id_landing_signin" style="display:none"></a>
+                              <a data-switch-view="signin" class="btn btn-lg btn-block btn-success" style="text-transform:uppercase">
+                                {% t views.toolbar.signin %}
+                              </a>
+                            </div>
+                            <div class="col-md-3 col-xs-12">
+                              <a href="#" data-switch-view="signup" class="btn btn-outline-success btn-block btn-lg" style="text-transform:uppercase">
+                                {% t views.toolbar.signup %}
+                              </a>
+                            </div>
+                          </div>
                         </div>
-                        <!-- /.home-form__field -->
-
-                        <ul class="home-banner__list">
-                            <li>
-                                <button type="submit" id="id_landing_signin" class="btn btn-lg btn-block btn-success">
-                                    <i class="glyphicon glyphicon-user"></i> {% t views.toolbar.signin %}
-                                </button>
-                            </li>
-                            <li>
-                                <a href="#" data-switch-view="signup" class="btn btn-lg btn-block btn-default">
-                                    <i class="glyphicon glyphicon-log-in"></i> {% t views.toolbar.signup %}
-                                </a>
-                            </li>
-                        </ul>
-                    </form>
-                    <!-- /.home-form -->
+                    </div>
+                    <!-- /.home-->
                 </div>
                 <!-- /.home-banner__cell -->
             </div>
@@ -174,7 +152,7 @@ load_application:       True
                             <!-- .orders -->
                             <div class="orders">
                                 <!-- .orders__head -->
-                                <header class="orders__head">
+                                <header class="orders__head orders__head_bid">
                                     <h4 class="orders__title">BIDs</h4>
 
                                     <div class="orders__status">
@@ -232,7 +210,7 @@ load_application:       True
                             <!-- .orders -->
                             <div class="orders">
                                 <!-- .orders__head -->
-                                <header class="orders__head">
+                                <header class="orders__head orders__head_ask">
                                     <h4 class="orders__title">ASKs</h4>
 
                                     <div class="orders__status">
@@ -332,7 +310,7 @@ load_application:       True
   <!-- /#start -->
 
   <!-- #faq -->
-  <div id="faq" class="page bitex-view">
+  <div id="faq" class="page container bitex-view">
       <!-- .page__head -->
       <header class="page__head">
           <h1 class="page__title h2 bitex-view-title">
@@ -375,7 +353,7 @@ load_application:       True
   <!-- #market -->
   <div id="market" class="bitex-view">
     <!-- .page -->
-    <div class="page">
+    <div class="page container-fluid">
       <!-- .page__head -->
       <header class="page__head">
           <h1 class="page__title h2 bitex-view-title">
@@ -403,7 +381,7 @@ load_application:       True
         <!-- .row -->
         <div class="row">
             <!-- .col-md-6 -->
-            <div class="col-md-6 col-md-offset-3">
+            <div class="page__content page__padding col-md-4 col-md-offset-4">
                 <!-- .page__head -->
                 <header class="page__head">
                     <h1 class="page__title h2 bitex-view-title" style="margin-bottom: 10px;">
@@ -447,7 +425,7 @@ load_application:       True
         <!-- .row -->
         <div class="row">
             <!-- .col-md-6 -->
-            <div class="col-md-6 col-md-offset-3">
+            <div class="page__content page__padding col-md-6 col-md-offset-3">
                 <!-- .page__head -->
                 <header class="page__head">
                     <h1 class="page__title h2 bitex-view-title" style="margin-bottom: 10px;">
@@ -520,7 +498,7 @@ load_application:       True
         <!-- .row -->
         <div class="row">
             <!-- .col-md-6 -->
-            <div class="col-md-6 col-md-offset-3">
+            <div class="page__content page__padding col-md-4 col-md-offset-4">
                 <!-- .page__head -->
                 <header class="page__head">
                     <h1 class="page__title h2 bitex-view-title">
@@ -549,26 +527,12 @@ load_application:       True
   <!-- /#forgot_password -->
 
   <!-- .page bitex-display-if-logged -->
-  <div class="page bitex-display-if-logged">
-      <div class="alert | bitex-model" style="display: none" data-model-key="IsMissingVerification" data-model-action="show_element">
-        <button type="button" class="close pull-right" data-dismiss="alert">&times;</button>
-        <a href="" data-switch-view="verification"> {% t views.alerts.verification %} </a>
-      </div>
-
-      <div class="alert alert-success | bitex-model" style="display: none" data-model-key="TwoFactorEnabled" data-model-action="hide_element">
-        <button type="button" class="close pull-right" data-dismiss="alert">&times;</button>
-        <a href="" data-switch-view="profile"> {% t views.alerts.enable_two_factor %} </a>
-      </div>
-
-      <div class="alert alert-danger | bitex-model" style="display: none" data-model-key="IsAccountBlocked" data-model-action="show_element">
-        <button type="button" class="close pull-right" data-dismiss="alert">&times;</button>
-        <a href="" data-switch-view="faq"> {% t views.alerts.frozen_account %} </a>
-      </div>
+  <div class="page container bitex-display-if-logged">
 
     <!-- .row -->
-    <div class="row">
+    <div class="row page__content">
         <!-- .col-md-2 -->
-        <div class="col-md-2">
+        <div class="col-md-2 page__sidebar">
           <!-- #id_sidebar -->
           <div id="id_sidebar" class="bitex-view
                                       bitex-view-profile
@@ -602,7 +566,7 @@ load_application:       True
                 <h5 class="sidebar-box__title">NAVEGATION</h5>
 
                 <div class="sidebar-box__body">
-                    <ul class="sidebar-box-nav nav nav-pills nav-stacked">
+                    <ul class="sidebar-box-nav nav">
                         <li role="presentation">
                             <a href="#" data-switch-view="offerbook">
                                 <i class="glyphicon glyphicon-book"></i> {% t views.sidebar.offerbook %}
@@ -623,11 +587,6 @@ load_application:       True
                                 <i class="glyphicon glyphicon-th-list"></i> {% t views.sidebar.ledger %}
                             </a>
                         </li>
-                        <li style="">
-                            <a href="#" data-switch-view="api">
-                                <i class="glyphicon glyphicon-dashboard"></i> {% t views.sidebar.api %}
-                            </a>
-                        </li>
                         <li role="presentation">
                             <a href="#" data-switch-view="market">
                                 <i class="glyphicon glyphicon-stats"></i> {% t views.toolbar.market %}
@@ -639,8 +598,8 @@ load_application:       True
                             </a>
                         </li>
                         <li>
-                            <a href="" data-switch-view="faq">
-                                <i class="glyphicon glyphicon-question-sign"></i> {% t views.sidebar.support %}
+                            <a href="javascript:location.reload()">
+                                <i class="glyphicon glyphicon-off"></i> {% t views.sidebar.logout %}
                             </a>
                         </li>
                     </ul>
@@ -653,7 +612,7 @@ load_application:       True
         <!-- /.col-md-2 -->
 
         <!-- .col-md-8 -->
-        <div class="col-md-8">
+        <div class="col-md-8 page__sidebar_content">
             <!-- .page-dashboard -->
             <div class="page-dashboard">
               <!-- #offerbook -->
@@ -702,11 +661,12 @@ load_application:       True
                 <div class="page__body">
                   <div id="profile_content" class="bitex-view-content">
                     <div id="account_overview_user_id"></div>
+                    <div id="change_password_place_holder"></div>
                   </div>
 
 
                   <!-- .profile-two-factor -->
-                  <div class="profile-two-factor">
+                  <div class="profile-two-factor col-xs-12 col-md-5 page__section_white page__padding">
                       <!-- .profile-two-factor__title -->
                       <h4 class="profile-two-factor__title">{% t views.profile.two_factor_auth_section.title %}</h4>
                       <!-- /.profile-two-factor__title -->
@@ -724,7 +684,7 @@ load_application:       True
 
                               <li>
                                   <label class="profile-two-factor__label">{% t views.profile.two_factor_auth_section.authentication_code %}:</label>
-                                  <input id="id_second_step_verification" type="text" class="input input--full"
+                                  <input id="id_second_step_verification" type="text" class="form-control"
                                        pattern="\d+" title="{% t views.profile.two_factor_auth_section.authentication_code_title %}"
                                        placeholder="{% t views.profile.two_factor_auth_section.authentication_code_placeholder %}" required />
                               </li>
@@ -750,17 +710,22 @@ load_application:       True
               <div id="api" class="bitex-view">
                 <!-- .page__head -->
                 <header class="page__head section-title">
-                    <h1 class="page__title h2 bitex-view-title">
-                        <i class="glyphicon glyphicon-dashboard"></i> {% t views.api.title %}
-                    </h1>
-
-                    <ul id="id_api_button_group" class="page__nav">
-                        <li>
-                            <a id="id_btn_new_api_key" class="btn btn-success">
-                                <i class="glyphicon glyphicon-plus"></i> {% t views.api.new_api_key %}
-                            </a>
-                        </li>
-                    </ul>
+                    <div class="row">
+                      <div class="col-xs-6">
+                        <h1 class="page__title h2 bitex-view-title">
+                            <i class="glyphicon glyphicon-dashboard"></i> {% t views.api.title %}
+                        </h1>
+                      </div>
+                      <div class="col-xs-6 pull-right">
+                        <ul id="id_api_button_group" class="page__nav">
+                            <li>
+                                <a id="id_btn_new_api_key" class="btn btn-success">
+                                    <i class="glyphicon glyphicon-plus"></i> {% t views.api.new_api_key %}
+                                </a>
+                            </li>
+                        </ul>
+                      </div>
+                    </div>
                 </header>
                 <!-- /.page__head -->
 
@@ -1103,15 +1068,6 @@ load_application:       True
 
                 <div class="sidebar-box__body">
                     <div id="id_remittance_box"></div>
-                </div>
-            </div>
-            <!-- /.sidebar-box -->
-
-            <!-- .sidebar-box -->
-            <div class="sidebar-box">
-                <h5 class="sidebar-box__title">NEWS FEED</h5>
-
-                <div class="sidebar-box__body">
                 </div>
             </div>
             <!-- /.sidebar-box -->
