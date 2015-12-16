@@ -57,6 +57,9 @@ gulp.task('config', function(done){
         default: url
     }, function(res){
         newUrl = res.url;
+        newUrl = newUrl.startsWith('http') ?
+                     newUrl                :
+                     'http://' + newUrl;
     }))
     .pipe(prompt.prompt({
         type: 'input',
@@ -112,7 +115,7 @@ gulp.task('deployBranch', function(done){
 
 gulp.task('deploy', function(done){
     runSequence('config', 'build', 'deployBranch', function(){
-        console.log('\nOpen your browser at: '+ path.join(newUrl, newBaseUrl));
+        console.log('\nOpen your browser at: '+ url.resolve(newUrl, newBaseUrl));
         console.log('Done');
     })
 });
