@@ -67,13 +67,13 @@
             </small>
             {sp}
             {if $balance_info['showDeposit'] }
-              <a href="#" data-action="deposit" data-currency="{$balance_info['currency']}" style="padding: 0px 0px 0px 15px;">
+              <a href="#" data-action="deposit" data-currency="{$balance_info['currency']}" class="btn-balance btn-deposit">
                 <i data-action="deposit" data-currency="{$balance_info['currency']}" class="glyphicon glyphicon-save"></i>
               </a>
             {/if}
             {sp}
             {if $balance_info['showWithdraw'] }
-              <a href="#" data-action="withdraw" data-currency="{$balance_info['currency']}" style="padding: 0px 4px;">
+              <a href="#" data-action="withdraw" data-currency="{$balance_info['currency']}" class="btn-balance btn-withdraw">
                 <i data-action="withdraw" data-currency="{$balance_info['currency']}" class="glyphicon glyphicon-open"></i>
               </a>
               <div class="separator"></div>

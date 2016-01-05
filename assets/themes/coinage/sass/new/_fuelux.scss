@@ -64,4 +64,11 @@
     left: auto;
   }
 
+  .order-manager-fill{
+      background: lighten($brand-success, 40%);
+  }
+
+  .order-manager-cancel{
+    background: lighten($brand-danger, 37%);
+  }
 }

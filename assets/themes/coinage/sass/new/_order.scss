@@ -69,11 +69,11 @@
 }
 
 .order-form__buy {
-  color: #00b482;
+  color: $brand-success;
 }
 
 .order-form__sell {
-  color: #d70b49;
+  color: $brand-danger;
 }
 
 .order-form__balance {
@@ -187,23 +187,23 @@
 
     th,
     td {
-        border-top-color: #eee !important;
+        border-top-color: #eee;
         width: 33.333%;
     }
 }
 
 
-.md-blink,
-.md-blink > td,
-.order-manager-blink td,
-.balance-info-blink td,
-.order-book-blink td {
-  background: #00E7A7!important;
-}
+/* .md-blink, */
+/* .md-blink > td, */
+/* .order-manager-blink td, */
+/* .balance-info-blink td, */
+/* .order-book-blink td { */
+  /* background: lighten($brand-primary, 40%)!important; */
+/* } */
 
-.order-book-drag td{
-    border-top: 3px solid #00E7A7!important;
-}
+/* .order-book-drag td{ */
+    /* border-top: 3px solid $brand-primary!important; */
+/* } */
 
 .order-book-qty, .order-book-price {
     cursor: crosshair;

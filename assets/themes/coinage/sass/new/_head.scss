@@ -20,7 +20,7 @@
         a {
           padding: 6px 12px;
         }
-    }
+      }
     }
 }
 
@@ -38,13 +38,13 @@
 .head-ticker {
     @include clearfix();
 
-    color: #eee;
+    /* color: #eee; */
     list-style: none;
     margin: 0;
     padding: 12px 0;
 
     .glyphicon {
-        color: #337ab7;
+        color: $btn-primary-bg;
     }
 
     > li {

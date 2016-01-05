@@ -1,6 +1,21 @@
 .balance {
     color: #9d9d9d;
     /* padding: 8px 0; */
+
+    .btn-balance{
+      outline: none;
+      color: $brand-primary;
+      transition: all .2s ease;
+      &:hover{
+        color: lighten($brand-primary, 10%);
+      }
+    }
+    .btn-deposit {
+      padding: 0px 2px 0px 12px!important;
+    }
+    .btn-withdraw {
+      padding: 0px 4px!important;
+    }
 }
 
 .balance__title {
@@ -18,6 +33,10 @@
     list-style: none;
     margin: 0;
     padding-left: 0;
+
+    a {
+        color: $brand-primary;
+    }
 
     @media (min-width: $screen-desktop) {
         display: inline-block;

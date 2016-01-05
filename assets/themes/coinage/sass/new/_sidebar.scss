@@ -26,3 +26,20 @@
     font-weight: 600;
     color: #97a6b1;
 }
+
+.sidebar-box-nav {
+    > li {
+        > a {
+            color: #607381;
+
+            &:hover {
+                background: #f2f7fa;
+            }
+
+            &:focus {
+                background: $component-active-bg;
+                color: #fff!important;
+            }
+        }
+    }
+}
