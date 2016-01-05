@@ -8,6 +8,7 @@ var git = require('git-rev-sync');
 var prompt = require('gulp-prompt');
 var yaml = require('js-yaml');
 var runSequence = require('run-sequence');
+var url = require('url');
 var branch = 'gh-pages';
 
 var newUrl = '';
@@ -46,7 +47,6 @@ gulp.task('config', function(done){
     if(config.baseurl === undefined)
         return done(new Error('Baseurl not defined'));
 
-    var url     = config.url;
     var baseUrl = config.baseurl;
 
     return gulp.src('_config.yml')
@@ -54,7 +54,7 @@ gulp.task('config', function(done){
         type: 'input',
         name: 'url',
         message: URL_MSG,
-        default: url
+        default: config.url
     }, function(res){
         newUrl = res.url;
         newUrl = newUrl.startsWith('http') ?
