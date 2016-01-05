@@ -6,6 +6,7 @@ deploy_version: "HEAD"
 
 exchange: "foxbit"
 exchange_logo: "foxbit"
+exchange_toolbar_logo: "foxbit_inverse"
 
 default_country_code: "BR"
 blinktrade_broker_id: 4  # 4 is the id for the demo backend. Don't change that if you don't understand what you doing.
@@ -38,8 +39,12 @@ remittance_box: "{
             ['USD -> BTC -> PKR',  'PKR', 'BLINK_BTCPKR_BEST_BID /  BITFINEX_BTCUSD_BEST_ASK', 'BLINK_BTCPKR_BEST_ASK /  BITFINEX_BTCUSD_BEST_BID' ] ]
     }"
 
+symbol: "BTCBRL"
 
 languages: ["pt_BR", "en_US", "es", "ro", "zn_CN", "vi"]
+
+video : 'true'
+navbar: 'navbar-default'
 
 exclude:     [ "jsdev", "LICENSE", "README.md", "config.rb", "deploy.sh", "build_javascript.sh", "node_modules", "gulpfile.js" ]
 source:      .
@@ -48,3 +53,13 @@ plugins:     ./_plugins
 paginate:    5
 paginate_path: "post/page:num"
 permalink:     /post/:title/
+blog: http://www.foxbit.com.br/blog/
+chart: http://www.foxbit.com.br/grafico/
+facebook: https://www.facebook.com/foxbitcoin
+twitter: https://twitter.com/foxbitcoin
+gplus: https://plus.google.com/+FoxbitBrasil/posts
+youtube: https://www.youtube.com/playlist?list=PL6c8tfdY-CX_VTwU1B9XbzWtIQjY__vrW
+
+sass:
+  sass_dir: assets/themes/coinage/sass
+  style: :compressed
