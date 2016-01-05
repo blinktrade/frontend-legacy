@@ -339,7 +339,7 @@ bitex.ui.DepositList = function( crypto_currencies_def, opt_broker_mode, opt_sho
   /**
    * @desc Deposit instantaneous button label in the deposit list
    */
-  var MSG_DEPOSIT_TABLE_INSTANTANEOUS_BTN = goog.getMsg('Instantaneous');
+  var MSG_DEPOSIT_TABLE_INSTANTANEOUS_BTN = goog.getMsg('Pre Approve');
 
 
   /**

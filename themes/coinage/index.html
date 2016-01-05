@@ -13,20 +13,21 @@ load_application:       True
       <!-- .home -->
       <div class="home">
         <!-- .home-banner -->
-        <div class="home-banner">
+        <div class="home-banner" style="background-image: url({{ site.url }}{{ site.baseurl }}/assets/themes/coinage/img/home-banner-{{site.exchange}}.png)">
             <!-- .home-banner__table -->
             <div class="home-banner__table">
+                {% if site.video == 'true' %}
+                <div class="home-overlay"></div>
+                <div class="home-media">
+                    <video autoplay loop muted="true" poster="{{ site.url }}{{ site.baseurl }}/assets/themes/coinage/img/{{ site.exchange }}-video-fallback.png">
+                        <source src="{{ site.url }}{{ site.baseurl }}/assets/themes/coinage/img/{{ site.exchange }}_video.webm"></source>
+                    </video>
+                </div>
+                {% endif %}
                 <!-- .home-banner__cell -->
                 <div class="home-banner__cell">
-                    <h1 class="home-banner__title">
-                        BITCOIN EXCHANGE
-                        <br />
-                        FOR THE NEW COIN AGE
-                      <!--
-                        {% assign lead = "exchanges." | append: site.exchange | append: ".lead" %}
-                        {% t lead %}
-                      -->
-                    </h1>
+                    {% assign lead = "exchanges." | append: site.exchange | append: ".lead" %}
+                    <h1 class="home-banner__title">{% t lead %}</h1>
 
                     <!-- .home-->
                     <div class="col-xs-8 col-md-6 col-xs-offset-3">
@@ -35,13 +36,13 @@ load_application:       True
                           <div class="col-xs-12 col-md-offset-3">
                             <div class="col-md-3 col-xs-12">
                               <a id="id_landing_signin" style="display:none"></a>
-                              <a data-switch-view="signin" class="btn btn-lg btn-block btn-success" style="text-transform:uppercase">
-                                {% t views.toolbar.signin %}
+                              <a href="#" data-switch-view="signup" class="btn btn-primary btn-block btn-lg" style="text-transform:uppercase">
+                                {% t views.toolbar.signup %}
                               </a>
                             </div>
                             <div class="col-md-3 col-xs-12">
-                              <a href="#" data-switch-view="signup" class="btn btn-outline-success btn-block btn-lg" style="text-transform:uppercase">
-                                {% t views.toolbar.signup %}
+                              <a data-switch-view="signin" class="btn btn-lg btn-block btn-outline-white" style="text-transform:uppercase">
+                                {% t views.toolbar.signin %}
                               </a>
                             </div>
                           </div>
@@ -56,7 +57,7 @@ load_application:       True
         <!-- /.home-banner -->
 
         <!-- .home-news -->
-        <div class="home-news">
+        <div id="about" class="home-news">
             <!-- .container -->
             <div class="container">
                 <!-- .row -->
@@ -69,14 +70,27 @@ load_application:       True
                                 <img src="{{ site.baseurl }}/assets/themes/coinage/img/ico-tradewithus.png" alt="" />
                             </div>
 
-                            <h2 class="home-news-item__title h3">Lorem ipsum dolor</h2>
+                            {% assign about  = "landing." | append: site.exchange | append: ".about" %}
+                            {% assign book   = "landing." | append: site.exchange | append: ".orderbook" %}
+                            {% assign signup = "landing." | append: site.exchange | append: ".signup" %}
 
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                            </p>
+                            {% assign title1 = about | append: ".item1.title" %}
+                            {% assign desc1  = about | append: ".item1.description" %}
+
+                            {% assign title2 = about | append: ".item2.title" %}
+                            {% assign desc2  = about | append: ".item2.description" %}
+
+                            {% assign title3 = about | append: ".item3.title" %}
+                            {% assign desc3  = about | append: ".item3.description" %}
+
+                            {% assign learn  = about | append: ".learn" %}
+
+                            <h2 class="home-news-item__title h3">{% t title1 %}</h2>
+
+                            <p>{% t desc1 %}</p>
 
                             <div class="home-news-item__btn">
-                                <a href="" class="btn btn-default">Learn More</a>
+                                <a href="" class="btn btn-default">{% t learn %}</a>
                             </div>
                         </div>
                         <!-- /.home-news-item -->
@@ -91,14 +105,12 @@ load_application:       True
                                 <img src="{{ site.baseurl }}/assets/themes/coinage/img/ico-secure.png" alt="" />
                             </div>
 
-                            <h2 class="home-news-item__title h3">Lorem ipsum dolor</h2>
+                            <h2 class="home-news-item__title h3">{% t title2 %}</h2>
 
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                            </p>
+                            <p>{% t desc2 %}</p>
 
                             <div class="home-news-item__btn">
-                                <a href="" class="btn btn-default">Learn More</a>
+                                <a href="" class="btn btn-default">{% t learn %}</a>
                             </div>
                         </div>
                         <!-- /.home-news-item -->
@@ -113,14 +125,12 @@ load_application:       True
                                 <img src="{{ site.baseurl }}/assets/themes/coinage/img/ico-liquidity.png" alt="" />
                             </div>
 
-                            <h2 class="home-news-item__title h3">Lorem ipsum dolor</h2>
+                            <h2 class="home-news-item__title h3">{% t title3 %}</h2>
 
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                            </p>
+                            <p>{% t desc3 %}</p>
 
                             <div class="home-news-item__btn">
-                                <a href="" class="btn btn-default">Learn More</a>
+                                <a href="" class="btn btn-default">{% t learn %}</a>
                             </div>
                         </div>
                         <!-- /.home-news-item -->
@@ -139,7 +149,8 @@ load_application:       True
             <div class="container">
                 <!-- .home-orders__head -->
                 <header class="home-orders__head">
-                    <h3 class="home-orders__title">Live Order Book</h3>
+                  {% assign book_title = book | append: ".title" %}
+                  <h3 class="home-orders__title">{% t book_title %}</h3>
                 </header>
                 <!-- /.home-orders__head -->
 
@@ -151,50 +162,13 @@ load_application:       True
                         <div class="order__cell">
                             <!-- .orders -->
                             <div class="orders">
-                                <!-- .orders__head -->
-                                <header class="orders__head orders__head_bid">
-                                    <h4 class="orders__title">BIDs</h4>
-
-                                    <div class="orders__status">
-                                        <span class="label label-success">
-                                            Top 10
-                                        </span>
-                                    </div>
-                                </header>
-                                <!-- /.orders__head -->
 
                                 <!-- .orders__body -->
                                 <div class="orders__body">
                                     <!-- .table-responsive -->
                                     <div class="table-responsive">
                                         <!-- .orders-table -->
-                                        <table class="orders-table table">
-                                            <thead>
-                                                <tr>
-                                                    <th>Buyer</th>
-                                                    <th>Amount</th>
-                                                    <th>Price</th>
-                                                </tr>
-                                            </thead>
-
-                                            <tbody>
-                                                <tr>
-                                                    <td>Oso_899011</td>
-                                                    <td>10.00000000</td>
-                                                    <td>$ 255.32</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Oso_899011</td>
-                                                    <td>10.00000000</td>
-                                                    <td>$ 255.32</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Oso_899011</td>
-                                                    <td>10.00000000</td>
-                                                    <td>$ 255.32</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                                        <div id="id_simple_order_book_bid_content"></div>
                                         <!-- /.orders-table -->
                                     </div>
                                     <!-- /.table-responsive -->
@@ -209,65 +183,13 @@ load_application:       True
                         <div class="order__cell">
                             <!-- .orders -->
                             <div class="orders">
-                                <!-- .orders__head -->
-                                <header class="orders__head orders__head_ask">
-                                    <h4 class="orders__title">ASKs</h4>
-
-                                    <div class="orders__status">
-                                        <span class="label label-danger">
-                                            Top 10
-                                        </span>
-                                    </div>
-                                </header>
-                                <!-- /.orders__head -->
 
                                 <!-- .orders__body -->
                                 <div class="orders__body">
                                     <!-- .table-responsive -->
                                     <div class="table-responsive">
                                         <!-- .orders-table -->
-                                        <table class="orders-table table">
-                                            <thead>
-                                                <tr>
-                                                    <th>Price</th>
-                                                    <th>Amount</th>
-                                                    <th>Seller</th>
-                                                </tr>
-                                            </thead>
-
-                                            <tbody>
-                                                <tr>
-                                                    <td>$ 255.32</td>
-                                                    <td>10.00000000</td>
-                                                    <td>Oso_899011</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>$ 255.32</td>
-                                                    <td>10.00000000</td>
-                                                    <td>Oso_899011</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>$ 255.32</td>
-                                                    <td>10.00000000</td>
-                                                    <td>Oso_899011</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>$ 255.32</td>
-                                                    <td>10.00000000</td>
-                                                    <td>Oso_899011</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>$ 255.32</td>
-                                                    <td>10.00000000</td>
-                                                    <td>Oso_899011</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>$ 255.32</td>
-                                                    <td>10.00000000</td>
-                                                    <td>Oso_899011</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                                        <div id="id_simple_order_book_ask_content"></div>
                                         <!-- /.orders-table -->
                                     </div>
                                     <!-- /.table-responsive -->
@@ -292,9 +214,14 @@ load_application:       True
                 <img src="{{ site.baseurl }}/assets/themes/coinage/img/ico-requestbeta.png" alt="" />
             </div>
 
-            <h4 class="home-contact__title h3">CREATE YOUR ACCOUNT NOW.</h4>
+            {% assign signup  = "landing." | append: site.exchange | append: ".signup" %}
 
-            <p>Sign up and discover how easy it is to trade with us.</p>
+            {% assign signup_title  = signup | append: ".title" %}
+            {% assign signup_desc   = signup | append: ".description" %}
+
+            <h4 class="home-contact__title h3">{% t signup_title %}</h4>
+
+            <p>{% t signup_desc %}</p>
 
             <div class="home-contact__btn">
                 <a href="#" data-switch-view="signup" class="btn btn-lg btn-success">
@@ -409,7 +336,7 @@ load_application:       True
                       </p>
                     </div>
 
-                    <input id="id_btn_login"  class="btn btn-success btn-block" name="commit" type="submit" value="{% t views.signin.login_button_label %}">
+                    <input id="id_btn_login"  class="btn btn-primary btn-block" name="commit" type="submit" value="{% t views.signin.login_button_label %}">
                   </form>
                 </div>
                 <!-- /.page__body -->
@@ -482,7 +409,7 @@ load_application:       True
                             </label>
                         </div>
 
-                        <button id="id_btn_signup" class="btn btn-success btn-block">{% t views.signup.signup_button_label %}</button>
+                        <button id="id_btn_signup" class="btn btn-primary btn-block">{% t views.signup.signup_button_label %}</button>
                     </form>
                 </div>
                 <!-- /.page__body -->
@@ -515,7 +442,7 @@ load_application:       True
                         <input autocapitalize="off" autocorrect="off" id="id_forgot_password_email" class="form-control" name="email" type="text" placeholder="">
                       </div>
 
-                      <input id="id_btn_forgot_password" class="btn btn-success btn-block" name="commit" type="submit" value="{% t views.forgot_password.recover_password_button_label %}">
+                      <input id="id_btn_forgot_password" class="btn btn-primary btn-block" name="commit" type="submit" value="{% t views.forgot_password.recover_password_button_label %}">
                   </form>
                 </div>
                 <!-- /.page__body -->
@@ -619,9 +546,9 @@ load_application:       True
               <div id="offerbook" class="bitex-view">
                 <!-- .page__head -->
                 <header class="page__head section-title">
-                    <h1 class="page__title h2 bitex-view-title">
+                    <h3 class="page__title bitex-view-title">
                         <i class="glyphicon glyphicon-book"></i> {% t views.offerbook.title %}
-                    </h1>
+                    </h3>
                 </header>
                 <!-- /.page__head -->
 
@@ -755,9 +682,9 @@ load_application:       True
               <div id="trading" class="bitex-view">
                 <!-- .page__head -->
                 <header class="page__head section-title">
-                    <h1 class="page__title h2 bitex-view-title">
+                    <h3 class="page__title bitex-view-title">
                         <i class="glyphicon glyphicon-random"></i> {% t views.trading.title %}
-                    </h1>
+                    </h3>
                 </header>
                 <!-- /.page__head -->
 

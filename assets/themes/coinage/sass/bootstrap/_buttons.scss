@@ -84,16 +84,16 @@
   @include button-variant($btn-outline-color, $btn-outline-bg, $btn-outline-border);
 }
 
-.btn-outline-success {
-  @include button-variant($btn-outline-success-color, $btn-outline-bg, $btn-outline-success-border);
+.btn-outline-primary {
+  @include button-variant($btn-outline-primary-color, $btn-outline-bg, $btn-outline-primary-border);
 }
 
 .btn-outline-white {
-  @include button-variant($btn-outline-white-color, $btn-outline-white-bg, $btn-outline-white-border);
+  @include button-variant($btn-outline-white-color, $btn-outline-bg, $btn-outline-white-border);
   &:hover  {
-    color: #fff!important;
-    background-color: $btn-outline-success-color!important;
-    border-color: $btn-outline-success-border!important;
+    color: $btn-primary-border!important;
+    background-color: $btn-outline-bg!important;
+    border-color: $btn-outline-primary-border!important;
   }
 }
 

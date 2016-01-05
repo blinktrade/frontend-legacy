@@ -697,6 +697,52 @@
 {/template}
 
 /**
+  * @param balanceKey
+  * @param currencyDescription
+  * @param depositFormattedBalance
+  * @param lockedFormattedBalance
+  * @param availableFormattedBalance
+  */
+{template .InsufficientFundsContentDialog}
+  <div class="row-fluid">
+    <p>
+      {msg desc="Insufficient funds title"}You don't have enough funds for this operation.{/msg}
+    </p>
+    <!-- {$currencyDescription} -->
+    <table class="table table-bordered">
+
+      <tr>
+        <td>{msg desc="Your account label on Insufficient Balance message"}Your Account{/msg}</td>
+        <td>
+          <span class="bitex-model" data-model-key="formatted_balance_{$balanceKey}" data-blink-class="balance-info-blink">{if $depositFormattedBalance}{$depositFormattedBalance}{else}-{/if}</span>
+        </td>
+      </tr>
+
+      <tr>
+        <td>{msg desc="Your orders label on Insufficient Balance message"}Your Orders{/msg}</td>
+        <td>
+          <span class="bitex-model" data-model-key="locked_formatted_balance_{$balanceKey}" data-blink-class="balance-info-blink">{if $lockedFormattedBalance}{$lockedFormattedBalance}{else}-{/if}</span>
+        </td>
+      </tr>
+
+      <tr style="font-weight: bolder">
+        <td>{msg desc="Your orders label on Insufficient Balance message"}Total available{/msg}</td>
+        <td>
+          <span class="bitex-model" data-model-key="available_formatted_balance_{$balanceKey}" data-blink-class="balance-info-blink">{if $availableFormattedBalance}{$availableFormattedBalance}{else}-{/if}</span>
+        </td>
+      </tr>
+    </table>
+
+    {if $lockedFormattedBalance}
+      <p>
+        {msg desc="Insufficient funds instructions"}Please either deposit funds or cancel some of your other orders.{/msg}
+      </p>
+    {/if}
+
+  </div>
+{/template}
+
+/**
   * @param rest_url
   * @param deposit_id
   */
