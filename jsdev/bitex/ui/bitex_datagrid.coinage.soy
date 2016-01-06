@@ -15,16 +15,18 @@
       <thead>
         <tr>
           <th colspan="4" {if not $title and not $show_search}style="display: none;"{/if}>
-            <span class="datagrid-header-title"  {if not $title}style="display: none;"{/if} ><strong>{$title}</strong></span>
+            <span class="datagrid-header-title pull-left"  {if not $title}style="display: none;"{/if} ><strong>{$title}</strong></span>
 
-            <div class="datagrid-header-left" {if not $show_search}style="display: none;"{/if}>
-                <div class="input-append search datagrid-search">
-                  <input type="text" class="input-medium" placeholder="{$search_placeholder}">
-                  <button type="button" class="btn"><i class="icon-search"></i></button>
+            <div class="datagrid-header-left pull-left" {if not $show_search}style="display: none;"{/if}>
+                <div class="input-group search datagrid-search">
+                  <input type="text" class="form-control" placeholder="{$search_placeholder}">
+                  <span class="input-group-btn">
+                    <button type="button" class="btn btn-white"><i class="glyphicon glyphicon-search"></i></button>
+                  </span>
                 </div>
             </div>
 
-            <div class="datagrid-header-right">
+            <div class="datagrid-header-right pull-right">
               {if $button_filters}
                 <div class="select filter datagrid-filter" data-resize="auto">
                   <button type="button" data-toggle="dropdown" class="btn dropdown-toggle">
@@ -56,20 +58,32 @@
       <tfoot>
       <tr>
         <th colspan="4">
-          <div class="datagrid-footer-left" style="visibility: visible;">
-            <div class="grid-controls">
-                        <span>
-                          <span class="grid-start"></span> -
-                          <span class="grid-end"></span>
-                        </span>
+          <div class="row">
+            <div class="col-xs-6">
+              <div class="datagrid-footer-left" style="visibility: visible;">
+                <div class="grid-controls">
+                  <span>
+                    <span class="grid-start"></span> -
+                    <span class="grid-end"></span>
+                  </span>
+                </div>
+              </div>
             </div>
+            <div class="col-xs-6">
+              <div class="datagrid-footer-right" style="visibility: visible;">
+                <div class="grid-pager pull-right">
+                  <button type="button" class="btn btn-outline-white grid-prevpage">
+                    <i class="glyphicon glyphicon-chevron-left"></i>
+                  </button>
+                  <button type="button" class="btn btn-outline-white grid-refresh">
+                    <i class="glyphicon glyphicon-refresh"></i>
+                  </button>
+                  <button type="button" class="btn btn-outline-white grid-nextpage">
+                    <i class="glyphicon glyphicon-chevron-right"></i>
+                  </button>
+                </div>
+              </div>
           </div>
-          <div class="datagrid-footer-right" style="visibility: visible;">
-            <div class="grid-pager">
-              <button type="button" class="btn grid-refresh"><i class="icon-repeat"></i></button>
-              <button type="button" class="btn grid-prevpage"><i class="icon-chevron-left"></i></button>
-              <button type="button" class="btn grid-nextpage"><i class="icon-chevron-right"></i></button>
-            </div>
           </div>
         </th>
       </tr>
@@ -77,3 +91,4 @@
     </table>
   </div>
 {/template}
+

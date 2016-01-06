@@ -14,6 +14,9 @@ goog.require('bitex.ui.WithdrawRequestDataEntry.templates');
 goog.require('bitex.ui.OrderBook');
 goog.require('bitex.ui.OrderBook.Side');
 
+goog.require('bitex.ui.SimpleOrderBook');
+goog.require('bitex.ui.SimpleOrderBook.Side');
+
 goog.require('bitex.ui.SimpleOrderEntry.EventType');
 goog.require('bitex.ui.AdvancedOrderEntry.EventType');
 
@@ -62,6 +65,7 @@ goog.require('goog.debug');
 goog.require('bitex.view.NullView');
 goog.require('bitex.view.SignupView');
 goog.require('bitex.view.LoginView');
+goog.require('bitex.view.StartView');
 goog.require('bitex.view.ForgotPasswordView');
 goog.require('bitex.view.SetNewPasswordView');
 goog.require('bitex.view.VerificationView');
@@ -181,6 +185,7 @@ var MSG_WITHDRAW_FIELD_ACCT_HOLDER_ID_PHONE_NUMBER = goog.getMsg('Account holder
 bitex.app.BlinkTrade = function(broker_id,
                                 remittance_box,
                                 opt_default_country,
+                                opt_default_symbol,
                                 opt_default_state,
                                 opt_test_request_timer_in_ms,
                                 opt_maximum_allowed_delay_in_ms) {
@@ -216,6 +221,8 @@ bitex.app.BlinkTrade = function(broker_id,
 
   this.model_.set('DefaultBrokerID', broker_id);
   this.model_.set('SelectedBrokerID', broker_id);
+
+  this.model_.set('DefaultSymbol', opt_default_symbol);
 
   if (goog.isDefAndNotNull(opt_default_state)) {
     this.model_.set('DefaultState', opt_default_state);
@@ -432,7 +439,7 @@ bitex.app.BlinkTrade.prototype.run = function(host_api) {
 
 
   // Populate all the views
-  var startView           = new bitex.view.NullView(this);
+  var startView           = new bitex.view.StartView(this);
   var faqView             = new bitex.view.NullView(this);
   var themesView          = new bitex.view.NullView(this);
   var setNewPasswordView  = new bitex.view.SetNewPasswordView(this);
@@ -2052,7 +2059,7 @@ bitex.app.BlinkTrade.prototype.showWithdrawalDialog = function(currency, opt_pre
             return;
           }
           amount = new bitex.primitives.Price(amount * 1e8,
-                                              this.getCurrencyPip(currency)).floor();
+                                              this.getCurrencyPip(withdraw_data['Currency'])).floor();
 
           var pos = [0];
           var net_amount_el_value_id = form_id + '_method_' + withdraw_data['Method'] + '_net_value_value';
@@ -4119,6 +4126,17 @@ bitex.app.BlinkTrade.prototype.isCryptoCurrency  =   function(currency_code) {
    */
   var currency_def = this.currency_info_[currency_code];
   return currency_def.is_crypto;
+};
+
+/**
+ * @param {string} currency_code
+ */
+bitex.app.BlinkTrade.prototype.getCurrency = function(currency_code){
+  /**
+   * @type {bitex.model.OrderBookCurrencyModel}
+   */
+  var currency_def = this.currency_info_[currency_code];
+  return currency_def;
 };
 
 /**

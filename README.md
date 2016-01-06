@@ -11,12 +11,12 @@
 2 - Once installed these dependecies, open up the terminal and install [Jekyll](http://jekyllrb.com) with the following commands.
 
 ```sh
-$ gem install jekyll
+$ gem install jekyll:2.5.3
 ```
 
 2 - Install jekyll multiple languages plugin
 ```sh
-$ gem install jekyll-multiple-languages-plugin
+$ gem install jekyll-multiple-languages-plugin:1.2.9
 ```
 
 ## How to run the exchange locally 

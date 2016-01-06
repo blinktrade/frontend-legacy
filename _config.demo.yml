@@ -3,12 +3,14 @@
 # url: "https://cesardeazevedo.github.io"
 url: "//localhost:4000"
 author: "BlinkTrade"
-baseurl: "/frontend"
+baseurl: ""
 # baseurl: ""
 deploy_version: "27b57c4"
 
 exchange: "demo"
 exchange_logo: "demo"
+
+custom_css: "coinage"
 
 default_country_code: "US"
 blinktrade_broker_id: 5  # 5 is the id for the demo backend. Don't change that if you don't understand what you doing.
@@ -43,7 +45,12 @@ remittance_box: "{
     }"
 
 
-languages: ["en_US", "es", "pt_BR", "ro", "zn_CN", "vi"]
+symbol: "BTCUSD"
+
+languages: ["en_US"]
+# languages: ["en_US", "es", "pt_BR", "ro", "zn_CN", "vi"]
+
+navbar: 'navbar-inverse'
 
 exclude:     [ "jsdev", "LICENSE", "README.md", "config.rb", "deploy.sh", "build_javascript.sh", "node_modules", "gulpfile.js" ]
 source:      .
@@ -52,3 +59,13 @@ plugins:     ./_plugins
 paginate:    5
 paginate_path: "post/page:num"
 permalink:     /post/:title/
+blog: http://www.foxbit.com.br/blog/
+chart: http://www.foxbit.com.br/grafico/
+facebook: https://www.facebook.com/foxbitcoin
+twitter: https://twitter.com/foxbitcoin
+gplus: https://plus.google.com/+FoxbitBrasil/posts
+youtube: https://www.youtube.com/playlist?list=PL6c8tfdY-CX_VTwU1B9XbzWtIQjY__vrW
+
+sass:
+  sass_dir: assets/themes/coinage/sass
+  style: :compressed

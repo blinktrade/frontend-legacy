@@ -1,7 +1,47 @@
 .foot {
     border-top: 1px solid #eee;
-    padding: 20px 0 40px;
-    text-align: center;
+    padding: 75px 0;
+    /* text-align: left; */
+    a {
+      color: #44515b;
+      font-weight: 600;
+    }
+
+    ul{
+      list-style: none;
+      padding-left: 0px;
+    }
+
+    .center{
+      text-align: center;
+    }
+
+    .foot-social{
+      margin-top: 40px;
+      text-align: center;
+
+      .col-xs-2 {
+        float: none;
+        margin: auto;
+        display: inline-block;
+      }
+
+      .social-button {
+        text-align: center;
+        border: 1px solid #ddd;
+        width: 50%;
+        margin: auto;
+        padding: 0px;
+        height: 50px;
+        border-radius: 100%;
+        cursor: pointer;
+
+        h3{
+          margin-top: 13px;
+          margin-left: 2px;
+        }
+      }
+    }
 }
 
 .foot-nav {

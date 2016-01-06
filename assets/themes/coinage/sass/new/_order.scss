@@ -1,26 +1,29 @@
 .order {
-    border-radius: 4px;
+    background: #fff;
+    border-radius: 3px;
     border: 1px solid #eee;
-    margin-bottom: 20px;
-
-    &:last-child {
-        margin-bottom: 0;
-    }
+    margin-bottom: 15px;
 
     @media (min-width: $screen-phone) {
         display: table;
         width: 100%;
     }
+
+    @media (min-width: $screen-desktop) {
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
 }
 
 .order__cell {
-    @media (max-width: $screen-phone) {
+    @media (max-width: $screen-tablet) {
         &:first-child {
             border-bottom: 1px solid #eee;
         }
     }
 
-    @media (min-width: $screen-phone) {
+    @media (min-width: $screen-tablet) {
         display: table-cell;
         width: 50%;
 
@@ -30,9 +33,28 @@
     }
 }
 
-.order-form {
-    padding: 20px;
+.simple-order-form{
+    padding: 24px;
+    margin-bottom: 15px;
 }
+
+.orders-table {
+    tbody {
+        tr{
+            td {
+                line-height: 8px;
+            }
+        }
+    }
+}
+
+.order-form {
+    padding-top: 20px;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-bottom: 5px;
+}
+
 
 .order-form__head {
     display: table;
@@ -43,9 +65,19 @@
 .order-form__title {
     display: table-cell;
     vertical-align: baseline;
+    font-weight: 400;
+}
+
+.order-form__buy {
+  color: $brand-success;
+}
+
+.order-form__sell {
+  color: $brand-danger;
 }
 
 .order-form__balance {
+    cursor: pointer;
     display: table-cell;
     text-align: right;
     vertical-align: baseline;
@@ -94,15 +126,23 @@
 }
 
 .order-form__total {
-    display: table-cell;
-    position: relative;
-    vertical-align: top;
+    @media (min-width: $screen-desktop) {
+        display: table-cell;
+        position: relative;
+        padding-right: 7px;
+        vertical-align: top;
+    }
 }
 
 .order-form__action {
-    display: table-cell;
-    text-align: right;
-    vertical-align: bottom;
+    margin-top: 15px;
+
+    @media (min-width: $screen-desktop) {
+        display: table-cell;
+        margin-top: 0;
+        padding-left: 8px;
+        vertical-align: bottom;
+    }
 }
 
 .orders__head {
@@ -111,17 +151,25 @@
     display: table;
     padding: 12px 10px;
     width: 100%;
+    text-align: center;
+}
+
+.orders__head_BID {
+  background-color: #e7fff8;
+}
+.orders__head_ASK {
+  background-color: #fef4f7;
 }
 
 .orders__title {
     display: table-cell;
-    vertical-align: baseline;
+    vertical-align: middle;
 }
 
 .orders__status {
     display: table-cell;
     font-size: 13px;
-    vertical-align: baseline;
+    vertical-align: middle;
     text-align: right;
 }
 
@@ -139,7 +187,28 @@
 
     th,
     td {
-        border-bottom-color: #eee !important;
+        border-top-color: #eee;
         width: 33.333%;
     }
+}
+
+
+/* .md-blink, */
+/* .md-blink > td, */
+/* .order-manager-blink td, */
+/* .balance-info-blink td, */
+/* .order-book-blink td { */
+  /* background: lighten($brand-primary, 40%)!important; */
+/* } */
+
+/* .order-book-drag td{ */
+    /* border-top: 3px solid $brand-primary!important; */
+/* } */
+
+.order-book-qty, .order-book-price {
+    cursor: crosshair;
+}
+
+.order-book-movable td{
+    cursor: move;
 }

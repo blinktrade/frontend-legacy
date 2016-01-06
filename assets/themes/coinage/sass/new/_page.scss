@@ -1,11 +1,65 @@
 .page {
     padding-bottom: 25px;
+    padding-top: 65px;
+
+    @media (min-width: $screen-tablet) {
+        padding-top: 135px;
+    }
 }
 
 .page__head {
-    margin-bottom: 20px;
+    margin-bottom: 12px;
+    position: relative;
+    border-bottom: 1px solid rgba(41, 47, 51, 0.1);
+    padding-top: 14px;
+    padding-bottom: 12px;
+    padding-left: 5px;
+}
+
+
+.page__content{
+    background-color: #f5fafd;
+    border: 1px solid rgba(41, 47, 51, 0.1);
+    padding: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.page__padding {
+    padding: 24px;
+}
+
+.page__sidebar {
+    padding-top: 10px
+}
+
+.page__sidebar_content{
+    border-left: 1px solid rgba(41, 47, 51, 0.1);
+}
+
+.page-dashboard {
+  margin-bottom: 25px;
+}
+
+.page__section_white {
+  background: white;
+  border: 1px solid #eee;
+  border-radius: 3px;
 }
 
 .page__title {
     margin: 0;
+}
+
+.page__nav {
+    list-style: none;
+    margin: 15px 0 0;
+    padding: 0;
+
+    @media (min-width: $screen-phone) {
+        margin: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
 }

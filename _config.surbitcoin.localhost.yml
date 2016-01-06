@@ -6,6 +6,9 @@ deploy_version: "HEAD"
 
 exchange: "surbitcoin"
 exchange_logo: "surbitcoin"
+exchange_toolbar_logo: "surbitcoin_inverse"
+
+custom_css: "lightred"
 
 default_country_code: "VE"
 blinktrade_broker_id: 1 # 9 is the id for the demo backend. Don't change that if you don't understand what you doing.
@@ -35,8 +38,11 @@ remittance_box: "{
             ['USD -> BTC -> PKR',  'PKR', 'BLINK_BTCPKR_BEST_BID /  BITFINEX_BTCUSD_BEST_ASK', 'BLINK_BTCPKR_BEST_ASK /  BITFINEX_BTCPKR_BEST_BID' ] ]
     }"
 
+symbol: "BTCVEF"
 
 languages: ["es", "en_US", "pt_BR", "ro", "zn_CN", "vi"]
+
+navbar: 'navbar-default'
 
 exclude:     [ "jsdev", "LICENSE", "README.md", "config.rb", "deploy.sh", "build_javascript.sh", "node_modules", "gulpfile.js" ]
 source:      .
@@ -45,3 +51,6 @@ plugins:     ./_plugins
 paginate:    5
 paginate_path: "post/page:num"
 permalink:     /post/:title/
+sass:
+  sass_dir: assets/themes/coinage/sass
+  style: :compressed

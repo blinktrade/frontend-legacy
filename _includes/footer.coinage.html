@@ -2,17 +2,112 @@
   <!-- .foot -->
   <footer class="foot">
     <!-- .wrapper -->
-    <div class="wrapper">
-      <p>
-        {% if page.load_application %}
-        <a href="" data-switch-view="admin">admin</a> |
-        Latency: <span class="bitex-model" data-model-key="latency">0</span> ms |
-        Version: {{ site.deploy_version }} |
-        {% endif %}
-        <a href="http://blinktrade.com/" target="_blank">© 2014 BlinkTrade Inc</a>
-        | <a href="https://github.com/blinktrade/" target="_blank">Proudly 100% open source <span class="bitex-model" data-model-key="JSVersion"></span></a>
-        | <a href="http://nytm.org/made-in-nyc/" target="_blank">Made with <span style="color: #d11f0d;font-size: 19px;">♥</span> in NYC</a>
-      </p>
+    <div class="container">
+      <div class="col-xs-8 col-xs-offset-2">
+        <div class="row">
+            <div class="col-md-4">
+                <h5>{% t views.footer.company %}</h5>
+                <ul>
+                    <li>
+                        <a href="#about">{% t views.footer.about %}</a>
+                    </li>
+                    {% if site.blog %}
+                    <li>
+                        <a href="{{ site.blog }}" target="_blank">{% t views.footer.blog %}</a>
+                    </li>
+                    {% endif %}
+                    {% if site.chart %}
+                    <li>
+                        <a href="{{ site.chart }}" target="_blank">{% t views.footer.chart %}</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h5>{% t views.footer.platform %}</h5>
+                <ul>
+                    {% if page.load_application %}
+                    <li>
+                        <a href="" data-switch-view="admin">admin</a>
+                    </li>
+                    <li>
+                        Latency: <span class="bitex-model" data-model-key="latency">0</span> ms
+                    </li>
+                    {% endif %}
+                    <li>
+                        Version: {{ site.deploy_version }}
+                    </li>
+                    <li>
+                        <a href="https://github.com/blinktrade/" target="_blank">Proudly 100% open source <span class="bitex-model" data-model-key="JSVersion"></span></a>
+                    </li>
+                    <li>
+                        <a href="http://nytm.org/made-in-nyc/" target="_blank">Made with <span style="color: #d11f0d;font-size: 19px;">♥</span> in NYC</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h5></h5>
+                <ul>
+                    <li>
+                        <a href="#" data-switch-view="api">{% t views.sidebar.api %} </a>
+                    </li>
+                    <li>
+                        <a href="" data-switch-view="faq">{% t views.sidebar.support %}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row center">
+            <hr>
+            <a href="http://blinktrade.com/" target="_blank">© 2014 BlinkTrade Inc</a>
+        </div>
+        <div class="row foot-social">
+            {% if site.facebook %}
+            <div class="col-xs-2 col-xs-offset-2">
+                <div class="social-button">
+                    <h3>
+                        <a href="{{ site.facebook }}" target="_blank">
+                            <i class="fa fa-facebook-official"></i>
+                        </a>
+                    </h3>
+                </div>
+            </div>
+            {% endif %}
+            {% if site.twitter %}
+            <div class="col-xs-2">
+                <div class="social-button">
+                    <h3>
+                        <a href="{{ site.twitter }}" target="_blank">
+                            <i class="fa fa fa-twitter-square"></i>
+                        </a>
+                    </h3>
+                </div>
+            </div>
+            {% endif %}
+            {% if site.gplus %}
+            <div class="col-xs-2">
+                <div class="social-button">
+                    <h3>
+                        <a href="{{ site.gplus }}" target="_blank">
+                            <i class="fa fa fa-google-plus-square"></i>
+                        </a>
+                    </h3>
+                </div>
+            </div>
+            {% endif %}
+            {% if site.youtube %}
+            <div class="col-xs-2">
+                <div class="social-button">
+                    <h3>
+                        <a href="{{ site.youtube }}" target="_blank">
+                            <i class="fa fa-youtube-play"></i>
+                        </a>
+                    </h3>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+      </div>
     </div>
     <!-- /.wrapper -->
   </footer>
@@ -27,10 +122,11 @@
       var broker_id = {% if page.blinktrade_broker_id %}{{ page.blinktrade_broker_id}}{% else %}{{ site.blinktrade_broker_id}}{% endif %};
       var country_code = "{% if page.default_country_code %}{{ page.default_country_code}}{% else %}{{ site.default_country_code}}{% endif %}";
       var blinktrade_api = "{% if page.blinktrade_backend_api %}{{ page.blinktrade_backend_api}}{% else %}{{ site.blinktrade_backend_api}}{% endif %}";
+      var symbol = "{{ site.symbol }}";
 
       var remittance_box = {{ site.remittance_box  }};
 
-      _app = new BlinkTradeApp(broker_id, remittance_box,  country_code );
+      _app = new BlinkTradeApp(broker_id, remittance_box, country_code, symbol);
       _app.run(blinktrade_api);
     })();
   </script>

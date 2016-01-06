@@ -37,8 +37,10 @@ SOY_TEMPLATES="
                ui/dialog
                ui/withdraw_request_data_entry
                ui/deposit_list
+               ui/line_of_credit_table
                view/line_of_credit
                ui/card_data_entry
+               ui/withdraw_list
                view/profile
                view/side_bar
                view/withdraw
