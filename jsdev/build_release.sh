@@ -41,6 +41,7 @@ SOY_TEMPLATES="
                view/line_of_credit
                ui/card_data_entry
                ui/withdraw_list
+               ui/two_factor
                view/profile
                view/side_bar
                view/withdraw
