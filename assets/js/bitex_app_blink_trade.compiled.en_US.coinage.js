@@ -15694,9 +15694,7 @@ $JSCompiler_prototypeAlias$$.$exitView$ = function $$JSCompiler_prototypeAlias$$
 };
 $JSCompiler_prototypeAlias$$.$enterDocument$ = function $$JSCompiler_prototypeAlias$$$$enterDocument$$() {
   $bitex$view$TwoFactor$$.$superClass_$.$enterDocument$.call(this);
-  var $handler$$134$$ = this.$getHandler$(), $model$$55$$ = this.$app_$.$model_$;
-  $handler$$134$$.$listen$($model$$55$$, "model_setTwoFactorSecret", this.$onModelSetTwoFactorSecret_$);
-  $handler$$134$$.$listen$($model$$55$$, "model_setTwoFactorEnabled", this.$onModelSetTwoFactorEnabled_$);
+  this.$getHandler$().$listen$(this.$app_$.$model_$, "model_setTwoFactorSecret", this.$onModelSetTwoFactorSecret_$);
 };
 $JSCompiler_prototypeAlias$$.$exitDocument$ = function $$JSCompiler_prototypeAlias$$$$exitDocument$$() {
 };
@@ -15706,17 +15704,15 @@ $JSCompiler_prototypeAlias$$.$recreateComponents_$ = function $$JSCompiler_proto
   this.dispatchEvent("two_factor_enable");
 };
 $JSCompiler_prototypeAlias$$.$destroyComponents_$ = function $$JSCompiler_prototypeAlias$$$$destroyComponents_$$() {
+  this.$getHandler$().$unlisten$(this.$app_$.$model_$, "model_setTwoFactorSecret", this.$onModelSetTwoFactorSecret_$);
 };
 $JSCompiler_prototypeAlias$$.$onModelSetTwoFactorSecret_$ = function $$JSCompiler_prototypeAlias$$$$onModelSetTwoFactorSecret_$$($e$$327_secret$$3$$) {
-  var $model$$56_qr_code$$1$$ = this.$app_$.$model_$;
+  var $model$$57_qr_code$$1$$ = this.$app_$.$model_$;
   $e$$327_secret$$3$$ = $e$$327_secret$$3$$.data;
   if (null != $e$$327_secret$$3$$ && !$goog$string$isEmptyOrWhitespace$$($e$$327_secret$$3$$)) {
-    var $issuer$$1$$ = $model$$56_qr_code$$1$$.get("Broker").ShortName, $model$$56_qr_code$$1$$ = "https://chart.googleapis.com/chart?chs=200x200&chld=M%7C0&cht=qr&chl=" + encodeURIComponent("otpauth://totp/" + $model$$56_qr_code$$1$$.get("Profile").Email + "?secret=") + $e$$327_secret$$3$$ + encodeURIComponent("&issuer=" + $issuer$$1$$);
-    $goog$dom$getElement$$("id_secret_qr_view").setAttribute("src", $model$$56_qr_code$$1$$);
+    var $issuer$$1$$ = $model$$57_qr_code$$1$$.get("Broker").ShortName, $model$$57_qr_code$$1$$ = "https://chart.googleapis.com/chart?chs=200x200&chld=M%7C0&cht=qr&chl=" + encodeURIComponent("otpauth://totp/" + $model$$57_qr_code$$1$$.get("Profile").Email + "?secret=") + $e$$327_secret$$3$$ + encodeURIComponent("&issuer=" + $issuer$$1$$);
+    $goog$dom$getElement$$("id_secret_qr_view").setAttribute("src", $model$$57_qr_code$$1$$);
   }
-};
-$JSCompiler_prototypeAlias$$.$onModelSetTwoFactorEnabled_$ = function $$JSCompiler_prototypeAlias$$$$onModelSetTwoFactorEnabled_$$() {
-  console.log("onModelSetTwoFactorEnabled_");
 };
 // Input 272
 function $bitex$ui$TwoFactor$$($opt_domHelper$$69$$) {
@@ -15731,12 +15727,10 @@ $bitex$ui$TwoFactor$$.prototype.$createDom$ = function $$bitex$ui$TwoFactor$$$$$
 };
 $bitex$ui$TwoFactor$$.prototype.$enterDocument$ = function $$bitex$ui$TwoFactor$$$$$enterDocument$$() {
   $bitex$ui$TwoFactor$$.$superClass_$.$enterDocument$.call(this);
-  this.$getHandler$();
-  this.$getDomHelper$();
 };
-$bitex$ui$TwoFactor$$.prototype.$onSubmit_$ = function $$bitex$ui$TwoFactor$$$$$onSubmit_$$($e$$329$$) {
-  $e$$329$$.preventDefault();
-  0 < this.$uniform_$.$validate$().length ? $e$$329$$.stopPropagation() : this.dispatchEvent($bitex$ui$TwoFactor$$.$EventType$.$SUBMIT$);
+$bitex$ui$TwoFactor$$.prototype.$onSubmit_$ = function $$bitex$ui$TwoFactor$$$$$onSubmit_$$($e$$328$$) {
+  $e$$328$$.preventDefault();
+  0 < this.$uniform_$.$validate$().length ? $e$$328$$.stopPropagation() : this.dispatchEvent($bitex$ui$TwoFactor$$.$EventType$.$SUBMIT$);
 };
 // Input 273
 function $bitex$view$StartView$$($app$$32$$, $opt_domHelper$$70$$) {
@@ -15758,11 +15752,11 @@ $JSCompiler_prototypeAlias$$.$enterDocument$ = function $$JSCompiler_prototypeAl
 $JSCompiler_prototypeAlias$$.$exitDocument$ = function $$JSCompiler_prototypeAlias$$$$exitDocument$$() {
 };
 $JSCompiler_prototypeAlias$$.$recreateComponents_$ = function $$JSCompiler_prototypeAlias$$$$recreateComponents_$$() {
-  var $handler$$136$$ = this.$getHandler$(), $model$$57$$ = this.$app_$.$model_$, $defaultSymbol$$ = $model$$57$$.get("DefaultSymbol");
+  var $handler$$136$$ = this.$getHandler$(), $model$$58$$ = this.$app_$.$model_$, $defaultSymbol$$ = $model$$58$$.get("DefaultSymbol");
   $JSCompiler_StaticMethods_destroyOrderBookComponents_$$(this);
-  $handler$$136$$.$listen$($model$$57$$, "model_setSecurityList", function() {
-    $model$$57$$ = this.$app_$.$model_$;
-    msg = $model$$57$$.get("SecurityList");
+  $handler$$136$$.$listen$($model$$58$$, "model_setSecurityList", function() {
+    $model$$58$$ = this.$app_$.$model_$;
+    msg = $model$$58$$.get("SecurityList");
     var $JSCompiler_object_inline_price_currency_5_app$$33$$ = this.$app_$, $JSCompiler_object_inline_qty_currency_4_conn$$27$$ = $JSCompiler_object_inline_price_currency_5_app$$33$$.$getCurrency$($JSCompiler_object_inline_price_currency_5_app$$33$$.$getQtyCurrencyFromSymbol$($defaultSymbol$$)), $JSCompiler_object_inline_price_currency_5_app$$33$$ = $JSCompiler_object_inline_price_currency_5_app$$33$$.$getCurrency$($JSCompiler_object_inline_price_currency_5_app$$33$$.$getPriceCurrencyFromSymbol$($defaultSymbol$$));
     this.$order_book_bid_$ = new $bitex$ui$SimpleOrderBook$$("0", $JSCompiler_object_inline_qty_currency_4_conn$$27$$, $JSCompiler_object_inline_price_currency_5_app$$33$$);
     this.$order_book_offer_$ = new $bitex$ui$SimpleOrderBook$$("1", $JSCompiler_object_inline_qty_currency_4_conn$$27$$, $JSCompiler_object_inline_price_currency_5_app$$33$$);
@@ -15784,39 +15778,39 @@ $JSCompiler_prototypeAlias$$.$destroyComponents_$ = function $$JSCompiler_protot
 $JSCompiler_prototypeAlias$$.$onOBClear_$ = function $$JSCompiler_prototypeAlias$$$$onOBClear_$$() {
   null != this.$order_book_offer_$ && (this.$order_book_bid_$.clear(), this.$order_book_offer_$.clear());
 };
-$JSCompiler_prototypeAlias$$.$onOBDeleteOrdersThru_$ = function $$JSCompiler_prototypeAlias$$$$onOBDeleteOrdersThru_$$($e$$332_index$$113$$) {
+$JSCompiler_prototypeAlias$$.$onOBDeleteOrdersThru_$ = function $$JSCompiler_prototypeAlias$$$$onOBDeleteOrdersThru_$$($e$$331_index$$113$$) {
   if (null != this.$order_book_offer_$) {
-    var $msg$$110_side$$20$$ = $e$$332_index$$113$$.data;
-    $e$$332_index$$113$$ = $msg$$110_side$$20$$.MDEntryPositionNo;
+    var $msg$$110_side$$20$$ = $e$$331_index$$113$$.data;
+    $e$$331_index$$113$$ = $msg$$110_side$$20$$.MDEntryPositionNo;
     $msg$$110_side$$20$$ = $msg$$110_side$$20$$.MDEntryType;
-    "0" == $msg$$110_side$$20$$ ? $JSCompiler_StaticMethods_deleteOrderThru$$(this.$order_book_bid_$, $e$$332_index$$113$$) : "1" == $msg$$110_side$$20$$ && $JSCompiler_StaticMethods_deleteOrderThru$$(this.$order_book_offer_$, $e$$332_index$$113$$);
+    "0" == $msg$$110_side$$20$$ ? $JSCompiler_StaticMethods_deleteOrderThru$$(this.$order_book_bid_$, $e$$331_index$$113$$) : "1" == $msg$$110_side$$20$$ && $JSCompiler_StaticMethods_deleteOrderThru$$(this.$order_book_offer_$, $e$$331_index$$113$$);
   }
 };
-$JSCompiler_prototypeAlias$$.$onOBDeleteOrder_$ = function $$JSCompiler_prototypeAlias$$$$onOBDeleteOrder_$$($e$$333_index$$114$$) {
+$JSCompiler_prototypeAlias$$.$onOBDeleteOrder_$ = function $$JSCompiler_prototypeAlias$$$$onOBDeleteOrder_$$($e$$332_index$$114$$) {
   if (null != this.$order_book_offer_$) {
-    var $msg$$111_side$$21$$ = $e$$333_index$$114$$.data;
-    $e$$333_index$$114$$ = $msg$$111_side$$21$$.MDEntryPositionNo - 1;
+    var $msg$$111_side$$21$$ = $e$$332_index$$114$$.data;
+    $e$$332_index$$114$$ = $msg$$111_side$$21$$.MDEntryPositionNo - 1;
     $msg$$111_side$$21$$ = $msg$$111_side$$21$$.MDEntryType;
-    "0" == $msg$$111_side$$21$$ ? $JSCompiler_StaticMethods_deleteOrder$$(this.$order_book_bid_$, $e$$333_index$$114$$) : "1" == $msg$$111_side$$21$$ && $JSCompiler_StaticMethods_deleteOrder$$(this.$order_book_offer_$, $e$$333_index$$114$$);
+    "0" == $msg$$111_side$$21$$ ? $JSCompiler_StaticMethods_deleteOrder$$(this.$order_book_bid_$, $e$$332_index$$114$$) : "1" == $msg$$111_side$$21$$ && $JSCompiler_StaticMethods_deleteOrder$$(this.$order_book_offer_$, $e$$332_index$$114$$);
   }
 };
-$JSCompiler_prototypeAlias$$.$onOBUpdateOrder_$ = function $$JSCompiler_prototypeAlias$$$$onOBUpdateOrder_$$($e$$334_index$$115$$) {
+$JSCompiler_prototypeAlias$$.$onOBUpdateOrder_$ = function $$JSCompiler_prototypeAlias$$$$onOBUpdateOrder_$$($e$$333_index$$115$$) {
   if (null != this.$order_book_offer_$) {
-    var $msg$$112_side$$22$$ = $e$$334_index$$115$$.data;
-    $e$$334_index$$115$$ = $msg$$112_side$$22$$.MDEntryPositionNo - 1;
+    var $msg$$112_side$$22$$ = $e$$333_index$$115$$.data;
+    $e$$333_index$$115$$ = $msg$$112_side$$22$$.MDEntryPositionNo - 1;
     var $qty$$17$$ = $msg$$112_side$$22$$.MDEntrySize, $msg$$112_side$$22$$ = $msg$$112_side$$22$$.MDEntryType;
-    "0" == $msg$$112_side$$22$$ ? this.$order_book_bid_$.$updateOrder$($e$$334_index$$115$$, $qty$$17$$) : "1" == $msg$$112_side$$22$$ && this.$order_book_offer_$.$updateOrder$($e$$334_index$$115$$, $qty$$17$$);
+    "0" == $msg$$112_side$$22$$ ? this.$order_book_bid_$.$updateOrder$($e$$333_index$$115$$, $qty$$17$$) : "1" == $msg$$112_side$$22$$ && this.$order_book_offer_$.$updateOrder$($e$$333_index$$115$$, $qty$$17$$);
   }
 };
-$JSCompiler_prototypeAlias$$.$onOBNewOrder_$ = function $$JSCompiler_prototypeAlias$$$$onOBNewOrder_$$($e$$335_index$$116$$) {
+$JSCompiler_prototypeAlias$$.$onOBNewOrder_$ = function $$JSCompiler_prototypeAlias$$$$onOBNewOrder_$$($e$$334_index$$116$$) {
   if (null != this.$order_book_offer_$) {
-    var $broker$$14_model$$58$$ = this.$app_$.$model_$, $msg$$113_side$$23$$ = $e$$335_index$$116$$.data;
-    $e$$335_index$$116$$ = $msg$$113_side$$23$$.MDEntryPositionNo - 1;
+    var $broker$$14_model$$59$$ = this.$app_$.$model_$, $msg$$113_side$$23$$ = $e$$334_index$$116$$.data;
+    $e$$334_index$$116$$ = $msg$$113_side$$23$$.MDEntryPositionNo - 1;
     var $price$$13$$ = $msg$$113_side$$23$$.MDEntryPx, $qty$$18$$ = $msg$$113_side$$23$$.MDEntrySize, $username$$12$$;
     $username$$12$$ = null != $msg$$113_side$$23$$.Username ? $msg$$113_side$$23$$.Username : $bitex$util$getPseudoName$$($msg$$113_side$$23$$.UserID);
-    $msg$$113_side$$23$$.UserID === $broker$$14_model$$58$$.get("UserID") && ($username$$12$$ = $broker$$14_model$$58$$.get("Username"));
-    var $broker$$14_model$$58$$ = $msg$$113_side$$23$$.Broker, $orderId$$8$$ = $msg$$113_side$$23$$.OrderID, $msg$$113_side$$23$$ = $msg$$113_side$$23$$.MDEntryType;
-    "0" == $msg$$113_side$$23$$ ? this.$order_book_bid_$.$insertOrder$($e$$335_index$$116$$, $orderId$$8$$, $price$$13$$, $qty$$18$$, $username$$12$$, $broker$$14_model$$58$$) : "1" == $msg$$113_side$$23$$ && this.$order_book_offer_$.$insertOrder$($e$$335_index$$116$$, $orderId$$8$$, $price$$13$$, $qty$$18$$, $username$$12$$, $broker$$14_model$$58$$);
+    $msg$$113_side$$23$$.UserID === $broker$$14_model$$59$$.get("UserID") && ($username$$12$$ = $broker$$14_model$$59$$.get("Username"));
+    var $broker$$14_model$$59$$ = $msg$$113_side$$23$$.Broker, $orderId$$8$$ = $msg$$113_side$$23$$.OrderID, $msg$$113_side$$23$$ = $msg$$113_side$$23$$.MDEntryType;
+    "0" == $msg$$113_side$$23$$ ? this.$order_book_bid_$.$insertOrder$($e$$334_index$$116$$, $orderId$$8$$, $price$$13$$, $qty$$18$$, $username$$12$$, $broker$$14_model$$59$$) : "1" == $msg$$113_side$$23$$ && this.$order_book_offer_$.$insertOrder$($e$$334_index$$116$$, $orderId$$8$$, $price$$13$$, $qty$$18$$, $username$$12$$, $broker$$14_model$$59$$);
   }
 };
 $JSCompiler_prototypeAlias$$.$getMDInstruments$ = function $$JSCompiler_prototypeAlias$$$$getMDInstruments$$() {
@@ -15841,23 +15835,23 @@ $bootstrap$Alert$$.prototype.$getCssClass$ = function $$bootstrap$Alert$$$$$getC
   return "alert";
 };
 $bootstrap$Alert$$.prototype.$createDom$ = function $$bootstrap$Alert$$$$$createDom$$() {
-  var $dom$$40_element$$250$$ = this.$getDomHelper$();
-  return this.$element_$ = $dom$$40_element$$250$$ = this.$has_close_$ ? $dom$$40_element$$250$$.$createDom$("div", [this.$getCssClass$(), this.$getCssClass$() + "-" + this.$type_$], $dom$$40_element$$250$$.$createDom$("button", ["close", "pull-right"], "\u00d7"), this.$content_$) : $dom$$40_element$$250$$.$createDom$("div", [this.$getCssClass$(), this.$getCssClass$() + "-" + this.$type_$], this.$content_$);
+  var $dom$$39_element$$250$$ = this.$getDomHelper$();
+  return this.$element_$ = $dom$$39_element$$250$$ = this.$has_close_$ ? $dom$$39_element$$250$$.$createDom$("div", [this.$getCssClass$(), this.$getCssClass$() + "-" + this.$type_$], $dom$$39_element$$250$$.$createDom$("button", ["close", "pull-right"], "\u00d7"), this.$content_$) : $dom$$39_element$$250$$.$createDom$("div", [this.$getCssClass$(), this.$getCssClass$() + "-" + this.$type_$], this.$content_$);
 };
 function $bootstrap$Alert$install$$() {
-  $goog$events$listen$$(document.body, "click", function($e$$336$$) {
-    var $alert_element_element$$251$$ = $e$$336$$.target;
-    "alert" === $alert_element_element$$251$$.getAttribute("data-dismiss") && ($alert_element_element$$251$$ = $goog$dom$getAncestorByTagNameAndClass$$($alert_element_element$$251$$, void 0, "alert"), null != $alert_element_element$$251$$ && ($goog$dom$removeNode$$($alert_element_element$$251$$), $e$$336$$.stopPropagation(), $e$$336$$.preventDefault()));
+  $goog$events$listen$$(document.body, "click", function($e$$335$$) {
+    var $alert_element_element$$251$$ = $e$$335$$.target;
+    "alert" === $alert_element_element$$251$$.getAttribute("data-dismiss") && ($alert_element_element$$251$$ = $goog$dom$getAncestorByTagNameAndClass$$($alert_element_element$$251$$, void 0, "alert"), null != $alert_element_element$$251$$ && ($goog$dom$removeNode$$($alert_element_element$$251$$), $e$$335$$.stopPropagation(), $e$$335$$.preventDefault()));
   });
 }
 $bootstrap$Alert$$.prototype.$logger_$ = $goog$debug$LogManager$getLogger$$("bootstrap.Alert");
 $bootstrap$Alert$$.prototype.$enterDocument$ = function $$bootstrap$Alert$$$$$enterDocument$$() {
   $bootstrap$Alert$$.$superClass_$.$enterDocument$.call(this);
-  var $closeBtn_dom$$41$$ = this.$getDomHelper$(), $handler$$137$$ = this.$getHandler$(), $closeBtn_dom$$41$$ = $closeBtn_dom$$41$$.$getElementByClass$("close", this.$getElement$());
-  null != $closeBtn_dom$$41$$ && $handler$$137$$.$listenOnce$($closeBtn_dom$$41$$, "click", function($e$$337$$) {
+  var $closeBtn_dom$$40$$ = this.$getDomHelper$(), $handler$$137$$ = this.$getHandler$(), $closeBtn_dom$$40$$ = $closeBtn_dom$$40$$.$getElementByClass$("close", this.$getElement$());
+  null != $closeBtn_dom$$40$$ && $handler$$137$$.$listenOnce$($closeBtn_dom$$40$$, "click", function($e$$336$$) {
     this.$dispose$();
-    $e$$337$$.stopPropagation();
-    $e$$337$$.preventDefault();
+    $e$$336$$.stopPropagation();
+    $e$$336$$.preventDefault();
   });
 };
 // Input 275
@@ -15873,11 +15867,11 @@ function $bootstrap$Accordion$closeAll$$() {
   });
 }
 function $bootstrap$Accordion$install$$() {
-  $goog$events$listen$$(document.body, "click", function($accordion_body_element_accordion_group_element_e$$338$$) {
-    var $accordion_element$$ = $accordion_body_element_accordion_group_element_e$$338$$.target, $is_accordion_toggle$$ = !1;
+  $goog$events$listen$$(document.body, "click", function($accordion_body_element_accordion_group_element_e$$337$$) {
+    var $accordion_element$$ = $accordion_body_element_accordion_group_element_e$$337$$.target, $is_accordion_toggle$$ = !1;
     $goog$dom$classes$has$$($accordion_element$$, "accordion-toggle") ? $is_accordion_toggle$$ = !0 : ($accordion_element$$ = $goog$dom$getAncestorByClass$$($accordion_element$$, "accordion-toggle"), null != $accordion_element$$ && ($is_accordion_toggle$$ = !0));
-    $is_accordion_toggle$$ && ($accordion_body_element_accordion_group_element_e$$338$$.preventDefault(), $accordion_body_element_accordion_group_element_e$$338$$.stopPropagation(), $accordion_body_element_accordion_group_element_e$$338$$ = $goog$dom$getAncestorByClass$$($accordion_element$$, "accordion-group"), $accordion_body_element_accordion_group_element_e$$338$$ = $goog$dom$getElementByClass$$("accordion-body", $accordion_body_element_accordion_group_element_e$$338$$), $goog$dom$classes$has$$($accordion_element$$, 
-    "collapsed") ? ($bootstrap$Accordion$closeAll$$(), $goog$dom$classes$add$$($accordion_body_element_accordion_group_element_e$$338$$, "in"), $accordion_body_element_accordion_group_element_e$$338$$.style.height = $goog$style$getPixelStyleValue_$$("auto", !0), $goog$dom$classes$remove$$($accordion_element$$, "collapsed")) : ($goog$dom$classes$remove$$($accordion_body_element_accordion_group_element_e$$338$$, "in"), $accordion_body_element_accordion_group_element_e$$338$$.style.height = $goog$style$getPixelStyleValue_$$(0, 
+    $is_accordion_toggle$$ && ($accordion_body_element_accordion_group_element_e$$337$$.preventDefault(), $accordion_body_element_accordion_group_element_e$$337$$.stopPropagation(), $accordion_body_element_accordion_group_element_e$$337$$ = $goog$dom$getAncestorByClass$$($accordion_element$$, "accordion-group"), $accordion_body_element_accordion_group_element_e$$337$$ = $goog$dom$getElementByClass$$("accordion-body", $accordion_body_element_accordion_group_element_e$$337$$), $goog$dom$classes$has$$($accordion_element$$, 
+    "collapsed") ? ($bootstrap$Accordion$closeAll$$(), $goog$dom$classes$add$$($accordion_body_element_accordion_group_element_e$$337$$, "in"), $accordion_body_element_accordion_group_element_e$$337$$.style.height = $goog$style$getPixelStyleValue_$$("auto", !0), $goog$dom$classes$remove$$($accordion_element$$, "collapsed")) : ($goog$dom$classes$remove$$($accordion_body_element_accordion_group_element_e$$337$$, "in"), $accordion_body_element_accordion_group_element_e$$337$$.style.height = $goog$style$getPixelStyleValue_$$(0, 
     !0), $goog$dom$classes$add$$($accordion_element$$, "collapsed")));
   });
 }
@@ -15892,7 +15886,7 @@ function $bitex$app$BlinkTrade$$($broker_id$$7$$, $remittance_box$$, $opt_defaul
   this.$error_message_alert_timeout_$ = 5E3;
   try {
     this.$finger_print_$ = $bitex$util$getBrowserFingerPrint$$();
-  } catch ($e$$339$$) {
+  } catch ($e$$338$$) {
   }
   this.$ip_addresses_$ = {local:void 0, "public":[]};
   $bitex$util$getSTUNIpAddress$$($goog$bind$$(this.$onSTUNTIpAddressCallback_$, this));
@@ -16090,34 +16084,34 @@ $JSCompiler_prototypeAlias$$.$run$ = function $$JSCompiler_prototypeAlias$$$$run
   $JSCompiler_StaticMethods_preventReload$$(this);
   "Notification" in window && "granted" !== Notification.permission && "denied" !== Notification.permission && Notification.requestPermission();
 };
-$JSCompiler_prototypeAlias$$.$onBitexSecurityStatus_$ = function $$JSCompiler_prototypeAlias$$$$onBitexSecurityStatus_$$($e$$340_msg$$114$$) {
-  $e$$340_msg$$114$$ = $e$$340_msg$$114$$.data;
-  var $model$$59$$ = this.$model_$, $currency$$28$$ = $e$$340_msg$$114$$.Symbol.substr(3), $crypto_currency$$ = $e$$340_msg$$114$$.Symbol.substr(0, 3), $vwap$$3$$ = parseInt($e$$340_msg$$114$$.BuyVolume / $e$$340_msg$$114$$.SellVolume * 1E8, 10);
-  "VWAP" in $e$$340_msg$$114$$ && ($vwap$$3$$ = $e$$340_msg$$114$$.VWAP);
-  $model$$59$$.set($e$$340_msg$$114$$.Market + "_" + $e$$340_msg$$114$$.Symbol + "_VWAP", $vwap$$3$$, !0);
-  $model$$59$$.set($e$$340_msg$$114$$.Market + "_" + $e$$340_msg$$114$$.Symbol + "_VOLUME", $e$$340_msg$$114$$.SellVolume, !0);
-  $model$$59$$.set($e$$340_msg$$114$$.Market + "_" + $e$$340_msg$$114$$.Symbol + "_SELL_VOLUME", $e$$340_msg$$114$$.SellVolume, !0);
-  $model$$59$$.set($e$$340_msg$$114$$.Market + "_" + $e$$340_msg$$114$$.Symbol + "_BUY_VOLUME", $e$$340_msg$$114$$.BuyVolume, !0);
-  $model$$59$$.set($e$$340_msg$$114$$.Market + "_" + $e$$340_msg$$114$$.Symbol + "_LOW_PX", $e$$340_msg$$114$$.LowPx, !0);
-  $model$$59$$.set($e$$340_msg$$114$$.Market + "_" + $e$$340_msg$$114$$.Symbol + "_HIGH_PX", $e$$340_msg$$114$$.HighPx, !0);
-  $model$$59$$.set($e$$340_msg$$114$$.Market + "_" + $e$$340_msg$$114$$.Symbol + "_BEST_BID", $e$$340_msg$$114$$.BestBid, !0);
-  $model$$59$$.set($e$$340_msg$$114$$.Market + "_" + $e$$340_msg$$114$$.Symbol + "_BEST_ASK", $e$$340_msg$$114$$.BestAsk, !0);
-  $model$$59$$.set($e$$340_msg$$114$$.Market + "_" + $e$$340_msg$$114$$.Symbol + "_LAST_PX", $e$$340_msg$$114$$.LastPx, !0);
-  $model$$59$$.set("formatted_" + $e$$340_msg$$114$$.Market + "_" + $e$$340_msg$$114$$.Symbol + "_VWAP", this.$formatCurrency$($vwap$$3$$ / 1E8, $currency$$28$$, !0), !0);
-  $model$$59$$.set("formatted_" + $e$$340_msg$$114$$.Market + "_" + $e$$340_msg$$114$$.Symbol + "_VOLUME", this.$formatCurrency$($e$$340_msg$$114$$.SellVolume / 1E8, $crypto_currency$$, !0), !0);
-  $model$$59$$.set("formatted_" + $e$$340_msg$$114$$.Market + "_" + $e$$340_msg$$114$$.Symbol + "_SELL_VOLUME", this.$formatCurrency$($e$$340_msg$$114$$.SellVolume / 1E8, $crypto_currency$$, !0), !0);
-  $model$$59$$.set("formatted_" + $e$$340_msg$$114$$.Market + "_" + $e$$340_msg$$114$$.Symbol + "_BUY_VOLUME", this.$formatCurrency$($e$$340_msg$$114$$.BuyVolume / 1E8, $currency$$28$$, !0), !0);
-  $model$$59$$.set("formatted_" + $e$$340_msg$$114$$.Market + "_" + $e$$340_msg$$114$$.Symbol + "_LOW_PX", this.$formatCurrency$($e$$340_msg$$114$$.LowPx / 1E8, $currency$$28$$, !0), !0);
-  $model$$59$$.set("formatted_" + $e$$340_msg$$114$$.Market + "_" + $e$$340_msg$$114$$.Symbol + "_HIGH_PX", this.$formatCurrency$($e$$340_msg$$114$$.HighPx / 1E8, $currency$$28$$, !0), !0);
-  $model$$59$$.set("formatted_" + $e$$340_msg$$114$$.Market + "_" + $e$$340_msg$$114$$.Symbol + "_BEST_BID", this.$formatCurrency$($e$$340_msg$$114$$.BestBid / 1E8, $currency$$28$$, !0), !0);
-  $model$$59$$.set("formatted_" + $e$$340_msg$$114$$.Market + "_" + $e$$340_msg$$114$$.Symbol + "_BEST_ASK", this.$formatCurrency$($e$$340_msg$$114$$.BestAsk / 1E8, $currency$$28$$, !0), !0);
-  $model$$59$$.set("formatted_" + $e$$340_msg$$114$$.Market + "_" + $e$$340_msg$$114$$.Symbol + "_LAST_PX", this.$formatCurrency$($e$$340_msg$$114$$.LastPx / 1E8, $currency$$28$$, !0), !0);
+$JSCompiler_prototypeAlias$$.$onBitexSecurityStatus_$ = function $$JSCompiler_prototypeAlias$$$$onBitexSecurityStatus_$$($e$$339_msg$$114$$) {
+  $e$$339_msg$$114$$ = $e$$339_msg$$114$$.data;
+  var $model$$60$$ = this.$model_$, $currency$$28$$ = $e$$339_msg$$114$$.Symbol.substr(3), $crypto_currency$$ = $e$$339_msg$$114$$.Symbol.substr(0, 3), $vwap$$3$$ = parseInt($e$$339_msg$$114$$.BuyVolume / $e$$339_msg$$114$$.SellVolume * 1E8, 10);
+  "VWAP" in $e$$339_msg$$114$$ && ($vwap$$3$$ = $e$$339_msg$$114$$.VWAP);
+  $model$$60$$.set($e$$339_msg$$114$$.Market + "_" + $e$$339_msg$$114$$.Symbol + "_VWAP", $vwap$$3$$, !0);
+  $model$$60$$.set($e$$339_msg$$114$$.Market + "_" + $e$$339_msg$$114$$.Symbol + "_VOLUME", $e$$339_msg$$114$$.SellVolume, !0);
+  $model$$60$$.set($e$$339_msg$$114$$.Market + "_" + $e$$339_msg$$114$$.Symbol + "_SELL_VOLUME", $e$$339_msg$$114$$.SellVolume, !0);
+  $model$$60$$.set($e$$339_msg$$114$$.Market + "_" + $e$$339_msg$$114$$.Symbol + "_BUY_VOLUME", $e$$339_msg$$114$$.BuyVolume, !0);
+  $model$$60$$.set($e$$339_msg$$114$$.Market + "_" + $e$$339_msg$$114$$.Symbol + "_LOW_PX", $e$$339_msg$$114$$.LowPx, !0);
+  $model$$60$$.set($e$$339_msg$$114$$.Market + "_" + $e$$339_msg$$114$$.Symbol + "_HIGH_PX", $e$$339_msg$$114$$.HighPx, !0);
+  $model$$60$$.set($e$$339_msg$$114$$.Market + "_" + $e$$339_msg$$114$$.Symbol + "_BEST_BID", $e$$339_msg$$114$$.BestBid, !0);
+  $model$$60$$.set($e$$339_msg$$114$$.Market + "_" + $e$$339_msg$$114$$.Symbol + "_BEST_ASK", $e$$339_msg$$114$$.BestAsk, !0);
+  $model$$60$$.set($e$$339_msg$$114$$.Market + "_" + $e$$339_msg$$114$$.Symbol + "_LAST_PX", $e$$339_msg$$114$$.LastPx, !0);
+  $model$$60$$.set("formatted_" + $e$$339_msg$$114$$.Market + "_" + $e$$339_msg$$114$$.Symbol + "_VWAP", this.$formatCurrency$($vwap$$3$$ / 1E8, $currency$$28$$, !0), !0);
+  $model$$60$$.set("formatted_" + $e$$339_msg$$114$$.Market + "_" + $e$$339_msg$$114$$.Symbol + "_VOLUME", this.$formatCurrency$($e$$339_msg$$114$$.SellVolume / 1E8, $crypto_currency$$, !0), !0);
+  $model$$60$$.set("formatted_" + $e$$339_msg$$114$$.Market + "_" + $e$$339_msg$$114$$.Symbol + "_SELL_VOLUME", this.$formatCurrency$($e$$339_msg$$114$$.SellVolume / 1E8, $crypto_currency$$, !0), !0);
+  $model$$60$$.set("formatted_" + $e$$339_msg$$114$$.Market + "_" + $e$$339_msg$$114$$.Symbol + "_BUY_VOLUME", this.$formatCurrency$($e$$339_msg$$114$$.BuyVolume / 1E8, $currency$$28$$, !0), !0);
+  $model$$60$$.set("formatted_" + $e$$339_msg$$114$$.Market + "_" + $e$$339_msg$$114$$.Symbol + "_LOW_PX", this.$formatCurrency$($e$$339_msg$$114$$.LowPx / 1E8, $currency$$28$$, !0), !0);
+  $model$$60$$.set("formatted_" + $e$$339_msg$$114$$.Market + "_" + $e$$339_msg$$114$$.Symbol + "_HIGH_PX", this.$formatCurrency$($e$$339_msg$$114$$.HighPx / 1E8, $currency$$28$$, !0), !0);
+  $model$$60$$.set("formatted_" + $e$$339_msg$$114$$.Market + "_" + $e$$339_msg$$114$$.Symbol + "_BEST_BID", this.$formatCurrency$($e$$339_msg$$114$$.BestBid / 1E8, $currency$$28$$, !0), !0);
+  $model$$60$$.set("formatted_" + $e$$339_msg$$114$$.Market + "_" + $e$$339_msg$$114$$.Symbol + "_BEST_ASK", this.$formatCurrency$($e$$339_msg$$114$$.BestAsk / 1E8, $currency$$28$$, !0), !0);
+  $model$$60$$.set("formatted_" + $e$$339_msg$$114$$.Market + "_" + $e$$339_msg$$114$$.Symbol + "_LAST_PX", this.$formatCurrency$($e$$339_msg$$114$$.LastPx / 1E8, $currency$$28$$, !0), !0);
 };
-$JSCompiler_prototypeAlias$$.$onUpdateAvailableBalance_$ = function $$JSCompiler_prototypeAlias$$$$onUpdateAvailableBalance_$$($e$$341$$) {
+$JSCompiler_prototypeAlias$$.$onUpdateAvailableBalance_$ = function $$JSCompiler_prototypeAlias$$$$onUpdateAvailableBalance_$$($e$$340$$) {
   var $value_fmt$$10$$ = new $goog$i18n$NumberFormat$$(1);
   $value_fmt$$10$$.$maximumFractionDigits_$ = 8;
   $JSCompiler_StaticMethods_setMinimumFractionDigits$$($value_fmt$$10$$, 2);
-  $goog$object$forEach$$($e$$341$$.data, function($broker_balance$$, $broker_id$$8$$) {
+  $goog$object$forEach$$($e$$340$$.data, function($broker_balance$$, $broker_id$$8$$) {
     $goog$object$forEach$$($broker_balance$$, function($account_balance$$, $account_id$$1$$) {
       $goog$object$forEach$$($account_balance$$, function($balance$$3$$, $currency$$29$$) {
         var $available_balance_key$$ = "available_balance_" + $broker_id$$8$$ + ":" + $account_id$$1$$ + "_" + $currency$$29$$;
@@ -16129,13 +16123,13 @@ $JSCompiler_prototypeAlias$$.$onUpdateAvailableBalance_$ = function $$JSCompiler
     }, this);
   }, this);
 };
-$JSCompiler_prototypeAlias$$.$onUpdateLockedBalance_$ = function $$JSCompiler_prototypeAlias$$$$onUpdateLockedBalance_$$($e$$342$$) {
+$JSCompiler_prototypeAlias$$.$onUpdateLockedBalance_$ = function $$JSCompiler_prototypeAlias$$$$onUpdateLockedBalance_$$($e$$341$$) {
   var $should_update_available_balance$$ = !1, $available_balance$$ = this.$model_$.get("AvailableBalance");
   null == $available_balance$$ && ($available_balance$$ = {}, $should_update_available_balance$$ = !0);
   var $deposit_balance$$ = this.$model_$.get("Balance"), $value_fmt$$11$$ = new $goog$i18n$NumberFormat$$(1);
   $value_fmt$$11$$.$maximumFractionDigits_$ = 8;
   $JSCompiler_StaticMethods_setMinimumFractionDigits$$($value_fmt$$11$$, 2);
-  $goog$object$forEach$$($e$$342$$.data, function($broker_balance$$1$$, $broker_id$$9$$) {
+  $goog$object$forEach$$($e$$341$$.data, function($broker_balance$$1$$, $broker_id$$9$$) {
     null == $available_balance$$[$broker_id$$9$$] && ($available_balance$$[$broker_id$$9$$] = {}, $should_update_available_balance$$ = !0);
     $goog$object$forEach$$($broker_balance$$1$$, function($account_balance$$1$$, $account_id$$2$$) {
       null == $available_balance$$[$broker_id$$9$$][$account_id$$2$$] && ($available_balance$$[$broker_id$$9$$][$account_id$$2$$] = {}, $should_update_available_balance$$ = !0);
@@ -16144,13 +16138,13 @@ $JSCompiler_prototypeAlias$$.$onUpdateLockedBalance_$ = function $$JSCompiler_pr
           $available_balance$$[$broker_id$$9$$][$account_id$$2$$][$currency$$30$$] = $balance$$4$$;
           try {
             $available_balance$$[$broker_id$$9$$][$account_id$$2$$][$currency$$30$$] = $deposit_balance$$[$broker_id$$9$$][$account_id$$2$$][$currency$$30$$] - $balance$$4$$;
-          } catch ($e$$343$$) {
+          } catch ($e$$342$$) {
           }
           $should_update_available_balance$$ = !0;
         }
         try {
           $available_balance$$[$broker_id$$9$$][$account_id$$2$$][$currency$$30$$] != $deposit_balance$$[$broker_id$$9$$][$account_id$$2$$][$currency$$30$$] - $balance$$4$$ && ($available_balance$$[$broker_id$$9$$][$account_id$$2$$][$currency$$30$$] = $deposit_balance$$[$broker_id$$9$$][$account_id$$2$$][$currency$$30$$] - $balance$$4$$, $should_update_available_balance$$ = !0);
-        } catch ($e$$344$$) {
+        } catch ($e$$343$$) {
         }
         var $locked_balance_key$$ = "locked_balance_" + $broker_id$$9$$ + ":" + $account_id$$2$$ + "_" + $currency$$30$$;
         this.$model_$.set($locked_balance_key$$, $balance$$4$$);
@@ -16161,13 +16155,13 @@ $JSCompiler_prototypeAlias$$.$onUpdateLockedBalance_$ = function $$JSCompiler_pr
   }, this);
   $should_update_available_balance$$ && this.$model_$.set("AvailableBalance", $available_balance$$, !0);
 };
-$JSCompiler_prototypeAlias$$.$onUpdateBalance_$ = function $$JSCompiler_prototypeAlias$$$$onUpdateBalance_$$($e$$345$$) {
+$JSCompiler_prototypeAlias$$.$onUpdateBalance_$ = function $$JSCompiler_prototypeAlias$$$$onUpdateBalance_$$($e$$344$$) {
   var $should_update_available_balance$$1$$ = !1, $available_balance$$1$$ = this.$model_$.get("AvailableBalance");
   null == $available_balance$$1$$ && ($available_balance$$1$$ = {}, $should_update_available_balance$$1$$ = !0);
   var $locked_balance$$ = this.$model_$.get("LockedBalance"), $value_fmt$$12$$ = new $goog$i18n$NumberFormat$$(1);
   $value_fmt$$12$$.$maximumFractionDigits_$ = 8;
   $JSCompiler_StaticMethods_setMinimumFractionDigits$$($value_fmt$$12$$, 2);
-  $goog$object$forEach$$($e$$345$$.data, function($broker_balance$$2$$, $broker_id$$10$$) {
+  $goog$object$forEach$$($e$$344$$.data, function($broker_balance$$2$$, $broker_id$$10$$) {
     null == $available_balance$$1$$[$broker_id$$10$$] && ($available_balance$$1$$[$broker_id$$10$$] = {}, $should_update_available_balance$$1$$ = !0);
     $goog$object$forEach$$($broker_balance$$2$$, function($account_balance$$2$$, $account_id$$3$$) {
       null == $available_balance$$1$$[$broker_id$$10$$][$account_id$$3$$] && ($available_balance$$1$$[$broker_id$$10$$][$account_id$$3$$] = {}, $should_update_available_balance$$1$$ = !0);
@@ -16176,13 +16170,13 @@ $JSCompiler_prototypeAlias$$.$onUpdateBalance_$ = function $$JSCompiler_prototyp
           $available_balance$$1$$[$broker_id$$10$$][$account_id$$3$$][$currency$$31$$] = $balance$$5$$;
           try {
             $available_balance$$1$$[$broker_id$$10$$][$account_id$$3$$][$currency$$31$$] = $balance$$5$$ - $locked_balance$$[$broker_id$$10$$][$account_id$$3$$][$currency$$31$$];
-          } catch ($e$$346$$) {
+          } catch ($e$$345$$) {
           }
           $should_update_available_balance$$1$$ = !0;
         }
         try {
           $available_balance$$1$$[$broker_id$$10$$][$account_id$$3$$][$currency$$31$$] != $balance$$5$$ - $locked_balance$$[$broker_id$$10$$][$account_id$$3$$][$currency$$31$$] && ($available_balance$$1$$[$broker_id$$10$$][$account_id$$3$$][$currency$$31$$] = $balance$$5$$ - $locked_balance$$[$broker_id$$10$$][$account_id$$3$$][$currency$$31$$], $should_update_available_balance$$1$$ = !0);
-        } catch ($e$$347$$) {
+        } catch ($e$$346$$) {
         }
         var $balance_key$$1$$ = "balance_" + $broker_id$$10$$ + ":" + $account_id$$3$$ + "_" + $currency$$31$$;
         this.$model_$.set($balance_key$$1$$, $balance$$5$$);
@@ -16194,53 +16188,53 @@ $JSCompiler_prototypeAlias$$.$onUpdateBalance_$ = function $$JSCompiler_prototyp
   }, this);
   $should_update_available_balance$$1$$ && this.$model_$.set("AvailableBalance", $available_balance$$1$$, !0);
 };
-$JSCompiler_prototypeAlias$$.$onBitexWithdrawConfirmationResponse_$ = function $$JSCompiler_prototypeAlias$$$$onBitexWithdrawConfirmationResponse_$$($e$$348$$) {
-  var $msg$$115$$ = $e$$348$$.data;
+$JSCompiler_prototypeAlias$$.$onBitexWithdrawConfirmationResponse_$ = function $$JSCompiler_prototypeAlias$$$$onBitexWithdrawConfirmationResponse_$$($e$$347$$) {
+  var $msg$$115$$ = $e$$347$$.data;
   if (null == $msg$$115$$.Status || "1" != $msg$$115$$.Status) {
-    this.$showNotification$("error", "Invalid confirmation token!"), this.$onBitexWithdrawResponse_$($e$$348$$);
+    this.$showNotification$("error", "Invalid confirmation token!"), this.$onBitexWithdrawResponse_$($e$$347$$);
   }
 };
-$JSCompiler_prototypeAlias$$.$onBitexWithdrawResponse_$ = function $$JSCompiler_prototypeAlias$$$$onBitexWithdrawResponse_$$($dlg_content$$2_e$$349_withdrawConfirmationDialog$$) {
-  var $msg$$116$$ = $dlg_content$$2_e$$349_withdrawConfirmationDialog$$.data;
+$JSCompiler_prototypeAlias$$.$onBitexWithdrawResponse_$ = function $$JSCompiler_prototypeAlias$$$$onBitexWithdrawResponse_$$($dlg_content$$2_e$$348_withdrawConfirmationDialog$$) {
+  var $msg$$116$$ = $dlg_content$$2_e$$348_withdrawConfirmationDialog$$.data;
   if ("0" == $msg$$116$$.Status && this.$model_$.get("Profile").NeedWithdrawEmail) {
-    $dlg_content$$2_e$$349_withdrawConfirmationDialog$$ = this.$model_$.get("TwoFactorEnabled") ? $bitex$templates$GoogleAuthenticationCodeDialogContent$$() : $bitex$templates$WithdrawConfirmationDialogContent$$();
-    $dlg_content$$2_e$$349_withdrawConfirmationDialog$$ = this.$showDialog$($dlg_content$$2_e$$349_withdrawConfirmationDialog$$, "Confirm", $bitex$ui$Dialog$ButtonSet$createOkCancel$$());
-    var $form_element$$ = $goog$dom$getFirstElementChild$$($dlg_content$$2_e$$349_withdrawConfirmationDialog$$.$getContentElement$()), $withdraw_confirmation_uniform$$ = new $uniform$Uniform$$;
+    $dlg_content$$2_e$$348_withdrawConfirmationDialog$$ = this.$model_$.get("TwoFactorEnabled") ? $bitex$templates$GoogleAuthenticationCodeDialogContent$$() : $bitex$templates$WithdrawConfirmationDialogContent$$();
+    $dlg_content$$2_e$$348_withdrawConfirmationDialog$$ = this.$showDialog$($dlg_content$$2_e$$348_withdrawConfirmationDialog$$, "Confirm", $bitex$ui$Dialog$ButtonSet$createOkCancel$$());
+    var $form_element$$ = $goog$dom$getFirstElementChild$$($dlg_content$$2_e$$348_withdrawConfirmationDialog$$.$getContentElement$()), $withdraw_confirmation_uniform$$ = new $uniform$Uniform$$;
     $withdraw_confirmation_uniform$$.$decorate$($form_element$$);
-    this.$getHandler$().$listen$($dlg_content$$2_e$$349_withdrawConfirmationDialog$$, $goog$ui$Dialog$EventType$SELECT$$, function($e$$350_withdraw_confirmation_data$$) {
-      if ("ok" == $e$$350_withdraw_confirmation_data$$.key) {
+    this.$getHandler$().$listen$($dlg_content$$2_e$$348_withdrawConfirmationDialog$$, $goog$ui$Dialog$EventType$SELECT$$, function($e$$349_withdraw_confirmation_data$$) {
+      if ("ok" == $e$$349_withdraw_confirmation_data$$.key) {
         var $error_list$$13$$ = $withdraw_confirmation_uniform$$.$validate$();
         0 < $error_list$$13$$.length ? ($goog$array$forEach$$($error_list$$13$$, function($error_msg$$8$$) {
           this.$showNotification$("error", $error_msg$$8$$);
-        }, this), $e$$350_withdraw_confirmation_data$$.stopPropagation(), $e$$350_withdraw_confirmation_data$$.preventDefault()) : ($e$$350_withdraw_confirmation_data$$ = $JSCompiler_StaticMethods_getAsJSON$$($withdraw_confirmation_uniform$$), this.$model_$.get("TwoFactorEnabled") ? this.$conn_$.$confirmWithdraw$(void 0, $msg$$116$$.WithdrawID, $e$$350_withdraw_confirmation_data$$.token) : this.$conn_$.$confirmWithdraw$($e$$350_withdraw_confirmation_data$$.confirmation_code));
+        }, this), $e$$349_withdraw_confirmation_data$$.stopPropagation(), $e$$349_withdraw_confirmation_data$$.preventDefault()) : ($e$$349_withdraw_confirmation_data$$ = $JSCompiler_StaticMethods_getAsJSON$$($withdraw_confirmation_uniform$$), this.$model_$.get("TwoFactorEnabled") ? this.$conn_$.$confirmWithdraw$(void 0, $msg$$116$$.WithdrawID, $e$$349_withdraw_confirmation_data$$.token) : this.$conn_$.$confirmWithdraw$($e$$349_withdraw_confirmation_data$$.confirmation_code));
       }
     }, this);
   }
 };
 function $JSCompiler_StaticMethods_preventReload$$($JSCompiler_StaticMethods_preventReload$self$$) {
-  window.onbeforeunload = function($e$$351$$) {
+  window.onbeforeunload = function($e$$350$$) {
     if (this.$conn_$.$logged_$) {
       return "You will lose your connection";
     }
-    $e$$351$$.preventDefault();
+    $e$$350$$.preventDefault();
   }.bind($JSCompiler_StaticMethods_preventReload$self$$);
 }
 function $JSCompiler_StaticMethods_connectBitEx$$($JSCompiler_StaticMethods_connectBitEx$self$$) {
   try {
     $JSCompiler_StaticMethods_connectBitEx$self$$.$conn_$.open($JSCompiler_StaticMethods_connectBitEx$self$$.$wss_url_$);
-  } catch ($e$$352$$) {
-    var $JSCompiler_object_inline_error_code_1941_output$$inline_1836$$ = "WebSocket: " + $e$$352$$, $JSCompiler_object_inline_error_code_1941_output$$inline_1836$$ = "" + ('<p class="lead">' + $soy$$0$0escapeHtml$$("Error connecting to the server. Your browser MUST SUPPORT WebSockets.") + '</p><dl class="dl-horizontal"><dt>Error code</dt><dd>' + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_error_code_1941_output$$inline_1836$$) + "</dd></dl>");
+  } catch ($e$$351$$) {
+    var $JSCompiler_object_inline_error_code_1941_output$$inline_1836$$ = "WebSocket: " + $e$$351$$, $JSCompiler_object_inline_error_code_1941_output$$inline_1836$$ = "" + ('<p class="lead">' + $soy$$0$0escapeHtml$$("Error connecting to the server. Your browser MUST SUPPORT WebSockets.") + '</p><dl class="dl-horizontal"><dt>Error code</dt><dd>' + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_error_code_1941_output$$inline_1836$$) + "</dd></dl>");
     $JSCompiler_StaticMethods_connectBitEx$self$$.$showDialog$($JSCompiler_object_inline_error_code_1941_output$$inline_1836$$, void 0, $bitex$ui$Dialog$ButtonSet$createYesNoCancel$$());
   }
 }
 $JSCompiler_prototypeAlias$$.$setView$ = function $$JSCompiler_prototypeAlias$$$$setView$$($view_id$$4$$) {
   this.$router_$.$setView$($view_id$$4$$);
 };
-$JSCompiler_prototypeAlias$$.$onUserMarketDataSubscribe_$ = function $$JSCompiler_prototypeAlias$$$$onUserMarketDataSubscribe_$$($e$$353$$) {
-  this.$conn_$.$subscribeMarketData$($e$$353$$.target.$getMDMarketDepth$(), $e$$353$$.target.$getMDInstruments$(), $e$$353$$.target.$getMDEntries$(), $e$$353$$.target.$market_data_subscription_id_$);
+$JSCompiler_prototypeAlias$$.$onUserMarketDataSubscribe_$ = function $$JSCompiler_prototypeAlias$$$$onUserMarketDataSubscribe_$$($e$$352$$) {
+  this.$conn_$.$subscribeMarketData$($e$$352$$.target.$getMDMarketDepth$(), $e$$352$$.target.$getMDInstruments$(), $e$$352$$.target.$getMDEntries$(), $e$$352$$.target.$market_data_subscription_id_$);
 };
-$JSCompiler_prototypeAlias$$.$onUserMarketDataUnsubscribe_$ = function $$JSCompiler_prototypeAlias$$$$onUserMarketDataUnsubscribe_$$($e$$354$$) {
-  this.$conn_$.$unSubscribeMarketData$($e$$354$$.target.$market_data_subscription_id_$);
+$JSCompiler_prototypeAlias$$.$onUserMarketDataUnsubscribe_$ = function $$JSCompiler_prototypeAlias$$$$onUserMarketDataUnsubscribe_$$($e$$353$$) {
+  this.$conn_$.$unSubscribeMarketData$($e$$353$$.target.$market_data_subscription_id_$);
 };
 $JSCompiler_prototypeAlias$$.$onUserSecurityStatusSubscribe_$ = function $$JSCompiler_prototypeAlias$$$$onUserSecurityStatusSubscribe_$$() {
 };
@@ -16252,61 +16246,61 @@ $JSCompiler_prototypeAlias$$.$getPriceCurrencyFromSymbol$ = function $$JSCompile
 $JSCompiler_prototypeAlias$$.$getQtyCurrencyFromSymbol$ = function $$JSCompiler_prototypeAlias$$$$getQtyCurrencyFromSymbol$$($symbol$$20$$) {
   return $symbol$$20$$.substr(0, 3);
 };
-$JSCompiler_prototypeAlias$$.$onUserChangePassword_$ = function $$JSCompiler_prototypeAlias$$$$onUserChangePassword_$$($e$$357_new_password$$2$$) {
-  var $password$$6$$ = $e$$357_new_password$$2$$.target.$getCurrentPassword$();
-  $e$$357_new_password$$2$$ = $e$$357_new_password$$2$$.target.$getNewPassword$();
-  this.$conn_$.$changePassword$(this.$model_$.get("SelectedBrokerID"), this.$model_$.get("Username"), $password$$6$$, $e$$357_new_password$$2$$);
+$JSCompiler_prototypeAlias$$.$onUserChangePassword_$ = function $$JSCompiler_prototypeAlias$$$$onUserChangePassword_$$($e$$356_new_password$$2$$) {
+  var $password$$6$$ = $e$$356_new_password$$2$$.target.$getCurrentPassword$();
+  $e$$356_new_password$$2$$ = $e$$356_new_password$$2$$.target.$getNewPassword$();
+  this.$conn_$.$changePassword$(this.$model_$.get("SelectedBrokerID"), this.$model_$.get("Username"), $password$$6$$, $e$$356_new_password$$2$$);
 };
-$JSCompiler_prototypeAlias$$.$onChangePasswordResponse_$ = function $$JSCompiler_prototypeAlias$$$$onChangePasswordResponse_$$($e$$358_msg$$117$$) {
-  $e$$358_msg$$117$$ = $e$$358_msg$$117$$.data;
-  if ($e$$358_msg$$117$$.NeedSecondFactor) {
+$JSCompiler_prototypeAlias$$.$onChangePasswordResponse_$ = function $$JSCompiler_prototypeAlias$$$$onChangePasswordResponse_$$($e$$357_msg$$117$$) {
+  $e$$357_msg$$117$$ = $e$$357_msg$$117$$.data;
+  if ($e$$357_msg$$117$$.NeedSecondFactor) {
     var $dlg_$$ = this.$showDialog$($bitex$templates$GoogleAuthenticationCodeDialogContent$$(), "2 steps authentication", $bitex$ui$Dialog$ButtonSet$createOkCancel$$()), $gauth_uniform$$ = new $uniform$Uniform$$;
     $gauth_uniform$$.$decorate$($goog$dom$getFirstElementChild$$($dlg_$$.$getContentElement$()));
-    this.$getHandler$().$listen$($dlg_$$, $goog$ui$Dialog$EventType$SELECT$$, function($e$$359_second_factor$$) {
-      if ("ok" == $e$$359_second_factor$$.key) {
+    this.$getHandler$().$listen$($dlg_$$, $goog$ui$Dialog$EventType$SELECT$$, function($e$$358_second_factor$$) {
+      if ("ok" == $e$$358_second_factor$$.key) {
         var $error_list$$14_password$$7$$ = $gauth_uniform$$.$validate$();
         if (0 < $error_list$$14_password$$7$$.length) {
           $goog$array$forEach$$($error_list$$14_password$$7$$, function($error_msg$$9$$) {
             this.$showNotification$("error", $error_msg$$9$$);
-          }, this), $e$$359_second_factor$$.stopPropagation(), $e$$359_second_factor$$.preventDefault();
+          }, this), $e$$358_second_factor$$.stopPropagation(), $e$$358_second_factor$$.preventDefault();
         } else {
-          $e$$359_second_factor$$ = $JSCompiler_StaticMethods_getAsJSON$$($gauth_uniform$$).token;
+          $e$$358_second_factor$$ = $JSCompiler_StaticMethods_getAsJSON$$($gauth_uniform$$).token;
           var $error_list$$14_password$$7$$ = this.$profileView_$.$getCurrentPassword$(), $new_password$$3$$ = this.$profileView_$.$getNewPassword$();
-          this.$conn_$.$changePassword$(this.$model_$.get("SelectedBrokerID"), this.$model_$.get("Username"), $error_list$$14_password$$7$$, $new_password$$3$$, $e$$359_second_factor$$);
+          this.$conn_$.$changePassword$(this.$model_$.get("SelectedBrokerID"), this.$model_$.get("Username"), $error_list$$14_password$$7$$, $new_password$$3$$, $e$$358_second_factor$$);
           $dlg_$$.$dispose$();
         }
       }
     });
   } else {
-    "MSG_SUCCESS_PASSWORD_CHANGE" == $e$$358_msg$$117$$.UserStatusText ? this.$showDialog$("Password changed!", "Success") : this.$showDialog$($e$$358_msg$$117$$.UserStatusText);
+    "MSG_SUCCESS_PASSWORD_CHANGE" == $e$$357_msg$$117$$.UserStatusText ? this.$showDialog$("Password changed!", "Success") : this.$showDialog$($e$$357_msg$$117$$.UserStatusText);
   }
 };
-$JSCompiler_prototypeAlias$$.$onUserChangeMarket_$ = function $$JSCompiler_prototypeAlias$$$$onUserChangeMarket_$$($e$$360_symbol$$21$$) {
-  $e$$360_symbol$$21$$ = $e$$360_symbol$$21$$.target.$getSymbol$();
-  this.$model_$.set("SelectedSymbol", {$symbol$:$e$$360_symbol$$21$$, $qty_currency$:this.$currency_info_$[this.$getQtyCurrencyFromSymbol$($e$$360_symbol$$21$$)], $price_currency$:this.$currency_info_$[this.$getPriceCurrencyFromSymbol$($e$$360_symbol$$21$$)]});
+$JSCompiler_prototypeAlias$$.$onUserChangeMarket_$ = function $$JSCompiler_prototypeAlias$$$$onUserChangeMarket_$$($e$$359_symbol$$21$$) {
+  $e$$359_symbol$$21$$ = $e$$359_symbol$$21$$.target.$getSymbol$();
+  this.$model_$.set("SelectedSymbol", {$symbol$:$e$$359_symbol$$21$$, $qty_currency$:this.$currency_info_$[this.$getQtyCurrencyFromSymbol$($e$$359_symbol$$21$$)], $price_currency$:this.$currency_info_$[this.$getPriceCurrencyFromSymbol$($e$$359_symbol$$21$$)]});
 };
-$JSCompiler_prototypeAlias$$.$onBitexDepositMethodsResponse_$ = function $$JSCompiler_prototypeAlias$$$$onBitexDepositMethodsResponse_$$($e$$361$$) {
+$JSCompiler_prototypeAlias$$.$onBitexDepositMethodsResponse_$ = function $$JSCompiler_prototypeAlias$$$$onBitexDepositMethodsResponse_$$($e$$360$$) {
   var $deposit_methods$$ = [];
-  $goog$array$forEach$$($e$$361$$.data.DepositMethodGrp, function($deposit_method$$1$$) {
+  $goog$array$forEach$$($e$$360$$.data.DepositMethodGrp, function($deposit_method$$1$$) {
     $deposit_methods$$.push({id:$deposit_method$$1$$.DepositMethodID, description:$deposit_method$$1$$.Description, $disclaimer$:$deposit_method$$1$$.Disclaimer, type:$deposit_method$$1$$.Type, $currency$:$deposit_method$$1$$.Currency, $percent_fee$:$deposit_method$$1$$.PercentFee, $fixed_fee$:$deposit_method$$1$$.FixedFee, $deposit_limits$:$deposit_method$$1$$.DepositLimits, $user_receipt_url$:$deposit_method$$1$$.UserReceiptURL});
   });
   this.$model_$.set("DepositMethods", $deposit_methods$$);
 };
-$JSCompiler_prototypeAlias$$.$onBitexPasswordChangedOk_$ = function $$JSCompiler_prototypeAlias$$$$onBitexPasswordChangedOk_$$($e$$362_msg$$119$$) {
-  $e$$362_msg$$119$$ = $e$$362_msg$$119$$.data;
-  "MSG_SUCCESS_PASSWORD_CHANGE" == $e$$362_msg$$119$$.UserStatusText ? this.$showDialog$("Password changed!", "Success") : this.$showDialog$($e$$362_msg$$119$$.UserStatusText, "Success");
+$JSCompiler_prototypeAlias$$.$onBitexPasswordChangedOk_$ = function $$JSCompiler_prototypeAlias$$$$onBitexPasswordChangedOk_$$($e$$361_msg$$119$$) {
+  $e$$361_msg$$119$$ = $e$$361_msg$$119$$.data;
+  "MSG_SUCCESS_PASSWORD_CHANGE" == $e$$361_msg$$119$$.UserStatusText ? this.$showDialog$("Password changed!", "Success") : this.$showDialog$($e$$361_msg$$119$$.UserStatusText, "Success");
   this.$router_$.$setView$("signin");
 };
-$JSCompiler_prototypeAlias$$.$onBitexPasswordChangedError_$ = function $$JSCompiler_prototypeAlias$$$$onBitexPasswordChangedError_$$($e$$363$$) {
-  "MSG_CHANGE_PASSWORD_INVALID_SECURITY_CODE" == $e$$363$$.data.UserStatusText ? this.$showDialog$("Invalid security code.", "Error") : this.$showDialog$("There was an error changing the password", "Error");
+$JSCompiler_prototypeAlias$$.$onBitexPasswordChangedError_$ = function $$JSCompiler_prototypeAlias$$$$onBitexPasswordChangedError_$$($e$$362$$) {
+  "MSG_CHANGE_PASSWORD_INVALID_SECURITY_CODE" == $e$$362$$.data.UserStatusText ? this.$showDialog$("Invalid security code.", "Error") : this.$showDialog$("There was an error changing the password", "Error");
 };
-$JSCompiler_prototypeAlias$$.$onBitexWithdrawIncrementalUpdate_$ = function $$JSCompiler_prototypeAlias$$$$onBitexWithdrawIncrementalUpdate_$$($e$$364_msg$$121$$) {
-  $e$$364_msg$$121$$ = $e$$364_msg$$121$$.data;
-  var $MSG_WITHDRAW_NOTIFICATION_USER_CONFIRMED_TITLE$$ = "Withdraw [" + ($e$$364_msg$$121$$.WithdrawID + "] confirmed"), $MSG_WITHDRAW_NOTIFICATION_USER_PROGRESS_TITLE$$ = "Withdraw [" + ($e$$364_msg$$121$$.WithdrawID + "] in progress"), $MSG_WITHDRAW_NOTIFICATION_USER_COMPLETE_TITLE$$ = "Withdraw [" + ($e$$364_msg$$121$$.WithdrawID + "] completed"), $MSG_WITHDRAW_NOTIFICATION_USER_CANCEL_TITLE$$ = "withdraw [" + ($e$$364_msg$$121$$.WithdrawID + "] cancelled"), $MSG_WITHDRAW_NOTIFICATION_BROKER_CONFIRMED_TITLE$$ = 
-  "User " + ($e$$364_msg$$121$$.Username + " requested withdrawal of"), $formatted_value$$2$$ = this.$formatCurrency$($e$$364_msg$$121$$.Amount / 1E8, $e$$364_msg$$121$$.Currency), $notification_type_title$$;
-  switch($e$$364_msg$$121$$.Status) {
+$JSCompiler_prototypeAlias$$.$onBitexWithdrawIncrementalUpdate_$ = function $$JSCompiler_prototypeAlias$$$$onBitexWithdrawIncrementalUpdate_$$($e$$363_msg$$121$$) {
+  $e$$363_msg$$121$$ = $e$$363_msg$$121$$.data;
+  var $MSG_WITHDRAW_NOTIFICATION_USER_CONFIRMED_TITLE$$ = "Withdraw [" + ($e$$363_msg$$121$$.WithdrawID + "] confirmed"), $MSG_WITHDRAW_NOTIFICATION_USER_PROGRESS_TITLE$$ = "Withdraw [" + ($e$$363_msg$$121$$.WithdrawID + "] in progress"), $MSG_WITHDRAW_NOTIFICATION_USER_COMPLETE_TITLE$$ = "Withdraw [" + ($e$$363_msg$$121$$.WithdrawID + "] completed"), $MSG_WITHDRAW_NOTIFICATION_USER_CANCEL_TITLE$$ = "withdraw [" + ($e$$363_msg$$121$$.WithdrawID + "] cancelled"), $MSG_WITHDRAW_NOTIFICATION_BROKER_CONFIRMED_TITLE$$ = 
+  "User " + ($e$$363_msg$$121$$.Username + " requested withdrawal of"), $formatted_value$$2$$ = this.$formatCurrency$($e$$363_msg$$121$$.Amount / 1E8, $e$$363_msg$$121$$.Currency), $notification_type_title$$;
+  switch($e$$363_msg$$121$$.Status) {
     case "1":
-      this.$model_$.get("IsBroker") && "BTC" != $e$$364_msg$$121$$.Currency ? ($bitex$util$playSound$$("/assets/res/withdrawal-admin.mp3"), $notification_type_title$$ = ["warning", $MSG_WITHDRAW_NOTIFICATION_BROKER_CONFIRMED_TITLE$$, 3E5, !0]) : this.$model_$.get("IsBroker") || ($notification_type_title$$ = ["info", $MSG_WITHDRAW_NOTIFICATION_USER_CONFIRMED_TITLE$$, 3E3, !1]);
+      this.$model_$.get("IsBroker") && "BTC" != $e$$363_msg$$121$$.Currency ? ($bitex$util$playSound$$("/assets/res/withdrawal-admin.mp3"), $notification_type_title$$ = ["warning", $MSG_WITHDRAW_NOTIFICATION_BROKER_CONFIRMED_TITLE$$, 3E5, !0]) : this.$model_$.get("IsBroker") || ($notification_type_title$$ = ["info", $MSG_WITHDRAW_NOTIFICATION_USER_CONFIRMED_TITLE$$, 3E3, !1]);
       break;
     case "2":
       this.$model_$.get("IsBroker") || ($notification_type_title$$ = ["info", $MSG_WITHDRAW_NOTIFICATION_USER_PROGRESS_TITLE$$, 3E3, !1]);
@@ -16319,30 +16313,30 @@ $JSCompiler_prototypeAlias$$.$onBitexWithdrawIncrementalUpdate_$ = function $$JS
   }
   null != $notification_type_title$$ && this.$showNotification$($notification_type_title$$[0], $notification_type_title$$[1], $formatted_value$$2$$, $notification_type_title$$[2], $notification_type_title$$[3]);
 };
-$JSCompiler_prototypeAlias$$.$onBitexDepositIncrementalUpdate_$ = function $$JSCompiler_prototypeAlias$$$$onBitexDepositIncrementalUpdate_$$($e$$365_msg$$122$$) {
-  $e$$365_msg$$122$$ = $e$$365_msg$$122$$.data;
-  var $MSG_DEPOSIT_NOTIFICATION_COMPLETE$$ = "Your deposit request " + ($e$$365_msg$$122$$.ControlNumber + " was credited into your account"), $MSG_DEPOSIT_NOTIFICATION_CANCELLED$$ = "Your deposit request " + ($e$$365_msg$$122$$.ControlNumber + " was cancelled"), $MSG_DEPOSIT_NOTIFICATION_USER_CONFIRMATION$$ = "User just sent a deposit receipt for the deposit " + $e$$365_msg$$122$$.ControlNumber, $formatted_value$$3$$ = this.$formatCurrency$($e$$365_msg$$122$$.PaidValue / 1E8, $e$$365_msg$$122$$.Currency), 
+$JSCompiler_prototypeAlias$$.$onBitexDepositIncrementalUpdate_$ = function $$JSCompiler_prototypeAlias$$$$onBitexDepositIncrementalUpdate_$$($e$$364_msg$$122$$) {
+  $e$$364_msg$$122$$ = $e$$364_msg$$122$$.data;
+  var $MSG_DEPOSIT_NOTIFICATION_COMPLETE$$ = "Your deposit request " + ($e$$364_msg$$122$$.ControlNumber + " was credited into your account"), $MSG_DEPOSIT_NOTIFICATION_CANCELLED$$ = "Your deposit request " + ($e$$364_msg$$122$$.ControlNumber + " was cancelled"), $MSG_DEPOSIT_NOTIFICATION_USER_CONFIRMATION$$ = "User just sent a deposit receipt for the deposit " + $e$$364_msg$$122$$.ControlNumber, $formatted_value$$3$$ = this.$formatCurrency$($e$$364_msg$$122$$.PaidValue / 1E8, $e$$364_msg$$122$$.Currency), 
   $notification_type_title$$1$$;
-  "CRY" != $e$$365_msg$$122$$.Type && ("4" != $e$$365_msg$$122$$.Status || this.$model_$.get("IsBroker") ? "8" != $e$$365_msg$$122$$.Status || this.$model_$.get("IsBroker") ? "1" == $e$$365_msg$$122$$.Status && this.$model_$.get("IsBroker") && ($formatted_value$$3$$ = this.$formatCurrency$($e$$365_msg$$122$$.Value / 1E8, $e$$365_msg$$122$$.Currency), $notification_type_title$$1$$ = ["success", $MSG_DEPOSIT_NOTIFICATION_USER_CONFIRMATION$$], $bitex$util$playSound$$("/assets/res/deposit-admin.mp3")) : 
-  ($formatted_value$$3$$ = this.$formatCurrency$($e$$365_msg$$122$$.Value / 1E8, $e$$365_msg$$122$$.Currency), $notification_type_title$$1$$ = ["error", $MSG_DEPOSIT_NOTIFICATION_CANCELLED$$], $bitex$util$playSound$$("/assets/res/error.mp3")) : ($notification_type_title$$1$$ = ["success", $MSG_DEPOSIT_NOTIFICATION_COMPLETE$$], $bitex$util$playSound$$("/assets/res/deposit.mp3")));
+  "CRY" != $e$$364_msg$$122$$.Type && ("4" != $e$$364_msg$$122$$.Status || this.$model_$.get("IsBroker") ? "8" != $e$$364_msg$$122$$.Status || this.$model_$.get("IsBroker") ? "1" == $e$$364_msg$$122$$.Status && this.$model_$.get("IsBroker") && ($formatted_value$$3$$ = this.$formatCurrency$($e$$364_msg$$122$$.Value / 1E8, $e$$364_msg$$122$$.Currency), $notification_type_title$$1$$ = ["success", $MSG_DEPOSIT_NOTIFICATION_USER_CONFIRMATION$$], $bitex$util$playSound$$("/assets/res/deposit-admin.mp3")) : 
+  ($formatted_value$$3$$ = this.$formatCurrency$($e$$364_msg$$122$$.Value / 1E8, $e$$364_msg$$122$$.Currency), $notification_type_title$$1$$ = ["error", $MSG_DEPOSIT_NOTIFICATION_CANCELLED$$], $bitex$util$playSound$$("/assets/res/error.mp3")) : ($notification_type_title$$1$$ = ["success", $MSG_DEPOSIT_NOTIFICATION_COMPLETE$$], $bitex$util$playSound$$("/assets/res/deposit.mp3")));
   null != $notification_type_title$$1$$ && this.$showNotification$($notification_type_title$$1$$[0], $notification_type_title$$1$$[1], $formatted_value$$3$$, 6E4, !0);
 };
-$JSCompiler_prototypeAlias$$.$onBitexVerifyCustomerUpdate_$ = function $$JSCompiler_prototypeAlias$$$$onBitexVerifyCustomerUpdate_$$($e$$366_profile$$2$$) {
-  var $MSG_ACCOUNT_VERIFIED_CONTENT_msg$$123$$ = $e$$366_profile$$2$$.data;
-  $e$$366_profile$$2$$ = this.$model_$.get("Profile");
-  var $old_verified$$ = $e$$366_profile$$2$$.Verified;
-  $e$$366_profile$$2$$.Verified = $MSG_ACCOUNT_VERIFIED_CONTENT_msg$$123$$.Verified;
-  $e$$366_profile$$2$$.VerificationData = $MSG_ACCOUNT_VERIFIED_CONTENT_msg$$123$$.VerificationData;
-  this.$model_$.set("Profile", $e$$366_profile$$2$$);
-  this.$model_$.set("IsVerified", 1 < $e$$366_profile$$2$$.Verified);
-  this.$model_$.set("IsMissingVerification", 0 == $e$$366_profile$$2$$.Verified);
-  this.$model_$.set("IsAccountBlocked", 0 > $e$$366_profile$$2$$.Verified);
-  $MSG_ACCOUNT_VERIFIED_CONTENT_msg$$123$$ = "You account has been verified. level - " + ($e$$366_profile$$2$$.Verified - 2);
-  0 == $old_verified$$ && 1 == $e$$366_profile$$2$$.Verified ? this.$model_$.get("IsBroker") || (this.$router_$.$setView$("offerbook"), this.$showNotification$("success", "Verification:", "Sent to the broker.")) : 2 == $e$$366_profile$$2$$.Verified ? this.$model_$.get("IsBroker") || this.$showNotification$("success", "Verification:", "In progress.") : 3 <= $e$$366_profile$$2$$.Verified && (this.$model_$.get("IsBroker") || this.$showNotification$("success", "Verification:", $MSG_ACCOUNT_VERIFIED_CONTENT_msg$$123$$, 
+$JSCompiler_prototypeAlias$$.$onBitexVerifyCustomerUpdate_$ = function $$JSCompiler_prototypeAlias$$$$onBitexVerifyCustomerUpdate_$$($e$$365_profile$$2$$) {
+  var $MSG_ACCOUNT_VERIFIED_CONTENT_msg$$123$$ = $e$$365_profile$$2$$.data;
+  $e$$365_profile$$2$$ = this.$model_$.get("Profile");
+  var $old_verified$$ = $e$$365_profile$$2$$.Verified;
+  $e$$365_profile$$2$$.Verified = $MSG_ACCOUNT_VERIFIED_CONTENT_msg$$123$$.Verified;
+  $e$$365_profile$$2$$.VerificationData = $MSG_ACCOUNT_VERIFIED_CONTENT_msg$$123$$.VerificationData;
+  this.$model_$.set("Profile", $e$$365_profile$$2$$);
+  this.$model_$.set("IsVerified", 1 < $e$$365_profile$$2$$.Verified);
+  this.$model_$.set("IsMissingVerification", 0 == $e$$365_profile$$2$$.Verified);
+  this.$model_$.set("IsAccountBlocked", 0 > $e$$365_profile$$2$$.Verified);
+  $MSG_ACCOUNT_VERIFIED_CONTENT_msg$$123$$ = "You account has been verified. level - " + ($e$$365_profile$$2$$.Verified - 2);
+  0 == $old_verified$$ && 1 == $e$$365_profile$$2$$.Verified ? this.$model_$.get("IsBroker") || (this.$router_$.$setView$("offerbook"), this.$showNotification$("success", "Verification:", "Sent to the broker.")) : 2 == $e$$365_profile$$2$$.Verified ? this.$model_$.get("IsBroker") || this.$showNotification$("success", "Verification:", "In progress.") : 3 <= $e$$365_profile$$2$$.Verified && (this.$model_$.get("IsBroker") || this.$showNotification$("success", "Verification:", $MSG_ACCOUNT_VERIFIED_CONTENT_msg$$123$$, 
   3E3, !0));
 };
-$JSCompiler_prototypeAlias$$.$onBitexOrderListResponse_$ = function $$JSCompiler_prototypeAlias$$$$onBitexOrderListResponse_$$($e$$367$$) {
-  var $msg$$124$$ = $e$$367$$.data;
+$JSCompiler_prototypeAlias$$.$onBitexOrderListResponse_$ = function $$JSCompiler_prototypeAlias$$$$onBitexOrderListResponse_$$($e$$366$$) {
+  var $msg$$124$$ = $e$$366$$.data;
   $goog$array$forEach$$($msg$$124$$.OrdListGrp, function($record_array$$) {
     var $execution_report_msg$$2$$ = {};
     $goog$array$forEach$$($record_array$$, function($col_data$$, $col_index$$) {
@@ -16363,13 +16357,13 @@ function $JSCompiler_StaticMethods_processExecutionReport_$$($JSCompiler_StaticM
     $running_algorithm$$.worker.postMessage({req:"execution_report", execution_report:$execution_report$$});
   }, $JSCompiler_StaticMethods_processExecutionReport_$self$$));
 }
-$JSCompiler_prototypeAlias$$.$onBitexExecutionReport_$ = function $$JSCompiler_prototypeAlias$$$$onBitexExecutionReport_$$($e$$368_msg$$125$$) {
-  $e$$368_msg$$125$$ = $e$$368_msg$$125$$.data;
-  $JSCompiler_StaticMethods_processExecutionReport_$$(this, $e$$368_msg$$125$$);
-  var $MSG_ORDER_EXECUTION_TITLE_NOTIFICATION_order_id$$1$$ = $e$$368_msg$$125$$.OrderID;
-  null != $MSG_ORDER_EXECUTION_TITLE_NOTIFICATION_order_id$$1$$ || ($MSG_ORDER_EXECUTION_TITLE_NOTIFICATION_order_id$$1$$ = $e$$368_msg$$125$$.ClOrdID);
-  var $MSG_ORDER_EXECUTION_TITLE_NOTIFICATION_order_id$$1$$ = "Order " + ($MSG_ORDER_EXECUTION_TITLE_NOTIFICATION_order_id$$1$$ + " "), $MSG_NOTIFICATION_ORDER_REJECTED$$ = "rejected - " + $e$$368_msg$$125$$.OrdRejReason, $should_beep$$ = !1;
-  switch($e$$368_msg$$125$$.ExecType) {
+$JSCompiler_prototypeAlias$$.$onBitexExecutionReport_$ = function $$JSCompiler_prototypeAlias$$$$onBitexExecutionReport_$$($e$$367_msg$$125$$) {
+  $e$$367_msg$$125$$ = $e$$367_msg$$125$$.data;
+  $JSCompiler_StaticMethods_processExecutionReport_$$(this, $e$$367_msg$$125$$);
+  var $MSG_ORDER_EXECUTION_TITLE_NOTIFICATION_order_id$$1$$ = $e$$367_msg$$125$$.OrderID;
+  null != $MSG_ORDER_EXECUTION_TITLE_NOTIFICATION_order_id$$1$$ || ($MSG_ORDER_EXECUTION_TITLE_NOTIFICATION_order_id$$1$$ = $e$$367_msg$$125$$.ClOrdID);
+  var $MSG_ORDER_EXECUTION_TITLE_NOTIFICATION_order_id$$1$$ = "Order " + ($MSG_ORDER_EXECUTION_TITLE_NOTIFICATION_order_id$$1$$ + " "), $MSG_NOTIFICATION_ORDER_REJECTED$$ = "rejected - " + $e$$367_msg$$125$$.OrdRejReason, $should_beep$$ = !1;
+  switch($e$$367_msg$$125$$.ExecType) {
     case "1":
       $should_beep$$ = !0;
       this.$showNotification$("success", $MSG_ORDER_EXECUTION_TITLE_NOTIFICATION_order_id$$1$$, "partially filled");
@@ -16386,19 +16380,19 @@ $JSCompiler_prototypeAlias$$.$onBitexExecutionReport_$ = function $$JSCompiler_p
   }
   $should_beep$$ && $bitex$util$playSound$$("/assets/res/beep.wav");
 };
-$JSCompiler_prototypeAlias$$.$onBitexTwoFactorSecretResponse_$ = function $$JSCompiler_prototypeAlias$$$$onBitexTwoFactorSecretResponse_$$($e$$369_msg$$126$$) {
-  $e$$369_msg$$126$$ = $e$$369_msg$$126$$.data;
-  this.$model_$.set("TwoFactorSecret", $e$$369_msg$$126$$.TwoFactorSecret);
-  this.$model_$.set("TwoFactorEnabled", $e$$369_msg$$126$$.TwoFactorEnabled);
+$JSCompiler_prototypeAlias$$.$onBitexTwoFactorSecretResponse_$ = function $$JSCompiler_prototypeAlias$$$$onBitexTwoFactorSecretResponse_$$($e$$368_msg$$126$$) {
+  $e$$368_msg$$126$$ = $e$$368_msg$$126$$.data;
+  this.$model_$.set("TwoFactorSecret", $e$$368_msg$$126$$.TwoFactorSecret);
+  this.$model_$.set("TwoFactorEnabled", $e$$368_msg$$126$$.TwoFactorEnabled);
 };
-$JSCompiler_prototypeAlias$$.$onBitexPositionResponse_$ = function $$JSCompiler_prototypeAlias$$$$onBitexPositionResponse_$$($e$$370_msg$$127$$) {
-  $e$$370_msg$$127$$ = $e$$370_msg$$127$$.data;
-  delete $e$$370_msg$$127$$.MsgType;
-  delete $e$$370_msg$$127$$.PositionReqID;
-  var $clientID$$2$$ = $e$$370_msg$$127$$.ClientID, $has_any_position$$ = !1, $model_balances$$ = this.$model_$.get("Position");
+$JSCompiler_prototypeAlias$$.$onBitexPositionResponse_$ = function $$JSCompiler_prototypeAlias$$$$onBitexPositionResponse_$$($e$$369_msg$$127$$) {
+  $e$$369_msg$$127$$ = $e$$369_msg$$127$$.data;
+  delete $e$$369_msg$$127$$.MsgType;
+  delete $e$$369_msg$$127$$.PositionReqID;
+  var $clientID$$2$$ = $e$$369_msg$$127$$.ClientID, $has_any_position$$ = !1, $model_balances$$ = this.$model_$.get("Position");
   null != $model_balances$$ || ($model_balances$$ = {});
   var $changed_balance$$ = !1;
-  $goog$object$forEach$$($e$$370_msg$$127$$, function($balances$$, $brokerID$$4$$) {
+  $goog$object$forEach$$($e$$369_msg$$127$$, function($balances$$, $brokerID$$4$$) {
     $goog$object$forEach$$($balances$$, function($balance$$6$$, $currency$$33$$) {
       $goog$string$endsWith$$($currency$$33$$) || (null != $model_balances$$[$brokerID$$4$$] || ($model_balances$$[$brokerID$$4$$] = {}), null != $model_balances$$[$brokerID$$4$$][$clientID$$2$$] || ($model_balances$$[$brokerID$$4$$][$clientID$$2$$] = {}), $balance$$6$$ = (new $bitex$primitives$Price$$($balance$$6$$, $JSCompiler_StaticMethods_getCurrencyPip$$(this, $currency$$33$$))).floor(), $model_balances$$[$brokerID$$4$$][$clientID$$2$$][$currency$$33$$] = $balance$$6$$, 0 != $balance$$6$$ && 
       ($has_any_position$$ = !0), $changed_balance$$ = !0);
@@ -16406,7 +16400,7 @@ $JSCompiler_prototypeAlias$$.$onBitexPositionResponse_$ = function $$JSCompiler_
   }, this);
   $changed_balance$$ && this.$model_$.set("Position", $model_balances$$, !0);
   this.$model_$.set("HasAnyPosition", $has_any_position$$);
-  $goog$object$forEach$$($e$$370_msg$$127$$, function($positions$$, $broker$$15$$) {
+  $goog$object$forEach$$($e$$369_msg$$127$$, function($positions$$, $broker$$15$$) {
     $goog$object$forEach$$($positions$$, function($position$$7$$, $currency$$34$$) {
       $position$$7$$ /= 1E8;
       var $position_key$$ = "position_" + $broker$$15$$ + ":" + $clientID$$2$$ + "_" + $currency$$34$$;
@@ -16415,13 +16409,13 @@ $JSCompiler_prototypeAlias$$.$onBitexPositionResponse_$ = function $$JSCompiler_
     }, this);
   }, this);
 };
-$JSCompiler_prototypeAlias$$.$onBitexBalanceResponse_$ = function $$JSCompiler_prototypeAlias$$$$onBitexBalanceResponse_$$($e$$371_running_algorithms$$1$$) {
-  var $msg$$128$$ = $e$$371_running_algorithms$$1$$.data;
+$JSCompiler_prototypeAlias$$.$onBitexBalanceResponse_$ = function $$JSCompiler_prototypeAlias$$$$onBitexBalanceResponse_$$($e$$370_running_algorithms$$1$$) {
+  var $msg$$128$$ = $e$$370_running_algorithms$$1$$.data;
   delete $msg$$128$$.MsgType;
   delete $msg$$128$$.BalanceReqID;
   var $clientID$$3$$ = $msg$$128$$.ClientID;
-  $e$$371_running_algorithms$$1$$ = this.$model_$.get("RunningAlgorithms");
-  $goog$object$forEach$$($e$$371_running_algorithms$$1$$, function($running_algorithm$$1_worker$$1$$) {
+  $e$$370_running_algorithms$$1$$ = this.$model_$.get("RunningAlgorithms");
+  $goog$object$forEach$$($e$$370_running_algorithms$$1$$, function($running_algorithm$$1_worker$$1$$) {
     $running_algorithm$$1_worker$$1$$ = $running_algorithm$$1_worker$$1$$.worker;
     var $broker_id$$11$$ = this.$model_$.get("SelectedBrokerID");
     $broker_id$$11$$ in $msg$$128$$ && $running_algorithm$$1_worker$$1$$.postMessage({req:"balance", balances:$msg$$128$$[$broker_id$$11$$]});
@@ -16460,8 +16454,8 @@ $JSCompiler_prototypeAlias$$.$getBalance$ = function $$JSCompiler_prototypeAlias
   return "deposit" == $type$$153$$ ? this.$model_$.get($balance_key$$4_currency$$39$$) : "available" == $type$$153$$ ? null != this.$model_$.get($balance_key$$4_currency$$39$$) ? null != this.$model_$.get($locked_balance_key$$2_opt_clientID$$10$$) ? Math.round(this.$model_$.get($balance_key$$4_currency$$39$$) - this.$model_$.get($locked_balance_key$$2_opt_clientID$$10$$)) : this.$model_$.get($balance_key$$4_currency$$39$$) : 0 : "locked" == $type$$153$$ ? null != this.$model_$.get($locked_balance_key$$2_opt_clientID$$10$$) ? 
   this.$model_$.get($locked_balance_key$$2_opt_clientID$$10$$) : 0 : 0;
 };
-$JSCompiler_prototypeAlias$$.$onUserWithdrawRequest_$ = function $$JSCompiler_prototypeAlias$$$$onUserWithdrawRequest_$$($e$$372$$) {
-  $JSCompiler_StaticMethods_showWithdrawalDialog$$(this, $e$$372$$.target.$data_$.Currency, $e$$372$$.target.$data_$);
+$JSCompiler_prototypeAlias$$.$onUserWithdrawRequest_$ = function $$JSCompiler_prototypeAlias$$$$onUserWithdrawRequest_$$($e$$371$$) {
+  $JSCompiler_StaticMethods_showWithdrawalDialog$$(this, $e$$371$$.target.$data_$.Currency, $e$$371$$.target.$data_$);
 };
 function $JSCompiler_StaticMethods_showWithdrawalDialog$$($JSCompiler_StaticMethods_showWithdrawalDialog$self$$, $currency$$41$$, $dialogContent$$1_dlg$$4_fmt$$15_opt_preData_withdraw_methods$$2$$) {
   var $preData$$ = $dialogContent$$1_dlg$$4_fmt$$15_opt_preData_withdraw_methods$$2$$ || {};
@@ -16568,13 +16562,13 @@ function $JSCompiler_StaticMethods_showWithdrawalDialog$$($JSCompiler_StaticMeth
   $balance_key$$5_value_fmt$$13_withdrawal_form_el$$ = new $goog$i18n$NumberFormat$$(1);
   $balance_key$$5_value_fmt$$13_withdrawal_form_el$$.$maximumFractionDigits_$ = 8;
   $JSCompiler_StaticMethods_setMinimumFractionDigits$$($balance_key$$5_value_fmt$$13_withdrawal_form_el$$, 2);
-  $handler$$141$$.$listen$($dialogContent$$1_dlg$$4_fmt$$15_opt_preData_withdraw_methods$$2$$, $goog$ui$Dialog$EventType$SELECT$$, function($e$$374$$) {
-    if ("ok" == $e$$374$$.key) {
+  $handler$$141$$.$listen$($dialogContent$$1_dlg$$4_fmt$$15_opt_preData_withdraw_methods$$2$$, $goog$ui$Dialog$EventType$SELECT$$, function($e$$373$$) {
+    if ("ok" == $e$$373$$.key) {
       var $error_list$$15_withdraw_data$$ = $withdrawal_uniform$$.$validate$();
       if (0 < $error_list$$15_withdraw_data$$.length) {
         $goog$array$forEach$$($error_list$$15_withdraw_data$$, function($error_msg$$10$$) {
           this.$showNotification$("error", $error_msg$$10$$);
-        }, this), $e$$374$$.stopPropagation(), $e$$374$$.preventDefault();
+        }, this), $e$$373$$.stopPropagation(), $e$$373$$.preventDefault();
       } else {
         try {
           var $amount$$9_position_key$$1$$ = "Position_" + this.$model_$.get("Broker").BrokerID + "_" + this.$model_$.get("UserID"), $method$$7_positions$$1$$ = this.$model_$.get($amount$$9_position_key$$1$$);
@@ -16585,17 +16579,17 @@ function $JSCompiler_StaticMethods_showWithdrawalDialog$$($JSCompiler_StaticMeth
             }, this);
             if ($has_open_positions$$) {
               this.$showNotification$("error", "You have deposits that are not confirmed yet");
-              $e$$374$$.stopPropagation();
-              $e$$374$$.preventDefault();
+              $e$$373$$.stopPropagation();
+              $e$$373$$.preventDefault();
               return;
             }
           }
-        } catch ($e$$375$$) {
+        } catch ($e$$374$$) {
         }
         $error_list$$15_withdraw_data$$ = $JSCompiler_StaticMethods_getAsJSON$$($withdrawal_uniform$$);
         $amount$$9_position_key$$1$$ = $error_list$$15_withdraw_data$$.Amount;
         if (0 > $amount$$9_position_key$$1$$) {
-          this.$showNotification$("error", "Invalid withdrawal amount"), $e$$374$$.stopPropagation(), $e$$374$$.preventDefault();
+          this.$showNotification$("error", "Invalid withdrawal amount"), $e$$373$$.stopPropagation(), $e$$373$$.preventDefault();
         } else {
           $amount$$9_position_key$$1$$ = (new $bitex$primitives$Price$$(1E8 * $amount$$9_position_key$$1$$, $JSCompiler_StaticMethods_getCurrencyPip$$(this, $error_list$$15_withdraw_data$$.Currency))).floor();
           $goog$dom$forms$getValue$$($goog$dom$getElement$$($form_id$$ + "_method_" + $error_list$$15_withdraw_data$$.Method + "_net_value_value"));
@@ -16605,53 +16599,53 @@ function $JSCompiler_StaticMethods_showWithdrawalDialog$$($JSCompiler_StaticMeth
           delete $error_list$$15_withdraw_data$$.Method;
           var $currency$$42$$ = $error_list$$15_withdraw_data$$.Currency;
           delete $error_list$$15_withdraw_data$$.Currency;
-          this.$conn_$.$requestWithdraw$($e$$374$$.target.$request_id_$, $amount$$9_position_key$$1$$, $method$$7_positions$$1$$, $currency$$42$$, $error_list$$15_withdraw_data$$);
+          this.$conn_$.$requestWithdraw$($e$$373$$.target.$request_id_$, $amount$$9_position_key$$1$$, $method$$7_positions$$1$$, $currency$$42$$, $error_list$$15_withdraw_data$$);
         }
       }
     }
   }, $JSCompiler_StaticMethods_showWithdrawalDialog$self$$);
 }
-$JSCompiler_prototypeAlias$$.$onUserConfirmWithdraw_$ = function $$JSCompiler_prototypeAlias$$$$onUserConfirmWithdraw_$$($e$$376$$) {
-  this.$conn_$.$confirmWithdraw$($e$$376$$.target.$confirmation_token_$);
+$JSCompiler_prototypeAlias$$.$onUserConfirmWithdraw_$ = function $$JSCompiler_prototypeAlias$$$$onUserConfirmWithdraw_$$($e$$375$$) {
+  this.$conn_$.$confirmWithdraw$($e$$375$$.target.$confirmation_token_$);
 };
-$JSCompiler_prototypeAlias$$.$onUpdateProfile_$ = function $$JSCompiler_prototypeAlias$$$$onUpdateProfile_$$($e$$377$$) {
-  var $client_id$$3$$ = $e$$377$$.target.$getClientID$();
-  $JSCompiler_StaticMethods_updateUserProfile$$(this.$conn_$, $e$$377$$.target.$update_profile_data_$, $client_id$$3$$);
+$JSCompiler_prototypeAlias$$.$onUpdateProfile_$ = function $$JSCompiler_prototypeAlias$$$$onUpdateProfile_$$($e$$376$$) {
+  var $client_id$$3$$ = $e$$376$$.target.$getClientID$();
+  $JSCompiler_StaticMethods_updateUserProfile$$(this.$conn_$, $e$$376$$.target.$update_profile_data_$, $client_id$$3$$);
 };
-$JSCompiler_prototypeAlias$$.$onUserFileView_$ = function $$JSCompiler_prototypeAlias$$$$onUserFileView_$$($e$$378_file_view_dialog_content$$) {
-  $e$$378_file_view_dialog_content$$ = '<img src="' + $soy$$0$0escapeHtml$$($e$$378_file_view_dialog_content$$.target.$file_name_$) + '" style="width:500px"/>';
-  this.$showDialog$($e$$378_file_view_dialog_content$$, "View", $bitex$ui$Dialog$ButtonSet$createOk$$());
+$JSCompiler_prototypeAlias$$.$onUserFileView_$ = function $$JSCompiler_prototypeAlias$$$$onUserFileView_$$($e$$377_file_view_dialog_content$$) {
+  $e$$377_file_view_dialog_content$$ = '<img src="' + $soy$$0$0escapeHtml$$($e$$377_file_view_dialog_content$$.target.$file_name_$) + '" style="width:500px"/>';
+  this.$showDialog$($e$$377_file_view_dialog_content$$, "View", $bitex$ui$Dialog$ButtonSet$createOk$$());
 };
-$JSCompiler_prototypeAlias$$.$onBrokerSetUserAsVerified_$ = function $$JSCompiler_prototypeAlias$$$$onBrokerSetUserAsVerified_$$($e$$379$$) {
-  var $request_id$$ = $e$$379$$.target.$request_id_$, $client_id$$4$$ = $e$$379$$.target.$getClientID$();
-  this.$conn_$.$verifyCustomer$($request_id$$, $client_id$$4$$, $e$$379$$.target.$verification_level_$, $e$$379$$.target.$verification_data_$);
+$JSCompiler_prototypeAlias$$.$onBrokerSetUserAsVerified_$ = function $$JSCompiler_prototypeAlias$$$$onBrokerSetUserAsVerified_$$($e$$378$$) {
+  var $request_id$$ = $e$$378$$.target.$request_id_$, $client_id$$4$$ = $e$$378$$.target.$getClientID$();
+  this.$conn_$.$verifyCustomer$($request_id$$, $client_id$$4$$, $e$$378$$.target.$verification_level_$, $e$$378$$.target.$verification_data_$);
 };
-$JSCompiler_prototypeAlias$$.$onUserCancelWithdrawal_$ = function $$JSCompiler_prototypeAlias$$$$onUserCancelWithdrawal_$$($e$$380_request_id$$1$$) {
-  var $withdraw_data$$1$$ = $e$$380_request_id$$1$$.target.$getWithdrawData$();
-  $e$$380_request_id$$1$$ = $e$$380_request_id$$1$$.target.$request_id_$;
+$JSCompiler_prototypeAlias$$.$onUserCancelWithdrawal_$ = function $$JSCompiler_prototypeAlias$$$$onUserCancelWithdrawal_$$($e$$379_request_id$$1$$) {
+  var $withdraw_data$$1$$ = $e$$379_request_id$$1$$.target.$getWithdrawData$();
+  $e$$379_request_id$$1$$ = $e$$379_request_id$$1$$.target.$request_id_$;
   this.$getHandler$();
-  this.$conn_$.$cancelWithdraw$($withdraw_data$$1$$.WithdrawID, $e$$380_request_id$$1$$);
+  this.$conn_$.$cancelWithdraw$($withdraw_data$$1$$.WithdrawID, $e$$379_request_id$$1$$);
 };
-$JSCompiler_prototypeAlias$$.$onBrokerProcessWithdraw_$ = function $$JSCompiler_prototypeAlias$$$$onBrokerProcessWithdraw_$$($e$$381_handler$$143$$) {
+$JSCompiler_prototypeAlias$$.$onBrokerProcessWithdraw_$ = function $$JSCompiler_prototypeAlias$$$$onBrokerProcessWithdraw_$$($e$$380_handler$$143$$) {
   var $valueFormatter$$3$$ = new $goog$i18n$NumberFormat$$(1);
   $JSCompiler_StaticMethods_setMinimumFractionDigits$$($valueFormatter$$3$$, 2);
   $valueFormatter$$3$$.$maximumFractionDigits_$ = 8;
-  var $withdraw_data$$2$$ = $e$$381_handler$$143$$.target.$getWithdrawData$(), $request_id$$2$$ = $e$$381_handler$$143$$.target.$request_id_$, $action$$5$$ = $e$$381_handler$$143$$.target.$withdraw_action_$;
-  $e$$381_handler$$143$$ = this.$getHandler$();
-  var $feeDialogContent_formatted_amount_model$$61$$ = this.$model_$, $fixed_fee$$2_method_element_id$$ = $goog$string$getRandomString$$(), $cancelWithdrawDlg_cancel_reason_dialog_content_dialogContent$$2_withdraw_amount_element_id$$ = $goog$string$getRandomString$$(), $fixed_fee_element_id$$ = $goog$string$getRandomString$$(), $percent_fee_element_id$$ = $goog$string$getRandomString$$(), $total_fees_element_id$$ = $goog$string$getRandomString$$(), $net_value_element_id$$ = $goog$string$getRandomString$$();
+  var $withdraw_data$$2$$ = $e$$380_handler$$143$$.target.$getWithdrawData$(), $request_id$$2$$ = $e$$380_handler$$143$$.target.$request_id_$, $action$$5$$ = $e$$380_handler$$143$$.target.$withdraw_action_$;
+  $e$$380_handler$$143$$ = this.$getHandler$();
+  var $feeDialogContent_formatted_amount_model$$62$$ = this.$model_$, $fixed_fee$$2_method_element_id$$ = $goog$string$getRandomString$$(), $cancelWithdrawDlg_cancel_reason_dialog_content_dialogContent$$2_withdraw_amount_element_id$$ = $goog$string$getRandomString$$(), $fixed_fee_element_id$$ = $goog$string$getRandomString$$(), $percent_fee_element_id$$ = $goog$string$getRandomString$$(), $total_fees_element_id$$ = $goog$string$getRandomString$$(), $net_value_element_id$$ = $goog$string$getRandomString$$();
   if ("CANCEL" === $action$$5$$) {
     var $cancelWithdrawDlg_cancel_reason_dialog_content_dialogContent$$2_withdraw_amount_element_id$$ = $bitex$view$WithdrawView$templates$CancelWithdrawDialogContent$$(), $cancelWithdrawDlg_cancel_reason_dialog_content_dialogContent$$2_withdraw_amount_element_id$$ = this.$showDialog$($cancelWithdrawDlg_cancel_reason_dialog_content_dialogContent$$2_withdraw_amount_element_id$$, "Cancel withdraw", $bitex$ui$Dialog$ButtonSet$createOkCancel$$()), $select_reason_el$$ = $goog$dom$getElement$$("id_select_reason"), 
     $reason_el$$1$$ = $goog$dom$getElement$$("id_custom_reason_text");
-    $e$$381_handler$$143$$.$listen$($select_reason_el$$, "change", function() {
+    $e$$380_handler$$143$$.$listen$($select_reason_el$$, "change", function() {
       var $reason_id$$1$$ = $goog$string$toNumber$$($goog$dom$forms$getValue$$($select_reason_el$$));
       $goog$style$setElementShown$$($reason_el$$1$$, 0 === $reason_id$$1$$);
     });
-    $e$$381_handler$$143$$.$listen$($cancelWithdrawDlg_cancel_reason_dialog_content_dialogContent$$2_withdraw_amount_element_id$$, $goog$ui$Dialog$EventType$SELECT$$, function($e$$383$$) {
-      if ("ok" == $e$$383$$.key) {
+    $e$$380_handler$$143$$.$listen$($cancelWithdrawDlg_cancel_reason_dialog_content_dialogContent$$2_withdraw_amount_element_id$$, $goog$ui$Dialog$EventType$SELECT$$, function($e$$382$$) {
+      if ("ok" == $e$$382$$.key) {
         var $reason_id$$2$$ = $goog$string$toNumber$$($goog$dom$forms$getValue$$($select_reason_el$$)), $reason$$8$$;
         if (0 === $reason_id$$2$$ && ($reason$$8$$ = $goog$string$trim$$($goog$dom$forms$getValue$$($reason_el$$1$$)), $goog$string$isEmptyOrWhitespace$$($reason$$8$$))) {
-          $e$$383$$.stopPropagation();
-          $e$$383$$.preventDefault();
+          $e$$382$$.stopPropagation();
+          $e$$382$$.preventDefault();
           $goog$dom$getElement$$("id_custom_reason_text").focus();
           return;
         }
@@ -16660,133 +16654,133 @@ $JSCompiler_prototypeAlias$$.$onBrokerProcessWithdraw_$ = function $$JSCompiler_
     }, this);
   } else {
     if ("PROGRESS" === $action$$5$$) {
-      var $feeDialogContent_formatted_amount_model$$61$$ = this.$formatCurrency$($withdraw_data$$2$$.Amount / 1E8, $withdraw_data$$2$$.Currency), $fixed_fee$$2_method_element_id$$ = $valueFormatter$$3$$.format($withdraw_data$$2$$.FixedFee / 1E8), $percent_fee$$2$$ = $valueFormatter$$3$$.format($withdraw_data$$2$$.PercentFee);
+      var $feeDialogContent_formatted_amount_model$$62$$ = this.$formatCurrency$($withdraw_data$$2$$.Amount / 1E8, $withdraw_data$$2$$.Currency), $fixed_fee$$2_method_element_id$$ = $valueFormatter$$3$$.format($withdraw_data$$2$$.FixedFee / 1E8), $percent_fee$$2$$ = $valueFormatter$$3$$.format($withdraw_data$$2$$.PercentFee);
       this.$model_$.get("Profile").IsMarketMaker && ($percent_fee$$2$$ = $fixed_fee$$2_method_element_id$$ = 0);
-      var $feeDialogContent_formatted_amount_model$$61$$ = $bitex$templates$FeesForm$$({$amount$:$withdraw_data$$2$$.Amount, $formattedAmount$:$feeDialogContent_formatted_amount_model$$61$$, $currency$:$withdraw_data$$2$$.Currency, $currencySign$:this.$getCurrencySign$($withdraw_data$$2$$.Currency), $amountID$:$cancelWithdrawDlg_cancel_reason_dialog_content_dialogContent$$2_withdraw_amount_element_id$$, $fixedFeeID$:$fixed_fee_element_id$$, $percentFeeID$:$percent_fee_element_id$$, $totalFeesID$:$total_fees_element_id$$, 
-      $netValueID$:$net_value_element_id$$, $fixedFee$:$fixed_fee$$2_method_element_id$$, $percentFee$:$percent_fee$$2$$}), $feeDlg$$ = this.$showDialog$($feeDialogContent_formatted_amount_model$$61$$, "Set " + (this.$getCurrencyDescription$($withdraw_data$$2$$.Currency) + " withdrawal in progress"), $bitex$ui$Dialog$ButtonSet$createOkCancel$$());
+      var $feeDialogContent_formatted_amount_model$$62$$ = $bitex$templates$FeesForm$$({$amount$:$withdraw_data$$2$$.Amount, $formattedAmount$:$feeDialogContent_formatted_amount_model$$62$$, $currency$:$withdraw_data$$2$$.Currency, $currencySign$:this.$getCurrencySign$($withdraw_data$$2$$.Currency), $amountID$:$cancelWithdrawDlg_cancel_reason_dialog_content_dialogContent$$2_withdraw_amount_element_id$$, $fixedFeeID$:$fixed_fee_element_id$$, $percentFeeID$:$percent_fee_element_id$$, $totalFeesID$:$total_fees_element_id$$, 
+      $netValueID$:$net_value_element_id$$, $fixedFee$:$fixed_fee$$2_method_element_id$$, $percentFee$:$percent_fee$$2$$}), $feeDlg$$ = this.$showDialog$($feeDialogContent_formatted_amount_model$$62$$, "Set " + (this.$getCurrencyDescription$($withdraw_data$$2$$.Currency) + " withdrawal in progress"), $bitex$ui$Dialog$ButtonSet$createOkCancel$$());
       this.$doCalculateFees_$($cancelWithdrawDlg_cancel_reason_dialog_content_dialogContent$$2_withdraw_amount_element_id$$, $fixed_fee_element_id$$, $percent_fee_element_id$$, $withdraw_data$$2$$.Currency, $total_fees_element_id$$, $net_value_element_id$$, !0, !1, !0, !0, !1, !0);
-      $e$$381_handler$$143$$.$listen$(new $goog$events$InputHandler$$($goog$dom$getElement$$($cancelWithdrawDlg_cancel_reason_dialog_content_dialogContent$$2_withdraw_amount_element_id$$)), "input", $goog$bind$$(this.$doCalculateFees_$, this, $cancelWithdrawDlg_cancel_reason_dialog_content_dialogContent$$2_withdraw_amount_element_id$$, $fixed_fee_element_id$$, $percent_fee_element_id$$, $withdraw_data$$2$$.Currency, $total_fees_element_id$$, $net_value_element_id$$, !0, !1, !0, !0, !1, !0));
-      $e$$381_handler$$143$$.$listen$(new $goog$events$InputHandler$$($goog$dom$getElement$$($percent_fee_element_id$$)), "input", $goog$bind$$(this.$doCalculateFees_$, this, $cancelWithdrawDlg_cancel_reason_dialog_content_dialogContent$$2_withdraw_amount_element_id$$, $fixed_fee_element_id$$, $percent_fee_element_id$$, $withdraw_data$$2$$.Currency, $total_fees_element_id$$, $net_value_element_id$$, !0, !1, !0, !0, !1, !0));
-      $e$$381_handler$$143$$.$listen$(new $goog$events$InputHandler$$($goog$dom$getElement$$($fixed_fee_element_id$$)), "input", $goog$bind$$(this.$doCalculateFees_$, this, $cancelWithdrawDlg_cancel_reason_dialog_content_dialogContent$$2_withdraw_amount_element_id$$, $fixed_fee_element_id$$, $percent_fee_element_id$$, $withdraw_data$$2$$.Currency, $total_fees_element_id$$, $net_value_element_id$$, !0, !1, !0, !0, !1, !0));
-      $e$$381_handler$$143$$.$listen$($feeDlg$$, $goog$ui$Dialog$EventType$SELECT$$, function($e$$384$$) {
-        if ("ok" == $e$$384$$.key) {
+      $e$$380_handler$$143$$.$listen$(new $goog$events$InputHandler$$($goog$dom$getElement$$($cancelWithdrawDlg_cancel_reason_dialog_content_dialogContent$$2_withdraw_amount_element_id$$)), "input", $goog$bind$$(this.$doCalculateFees_$, this, $cancelWithdrawDlg_cancel_reason_dialog_content_dialogContent$$2_withdraw_amount_element_id$$, $fixed_fee_element_id$$, $percent_fee_element_id$$, $withdraw_data$$2$$.Currency, $total_fees_element_id$$, $net_value_element_id$$, !0, !1, !0, !0, !1, !0));
+      $e$$380_handler$$143$$.$listen$(new $goog$events$InputHandler$$($goog$dom$getElement$$($percent_fee_element_id$$)), "input", $goog$bind$$(this.$doCalculateFees_$, this, $cancelWithdrawDlg_cancel_reason_dialog_content_dialogContent$$2_withdraw_amount_element_id$$, $fixed_fee_element_id$$, $percent_fee_element_id$$, $withdraw_data$$2$$.Currency, $total_fees_element_id$$, $net_value_element_id$$, !0, !1, !0, !0, !1, !0));
+      $e$$380_handler$$143$$.$listen$(new $goog$events$InputHandler$$($goog$dom$getElement$$($fixed_fee_element_id$$)), "input", $goog$bind$$(this.$doCalculateFees_$, this, $cancelWithdrawDlg_cancel_reason_dialog_content_dialogContent$$2_withdraw_amount_element_id$$, $fixed_fee_element_id$$, $percent_fee_element_id$$, $withdraw_data$$2$$.Currency, $total_fees_element_id$$, $net_value_element_id$$, !0, !1, !0, !0, !1, !0));
+      $e$$380_handler$$143$$.$listen$($feeDlg$$, $goog$ui$Dialog$EventType$SELECT$$, function($e$$383$$) {
+        if ("ok" == $e$$383$$.key) {
           var $form_data$$ = $bitex$util$getFormAsJSON$$($goog$dom$getFirstElementChild$$($feeDlg$$.$getContentElement$())), $fixed_fee_value_percent_fee$$3$$ = $form_data$$.PercentFee, $original_fees_pos$$35$$ = [0], $percent_fee_value$$ = $valueFormatter$$3$$.parse($fixed_fee_value_percent_fee$$3$$, $original_fees_pos$$35$$);
           isNaN($percent_fee_value$$) && ($percent_fee_value$$ = 0);
           if ($original_fees_pos$$35$$[0] != $fixed_fee_value_percent_fee$$3$$.length || isNaN($percent_fee_value$$) || 0 > $percent_fee_value$$) {
-            $e$$384$$.stopPropagation(), $e$$384$$.preventDefault();
+            $e$$383$$.stopPropagation(), $e$$383$$.preventDefault();
           } else {
             var $effective_fees_fixed_fee$$3$$ = $form_data$$.FixedFee, $original_fees_pos$$35$$ = [0], $fixed_fee_value_percent_fee$$3$$ = $valueFormatter$$3$$.parse($effective_fees_fixed_fee$$3$$, $original_fees_pos$$35$$);
             isNaN($fixed_fee_value_percent_fee$$3$$) && ($fixed_fee_value_percent_fee$$3$$ = 0);
-            $original_fees_pos$$35$$[0] != $effective_fees_fixed_fee$$3$$.length || isNaN($fixed_fee_value_percent_fee$$3$$) || 0 > $fixed_fee_value_percent_fee$$3$$ ? ($e$$384$$.stopPropagation(), $e$$384$$.preventDefault()) : ($fixed_fee_value_percent_fee$$3$$ *= 1E8, $original_fees_pos$$35$$ = parseInt($withdraw_data$$2$$.PercentFee / 100 * ($withdraw_data$$2$$.Amount - $withdraw_data$$2$$.FixedFee), 10), $effective_fees_fixed_fee$$3$$ = parseInt($percent_fee_value$$ / 100 * ($withdraw_data$$2$$.Amount - 
-            $fixed_fee_value_percent_fee$$3$$), 10), $original_fees_pos$$35$$ < $effective_fees_fixed_fee$$3$$ ? ($e$$384$$.stopPropagation(), $e$$384$$.preventDefault()) : ($original_fees_pos$$35$$ > $effective_fees_fixed_fee$$3$$ && ($form_data$$.Fees = this.$formatCurrency$($original_fees_pos$$35$$ / 1E8, $withdraw_data$$2$$.Currency, !0) + "|" + this.$formatCurrency$($effective_fees_fixed_fee$$3$$ / 1E8, $withdraw_data$$2$$.Currency, !0)), delete $form_data$$.Amount, delete $form_data$$.FixedFee, 
+            $original_fees_pos$$35$$[0] != $effective_fees_fixed_fee$$3$$.length || isNaN($fixed_fee_value_percent_fee$$3$$) || 0 > $fixed_fee_value_percent_fee$$3$$ ? ($e$$383$$.stopPropagation(), $e$$383$$.preventDefault()) : ($fixed_fee_value_percent_fee$$3$$ *= 1E8, $original_fees_pos$$35$$ = parseInt($withdraw_data$$2$$.PercentFee / 100 * ($withdraw_data$$2$$.Amount - $withdraw_data$$2$$.FixedFee), 10), $effective_fees_fixed_fee$$3$$ = parseInt($percent_fee_value$$ / 100 * ($withdraw_data$$2$$.Amount - 
+            $fixed_fee_value_percent_fee$$3$$), 10), $original_fees_pos$$35$$ < $effective_fees_fixed_fee$$3$$ ? ($e$$383$$.stopPropagation(), $e$$383$$.preventDefault()) : ($original_fees_pos$$35$$ > $effective_fees_fixed_fee$$3$$ && ($form_data$$.Fees = this.$formatCurrency$($original_fees_pos$$35$$ / 1E8, $withdraw_data$$2$$.Currency, !0) + "|" + this.$formatCurrency$($effective_fees_fixed_fee$$3$$ / 1E8, $withdraw_data$$2$$.Currency, !0)), delete $form_data$$.Amount, delete $form_data$$.FixedFee, 
             delete $form_data$$.PercentFee, this.$conn_$.$processWithdraw$($request_id$$2$$, $action$$5$$, $withdraw_data$$2$$.WithdrawID, void 0, void 0, $form_data$$, $percent_fee_value$$, $fixed_fee_value_percent_fee$$3$$)));
           }
         }
       }, this);
     } else {
       if ("COMPLETE" === $action$$5$$) {
-        var $cancelWithdrawDlg_cancel_reason_dialog_content_dialogContent$$2_withdraw_amount_element_id$$ = $bitex$templates$DepositWithdrawDialogContent$$({$side$:"broker", $currency$:$withdraw_data$$2$$.Currency, $currencySign$:this.$getCurrencySign$($withdraw_data$$2$$.Currency), $force_method$:$withdraw_data$$2$$.Method, $amount$:$withdraw_data$$2$$.Amount, methods:$feeDialogContent_formatted_amount_model$$61$$.get("Profile").WithdrawStructure[$withdraw_data$$2$$.Currency], $methodID$:$fixed_fee$$2_method_element_id$$, 
+        var $cancelWithdrawDlg_cancel_reason_dialog_content_dialogContent$$2_withdraw_amount_element_id$$ = $bitex$templates$DepositWithdrawDialogContent$$({$side$:"broker", $currency$:$withdraw_data$$2$$.Currency, $currencySign$:this.$getCurrencySign$($withdraw_data$$2$$.Currency), $force_method$:$withdraw_data$$2$$.Method, $amount$:$withdraw_data$$2$$.Amount, methods:$feeDialogContent_formatted_amount_model$$62$$.get("Profile").WithdrawStructure[$withdraw_data$$2$$.Currency], $methodID$:$fixed_fee$$2_method_element_id$$, 
         $showFeeDataEntry$:!1, $amountID$:$cancelWithdrawDlg_cancel_reason_dialog_content_dialogContent$$2_withdraw_amount_element_id$$, $fixedFeeID$:$fixed_fee_element_id$$, $percentFeeID$:$percent_fee_element_id$$, $totalFeesID$:$total_fees_element_id$$, $netValueID$:$net_value_element_id$$, $hideNetAmount$:!1, type:"confirm_withdrawal", $netAmountLabel$:"Net amount"}), $dlg$$5$$ = this.$showDialog$($cancelWithdrawDlg_cancel_reason_dialog_content_dialogContent$$2_withdraw_amount_element_id$$, "Confirm " + 
         (this.$getCurrencyDescription$($withdraw_data$$2$$.Currency) + " withdrawal"), $bitex$ui$Dialog$ButtonSet$createOkCancel$$());
         $JSCompiler_StaticMethods_updateDom$$(this.$model_$);
-        $e$$381_handler$$143$$.$listen$($dlg$$5$$, $goog$ui$Dialog$EventType$SELECT$$, function($broker_withdraw_data_e$$385$$) {
-          "ok" == $broker_withdraw_data_e$$385$$.key && ($broker_withdraw_data_e$$385$$ = $bitex$util$getFormAsJSON$$($goog$dom$getFirstElementChild$$($dlg$$5$$.$getContentElement$())), delete $broker_withdraw_data_e$$385$$.Amount, this.$conn_$.$processWithdraw$($request_id$$2$$, $action$$5$$, $withdraw_data$$2$$.WithdrawID, void 0, void 0, $broker_withdraw_data_e$$385$$));
+        $e$$380_handler$$143$$.$listen$($dlg$$5$$, $goog$ui$Dialog$EventType$SELECT$$, function($broker_withdraw_data_e$$384$$) {
+          "ok" == $broker_withdraw_data_e$$384$$.key && ($broker_withdraw_data_e$$384$$ = $bitex$util$getFormAsJSON$$($goog$dom$getFirstElementChild$$($dlg$$5$$.$getContentElement$())), delete $broker_withdraw_data_e$$384$$.Amount, this.$conn_$.$processWithdraw$($request_id$$2$$, $action$$5$$, $withdraw_data$$2$$.WithdrawID, void 0, void 0, $broker_withdraw_data_e$$384$$));
         }, this);
       }
     }
   }
 };
-$JSCompiler_prototypeAlias$$.$onUserOrderEntry_$ = function $$JSCompiler_prototypeAlias$$$$onUserOrderEntry_$$($confirmDialogContent_dlgConfirm_e$$386$$) {
+$JSCompiler_prototypeAlias$$.$onUserOrderEntry_$ = function $$JSCompiler_prototypeAlias$$$$onUserOrderEntry_$$($confirmDialogContent_dlgConfirm_e$$385$$) {
   var $MSG_INSUFFICIENT_BALANCE_DEPOSIT_BUTTON_CAPTION_MSG_SEND_ORDER_NOTIFICATION_CONTENT_option_buttons_side_msg$$ = "BUY";
-  "2" == $confirmDialogContent_dlgConfirm_e$$386$$.target.$getSide$() && ($MSG_INSUFFICIENT_BALANCE_DEPOSIT_BUTTON_CAPTION_MSG_SEND_ORDER_NOTIFICATION_CONTENT_option_buttons_side_msg$$ = "SELL");
+  "2" == $confirmDialogContent_dlgConfirm_e$$385$$.target.$getSide$() && ($MSG_INSUFFICIENT_BALANCE_DEPOSIT_BUTTON_CAPTION_MSG_SEND_ORDER_NOTIFICATION_CONTENT_option_buttons_side_msg$$ = "SELL");
   if (!this.$model_$.get("IsBroker")) {
     var $balance_needed_to_send_the_order$$, $balance_currency$$1$$;
-    "1" == $confirmDialogContent_dlgConfirm_e$$386$$.target.$getSide$() ? ($balance_currency$$1$$ = this.$getPriceCurrencyFromSymbol$($confirmDialogContent_dlgConfirm_e$$386$$.target.$getSymbol$()), $balance_needed_to_send_the_order$$ = parseInt($confirmDialogContent_dlgConfirm_e$$386$$.target.$getPrice$() * $confirmDialogContent_dlgConfirm_e$$386$$.target.$getAmount$() / 1E8, 10)) : "2" == $confirmDialogContent_dlgConfirm_e$$386$$.target.$getSide$() && ($balance_currency$$1$$ = this.$getQtyCurrencyFromSymbol$($confirmDialogContent_dlgConfirm_e$$386$$.target.$getSymbol$()), 
-    $balance_needed_to_send_the_order$$ = $confirmDialogContent_dlgConfirm_e$$386$$.target.$getAmount$());
+    "1" == $confirmDialogContent_dlgConfirm_e$$385$$.target.$getSide$() ? ($balance_currency$$1$$ = this.$getPriceCurrencyFromSymbol$($confirmDialogContent_dlgConfirm_e$$385$$.target.$getSymbol$()), $balance_needed_to_send_the_order$$ = parseInt($confirmDialogContent_dlgConfirm_e$$385$$.target.$getPrice$() * $confirmDialogContent_dlgConfirm_e$$385$$.target.$getAmount$() / 1E8, 10)) : "2" == $confirmDialogContent_dlgConfirm_e$$385$$.target.$getSide$() && ($balance_currency$$1$$ = this.$getQtyCurrencyFromSymbol$($confirmDialogContent_dlgConfirm_e$$385$$.target.$getSymbol$()), 
+    $balance_needed_to_send_the_order$$ = $confirmDialogContent_dlgConfirm_e$$385$$.target.$getAmount$());
     var $broker_id$$15$$ = this.$model_$.get("SelectedBrokerID"), $client_id$$5$$ = this.$model_$.get("UserID"), $user_available_balance_for_trading$$ = this.$getBalance$($balance_currency$$1$$, "available"), $amount$$10$$ = Math.round($balance_needed_to_send_the_order$$ - $user_available_balance_for_trading$$);
     if (0 < $amount$$10$$) {
-      var $instructions$$1$$ = [{Timeout:60, Filter:{PaidValue:$amount$$10$$}, Msg:{MsgType:"D", ClOrdID:"" + (new Date).getTime() + ".L", Symbol:$confirmDialogContent_dlgConfirm_e$$386$$.target.$getSymbol$(), Side:$confirmDialogContent_dlgConfirm_e$$386$$.target.$getSide$(), OrdType:"2", Price:$confirmDialogContent_dlgConfirm_e$$386$$.target.$getPrice$(), OrderQty:$confirmDialogContent_dlgConfirm_e$$386$$.target.$getAmount$(), BrokerID:$confirmDialogContent_dlgConfirm_e$$386$$.target.$getBrokerID$()}}];
-      $confirmDialogContent_dlgConfirm_e$$386$$ = $bitex$templates$InsufficientFundsContentDialog$$({$currencyDescription$:this.$getCurrencyDescription$($balance_currency$$1$$), $balanceKey$:$broker_id$$15$$ + ":" + $client_id$$5$$ + "_" + $balance_currency$$1$$, $depositFormattedBalance$:this.$formatCurrency$($JSCompiler_StaticMethods_getDepositedAmount$$(this, $balance_currency$$1$$) / 1E8, $balance_currency$$1$$, !0), $lockedFormattedBalance$:this.$formatCurrency$($JSCompiler_StaticMethods_getLockedAmount$$(this, 
+      var $instructions$$1$$ = [{Timeout:60, Filter:{PaidValue:$amount$$10$$}, Msg:{MsgType:"D", ClOrdID:"" + (new Date).getTime() + ".L", Symbol:$confirmDialogContent_dlgConfirm_e$$385$$.target.$getSymbol$(), Side:$confirmDialogContent_dlgConfirm_e$$385$$.target.$getSide$(), OrdType:"2", Price:$confirmDialogContent_dlgConfirm_e$$385$$.target.$getPrice$(), OrderQty:$confirmDialogContent_dlgConfirm_e$$385$$.target.$getAmount$(), BrokerID:$confirmDialogContent_dlgConfirm_e$$385$$.target.$getBrokerID$()}}];
+      $confirmDialogContent_dlgConfirm_e$$385$$ = $bitex$templates$InsufficientFundsContentDialog$$({$currencyDescription$:this.$getCurrencyDescription$($balance_currency$$1$$), $balanceKey$:$broker_id$$15$$ + ":" + $client_id$$5$$ + "_" + $balance_currency$$1$$, $depositFormattedBalance$:this.$formatCurrency$($JSCompiler_StaticMethods_getDepositedAmount$$(this, $balance_currency$$1$$) / 1E8, $balance_currency$$1$$, !0), $lockedFormattedBalance$:this.$formatCurrency$($JSCompiler_StaticMethods_getLockedAmount$$(this, 
       $balance_currency$$1$$) / 1E8, $balance_currency$$1$$, !0), $availableFormattedBalance$:this.$formatCurrency$($user_available_balance_for_trading$$ / 1E8, $balance_currency$$1$$, !0)});
       $MSG_INSUFFICIENT_BALANCE_DEPOSIT_BUTTON_CAPTION_MSG_SEND_ORDER_NOTIFICATION_CONTENT_option_buttons_side_msg$$ = "Deposit " + this.$formatCurrency$($amount$$10$$ / 1E8, $balance_currency$$1$$, !0);
       $MSG_INSUFFICIENT_BALANCE_DEPOSIT_BUTTON_CAPTION_MSG_SEND_ORDER_NOTIFICATION_CONTENT_option_buttons_side_msg$$ = (new $bitex$ui$Dialog$ButtonSet$$).$addButton$({key:"deposit", caption:$MSG_INSUFFICIENT_BALANCE_DEPOSIT_BUTTON_CAPTION_MSG_SEND_ORDER_NOTIFICATION_CONTENT_option_buttons_side_msg$$}, !0, !0).$addButton$($goog$ui$Dialog$ButtonSet$DefaultButtons$CANCEL$$, !1, !0);
-      $confirmDialogContent_dlgConfirm_e$$386$$ = this.$showDialog$($confirmDialogContent_dlgConfirm_e$$386$$, "Insufficient funds", $MSG_INSUFFICIENT_BALANCE_DEPOSIT_BUTTON_CAPTION_MSG_SEND_ORDER_NOTIFICATION_CONTENT_option_buttons_side_msg$$);
-      this.$getHandler$().$listen$($confirmDialogContent_dlgConfirm_e$$386$$, $goog$ui$Dialog$EventType$SELECT$$, function($e$$387_formatted_amount$$1$$) {
-        "deposit" == $e$$387_formatted_amount$$1$$.key && ($e$$387_formatted_amount$$1$$.preventDefault(), $e$$387_formatted_amount$$1$$.stopPropagation(), $e$$387_formatted_amount$$1$$ = (new $bitex$primitives$Price$$($amount$$10$$, $JSCompiler_StaticMethods_getCurrencyPip$$(this, $balance_currency$$1$$))).format(), $JSCompiler_StaticMethods_showDepositDialog$$(this, $balance_currency$$1$$, ($amount$$10$$ / 1E8).toFixed(8), $e$$387_formatted_amount$$1$$, !1, $instructions$$1$$));
+      $confirmDialogContent_dlgConfirm_e$$385$$ = this.$showDialog$($confirmDialogContent_dlgConfirm_e$$385$$, "Insufficient funds", $MSG_INSUFFICIENT_BALANCE_DEPOSIT_BUTTON_CAPTION_MSG_SEND_ORDER_NOTIFICATION_CONTENT_option_buttons_side_msg$$);
+      this.$getHandler$().$listen$($confirmDialogContent_dlgConfirm_e$$385$$, $goog$ui$Dialog$EventType$SELECT$$, function($e$$386_formatted_amount$$1$$) {
+        "deposit" == $e$$386_formatted_amount$$1$$.key && ($e$$386_formatted_amount$$1$$.preventDefault(), $e$$386_formatted_amount$$1$$.stopPropagation(), $e$$386_formatted_amount$$1$$ = (new $bitex$primitives$Price$$($amount$$10$$, $JSCompiler_StaticMethods_getCurrencyPip$$(this, $balance_currency$$1$$))).format(), $JSCompiler_StaticMethods_showDepositDialog$$(this, $balance_currency$$1$$, ($amount$$10$$ / 1E8).toFixed(8), $e$$386_formatted_amount$$1$$, !1, $instructions$$1$$));
       }, this);
       return;
     }
   }
-  $MSG_INSUFFICIENT_BALANCE_DEPOSIT_BUTTON_CAPTION_MSG_SEND_ORDER_NOTIFICATION_CONTENT_option_buttons_side_msg$$ += " " + (this.$formatCurrency$($confirmDialogContent_dlgConfirm_e$$386$$.target.$getAmount$() / 1E8, this.$getQtyCurrencyFromSymbol$($confirmDialogContent_dlgConfirm_e$$386$$.target.$getSymbol$()), !0) + (" @ " + this.$formatCurrency$($confirmDialogContent_dlgConfirm_e$$386$$.target.$getPrice$() / 1E8, this.$getPriceCurrencyFromSymbol$($confirmDialogContent_dlgConfirm_e$$386$$.target.$getSymbol$()), 
+  $MSG_INSUFFICIENT_BALANCE_DEPOSIT_BUTTON_CAPTION_MSG_SEND_ORDER_NOTIFICATION_CONTENT_option_buttons_side_msg$$ += " " + (this.$formatCurrency$($confirmDialogContent_dlgConfirm_e$$385$$.target.$getAmount$() / 1E8, this.$getQtyCurrencyFromSymbol$($confirmDialogContent_dlgConfirm_e$$385$$.target.$getSymbol$()), !0) + (" @ " + this.$formatCurrency$($confirmDialogContent_dlgConfirm_e$$385$$.target.$getPrice$() / 1E8, this.$getPriceCurrencyFromSymbol$($confirmDialogContent_dlgConfirm_e$$385$$.target.$getSymbol$()), 
   !0)));
   this.$showNotification$("info", "Sending order...", $MSG_INSUFFICIENT_BALANCE_DEPOSIT_BUTTON_CAPTION_MSG_SEND_ORDER_NOTIFICATION_CONTENT_option_buttons_side_msg$$);
-  $JSCompiler_StaticMethods_sendLimitedOrder$$(this.$conn_$, $confirmDialogContent_dlgConfirm_e$$386$$.target.$getSymbol$(), $confirmDialogContent_dlgConfirm_e$$386$$.target.$getAmount$(), $confirmDialogContent_dlgConfirm_e$$386$$.target.$getPrice$(), $confirmDialogContent_dlgConfirm_e$$386$$.target.$getSide$(), $confirmDialogContent_dlgConfirm_e$$386$$.target.$getBrokerID$(), $confirmDialogContent_dlgConfirm_e$$386$$.target.$getClientID$());
+  $JSCompiler_StaticMethods_sendLimitedOrder$$(this.$conn_$, $confirmDialogContent_dlgConfirm_e$$385$$.target.$getSymbol$(), $confirmDialogContent_dlgConfirm_e$$385$$.target.$getAmount$(), $confirmDialogContent_dlgConfirm_e$$385$$.target.$getPrice$(), $confirmDialogContent_dlgConfirm_e$$385$$.target.$getSide$(), $confirmDialogContent_dlgConfirm_e$$385$$.target.$getBrokerID$(), $confirmDialogContent_dlgConfirm_e$$385$$.target.$getClientID$());
 };
-$JSCompiler_prototypeAlias$$.$onUserCancelOrder_$ = function $$JSCompiler_prototypeAlias$$$$onUserCancelOrder_$$($e$$388$$) {
-  null != $e$$388$$.target.$client_order_id_$ ? this.$showNotification$("info", "Cancelling order...", ":" + $e$$388$$.target.$client_order_id_$) : this.$showNotification$("info", "Cancelling order...", ":" + $e$$388$$.target.$order_id_$);
-  this.$conn_$.$cancelOrder$($e$$388$$.target.$client_order_id_$, $e$$388$$.target.$order_id_$);
+$JSCompiler_prototypeAlias$$.$onUserCancelOrder_$ = function $$JSCompiler_prototypeAlias$$$$onUserCancelOrder_$$($e$$387$$) {
+  null != $e$$387$$.target.$client_order_id_$ ? this.$showNotification$("info", "Cancelling order...", ":" + $e$$387$$.target.$client_order_id_$) : this.$showNotification$("info", "Cancelling order...", ":" + $e$$387$$.target.$order_id_$);
+  this.$conn_$.$cancelOrder$($e$$387$$.target.$client_order_id_$, $e$$387$$.target.$order_id_$);
 };
-$JSCompiler_prototypeAlias$$.$onUserCancelReplaceOrder_$ = function $$JSCompiler_prototypeAlias$$$$onUserCancelReplaceOrder_$$($e$$389_opt_client_id$$inline_2275$$) {
-  this.$conn_$.$cancelOrder$($e$$389_opt_client_id$$inline_2275$$.target.$client_order_id_$, $e$$389_opt_client_id$$inline_2275$$.target.$order_id_$);
-  var $symbol$$inline_2270$$ = $e$$389_opt_client_id$$inline_2275$$.target.$getSymbol$(), $qty$$inline_2271$$ = $e$$389_opt_client_id$$inline_2275$$.target.$getAmount$(), $price$$inline_2272$$ = $e$$389_opt_client_id$$inline_2275$$.target.$getPrice$(), $side$$inline_2273$$ = $e$$389_opt_client_id$$inline_2275$$.target.$getSide$(), $broker_id$$inline_2274$$ = $e$$389_opt_client_id$$inline_2275$$.target.$getBrokerID$();
-  $e$$389_opt_client_id$$inline_2275$$ = $e$$389_opt_client_id$$inline_2275$$.target.$getClientID$();
-  $JSCompiler_StaticMethods_sendOrder_$$(this.$conn_$, $symbol$$inline_2270$$, $qty$$inline_2271$$, $price$$inline_2272$$, $side$$inline_2273$$, $broker_id$$inline_2274$$, $e$$389_opt_client_id$$inline_2275$$, void 0);
+$JSCompiler_prototypeAlias$$.$onUserCancelReplaceOrder_$ = function $$JSCompiler_prototypeAlias$$$$onUserCancelReplaceOrder_$$($e$$388_opt_client_id$$inline_2275$$) {
+  this.$conn_$.$cancelOrder$($e$$388_opt_client_id$$inline_2275$$.target.$client_order_id_$, $e$$388_opt_client_id$$inline_2275$$.target.$order_id_$);
+  var $symbol$$inline_2270$$ = $e$$388_opt_client_id$$inline_2275$$.target.$getSymbol$(), $qty$$inline_2271$$ = $e$$388_opt_client_id$$inline_2275$$.target.$getAmount$(), $price$$inline_2272$$ = $e$$388_opt_client_id$$inline_2275$$.target.$getPrice$(), $side$$inline_2273$$ = $e$$388_opt_client_id$$inline_2275$$.target.$getSide$(), $broker_id$$inline_2274$$ = $e$$388_opt_client_id$$inline_2275$$.target.$getBrokerID$();
+  $e$$388_opt_client_id$$inline_2275$$ = $e$$388_opt_client_id$$inline_2275$$.target.$getClientID$();
+  $JSCompiler_StaticMethods_sendOrder_$$(this.$conn_$, $symbol$$inline_2270$$, $qty$$inline_2271$$, $price$$inline_2272$$, $side$$inline_2273$$, $broker_id$$inline_2274$$, $e$$388_opt_client_id$$inline_2275$$, void 0);
 };
-$JSCompiler_prototypeAlias$$.$onShowReceipt_$ = function $$JSCompiler_prototypeAlias$$$$onShowReceipt_$$($MSG_SHOW_DEPOSIT_RECEIPT_DIALOG_TITLE_e$$390$$) {
-  var $receiptData$$ = $MSG_SHOW_DEPOSIT_RECEIPT_DIALOG_TITLE_e$$390$$.target.$receipt_data_$, $depositDetailTemplateData$$ = [];
-  $goog$object$forEach$$($MSG_SHOW_DEPOSIT_RECEIPT_DIALOG_TITLE_e$$390$$.target.$receipt_data_$, function($data$$59$$, $k$$2$$) {
+$JSCompiler_prototypeAlias$$.$onShowReceipt_$ = function $$JSCompiler_prototypeAlias$$$$onShowReceipt_$$($MSG_SHOW_DEPOSIT_RECEIPT_DIALOG_TITLE_e$$389$$) {
+  var $receiptData$$ = $MSG_SHOW_DEPOSIT_RECEIPT_DIALOG_TITLE_e$$389$$.target.$receipt_data_$, $depositDetailTemplateData$$ = [];
+  $goog$object$forEach$$($MSG_SHOW_DEPOSIT_RECEIPT_DIALOG_TITLE_e$$389$$.target.$receipt_data_$, function($data$$59$$, $k$$2$$) {
     "DepositReceipt" != $k$$2$$ && "SubmissionID" != $k$$2$$ && $depositDetailTemplateData$$.push({key:$k$$2$$, value:$data$$59$$});
   }, this);
   var $depositReceiptTemplateData$$ = [];
-  $goog$array$forEach$$($MSG_SHOW_DEPOSIT_RECEIPT_DIALOG_TITLE_e$$390$$.target.$receipt_data_$.DepositReceipt, function($url$$42$$) {
+  $goog$array$forEach$$($MSG_SHOW_DEPOSIT_RECEIPT_DIALOG_TITLE_e$$389$$.target.$receipt_data_$.DepositReceipt, function($url$$42$$) {
     var $is_txt$$ = $goog$string$caseInsensitiveEndsWith$$($url$$42$$, "txt"), $data$$60$$ = {url:$url$$42$$, type:"image"};
     $goog$string$caseInsensitiveEndsWith$$($url$$42$$, "pdf") ? $data$$60$$.type = "pdf" : $is_txt$$ && ($data$$60$$.type = "txt");
     $depositReceiptTemplateData$$.push($data$$60$$);
   }, this);
-  $MSG_SHOW_DEPOSIT_RECEIPT_DIALOG_TITLE_e$$390$$ = "Submission " + $receiptData$$.SubmissionID;
-  this.$showDialog$($bitex$templates$DepositDetailDialogContent$$({$depositDetailData$:$depositDetailTemplateData$$, $depositReceiptList$:$depositReceiptTemplateData$$}), $MSG_SHOW_DEPOSIT_RECEIPT_DIALOG_TITLE_e$$390$$, $bitex$ui$Dialog$ButtonSet$createOk$$());
+  $MSG_SHOW_DEPOSIT_RECEIPT_DIALOG_TITLE_e$$389$$ = "Submission " + $receiptData$$.SubmissionID;
+  this.$showDialog$($bitex$templates$DepositDetailDialogContent$$({$depositDetailData$:$depositDetailTemplateData$$, $depositReceiptList$:$depositReceiptTemplateData$$}), $MSG_SHOW_DEPOSIT_RECEIPT_DIALOG_TITLE_e$$389$$, $bitex$ui$Dialog$ButtonSet$createOk$$());
 };
-$JSCompiler_prototypeAlias$$.$onUpdateProfileResponse_$ = function $$JSCompiler_prototypeAlias$$$$onUpdateProfileResponse_$$($e$$391$$) {
-  this.$model_$.set("SelectedCustomer", $e$$391$$.data.Profile);
+$JSCompiler_prototypeAlias$$.$onUpdateProfileResponse_$ = function $$JSCompiler_prototypeAlias$$$$onUpdateProfileResponse_$$($e$$390$$) {
+  this.$model_$.set("SelectedCustomer", $e$$390$$.data.Profile);
 };
-$JSCompiler_prototypeAlias$$.$onUserShowKYC_$ = function $$JSCompiler_prototypeAlias$$$$onUserShowKYC_$$($e$$392_html$$29_verification_data$$4$$) {
-  $e$$392_html$$29_verification_data$$4$$ = $e$$392_html$$29_verification_data$$4$$.target.getData();
-  $e$$392_html$$29_verification_data$$4$$ = $bitex$util$verificationData2HTML$$($e$$392_html$$29_verification_data$$4$$);
-  this.$showDialog$($e$$392_html$$29_verification_data$$4$$, "KYC");
+$JSCompiler_prototypeAlias$$.$onUserShowKYC_$ = function $$JSCompiler_prototypeAlias$$$$onUserShowKYC_$$($e$$391_html$$29_verification_data$$4$$) {
+  $e$$391_html$$29_verification_data$$4$$ = $e$$391_html$$29_verification_data$$4$$.target.getData();
+  $e$$391_html$$29_verification_data$$4$$ = $bitex$util$verificationData2HTML$$($e$$391_html$$29_verification_data$$4$$);
+  this.$showDialog$($e$$391_html$$29_verification_data$$4$$, "KYC");
 };
-$JSCompiler_prototypeAlias$$.$onUserShowQr_$ = function $$JSCompiler_prototypeAlias$$$$onUserShowQr_$$($e$$393_handler$$145$$) {
-  var $qrData$$ = $e$$393_handler$$145$$.target.$qr_data_$, $MSG_SHOW_QR_CURRENCY_DEPOSIT_DIALOG_TITLE$$ = this.$getCurrencyDescription$($qrData$$.Currency) + " deposit", $dialog_title$$ = this.$getCurrencyDescription$($qrData$$.Currency) + " withdraw";
-  "DEPOSIT" === $e$$393_handler$$145$$.target.$qr_data_verb_$ && ($dialog_title$$ = $MSG_SHOW_QR_CURRENCY_DEPOSIT_DIALOG_TITLE$$);
+$JSCompiler_prototypeAlias$$.$onUserShowQr_$ = function $$JSCompiler_prototypeAlias$$$$onUserShowQr_$$($e$$392_handler$$145$$) {
+  var $qrData$$ = $e$$392_handler$$145$$.target.$qr_data_$, $MSG_SHOW_QR_CURRENCY_DEPOSIT_DIALOG_TITLE$$ = this.$getCurrencyDescription$($qrData$$.Currency) + " deposit", $dialog_title$$ = this.$getCurrencyDescription$($qrData$$.Currency) + " withdraw";
+  "DEPOSIT" === $e$$392_handler$$145$$.target.$qr_data_verb_$ && ($dialog_title$$ = $MSG_SHOW_QR_CURRENCY_DEPOSIT_DIALOG_TITLE$$);
   var $dlg$$7$$ = this.$showDialog$($bitex$templates$CryptoCurrencyQRContentDialog$$({data:$qrData$$}), $dialog_title$$, (new $bitex$ui$Dialog$ButtonSet$$).$addButton$($goog$ui$Dialog$ButtonSet$DefaultButtons$CANCEL$$, !1, !0));
-  $e$$393_handler$$145$$ = this.$getHandler$();
+  $e$$392_handler$$145$$ = this.$getHandler$();
   var $input_address$$ = $qrData$$.Wallet;
-  $e$$393_handler$$145$$.$listenOnce$(this.$conn_$, $bitex$api$BitEx$EventType$DEPOSIT_REFRESH$$, function($e$$394_refresh_msg$$) {
-    $e$$394_refresh_msg$$ = $e$$394_refresh_msg$$.data;
-    $e$$394_refresh_msg$$.Data.InputAddress === $input_address$$ && null != $e$$394_refresh_msg$$.Data.Confirmations && "0" == $e$$394_refresh_msg$$.Data.Confirmations && $dlg$$7$$.$dispose$();
+  $e$$392_handler$$145$$.$listenOnce$(this.$conn_$, $bitex$api$BitEx$EventType$DEPOSIT_REFRESH$$, function($e$$393_refresh_msg$$) {
+    $e$$393_refresh_msg$$ = $e$$393_refresh_msg$$.data;
+    $e$$393_refresh_msg$$.Data.InputAddress === $input_address$$ && null != $e$$393_refresh_msg$$.Data.Confirmations && "0" == $e$$393_refresh_msg$$.Data.Confirmations && $dlg$$7$$.$dispose$();
   });
 };
-$JSCompiler_prototypeAlias$$.$onUserUploadReceipt_$ = function $$JSCompiler_prototypeAlias$$$$onUserUploadReceipt_$$($e$$395_stunt_ip_str$$1$$) {
-  var $model$$63$$ = this.$model_$, $deposit_data$$ = $e$$395_stunt_ip_str$$1$$.target.$getDepositData$(), $broker$$16_upload_form_url$$ = $model$$63$$.get("Broker");
+$JSCompiler_prototypeAlias$$.$onUserUploadReceipt_$ = function $$JSCompiler_prototypeAlias$$$$onUserUploadReceipt_$$($e$$394_stunt_ip_str$$1$$) {
+  var $model$$64$$ = this.$model_$, $deposit_data$$ = $e$$394_stunt_ip_str$$1$$.target.$getDepositData$(), $broker$$16_upload_form_url$$ = $model$$64$$.get("Broker");
   if (null != $broker$$16_upload_form_url$$) {
-    $e$$395_stunt_ip_str$$1$$ = $goog$json$serialize$$(this.$ip_addresses_$);
+    $e$$394_stunt_ip_str$$1$$ = $goog$json$serialize$$(this.$ip_addresses_$);
     var $deposit_method$$2$$ = $goog$array$find$$(this.$model_$.get("DepositMethods"), function($dm$$) {
       return $dm$$.id == $deposit_data$$.DepositMethodID;
     }), $broker$$16_upload_form_url$$ = $broker$$16_upload_form_url$$.UploadForm;
     $deposit_method$$2$$ && ($broker$$16_upload_form_url$$ = $deposit_method$$2$$.$user_receipt_url$);
-    $broker$$16_upload_form_url$$ = $broker$$16_upload_form_url$$.replace("{{UserID}}", $model$$63$$.get("UserID"));
-    $broker$$16_upload_form_url$$ = $broker$$16_upload_form_url$$.replace("{{Username}}", $model$$63$$.get("Username"));
-    $broker$$16_upload_form_url$$ = $broker$$16_upload_form_url$$.replace("{{BrokerID}}", $model$$63$$.get("Broker").BrokerID);
-    $broker$$16_upload_form_url$$ = $broker$$16_upload_form_url$$.replace("{{BrokerUsername}}", $model$$63$$.get("Broker").ShortName);
-    $broker$$16_upload_form_url$$ = $broker$$16_upload_form_url$$.replace("{{Email}}", $model$$63$$.get("Profile").Email);
+    $broker$$16_upload_form_url$$ = $broker$$16_upload_form_url$$.replace("{{UserID}}", $model$$64$$.get("UserID"));
+    $broker$$16_upload_form_url$$ = $broker$$16_upload_form_url$$.replace("{{Username}}", $model$$64$$.get("Username"));
+    $broker$$16_upload_form_url$$ = $broker$$16_upload_form_url$$.replace("{{BrokerID}}", $model$$64$$.get("Broker").BrokerID);
+    $broker$$16_upload_form_url$$ = $broker$$16_upload_form_url$$.replace("{{BrokerUsername}}", $model$$64$$.get("Broker").ShortName);
+    $broker$$16_upload_form_url$$ = $broker$$16_upload_form_url$$.replace("{{Email}}", $model$$64$$.get("Profile").Email);
     $broker$$16_upload_form_url$$ = $broker$$16_upload_form_url$$.replace("{{DepositMethod}}", $deposit_data$$.DepositMethodName);
     $broker$$16_upload_form_url$$ = $broker$$16_upload_form_url$$.replace("{{ControlNumber}}", $deposit_data$$.ControlNumber);
     $broker$$16_upload_form_url$$ = $broker$$16_upload_form_url$$.replace("{{DepositID}}", $deposit_data$$.DepositID);
     $broker$$16_upload_form_url$$ = $broker$$16_upload_form_url$$.replace("{{Value}}", $deposit_data$$.Value);
     $broker$$16_upload_form_url$$ = $broker$$16_upload_form_url$$.replace("{{FingerPrint}}", this.$finger_print_$);
-    $broker$$16_upload_form_url$$ = $broker$$16_upload_form_url$$.replace("{{STUNTIp}}", $e$$395_stunt_ip_str$$1$$);
+    $broker$$16_upload_form_url$$ = $broker$$16_upload_form_url$$.replace("{{STUNTIp}}", $e$$394_stunt_ip_str$$1$$);
     try {
       var $formmatted_value$$ = this.$formatCurrency$($deposit_data$$.Value / 1E8, $deposit_data$$.Currency, !0), $broker$$16_upload_form_url$$ = $broker$$16_upload_form_url$$.replace("{{FormattedValue}}", $formmatted_value$$);
-    } catch ($e$$396$$) {
+    } catch ($e$$395$$) {
     }
     window.open($broker$$16_upload_form_url$$, "blank", "scrollbars=yes,toolbar=no,width=700,height=500");
   }
@@ -16836,21 +16830,21 @@ $fixed_fee$$4_is_amount_in_satoshis_opt_is_fixed_fee_formatted_percent_fee$$4$$,
   2), $goog$dom$forms$setValue$$($goog$dom$getElement$$($net_amount_element_validator_id_opt_net_amount_element_id$$), $currency$$44_formatted_net_amount_validatorFormatter$$.format($is_fixed_fee_in_satoshis_net_amount_opt_add_fees$$ / 1E8))));
   return[$amount$$11_amount_element_id$$, $percent_fee_element_id$$1_percent_fee_value$$1$$, $fixed_fee_element_id$$1_fixed_fee_value$$1$$, $is_fixed_fee_in_satoshis_net_amount_opt_add_fees$$];
 };
-$JSCompiler_prototypeAlias$$.$onProcessDeposit_$ = function $$JSCompiler_prototypeAlias$$$$onProcessDeposit_$$($e$$397_handler$$146$$) {
-  var $deposit_data$$1$$ = $e$$397_handler$$146$$.target.$getDepositData$(), $request_id$$3$$ = $e$$397_handler$$146$$.target.$request_id_$, $action$$6$$ = $e$$397_handler$$146$$.target.$getDepositAction$();
-  $e$$397_handler$$146$$ = this.$getHandler$();
+$JSCompiler_prototypeAlias$$.$onProcessDeposit_$ = function $$JSCompiler_prototypeAlias$$$$onProcessDeposit_$$($e$$396_handler$$146$$) {
+  var $deposit_data$$1$$ = $e$$396_handler$$146$$.target.$getDepositData$(), $request_id$$3$$ = $e$$396_handler$$146$$.target.$request_id_$, $action$$6$$ = $e$$396_handler$$146$$.target.$getDepositAction$();
+  $e$$396_handler$$146$$ = this.$getHandler$();
   if ("CANCEL" === $action$$6$$) {
     var $cancelWithdrawDlg$$1_cancel_reason_dialog_content$$1_total_fees_element_id$$1$$ = $bitex$templates$CancelDepositDialogContent$$(), $cancelWithdrawDlg$$1_cancel_reason_dialog_content$$1_total_fees_element_id$$1$$ = this.$showDialog$($cancelWithdrawDlg$$1_cancel_reason_dialog_content$$1_total_fees_element_id$$1$$, "Cancel deposit", $bitex$ui$Dialog$ButtonSet$createOkCancel$$()), $select_reason_el$$1$$ = $goog$dom$getElement$$("id_select_reason"), $reason_el$$2$$ = $goog$dom$getElement$$("id_custom_reason_text");
-    $e$$397_handler$$146$$.$listen$($select_reason_el$$1$$, "change", function() {
+    $e$$396_handler$$146$$.$listen$($select_reason_el$$1$$, "change", function() {
       var $reason_id$$3$$ = $goog$string$toNumber$$($goog$dom$forms$getValue$$($select_reason_el$$1$$));
       $goog$style$setElementShown$$($reason_el$$2$$, 0 === $reason_id$$3$$);
     });
-    $e$$397_handler$$146$$.$listen$($cancelWithdrawDlg$$1_cancel_reason_dialog_content$$1_total_fees_element_id$$1$$, $goog$ui$Dialog$EventType$SELECT$$, function($e$$399$$) {
-      if ("ok" == $e$$399$$.key) {
+    $e$$396_handler$$146$$.$listen$($cancelWithdrawDlg$$1_cancel_reason_dialog_content$$1_total_fees_element_id$$1$$, $goog$ui$Dialog$EventType$SELECT$$, function($e$$398$$) {
+      if ("ok" == $e$$398$$.key) {
         var $reason_id$$4$$ = $goog$string$toNumber$$($goog$dom$forms$getValue$$($select_reason_el$$1$$)), $reason$$9$$;
         if (0 === $reason_id$$4$$ && ($reason$$9$$ = $goog$string$trim$$($goog$dom$forms$getValue$$($reason_el$$2$$)), $goog$string$isEmptyOrWhitespace$$($reason$$9$$))) {
-          $e$$399$$.stopPropagation();
-          $e$$399$$.preventDefault();
+          $e$$398$$.stopPropagation();
+          $e$$398$$.preventDefault();
           $goog$dom$getElement$$("id_custom_reason_text").focus();
           return;
         }
@@ -16871,23 +16865,23 @@ $JSCompiler_prototypeAlias$$.$onProcessDeposit_$ = function $$JSCompiler_prototy
         value:$valueFormatter$$5$$.format($deposit_data$$1$$.Value / 1E8), $percentFee$:$valueFormatter$$5$$.format($deposit_data$$1$$.PercentFee), $fixedFee$:$valueFormatter$$5$$.format($deposit_data$$1$$.FixedFee / 1E8)});
         $confirmDepositDlg_confirm_deposit_dialog_content_control_number$$ = this.$showDialog$($confirmDepositDlg_confirm_deposit_dialog_content_control_number$$, "Confirm deposit", $bitex$ui$Dialog$ButtonSet$createOkCancel$$());
         this.$doCalculateFees_$($paid_value_element_id$$, $fixed_fee_element_id$$2$$, $percent_fee_element_id$$2$$, $deposit_data$$1$$.Currency, $cancelWithdrawDlg$$1_cancel_reason_dialog_content$$1_total_fees_element_id$$1$$, $net_value_element_id$$1$$, !1, !1, !0, !1, !0, !0);
-        $e$$397_handler$$146$$.$listen$(new $goog$events$InputHandler$$($goog$dom$getElement$$($paid_value_element_id$$)), "input", $goog$bind$$(this.$doCalculateFees_$, this, $paid_value_element_id$$, $fixed_fee_element_id$$2$$, $percent_fee_element_id$$2$$, $deposit_data$$1$$.Currency, $cancelWithdrawDlg$$1_cancel_reason_dialog_content$$1_total_fees_element_id$$1$$, $net_value_element_id$$1$$, !1, !1, !0, !1, !0, !0));
-        $e$$397_handler$$146$$.$listen$(new $goog$events$InputHandler$$($goog$dom$getElement$$($percent_fee_element_id$$2$$)), "input", $goog$bind$$(this.$doCalculateFees_$, this, $paid_value_element_id$$, $fixed_fee_element_id$$2$$, $percent_fee_element_id$$2$$, $deposit_data$$1$$.Currency, $cancelWithdrawDlg$$1_cancel_reason_dialog_content$$1_total_fees_element_id$$1$$, $net_value_element_id$$1$$, !1, !1, !0, !1, !0, !0));
-        $e$$397_handler$$146$$.$listen$(new $goog$events$InputHandler$$($goog$dom$getElement$$($fixed_fee_element_id$$2$$)), "input", $goog$bind$$(this.$doCalculateFees_$, this, $paid_value_element_id$$, $fixed_fee_element_id$$2$$, $percent_fee_element_id$$2$$, $deposit_data$$1$$.Currency, $cancelWithdrawDlg$$1_cancel_reason_dialog_content$$1_total_fees_element_id$$1$$, $net_value_element_id$$1$$, !1, !1, !0, !1, !0, !0));
-        $e$$397_handler$$146$$.$listen$($confirmDepositDlg_confirm_deposit_dialog_content_control_number$$, $goog$ui$Dialog$EventType$SELECT$$, function($e$$400$$) {
-          if ("ok" == $e$$400$$.key) {
+        $e$$396_handler$$146$$.$listen$(new $goog$events$InputHandler$$($goog$dom$getElement$$($paid_value_element_id$$)), "input", $goog$bind$$(this.$doCalculateFees_$, this, $paid_value_element_id$$, $fixed_fee_element_id$$2$$, $percent_fee_element_id$$2$$, $deposit_data$$1$$.Currency, $cancelWithdrawDlg$$1_cancel_reason_dialog_content$$1_total_fees_element_id$$1$$, $net_value_element_id$$1$$, !1, !1, !0, !1, !0, !0));
+        $e$$396_handler$$146$$.$listen$(new $goog$events$InputHandler$$($goog$dom$getElement$$($percent_fee_element_id$$2$$)), "input", $goog$bind$$(this.$doCalculateFees_$, this, $paid_value_element_id$$, $fixed_fee_element_id$$2$$, $percent_fee_element_id$$2$$, $deposit_data$$1$$.Currency, $cancelWithdrawDlg$$1_cancel_reason_dialog_content$$1_total_fees_element_id$$1$$, $net_value_element_id$$1$$, !1, !1, !0, !1, !0, !0));
+        $e$$396_handler$$146$$.$listen$(new $goog$events$InputHandler$$($goog$dom$getElement$$($fixed_fee_element_id$$2$$)), "input", $goog$bind$$(this.$doCalculateFees_$, this, $paid_value_element_id$$, $fixed_fee_element_id$$2$$, $percent_fee_element_id$$2$$, $deposit_data$$1$$.Currency, $cancelWithdrawDlg$$1_cancel_reason_dialog_content$$1_total_fees_element_id$$1$$, $net_value_element_id$$1$$, !1, !1, !0, !1, !0, !0));
+        $e$$396_handler$$146$$.$listen$($confirmDepositDlg_confirm_deposit_dialog_content_control_number$$, $goog$ui$Dialog$EventType$SELECT$$, function($e$$399$$) {
+          if ("ok" == $e$$399$$.key) {
             var $pos$$37$$ = [0], $percent_fee_value$$2_raw_paid_value$$ = $goog$dom$forms$getValue$$($goog$dom$getElement$$($paid_value_element_id$$)), $paid_value$$2$$ = $valueFormatter$$5$$.parse($percent_fee_value$$2_raw_paid_value$$, $pos$$37$$);
             if ($pos$$37$$[0] != $percent_fee_value$$2_raw_paid_value$$.length || isNaN($paid_value$$2$$) || 0 >= $paid_value$$2$$) {
-              $e$$400$$.stopPropagation(), $e$$400$$.preventDefault(), $goog$dom$getElement$$($paid_value_element_id$$).focus();
+              $e$$399$$.stopPropagation(), $e$$399$$.preventDefault(), $goog$dom$getElement$$($paid_value_element_id$$).focus();
             } else {
               var $paid_value$$2$$ = 1E8 * $paid_value$$2$$, $fixed_fee$$5_percent_fee$$5$$ = $goog$dom$forms$getValue$$($goog$dom$getElement$$($percent_fee_element_id$$2$$)), $pos$$37$$ = [0], $percent_fee_value$$2_raw_paid_value$$ = $valueFormatter$$5$$.parse($fixed_fee$$5_percent_fee$$5$$, $pos$$37$$);
               isNaN($percent_fee_value$$2_raw_paid_value$$) && ($percent_fee_value$$2_raw_paid_value$$ = 0);
               if ($pos$$37$$[0] != $fixed_fee$$5_percent_fee$$5$$.length || isNaN($percent_fee_value$$2_raw_paid_value$$) || 0 > $percent_fee_value$$2_raw_paid_value$$) {
-                $e$$400$$.stopPropagation(), $e$$400$$.preventDefault(), $goog$dom$getElement$$($percent_fee_element_id$$2$$).focus();
+                $e$$399$$.stopPropagation(), $e$$399$$.preventDefault(), $goog$dom$getElement$$($percent_fee_element_id$$2$$).focus();
               } else {
                 var $fixed_fee$$5_percent_fee$$5$$ = $goog$dom$forms$getValue$$($goog$dom$getElement$$($fixed_fee_element_id$$2$$)), $pos$$37$$ = [0], $fixed_fee_value$$2$$ = $valueFormatter$$5$$.parse($fixed_fee$$5_percent_fee$$5$$, $pos$$37$$);
                 isNaN($fixed_fee_value$$2$$) && ($fixed_fee_value$$2$$ = 0);
-                $pos$$37$$[0] != $fixed_fee$$5_percent_fee$$5$$.length || isNaN($fixed_fee_value$$2$$) || 0 > $fixed_fee_value$$2$$ ? ($e$$400$$.stopPropagation(), $e$$400$$.preventDefault(), $goog$dom$getElement$$($fixed_fee_element_id$$2$$).focus()) : this.$conn_$.$processDeposit$($request_id$$3$$, $action$$6$$, void 0, $deposit_data$$1$$.DepositID, void 0, void 0, $paid_value$$2$$, $percent_fee_value$$2_raw_paid_value$$, 1E8 * $fixed_fee_value$$2$$);
+                $pos$$37$$[0] != $fixed_fee$$5_percent_fee$$5$$.length || isNaN($fixed_fee_value$$2$$) || 0 > $fixed_fee_value$$2$$ ? ($e$$399$$.stopPropagation(), $e$$399$$.preventDefault(), $goog$dom$getElement$$($fixed_fee_element_id$$2$$).focus()) : this.$conn_$.$processDeposit$($request_id$$3$$, $action$$6$$, void 0, $deposit_data$$1$$.DepositID, void 0, void 0, $paid_value$$2$$, $percent_fee_value$$2_raw_paid_value$$, 1E8 * $fixed_fee_value$$2$$);
               }
             }
           }
@@ -16896,13 +16890,13 @@ $JSCompiler_prototypeAlias$$.$onProcessDeposit_$ = function $$JSCompiler_prototy
     }
   }
 };
-$JSCompiler_prototypeAlias$$.$onInstantFiatDeposit_$ = function $$JSCompiler_prototypeAlias$$$$onInstantFiatDeposit_$$($e$$401_handler$$147$$) {
-  var $model$$65$$ = this.$model_$, $deposit_data$$2$$ = $e$$401_handler$$147$$.target.$getDepositData$(), $request_id$$4$$ = $e$$401_handler$$147$$.target.$request_id_$;
-  $e$$401_handler$$147$$ = this.$getHandler$();
-  var $balance_model_key$$2$$ = "Balance_" + $model$$65$$.get("Broker").BrokerID + "_" + $model$$65$$.get("UserID"), $balance_portfolio_currency_key$$1_dlg$$8_formatted_value$$4_user_balances$$2$$ = $balance_model_key$$2$$ + "_USD", $balance_portfolio_currency$$1$$ = $model$$65$$.get($balance_portfolio_currency_key$$1_dlg$$8_formatted_value$$4_user_balances$$2$$), $formula_list$$1$$ = [], $variable_list$$1$$ = new $goog$structs$Set$$;
+$JSCompiler_prototypeAlias$$.$onInstantFiatDeposit_$ = function $$JSCompiler_prototypeAlias$$$$onInstantFiatDeposit_$$($e$$400_handler$$147$$) {
+  var $model$$66$$ = this.$model_$, $deposit_data$$2$$ = $e$$400_handler$$147$$.target.$getDepositData$(), $request_id$$4$$ = $e$$400_handler$$147$$.target.$request_id_$;
+  $e$$400_handler$$147$$ = this.$getHandler$();
+  var $balance_model_key$$2$$ = "Balance_" + $model$$66$$.get("Broker").BrokerID + "_" + $model$$66$$.get("UserID"), $balance_portfolio_currency_key$$1_dlg$$8_formatted_value$$4_user_balances$$2$$ = $balance_model_key$$2$$ + "_USD", $balance_portfolio_currency$$1$$ = $model$$66$$.get($balance_portfolio_currency_key$$1_dlg$$8_formatted_value$$4_user_balances$$2$$), $formula_list$$1$$ = [], $variable_list$$1$$ = new $goog$structs$Set$$;
   $variable_list$$1$$.add($balance_portfolio_currency_key$$1_dlg$$8_formatted_value$$4_user_balances$$2$$);
   null != $balance_portfolio_currency$$1$$ && ($variable_list$$1$$.add($balance_portfolio_currency_key$$1_dlg$$8_formatted_value$$4_user_balances$$2$$), $formula_list$$1$$.push("(" + $balance_portfolio_currency_key$$1_dlg$$8_formatted_value$$4_user_balances$$2$$ + " / 100000000 )"));
-  $balance_portfolio_currency_key$$1_dlg$$8_formatted_value$$4_user_balances$$2$$ = $model$$65$$.get($balance_model_key$$2$$);
+  $balance_portfolio_currency_key$$1_dlg$$8_formatted_value$$4_user_balances$$2$$ = $model$$66$$.get($balance_model_key$$2$$);
   $goog$object$forEach$$($balance_portfolio_currency_key$$1_dlg$$8_formatted_value$$4_user_balances$$2$$, function($balance$$9$$, $balance_currency$$2$$) {
     if (!$goog$string$endsWith$$($balance_currency$$2$$) && 3 == $balance_currency$$2$$.length && "USD" != $balance_currency$$2$$) {
       if (this.$isCryptoCurrency$($balance_currency$$2$$)) {
@@ -16922,9 +16916,9 @@ $JSCompiler_prototypeAlias$$.$onInstantFiatDeposit_$ = function $$JSCompiler_pro
   $balance_portfolio_currency_key$$1_dlg$$8_formatted_value$$4_user_balances$$2$$ = this.$formatCurrency$($deposit_data$$2$$.Value / 1E8, $deposit_data$$2$$.Currency);
   $balance_portfolio_currency_key$$1_dlg$$8_formatted_value$$4_user_balances$$2$$ = this.$showDialog$($bitex$templates$InstantFiatDepositDialogContent$$({$variables$:$variable_list$$1$$.$getValues$().join(","), pattern:this.$getCurrencyHumanFormat$("USD"), $formula$:$formula_list$$1$$.join(" + "), value:$balance_portfolio_currency_key$$1_dlg$$8_formatted_value$$4_user_balances$$2$$}), "Instantanous Deposit", (new $bitex$ui$Dialog$ButtonSet$$).$addButton$($goog$ui$Dialog$ButtonSet$DefaultButtons$YES$$, 
   !0).$addButton$($goog$ui$Dialog$ButtonSet$DefaultButtons$NO$$, !1, !0));
-  $JSCompiler_StaticMethods_updateDom$$($model$$65$$);
-  $e$$401_handler$$147$$.$listen$($balance_portfolio_currency_key$$1_dlg$$8_formatted_value$$4_user_balances$$2$$, $goog$ui$Dialog$EventType$SELECT$$, function($e$$402$$) {
-    "yes" == $e$$402$$.key && this.$conn_$.$processInstantDepositFiat$($deposit_data$$2$$.DepositID, $request_id$$4$$);
+  $JSCompiler_StaticMethods_updateDom$$($model$$66$$);
+  $e$$400_handler$$147$$.$listen$($balance_portfolio_currency_key$$1_dlg$$8_formatted_value$$4_user_balances$$2$$, $goog$ui$Dialog$EventType$SELECT$$, function($e$$401$$) {
+    "yes" == $e$$401$$.key && this.$conn_$.$processInstantDepositFiat$($deposit_data$$2$$.DepositID, $request_id$$4$$);
   });
 };
 function $JSCompiler_StaticMethods_showDepositDialog$$($JSCompiler_StaticMethods_showDepositDialog$self$$, $currency$$45$$, $opt_amount$$1$$, $opt_formatted_amount$$, $MSG_CURRENCY_DEPOSIT_DIALOG_TITLE_opt_switch_view$$, $opt_instructions$$1$$) {
@@ -16933,17 +16927,17 @@ function $JSCompiler_StaticMethods_showDepositDialog$$($JSCompiler_StaticMethods
   $MSG_CURRENCY_DEPOSIT_DIALOG_TITLE_opt_switch_view$$ = $JSCompiler_StaticMethods_showDepositDialog$self$$.$getCurrencyDescription$($currency$$45$$) + " deposit";
   if ($JSCompiler_StaticMethods_showDepositDialog$self$$.$isCryptoCurrency$($currency$$45$$)) {
     var $confirmDialogContent$$1_method_element_id$$1$$ = $bitex$templates$ConfirmDepositCryptoCurrencyContentDialog$$({$currencydescription$:$JSCompiler_StaticMethods_showDepositDialog$self$$.$getCurrencyDescription$($currency$$45$$)}), $dlgConfirm$$1$$ = $JSCompiler_StaticMethods_showDepositDialog$self$$.$showDialog$($confirmDialogContent$$1_method_element_id$$1$$, $MSG_CURRENCY_DEPOSIT_DIALOG_TITLE_opt_switch_view$$, $bitex$ui$Dialog$ButtonSet$createYesNoCancel$$());
-    $handler$$148$$.$listen$($dlgConfirm$$1$$, $goog$ui$Dialog$EventType$SELECT$$, function($e$$403_request_id$$5$$) {
-      "yes" == $e$$403_request_id$$5$$.key && ($e$$403_request_id$$5$$.preventDefault(), $e$$403_request_id$$5$$.stopPropagation(), $e$$403_request_id$$5$$ = parseInt(1E7 * Math.random(), 10), this.$conn_$.$requestDeposit$($e$$403_request_id$$5$$, void 0, $opt_formatted_amount$$, void 0, $currency$$45$$, void 0, $opt_instructions$$1$$), $goog$soy$renderElement$$($goog$dom$getFirstElementChild$$($dlgConfirm$$1$$.$getContentElement$()), $bitex$templates$WaitingForDepositResponseDialogContent$$), $JSCompiler_StaticMethods_setButtonSet$$($dlgConfirm$$1$$, 
-      (new $bitex$ui$Dialog$ButtonSet$$).$addButton$($goog$ui$Dialog$ButtonSet$DefaultButtons$CANCEL$$, !1, !0)), $handler$$148$$.$listenOnce$(this.$conn_$, "error_message." + $e$$403_request_id$$5$$, function() {
+    $handler$$148$$.$listen$($dlgConfirm$$1$$, $goog$ui$Dialog$EventType$SELECT$$, function($e$$402_request_id$$5$$) {
+      "yes" == $e$$402_request_id$$5$$.key && ($e$$402_request_id$$5$$.preventDefault(), $e$$402_request_id$$5$$.stopPropagation(), $e$$402_request_id$$5$$ = parseInt(1E7 * Math.random(), 10), this.$conn_$.$requestDeposit$($e$$402_request_id$$5$$, void 0, $opt_formatted_amount$$, void 0, $currency$$45$$, void 0, $opt_instructions$$1$$), $goog$soy$renderElement$$($goog$dom$getFirstElementChild$$($dlgConfirm$$1$$.$getContentElement$()), $bitex$templates$WaitingForDepositResponseDialogContent$$), $JSCompiler_StaticMethods_setButtonSet$$($dlgConfirm$$1$$, 
+      (new $bitex$ui$Dialog$ButtonSet$$).$addButton$($goog$ui$Dialog$ButtonSet$DefaultButtons$CANCEL$$, !1, !0)), $handler$$148$$.$listenOnce$(this.$conn_$, "error_message." + $e$$402_request_id$$5$$, function() {
         $dlgConfirm$$1$$.$dispose$();
-      }), $handler$$148$$.$listenOnce$(this.$conn_$, "deposit_response." + $e$$403_request_id$$5$$, function($e$$405_msg$$130$$) {
-        $e$$405_msg$$130$$ = $e$$405_msg$$130$$.data;
-        var $enabled_instant_deposits$$ = 3 <= $user_verification_level$$1$$, $input_address$$1$$ = $e$$405_msg$$130$$.Data.InputAddress;
-        $goog$soy$renderElement$$($goog$dom$getFirstElementChild$$($dlgConfirm$$1$$.$getContentElement$()), $bitex$templates$DepositCryptoCurrencyContentDialog$$, {$deposit_message$:$e$$405_msg$$130$$, $hasInstantDepositsEnabled$:$enabled_instant_deposits$$, $amount$:$opt_amount$$1$$, $formattedAmount$:$opt_formatted_amount$$});
-        $handler$$148$$.$listen$(this.$conn_$, $bitex$api$BitEx$EventType$DEPOSIT_REFRESH$$, function($e$$406_refresh_msg$$1$$) {
-          $e$$406_refresh_msg$$1$$ = $e$$406_refresh_msg$$1$$.data;
-          $e$$406_refresh_msg$$1$$.Data.InputAddress === $input_address$$1$$ && null != $e$$406_refresh_msg$$1$$.Data.Confirmations && "0" == $e$$406_refresh_msg$$1$$.Data.Confirmations && $dlgConfirm$$1$$.$dispose$();
+      }), $handler$$148$$.$listenOnce$(this.$conn_$, "deposit_response." + $e$$402_request_id$$5$$, function($e$$404_msg$$130$$) {
+        $e$$404_msg$$130$$ = $e$$404_msg$$130$$.data;
+        var $enabled_instant_deposits$$ = 3 <= $user_verification_level$$1$$, $input_address$$1$$ = $e$$404_msg$$130$$.Data.InputAddress;
+        $goog$soy$renderElement$$($goog$dom$getFirstElementChild$$($dlgConfirm$$1$$.$getContentElement$()), $bitex$templates$DepositCryptoCurrencyContentDialog$$, {$deposit_message$:$e$$404_msg$$130$$, $hasInstantDepositsEnabled$:$enabled_instant_deposits$$, $amount$:$opt_amount$$1$$, $formattedAmount$:$opt_formatted_amount$$});
+        $handler$$148$$.$listen$(this.$conn_$, $bitex$api$BitEx$EventType$DEPOSIT_REFRESH$$, function($e$$405_refresh_msg$$1$$) {
+          $e$$405_refresh_msg$$1$$ = $e$$405_refresh_msg$$1$$.data;
+          $e$$405_refresh_msg$$1$$.Data.InputAddress === $input_address$$1$$ && null != $e$$405_refresh_msg$$1$$.Data.Confirmations && "0" == $e$$405_refresh_msg$$1$$.Data.Confirmations && $dlgConfirm$$1$$.$dispose$();
         });
       }, this));
     });
@@ -16979,27 +16973,27 @@ function $JSCompiler_StaticMethods_showDepositDialog$$($JSCompiler_StaticMethods
       }, this);
       this.$doCalculateFees_$($method_id$$1$$ + "_" + $amount_element_id$$1$$, $method_id$$1$$ + "_" + $fixed_fee_element_id$$3$$, $method_id$$1$$ + "_" + $percent_fee_element_id$$3$$, $currency$$45$$, $method_id$$1$$ + "_" + $total_fees_element_id$$2$$, $method_id$$1$$ + "_" + $net_value_element_id$$2$$, !1, !0, !1, !1, !0, !1);
     }, $JSCompiler_StaticMethods_showDepositDialog$self$$);
-    $handler$$148$$.$listen$($dlg$$9$$, $goog$ui$Dialog$EventType$SELECT$$, function($e$$408_request_id$$6$$) {
-      if ("ok" == $e$$408_request_id$$6$$.key) {
-        if ($e$$408_request_id$$6$$.preventDefault(), $e$$408_request_id$$6$$.stopPropagation(), "prepare" != $goog$dom$getFirstElementChild$$($dlg$$9$$.$getContentElement$()).getAttribute("data-deposit-status")) {
+    $handler$$148$$.$listen$($dlg$$9$$, $goog$ui$Dialog$EventType$SELECT$$, function($e$$407_request_id$$6$$) {
+      if ("ok" == $e$$407_request_id$$6$$.key) {
+        if ($e$$407_request_id$$6$$.preventDefault(), $e$$407_request_id$$6$$.stopPropagation(), "prepare" != $goog$dom$getFirstElementChild$$($dlg$$9$$.$getContentElement$()).getAttribute("data-deposit-status")) {
           $dlg$$9$$.$dispose$();
         } else {
           var $deposit_data$$3_error_list$$16$$ = $deposit_form_uniform$$.$validate$();
           if (0 < $deposit_data$$3_error_list$$16$$.length) {
             $goog$array$forEach$$($deposit_data$$3_error_list$$16$$, function($error_msg$$11$$) {
               this.$showNotification$("error", $error_msg$$11$$);
-            }, this), $e$$408_request_id$$6$$.stopPropagation(), $e$$408_request_id$$6$$.preventDefault();
+            }, this), $e$$407_request_id$$6$$.stopPropagation(), $e$$407_request_id$$6$$.preventDefault();
           } else {
             var $deposit_data$$3_error_list$$16$$ = $JSCompiler_StaticMethods_getAsJSON$$($deposit_form_uniform$$), $amount$$12$$ = $deposit_data$$3_error_list$$16$$.Amount;
             0 > $amount$$12$$ && ($amount$$12$$ = 0);
             var $amount$$12$$ = 1E8 * $amount$$12$$, $deposit_method_id$$1$$ = $goog$string$toNumber$$($deposit_data$$3_error_list$$16$$.Method);
-            0 >= $deposit_method_id$$1$$ ? ($e$$408_request_id$$6$$.stopPropagation(), $e$$408_request_id$$6$$.preventDefault()) : ($e$$408_request_id$$6$$ = parseInt(1E7 * Math.random(), 10), this.$conn_$.$requestDeposit$($e$$408_request_id$$6$$, $deposit_method_id$$1$$, $amount$$12$$, void 0, $deposit_data$$3_error_list$$16$$.Currency), $goog$soy$renderElement$$($dlg$$9$$.$getContentElement$(), $bitex$templates$WaitingForDepositResponseDialogContent$$), $handler$$148$$.$listenOnce$(this.$conn_$, 
-            "deposit_response." + $e$$408_request_id$$6$$, function($e$$409$$) {
-              var $msg$$131$$ = $e$$409$$.data;
+            0 >= $deposit_method_id$$1$$ ? ($e$$407_request_id$$6$$.stopPropagation(), $e$$407_request_id$$6$$.preventDefault()) : ($e$$407_request_id$$6$$ = parseInt(1E7 * Math.random(), 10), this.$conn_$.$requestDeposit$($e$$407_request_id$$6$$, $deposit_method_id$$1$$, $amount$$12$$, void 0, $deposit_data$$3_error_list$$16$$.Currency), $goog$soy$renderElement$$($dlg$$9$$.$getContentElement$(), $bitex$templates$WaitingForDepositResponseDialogContent$$), $handler$$148$$.$listenOnce$(this.$conn_$, 
+            "deposit_response." + $e$$407_request_id$$6$$, function($e$$408$$) {
+              var $msg$$131$$ = $e$$408$$.data;
               $goog$soy$renderElement$$($dlg$$9$$.$getContentElement$(), $bitex$templates$DepositSlipContentDialog$$, {$deposit_id$:$msg$$131$$.DepositID, $rest_url$:this.$rest_url_$});
               $JSCompiler_StaticMethods_setButtonSet$$($dlg$$9$$, (new $bitex$ui$Dialog$ButtonSet$$).$addButton$($bitex$ui$Dialog$ButtonSet$DefaultButtons$PRINT$$).$addButton$($goog$ui$Dialog$ButtonSet$DefaultButtons$OK$$, !0, !0));
-              $handler$$148$$.$listen$($dlg$$9$$, $goog$ui$Dialog$EventType$SELECT$$, function($e$$410$$) {
-                "print" == $e$$410$$.key && window.open(this.$rest_url_$ + "/get_deposit?deposit_id=" + $msg$$131$$.DepositID);
+              $handler$$148$$.$listen$($dlg$$9$$, $goog$ui$Dialog$EventType$SELECT$$, function($e$$409$$) {
+                "print" == $e$$409$$.key && window.open(this.$rest_url_$ + "/get_deposit?deposit_id=" + $msg$$131$$.DepositID);
               });
             }));
           }
@@ -17008,15 +17002,15 @@ function $JSCompiler_StaticMethods_showDepositDialog$$($JSCompiler_StaticMethods
     }, $JSCompiler_StaticMethods_showDepositDialog$self$$);
   }
 }
-$JSCompiler_prototypeAlias$$.$onUserDepositRequest_$ = function $$JSCompiler_prototypeAlias$$$$onUserDepositRequest_$$($e$$411$$) {
-  $JSCompiler_StaticMethods_showDepositDialog$$(this, $e$$411$$.target.$getCurrency$());
+$JSCompiler_prototypeAlias$$.$onUserDepositRequest_$ = function $$JSCompiler_prototypeAlias$$$$onUserDepositRequest_$$($e$$410$$) {
+  $JSCompiler_StaticMethods_showDepositDialog$$(this, $e$$410$$.target.$getCurrency$());
 };
-$JSCompiler_prototypeAlias$$.$onUserForgotPassword_$ = function $$JSCompiler_prototypeAlias$$$$onUserForgotPassword_$$($e$$412$$) {
-  this.$conn_$.$forgotPassword$(this.$model_$.get("SelectedBrokerID"), $e$$412$$.target.$getEmail$());
+$JSCompiler_prototypeAlias$$.$onUserForgotPassword_$ = function $$JSCompiler_prototypeAlias$$$$onUserForgotPassword_$$($e$$411$$) {
+  this.$conn_$.$forgotPassword$(this.$model_$.get("SelectedBrokerID"), $e$$411$$.target.$getEmail$());
   this.$router_$.$setView$("set_new_password");
 };
-$JSCompiler_prototypeAlias$$.$onUserSetNewPassword_$ = function $$JSCompiler_prototypeAlias$$$$onUserSetNewPassword_$$($e$$413$$) {
-  this.$conn_$.$resetPassword$($e$$413$$.target.$getToken$(), $e$$413$$.target.$getPassword$());
+$JSCompiler_prototypeAlias$$.$onUserSetNewPassword_$ = function $$JSCompiler_prototypeAlias$$$$onUserSetNewPassword_$$($e$$412$$) {
+  this.$conn_$.$resetPassword$($e$$412$$.target.$getToken$(), $e$$412$$.target.$getPassword$());
 };
 $JSCompiler_prototypeAlias$$.$onUserEnableTwoFactor_$ = function $$JSCompiler_prototypeAlias$$$$onUserEnableTwoFactor_$$() {
   console.log("Enabled Clicked");
@@ -17024,21 +17018,21 @@ $JSCompiler_prototypeAlias$$.$onUserEnableTwoFactor_$ = function $$JSCompiler_pr
   $has_code$$ && ($secret$$4$$ = this.$model_$.get("TwoFactorSecret"));
   var $req_id$$ = parseInt(1E6 * Math.random(), 10);
   this.$conn_$.$enableTwoFactor$(!0, $secret$$4$$, $code$$18$$, void 0, $req_id$$);
-  this.$getHandler$().$listenOnce$(this.$conn_$, "two_factor_secret." + $req_id$$, function($e$$415_msg$$132$$) {
-    $e$$415_msg$$132$$ = $e$$415_msg$$132$$.data;
-    $has_code$$ && !$e$$415_msg$$132$$.TwoFactorEnabled && this.$showDialog$("Wrong authentication code. Please, make sure that you are using Google Authenticator and your cellphone time is exact synched with google servers.");
+  this.$getHandler$().$listenOnce$(this.$conn_$, "two_factor_secret." + $req_id$$, function($e$$414_msg$$132$$) {
+    $e$$414_msg$$132$$ = $e$$414_msg$$132$$.data;
+    $has_code$$ && !$e$$414_msg$$132$$.TwoFactorEnabled && this.$showDialog$("Wrong authentication code. Please, make sure that you are using Google Authenticator and your cellphone time is exact synched with google servers.");
   }, this);
 };
 $JSCompiler_prototypeAlias$$.$onUserDisableTwoFactor_$ = function $$JSCompiler_prototypeAlias$$$$onUserDisableTwoFactor_$$() {
   this.$conn_$.$enableTwoFactor$(!1);
 };
-$JSCompiler_prototypeAlias$$.$onBodyClick_$ = function $$JSCompiler_prototypeAlias$$$$onBodyClick_$$($e$$417$$) {
-  var $model$$66_param1$$1_view_name$$4$$ = $e$$417$$.target.getAttribute("data-switch-view");
-  null != $model$$66_param1$$1_view_name$$4$$ && ($e$$417$$.preventDefault(), $e$$417$$.stopPropagation(), this.$router_$.$setView$($model$$66_param1$$1_view_name$$4$$));
-  var $model$$66_param1$$1_view_name$$4$$ = this.$model_$, $action_element$$1_model_set_element_param2$$;
-  $action_element$$1_model_set_element_param2$$ = $goog$dom$classes$has$$($e$$417$$.target, "model-action-set") ? $e$$417$$.target : $goog$dom$getAncestorByClass$$($e$$417$$.target, "model-action-set");
-  null != $action_element$$1_model_set_element_param2$$ && $goog$isDefAndNotNull$$($action_element$$1_model_set_element_param2$$.getAttribute("data-key")) && $model$$66_param1$$1_view_name$$4$$.set($action_element$$1_model_set_element_param2$$.getAttribute("data-key"), $action_element$$1_model_set_element_param2$$.getAttribute("data-value"));
-  $action_element$$1_model_set_element_param2$$ = $goog$dom$getAncestor$$($e$$417$$.target, function($node$$30$$) {
+$JSCompiler_prototypeAlias$$.$onBodyClick_$ = function $$JSCompiler_prototypeAlias$$$$onBodyClick_$$($e$$416$$) {
+  var $model$$67_param1$$1_view_name$$4$$ = $e$$416$$.target.getAttribute("data-switch-view");
+  null != $model$$67_param1$$1_view_name$$4$$ && ($e$$416$$.preventDefault(), $e$$416$$.stopPropagation(), this.$router_$.$setView$($model$$67_param1$$1_view_name$$4$$));
+  var $model$$67_param1$$1_view_name$$4$$ = this.$model_$, $action_element$$1_model_set_element_param2$$;
+  $action_element$$1_model_set_element_param2$$ = $goog$dom$classes$has$$($e$$416$$.target, "model-action-set") ? $e$$416$$.target : $goog$dom$getAncestorByClass$$($e$$416$$.target, "model-action-set");
+  null != $action_element$$1_model_set_element_param2$$ && $goog$isDefAndNotNull$$($action_element$$1_model_set_element_param2$$.getAttribute("data-key")) && $model$$67_param1$$1_view_name$$4$$.set($action_element$$1_model_set_element_param2$$.getAttribute("data-key"), $action_element$$1_model_set_element_param2$$.getAttribute("data-value"));
+  $action_element$$1_model_set_element_param2$$ = $goog$dom$getAncestor$$($e$$416$$.target, function($node$$30$$) {
     var $JSCompiler_temp$$38$$;
     if ($JSCompiler_temp$$38$$ = $goog$isFunction$$($node$$30$$.getAttribute)) {
       $JSCompiler_temp$$38$$ = null != $node$$30$$.getAttribute("data-action");
@@ -17050,22 +17044,22 @@ $JSCompiler_prototypeAlias$$.$onBodyClick_$ = function $$JSCompiler_prototypeAli
   if (null != $action_element$$1_model_set_element_param2$$) {
     switch($action_element$$1_model_set_element_param2$$.getAttribute("data-action")) {
       case "deposit":
-        $model$$66_param1$$1_view_name$$4$$ = $action_element$$1_model_set_element_param2$$.getAttribute("data-currency");
-        $JSCompiler_StaticMethods_showDepositDialog$$(this, $model$$66_param1$$1_view_name$$4$$);
+        $model$$67_param1$$1_view_name$$4$$ = $action_element$$1_model_set_element_param2$$.getAttribute("data-currency");
+        $JSCompiler_StaticMethods_showDepositDialog$$(this, $model$$67_param1$$1_view_name$$4$$);
         break;
       case "withdraw":
-        $model$$66_param1$$1_view_name$$4$$ = $action_element$$1_model_set_element_param2$$.getAttribute("data-currency"), $action_element$$1_model_set_element_param2$$ = $action_element$$1_model_set_element_param2$$.getAttribute("data-pre-filled-data"), null != $action_element$$1_model_set_element_param2$$ && ($action_element$$1_model_set_element_param2$$ = $goog$json$parse$$($action_element$$1_model_set_element_param2$$)), $JSCompiler_StaticMethods_showWithdrawalDialog$$(this, $model$$66_param1$$1_view_name$$4$$, 
+        $model$$67_param1$$1_view_name$$4$$ = $action_element$$1_model_set_element_param2$$.getAttribute("data-currency"), $action_element$$1_model_set_element_param2$$ = $action_element$$1_model_set_element_param2$$.getAttribute("data-pre-filled-data"), null != $action_element$$1_model_set_element_param2$$ && ($action_element$$1_model_set_element_param2$$ = $goog$json$parse$$($action_element$$1_model_set_element_param2$$)), $JSCompiler_StaticMethods_showWithdrawalDialog$$(this, $model$$67_param1$$1_view_name$$4$$, 
         $action_element$$1_model_set_element_param2$$);
     }
-    $e$$417$$.preventDefault();
-    $e$$417$$.stopPropagation();
+    $e$$416$$.preventDefault();
+    $e$$416$$.stopPropagation();
   }
 };
-$JSCompiler_prototypeAlias$$.$onBodyChange_$ = function $$JSCompiler_prototypeAlias$$$$onBodyChange_$$($e$$418_elements$$10$$) {
-  if ($goog$dom$classes$has$$($e$$418_elements$$10$$.target, "withdraw-method-selector")) {
-    var $selected_method$$ = $goog$dom$forms$getValue$$($e$$418_elements$$10$$.target);
-    $e$$418_elements$$10$$ = $goog$dom$getElementsByClass$$("withdraw-method");
-    $goog$array$forEach$$($e$$418_elements$$10$$, function($element$$255_field_elements$$) {
+$JSCompiler_prototypeAlias$$.$onBodyChange_$ = function $$JSCompiler_prototypeAlias$$$$onBodyChange_$$($e$$417_elements$$10$$) {
+  if ($goog$dom$classes$has$$($e$$417_elements$$10$$.target, "withdraw-method-selector")) {
+    var $selected_method$$ = $goog$dom$forms$getValue$$($e$$417_elements$$10$$.target);
+    $e$$417_elements$$10$$ = $goog$dom$getElementsByClass$$("withdraw-method");
+    $goog$array$forEach$$($e$$417_elements$$10$$, function($element$$255_field_elements$$) {
       var $method$$8$$ = $element$$255_field_elements$$.getAttribute("data-withdraw-method");
       $goog$style$setElementShown$$($element$$255_field_elements$$, $method$$8$$ == $selected_method$$);
       $element$$255_field_elements$$ = $goog$dom$getElementsByClass$$("withdraw-field", $element$$255_field_elements$$);
@@ -17075,13 +17069,13 @@ $JSCompiler_prototypeAlias$$.$onBodyChange_$ = function $$JSCompiler_prototypeAl
     }, this);
   }
 };
-$JSCompiler_prototypeAlias$$.$onUserLoginButtonClick_$ = function $$JSCompiler_prototypeAlias$$$$onUserLoginButtonClick_$$($e$$419$$) {
-  var $username$$13$$ = $e$$419$$.target.$getUsername$(), $password$$8$$ = $e$$419$$.target.$getPassword$();
-  this.$model_$.set("Password", $e$$419$$.target.$getPassword$());
+$JSCompiler_prototypeAlias$$.$onUserLoginButtonClick_$ = function $$JSCompiler_prototypeAlias$$$$onUserLoginButtonClick_$$($e$$418$$) {
+  var $username$$13$$ = $e$$418$$.target.$getUsername$(), $password$$8$$ = $e$$418$$.target.$getPassword$();
+  this.$model_$.set("Password", $e$$418$$.target.$getPassword$());
   this.$conn_$.login(this.$model_$.get("SelectedBrokerID"), $username$$13$$, $password$$8$$);
 };
-$JSCompiler_prototypeAlias$$.$onUserLoginOk_$ = function $$JSCompiler_prototypeAlias$$$$onUserLoginOk_$$($broker_currencies$$4_e$$420$$) {
-  var $msg$$133_value_fmt$$15$$ = $broker_currencies$$4_e$$420$$.data;
+$JSCompiler_prototypeAlias$$.$onUserLoginOk_$ = function $$JSCompiler_prototypeAlias$$$$onUserLoginOk_$$($broker_currencies$$4_e$$419$$) {
+  var $msg$$133_value_fmt$$15$$ = $broker_currencies$$4_e$$419$$.data;
   $goog$dom$classes$add$$(document.body, "bitex-logged");
   $goog$dom$classes$remove$$(document.body, "bitex-not-logged");
   this.$model_$.set("UserID", $msg$$133_value_fmt$$15$$.UserID);
@@ -17096,23 +17090,23 @@ $JSCompiler_prototypeAlias$$.$onUserLoginOk_$ = function $$JSCompiler_prototypeA
   this.$model_$.set("IsMSB", $msg$$133_value_fmt$$15$$.IsMSB);
   this.$model_$.set("HasLineOfCredit", $msg$$133_value_fmt$$15$$.HasLineOfCredit);
   this.$model_$.set("EmailLang", $msg$$133_value_fmt$$15$$.EmailLang);
-  $broker_currencies$$4_e$$420$$ = new $goog$structs$Set$$;
+  $broker_currencies$$4_e$$419$$ = new $goog$structs$Set$$;
   var $allowed_markets$$2_tags$$1_verification_data$$5$$ = {}, $user_brokers$$ = {}, $broker_info$$7_profile$$3$$;
-  null != $msg$$133_value_fmt$$15$$.Broker && ($broker_info$$7_profile$$3$$ = $JSCompiler_StaticMethods_adjustBrokerData_$$(this, $msg$$133_value_fmt$$15$$.Broker), $goog$object$extend$$($allowed_markets$$2_tags$$1_verification_data$$5$$, $broker_info$$7_profile$$3$$.AllowedMarkets), $broker_currencies$$4_e$$420$$.$addAll$($broker_info$$7_profile$$3$$.BrokerCurrencies), this.$model_$.set("Broker", $broker_info$$7_profile$$3$$), $user_brokers$$[$broker_info$$7_profile$$3$$.BrokerID] = $broker_info$$7_profile$$3$$, 
+  null != $msg$$133_value_fmt$$15$$.Broker && ($broker_info$$7_profile$$3$$ = $JSCompiler_StaticMethods_adjustBrokerData_$$(this, $msg$$133_value_fmt$$15$$.Broker), $goog$object$extend$$($allowed_markets$$2_tags$$1_verification_data$$5$$, $broker_info$$7_profile$$3$$.AllowedMarkets), $broker_currencies$$4_e$$419$$.$addAll$($broker_info$$7_profile$$3$$.BrokerCurrencies), this.$model_$.set("Broker", $broker_info$$7_profile$$3$$), $user_brokers$$[$broker_info$$7_profile$$3$$.BrokerID] = $broker_info$$7_profile$$3$$, 
   $msg$$133_value_fmt$$15$$.IsBroker || this.$model_$.set("UserBrokers", $user_brokers$$));
   $broker_info$$7_profile$$3$$ = $msg$$133_value_fmt$$15$$.Profile;
-  $msg$$133_value_fmt$$15$$.IsBroker ? ($goog$dom$classes$add$$(document.body, "bitex-broker"), $broker_info$$7_profile$$3$$ = $JSCompiler_StaticMethods_adjustBrokerData_$$(this, $broker_info$$7_profile$$3$$), $user_brokers$$[$broker_info$$7_profile$$3$$.BrokerID] = $broker_info$$7_profile$$3$$, this.$model_$.set("UserBrokers", $user_brokers$$), $goog$object$extend$$($allowed_markets$$2_tags$$1_verification_data$$5$$, $broker_info$$7_profile$$3$$.AllowedMarkets), $broker_currencies$$4_e$$420$$.$addAll$($broker_info$$7_profile$$3$$.BrokerCurrencies)) : 
+  $msg$$133_value_fmt$$15$$.IsBroker ? ($goog$dom$classes$add$$(document.body, "bitex-broker"), $broker_info$$7_profile$$3$$ = $JSCompiler_StaticMethods_adjustBrokerData_$$(this, $broker_info$$7_profile$$3$$), $user_brokers$$[$broker_info$$7_profile$$3$$.BrokerID] = $broker_info$$7_profile$$3$$, this.$model_$.set("UserBrokers", $user_brokers$$), $goog$object$extend$$($allowed_markets$$2_tags$$1_verification_data$$5$$, $broker_info$$7_profile$$3$$.AllowedMarkets), $broker_currencies$$4_e$$419$$.$addAll$($broker_info$$7_profile$$3$$.BrokerCurrencies)) : 
   ($goog$dom$classes$add$$(document.body, "bitex-non-broker"), 2 <= $broker_info$$7_profile$$3$$.Verified && $goog$style$showElement$$($goog$dom$getElement$$("verification_menu_id"), !1));
   this.$model_$.set("Profile", $broker_info$$7_profile$$3$$);
   this.$model_$.set("ShowMMP", this.$model_$.get("IsBroker") || this.$model_$.get("Profile").IsMarketMaker);
   null != $msg$$133_value_fmt$$15$$.Broker && this.$model_$.set("SelectedBrokerID", this.$model_$.get("Broker").BrokerID);
   this.$model_$.set("AllowedMarkets", $allowed_markets$$2_tags$$1_verification_data$$5$$);
-  this.$model_$.set("BrokerCurrencies", $broker_currencies$$4_e$$420$$.$getValues$());
+  this.$model_$.set("BrokerCurrencies", $broker_currencies$$4_e$$419$$.$getValues$());
   $allowed_markets$$2_tags$$1_verification_data$$5$$ = $broker_info$$7_profile$$3$$.VerificationData;
   if (1 <= $broker_info$$7_profile$$3$$.Verified) {
     try {
       null != $allowed_markets$$2_tags$$1_verification_data$$5$$ && ($allowed_markets$$2_tags$$1_verification_data$$5$$ = $goog$json$parse$$($allowed_markets$$2_tags$$1_verification_data$$5$$));
-    } catch ($e$$421$$) {
+    } catch ($e$$420$$) {
     }
   }
   this.$model_$.set("VerificationData", $allowed_markets$$2_tags$$1_verification_data$$5$$);
@@ -17161,7 +17155,7 @@ $JSCompiler_prototypeAlias$$.$onUserLoginOk_$ = function $$JSCompiler_prototypeA
   var $balances$$2$$ = {};
   $balances$$2$$[this.$model_$.get("SelectedBrokerID")] = {};
   $balances$$2$$[this.$model_$.get("SelectedBrokerID")][this.$model_$.get("UserID")] = {};
-  $goog$structs$forEach$$($broker_currencies$$4_e$$420$$, function($currency$$47$$) {
+  $goog$structs$forEach$$($broker_currencies$$4_e$$419$$, function($currency$$47$$) {
     $balances$$2$$[this.$model_$.get("SelectedBrokerID")][this.$model_$.get("UserID")][$currency$$47$$] = 0;
   }, this);
   this.$model_$.set("Position", $goog$object$unsafeClone$$($balances$$2$$), !0);
@@ -17175,29 +17169,29 @@ $JSCompiler_prototypeAlias$$.$onUserLoginOk_$ = function $$JSCompiler_prototypeA
   this.$model_$.set("FinishedInitialOpenOrdersRequest", !1);
   this.$conn_$.$requestOrderList$(this.$open_orders_request_id_$, 0, 100, ["has_leaves_qty eq 1"]);
 };
-$JSCompiler_prototypeAlias$$.$onUserLoginError_$ = function $$JSCompiler_prototypeAlias$$$$onUserLoginError_$$($e$$422_msg$$134$$) {
+$JSCompiler_prototypeAlias$$.$onUserLoginError_$ = function $$JSCompiler_prototypeAlias$$$$onUserLoginError_$$($e$$421_msg$$134$$) {
   $goog$dom$classes$add$$(document.body, "bitex-not-logged");
   $goog$dom$classes$remove$$(document.body, "bitex-logged");
   $goog$dom$classes$remove$$(document.body, "bitex-broker");
   $goog$dom$classes$remove$$(document.body, "bitex-non-broker");
-  $e$$422_msg$$134$$ = $e$$422_msg$$134$$.data;
+  $e$$421_msg$$134$$ = $e$$421_msg$$134$$.data;
   this.$model_$.set("UserID", "");
   this.$model_$.set("Username", "");
-  if ($e$$422_msg$$134$$.NeedSecondFactor) {
+  if ($e$$421_msg$$134$$.NeedSecondFactor) {
     var $dlg_$$1$$ = this.$showDialog$($bitex$templates$GoogleAuthenticationCodeDialogContent$$(), "2 steps authentication", $bitex$ui$Dialog$ButtonSet$createOkCancel$$()), $gauth_uniform$$1$$ = new $uniform$Uniform$$;
     $gauth_uniform$$1$$.$decorate$($goog$dom$getFirstElementChild$$($dlg_$$1$$.$getContentElement$()));
     $goog$dom$getElement$$("id_input_google_authenticator").focus();
-    this.$getHandler$().$listen$($dlg_$$1$$, $goog$ui$Dialog$EventType$SELECT$$, function($e$$423_second_factor$$1$$) {
-      if ("ok" == $e$$423_second_factor$$1$$.key) {
+    this.$getHandler$().$listen$($dlg_$$1$$, $goog$ui$Dialog$EventType$SELECT$$, function($e$$422_second_factor$$1$$) {
+      if ("ok" == $e$$422_second_factor$$1$$.key) {
         var $error_list$$17$$ = $gauth_uniform$$1$$.$validate$();
         0 < $error_list$$17$$.length ? ($goog$array$forEach$$($error_list$$17$$, function($error_msg$$12$$) {
           this.$showNotification$("error", $error_msg$$12$$);
-        }, this), $e$$423_second_factor$$1$$.stopPropagation(), $e$$423_second_factor$$1$$.preventDefault()) : ($e$$423_second_factor$$1$$ = $JSCompiler_StaticMethods_getAsJSON$$($gauth_uniform$$1$$).token, this.$conn_$.login(this.$model_$.get("SelectedBrokerID"), this.$loginView_$.$getUsername$(), this.$loginView_$.$getPassword$(), $e$$423_second_factor$$1$$), $dlg_$$1$$.$dispose$());
+        }, this), $e$$422_second_factor$$1$$.stopPropagation(), $e$$422_second_factor$$1$$.preventDefault()) : ($e$$422_second_factor$$1$$ = $JSCompiler_StaticMethods_getAsJSON$$($gauth_uniform$$1$$).token, this.$conn_$.login(this.$model_$.get("SelectedBrokerID"), this.$loginView_$.$getUsername$(), this.$loginView_$.$getPassword$(), $e$$422_second_factor$$1$$), $dlg_$$1$$.$dispose$());
       }
     });
   } else {
-    var $user_status_text$$ = $e$$422_msg$$134$$.UserStatusText;
-    switch($e$$422_msg$$134$$.UserStatusText) {
+    var $user_status_text$$ = $e$$421_msg$$134$$.UserStatusText;
+    switch($e$$421_msg$$134$$.UserStatusText) {
       case "MSG_LOGIN_ERROR_INVALID_PASSWORD":
         $user_status_text$$ = "Invalid password";
         break;
@@ -17216,18 +17210,18 @@ $JSCompiler_prototypeAlias$$.$onUserLoginError_$ = function $$JSCompiler_prototy
     this.$showDialog$($user_status_text$$);
   }
 };
-$JSCompiler_prototypeAlias$$.$onUserSignupButton_$ = function $$JSCompiler_prototypeAlias$$$$onUserSignupButton_$$($e$$424$$) {
-  this.$model_$.set("Password", $e$$424$$.target.$getPassword$());
-  this.$conn_$.$signUp$($e$$424$$.target.$getUsername$(), $e$$424$$.target.$getPassword$(), $e$$424$$.target.$getEmail$(), $e$$424$$.target.$getState$(), $goog$dom$forms$getValue$$($goog$dom$getElement$$("id_signup_country")), $goog$string$toNumber$$($goog$dom$forms$getValue$$($goog$dom$getElement$$("id_signup_broker"))));
+$JSCompiler_prototypeAlias$$.$onUserSignupButton_$ = function $$JSCompiler_prototypeAlias$$$$onUserSignupButton_$$($e$$423$$) {
+  this.$model_$.set("Password", $e$$423$$.target.$getPassword$());
+  this.$conn_$.$signUp$($e$$423$$.target.$getUsername$(), $e$$423$$.target.$getPassword$(), $e$$423$$.target.$getEmail$(), $e$$423$$.target.$getState$(), $goog$dom$forms$getValue$$($goog$dom$getElement$$("id_signup_country")), $goog$string$toNumber$$($goog$dom$forms$getValue$$($goog$dom$getElement$$("id_signup_broker"))));
 };
 $JSCompiler_prototypeAlias$$.$getModel$ = function $$JSCompiler_prototypeAlias$$$$getModel$$() {
   return this.$model_$;
 };
-$JSCompiler_prototypeAlias$$.$onBeforeSetView_$ = function $$JSCompiler_prototypeAlias$$$$onBeforeSetView_$$($classes$$10_e$$425_view$$4$$) {
-  var $view_id$$5$$ = $classes$$10_e$$425_view$$4$$.$view_id$;
-  $classes$$10_e$$425_view$$4$$ = $classes$$10_e$$425_view$$4$$.view;
+$JSCompiler_prototypeAlias$$.$onBeforeSetView_$ = function $$JSCompiler_prototypeAlias$$$$onBeforeSetView_$$($classes$$10_e$$424_view$$4$$) {
+  var $view_id$$5$$ = $classes$$10_e$$424_view$$4$$.$view_id$;
+  $classes$$10_e$$424_view$$4$$ = $classes$$10_e$$424_view$$4$$.view;
   "admin" == $view_id$$5$$ && this.$model_$.set("SelectedBrokerID", 8999999);
-  $classes$$10_e$$425_view$$4$$.$inDocument_$ || $classes$$10_e$$425_view$$4$$.$decorate$($goog$dom$getElement$$($view_id$$5$$));
+  $classes$$10_e$$424_view$$4$$.$inDocument_$ || $classes$$10_e$$424_view$$4$$.$decorate$($goog$dom$getElement$$($view_id$$5$$));
   if (!this.$conn_$.$logged_$) {
     switch($view_id$$5$$) {
       case "start":
@@ -17257,9 +17251,9 @@ $JSCompiler_prototypeAlias$$.$onBeforeSetView_$ = function $$JSCompiler_prototyp
         return this.$router_$.$setView$("start"), !1;
     }
   }
-  $classes$$10_e$$425_view$$4$$ = $goog$dom$classes$get$$(document.body);
+  $classes$$10_e$$424_view$$4$$ = $goog$dom$classes$get$$(document.body);
   var $classes_to_remove$$ = [];
-  $goog$array$forEach$$($classes$$10_e$$425_view$$4$$, function($cls$$3$$) {
+  $goog$array$forEach$$($classes$$10_e$$424_view$$4$$, function($cls$$3$$) {
     0 == $cls$$3$$.lastIndexOf("active-view-", 0) && $classes_to_remove$$.push($cls$$3$$);
   });
   $goog$array$forEach$$($classes_to_remove$$, function($cls$$4$$) {
@@ -17312,13 +17306,13 @@ $JSCompiler_prototypeAlias$$.$getCurrencyHumanFormat$ = function $$JSCompiler_pr
 $JSCompiler_prototypeAlias$$.$getCurrencyDescription$ = function $$JSCompiler_prototypeAlias$$$$getCurrencyDescription$$($currency_code$$18$$) {
   return this.$currency_info_$[$currency_code$$18$$].description;
 };
-$JSCompiler_prototypeAlias$$.$onSecurityList_$ = function $$JSCompiler_prototypeAlias$$$$onSecurityList_$$($e$$426_msg$$135$$) {
-  $e$$426_msg$$135$$ = $e$$426_msg$$135$$.data;
-  $goog$array$forEach$$($e$$426_msg$$135$$.Currencies, function($currency$$48$$) {
+$JSCompiler_prototypeAlias$$.$onSecurityList_$ = function $$JSCompiler_prototypeAlias$$$$onSecurityList_$$($e$$425_msg$$135$$) {
+  $e$$425_msg$$135$$ = $e$$425_msg$$135$$.data;
+  $goog$array$forEach$$($e$$425_msg$$135$$.Currencies, function($currency$$48$$) {
     this.$currency_info_$[$currency$$48$$.Code] = {code:$currency$$48$$.Code, format:$currency$$48$$.FormatJS, $human_format$:$currency$$48$$.HumanFormatJS, description:$currency$$48$$.Description, sign:$currency$$48$$.Sign, $pip$:$currency$$48$$.Pip, $is_crypto$:$currency$$48$$.IsCrypto, $number_of_decimals$:$currency$$48$$.NumberOfDecimals};
   }, this);
   var $symbols$$3$$ = [];
-  $goog$array$forEach$$($e$$426_msg$$135$$.Instruments, function($instrument$$3$$) {
+  $goog$array$forEach$$($e$$425_msg$$135$$.Instruments, function($instrument$$3$$) {
     var $market$$6$$ = $instrument$$3$$.Market, $symbol$$22$$ = $instrument$$3$$.Symbol, $currency$$49$$ = $instrument$$3$$.Currency, $crypto_currency$$1$$ = $symbol$$22$$.substr(0, 3);
     this.$all_markets_$[$symbol$$22$$] = {market:$market$$6$$, symbol:$symbol$$22$$, description:$instrument$$3$$.Description};
     $symbols$$3$$.push($market$$6$$ + ":" + $symbol$$22$$);
@@ -17341,7 +17335,7 @@ $JSCompiler_prototypeAlias$$.$onSecurityList_$ = function $$JSCompiler_prototype
     this.$model_$.set("formatted_" + $market$$6$$ + "_" + $symbol$$22$$ + "_BEST_ASK", this.$formatCurrency$(0, $currency$$49$$, !0), !0);
     this.$model_$.set("formatted_" + $market$$6$$ + "_" + $symbol$$22$$ + "_LAST_PX", this.$formatCurrency$(0, $currency$$49$$, !0), !0);
   }, this);
-  this.$model_$.set("SecurityList", $e$$426_msg$$135$$);
+  this.$model_$.set("SecurityList", $e$$425_msg$$135$$);
   $JSCompiler_StaticMethods_subscribeSecurityStatus$$(this.$conn_$, $symbols$$3$$);
 };
 function $JSCompiler_StaticMethods_adjustBrokerData_$$($JSCompiler_StaticMethods_adjustBrokerData_$self$$, $broker_info$$8$$) {
@@ -17390,8 +17384,8 @@ function $JSCompiler_StaticMethods_adjustBrokerData_$$($JSCompiler_StaticMethods
   }, $JSCompiler_StaticMethods_adjustBrokerData_$self$$);
   return $broker_info$$8$$;
 }
-$JSCompiler_prototypeAlias$$.$onBrokerListResponse_$ = function $$JSCompiler_prototypeAlias$$$$onBrokerListResponse_$$($e$$427$$) {
-  var $msg$$136$$ = $e$$427$$.data, $broker_list$$3$$ = [];
+$JSCompiler_prototypeAlias$$.$onBrokerListResponse_$ = function $$JSCompiler_prototypeAlias$$$$onBrokerListResponse_$$($e$$426$$) {
+  var $msg$$136$$ = $e$$426$$.data, $broker_list$$3$$ = [];
   $goog$array$forEach$$($msg$$136$$.BrokerListGrp, function($broker_array$$) {
     var $broker_info$$9$$ = {};
     $goog$array$forEach$$($msg$$136$$.Columns, function($column$$5$$, $index$$117$$) {
@@ -17435,10 +17429,10 @@ $JSCompiler_prototypeAlias$$.$onTestRequestTimer_$ = function $$JSCompiler_proto
   this.$getHandler$().$listenOnce$(this.$test_request_deadline_timer_$, $goog$Timer$TICK$$, function() {
   });
 };
-$JSCompiler_prototypeAlias$$.$onHearbeat_$ = function $$JSCompiler_prototypeAlias$$$$onHearbeat_$$($e$$432_msg$$137$$) {
-  $e$$432_msg$$137$$ = $e$$432_msg$$137$$.data;
+$JSCompiler_prototypeAlias$$.$onHearbeat_$ = function $$JSCompiler_prototypeAlias$$$$onHearbeat_$$($e$$431_msg$$137$$) {
+  $e$$431_msg$$137$$ = $e$$431_msg$$137$$.data;
   null != this.$test_request_deadline_timer_$ && (this.$test_request_deadline_timer_$.stop(), this.$test_request_deadline_timer_$ = null);
-  null != $e$$432_msg$$137$$.SendTime && this.$model_$.set("latency", new Date(Date.now()) - new Date($e$$432_msg$$137$$.SendTime));
+  null != $e$$431_msg$$137$$.SendTime && this.$model_$.set("latency", new Date(Date.now()) - new Date($e$$431_msg$$137$$.SendTime));
 };
 $JSCompiler_prototypeAlias$$.$onConnectionClose_$ = function $$JSCompiler_prototypeAlias$$$$onConnectionClose_$$() {
   $goog$dom$classes$add$$(document.body, "ws-not-connected", "bitex-not-logged");
@@ -17455,9 +17449,9 @@ $JSCompiler_prototypeAlias$$.$onConnectionError_$ = function $$JSCompiler_protot
   this.$showNotification$("error", "Error", "detected with the connection.");
   this.$router_$.$setView$("start");
 };
-$JSCompiler_prototypeAlias$$.$onConnectionErrorMessage_$ = function $$JSCompiler_prototypeAlias$$$$onConnectionErrorMessage_$$($e$$435_msg$$138$$) {
-  $e$$435_msg$$138$$ = $e$$435_msg$$138$$.data;
-  this.$showNotification$("error", "Message from server:", $e$$435_msg$$138$$.Description + " - " + $e$$435_msg$$138$$.Detail, this.$error_message_alert_timeout_$);
+$JSCompiler_prototypeAlias$$.$onConnectionErrorMessage_$ = function $$JSCompiler_prototypeAlias$$$$onConnectionErrorMessage_$$($e$$434_msg$$138$$) {
+  $e$$434_msg$$138$$ = $e$$434_msg$$138$$.data;
+  this.$showNotification$("error", "Message from server:", $e$$434_msg$$138$$.Description + " - " + $e$$434_msg$$138$$.Detail, this.$error_message_alert_timeout_$);
 };
 $JSCompiler_prototypeAlias$$.$showDialog$ = function $$JSCompiler_prototypeAlias$$$$showDialog$$($content$$27$$, $opt_title$$5_title$$12$$, $buttonSet$$3_opt_button_set$$) {
   $opt_title$$5_title$$12$$ = $opt_title$$5_title$$12$$ || "Error";
@@ -17512,9 +17506,9 @@ function $JSCompiler_StaticMethods_registerAlgorithmInstance$$($JSCompiler_Stati
     $balance_broker$$[$currency$$52$$ + "_locked"] = $balance$$11$$;
   }, $JSCompiler_StaticMethods_registerAlgorithmInstance$self$$);
   var $algo_permissions$$ = $algo_definition$$1$$.permissions, $deposited_balance_broker_dlg$$10_open_orders_index$$ = $JSCompiler_StaticMethods_registerAlgorithmInstance$self$$.$showDialog$($bitex$templates$AlgoPermissionsDialogContent$$({$permissions$:$algo_permissions$$}), "Authorize algorithm", (new $bitex$ui$Dialog$ButtonSet$$).$addButton$($goog$ui$Dialog$ButtonSet$DefaultButtons$YES$$, !0).$addButton$($goog$ui$Dialog$ButtonSet$DefaultButtons$NO$$, !1, !0));
-  $handler$$152$$.$listen$($deposited_balance_broker_dlg$$10_open_orders_index$$, $goog$ui$Dialog$EventType$SELECT$$, function($algo_sandbox_blobURL_e$$438$$) {
-    if ("yes" == $algo_sandbox_blobURL_e$$438$$.key) {
-      $algo_sandbox_blobURL_e$$438$$ = ["var context = {\n", '  "algo_instance_id": "' + $algo_instance_id$$3$$ + '",\n', '  "wss_url": "' + this.$wss_url_$ + '",\n', '  "symbol": "' + $symbol$$26$$.$symbol$ + '",\n', '  "open_orders": ' + $goog$json$serialize$$($open_orders$$1$$) + ",\n", '  "balance": ' + $goog$json$serialize$$($balance_broker$$) + ",\n", '  "algo_definition": ' + $goog$json$serialize$$($algo_definition$$1$$) + "\n", "};\n", "\n", "\n", $algo$$, "\n", "\n", "var f,l=this;function m(a){return void 0!==a}\n", 
+  $handler$$152$$.$listen$($deposited_balance_broker_dlg$$10_open_orders_index$$, $goog$ui$Dialog$EventType$SELECT$$, function($algo_sandbox_blobURL_e$$437$$) {
+    if ("yes" == $algo_sandbox_blobURL_e$$437$$.key) {
+      $algo_sandbox_blobURL_e$$437$$ = ["var context = {\n", '  "algo_instance_id": "' + $algo_instance_id$$3$$ + '",\n', '  "wss_url": "' + this.$wss_url_$ + '",\n', '  "symbol": "' + $symbol$$26$$.$symbol$ + '",\n', '  "open_orders": ' + $goog$json$serialize$$($open_orders$$1$$) + ",\n", '  "balance": ' + $goog$json$serialize$$($balance_broker$$) + ",\n", '  "algo_definition": ' + $goog$json$serialize$$($algo_definition$$1$$) + "\n", "};\n", "\n", "\n", $algo$$, "\n", "\n", "var f,l=this;function m(a){return void 0!==a}\n", 
       'function n(a){var b=typeof a;if("object"==b)if(a){if(a instanceof Array)return"array";if(a instanceof Object)return b;var c=Object.prototype.toString.call(a);if("[object Window]"==c)return"object";if("[object Array]"==c||"number"==typeof a.length&&"undefined"!=typeof a.splice&&"undefined"!=typeof a.propertyIsEnumerable&&!a.propertyIsEnumerable("splice"))return"array";if("[object Function]"==c||"undefined"!=typeof a.call&&"undefined"!=typeof a.propertyIsEnumerable&&!a.propertyIsEnumerable("call"))return"function"}else return"null";\n', 
       'else if("function"==b&&"undefined"==typeof a.call)return"object";return b}function p(a){return"array"==n(a)}function q(a){var b=n(a);return"array"==b||"object"==b&&"number"==typeof a.length}function t(a){return"string"==typeof a}function u(a){var b=typeof a;return"object"==b&&null!=a||"function"==b}var v="closure_uid_"+(1E9*Math.random()>>>0),aa=0;function w(a){var b=n(a);if("object"==b||"array"==b){if(a.clone)return a.clone();var b="array"==b?[]:{},c;for(c in a)b[c]=w(a[c]);return b}return a}\n', 
       'function ba(a,b,c){return a.call.apply(a.bind,arguments)}function ca(a,b,c){if(!a)throw Error();if(2<arguments.length){var d=Array.prototype.slice.call(arguments,2);return function(){var c=Array.prototype.slice.call(arguments);Array.prototype.unshift.apply(c,d);return a.apply(b,c)}}return function(){return a.apply(b,arguments)}}function x(a,b,c){x=Function.prototype.bind&&-1!=Function.prototype.bind.toString().indexOf("native code")?ba:ca;return x.apply(null,arguments)}\n', 'function y(a,b){var c=Array.prototype.slice.call(arguments,1);return function(){var b=c.slice();b.push.apply(b,arguments);return a.apply(this,b)}}var da=Date.now||function(){return+new Date},z=null;function A(a,b){var c=a.split("."),d=l;c[0]in d||!d.execScript||d.execScript("var "+c[0]);for(var e;c.length&&(e=c.shift());)!c.length&&m(b)?d[e]=b:d=d[e]?d[e]:d[e]={}}function B(a,b){C.prototype[a]=b};var D=Array.prototype,E=D.indexOf?function(a,b,c){return D.indexOf.call(a,b,c)}:function(a,b,c){c=null==c?0:0>c?Math.max(0,a.length+c):c;if(t(a))return t(b)&&1==b.length?a.indexOf(b,c):-1;for(;c<a.length;c++)if(c in a&&a[c]===b)return c;return-1},ea=D.lastIndexOf?function(a,b,c){return D.lastIndexOf.call(a,b,null==c?a.length-1:c)}:function(a,b,c){c=null==c?a.length-1:c;0>c&&(c=Math.max(0,a.length+c));if(t(a))return t(b)&&1==b.length?a.lastIndexOf(b,c):-1;for(;0<=c;c--)if(c in a&&a[c]===b)return c;\n', 
@@ -17544,50 +17538,50 @@ function $JSCompiler_StaticMethods_registerAlgorithmInstance$$($JSCompiler_Stati
       'A("goog.object.remove",Y);A("goog.object.add",function(a,b,c){if(b in a)throw Error(\'The object already contains the key "\'+b+\'"\');a[b]=c});A("goog.object.get",function(a,b,c){return b in a?a[b]:c});A("goog.object.set",function(a,b,c){a[b]=c});A("goog.object.setIfUndefined",function(a,b,c){return b in a?a[b]:a[b]=c});A("goog.object.clone",function(a){var b={},c;for(c in a)b[c]=a[c];return b});A("goog.object.unsafeClone",na);A("goog.object.transpose",function(a){var b={},c;for(c in a)b[a[c]]=c;return b});\n', 
       'A("goog.object.create",qa);A("goog.object.createSet",ra);A("goog.object.createImmutableView",function(a){var b=a;Object.isFrozen&&!Object.isFrozen(a)&&(b=Object.create(a),Object.freeze(b));return b});A("goog.object.isImmutableView",function(a){return!!Object.isFrozen&&Object.isFrozen(a)});A("Application",C);B("sendBuyLimitedOrder",C.prototype.C);B("sendSellLimitedOrder",C.prototype.D);B("cancelAllOrders",C.prototype.n);B("cancelOrder",C.prototype.o);B("getOrderBook",C.prototype.t);B("getTrades",C.prototype.v);\n', 
       'B("getBalance",C.prototype.p);B("getParameters",C.prototype.u);B("getOpenOrders",C.prototype.s);B("getMarket",C.prototype.r);B("getInstanceID",C.prototype.q);B("showNotification",C.prototype.G);B("stop",C.prototype.stop);\n'];
-      $algo_sandbox_blobURL_e$$438$$ = window.URL.createObjectURL(new Blob($algo_sandbox_blobURL_e$$438$$));
+      $algo_sandbox_blobURL_e$$437$$ = window.URL.createObjectURL(new Blob($algo_sandbox_blobURL_e$$437$$));
       var $running_algorithms$$2$$ = this.$model_$.get("RunningAlgorithms");
       null != $running_algorithms$$2$$ || ($running_algorithms$$2$$ = {});
-      var $worker$$2$$ = new Worker($algo_sandbox_blobURL_e$$438$$);
-      $running_algorithms$$2$$[$algo_instance_id$$3$$] = {blobURL:$algo_sandbox_blobURL_e$$438$$, worker:$worker$$2$$};
+      var $worker$$2$$ = new Worker($algo_sandbox_blobURL_e$$437$$);
+      $running_algorithms$$2$$[$algo_instance_id$$3$$] = {blobURL:$algo_sandbox_blobURL_e$$437$$, worker:$worker$$2$$};
       this.$model_$.set("RunningAlgorithms", $running_algorithms$$2$$);
-      $handler$$152$$.$listen$($worker$$2$$, "message", function($e$$439$$) {
-        $e$$439$$ = $e$$439$$.$event_$;
-        if ("create" != $e$$439$$.data.rep && "start" != $e$$439$$.data.rep && "params" != $e$$439$$.data.rep && "error" != $e$$439$$.data.rep && "terminate" != $e$$439$$.data.rep && "stop" != $e$$439$$.data.rep && 0 > $goog$array$indexOf$$($algo_permissions$$, $e$$439$$.data.rep)) {
-          "2" == this.$model_$.get($e$$439$$.data.instance + "_status") && this.$model_$.set($e$$439$$.data.instance + "_status", "3"), this.$showNotification$("error", "Algorithm tried to execute a illegal operation", $e$$439$$.data.rep), this.$model_$.set($e$$439$$.data.instance + "_status", "0"), $running_algorithms$$2$$ = this.$model_$.get("RunningAlgorithms"), $goog$object$remove$$($running_algorithms$$2$$, $e$$439$$.data.instance), this.$model_$.set("RunningAlgorithms", $running_algorithms$$2$$)
+      $handler$$152$$.$listen$($worker$$2$$, "message", function($e$$438$$) {
+        $e$$438$$ = $e$$438$$.$event_$;
+        if ("create" != $e$$438$$.data.rep && "start" != $e$$438$$.data.rep && "params" != $e$$438$$.data.rep && "error" != $e$$438$$.data.rep && "terminate" != $e$$438$$.data.rep && "stop" != $e$$438$$.data.rep && 0 > $goog$array$indexOf$$($algo_permissions$$, $e$$438$$.data.rep)) {
+          "2" == this.$model_$.get($e$$438$$.data.instance + "_status") && this.$model_$.set($e$$438$$.data.instance + "_status", "3"), this.$showNotification$("error", "Algorithm tried to execute a illegal operation", $e$$438$$.data.rep), this.$model_$.set($e$$438$$.data.instance + "_status", "0"), $running_algorithms$$2$$ = this.$model_$.get("RunningAlgorithms"), $goog$object$remove$$($running_algorithms$$2$$, $e$$438$$.data.instance), this.$model_$.set("RunningAlgorithms", $running_algorithms$$2$$)
           ;
         } else {
-          switch($e$$439$$.data.rep) {
+          switch($e$$438$$.data.rep) {
             case "create":
-              this.$model_$.set($e$$439$$.data.instance + "_status", "1");
-              "received_security_status" == $e$$439$$.data.status && this.$model_$.set($e$$439$$.data.instance + "_status_received_security_status", "1");
-              "received_full_refresh" == $e$$439$$.data.status && this.$model_$.set($e$$439$$.data.instance + "_status_received_full_refresh", "1");
-              "ws_open" == $e$$439$$.data.status && this.$model_$.set($e$$439$$.data.instance + "_status_ws_open", "1");
-              this.$model_$.get($e$$439$$.data.instance + "_status_ws_open") && this.$model_$.get($e$$439$$.data.instance + "_status_received_full_refresh") && this.$model_$.get($e$$439$$.data.instance + "_status_received_security_status") && $worker$$2$$.postMessage({req:"start", params:this.$model_$.get($algo_instance_id$$3$$ + "_params")});
+              this.$model_$.set($e$$438$$.data.instance + "_status", "1");
+              "received_security_status" == $e$$438$$.data.status && this.$model_$.set($e$$438$$.data.instance + "_status_received_security_status", "1");
+              "received_full_refresh" == $e$$438$$.data.status && this.$model_$.set($e$$438$$.data.instance + "_status_received_full_refresh", "1");
+              "ws_open" == $e$$438$$.data.status && this.$model_$.set($e$$438$$.data.instance + "_status_ws_open", "1");
+              this.$model_$.get($e$$438$$.data.instance + "_status_ws_open") && this.$model_$.get($e$$438$$.data.instance + "_status_received_full_refresh") && this.$model_$.get($e$$438$$.data.instance + "_status_received_security_status") && $worker$$2$$.postMessage({req:"start", params:this.$model_$.get($algo_instance_id$$3$$ + "_params")});
               break;
             case "start":
-              this.$model_$.set($e$$439$$.data.instance + "_status", "2");
+              this.$model_$.set($e$$438$$.data.instance + "_status", "2");
               break;
             case "notification":
-              this.$showNotification$($e$$439$$.data.type, $e$$439$$.data.title, $e$$439$$.data.description);
+              this.$showNotification$($e$$438$$.data.type, $e$$438$$.data.title, $e$$438$$.data.description);
               break;
             case "error":
             ;
             case "terminate":
             ;
             case "stop":
-              "2" == this.$model_$.get($e$$439$$.data.instance + "_status") && this.$model_$.set($e$$439$$.data.instance + "_status", "3");
-              null != $e$$439$$.data.error && this.$showNotification$("error", "Error running algorithm", $e$$439$$.data.error);
-              this.$model_$.set($e$$439$$.data.instance + "_status", "0");
+              "2" == this.$model_$.get($e$$438$$.data.instance + "_status") && this.$model_$.set($e$$438$$.data.instance + "_status", "3");
+              null != $e$$438$$.data.error && this.$showNotification$("error", "Error running algorithm", $e$$438$$.data.error);
+              this.$model_$.set($e$$438$$.data.instance + "_status", "0");
               $running_algorithms$$2$$ = this.$model_$.get("RunningAlgorithms");
-              $goog$object$remove$$($running_algorithms$$2$$, $e$$439$$.data.instance);
+              $goog$object$remove$$($running_algorithms$$2$$, $e$$438$$.data.instance);
               this.$model_$.set("RunningAlgorithms", $running_algorithms$$2$$);
               break;
             case "new_order_limited":
-              var $order_symbol$$ = this.$model_$.get($e$$439$$.data.instance + "_symbol").$symbol$, $broker_id$$inline_2301$$ = this.$model_$.get("SelectedBrokerID");
-              $JSCompiler_StaticMethods_sendOrder_$$(this.$conn_$, $order_symbol$$, parseInt($e$$439$$.data.qty, 10), parseInt($e$$439$$.data.price, 10), $e$$439$$.data.side, $broker_id$$inline_2301$$, void 0, $e$$439$$.data.client_order_id);
+              var $order_symbol$$ = this.$model_$.get($e$$438$$.data.instance + "_symbol").$symbol$, $broker_id$$inline_2301$$ = this.$model_$.get("SelectedBrokerID");
+              $JSCompiler_StaticMethods_sendOrder_$$(this.$conn_$, $order_symbol$$, parseInt($e$$438$$.data.qty, 10), parseInt($e$$438$$.data.price, 10), $e$$438$$.data.side, $broker_id$$inline_2301$$, void 0, $e$$438$$.data.client_order_id);
               break;
             case "cancel_order":
-              this.$conn_$.$cancelOrder$($e$$439$$.data.client_order_id, $e$$439$$.data.order_id);
+              this.$conn_$.$cancelOrder$($e$$438$$.data.client_order_id, $e$$438$$.data.order_id);
           }
         }
       }, this);
@@ -17595,14 +17589,14 @@ function $JSCompiler_StaticMethods_registerAlgorithmInstance$$($JSCompiler_Stati
     }
   }, $JSCompiler_StaticMethods_registerAlgorithmInstance$self$$);
 }
-$JSCompiler_prototypeAlias$$.$onAlgoStatusChange_$ = function $$JSCompiler_prototypeAlias$$$$onAlgoStatusChange_$$($e$$440$$) {
-  var $algo_instance_id$$4$$ = $e$$440$$.key.substr(0, $e$$440$$.key.length - 7);
-  "3" == $e$$440$$.data && (this.$showNotification$("info", "stopping algorithm ...."), this.$model_$.get("RunningAlgorithms")[$algo_instance_id$$4$$].worker.postMessage({req:"stop"}));
+$JSCompiler_prototypeAlias$$.$onAlgoStatusChange_$ = function $$JSCompiler_prototypeAlias$$$$onAlgoStatusChange_$$($e$$439$$) {
+  var $algo_instance_id$$4$$ = $e$$439$$.key.substr(0, $e$$439$$.key.length - 7);
+  "3" == $e$$439$$.data && (this.$showNotification$("info", "stopping algorithm ...."), this.$model_$.get("RunningAlgorithms")[$algo_instance_id$$4$$].worker.postMessage({req:"stop"}));
 };
-$JSCompiler_prototypeAlias$$.$onAlgoParams_$ = function $$JSCompiler_prototypeAlias$$$$onAlgoParams_$$($e$$441_parameters$$) {
-  var $algo_instance_id$$5$$ = $e$$441_parameters$$.key.substr(0, $e$$441_parameters$$.key.length - 7);
-  $e$$441_parameters$$ = $e$$441_parameters$$.data;
-  this.$model_$.get("RunningAlgorithms")[$algo_instance_id$$5$$].worker.postMessage({req:"params", params:$e$$441_parameters$$});
+$JSCompiler_prototypeAlias$$.$onAlgoParams_$ = function $$JSCompiler_prototypeAlias$$$$onAlgoParams_$$($e$$440_parameters$$) {
+  var $algo_instance_id$$5$$ = $e$$440_parameters$$.key.substr(0, $e$$440_parameters$$.key.length - 7);
+  $e$$440_parameters$$ = $e$$440_parameters$$.data;
+  this.$model_$.get("RunningAlgorithms")[$algo_instance_id$$5$$].worker.postMessage({req:"params", params:$e$$440_parameters$$});
 };
 $JSCompiler_prototypeAlias$$.$sendAccessToken$ = function $$JSCompiler_prototypeAlias$$$$sendAccessToken$$($token$$15$$) {
   console.log($token$$15$$);

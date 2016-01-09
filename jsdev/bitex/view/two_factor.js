@@ -48,6 +48,9 @@ bitex.view.TwoFactor.prototype.recreateComponents_ = function() {
 };
 
 bitex.view.TwoFactor.prototype.destroyComponents_ = function() {
+  var handler = this.getHandler();
+  var model   = this.getApplication().getModel();
+
   handler.unlisten(model, bitex.model.Model.EventType.SET + 'TwoFactorSecret', this.onModelSetTwoFactorSecret_);
 };
 
