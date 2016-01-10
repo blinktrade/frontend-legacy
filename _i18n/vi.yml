@@ -283,6 +283,9 @@ views:
   line_of_credit:
     title: Hạn mức tín dụng
 
+  history:
+    title: Lịch sử đơn hàng
+
   sidebar:
     market: "Thị trường:"
     menu: Menu
@@ -302,3 +305,7 @@ views:
     api: API
     logout: Thoát
     algotrading: Thuật toán cho giao dịch
+    history: Lịch sử đơn hàng
+    card:  Blink Card
+
+

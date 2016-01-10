@@ -283,6 +283,9 @@ views:
   line_of_credit:
     title: Linha de crédito
 
+  history:
+    title: Histórico de ordens
+
   sidebar:
     market: "Mercado:"
     menu: Menu
@@ -302,3 +305,5 @@ views:
     api: API
     logout: Sair
     algotrading: Algo Trading
+    history: Histórico de ordens
+    card:  Blink Card
