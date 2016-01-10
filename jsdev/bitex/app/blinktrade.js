@@ -3819,7 +3819,8 @@ bitex.app.BlinkTrade.prototype.onUserLoginOk_ = function(e) {
   // Request Deposit Options
   this.conn_.requestDepositMethods( this.getModel().get('BrokerID') );
 
-  this.router_.setView('offerbook');
+  //this.router_.setView('offerbook');
+  this.router_.setView('trading');
 
   // Request Open Orders
   this.getModel().set('FinishedInitialOpenOrdersRequest',  false);
@@ -4092,11 +4093,11 @@ bitex.app.BlinkTrade.prototype.getBrokersByCountry = function(country, opt_state
 };
 
 /**
- * @param {number} amount
  * @param {string} currency_code
  * @param {boolean=} opt_human
+ * @return {goog.i18n.NumberFormat}
  */
-bitex.app.BlinkTrade.prototype.formatCurrency  =   function(amount, currency_code, opt_human) {
+bitex.app.BlinkTrade.prototype.getCurrencyFormatter  =   function(currency_code, opt_human) {
   if (goog.string.caseInsensitiveEndsWith(currency_code, '_Locked') ) {
     currency_code = currency_code.substr(0, currency_code.length-7);
   } else if (goog.string.caseInsensitiveEndsWith(currency_code, '_Position') ) {
@@ -4113,7 +4114,17 @@ bitex.app.BlinkTrade.prototype.formatCurrency  =   function(amount, currency_cod
   } else {
     formatter = new goog.i18n.NumberFormat( currency_def.format, currency_def.code );
   }
-  return formatter.format(amount);
+
+  return formatter;
+};
+
+/**
+ * @param {number} amount
+ * @param {string} currency_code
+ * @param {boolean=} opt_human
+ */
+bitex.app.BlinkTrade.prototype.formatCurrency  =   function(amount, currency_code, opt_human) {
+  return this.getCurrencyFormatter(currency_code, opt_human).format(amount);
 };
 
 /**
