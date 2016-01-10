@@ -330,7 +330,7 @@ bitex.view.SideBarView.prototype.showPortfolioValue_ = function(opt_currency) {
   }
 
   if (goog.isDefAndNotNull(portfolio_value_el)) {
-    var variable_list = new goog.structs.Set();;
+    var variable_list = new goog.structs.Set();
     var formula_list = [];
     var balance_model_key = 'Balance_' + appModel.get('Broker')['BrokerID'] +  '_' + appModel.get('UserID');
 
