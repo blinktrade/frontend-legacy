@@ -373,7 +373,7 @@ load_application:       True
 
       <div id="history" class="bitex-view">
         <div class="section-title">
-          <h2 class="bitex-view-title">History</h2>
+          <h2 class="bitex-view-title">{% t views.history.title %}</h2>
         </div>
         <div class="content bitex-view-content">
         </div>
@@ -605,10 +605,9 @@ load_application:       True
               <i data-switch-view="offerbook" class="icon-book"></i> {% t views.sidebar.offerbook %}</a>
           </li>
 
-          <li>
+          <li class="bitex-display-if-non-broker">
             <a href="" data-switch-view="history">
-              <i data-switch-view="history" class="icon-list-alt"> History</i>
-            </a>
+              <i data-switch-view="history" class="icon-list-alt"></i>{% t views.sidebard.history %}</a>
           </li>
 
           <li>
@@ -646,10 +645,9 @@ load_application:       True
               <i data-switch-view="withdraw" class="icon-minus"></i> {% t views.sidebar.withdraw %}</a>
           </li>
 
-          <li>
+          <li class="bitex-display-if-non-broker bitex-model" style="display: none" id="card_menu_id"  data-model-key="HasCardFeature" data-model-action="show_element" >
               <a href="" data-switch-view="card">
-                  <i data-switch-view="card" class="icon-tag"> Card</i>
-              </a>
+                  <i data-switch-view="card" class="icon-tag"></i> {% t views.sidebar.card %}</a>
           </li>
 
           <li style="" class="bitex-display-if-non-broker" id="verification_menu_id">
