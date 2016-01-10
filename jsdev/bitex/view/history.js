@@ -76,7 +76,7 @@ bitex.view.HistoryView.prototype.recreateComponents_ = function(){
 
   this.request_order_id_ = parseInt( 1e7 * Math.random() , 10 );
 
-  this.order_manager_table_ = new bitex.ui.OrderManager('simple');
+  this.order_manager_table_ = new bitex.ui.OrderManager('simple', false, 'EOCA');
 
   handler.listen(this.order_manager_table_,
                  bitex.ui.DataGrid.EventType.REQUEST_DATA,
@@ -88,6 +88,10 @@ bitex.view.HistoryView.prototype.recreateComponents_ = function(){
 
   this.addChild(this.order_manager_table_, true);
 
+  this.order_manager_table_.setColumnFormatter('Side', this.orderFormatter_ , this);
+  this.order_manager_table_.setColumnFormatter('OrdStatus', bitex.util.simpleOrderStatusFormatter, this);
+  this.order_manager_table_.setColumnFormatter('AvgPx', this.avgPriceFormatter_, this);
+  this.order_manager_table_.setColumnFormatter('Volume', this.priceFormatter_, this);
   handler.listen(this.order_manager_table_.getElement(), goog.events.EventType.CLICK, this.onCancelOrder_);
 };
 
@@ -98,7 +102,42 @@ bitex.view.HistoryView.prototype.enterDocument = function() {
   var model = this.getApplication().getModel();
 
   this.recreateComponents_();
-}
+};
+
+/**
+ * @param {*} value
+ * @param {Object} rowSet
+ */
+bitex.view.HistoryView.prototype.orderFormatter_ = function(value, rowSet) {
+  var qtyCurrency = this.getApplication().getQtyCurrencyFromSymbol(rowSet['Symbol']);
+  var formatter = this.getApplication().getCurrencyFormatter(qtyCurrency, true);
+  return bitex.util.simpleOrderSideFormatter(value, rowSet, formatter);
+};
+
+/**
+ * @param {*} value
+ * @param {Object} rowSet
+ */
+bitex.view.HistoryView.prototype.avgPriceFormatter_ = function(value, rowSet) {
+  var priceCurrency = this.getApplication().getPriceCurrencyFromSymbol(rowSet['Symbol']);
+  if (value != 0) {
+    return this.getApplication().formatCurrency(value/1e8, priceCurrency, true);
+  } else {
+    return this.getApplication().formatCurrency(rowSet['Price']/1e8, priceCurrency, true);
+  }
+};
+
+
+/**
+ * @param {*} value
+ * @param {Object} rowSet
+ */
+bitex.view.HistoryView.prototype.priceFormatter_ = function(value, rowSet) {
+  var priceCurrency = this.getApplication().getPriceCurrencyFromSymbol(rowSet['Symbol']);
+  return this.getApplication().formatCurrency(value/1e8, priceCurrency, true);
+};
+
+
 
 /**
  *
