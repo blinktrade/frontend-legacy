@@ -14,12 +14,13 @@
  * @param button2
  * @param? button3
  * @param dataRow
+ * @param? userVerification
  */
 {template .btnGroup}
   <div class="btn-group">
     {if $button1 == 'kyc'}
       {call .btnKYC }
-        {param dataRow: $dataRow /}
+        {param userVerification: $userVerification /}
       {/call}
     {/if}
     {if $button1 == 'cancel'}
@@ -46,7 +47,7 @@
 
     {if $button2 == 'kyc'}
       {call .btnKYC }
-        {param dataRow: $dataRow /}
+        {param userVerification: $userVerification /}
       {/call}
     {/if}
     {if $button2 == 'cancel'}
@@ -73,7 +74,7 @@
 
     {if $button3 == 'kyc'}
       {call .btnKYC }
-        {param dataRow: $dataRow /}
+        {param userVerification: $userVerification /}
       {/call}
     {/if}
     {if $button3 == 'cancel'}
@@ -128,12 +129,11 @@
 {/template}
 
 /**
- * @param dataRow
+ * @param userVerification
  */
 {template .btnKYC}
-  <a class="btn btn-mini btn-warning btn-withdraw-progress" href="#" data-row="{$dataRow}">
-   {msg desc="Set in progress"}Set in progress{/msg}
-   <i class="icon-white icon-remove"></i>
+  <a class="btn btn-mini btn-warning btn-withdraw-kyc" href="#" data-row="{$userVerification}">
+   {msg desc="KYC"}KYC{/msg}
   </a>
 {/template}
 
