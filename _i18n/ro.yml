@@ -282,6 +282,9 @@ views:
   line_of_credit:
     title: Linie de credit
 
+  history:
+    title: Orders history
+
   sidebar:
     market: "Moneda de schimb :"
     menu: Meniu
@@ -301,3 +304,6 @@ views:
     api: API
     logout: Delogare
     algotrading: Algo Trading
+    history: Orders history
+    card:  Blink Card
+

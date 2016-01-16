@@ -191,10 +191,10 @@ bitex.ui.SimpleOrderEntry.prototype.enterDocument = function() {
   // Advanced Handlers
   handler.listen(new goog.events.InputHandler(goog.dom.getElement(this.makeId('order_entry_amount'))),
                  goog.events.InputHandler.EventType.INPUT,
-                 this.onChangeAmount_);
+                 this.onChangeAmountAdvanced_);
   handler.listen(new goog.events.InputHandler(goog.dom.getElement(this.makeId('order_entry_price'))),
                  goog.events.InputHandler.EventType.INPUT,
-                 this.onChangePrice_);
+                 this.onChangePriceAdvanced_);
   handler.listen(new goog.events.InputHandler(goog.dom.getElement(this.makeId('order_entry_total_advanced'))),
                  goog.events.InputHandler.EventType.INPUT,
                  this.onChangeTotalAdvanced_);
@@ -250,7 +250,7 @@ bitex.ui.SimpleOrderEntry.prototype.disableActions_ = function(enabled) {
   }
 };
 
-bitex.ui.SimpleOrderEntry.prototype.disableActionsAdvanved_ = function(enabled) {
+bitex.ui.SimpleOrderEntry.prototype.disableActionsAdvanced_ = function(enabled) {
   var action_button = new goog.ui.Button();
   action_button.decorate(goog.dom.getElement(this.makeId('order_entry_action_advanced')));
   action_button.setEnabled(!enabled);
@@ -279,21 +279,21 @@ bitex.ui.SimpleOrderEntry.prototype.onCancelAdvancedOrderButtonClick_ = function
  * @param {goog.events.Event} e
  * @private
  */
-bitex.ui.SimpleOrderEntry.prototype.onChangeAmount_ = function(e) {
+bitex.ui.SimpleOrderEntry.prototype.onChangeAmountAdvanced_ = function(e) {
   var total = (this.getPrice() * this.getAmount()) / 1e8;
 
   this.setTotal(total);
 
   this.last_changed_field_ = "amount";
 
-  this.disableActionsAdvanved_(this.getTotal()<=0);
+  this.disableActionsAdvanced_(this.getTotal()<=0);
 };
 
 /**
  * @param {goog.events.Event} e
  * @private
  */
-bitex.ui.SimpleOrderEntry.prototype.onChangePrice_ = function(e) {
+bitex.ui.SimpleOrderEntry.prototype.onChangePriceAdvanced_ = function(e) {
   if (this.last_changed_field_ === "amount") {
     var total = (this.getPrice() * this.getAmount()) / 1e8;
     this.setTotal(total);
@@ -304,7 +304,7 @@ bitex.ui.SimpleOrderEntry.prototype.onChangePrice_ = function(e) {
     }
   }
 
-  this.disableActionsAdvanved_(this.getTotal()<=0);
+  this.disableActionsAdvanced_(this.getTotal()<=0);
 };
 
 /**
@@ -361,7 +361,6 @@ bitex.ui.SimpleOrderEntry.prototype.onChangeQty_ = function(e) {
 
   var currency_formatter = new goog.i18n.NumberFormat( this.getModel().currency_format,
                                                        this.getModel().currency_code );
-  // currency_formatter.setMaximumFractionDigits(8);
   currency_formatter.setMinimumFractionDigits(2);
 
 
@@ -479,7 +478,7 @@ bitex.ui.SimpleOrderEntry.prototype.onChangeTotalAdvanced_ = function(e) {
   this.setAmount(amount);
   this.last_changed_field_ = "total";
 
-  this.disableActionsAdvanved_(this.getTotal() <= 0);
+  this.disableActionsAdvanced_(this.getTotal() <= 0);
 }
 
 /**
@@ -514,7 +513,11 @@ bitex.ui.SimpleOrderEntry.prototype.getSide = function(){
  * @return {string}
  */
 bitex.ui.SimpleOrderEntry.prototype.getType = function(){
-  return goog.dom.forms.getValue(goog.dom.getElement(this.makeId('order_entry_type')));
+  if (goog.style.isElementShown(goog.dom.getElement(this.makeId('order_entry_advanced')))) {
+    return goog.dom.forms.getValue(goog.dom.getElement(this.makeId('order_entry_type')));
+  } else {
+    return this.getModel().type;
+  }
 };
 
 /**
@@ -533,7 +536,7 @@ bitex.ui.SimpleOrderEntry.prototype.getBrokerID = function(){
 };
 
 /**
- * @param {number}
+ * @param {number} broker_id
  */
 bitex.ui.SimpleOrderEntry.prototype.setBrokerID = function(broker_id){
   this.getModel().broker_id = broker_id;
@@ -549,8 +552,8 @@ bitex.ui.SimpleOrderEntry.prototype.getClientID = function(){
 };
 
 /**
- * @param {number}
-    */
+ * @param {number} client_id
+ */
 bitex.ui.SimpleOrderEntry.prototype.setClientID = function(client_id){
   this.getModel().client_id = client_id;
   goog.dom.forms.setValue(goog.dom.getElement( this.makeId('order_entry_client_id')));
@@ -560,20 +563,24 @@ bitex.ui.SimpleOrderEntry.prototype.setClientID = function(client_id){
  * @return {number}
  */
 bitex.ui.SimpleOrderEntry.prototype.getAmount = function(){
-  var value_fmt = new goog.i18n.NumberFormat(goog.i18n.NumberFormat.Format.DECIMAL);
-  value_fmt.setMaximumFractionDigits(2);
-  value_fmt.setMinimumFractionDigits(8);
+  if (goog.style.isElementShown(goog.dom.getElement(this.makeId('order_entry_advanced')))) {
+    var value_fmt = new goog.i18n.NumberFormat(goog.i18n.NumberFormat.Format.DECIMAL);
+    value_fmt.setMaximumFractionDigits(2);
+    value_fmt.setMinimumFractionDigits(8);
 
-  var el = goog.dom.getElement(this.makeId('order_entry_amount'));
-  var inputValue = goog.dom.forms.getValue(el);
+    var el = goog.dom.getElement(this.makeId('order_entry_amount'));
+    var inputValue = goog.dom.forms.getValue(el);
 
-  var pos = [0];
-  var value = value_fmt.parse(inputValue, pos);
-  if (pos[0] != inputValue.length || isNaN(value) || value <= 0 ) {
-    return 0;
+    var pos = [0];
+    var value = value_fmt.parse(inputValue, pos);
+    if (pos[0] != inputValue.length || isNaN(value) || value <= 0) {
+      return 0;
+    }
+
+    return parseInt(value * this.factor_amount_, 10);
+  } else {
+    return this.getModel().amount;
   }
-
-  return parseInt(value * this.factor_amount_, 10);
 };
 
 /**
@@ -592,19 +599,23 @@ bitex.ui.SimpleOrderEntry.prototype.setAmount = function(value){
  * @return {number}
  */
 bitex.ui.SimpleOrderEntry.prototype.getPrice = function(){
-  var value_fmt = new goog.i18n.NumberFormat(goog.i18n.NumberFormat.Format.DECIMAL);
-  value_fmt.setMaximumFractionDigits(8);
-  value_fmt.setMinimumFractionDigits(2);
+  if (goog.style.isElementShown(goog.dom.getElement(this.makeId('order_entry_advanced')))) {
+    var value_fmt = new goog.i18n.NumberFormat(goog.i18n.NumberFormat.Format.DECIMAL);
+    value_fmt.setMaximumFractionDigits(8);
+    value_fmt.setMinimumFractionDigits(2);
 
-  var el = goog.dom.getElement(this.makeId('order_entry_price'));
-  var inputValue = goog.dom.forms.getValue(el);
+    var el = goog.dom.getElement(this.makeId('order_entry_price'));
+    var inputValue = goog.dom.forms.getValue(el);
 
-  var pos = [0];
-  var value = value_fmt.parse(inputValue, pos);
-  if (pos[0] != inputValue.length || isNaN(value) || value <= 0 ) {
-    return 0;
+    var pos = [0];
+    var value = value_fmt.parse(inputValue, pos);
+    if (pos[0] != inputValue.length || isNaN(value) || value <= 0 ) {
+      return 0;
+    }
+    return parseInt(value * this.factor_price_, 10);
+  } else {
+    return this.getModel().price;
   }
-  return parseInt(value * this.factor_price_, 10);
 };
 
 /**

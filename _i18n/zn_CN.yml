@@ -284,6 +284,9 @@ views:
   line_of_credit:
     title: 信用额度
 
+  history:
+    title: 订单历史
+
   sidebar:
     market: "市场:"
     menu: 菜单
@@ -303,3 +306,6 @@ views:
     api: API
     logout: 退出
     algotrading: 程序自动交易
+    history: 订单历史
+    card:  Blink Card
+

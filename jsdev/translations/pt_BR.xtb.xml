@@ -70,7 +70,7 @@
 	<translation id="3961425673023411564" key="MSG_6GJKW0ETNXWY" source="bitex/templates/templates.default.soy.js" desc="reason for cancelling withdraw">Conta bancária inválida</translation>
 	<translation id="8213044356837963510" key="MSG_6JE4R9Y781NK" source="bitex/templates/templates.default.soy.js" desc="reason for cancelling withdraw">O valor ultrapassou o limite diário de saques</translation>
 	<translation id="3536993658239660954" key="MSG_SDGA57B1Y9B0" source="bitex/templates/templates.default.soy.js" desc="reason for cancelling withdraw">Possui depósitos que ainda não estão confirmados</translation>
-	<translation id="6376327837383665334" key="MSG_1BKBPN7XRIM9W" source="bitex/templates/templates.default.soy.js" desc="Google Authenticator code dialog label">Código do Google Authenticator:</translation>
+	<translation id="6376327837383665334" key="MSG_1BKBPN7XRIM9W" source="bitex/templates/templates.default.soy.js" desc="Google Authenticator code dialog label">Código de Autenticação em 2 Passos:</translation>
 	<translation id="4021569976401467131" key="MSG_Q6RJ4FMS79HH" source="bitex/templates/templates.default.soy.js" desc="Limit table field header">Código do Google Authenticator</translation>
 	<translation id="3847549940711760229" key="MSG_155HTFF2STTN5" source="bitex/templates/templates.default.soy.js" desc="Google Authenticator code placeholder">ex: 888888</translation>
 	<translation id="7893066449411497446" key="MSG_YNP9NN2M0VCH" source="bitex/templates/templates.default.soy.js" desc="Withdraw confirmation dialog message">Acabamos de enviar um código de confirmação para o seu email.</translation>
