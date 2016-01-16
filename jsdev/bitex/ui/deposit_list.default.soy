@@ -93,10 +93,17 @@
 /**
  * @param button1
  * @param button2
+ * @param? button3
  * @param dataRow
+ * @param? userVerification
  */
 {template .btnGroup}
   <div class="btn-group">
+    {if $button1 == 'kyc'}
+      {call .btnBrokerKYC}
+        {param userVerification: $userVerification /}
+      {/call}
+    {/if}
     {if $button1 == 'cancel'}
       {call .btnBrokerDespositCancel}
         {param dataRow: $dataRow /}
@@ -112,6 +119,12 @@
         {param dataRow: $dataRow /}
       {/call}
     {/if}
+
+    {if $button2 == 'kyc'}
+      {call .btnBrokerKYC}
+        {param userVerification: $userVerification /}
+      {/call}
+    {/if}
     {if $button2 == 'cancel'}
       {call .btnBrokerDespositCancel}
         {param dataRow: $dataRow /}
@@ -123,6 +136,27 @@
       {/call}
     {/if}
     {if $button2 == 'complete'}
+      {call .btnBrokerDespositComplete}
+        {param dataRow: $dataRow /}
+      {/call}
+    {/if}
+
+    {if $button3 == 'kyc'}
+      {call .btnBrokerKYC}
+        {param userVerification: $userVerification /}
+      {/call}
+    {/if}
+    {if $button3 == 'cancel'}
+      {call .btnBrokerDespositCancel}
+        {param dataRow: $dataRow /}
+      {/call}
+    {/if}
+    {if $button3 == 'progress'}
+      {call .btnBrokerDespositProgress}
+        {param dataRow: $dataRow /}
+      {/call}
+    {/if}
+    {if $button3 == 'complete'}
       {call .btnBrokerDespositComplete}
         {param dataRow: $dataRow /}
       {/call}
@@ -141,6 +175,15 @@
   </a>
 {/template}
 
+
+/**
+ * @param userVerification
+ */
+{template .btnBrokerKYC }
+  <a class="btn btn-mini btn-warning btn-deposit-kyc" data-action="KYC" href="#" data-row="{$userVerification}">
+   {msg desc="KYC"}KYC{/msg}
+  </a>
+{/template}
 
 /**
  * @param dataRow

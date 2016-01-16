@@ -3532,7 +3532,6 @@ bitex.app.BlinkTrade.prototype.onUserSetNewPassword_ = function(e){
  * @private
  */
 bitex.app.BlinkTrade.prototype.onUserEnableTwoFactor_ = function(e){
-  console.log('Enabled Clicked');
   var code = e.target.getCode();
   var has_code = !goog.string.isEmpty(code);
   var secret = "";
