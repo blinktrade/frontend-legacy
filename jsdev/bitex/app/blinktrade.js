@@ -3138,9 +3138,9 @@ bitex.app.BlinkTrade.prototype.onInstantFiatDeposit_ = function(e){
   var request_id = e.target.getRequestId();
   var handler = this.getHandler();
 
-  var portfolio_currency = 'USD';
+  var portfolio_currency = deposit_data['Currency'];
   var balance_model_key = 'Balance_' + model.get('Broker')['BrokerID'] +  '_' + model.get('UserID');
-  var balance_portfolio_currency_key = balance_model_key + '_USD';
+  var balance_portfolio_currency_key = balance_model_key + '_' + portfolio_currency;
   var balance_portfolio_currency = model.get(balance_portfolio_currency_key);
 
   var formula_list = [];
@@ -3190,14 +3190,14 @@ bitex.app.BlinkTrade.prototype.onInstantFiatDeposit_ = function(e){
   /**
    * @desc Crypto Currency Withdraw deposit title
    */
-  var MSG_SHOW_DEPOSIT_INSTANTANEOUS_DIALOG_TITLE = goog.getMsg("Instantanous Deposit");
+  var MSG_SHOW_DEPOSIT_PRE_APPROVE_DIALOG_TITLE = goog.getMsg("Would you like to pre-approve your deposit?");
 
   var dlg = this.showDialog(bitex.templates.InstantFiatDepositDialogContent({
       variables: variable_list.getValues().join(','),
       pattern: this.getCurrencyHumanFormat(portfolio_currency),
       formula: formula_list.join(' + '),
       value: formatted_value
-  }), MSG_SHOW_DEPOSIT_INSTANTANEOUS_DIALOG_TITLE, bitex.ui.Dialog.ButtonSet.createYesNo());
+  }), MSG_SHOW_DEPOSIT_PRE_APPROVE_DIALOG_TITLE, bitex.ui.Dialog.ButtonSet.createYesNo());
 
   model.updateDom();
 
