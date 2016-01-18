@@ -222,30 +222,36 @@
   */
 {template .InstantFiatDepositDialogContent}
   <div class="row-fluid" data-deposit-status="confirm">
-      <p>{msg desc="Instant deposit fiat description 1"}Limite de crédito instantâneo: {/msg}
+      <p>{msg desc="Instant deposit fiat description 1"}Net value:{/msg}{sp}
+        <span class="bitex-model"
+              data-model-key-list="{$variables}"
+              data-model-formula="min( {$formula},  {$value} )"
+              data-model-formatter="currency"
+              data-model-formatter-pattern="{$pattern}"
+              data-blink-class="balance-info-blink"></span>
+      </p>
+
+      <p>{msg desc="Instant deposit fiat description 2"}Pre approval limit:{/msg}
             <span class="bitex-model"
                     data-model-key-list="{$variables}"
-                    data-model-formula="{$formula} * 3"
+                    data-model-formula="{$formula}"
                     data-model-formatter="currency"
                     data-model-formatter-pattern="{$pattern}"
                     data-blink-class="balance-info-blink">
-            </span>
-            {msg desc="Instant deposit fiat description 2"}(Até 3x o seu saldo total){/msg}
+            </span>{sp}{msg desc="Instant deposit fiat description 3"}(3x the approx. value of your account.){/msg}
       </p>
-      <p>{msg desc="Instant deposit fiat description 3"}Valor a ser creditado para este depósito: {$value}{/msg}</p>
 
-    <div class="well">
-        <p>
-            {msg desc="Instant deposit fiat message"}
-                One credit per deposit request You won't be able to withdrawal funds 
-                while your DEPOSIT IS NOT CONFIRMED.. In case of a fake deposit receipt 
-                or any attempt of fraud, an administrative fee of 1 BTC will applied and 
-                your account will be TERMINATED.
-            {/msg}
-        </p>
-    </div>
-    <br/>
-    <br/>
+      <p>{msg desc="Instant deposit fiat description 4"}Pre approval fee: 0% (Promotional){/msg}</p>
+
+      <div class="well">
+          <p>
+              {msg desc="Instant deposit fiat message"}
+                  You won't be able to withdrawal funds until your DEPOSIT IS CONFIRMED by the exchange.
+                  In case of a fake deposit receipt or any fraud attempt, an administrative fee
+                  of 30% of the deposit amount will be applied and your account will be TERMINATED.
+              {/msg}
+          </p>
+      </div>
   </div>
 {/template}
 

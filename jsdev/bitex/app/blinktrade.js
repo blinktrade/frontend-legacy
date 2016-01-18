@@ -640,6 +640,7 @@ bitex.app.BlinkTrade.prototype.run = function(host_api) {
                   bitex.model.Model.EventType.SET + "AvailableBalance", this.onUpdateAvailableBalance_ );
 
 
+
   var initial_view = 'start';
   if (!goog.string.isEmpty(location.hash)){
     initial_view = location.hash.substr(1);
@@ -700,6 +701,9 @@ bitex.app.BlinkTrade.prototype.onBitexSecurityStatus_ = function(e) {
   model.set('formatted_' + msg['Market'] + '_' + msg['Symbol'] + '_BEST_BID',this.formatCurrency(msg["BestBid"]/1.e8,currency, true ), true);
   model.set('formatted_' + msg['Market'] + '_' + msg['Symbol'] + '_BEST_ASK',this.formatCurrency(msg["BestAsk"]/1.e8,currency, true ), true);
   model.set('formatted_' + msg['Market'] + '_' + msg['Symbol'] + '_LAST_PX',this.formatCurrency(msg["LastPx"]/1.e8,currency, true ), true);
+
+  this.calculatePortfolioValue(currency);
+  this.calculatePortfolioValue(crypto_currency);
 };
 
 /**
@@ -795,6 +799,71 @@ bitex.app.BlinkTrade.prototype.onUpdateLockedBalance_ = function(e) {
   }
 };
 
+
+/**
+ * @param {string} portfolio_currency
+ */
+bitex.app.BlinkTrade.prototype.calculatePortfolioValue = function(portfolio_currency) {
+  var appModel = this.getModel();
+
+  var broker = appModel.get('Broker');
+  if (!goog.isDefAndNotNull(broker)) {
+    return;
+  }
+
+  if (portfolio_currency.length != 3){  // not a currency
+    return;
+  }
+
+  var balance_model_key = 'Balance_' + appModel.get('Broker')['BrokerID'] +  '_' + appModel.get('UserID');
+  var position_model_key = 'Position_' + appModel.get('Broker')['BrokerID'] +  '_' + appModel.get('UserID');
+  var balance_portfolio_balance = appModel.get(balance_model_key + '_' + portfolio_currency, 0);
+  var position_portfolio_balance = appModel.get(position_model_key + '_' + portfolio_currency, 0);
+
+  var user_balances = appModel.get(balance_model_key);
+  goog.object.forEach(user_balances, function(balance, balance_currency){
+    if ( ! goog.string.endsWith(balance_currency, '_locked')
+        && balance_currency.length == 3
+        && portfolio_currency != balance_currency) {
+
+      var portfolio_currency_exchange_ticker;
+      if (this.isCryptoCurrency(balance_currency)) {
+        portfolio_currency_exchange_ticker = 'BLINK_' + balance_currency + portfolio_currency + '_BEST_BID';
+        balance_portfolio_balance += (
+          appModel.get(balance_model_key + '_' + balance_currency, 0) *
+          appModel.get(portfolio_currency_exchange_ticker, 0) /  1e8 );
+
+        position_portfolio_balance += (
+          appModel.get(position_model_key + '_' + balance_currency, 0) *
+          appModel.get(portfolio_currency_exchange_ticker, 0) /  1e8 );
+
+      } else if (this.isCryptoCurrency(portfolio_currency)) {
+        portfolio_currency_exchange_ticker = 'BLINK_' + portfolio_currency + balance_currency + '_BEST_ASK';
+        balance_portfolio_balance += (
+          appModel.get(balance_model_key + '_' + balance_currency, 0) /
+          appModel.get(portfolio_currency_exchange_ticker, 0) *  1e8 );
+
+        position_portfolio_balance += (
+          appModel.get(position_model_key + '_' + balance_currency, 0) /
+          appModel.get(portfolio_currency_exchange_ticker, 0) *  1e8 );
+      } else {
+        var currency_bitcoin_exchange_ticker = 'BLINK_BTC' + balance_currency + '_BEST_ASK';
+        var portfolio_bitcoin_exchange_ticker = 'BLINK_BTC' + portfolio_currency + '_BEST_BID';
+
+        balance_portfolio_balance += (
+          appModel.get(balance_model_key + '_' + balance_currency, 0) /
+          appModel.get(currency_bitcoin_exchange_ticker) * appModel.get(portfolio_bitcoin_exchange_ticker) );
+
+        position_portfolio_balance += (
+          appModel.get(position_model_key + '_' + balance_currency, 0) /
+          appModel.get(currency_bitcoin_exchange_ticker) * appModel.get(portfolio_bitcoin_exchange_ticker) );
+      }
+    }
+  }, this);
+  appModel.set('Portfolio_' + balance_model_key + '_' + portfolio_currency, balance_portfolio_balance);
+  appModel.set('Portfolio_' + position_model_key + '_' + portfolio_currency, position_portfolio_balance);
+};
+
 /**
  * @param {bitex.model.ModelEvent} e
  * @private
@@ -860,6 +929,20 @@ bitex.app.BlinkTrade.prototype.onUpdateBalance_ = function(e) {
   if (should_update_available_balance) {
     this.getModel().set('AvailableBalance', available_balance, true);
   }
+
+  var securityList = this.getModel().get('SecurityList');
+  if (goog.isDefAndNotNull(securityList)) {
+    goog.array.forEach(securityList['Instruments'], function(instrument) {
+      if (instrument["Market"] == "BLINK") {
+        this.calculatePortfolioValue(instrument['Currency']);
+      }
+    }, this);
+  }
+
+  var broker = this.getModel().get('Broker');
+  goog.array.forEach(broker['CryptoCurrencies'], function(broker_crypto_currency_info) {
+    this.calculatePortfolioValue(broker_crypto_currency_info['CurrencyCode']);
+  }, this);
 };
 
 bitex.app.BlinkTrade.prototype.onBitexWithdrawConfirmationResponse_ = function(e) {
@@ -1365,7 +1448,8 @@ bitex.app.BlinkTrade.prototype.onBitexVerifyCustomerUpdate_ = function(e) {
 
   if (old_verified == 0 && profile['Verified'] == 1  ) {
     if (!this.getModel().get('IsBroker')){
-      this.router_.setView('offerbook');
+      //this.router_.setView('offerbook');
+      this.router_.setView('trading');
       this.showNotification('success', MSG_NOTIFICATION_VERIFY_TITLE, MSG_PENDING_VERIFICATION_CONTENT);
     }
   } else if (profile['Verified'] == 2  ) {
@@ -1566,6 +1650,8 @@ bitex.app.BlinkTrade.prototype.onBitexPositionResponse_ = function(e) {
       // formatted_position_9000001:2_BTC
       var position_key = 'position_' + broker + ':' + clientID + '_'  + currency;
       this.getModel().set( position_key , position );
+      this.calculatePortfolioValue(currency);
+
 
       if ( goog.isDefAndNotNull(position) ){
         this.getModel().set('formatted_' + position_key, this.formatCurrency(position, currency, true));
@@ -3139,64 +3225,40 @@ bitex.app.BlinkTrade.prototype.onInstantFiatDeposit_ = function(e){
   var handler = this.getHandler();
 
   var portfolio_currency = deposit_data['Currency'];
-  var balance_model_key = 'Balance_' + model.get('Broker')['BrokerID'] +  '_' + model.get('UserID');
-  var balance_portfolio_currency_key = balance_model_key + '_' + portfolio_currency;
-  var balance_portfolio_currency = model.get(balance_portfolio_currency_key);
 
-  var formula_list = [];
+  var portfolio_balance_model_key = 'Portfolio_Balance_' +
+      model.get('Broker')['BrokerID'] +  '_' + model.get('UserID')  + '_' + portfolio_currency;
+  var portfolio_position_model_key = 'Portfolio_Position_' +
+      model.get('Broker')['BrokerID'] +  '_' + model.get('UserID')  + '_' + portfolio_currency;
+  var gross_limit_credit_formula = '(('+portfolio_balance_model_key + ' + ' + portfolio_position_model_key + ' ) * 3)';
+  var limit_credit_percent_fees_formula = '(' +  gross_limit_credit_formula + ' - ' + deposit_data['FixedFee']
+      + ') * (' + deposit_data['PercentFee']/100.0 + ') ';
+  var formula = '(' + gross_limit_credit_formula
+      + ' - ( ' + deposit_data['FixedFee'] + ' + ' + limit_credit_percent_fees_formula + ' ) ) / 100000000';
+
+
   var variable_list = new goog.structs.Set();
-  variable_list.add(balance_portfolio_currency_key);
+  variable_list.add(portfolio_balance_model_key);
+  variable_list.add(portfolio_position_model_key);
 
+  var total_percent_fee_value = parseInt(
+      ((deposit_data['Value'] - deposit_data['FixedFee']) * ((deposit_data['PercentFee'])/100.0)),10);
+  var total_fees = parseInt(total_percent_fee_value + deposit_data['FixedFee'],10);
+  var net_value = (deposit_data['Value'] - total_fees) / 1e8;
 
-  if (goog.isDefAndNotNull(balance_portfolio_currency)) {
-    variable_list.add(balance_portfolio_currency_key);
-    formula_list.push('(' + balance_portfolio_currency_key + ' / 100000000 )');
-  }
-
-  var user_balances = model.get(balance_model_key);
-  goog.object.forEach(user_balances, function(balance, balance_currency){
-    if (!goog.string.endsWith(balance_currency, '_locked') &&
-        balance_currency.length == 3 &&
-        portfolio_currency != balance_currency) {
-
-      if (this.isCryptoCurrency(balance_currency)) {
-        var portfolio_currency_exchange_ticker = 'BLINK_' + balance_currency + portfolio_currency + '_BEST_BID';
-        variable_list.add(portfolio_currency_exchange_ticker);
-        variable_list.add(balance_model_key + '_' + balance_currency);
-
-        formula_list.push(
-            '( (' + balance_model_key + '_' + balance_currency + ' / 100000000 ) * ' +
-              '(' + portfolio_currency_exchange_ticker + ' / 100000000' + ') )');
-      } else {
-        var currency_bitcoin_exchange_ticker = 'BLINK_BTC' + balance_currency + '_BEST_ASK';
-        var portfolio_bitcoin_exchange_ticker = 'BLINK_BTC' + portfolio_currency + '_BEST_BID';
-        var balance_currency_key = balance_model_key + '_' + balance_currency;
-
-        variable_list.add(currency_bitcoin_exchange_ticker);
-        variable_list.add(portfolio_bitcoin_exchange_ticker);
-        variable_list.add(balance_currency_key);
-
-        formula_list.push(
-            '(' + balance_currency_key
-            + ' / ' + currency_bitcoin_exchange_ticker
-            + ' * ' + portfolio_bitcoin_exchange_ticker
-            + ' / 100000000 )' );
-      }
-    }
-  }, this);
-
-  var formatted_value = this.formatCurrency(deposit_data['Value']/1e8, deposit_data['Currency']);
+  //var formatted_net_value = this.formatCurrency(net_value, deposit_data['Currency'], true);
 
   /**
    * @desc Crypto Currency Withdraw deposit title
    */
-  var MSG_SHOW_DEPOSIT_PRE_APPROVE_DIALOG_TITLE = goog.getMsg("Would you like to pre-approve your deposit?");
+  var MSG_SHOW_DEPOSIT_PRE_APPROVE_DIALOG_TITLE = goog.getMsg("Deposit pre approval");
 
   var dlg = this.showDialog(bitex.templates.InstantFiatDepositDialogContent({
       variables: variable_list.getValues().join(','),
+      currency: portfolio_currency,
       pattern: this.getCurrencyHumanFormat(portfolio_currency),
-      formula: formula_list.join(' + '),
-      value: formatted_value
+      formula: formula,
+      value: net_value
   }), MSG_SHOW_DEPOSIT_PRE_APPROVE_DIALOG_TITLE, bitex.ui.Dialog.ButtonSet.createYesNo());
 
   model.updateDom();
@@ -3206,8 +3268,8 @@ bitex.app.BlinkTrade.prototype.onInstantFiatDeposit_ = function(e){
     if (e.key == 'yes') {
         this.getBitexConnection().processInstantDepositFiat(deposit_data['DepositID'], request_id);
     }
-  });
-}
+  }, this);
+};
 
 /**
  *
