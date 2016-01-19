@@ -116,7 +116,7 @@
  */
 {template .btnProgress}
   <a class="btn btn-xs btn-primary btn-withdraw-progress" href="#" data-row="{$dataRow}" >
-   {msg desc="Set in progress"}Set in progress{/msg}
+   {msg desc="Withdraw progress button label in the  broker's withdraw list"}Set in progress{/msg}
   </a>
 {/template}
 
@@ -125,7 +125,7 @@
  */
 {template .btnComplete}
   <a class="btn btn-xs btn-success btn-withdraw-complete" href="#" data-row="{$dataRow}" >
-   {msg desc="Set in progress"}Set in progress{/msg}
+   {msg desc="Withdraw progress button label in the  broker's withdraw list"}Set as complete{/msg}
   </a>
 {/template}
 
@@ -133,11 +133,11 @@
  * @param dataRow
  */
 {template .btnKYC}
-  <a class="btn btn-xs btn-warning btn-withdraw-progress" href="#" data-row="{$dataRow}">
-   {msg desc="Set in progress"}Set in progress{/msg}
-   <i class="glyphicon glyphicon-remove-sign"></i>
+  <a class="btn btn-xs btn-warning btn-withdraw-kyc" href="#" data-row="{$dataRow}">
+   {msg desc="KYC"}KYC{/msg}
   </a>
 {/template}
+
 
 
 /**
