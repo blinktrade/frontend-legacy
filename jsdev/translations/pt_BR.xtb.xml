@@ -277,7 +277,7 @@
 	<translation id="841985793511490022" key="MSG_1TTMDD8089NOB" source="bitex/ui/change_password.default.soy.js" desc="Password label on change password component">Nova senha</translation>
 	<translation id="987431473774004171" key="MSG_1G5FVWPYSQN1I" source="bitex/ui/change_password.default.soy.js" desc="Confirm new password label on change password component">Confirme a nova senha</translation>
 	<translation id="6184130779631261438" key="MSG_S198ZC9QV7JJ" source="bitex/ui/change_password.default.soy.js" desc="change password button on change password component">Alterar senha</translation>
-	<translation id="1036998296011345725" key="MSG_MONTH_AND_YEAR" source="closure-library/closure/goog/date/date.js" desc="Month/year format given the month name and the numeric year."><ph name="monthname" /> <ph name="ynum" /></translation>
+	<translation id="3501335681219376815" key="MSG_MONTH_AND_YEAR" source="closure-library/closure/goog/date/date.js" desc="Month/year format given the month name and the numeric year."><ph name="monthname" /> <ph name="ynum" /></translation>
 	<translation id="2307498693105169755" key="MSG_TIME_AM" source="closure-library/closure/goog/date/date.js" desc="Suffix for morning times.">am</translation>
 	<translation id="2880376617002328348" key="MSG_TIME_PM" source="closure-library/closure/goog/date/date.js" desc="Suffix for afternoon times.">pm</translation>
 	<translation id="4844733369982759671" key="MSG_CHANGE_PASSWORD_EMPTY_PASSWORD" source="bitex/view/profile.js" desc="Validation error on SignUp view">A senha não pode ser em branco</translation>
@@ -312,6 +312,12 @@
 	<translation id="7114430755693068053" key="MSG_ORDER_BOOK_SELLER_COLUMN" source="bitex/ui/order_book.js" desc="Seller column on the order book">Vendedor</translation>
 	<translation id="6540154733894385338" key="MSG_ORDER_BOOK_AMOUNT_COLUMN" source="bitex/ui/order_book.js" desc="Amount column on the order book">Quantidade</translation>
 	<translation id="8893662537030583205" key="MSG_ORDER_BOOK_PRICE_COLUMN" source="bitex/ui/order_book.js" desc="Price column on the order book">Preço</translation>
+	  <translation id="2010399794584660989" key="MSG_SIMPLE_ORDER_BOOK_BID_TITLE" source="bitex/ui/simple_order_book.js" desc="Title in the bid side on the order book">COMPRA</translation>
+	  <translation id="6982017456284135569" key="MSG_SIMPLE_ORDER_BOOK_ASK_TITLE" source="bitex/ui/simple_order_book.js" desc="Title in the ask side on the order book">VENDA</translation>
+	  <translation id="3935508311800655759" key="MSG_SIMPLE_ORDER_BOOK_BUYER_COLUMN" source="bitex/ui/simple_order_book.js" desc="Buyer column on the order book">Comprador</translation>
+	  <translation id="1556117076341752434" key="MSG_SIMPLE_ORDER_BOOK_SELLER_COLUMN" source="bitex/ui/simple_order_book.js" desc="Seller column on the order book">Vendedor</translation>
+	  <translation id="8771263576929555294" key="MSG_SIMPLE_ORDER_BOOK_AMOUNT_COLUMN" source="bitex/ui/simple_order_book.js" desc="Amount column on the order book">Quantidade</translation>
+	  <translation id="7214863262607684039" key="MSG_SIMPLE_ORDER_BOOK_PRICE_COLUMN" source="bitex/ui/simple_order_book.js" desc="Price column on the order book">Preço</translation>
 	<translation id="5896837899996280618" key="MSG_DEPOSIT_TABLE_COLUMN_ID" source="bitex/ui/deposit_list.js" desc="Column ID of the Deposit List">ID</translation>
 	<translation id="558243926842418493" key="MSG_DEPOSIT_TABLE_COLUMN_STATUS" source="bitex/ui/deposit_list.js" desc="Column Status of the Deposit List">Situação</translation>
 	<translation id="8752180416937504144" key="MSG_DEPOSIT_TABLE_COLUMN_CURRENCY" source="bitex/ui/deposit_list.js" desc="Column Currency of the Deposit List">Moeda</translation>
@@ -513,27 +519,27 @@
 	<translation id="7516325200367950709" key="MSG_ORDER_MANAGER_TABLE_BUTTON_FILTER_OPEN_ORDERS" source="bitex/ui/order_manager.js" desc="Open Orders option on the Orders filters">Em aberto</translation>
 	<translation id="8851988874979947901" key="MSG_ORDER_MANAGER_TABLE_BUTTON_FILTER_FILLED" source="bitex/ui/order_manager.js" desc="Open Orders option on the Orders filters">Executadas</translation>
 	<translation id="8668270496213170877" key="MSG_ORDER_MANAGER_TABLE_BUTTON_FILTER_CANCELED" source="bitex/ui/order_manager.js" desc="Cancelled option on the Orders filters">Canceladas</translation>
-	<translation id="5278179546714001548" key="MSG_1SCUJ3LUJLI5Q" source="bitex/templates/templates.soy.js" desc="API Key created dialog description">The API Key '<ph name="label" />' has been created successfully. Please make sure to store the credentials below in a secure location.</translation>
-	<translation id="3749805723063027841" key="MSG_1JSPIZ1YZP7XP" source="bitex/templates/templates.soy.js" desc="API Key label on API Keycreated dialog">API Key</translation>
-	<translation id="4070451207876044541" key="MSG_137B1OQ694KPR" source="bitex/templates/templates.soy.js" desc="API Password label on API Keycreated dialog">API Password</translation>
-	<translation id="1796858524711014089" key="MSG_SAMKINQQA1MG" source="bitex/templates/templates.soy.js" desc="API Secret label on API Keycreated dialog">API Secret</translation>
-	<translation id="1137238780418297731" key="MSG_17NIA3XHCTE27" source="bitex/templates/templates.soy.js" desc="Warning message on the API Key created dialog description">Warning! </translation>
-	<translation id="6164095401672004694" key="MSG_1QSLANFXG4TP2" source="bitex/templates/templates.soy.js" desc="Warning message on the API Key created dialog description">The API secret and password will never be displayed again. Make sure you have saved it before closing this window.</translation>
-	<translation id="6569879323367838729" key="MSG_KY1G1MI46QJ8" source="bitex/templates/templates.soy.js" desc="Unconfirmed deposits">Unconfirmed deposits</translation>
-	<translation id="5640944158779972001" key="MSG_IS0MGL5W1XEC" source="bitex/ui/order_book.soy.js" desc="Caption shown when user is drag dropping an order in the order book">Cancel/Replace Order</translation>
-	<translation id="2889461479049773702" key="MSG_10XTT3Z48GDSL" source="bitex/ui/api_key_data_entry.soy.js" desc="API Key Data Entry form legend">Create API Key</translation>
-	<translation id="4306381736970197948" key="MSG_1EAVEL1ZINXQ8" source="bitex/ui/api_key_data_entry.soy.js" desc="Permissions clear all button on the API Key Data Entry form">Clear all</translation>
-	<translation id="6278595378594370526" key="MSG_1VZUCED70NV74" source="bitex/ui/api_key_data_entry.soy.js" desc="Permissions select all button on the API Key Data Entry form">Select all</translation>
-	<translation id="4097867125891327840" key="MSG_1DCRPN6C26MFK" source="bitex/ui/api_key_data_entry.soy.js" desc="Permissions title on the API Key Data Entry form">Permissions</translation>
-	<translation id="8221320109503331239" key="MSG_P15ME0URVENZ" source="bitex/ui/api_key_data_entry.soy.js" desc="Account info permission label on API Key data entry">Account info</translation>
-	<translation id="32893510811895086" key="MSG_1G2D3SSXWBIXP" source="bitex/ui/api_key_data_entry.soy.js" desc="Order history permission label on API Key data entry">Order history</translation>
-	<translation id="7885402986186777649" key="MSG_BK0X30WFEP8V" source="bitex/ui/api_key_data_entry.soy.js" desc="Ledger permission label on API Key data entry">Ledger</translation>
-	<translation id="5717295994441381767" key="MSG_RYQ798MB9STJ" source="bitex/ui/api_key_data_entry.soy.js" desc="View withdrawals permission label on API Key data entry">View withdrawals</translation>
-	<translation id="8577292470085430562" key="MSG_1J5HOYKOIBQJ6" source="bitex/ui/api_key_data_entry.soy.js" desc="Balance permission label on API Key data entry">Balance info</translation>
-	<translation id="8164559352473894636" key="MSG_DJN3AO89TFEZ" source="bitex/ui/api_key_data_entry.soy.js" desc="View Deposits permission label on API Key data entry">View deposits</translation>
-	<translation id="8629450653864986175" key="MSG_XN4HRR1SJPO9" source="bitex/ui/api_key_data_entry.soy.js" desc="Buy and Sell orders on the API Key Data Entry form permissions section">Buy and Sell Orders</translation>
-	<translation id="451391178740975930" key="MSG_16NVGCS633NOM" source="bitex/ui/api_key_data_entry.soy.js" desc="Buy limited orders permission label on API Key data entry">Create Buy Limited Order</translation>
-	<translation id="2157015485516147378" key="MSG_M6OOWWVLLFZN" source="bitex/ui/api_key_data_entry.soy.js" desc="Sell limited orders permission label on API Key data entry">Create Sell Limited Order</translation>
+	<translation id="5278179546714001548" key="MSG_1SCUJ3LUJLI5Q" source="bitex/templates/templates.soy.js" desc="API Key created dialog description">A chave '<ph name="label" />' foi criada com sucesso. Por favor, armazene as credênciais abaixo em um lugar seguro.</translation>
+	<translation id="3749805723063027841" key="MSG_1JSPIZ1YZP7XP" source="bitex/templates/templates.soy.js" desc="API Key label on API Keycreated dialog">Chave</translation>
+	<translation id="4070451207876044541" key="MSG_137B1OQ694KPR" source="bitex/templates/templates.soy.js" desc="API Password label on API Keycreated dialog">Senha</translation>
+	<translation id="1796858524711014089" key="MSG_SAMKINQQA1MG" source="bitex/templates/templates.soy.js" desc="API Secret label on API Keycreated dialog">Segredo</translation>
+	<translation id="1137238780418297731" key="MSG_17NIA3XHCTE27" source="bitex/templates/templates.soy.js" desc="Warning message on the API Key created dialog description">Aviso! </translation>
+	<translation id="6164095401672004694" key="MSG_1QSLANFXG4TP2" source="bitex/templates/templates.soy.js" desc="Warning message on the API Key created dialog description">O segredo e a senha jamais serão mostrados novamente. Tenha certeza de ter copiado elas antes de fechar esta janela.</translation>
+	<translation id="6569879323367838729" key="MSG_KY1G1MI46QJ8" source="bitex/templates/templates.soy.js" desc="Unconfirmed deposits">Depósitos não confirmados</translation>
+	<translation id="5640944158779972001" key="MSG_IS0MGL5W1XEC" source="bitex/ui/order_book.soy.js" desc="Caption shown when user is drag dropping an order in the order book">Cancelar/Substituir ordem</translation>
+	<translation id="2889461479049773702" key="MSG_10XTT3Z48GDSL" source="bitex/ui/api_key_data_entry.soy.js" desc="API Key Data Entry form legend">Criar Chave</translation>
+	<translation id="4306381736970197948" key="MSG_1EAVEL1ZINXQ8" source="bitex/ui/api_key_data_entry.soy.js" desc="Permissions clear all button on the API Key Data Entry form">Limpar seleção</translation>
+	<translation id="6278595378594370526" key="MSG_1VZUCED70NV74" source="bitex/ui/api_key_data_entry.soy.js" desc="Permissions select all button on the API Key Data Entry form">Selecionar todos</translation>
+	<translation id="4097867125891327840" key="MSG_1DCRPN6C26MFK" source="bitex/ui/api_key_data_entry.soy.js" desc="Permissions title on the API Key Data Entry form">Permissões</translation>
+	<translation id="8221320109503331239" key="MSG_P15ME0URVENZ" source="bitex/ui/api_key_data_entry.soy.js" desc="Account info permission label on API Key data entry">Informações pessoais</translation>
+	<translation id="32893510811895086" key="MSG_1G2D3SSXWBIXP" source="bitex/ui/api_key_data_entry.soy.js" desc="Order history permission label on API Key data entry">Histórico de ordens</translation>
+	<translation id="7885402986186777649" key="MSG_BK0X30WFEP8V" source="bitex/ui/api_key_data_entry.soy.js" desc="Ledger permission label on API Key data entry">Livro contábil</translation>
+	<translation id="5717295994441381767" key="MSG_RYQ798MB9STJ" source="bitex/ui/api_key_data_entry.soy.js" desc="View withdrawals permission label on API Key data entry">Ver saques</translation>
+	<translation id="8577292470085430562" key="MSG_1J5HOYKOIBQJ6" source="bitex/ui/api_key_data_entry.soy.js" desc="Balance permission label on API Key data entry">Saldo</translation>
+	<translation id="8164559352473894636" key="MSG_DJN3AO89TFEZ" source="bitex/ui/api_key_data_entry.soy.js" desc="View Deposits permission label on API Key data entry">Ver depósitos</translation>
+	<translation id="8629450653864986175" key="MSG_XN4HRR1SJPO9" source="bitex/ui/api_key_data_entry.soy.js" desc="Buy and Sell orders on the API Key Data Entry form permissions section">Ordens de compra e venda</translation>
+	<translation id="451391178740975930" key="MSG_16NVGCS633NOM" source="bitex/ui/api_key_data_entry.soy.js" desc="Buy limited orders permission label on API Key data entry">Ordem limitada de compra</translation>
+	<translation id="2157015485516147378" key="MSG_M6OOWWVLLFZN" source="bitex/ui/api_key_data_entry.soy.js" desc="Sell limited orders permission label on API Key data entry">Ordem limitada de venda</translation>
 	<translation id="5071383481287243705" key="MSG_J1XBCXOQ88OU" source="bitex/ui/api_key_data_entry.soy.js" desc="Buy market orders permission label on API Key data entry">Create Buy Market Order</translation>
 	<translation id="3435434183996421243" key="MSG_1CNPOL55XZVE6" source="bitex/ui/api_key_data_entry.soy.js" desc="Sell limited orders permission label on API Key data entry">Create Sell Market Order</translation>
 	<translation id="1382135106467881153" key="MSG_PCU4TZ8B7EZW" source="bitex/ui/api_key_data_entry.soy.js" desc="Cancel orders permission label on API Key data entry">Cancel Orders</translation>
@@ -542,14 +548,14 @@
 	<translation id="2078634528972237669" key="MSG_4P3IRFD798ND" source="bitex/ui/api_key_data_entry.soy.js" desc="IP Whitelist title on the API Key Data Entry form">IP Whitelist</translation>
 	<translation id="796511320000002221" key="MSG_VGY5IWMV7UDE" source="bitex/ui/api_key_data_entry.soy.js" desc="IP Addresses on the API Key Data Entry form IP Whitelist section">IP Addresses</translation>
 	<translation id="1813272520518069750" key="MSG_KDV0CEN1PRR8" source="bitex/ui/api_key_data_entry.soy.js" desc="IP Whitelist help on the API Key Data Entry form">Enter a list of IP Address separated by comma (ie. 55.55.55.55,44.44.44.44) that you want to white list. Not specifying an IP Address means that you are allowing this API Key to be used from any IP</translation>
-	<translation id="1499192933367430306" key="MSG_API_TABLE_COLUMN_LAST_USED" source="bitex/ui/api_list.js" desc="Column Last Used of the Api List">Last Used</translation>
+	<translation id="1499192933367430306" key="MSG_API_TABLE_COLUMN_LAST_USED" source="bitex/ui/api_list.js" desc="Column Last Used of the Api List">Último uso</translation>
 	<translation id="535090090230027629" key="MSG_API_TABLE_COLUMN_LABEL" source="bitex/ui/api_list.js" desc="Column Label of the Api List">Label</translation>
-	<translation id="2427155606190811256" key="MSG_API_TABLE_COLUMN_API_KEY" source="bitex/ui/api_list.js" desc="Column API Keu of the Api List">API Key</translation>
-	<translation id="2661518433252054313" key="MSG_API_TABLE_COLUMN_PERMISSIONS" source="bitex/ui/api_list.js" desc="Column Permissions of the Api List">Permissions</translation>
-	<translation id="5092095911040506866" key="MSG_API_TABLE_COLUMN_ACTIONS" source="bitex/ui/api_list.js" desc="Column Actions of the Api List">Actions</translation>
-	<translation id="5327338953378464371" key="MSG_API_TABLE_COLUMN_ACTION_REVOKE" source="bitex/ui/api_list.js" desc="Revoke Button in the Actions column of the Api List">revoke</translation>
-	<translation id="6360068141733928765" key="MSG_API_LIST_TABLE_TITLE" source="bitex/ui/api_list.js" desc="deposit table title">API Keys</translation>
-	<translation id="6008759521787611905" key="MSG_API_KEY_CREATED_DIALOG_TITLE" source="bitex/view/api.js" desc="title of the API Key created dialog">API Key Created</translation>
+	<translation id="2427155606190811256" key="MSG_API_TABLE_COLUMN_API_KEY" source="bitex/ui/api_list.js" desc="Column API Keu of the Api List">Chave</translation>
+	<translation id="2661518433252054313" key="MSG_API_TABLE_COLUMN_PERMISSIONS" source="bitex/ui/api_list.js" desc="Column Permissions of the Api List">Permissões</translation>
+	<translation id="5092095911040506866" key="MSG_API_TABLE_COLUMN_ACTIONS" source="bitex/ui/api_list.js" desc="Column Actions of the Api List">Ações</translation>
+	<translation id="5327338953378464371" key="MSG_API_TABLE_COLUMN_ACTION_REVOKE" source="bitex/ui/api_list.js" desc="Revoke Button in the Actions column of the Api List">remover</translation>
+	<translation id="6360068141733928765" key="MSG_API_LIST_TABLE_TITLE" source="bitex/ui/api_list.js" desc="deposit table title">Chaves</translation>
+	<translation id="6008759521787611905" key="MSG_API_KEY_CREATED_DIALOG_TITLE" source="bitex/view/api.js" desc="title of the API Key created dialog">Chave criada</translation>
 	<translation id="8114088530100369765" key="MSG_LEDGER_MMP_DESCRIPTION" source="bitex/ui/ledger_activity.js" desc="Market maker point description on ledger activity">Point</translation>
 	<translation id="7068794892202282855" key="MSG_MY_CUSTOMERS_ACCOUNT_PORTFOLIO_LABEL" source="bitex/view/side_bar.js" desc="Portfolio caption on the accounts view">PORTFÓLIO</translation>
 	<translation id="7514728368249936102" key="MSG_D2MJEU825AR9" source="bitex/templates/templates.soy.js" desc="Secured with BitGO">Protegidos com</translation>
@@ -648,20 +654,14 @@
 	<translation id="6555497921319708564" key="MSG_TYQTJ3GHEY4B" source="bitex/view/side_bar.soy.js" desc="Approx. balance title in the Your Balance widget in the Sidebar">Valor aprox.</translation>
 	<translation id="3770184608323186160" key="MSG_WITHDRAWAL_UNCONFIRMED_DEPOSITS" source="bitex/app/blinktrade.js" desc="User has unconfirmed deposits warning message during the withdrawal.">Você tem depósitos que ainda não foram confirmados</translation>
 	<translation id="6672772647484962480" key="MSG_ERROR_VALIDATE_CPF_CNPJ" source="uniform/validators.js" desc="Error validate integer"><ph name="c" /> precisa ser um número de CPF ou CNPJ válido</translation>
-	<translation id="6689432837976552859" key="MSG_NY0Q0USTNJ14" source="bitex/ui/simple_order_entry.soy.js" desc="Too expensive">Está muito caro?</translation>
-	<translation id="6027789401272516895" key="MSG_Z5AQSEKS6WG2" source="bitex/ui/simple_order_entry.soy.js" desc="Simple Order">Ordem simples</translation>
+	<translation id="6689432837976552859" key="MSG_NY0Q0USTNJ14" source="bitex/ui/simple_order_entry.soy.js" desc="Too expensive">Modo avançado</translation>
+	<translation id="6027789401272516895" key="MSG_Z5AQSEKS6WG2" source="bitex/ui/simple_order_entry.soy.js" desc="Simple Order">Modo simples</translation>
 	<translation id="6106652026738145836" key="MSG_1BHZJ6B2HI593" source="bitex/templates/templates.soy.js" desc="Instant deposit fiat description 1">Valor líquido:</translation>
 	<translation id="447510570898512077" key="MSG_TTYPQU46JWEG" source="bitex/templates/templates.soy.js" desc="Instant deposit fiat description 2">Limite para pré-aprovação:</translation>
 	<translation id="5859203942819061682" key="MSG_10U9S4GXM1A56" source="bitex/templates/templates.soy.js" desc="Instant deposit fiat description 3">(3x o valor aproximado total em sua conta)</translation>
 	<translation id="5285372772087148292" key="MSG_UKOISZKJQSXM" source="bitex/templates/templates.soy.js" desc="Instant deposit fiat description 4">Taxa de pré-aprovação: 0% (Promocional)</translation>
-	<translation id="386572110387434247" key="MSG_M39YA922W8OE" source="bitex/templates/templates.soy.js" desc="Instant deposit fiat message">Você não conseguirá realizar saques até que o seu DEPOSITO SEJA CONFIRMADO pela exchange. Caso o comprovante de depósito seja falso ou alguma tentativa de fraude, será cobrada uma taxa administrativa de 30% do valor do depósito e sua conta será ENCERRADA.</translation>
+	<translation id="386572110387434247" key="MSG_M39YA922W8OE" source="bitex/templates/templates.soy.js" desc="Instant deposit fiat message">ATENÇÃO: Você NÃO CONSEGUIRÁ EFETUAR SAQUES até que o seu DEPÓSITO SEJA CONFIRMADO pela exchange, o tempo pode variar dependendo do método de depósito escolhido. Caso o comprovante seja falso ou alguma tentativa de fraude, será cobrada uma taxa administrativa de 30% do valor do depósito e sua conta será ENCERRADA.</translation>
 	<translation id="3076650273385415720" key="MSG_OG43LYXX7V7P" source="bitex/templates/templates.soy.js" desc="details">detalhes</translation>
-	<translation id="2010399794584660989" key="MSG_SIMPLE_ORDER_BOOK_BID_TITLE" source="bitex/ui/simple_order_book.js" desc="Title in the bid side on the order book">COMPRA</translation>
-	<translation id="6982017456284135569" key="MSG_SIMPLE_ORDER_BOOK_ASK_TITLE" source="bitex/ui/simple_order_book.js" desc="Title in the ask side on the order book">VENDA</translation>
-	<translation id="3935508311800655759" key="MSG_SIMPLE_ORDER_BOOK_BUYER_COLUMN" source="bitex/ui/simple_order_book.js" desc="Buyer column on the order book">Comprador</translation>
-	<translation id="1556117076341752434" key="MSG_SIMPLE_ORDER_BOOK_SELLER_COLUMN" source="bitex/ui/simple_order_book.js" desc="Seller column on the order book">Vendedor</translation>
-	<translation id="8771263576929555294" key="MSG_SIMPLE_ORDER_BOOK_AMOUNT_COLUMN" source="bitex/ui/simple_order_book.js" desc="Amount column on the order book">Quantidade</translation>
-	<translation id="7214863262607684039" key="MSG_SIMPLE_ORDER_BOOK_PRICE_COLUMN" source="bitex/ui/simple_order_book.js" desc="Price column on the order book">Preço</translation>
 	<translation id="3528371815335507033" key="MSG_1H73OS51HX8E2" source="bitex/ui/deposit_list.soy.js" desc="Set in progress">Em andamento</translation>
 	<translation id="2136872143188994746" key="MSG_78POQXWONEVT" source="bitex/ui/withdraw_list.soy.js" desc="blockchain">blockchain</translation>
 	<translation id="7480049978583406309" key="MSG_4WCKUV7G98T4" source="bitex/ui/withdraw_list.soy.js" desc="qrcode">qr</translation>
@@ -669,7 +669,7 @@
 	<translation id="6020981645700649400" key="MSG_GSAVXPVP846B" source="bitex/ui/deposit_list.soy.js" desc="view">visualizar</translation>
 	<translation id="8105195412065749361" key="MSG_WITHDRAW_TABLE_COLUMN_ACTION_REDO" source="bitex/ui/withdraw_list.js" desc="Withdraw redo button label in the  withdraw list">refazer</translation>
 	<translation id="8185953329227399214" key="MSG_WITHDRAW_REASON_ACCOUNT_HAS_WITHDRAWAL_BLOCK" source="bitex/ui/withdraw_list.js" desc="reason for cancelling withdraw">Sua conta possui um bloqueio de retiradas temporário</translation>
-	<translation id="3777065704153745914" key="MSG_1EXLIRNEINVZW" source="bitex/ui/deposit_list.soy.js" desc="Number of nodes inside the progress bar in the deposit list grid"><ph name="nodeCount" /> nós</translation>
+	<translation id="9145035496424177288" key="MSG_1AG825FDVWDVL" source="bitex/ui/deposit_list.soy.js" desc="Number of nodes inside the progress bar in the deposit list grid"><ph name="count" /> nós</translation>
 	<translation id="316554649376592280" key="MSG_IKI2FMRH5JC3" source="bitex/ui/deposit_list.soy.js" desc="qr">qr</translation>
 	<translation id="3454673884766566071" key="MSG_4YWBRHRYTGOF" source="bitex/ui/deposit_list.soy.js" desc="Pre Approve">pre-aprovar</translation>
 	<translation id="9206429988091050113" key="MSG_HTM83QKNMTIH" source="bitex/ui/deposit_list.soy.js" desc="send receipt">enviar comprovante</translation>
@@ -690,7 +690,9 @@
 	<translation id="4086733505650733121" key="MSG_189V0OX2TPK62" source="bitex/ui/deposit_withdraw_button_group.soy.js" desc="Button caption label on withdraw button in the withdraw view"> Retirada <ph name="xxx" /> </translation>
 	<translation id="1621010316987849714" key="MSG_1X09YQ62FEEN6" source="bitex/ui/line_of_credit_table.soy.js" desc="info">info</translation>
 	<translation id="368665407921910346" key="MSG_1E6E99N5KUD76" source="bitex/ui/line_of_credit_table.soy.js" desc="Enable">Habilitar</translation>
-	<translation id="1877050203121423153" key="MSG_1QMSDVRTFD0LA" source="bitex/ui/line_of_credit_table.soy.js" desc="Get">Get</translation>
+	<translation id="1877050203121423153" key="MSG_1QMSDVRTFD0LA" source="bitex/ui/line_of_credit_table.soy.js" desc="Get">Receber</translation>
 	<translation id="9139577554895161271" key="MSG_PQOEKNB7PW6H" source="bitex/ui/line_of_credit_table.soy.js" desc="Pay back">Pagar</translation>
 	<translation id="4903232320773209592" key="MSG_KZGTGUN90GQK" source="bitex/ui/api_key_data_entry.soy.js" desc="Confirm Withdraw on the API Key Data Entry form permissions section">Confirmar retirada</translation>
+	<translation id="3280479186641995710" key="MSG_PREVENT_RELOAD" source="bitex/app/blinktrade.js" desc="Warning message to prevent page reload">Sua sessão será terminada</translation>
+	<translation id="5586279959063254038" key="MSG_SHOW_DEPOSIT_PRE_APPROVE_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="Pre approval deposit dialog">Pré aprovação de depósito</translation>
 </translationbundle>
