@@ -275,7 +275,6 @@
     <translation id="841985793511490022" key="MSG_1TTMDD8089NOB" source="bitex/ui/change_password.default.soy.js" desc="Password label on change password component">Mật khẩu mới</translation>
     <translation id="987431473774004171" key="MSG_1G5FVWPYSQN1I" source="bitex/ui/change_password.default.soy.js" desc="Confirm new password label on change password component">Xác minh mật khẩu mới</translation>
     <translation id="6184130779631261438" key="MSG_S198ZC9QV7JJ" source="bitex/ui/change_password.default.soy.js" desc="change password button on change password component">Đổi mật khẩu</translation>
-    <translation id="3501335681219376815" key="MSG_MONTH_AND_YEAR" source="closure-library/closure/goog/date/date.js" desc="Month/year format given the month name and the numeric year."><ph name="monthname" /> <ph name="ynum" /></translation>
     <translation id="2307498693105169755" key="MSG_TIME_AM" source="closure-library/closure/goog/date/date.js" desc="Suffix for morning times.">sáng</translation>
     <translation id="2880376617002328348" key="MSG_TIME_PM" source="closure-library/closure/goog/date/date.js" desc="Suffix for afternoon times.">chiều</translation>
     <translation id="4844733369982759671" key="MSG_CHANGE_PASSWORD_EMPTY_PASSWORD" source="bitex/view/profile.js" desc="Validation error on SignUp view">Mật khẩu không được để trống</translation>
