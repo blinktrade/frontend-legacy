@@ -1,14 +1,14 @@
 {namespace bitex.ui.DepositList.templates}
 
 /**
-  * @param nodeCount
+  * @param count
   * @param confidence
   */
 {template .NodesProgressBar}
   <div class="progress progress-success progress-striped active" style="margin: 0px;position: relative;">
     <div class="bar" role="progressbar" aria-valuenow="{$confidence}" aria-valuemin="0" aria-valuemax="100" style="width:{$confidence}%"></div>
     <div style="position:absolute;width:100%;font-size:13px;color:black;height:100%;text-align:center;font-weight:300;">
-      {msg desc="Number of nodes inside the progress bar in the deposit list grid"}{$nodeCount} nodes{/msg}
+      {msg desc="Number of nodes inside the progress bar in the deposit list grid"}{$count} nodes{/msg}
     </div>
   </div>
 {/template}
@@ -38,7 +38,7 @@
  */
 {template .btnShowReceipt}
   <button class="btn btn-sm btn-success btn-deposit-show-receipt" data-row="{$dataRow}" data-action="SHOW_RECEIPT">
-    {msg desc="view"}View{/msg}
+    {msg desc="view"}view{/msg}
     <i class="glyphicon glyphicon-file"></i>
   </button>
 {/template}
@@ -48,7 +48,7 @@
  */
 {template .btnDepositDetails}
   <a class="btn btn-sm btn-info btn-deposit-view" target="_blank" href="{$url}">
-    {msg desc="view"}View{/msg}
+    {msg desc="view"}view{/msg}
     <i class="glyphicon glyphicon-eye-open"></i>
   </a>
 {/template}

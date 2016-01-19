@@ -275,7 +275,6 @@
 	<translation id="841985793511490022" key="MSG_1TTMDD8089NOB" source="bitex/ui/change_password.default.soy.js" desc="Password label on change password component">新的密码是</translation>
 	<translation id="987431473774004171" key="MSG_1G5FVWPYSQN1I" source="bitex/ui/change_password.default.soy.js" desc="Confirm new password label on change password component">确认新的密码</translation>
 	<translation id="6184130779631261438" key="MSG_S198ZC9QV7JJ" source="bitex/ui/change_password.default.soy.js" desc="change password button on change password component">修改您的密码</translation>
-	<translation id="1036998296011345725" key="MSG_MONTH_AND_YEAR" source="closure-library/closure/goog/date/date.js" desc="Month/year format given the month name and the numeric year."><ph name="monthname" /> <ph name="ynum" /></translation>
 	<translation id="2307498693105169755" key="MSG_TIME_AM" source="closure-library/closure/goog/date/date.js" desc="Suffix for morning times.">上午</translation>
 	<translation id="2880376617002328348" key="MSG_TIME_PM" source="closure-library/closure/goog/date/date.js" desc="Suffix for afternoon times.">下午</translation>
 	<translation id="4844733369982759671" key="MSG_CHANGE_PASSWORD_EMPTY_PASSWORD" source="bitex/view/profile.js" desc="Validation error on SignUp view">密码不能为空</translation>
@@ -310,6 +309,12 @@
 	<translation id="7114430755693068053" key="MSG_ORDER_BOOK_SELLER_COLUMN" source="bitex/ui/order_book.js" desc="Seller column on the order book">卖出者</translation>
 	<translation id="6540154733894385338" key="MSG_ORDER_BOOK_AMOUNT_COLUMN" source="bitex/ui/order_book.js" desc="Amount column on the order book">数量</translation>
 	<translation id="8893662537030583205" key="MSG_ORDER_BOOK_PRICE_COLUMN" source="bitex/ui/order_book.js" desc="Price column on the order book">价格</translation>
+  <translation id="2010399794584660989" key="MSG_SIMPLE_ORDER_BOOK_BID_TITLE" source="bitex/ui/simple_order_book.js" desc="Title in the bid side on the order book">买入</translation>
+  <translation id="6982017456284135569" key="MSG_SIMPLE_ORDER_BOOK_ASK_TITLE" source="bitex/ui/simple_order_book.js" desc="Title in the ask side on the order book">卖出</translation>
+  <translation id="3935508311800655759" key="MSG_SIMPLE_ORDER_BOOK_BUYER_COLUMN" source="bitex/ui/simple_order_book.js" desc="Buyer column on the order book">买入者</translation>
+  <translation id="1556117076341752434" key="MSG_SIMPLE_ORDER_BOOK_SELLER_COLUMN" source="bitex/ui/simple_order_book.js" desc="Seller column on the order book">卖出者</translation>
+  <translation id="8771263576929555294" key="MSG_SIMPLE_ORDER_BOOK_AMOUNT_COLUMN" source="bitex/ui/simple_order_book.js" desc="Amount column on the order book">数量</translation>
+  <translation id="7214863262607684039" key="MSG_SIMPLE_ORDER_BOOK_PRICE_COLUMN" source="bitex/ui/simple_order_book.js" desc="Price column on the order book">价格</translation>
 	<translation id="5896837899996280618" key="MSG_DEPOSIT_TABLE_COLUMN_ID" source="bitex/ui/deposit_list.js" desc="Column ID of the Deposit List">ID</translation>
 	<translation id="558243926842418493" key="MSG_DEPOSIT_TABLE_COLUMN_STATUS" source="bitex/ui/deposit_list.js" desc="Column Status of the Deposit List">状态</translation>
 	<translation id="8752180416937504144" key="MSG_DEPOSIT_TABLE_COLUMN_CURRENCY" source="bitex/ui/deposit_list.js" desc="Column Currency of the Deposit List">现金</translation>
@@ -645,4 +650,46 @@
 	<translation id="2981761047899562481" key="MSG_1XZLB64GCHIUE" source="bitex/view/side_bar.soy.js" desc="Approx. balance help message in the Your Balance widget in the Sidebar">Your total balance in <ph name="desc" /> according to the most recent trade. This value varies according to the market. Be advised that this value doesn't represent your total balance or any commitment to the exchange rate.</translation>
 	<translation id="6555497921319708564" key="MSG_TYQTJ3GHEY4B" source="bitex/view/side_bar.soy.js" desc="Approx. balance title in the Your Balance widget in the Sidebar">Approx. value</translation>
 	<translation id="3770184608323186160" key="MSG_WITHDRAWAL_UNCONFIRMED_DEPOSITS" source="bitex/app/blinktrade.js" desc="User has unconfirmed deposits warning message during the withdrawal.">You have deposits that are not confirmed yet</translation>
+	<translation id="6672772647484962480" key="MSG_ERROR_VALIDATE_CPF_CNPJ" source="uniform/validators.js" desc="Error validate integer"><ph name="c" /> needs to be a valid CPF or CNPJ</translation>
+	<translation id="6689432837976552859" key="MSG_NY0Q0USTNJ14" source="bitex/ui/simple_order_entry.soy.js" desc="Too expensive">高级订单</translation>
+	<translation id="6027789401272516895" key="MSG_Z5AQSEKS6WG2" source="bitex/ui/simple_order_entry.soy.js" desc="Simple Order">简单订单</translation>
+	<translation id="6106652026738145836" key="MSG_1BHZJ6B2HI593" source="bitex/templates/templates.soy.js" desc="Instant deposit fiat description 1">净值</translation>
+	<translation id="447510570898512077" key="MSG_TTYPQU46JWEG" source="bitex/templates/templates.soy.js" desc="Instant deposit fiat description 2">授权上限</translation>
+	<translation id="5859203942819061682" key="MSG_10U9S4GXM1A56" source="bitex/templates/templates.soy.js" desc="Instant deposit fiat description 3">3倍于现在的账户总额</translation>
+	<translation id="5285372772087148292" key="MSG_UKOISZKJQSXM" source="bitex/templates/templates.soy.js" desc="Instant deposit fiat description 4">手续费</translation>
+	<translation id="386572110387434247" key="MSG_M39YA922W8OE" source="bitex/templates/templates.soy.js" desc="Instant deposit fiat message">在充值完全确认之前，您不能提现，如果您有充值诈骗，将会收取您充值额度的30%作为惩罚，通过您的账户将永久被冻结。</translation>
+	<translation id="3076650273385415720" key="MSG_OG43LYXX7V7P" source="bitex/templates/templates.soy.js" desc="details">详情</translation>
+	<translation id="3528371815335507033" key="MSG_1H73OS51HX8E2" source="bitex/ui/deposit_list.soy.js" desc="Set in progress">Set in progress</translation>
+	<translation id="2136872143188994746" key="MSG_78POQXWONEVT" source="bitex/ui/withdraw_list.soy.js" desc="blockchain">blockchain</translation>
+	<translation id="7480049978583406309" key="MSG_4WCKUV7G98T4" source="bitex/ui/withdraw_list.soy.js" desc="qrcode">qrcode</translation>
+	<translation id="3303047063253614459" key="MSG_6J2QLE9H6J7M" source="bitex/ui/withdraw_list.soy.js" desc="Redo">重新开始</translation>
+	<translation id="6020981645700649400" key="MSG_GSAVXPVP846B" source="bitex/ui/deposit_list.soy.js" desc="view">view</translation>
+	<translation id="8105195412065749361" key="MSG_WITHDRAW_TABLE_COLUMN_ACTION_REDO" source="bitex/ui/withdraw_list.js" desc="Withdraw redo button label in the  withdraw list">重新开始</translation>
+	<translation id="8185953329227399214" key="MSG_WITHDRAW_REASON_ACCOUNT_HAS_WITHDRAWAL_BLOCK" source="bitex/ui/withdraw_list.js" desc="reason for cancelling withdraw">The withdraw function is temporarily blocked for your account</translation>
+	<translation id="9145035496424177288" key="MSG_1AG825FDVWDVL" source="bitex/ui/deposit_list.soy.js" desc="Number of nodes inside the progress bar in the deposit list grid"><ph name="count" /> 节点</translation>
+	<translation id="316554649376592280" key="MSG_IKI2FMRH5JC3" source="bitex/ui/deposit_list.soy.js" desc="qr">qr</translation>
+	<translation id="3454673884766566071" key="MSG_4YWBRHRYTGOF" source="bitex/ui/deposit_list.soy.js" desc="Pre Approve">预授权</translation>
+	<translation id="9206429988091050113" key="MSG_HTM83QKNMTIH" source="bitex/ui/deposit_list.soy.js" desc="send receipt">send receipt</translation>
+	<translation id="1438171000172698873" key="MSG_EGSTQDLWKC4O" source="bitex/ui/deposit_list.soy.js" desc="cancel">cancel</translation>
+	<translation id="5131430270208098508" key="MSG_1K8XUKZQJCWN2" source="bitex/ui/deposit_list.soy.js" desc="Set as complete">Set as complete</translation>
+	<translation id="5198479529344087462" key="MSG_DOUBLE_SPENT_MESSAGE_FOR_CRYPTO_CURRENCY" source="bitex/ui/deposit_list.js" desc="status message for double spent on crypto coin deposits">双花</translation>
+	<translation id="452979564173873904" key="MSG_DEPOSIT_TABLE_INSTANTANEOUS_BTN" source="bitex/ui/deposit_list.js" desc="Deposit instantaneous button label in the deposit list">预授权</translation>
+	<translation id="6147120122308814431" key="MSG_1I9CIYW9JY880" source="bitex/ui/card_data_entry.soy.js" desc="API Key Data Entry form legend">Create Card</translation>
+	<translation id="6309518498450312551" key="MSG_CARD_TABLE_COLUMN_LAST_USED" source="bitex/ui/card_list.js" desc="Column Last Used of the Api List">Last Used</translation>
+	<translation id="7541077002670621798" key="MSG_CARD_TABLE_COLUMN_LABEL" source="bitex/ui/card_list.js" desc="Column Label of the Api List">Label</translation>
+	<translation id="1345069874750415395" key="MSG_CARD_TABLE_COLUMN_API_KEY" source="bitex/ui/card_list.js" desc="Column API Keu of the Api List">API Key</translation>
+	<translation id="6704610056097132696" key="MSG_CARD_TABLE_COLUMN_ACTIONS" source="bitex/ui/card_list.js" desc="Column Actions of the Api List">Actions</translation>
+	<translation id="7477749082535138312" key="MSG_CARD_TABLE_COLUMN_ACTION_REVOKE" source="bitex/ui/card_list.js" desc="Revoke Button in the Actions column of the Api List">revoke</translation>
+	<translation id="4132181281258601242" key="MSG_CARD_LIST_TABLE_TITLE" source="bitex/ui/card_list.js" desc="deposit table title">API Keys</translation>
+	<translation id="7180759677614753169" key="MSG_CARD_CREATED_DIALOG_TITLE" source="bitex/view/card.js" desc="title of the API Key created dialog">API Key Created</translation>
+	<translation id="4423696837533143818" key="MSG_PTBHTOUNI04W" source="bitex/ui/withdraw_method_editor.soy.js" desc="Method field header">Required</translation>
+	<translation id="5877972415910187488" key="MSG_1VSTQ0TMA1KPZ" source="bitex/ui/deposit_withdraw_button_group.soy.js" desc="Button caption label on deposit button in the deposit view"> 充值 <ph name="xxx" /> </translation>
+	<translation id="4086733505650733121" key="MSG_189V0OX2TPK62" source="bitex/ui/deposit_withdraw_button_group.soy.js" desc="Button caption label on withdraw button in the withdraw view"> 提现 <ph name="xxx" /> </translation>
+	<translation id="1621010316987849714" key="MSG_1X09YQ62FEEN6" source="bitex/ui/line_of_credit_table.soy.js" desc="info">info</translation>
+	<translation id="368665407921910346" key="MSG_1E6E99N5KUD76" source="bitex/ui/line_of_credit_table.soy.js" desc="Enable">Enable</translation>
+	<translation id="1877050203121423153" key="MSG_1QMSDVRTFD0LA" source="bitex/ui/line_of_credit_table.soy.js" desc="Get">Get</translation>
+	<translation id="9139577554895161271" key="MSG_PQOEKNB7PW6H" source="bitex/ui/line_of_credit_table.soy.js" desc="Pay back">Pay back</translation>
+	<translation id="4903232320773209592" key="MSG_KZGTGUN90GQK" source="bitex/ui/api_key_data_entry.soy.js" desc="Confirm Withdraw on the API Key Data Entry form permissions section">确认提现请求</translation>
+	<translation id="3280479186641995710" key="MSG_PREVENT_RELOAD" source="bitex/app/blinktrade.js" desc="Warning message to prevent page reload">网络连接中断</translation>
+	<translation id="5586279959063254038" key="MSG_SHOW_DEPOSIT_PRE_APPROVE_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="Pre approval deposit dialog">充值预授权</translation>
 </translationbundle>
