@@ -292,7 +292,7 @@ bitex.ui.DepositList = function( crypto_currencies_def, opt_broker_mode, opt_sho
                   confidence_factor = (confidence_factor / 20) * 100;
 
                   progress_bar_el = goog.soy.renderAsElement(bitex.ui.DepositList.templates.NodesProgressBar, {
-                    nodeCount: number_of_node_count,
+                    count: number_of_node_count,
                     confidence: confidence_factor
                   });
                 }
