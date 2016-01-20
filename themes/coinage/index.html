@@ -465,6 +465,7 @@ load_application:       True
                                       bitex-view-profile
                                       bitex-view-twofactor
                                       bitex-view-trading
+                                      bitex-view-history
                                       bitex-view-offerbook
                                       bitex-view-customers
                                       bitex-view-account_overview
@@ -495,14 +496,29 @@ load_application:       True
 
                 <div class="sidebar-box__body">
                     <ul class="sidebar-box-nav nav">
+                        <li role="presentation" id="menu-trading">
+                            <a href="#" data-switch-view="trading">
+                                <i class="glyphicon glyphicon-random"></i> {% t views.sidebar.trading %}
+                            </a>
+                        </li>
                         <li role="presentation" id="menu-offerbook">
                             <a href="#" data-switch-view="offerbook">
                                 <i class="glyphicon glyphicon-book"></i> {% t views.sidebar.offerbook %}
                             </a>
                         </li>
-                        <li role="presentation" id="menu-trading">
-                            <a href="#" data-switch-view="trading">
-                                <i class="glyphicon glyphicon-random"></i> {% t views.sidebar.trading %}
+                        <li role="presentation" id="menu-history">
+                            <a href="#" data-switch-view="history">
+                                <i class="fa fa-history"></i> {% t views.sidebar.history %}
+                            </a>
+                        </li>
+                        <li role="presentation" id="menu-deposit">
+                            <a href="#" data-switch-view="deposit">
+                                <i class="fa fa-download"></i> {% t views.sidebar.deposit %}
+                            </a>
+                        </li>
+                        <li role="presentation" id="menu-withdraw">
+                            <a href="#" data-switch-view="withdraw">
+                                <i class="fa fa-upload"></i> {% t views.sidebar.withdraw %}
                             </a>
                         </li>
                         <li role="presentation" id="menu-algotrading">
@@ -700,6 +716,13 @@ load_application:       True
                 <!-- /.page__body -->
               </div>
               <!-- /#trading -->
+              <div id="history" class="bitex-view">
+                  <div class="section-title">
+                      <h3 class="bitex-view-title">{% t views.history.title %}</h3>
+                  </div>
+                  <div class="content bitex-view-content">
+                  </div>
+              </div>
 
               <!-- #algotrading -->
               <div id="algotrading" class="bitex-view">
@@ -797,10 +820,11 @@ load_application:       True
               <!-- #deposit -->
               <div id="deposit" class="bitex-view">
                 <!-- .page__head -->
-                <header class="page__head section-title">
-                    <h1 class="page__title h2 bitex-view-title">
+                <header class="page__head section-title page__head-float">
+                    <h1 class="page__title h2 bitex-view-title page__title-float">
                         <i class="glyphicon glyphicon-plus"></i> {% t views.deposit.title %}
                     </h1>
+                    <div id="id_deposit_button_group" class="row-fluid text-right" style="" ></div>
                 </header>
                 <!-- /.page__head -->
 
@@ -817,10 +841,11 @@ load_application:       True
               <!-- #withdraw -->
               <div id="withdraw" class="bitex-view">
                 <!-- .page__head -->
-                <header class="page__head section-title">
-                    <h1 class="page__title h2 bitex-view-title">
+                <header class="page__head section-title page__head-float">
+                    <h1 class="page__title h2 bitex-view-title page__title-float">
                         <i class="glyphicon glyphicon-minus"></i> {% t views.withdraw.title %}
                     </h1>
+                    <div id="id_withdraw_button_group" class="row-fluid text-right" style="" ></div>
                 </header>
                 <!-- /.page__head -->
 

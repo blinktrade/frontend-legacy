@@ -51,6 +51,17 @@
     margin: 0;
 }
 
+.page__head-float {
+  display: inline-table;
+  width: 100%;
+  .page__title-float {
+    float: left;
+  }
+  .deposit-withdraw-button-group{
+    float: right;
+  }
+}
+
 .page__nav {
     list-style: none;
     margin: 15px 0 0;
