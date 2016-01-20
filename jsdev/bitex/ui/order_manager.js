@@ -2,6 +2,8 @@ goog.provide('bitex.ui.OrderManager');
 goog.provide('bitex.ui.OrderManager.Status');
 goog.provide('bitex.ui.OrderManagerEvent');
 
+goog.require('bitex.ui.OrderManager.templates');
+
 goog.require('goog.dom');
 goog.require('goog.object');
 goog.require('bitex.ui.DataGrid');
@@ -169,18 +171,17 @@ bitex.ui.OrderManager = function(opt_mode, opt_openOrdersTitle, opt_filterOrder,
       'label': MSG_ORDER_MANAGER_ACTIVITY_TABLE_COLUMN_ACTIONS,
       'sortable': false,
       'formatter': function(id, row_set_obj){
-        var classes = "btn btn-mini btn-danger";
-        var attributes = { 'class':classes, 'data-action':'cancel', 'data-client-order-id': id } ;
+        var attributes = { 'dataClientOrderId': id } ;
 
         if ( goog.isDefAndNotNull(row_set_obj) ) {
-          attributes['data-order-id'] = row_set_obj["OrderID"];
+          attributes['dataOrderId'] = row_set_obj["OrderID"];
 
           if (row_set_obj["LeavesQty"] == 0) {
             return "";
           }
         }
 
-        return goog.dom.createDom( 'a', attributes, MSG_ORDER_MANAGER_ACTION_CANCEL_ORDER );
+        return goog.soy.renderAsElement(bitex.ui.OrderManager.templates.CancelOrder, attributes);
       },
       'classes': function() { return goog.getCssName(bitex.ui.OrderManager.CSS_CLASS, 'actions'); }
     }
@@ -248,18 +249,18 @@ bitex.ui.OrderManager = function(opt_mode, opt_openOrdersTitle, opt_filterOrder,
       'label': MSG_ORDER_MANAGER_ACTIVITY_TABLE_COLUMN_ACTIONS,
       'sortable': false,
       'formatter': function(id, row_set_obj){
-        var classes = "btn btn-mini btn-danger";
-        var attributes = { 'class':classes, 'data-action':'cancel', 'data-client-order-id': id } ;
+        var attributes = { 'dataClientOrderId': id } ;
+
 
         if ( goog.isDefAndNotNull(row_set_obj) ) {
-          attributes['data-order-id'] = row_set_obj["OrderID"];
+          attributes['dataOrderId'] = row_set_obj["OrderID"];
 
           if (row_set_obj["LeavesQty"] == 0) {
             return "";
           }
         }
 
-        return goog.dom.createDom( 'a', attributes, MSG_ORDER_MANAGER_ACTION_CANCEL_ORDER );
+        return goog.soy.renderAsElement(bitex.ui.OrderManager.templates.CancelOrder, attributes);
       },
       'classes': function() { return goog.getCssName(bitex.ui.OrderManager.CSS_CLASS, 'actions'); }
     }

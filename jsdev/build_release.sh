@@ -22,6 +22,7 @@ SOY_TEMPLATES="
                ui/bitex_datagrid
                ui/bitex_listview
                ui/order_book
+               ui/order_manager
                ui/simple_chart
                ui/withdraw_methods
                ui/withdraw_method_editor
