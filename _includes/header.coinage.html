@@ -159,16 +159,16 @@
               </a>
               <div class="dropdown-arrow"></div>
               <ul class="dropdown-menu" role="menu" style="min-width: 220px;">
-                  <li class="dropdown-account" role="presentation" data-switch-view="profile">
-                      <a href="#" data-switch-view="profile">
-                        <div class="row">
+                  <li class="dropdown-account" role="presentation">
+                      <a href="#">
+                        <div class="row" data-switch-view="profile">
                           <div class="col-xs-4">
-                            <img class="thumb thumb-g" src="{{ site.url }}{{ site.baseurl }}/assets/themes/coinage/img/coinage-avatar.png" />
+                            <img class="thumb thumb-g" data-switch-view="profile" src="{{ site.url }}{{ site.baseurl }}/assets/themes/coinage/img/coinage-avatar.png" />
                           </div>
-                          <div class="col-xs-8">
+                          <div class="col-xs-8" data-switch-view="profile">
                             <strong class="bitex-model bitex-view-title" data-switch-view="profile" data-model-key="DisplayName"></strong>
                             <br>
-                            <small style="line-height: 1;">(<span class="bitex-model bitex-view-title" data-model-key="PseudoName"></span>)</small>
+                            <small style="line-height: 1;">(<span class="bitex-model bitex-view-title" data-model-key="PseudoName" data-switch-view="profile"></span>)</small>
                           </div>
                         </div>
                       </a>
