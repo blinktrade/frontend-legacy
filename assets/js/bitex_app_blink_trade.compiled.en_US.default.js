@@ -9960,7 +9960,7 @@ function $bitex$ui$DepositList$$($crypto_currencies_def$$, $opt_broker_mode$$1_s
       }
       return["", ""];
     }($s$$50$$);
-    return $goog$soy$renderAsElement$$($bitex$ui$DepositList$templates$LabelStatus$$, {label:$crypto_currency_def_label_class_text$$1_number_of_necessary_confirmations$$[0], status:$crypto_currency_def_label_class_text$$1_number_of_necessary_confirmations$$[1]});
+    return $goog$soy$renderAsElement$$($bitex$ui$DepositList$templates$LabelStatus$$, {label:$crypto_currency_def_label_class_text$$1_number_of_necessary_confirmations$$[0] || "default", status:$crypto_currency_def_label_class_text$$1_number_of_necessary_confirmations$$[1]});
   }, classes:function() {
     return $bitex$ui$DepositList$CSS_CLASS$$ + "-status";
   }}, {property:"Value", label:"Value", sortable:!1, classes:function() {
@@ -13235,8 +13235,12 @@ $bitex$app$UrlRouter$$.prototype.$setView$ = function $$bitex$app$UrlRouter$$$$$
     }
   });
   if ("/" !== $view_name$$2$$[0] || null != $urlMapping$$1$$) {
-    var $actual_view_name$$1_view_data$$1$$ = $goog$string$remove$$($view_name$$2$$, this.$base_url_$), $actual_view_name$$1_view_data$$1$$ = (new RegExp($urlMapping$$1$$.$re$, "g")).exec($actual_view_name$$1_view_data$$1$$), $view_id$$1$$ = $actual_view_name$$1_view_data$$1$$[1];
-    $actual_view_name$$1_view_data$$1$$.splice(2);
+    var $actual_view_name$$1_menu$$ = $goog$string$remove$$($view_name$$2$$, this.$base_url_$), $view_data$$1$$ = (new RegExp($urlMapping$$1$$.$re$, "g")).exec($actual_view_name$$1_menu$$), $view_id$$1$$ = $view_data$$1$$[1];
+    $view_data$$1$$.splice(2);
+    $actual_view_name$$1_menu$$ = $goog$dom$getElement$$("menu-" + $actual_view_name$$1_menu$$);
+    null != $actual_view_name$$1_menu$$ && ($goog$array$forEach$$($goog$dom$getElementsByClass$$("menu-active"), function($el$$132$$) {
+      $goog$dom$classes$remove$$($el$$132$$, "menu-active");
+    }), $goog$dom$classes$add$$($actual_view_name$$1_menu$$, "menu-active"));
     this.dispatchEvent(new $bitex$app$UrlRouterEvent$$("set_view", $view_id$$1$$, $urlMapping$$1$$.view)) && $JSCompiler_StaticMethods_setViewInternal$$(this, $view_name$$2$$) && null != this.$history_$ && $JSCompiler_StaticMethods_setToken$$(this.$history_$, this.$base_url_$ + $view_name$$2$$);
   } else {
     this.$setView$($view_name$$2$$.substr(1));
@@ -13942,9 +13946,9 @@ $JSCompiler_prototypeAlias$$.$onLineOfCreditGet_$ = function $$JSCompiler_protot
   }, this);
   $handler$$112$$.$listen$($goog$dom$getElement$$($JSCompiler_StaticMethods_makeId$$(this, "loc_form_delivery_currency")), "change", function() {
     var $delivery_currency$$4$$ = $goog$dom$forms$getValue$$($goog$dom$getElement$$($JSCompiler_StaticMethods_makeId$$(this, "loc_form_delivery_currency")));
-    $goog$array$forEach$$($goog$dom$getElementsByClass$$("line-of-credit-delivery-currency"), function($el$$134$$) {
-      $goog$style$setElementShown$$($el$$134$$, !1);
-      $el$$134$$.getAttribute("data-delivery-currency") == $delivery_currency$$4$$ && $goog$style$setElementShown$$($el$$134$$, !0);
+    $goog$array$forEach$$($goog$dom$getElementsByClass$$("line-of-credit-delivery-currency"), function($el$$135$$) {
+      $goog$style$setElementShown$$($el$$135$$, !1);
+      $el$$135$$.getAttribute("data-delivery-currency") == $delivery_currency$$4$$ && $goog$style$setElementShown$$($el$$135$$, !0);
     }, this);
   }, this);
   $goog$array$forEach$$(line_of_credit.DeliveryCurrencies, function($delivery_currency$$5$$) {
@@ -14011,9 +14015,9 @@ $JSCompiler_prototypeAlias$$.$onLineOfCreditPayback_$ = function $$JSCompiler_pr
   }, this);
   $handler$$113$$.$listen$($goog$dom$getElement$$($JSCompiler_StaticMethods_makeId$$(this, "loc_form_delivery_currency")), "change", function() {
     var $delivery_currency$$7$$ = $goog$dom$forms$getValue$$($goog$dom$getElement$$($JSCompiler_StaticMethods_makeId$$(this, "loc_form_delivery_currency")));
-    $goog$array$forEach$$($goog$dom$getElementsByClass$$("line-of-credit-delivery-currency"), function($el$$135$$) {
-      $goog$style$setElementShown$$($el$$135$$, !1);
-      $el$$135$$.getAttribute("data-delivery-currency") == $delivery_currency$$7$$ && $goog$style$setElementShown$$($el$$135$$, !0);
+    $goog$array$forEach$$($goog$dom$getElementsByClass$$("line-of-credit-delivery-currency"), function($el$$136$$) {
+      $goog$style$setElementShown$$($el$$136$$, !1);
+      $el$$136$$.getAttribute("data-delivery-currency") == $delivery_currency$$7$$ && $goog$style$setElementShown$$($el$$136$$, !0);
     }, this);
   }, this);
   $goog$array$forEach$$(line_of_credit.DeliveryCurrencies, function($delivery_currency$$8$$) {
@@ -15575,8 +15579,8 @@ $JSCompiler_prototypeAlias$$.$decorateInternal$ = function $$JSCompiler_prototyp
 };
 function $JSCompiler_StaticMethods_setCurrentCurrency$$($JSCompiler_StaticMethods_setCurrentCurrency$self$$, $currency$$20$$) {
   var $remittance_box_elements$$ = $goog$dom$getElementsByClass$$("remittance-box-table", $JSCompiler_StaticMethods_setCurrentCurrency$self$$.$getElement$());
-  $goog$array$forEach$$($remittance_box_elements$$, function($el$$139$$) {
-    $goog$style$setElementShown$$($el$$139$$, !1);
+  $goog$array$forEach$$($remittance_box_elements$$, function($el$$140$$) {
+    $goog$style$setElementShown$$($el$$140$$, !1);
   }, $JSCompiler_StaticMethods_setCurrentCurrency$self$$);
   $goog$style$showElement$$($goog$dom$getElement$$($JSCompiler_StaticMethods_makeId$$($JSCompiler_StaticMethods_setCurrentCurrency$self$$, "remittance_box_" + $currency$$20$$)), !0);
 }
@@ -15683,8 +15687,8 @@ $bitex$view$SideBarView$$.prototype.$enterDocument$ = function $$bitex$view$Side
       this.$market_data_subscription_symbol_$.push($instrument_info$$1$$.Symbol);
     }, this);
     $goog$dom$removeChildren$$($goog$dom$getElement$$("id_instrument_1"));
-    $goog$array$forEach$$($msg$$109_remittance_box_el$$.Instruments, function($el$$140_instrument$$2$$) {
-      "BLINK" == $el$$140_instrument$$2$$.Market && ($el$$140_instrument$$2$$ = $goog$dom$createDom$$("option", {value:$el$$140_instrument$$2$$.Symbol}, $el$$140_instrument$$2$$.Description), $goog$dom$getElement$$("id_instrument_1").appendChild($el$$140_instrument$$2$$));
+    $goog$array$forEach$$($msg$$109_remittance_box_el$$.Instruments, function($el$$141_instrument$$2$$) {
+      "BLINK" == $el$$141_instrument$$2$$.Market && ($el$$141_instrument$$2$$ = $goog$dom$createDom$$("option", {value:$el$$141_instrument$$2$$.Symbol}, $el$$141_instrument$$2$$.Description), $goog$dom$getElement$$("id_instrument_1").appendChild($el$$141_instrument$$2$$));
     }, this);
     if (null == this.$remittance_box_$) {
       var $remittance_box_model$$ = [];
@@ -16009,15 +16013,15 @@ $JSCompiler_prototypeAlias$$.$getHandler$ = function $$JSCompiler_prototypeAlias
 $JSCompiler_prototypeAlias$$.$onSTUNTIpAddressCallback_$ = function $$JSCompiler_prototypeAlias$$$$onSTUNTIpAddressCallback_$$($ip_address$$) {
   null != $ip_address$$ && ($ip_address$$.match(/^(192\.168\.|169\.254\.|10\.|172\.(1[6-9]|2\d|3[01]))/) ? this.$ip_addresses_$.local = $ip_address$$ : this.$ip_addresses_$["public"].push($ip_address$$), this.$conn_$.$setSTUNTIp$(this.$ip_addresses_$));
 };
-function $bitex$app$BlinkTrade$validateBitcoinAddress_$$($el$$142_elValue$$9$$, $MSG_BITEX_ERROR_VALIDATE_REQUIRED_condition$$21$$, $minLength$$2$$, $MSG_BITEX_ERROR_VALIDATE_BTC_ADDRESS_caption$$28$$) {
+function $bitex$app$BlinkTrade$validateBitcoinAddress_$$($el$$143_elValue$$9$$, $MSG_BITEX_ERROR_VALIDATE_REQUIRED_condition$$21$$, $minLength$$2$$, $MSG_BITEX_ERROR_VALIDATE_BTC_ADDRESS_caption$$28$$) {
   if (!$MSG_BITEX_ERROR_VALIDATE_REQUIRED_condition$$21$$ || eval($MSG_BITEX_ERROR_VALIDATE_REQUIRED_condition$$21$$)) {
     $MSG_BITEX_ERROR_VALIDATE_REQUIRED_condition$$21$$ = $MSG_BITEX_ERROR_VALIDATE_BTC_ADDRESS_caption$$28$$ + " is required";
     $MSG_BITEX_ERROR_VALIDATE_BTC_ADDRESS_caption$$28$$ += " is not a valid address";
-    $el$$142_elValue$$9$$ = $goog$dom$forms$getValue$$($el$$142_elValue$$9$$);
-    if (null == $el$$142_elValue$$9$$ || $goog$string$isEmptyOrWhitespace$$($el$$142_elValue$$9$$)) {
+    $el$$143_elValue$$9$$ = $goog$dom$forms$getValue$$($el$$143_elValue$$9$$);
+    if (null == $el$$143_elValue$$9$$ || $goog$string$isEmptyOrWhitespace$$($el$$143_elValue$$9$$)) {
       throw $MSG_BITEX_ERROR_VALIDATE_REQUIRED_condition$$21$$;
     }
-    if (!$bitex$util$isValidAddress$$($el$$142_elValue$$9$$)) {
+    if (!$bitex$util$isValidAddress$$($el$$143_elValue$$9$$)) {
       throw $MSG_BITEX_ERROR_VALIDATE_BTC_ADDRESS_caption$$28$$;
     }
   }

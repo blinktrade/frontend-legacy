@@ -46,16 +46,24 @@
 .ls-box{
 	border-radius: 0 !important;
 }
+
+#sidebar_wrap{
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 350px;
+}
+
 #account_balance {
     margin-bottom: -2px;
     padding-bottom: 0px;
     /* display: inline-block; */
     width: 100%;
-    overflow-y: auto;
+    /* overflow-y: auto; */
+    /* overflow-x: hidden; */
 }
 #id_remittance_box {
-    max-height: 150px;
-    overflow-y: auto;
+    /* max-height: 150px; */
+    /* overflow-y: auto; */
 }
 #id_remittance_box table {
     margin:0;
@@ -78,7 +86,7 @@ a:hover:not(.ls-btn),a:focus,a{
 	overflow-y: auto;
 }
 #id_account_summary_content{
-    max-height:200px;
+    /* max-height:200px; */
 }
 
 .api-key-data-entry-form-block {
@@ -285,10 +293,22 @@ body{
     padding: 25px 20px!important;
     border-top: 1px solid #F7F7F7;
 }
-.active, .active:hover{
+.active, .active:hover {
     background-color: #E8683E;
     border-color: #B07200;
     color:white;
+}
+
+.menu-active {
+}
+.menu-active a {
+  color: white!important;
+  background-color: #323232;
+  padding-left: 65px;
+}
+
+.menu-active a:before {
+  left: 25px;
 }
 
 ul.start-links{
