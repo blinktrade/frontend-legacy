@@ -873,7 +873,7 @@
   * @param netAmountLabel
   */
 {template .DepositWithdrawDialogContent}
-<form class="modal-form" data-deposit-status="prepare" data-uniform-control-holder-class="control-group">
+<form class="modal-form form-horizontal" data-deposit-status="prepare" data-uniform-control-holder-class="control-group">
 
     <input type="hidden" name="Currency" value="{$currency}">
 
@@ -898,15 +898,19 @@
     {if not $force_method}
       {if length($methods) > 1}
 
-        <label class="modal-form__label">{msg desc="method"}Method{/msg}:</label>
-        <select id="{$methodID}" name="Method" class="withdraw-method-selector">
-          {foreach $method in $methods }
-           <option value="{$method['method']}"
-                data-net-value="{$method['method']}_{$netValueID}"
-                data-percent-fee="{$method['method']}_{$percentFeeID}"
-                data-fixed-fee="{$method['method']}_{$fixedFeeID}">{$method['description']}</option>
-          {/foreach}
-        </select>
+        <div class="form-group">
+            <label class="col-xs-2 control-label">{msg desc="method"}Method{/msg}:</label>
+            <div class="col-xs-4">
+                <select id="{$methodID}" name="Method" class="withdraw-method-selector" style="vertical-align:sub">
+                {foreach $method in $methods }
+                <option value="{$method['method']}"
+                        data-net-value="{$method['method']}_{$netValueID}"
+                        data-percent-fee="{$method['method']}_{$percentFeeID}"
+                        data-fixed-fee="{$method['method']}_{$fixedFeeID}">{$method['description']}</option>
+                {/foreach}
+                </select>
+            </div>
+        </div>
 
       {else}
 
@@ -945,50 +949,66 @@
             {if $method['method'] == $force_method}
 
                 {if $side == 'client'}
-                    <label class="modal-form__label">{msg desc="amount"}Amount{/msg} {$currencySign}:</label>
-                    <input id="{$method['method']}_{$amountID}"
-                    data-uniform-validators="required; validateNumber {if $method['limits'][$verificationLevel]['enabled']} {if $method['limits'][$verificationLevel]['min']}; validateMin {$method['limits'][$verificationLevel]['formatted_min_value'] }{/if}{if $method['limits'][$verificationLevel]['max']}; validateMax {$method['limits'][$verificationLevel]['formatted_max_value'] } {/if} {/if}"
-                    data-uniform-type="number"
-                    data-uniform-filters="positive_number"
-                    type="text"
-                    class="withdraw-field form-control"
-                    size="16"
-                    value="{if $formattedAmount}{$formattedAmount}{/if}"
-                    name="Amount">
+                    <div class="form-group">
+                        <label class="col-xs-2 control-label">{msg desc="amount"}Amount{/msg}:</label>
+                        <div class="col-xs-4">
+                            <div class="input-group">
+                                <span class="input-group-addon">{$currencySign}</span>
+                                <input id="{$method['method']}_{$amountID}"
+                                  data-uniform-validators="required; validateNumber {if $method['limits'][$verificationLevel]['enabled']} {if $method['limits'][$verificationLevel]['min']}; validateMin {$method['limits'][$verificationLevel]['formatted_min_value'] }{/if}{if $method['limits'][$verificationLevel]['max']}; validateMax {$method['limits'][$verificationLevel]['formatted_max_value'] } {/if} {/if}"
+                                  data-uniform-type="number"
+                                  data-uniform-filters="positive_number"
+                                  type="text"
+                                  class="withdraw-field form-control"
+                                  size="16"
+                                  value="{if $formattedAmount}{$formattedAmount}{/if}"
+                                  name="Amount">
+                            </div>
+                            <div>
+                                {if $method['limits'][$verificationLevel]['enabled']}
+                                <small>
+                                    {if $method['limits'][$verificationLevel]['max']}
+                                    {msg desc="amount help block"} Available: {$method['limits'][$verificationLevel]['formatted_max'] }{/msg}
+                                    {/if}
+                                    {sp}
+                                    {sp}
+                                    {if $method['limits'][$verificationLevel]['min']}
+                                    {msg desc="amount help block"} Minimum: {$method['limits'][$verificationLevel]['formatted_min'] } per transaction.  {/msg}
+                                    {/if}
+                                </small>
+                                {/if}
+                            </div>
+                        </div>
+                    </div>
 
-                    {if $method['limits'][$verificationLevel]['enabled']}
-                        <small>
-                            {if $method['limits'][$verificationLevel]['max']}
-                                {msg desc="amount help block"} Available: {$method['limits'][$verificationLevel]['formatted_max'] }{/msg}
-                                <br>
-                            {/if}
-
-                            {if $method['limits'][$verificationLevel]['min']}
-                                {msg desc="amount help block"} Minimum: {$method['limits'][$verificationLevel]['formatted_min'] } per transaction.  {/msg}
-                            {/if}
-                        </small>
-                    {/if}
                 {/if}
 
                 {foreach $field in $method['fields'] }
                     {if $field['side'] == $side}
-                        <label class="modal-form__label">{$field['label']}:</label>
-
-                        <input class="withdraw-field form-control"
-                        data-uniform-validators="{$field['validator']}" type="{$field['type']}"
-                        name="{$field['name']}"
-                        label="{$field['placeholder']}"
-                        value="{$field['value']}"/>
+                        <div class="form-group">
+                            <label class="col-xs-2 control-label">{$field['label']}:</label>
+                            <div class="col-xs-4">
+                                <input class="withdraw-field form-control"
+                                data-uniform-validators="{$field['validator']}" type="{$field['type']}"
+                                name="{$field['name']}"
+                                label="{$field['placeholder']}"
+                                value="{$field['value']}"/>
+                            </div>
+                        </div>
                     {/if}
                 {/foreach}
 
                 {if $side == 'client'}
-                    <label class="modal-form__label">{$method['disclaimer']}:</label>
+                    <label class="modal-form__label" style="padding-left:5px">{$method['disclaimer']}:</label>
                     <input id="{$method['method']}_{$percentFeeID}" type="hidden" value="{$method['percent_fee']}">
                     <input id="{$method['method']}_{$fixedFeeID}" type="hidden" value="{$method['fixed_fee']}">
 
-                    <label class="modal-form__label">{msg desc="Fee percentage label"}Fees{/msg}:</label>
-                    <label id="{$method['method']}_{$totalFeesID}" class="control-label" style="text-align: left;"></label>
+                    <div class="form-group">
+                        <label class="col-xs-2 control-label">{msg desc="Fee percentage label"}Fees{/msg}:</label>
+                        <div class="col-xs-4">
+                            <label id="{$method['method']}_{$totalFeesID}" class="control-label"></label>
+                        </div>
+                    </div>
 
                     <div {if $hideNetAmount} style="display:none;"{/if}>{$netAmountLabel}:</label>
                         <label id="{$method['method']}_{$netValueID}" class="control-label" style="text-align: left;"></label>
@@ -1015,56 +1035,76 @@
         {else}
             <div class="withdraw-method" data-withdraw-method="{$method['method']}" style="{if length($methods) > 1}display:none;{/if}">
                 {if $side == 'client'}
-                    <label class="modal-form__label">{msg desc="amount"}Amount{/msg} {$currencySign}:</label>
+                    <div class="form-group">
+                        <label class="col-xs-2 control-label">{msg desc="amount"}Amount{/msg}:</label>
+                        <div class="col-xs-4">
+                            <div class="input-group">
+                                <span class="input-group-addon">{$currencySign}</span>
+                                <input id="{$method['method']}_{$amountID}"
+                                  data-uniform-validators="required; validateNumber {if $method['limits'][$verificationLevel]['enabled']} {if $method['limits'][$verificationLevel]['min']}; validateMin {$method['limits'][$verificationLevel]['formatted_min_value'] }{/if}{if $method['limits'][$verificationLevel]['max']}; validateMax {$method['limits'][$verificationLevel]['formatted_max_value'] } {/if} {/if}"
+                                  data-uniform-type="number"
+                                  data-uniform-filters="positive_number"
+                                  value="{if $formattedAmount}{$formattedAmount}{/if}"
+                                  type="text"
+                                  class="withdraw-field form-control"
+                                  size="16"
+                                  name="Amount" {if not isFirst($method)}disabled{/if}>
+                            </div>
+                            <div>
+                                {if $method['limits'][$verificationLevel]['enabled']}
+                                <small>
+                                    {if $method['limits'][$verificationLevel]['max']}
+                                    {msg desc="amount help block"} Available: {$method['limits'][$verificationLevel]['formatted_max'] }{/msg}
+                                    {/if}
+                                    {sp}
+                                    {sp}
+                                    {if $method['limits'][$verificationLevel]['min']}
+                                    {msg desc="amount help block"} Minimum: {$method['limits'][$verificationLevel]['formatted_min'] } per transaction.  {/msg}
+                                    {/if}
+                                </small>
+                                {/if}
+                            </div>
+                        </div>
+                    </div>
 
-                    <input id="{$method['method']}_{$amountID}"
-                        data-uniform-validators="required; validateNumber {if $method['limits'][$verificationLevel]['enabled']} {if $method['limits'][$verificationLevel]['min']}; validateMin {$method['limits'][$verificationLevel]['formatted_min_value'] }{/if}{if $method['limits'][$verificationLevel]['max']}; validateMax {$method['limits'][$verificationLevel]['formatted_max_value'] } {/if} {/if}"
-                        data-uniform-type="number"
-                        data-uniform-filters="positive_number"
-                        value="{if $formattedAmount}{$formattedAmount}{/if}"
-                        type="text"
-                        class="withdraw-field form-control"
-                        size="16"
-                        name="Amount" {if not isFirst($method)}disabled{/if}>
-
-                    {if $method['limits'][$verificationLevel]['enabled']}
-                        <small>
-                            {if $method['limits'][$verificationLevel]['max']}
-                                {msg desc="amount help block"} Available: {$method['limits'][$verificationLevel]['formatted_max'] }{/msg}
-                                <br>
-                            {/if}
-
-                            {if $method['limits'][$verificationLevel]['min']}
-                                {msg desc="amount help block"} Minimum: {$method['limits'][$verificationLevel]['formatted_min'] } per transaction.  {/msg}
-                            {/if}
-                        </small>
-                    {/if}
                 {/if}
 
-                <label class="modal-form__label">{$method['disclaimer']}</label>
+                <small class="modal-form__label col-xs-10 col-xs-offset-2" style="padding-left:5px">{$method['disclaimer']}</small>
 
                 <input id="{$method['method']}_{$percentFeeID}" type="hidden" value="{$method['percent_fee']}">
                 <input id="{$method['method']}_{$fixedFeeID}" type="hidden" value="{$method['fixed_fee']}">
 
-                <label class="modal-form__label">{msg desc="Fee percentage label"}Fees:{/msg}</label>
-                <label id="{$method['method']}_{$totalFeesID}" class="control-label" style="text-align: left;"></label>
+                <div class="form-group">
+                    <label class="col-xs-2 control-label">{msg desc="Fee percentage label"}Fees:{/msg}</label>
+                    <div class="col-xs-10">
+                        <label id="{$method['method']}_{$totalFeesID}" class="control-label" style="text-align: left;"></label>
+                    </div>
+                </div>
 
                 <div {if $hideNetAmount} style="display:none;" {/if}>
-                    <label class="modal-form__label">{$netAmountLabel}:</label>
-                    <label id="{$method['method']}_{$netValueID}" class="control-label broker-confirm-deposit-net-amount" style="text-align: left;"></label>
+                    <div class="form-group">
+                        <label class="col-xs-2 control-label">{$netAmountLabel}:</label>
+                        <div class="col-xs-10">
+                            <label id="{$method['method']}_{$netValueID}" class="control-label broker-confirm-deposit-net-amount" style="text-align: left;"></label>
+                        </div>
+                    </div>
                     <input id="{$method['method']}_{$netValueID}_value" type="hidden" value="">
                 </div>
 
                 {foreach $field in $method['fields'] }
                     {if $field['side'] == $side}
-                        <label class="modal-form__label">{$field['label']}:</label>
-                        <input class="withdraw-field form-control"
-                            data-uniform-validators="{$field['validator']}"
-                            type="{$field['type']}"
-                            name="{$field['name']}"
-                            label="{$field['placeholder']}"
-                            value="{$field['value']}"
-                            {if not isFirst($method)}disabled{/if} />
+                        <div class="form-group">
+                            <label class="col-xs-2 control-label">{$field['label']}:</label>
+                            <div class="col-xs-4">
+                                <input class="withdraw-field form-control"
+                                    data-uniform-validators="{$field['validator']}"
+                                    type="{$field['type']}"
+                                    name="{$field['name']}"
+                                    label="{$field['placeholder']}"
+                                    value="{$field['value']}"
+                                    {if not isFirst($method)}disabled{/if} />
+                            </div>
+                        </div>
                     {/if}
                 {/foreach}
             </div>

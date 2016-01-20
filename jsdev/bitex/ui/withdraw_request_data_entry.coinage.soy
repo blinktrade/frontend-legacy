@@ -19,7 +19,7 @@
            data-model-action="show_element"
            data-model-key-list="HasAnyPosition"
            data-model-formula="HasAnyPosition"
-           style="display:none;">
+           style="display:none;margin-bottom:10px;">
       {msg desc="Warning message when the user has unconfirmed deposits."}
         You can't withdraw funds from the exchange while you have unconfirmed deposits.
       {/msg}
@@ -57,7 +57,7 @@
           <div class="form-group">
             <label class="col-sm-2 control-label">{msg desc="method"}Method{/msg}</label>
             <div class="col-sm-10">
-              <select id="{$id}_method" name="Method" class="withdraw-method-selector">
+              <select id="{$id}_method" name="Method" class="withdraw-method-selector" style="vertical-align:sub">
                 {foreach $method in $methods }
                  <option value="{$method['method']}"
                       data-net-value="{$id}_method_{$method['method']}_net_value"
@@ -77,7 +77,7 @@
 
               <div class="form-group">
                 <label class="col-sm-2 control-label">{msg desc="amount"}Amount{/msg}</label>
-                <div class="col-sm-3">
+                <div class="col-sm-4">
                   <div class="input-group">
                     <span class="input-group-addon">{$currencySign}</span>
                     <input id="{$id}_method_{$method['method']}_amount"
@@ -92,17 +92,14 @@
                   </div>
                   {if $method['limits'][$verificationLevel]['enabled']}
                     <div>
-                      <em>
-                        <small>
+                      <small>
                           {if $method['limits'][$verificationLevel]['max']}
-                            {msg desc="amount help block"} Maximum: {$method['limits'][$verificationLevel]['formatted_max'] }{/msg}
-                            <br>
+                          {msg desc="amount help block"} Maximum: {$method['limits'][$verificationLevel]['formatted_max'] }{/msg}
                           {/if}
                           {if $method['limits'][$verificationLevel]['min']}
-                            {msg desc="amount help block"} Minimum: {$method['limits'][$verificationLevel]['formatted_min'] } per transaction.  {/msg}
+                          {msg desc="amount help block"} Minimum: {$method['limits'][$verificationLevel]['formatted_min'] } per transaction.  {/msg}
                           {/if}
-                        </small>
-                      </em>
+                      </small>
                     </div>
                   {/if}
                 </div>
@@ -110,8 +107,8 @@
 
 
               <div class="form-group" style="margin-bottom: 5px;">
-                <div class="col-sm-10">
-                  <label>{$method['disclaimer']}</label>
+                <div class="col-sm-10 col-xs-offset-2">
+                  <small>{$method['disclaimer']}</small>
                   <input id="{$id}_method_{$method['method']}_percent_fee" type="hidden" value="{$method['percent_fee']}">
                   <input id="{$id}_method_{$method['method']}_fixed_fee" type="hidden" value="{$method['fixed_fee']}">
                 </div>
