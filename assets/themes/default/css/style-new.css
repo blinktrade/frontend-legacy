@@ -281,3 +281,19 @@ ul.parsley-error-list li {
   padding-left: 5px;
 }
 
+
+.highcharts-contextmenu > div:first-child {
+  box-shadow: 0 6px 12px rgba(0,0,0,0.175)!important;
+  border-radius: 4px;
+  padding: 0!important;
+}
+.highcharts-contextmenu hr {
+  padding: 0!important;
+}
+
+
+.highcharts-contextmenu * {
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 14px!important;
+  padding: 4px!important;
+}
