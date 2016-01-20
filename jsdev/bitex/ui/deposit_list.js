@@ -184,7 +184,7 @@ bitex.ui.DepositList = function( crypto_currencies_def, opt_broker_mode, opt_sho
         };
         var label_class_text = status(s);
         return goog.soy.renderAsElement(bitex.ui.DepositList.templates.LabelStatus, {
-          label: label_class_text[0],
+          label: label_class_text[0] || "default",
           status: label_class_text[1]
         });
       },
