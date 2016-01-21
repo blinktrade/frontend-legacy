@@ -224,7 +224,7 @@ load_application:       True
             <p>{% t signup_desc %}</p>
 
             <div class="home-contact__btn">
-                <a href="#" data-switch-view="signup" class="btn btn-lg btn-success">
+                <a href="#" data-switch-view="signup" class="btn btn-lg btn-primary">
                     <i class="glyphicon glyphicon-log-in"></i> {% t views.toolbar.signup %}
                 </a>
             </div>
@@ -249,17 +249,17 @@ load_application:       True
       <!-- .page__body -->
       <div class="page__body bitex-view-content">
           <!-- .panel-group -->
-          <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+          <div class="panel-group accordion" id="accordion">
               {% for post in site.categories['faq'] reversed %}
-              <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="headingOne">
-                  <h4 class="panel-title">
-                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              <div class="panel panel-default accordion-group">
+                <div class="panel-heading accordion-heading">
+                <h4 class="panel-title">
+                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#{{ post.title }} ">
                         {{post.title}}
                     </a>
                   </h4>
                 </div>
-                <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                <div id="{{ post.title }}" class="panel-collapse accordion-body collapse">
                   <div class="panel-body">
                        {{post.content}}
                   </div>
