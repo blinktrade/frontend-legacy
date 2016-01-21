@@ -3,7 +3,7 @@
 url: "//localhost:4000"
 author: "BlinkTrade"
 baseurl: ""
-deploy_version: "HEAD"
+deploy_version: "6300aaa"
 
 exchange: "bitinvest"
 exchange_logo: "bitinvest"
@@ -47,9 +47,11 @@ remittance_box: "{
 
 symbol: "BTCBRL"
 
-languages: ["pt_BR", "en_US", "es", "ro", "zn_CN", "vi"]
+# languages: ["en_US", "pt_BR", "es", "ro", "zn_CN", "vi"]
+languages: ["en_US"]
 
 navbar: 'navbar-default'
+phrases: [1,2,4]
 
 exclude:     [ "jsdev", "LICENSE", "README.md", "config.rb", "deploy.sh", "build_javascript.sh", "node_modules", "gulpfile.js" ]
 source:      .

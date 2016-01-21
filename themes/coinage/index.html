@@ -70,18 +70,18 @@ load_application:       True
                                 <img src="{{ site.baseurl }}/assets/themes/coinage/img/ico-tradewithus.png" alt="" />
                             </div>
 
-                            {% assign about  = "landing." | append: site.exchange | append: ".about" %}
-                            {% assign book   = "landing." | append: site.exchange | append: ".orderbook" %}
-                            {% assign signup = "landing." | append: site.exchange | append: ".signup" %}
+                            {% assign about  = "views.landing.about" %}
+                            {% assign book   = "views.landing.orderbook" %}
+                            {% assign signup = "views.landing.signup" %}
 
-                            {% assign title1 = about | append: ".item1.title" %}
-                            {% assign desc1  = about | append: ".item1.description" %}
+                            {% assign title1 = about | append: ".phrase" | append: site.phrases[0] | append: ".title" %}
+                            {% assign desc1  = about | append: ".phrase" | append: site.phrases[0] | append: ".description" %}
 
-                            {% assign title2 = about | append: ".item2.title" %}
-                            {% assign desc2  = about | append: ".item2.description" %}
+                            {% assign title2 = about | append: ".phrase" | append: site.phrases[1] | append: ".title" %}
+                            {% assign desc2  = about | append: ".phrase" | append: site.phrases[1] | append: ".description" %}
 
-                            {% assign title3 = about | append: ".item3.title" %}
-                            {% assign desc3  = about | append: ".item3.description" %}
+                            {% assign title3 = about | append: ".phrase" | append: site.phrases[2] | append: ".title" %}
+                            {% assign desc3  = about | append: ".phrase" | append: site.phrases[2] | append: ".description" %}
 
                             {% assign learn  = about | append: ".learn" %}
 
@@ -213,8 +213,6 @@ load_application:       True
             <div class="home-contact__icon">
                 <img src="{{ site.baseurl }}/assets/themes/coinage/img/ico-requestbeta.png" alt="" />
             </div>
-
-            {% assign signup  = "landing." | append: site.exchange | append: ".signup" %}
 
             {% assign signup_title  = signup | append: ".title" %}
             {% assign signup_desc   = signup | append: ".description" %}

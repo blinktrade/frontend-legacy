@@ -39,6 +39,7 @@ remittance_box: "{
 
 symbol: "BTCCLP"
 
+phrases: [1,2,4]
 languages: ["es", "en_US", "pt_BR", "ro", "zn_CN", "vi"]
 
 exclude:     [ "jsdev", "LICENSE", "README.md", "config.rb", "deploy.sh", "build_javascript.sh", "node_modules", "gulpfile.js" ]
