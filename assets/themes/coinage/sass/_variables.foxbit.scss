@@ -882,6 +882,9 @@ $hr-border:                   $gray-lighter !default;
 
 
 //Custom Classes Override
+.home-img{
+      -webkit-filter: hue-rotate(220deg)contrast(95%);
+}
 .head-top{
     background: $gray-lighter !important;
 }
