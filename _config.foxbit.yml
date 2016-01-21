@@ -50,7 +50,7 @@ languages: ["pt_BR", "en_US", "es", "ro", "zn_CN", "vi"]
 
 video : 'true'
 navbar: 'navbar-default'
-phrases: [1,2,3]
+phrases: [phrase1, phrase2, phrase3]
 
 exclude:     [ "jsdev", "LICENSE", "README.md", "config.rb", "deploy.sh", "build_javascript.sh", "node_modules", "gulpfile.js" ]
 source:      .

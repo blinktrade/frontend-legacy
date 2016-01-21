@@ -74,14 +74,14 @@ load_application:       True
                             {% assign book   = "views.landing.orderbook" %}
                             {% assign signup = "views.landing.signup" %}
 
-                            {% assign title1 = about | append: ".phrase" | append: site.phrases[0] | append: ".title" %}
-                            {% assign desc1  = about | append: ".phrase" | append: site.phrases[0] | append: ".description" %}
+                            {% assign title1 = about | append: "." | append: site.phrases[0] | append: ".title" %}
+                            {% assign desc1  = about | append: "." | append: site.phrases[0] | append: ".description" %}
 
-                            {% assign title2 = about | append: ".phrase" | append: site.phrases[1] | append: ".title" %}
-                            {% assign desc2  = about | append: ".phrase" | append: site.phrases[1] | append: ".description" %}
+                            {% assign title2 = about | append: "." | append: site.phrases[1] | append: ".title" %}
+                            {% assign desc2  = about | append: "." | append: site.phrases[1] | append: ".description" %}
 
-                            {% assign title3 = about | append: ".phrase" | append: site.phrases[2] | append: ".title" %}
-                            {% assign desc3  = about | append: ".phrase" | append: site.phrases[2] | append: ".description" %}
+                            {% assign title3 = about | append: "." | append: site.phrases[2] | append: ".title" %}
+                            {% assign desc3  = about | append: "." | append: site.phrases[2] | append: ".description" %}
 
                             {% assign learn  = about | append: ".learn" %}
 
