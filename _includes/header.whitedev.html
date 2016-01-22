@@ -41,6 +41,7 @@
   <link href="{{ site.url }}{{ site.baseurl }}/assets/themes/whitedev/css/fuelux.css" rel="stylesheet">
   <link href="{{ site.url }}{{ site.baseurl }}/assets/themes/default/css/default.uni-form.css" rel="stylesheet">
   <link href="{{ site.url }}{{ site.baseurl }}/assets/themes/whitedev/css/main.css" rel="stylesheet">
+  <link href="{{ site.url }}{{ site.baseurl }}/assets/css/flag-icon.css" rel="stylesheet">
 
 
   <!--Custom CSS -->
@@ -75,15 +76,26 @@
     <!-- Dropdown language -->
     <div class="ls-language ls-notification-topbar ls-notification-links">
       <div data-ls-module="dropdown" class="ls-dropdown">
-          <a href="#" class="ls-ico-earth" role="button" class="dropdown-toggle" data-toggle="dropdown">{{ site.lang|upcase }} <b class="caret"></b></a>
+          <a href="#" class="" role="button" class="dropdown-toggle" data-toggle="dropdown">
+              <span class="flag-icon flag-icon-{{ site.lang}}"></span>
+              <b class="caret"></b>
+          </a>
           <nav class="ls-dropdown-nav ls-user-menu" aria-hidden="true">
             <ul>
             {% for lang in site.languages %}
               {% if  lang != site.lang  %}
                 {% if forloop.first %}
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ site.url }}{{ site.baseurl_root }}/">{{ lang|upcase }}</a></li>
+                <li role="presentation">
+                    <a role="menuitem" tabindex="-1" href="{{ site.url }}{{ site.baseurl_root }}/">
+                        <span class="flag-icon flag-icon-{{lang}}"></span>
+                    </a>
+                </li>
                 {% else %}
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ site.url }}{{ site.baseurl_root }}/{{lang}}">{{ lang|upcase }}</a></li>
+                <li role="presentation">
+                    <a role="menuitem" tabindex="-1" href="{{ site.url }}{{ site.baseurl_root }}/{{lang}}">
+                        <span class="flag-icon flag-icon-{{lang}}"></span>
+                    </a>
+                </li>
                 {% endif %}
               {% endif %}
             {% endfor %}
