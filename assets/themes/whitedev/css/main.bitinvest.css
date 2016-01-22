@@ -54,7 +54,7 @@ textarea{
 
 @media (max-width: 768px){
     .ls-theme-orange .ls-topbar{
-        /* background: #3E82E1 url(../images/brand-chilebit-p.png) center center no-repeat !important; */
+        background: #3E82E1 url(../images/brand-bitinvest-p.png) center center no-repeat !important;
         background-size:30px;
     }
 }
