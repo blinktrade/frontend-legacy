@@ -13,13 +13,13 @@ load_application:       True
       <!-- .home -->
       <div class="home">
         <!-- .home-banner -->
-        <div class="home-banner" style="background-image: url({{ site.url }}{{ site.baseurl }}/assets/themes/coinage/img/home-banner-{{site.exchange}}.png)">
+        <div class="home-banner" style="background-image: url({{ site.url }}{{ site.baseurl }}/assets/themes/coinage/img/home-banner-{{site.exchange}}.jpg)">
             <!-- .home-banner__table -->
             <div class="home-banner__table">
                 {% if site.video == 'true' %}
                 <div class="home-overlay"></div>
                 <div class="home-media">
-                    <video autoplay loop muted="true" poster="{{ site.url }}{{ site.baseurl }}/assets/themes/coinage/img/{{ site.exchange }}-video-fallback.png">
+                    <video autoplay loop muted="true" poster="{{ site.url }}{{ site.baseurl }}/assets/themes/coinage/img/{{ site.exchange }}-video-fallback.jpg">
                         <source src="{{ site.url }}{{ site.baseurl }}/assets/themes/coinage/img/{{ site.exchange }}_video.webm"></source>
                     </video>
                 </div>
@@ -297,7 +297,53 @@ load_application:       True
   <!-- /#market -->
 
   <!-- /#themes -->
-  <div id="themes" class="bitex-view">
+  <div id="themes" class="page bitex-view">
+    <div class="row">
+        <!-- .col-md-6 -->
+        <div class="page__content page__padding col-md-10 col-md-offset-1">
+            <header class="page__head">
+                <h1 class="page__title bitex-view-title">{% t views.themes.title %}</h1>
+                <p>{% t views.themes.choose %}</p>
+            </header>
+            <div class="bitex-view-content page__body">
+                <div class="row" style="text-align:center">
+                    <a href="{{ site.url}}{{ site.baseurl}}/themes/coinage/">
+                        <div class="col-md-5 thumb-theme" style="margin:auto;float:none">
+                            <img src="{{ site.url}}{{ site.baseurl }}/assets/exchange_logos/thumb-themes/{{ site.exchange }}-coinage-thumb.jpg" alt="Coinage Theme">
+                            <h3>Coinage Theme</h3>
+                        </div>
+                    </a>
+                </div>
+                <hr>
+                <div class="row" style="text-align:center">
+                    <div class="col-xs-4">
+                        <a href="{{ site.url}}{{ site.baseurl}}/themes/default/">
+                            <div class="thumb-theme">
+                                <img src="{{ site.url}}{{ site.baseurl }}/assets/exchange_logos/thumb-themes/{{ site.exchange }}-default-thumb.jpg" alt="Default Theme">
+                                <h3 class="ls-title-4">Default Theme</h3>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xs-4">
+                        <a href="{{ site.url}}{{ site.baseurl}}/themes/ander/">
+                            <div class="thumb-theme">
+                                <img src="{{ site.url}}{{ site.baseurl }}/assets/exchange_logos/thumb-themes/{{ site.exchange }}-ander-thumb.jpg" alt="Ander Theme">
+                                <h3 class="ls-title-4">Ander</h3>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xs-4">
+                        <a href="{{ site.url}}{{ site.baseurl}}/themes/whitedev/">
+                            <div class="thumb-theme">
+                                <img src="{{ site.url}}{{ site.baseurl }}/assets/exchange_logos/thumb-themes/{{ site.exchange }}-whitedev-thumb.jpg" alt="Whitedev Theme">
+                                <h3 class="ls-title-4">Whitedev</h3>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
   </div>
   <!-- #themes -->
 

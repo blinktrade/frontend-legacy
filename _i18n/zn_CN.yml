@@ -230,4 +230,6 @@ views:
     algotrading: 程序自动交易
     history: 订单历史
     card:  Blink Card
-
+  themes:
+    title: Themes
+    choose: Choose a Theme

@@ -228,4 +228,6 @@ views:
     algotrading: Algo Trading
     history: Historial de órdenes
     card:  Blink Card
-
+  themes:
+    title: Temas
+    choose: Elegir un tema

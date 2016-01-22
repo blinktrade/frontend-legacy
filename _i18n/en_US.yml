@@ -228,3 +228,6 @@ views:
     algotrading: Algo Trading
     history: Orders history
     card:  Blink Card
+  themes:
+    title: Themes
+    choose: Choose a Theme
