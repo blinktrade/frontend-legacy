@@ -7,6 +7,9 @@
 .ls-menu{
     background:none;
 }
+.ls-user-account .ls-user-menu ul a {
+    border-bottom: 1px solid #ddd!important;
+}
 .ls-user-account .ls-user-menu-header, .ls-language nav ul a{
     background:#eee!important;
 }
@@ -61,10 +64,20 @@ textarea{
     background-color:#01411c!important;
 }
 .ls-btn-danger, .ls-theme-orange .ls-table tbody a:not([class*="ls-btn"]){
-    color:#CD1931!important;
+    /* color:#CD1931!important; */
 }
 .ls-btn-danger:hover{
     color:white!important;
+}
+.fuelux a{
+    color: #66A96D!important;
+}
+.fuelux .btn{
+    border: 2px solid #66A96D!important;
+}
+.fuelux .btn-info, .fuelux .dropdown-menu > li > a:hover{
+    color: white!important;
+    background: #66A96D!important;
 }
 
 .md-blink,
