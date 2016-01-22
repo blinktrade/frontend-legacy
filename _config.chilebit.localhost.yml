@@ -6,6 +6,9 @@ deploy_version: "HEAD"
 
 exchange: "chilebit"
 exchange_logo: "chilebit"
+exchange_toolbar_logo: "chilebit_inverse"
+
+custom_css: "chilebit"
 
 default_country_code: "CL"
 blinktrade_broker_id: 9 # 9 is the id for the demo backend. Don't change that if you don't understand what you doing.
