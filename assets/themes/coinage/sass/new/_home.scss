@@ -14,7 +14,7 @@
 
 .home-banner__table {
     display: table;
-    padding: 30px;
+    padding-bottom: 30px;
     width: 100%;
 
     @media (min-width: $screen-tablet) {
@@ -58,6 +58,12 @@
     vertical-align: middle;
     z-index: 20;
     position: relative;
+    @media (max-width: $screen-sm-max) {
+      padding: 0;
+      a.btn:nth-last-child(1){
+        margin-top: 10px;
+      }
+    }
 }
 
 .home-banner__title {
