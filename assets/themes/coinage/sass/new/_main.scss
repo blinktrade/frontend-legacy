@@ -8,3 +8,9 @@
 .background {
   background: #eaeff2
 }
+
+.zopim{
+    @media (max-width: $screen-sm-max){
+        display: none
+    }
+}

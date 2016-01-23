@@ -19,7 +19,7 @@
            data-model-action="show_element"
            data-model-key-list="HasAnyPosition"
            data-model-formula="HasAnyPosition"
-           style="display:none;">
+           style="display:none;margin-bottom:10px;">
       {msg desc="Warning message when the user has unconfirmed deposits."}
         You can't withdraw funds from the exchange while you have unconfirmed deposits.
       {/msg}
@@ -79,17 +79,19 @@
 
               <ul class="ul-form">
                 <li>
-                  <label class="control-label">{msg desc="amount"}Amount{/msg}</label>
-                  <span class="add-on">{$currencySign}</span>
-                  <input id="{$id}_method_{$method['method']}_amount"
-                      data-uniform-validators="required; validateNumber {if $method['limits'][$verificationLevel]['enabled']} {if $method['limits'][$verificationLevel]['min']}; validateMin {$method['limits'][$verificationLevel]['formatted_min_value'] }{/if}{if $method['limits'][$verificationLevel]['max']}; validateMax {$method['limits'][$verificationLevel]['formatted_max_value'] } {/if} {/if}"
-                      data-uniform-type="number"
-                      data-uniform-filters="positive_number"
-                      value=""
-                      type="text"
-                      class="withdraw-field input-small"
-                      size="16"
-                      name="Amount" {if not isFirst($method)}disabled{/if}>
+                  <label class="control-label" style="vertical-align:middle">{msg desc="amount"}Amount{/msg}</label>
+                  <div class="ls-prefix-group col-xs-6">
+                    <span class="add-on ls-label-text-prefix">{$currencySign}</span>
+                    <input id="{$id}_method_{$method['method']}_amount"
+                        data-uniform-validators="required; validateNumber {if $method['limits'][$verificationLevel]['enabled']} {if $method['limits'][$verificationLevel]['min']}; validateMin {$method['limits'][$verificationLevel]['formatted_min_value'] }{/if}{if $method['limits'][$verificationLevel]['max']}; validateMax {$method['limits'][$verificationLevel]['formatted_max_value'] } {/if} {/if}"
+                        data-uniform-type="number"
+                        data-uniform-filters="positive_number"
+                        value=""
+                        type="text"
+                        class="withdraw-field input-small"
+                        size="16"
+                        name="Amount" {if not isFirst($method)}disabled{/if}>
+                  </div>
                  </li>
                </ul>
               {if $method['limits'][$verificationLevel]['enabled']}

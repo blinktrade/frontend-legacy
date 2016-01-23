@@ -55,8 +55,8 @@
           {/foreach}
         {else}
           <div class="form-group">
-            <label class="col-sm-2 control-label">{msg desc="method"}Method{/msg}</label>
-            <div class="col-sm-10">
+            <label class="col-xs-2 control-label">{msg desc="method"}Method{/msg}</label>
+            <div class="col-xs-10">
               <select id="{$id}_method" name="Method" class="withdraw-method-selector" style="vertical-align:sub">
                 {foreach $method in $methods }
                  <option value="{$method['method']}"
@@ -76,8 +76,8 @@
                  style="{if length($methods) > 1}display:none;{/if}">
 
               <div class="form-group">
-                <label class="col-sm-2 control-label">{msg desc="amount"}Amount{/msg}</label>
-                <div class="col-sm-4">
+                <label class="col-xs-2 control-label">{msg desc="amount"}Amount{/msg}</label>
+                <div class="col-xs-6 col-sm-4">
                   <div class="input-group">
                     <span class="input-group-addon">{$currencySign}</span>
                     <input id="{$id}_method_{$method['method']}_amount"
@@ -107,22 +107,22 @@
 
 
               <div class="form-group" style="margin-bottom: 5px;">
-                <div class="col-sm-10 col-xs-offset-2">
+                <div class="col-xs-10 col-xs-offset-2">
                   <small>{$method['disclaimer']}</small>
                   <input id="{$id}_method_{$method['method']}_percent_fee" type="hidden" value="{$method['percent_fee']}">
                   <input id="{$id}_method_{$method['method']}_fixed_fee" type="hidden" value="{$method['fixed_fee']}">
                 </div>
               </div>
               <div class="form-group">
-                <label class="col-sm-2 control-label">{msg desc="Fee percentage label"}Fees:{/msg}</label>
-                <div class="col-sm-10">
+                <label class="col-xs-2 control-label">{msg desc="Fee percentage label"}Fees:{/msg}</label>
+                <div class="col-xs-10">
                   <p id="{$id}_method_{$method['method']}_fees"  class="form-control-static"></p>
                 </div>
               </div>
 
               <div class="form-group">
-                <label class="col-sm-2 control-label net-amount">{$netAmountLabel}:</label>
-                <div class="col-sm-10">
+                <label class="col-xs-2 control-label net-amount">{$netAmountLabel}:</label>
+                <div class="col-xs-10">
                   <p id="{$id}_method_{$method['method']}_net_value"  class="form-control-static net-amount"></p>
                   <input id="{$id}_method_{$method['method']}_net_value_value" type="hidden" value="">
                 </div>
@@ -131,8 +131,8 @@
               {foreach $field in $method['fields'] }
                 {if $field['side'] == 'client'}
                   <div class="form-group">
-                    <label class="col-sm-2 control-label">{$field['label']}</label>
-                    <div class="col-sm-10">
+                    <label class="col-xs-2 control-label">{$field['label']}</label>
+                    <div class="col-xs-10">
                       <input class="withdraw-field form-control"
                              data-uniform-validators="{if $field['required']}required;{/if}{$field['validator']}"
                              type="{$field['type']}"
