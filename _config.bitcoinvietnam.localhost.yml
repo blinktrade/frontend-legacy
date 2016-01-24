@@ -7,6 +7,8 @@ deploy_version: "HEAD"
 exchange: "bitcoinvietnam"
 exchange_logo: "bitcoinvietnam"
 
+custom_css: 'lightgreen'
+
 default_country_code: "VN"
 blinktrade_broker_id: 3  
 
@@ -39,6 +41,9 @@ remittance_box: "{
             ['USD -> BTC -> PKR',  'PKR', 'BLINK_BTCPKR_BEST_BID /  BITFINEX_BTCUSD_BEST_ASK', 'BLINK_BTCPKR_BEST_ASK /  BITFINEX_BTCUSD_BEST_BID' ] ]
     }"
 
+video : 'true'
+navbar: 'navbar-inverse'
+phrases: [phrase1, phrase2, phrase3]
 
 languages: ["vi", "en_US", "es", "pt_BR", "ro", "zn_CN"]
 
@@ -49,3 +54,10 @@ plugins:     ./_plugins
 paginate:    5
 paginate_path: "post/page:num"
 permalink:     /post/:title/
+facebook: https://www.facebook.com/VBTC.vn
+twitter: https://twitter.com/bitcoin_vietnam
+youtube: https://www.youtube.com/user/BitcoinVietnam/videos
+
+sass:
+  sass_dir: assets/themes/coinage/sass
+  style: :compressed

@@ -6,6 +6,9 @@ deploy_version: "HEAD"
 
 exchange: "chilebit"
 exchange_logo: "chilebit"
+exchange_toolbar_logo: "chilebit_inverse"
+
+custom_css: "chilebit"
 
 default_country_code: "CL"
 blinktrade_broker_id: 9 # 9 is the id for the demo backend. Don't change that if you don't understand what you doing.
@@ -39,6 +42,7 @@ remittance_box: "{
 
 symbol: "BTCCLP"
 
+phrases: [phrase1, phrase2, phrase3]
 languages: ["es", "en_US", "pt_BR", "ro", "zn_CN", "vi"]
 
 exclude:     [ "jsdev", "LICENSE", "README.md", "config.rb", "deploy.sh", "build_javascript.sh", "node_modules", "gulpfile.js" ]

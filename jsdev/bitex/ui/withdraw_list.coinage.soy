@@ -16,12 +16,13 @@
  * @param button2
  * @param? button3
  * @param dataRow
+ * @param? userVerification
  */
 {template .btnGroup}
   <div class="btn-group">
     {if $button1 == 'kyc'}
       {call .btnKYC }
-        {param dataRow: $dataRow /}
+        {param userVerification: $userVerification /}
       {/call}
     {/if}
     {if $button1 == 'cancel'}
@@ -48,7 +49,7 @@
 
     {if $button2 == 'kyc'}
       {call .btnKYC }
-        {param dataRow: $dataRow /}
+        {param userVerification: $userVerification /}
       {/call}
     {/if}
     {if $button2 == 'cancel'}
@@ -75,7 +76,7 @@
 
     {if $button3 == 'kyc'}
       {call .btnKYC }
-        {param dataRow: $dataRow /}
+        {param userVerification: $userVerification /}
       {/call}
     {/if}
     {if $button3 == 'cancel'}
@@ -105,37 +106,37 @@
  * @param dataRow
  */
 {template .btnCancel}
-  <a class="btn btn-xs btn-danger btn-withdraw-cancel" href="#" data-row="{$dataRow}" >
+  <button class="btn btn-xs btn-danger btn-withdraw-cancel" data-row="{$dataRow}" >
    {msg desc="Cancel"}Cancel{/msg}
    <i class="icon-white icon-remove"></i>
-  </a>
+  </button>
 {/template}
 
 /**
  * @param dataRow
  */
 {template .btnProgress}
-  <a class="btn btn-xs btn-primary btn-withdraw-progress" href="#" data-row="{$dataRow}" >
+  <button class="btn btn-xs btn-primary btn-withdraw-progress" data-row="{$dataRow}" >
    {msg desc="Withdraw progress button label in the  broker's withdraw list"}Set in progress{/msg}
-  </a>
+  </button>
 {/template}
 
 /**
  * @param dataRow
  */
 {template .btnComplete}
-  <a class="btn btn-xs btn-success btn-withdraw-complete" href="#" data-row="{$dataRow}" >
+  <button class="btn btn-xs btn-success btn-withdraw-complete" data-row="{$dataRow}" >
    {msg desc="Withdraw progress button label in the  broker's withdraw list"}Set as complete{/msg}
-  </a>
+  </button>
 {/template}
 
 /**
- * @param dataRow
+ * @param userVerification
  */
 {template .btnKYC}
-  <a class="btn btn-xs btn-warning btn-withdraw-kyc" href="#" data-row="{$dataRow}">
+  <button class="btn btn-xs btn-warning btn-withdraw-kyc" data-row="{$userVerification}">
    {msg desc="KYC"}KYC{/msg}
-  </a>
+  </button>
 {/template}
 
 
@@ -154,21 +155,21 @@
  * @param dataRow
  */
 {template .btnQR}
-  <a class="btn btn-xs btn-info btn-withdraw-list-qr" href="#" data-action="SHOW_QR"
+  <button class="btn btn-xs btn-info btn-withdraw-list-qr" data-action="SHOW_QR"
    data-row="{$dataRow}">
    {msg desc="qrcode"}qrcode{/msg}
    <i class="glyphicon glyphicon-qrcode"></i>
-  </a>
+  </button>
 {/template}
 
 /**
  * @param dataRow
  */
 {template .btnRedo}
-  <a class="btn btn-xs btn-default btn-withdraw-redo" data-row="{$dataRow}" href="#">
+  <button class="btn btn-xs btn-default btn-withdraw-redo" data-row="{$dataRow}">
    {msg desc="Redo"}Redo{/msg}
    <i class="glyphicon glyphicon-refresh"></i>
-  </a>
+  </button>
 {/template}
 
 /**

@@ -29,7 +29,6 @@
   <link rel="shortcut icon" href="{{ site.url }}{{ site.baseurl }}/assets/exchange_logos/{{ site.exchange_logo }}_favicon.ico">
   <link rel="icon" href="{{ site.url }}{{ site.baseurl }}/assets/exchange_logos/{{ site.exchange_logo }}_favicon.ico" type="image/x-icon">
   <link rel="apple-touch-icon" href="favicon.png">
-  <meta name="apple-mobile-web-app-title" content="FoxBit Dashboard">
 
   <link rel="canonical" href="{{ site.url }}{{ site.baseurl }}{% if page.url != '/index.html' %}{{ page.url }}{% endif %}"/>
   <script type="text/javascript" src="//apis.google.com/js/plusone.js"></script>
@@ -41,6 +40,7 @@
   <link href="{{ site.url }}{{ site.baseurl }}/assets/themes/whitedev/css/fuelux.css" rel="stylesheet">
   <link href="{{ site.url }}{{ site.baseurl }}/assets/themes/default/css/default.uni-form.css" rel="stylesheet">
   <link href="{{ site.url }}{{ site.baseurl }}/assets/themes/whitedev/css/main.css" rel="stylesheet">
+  <link href="{{ site.url }}{{ site.baseurl }}/assets/css/flag-icon.css" rel="stylesheet">
 
 
   <!--Custom CSS -->
@@ -75,15 +75,26 @@
     <!-- Dropdown language -->
     <div class="ls-language ls-notification-topbar ls-notification-links">
       <div data-ls-module="dropdown" class="ls-dropdown">
-          <a href="#" class="ls-ico-earth" role="button" class="dropdown-toggle" data-toggle="dropdown">{{ site.lang|upcase }} <b class="caret"></b></a>
+          <a href="#" class="" role="button" class="dropdown-toggle" data-toggle="dropdown">
+              <span class="flag-icon flag-icon-{{ site.lang}}"></span>
+              <b class="caret"></b>
+          </a>
           <nav class="ls-dropdown-nav ls-user-menu" aria-hidden="true">
             <ul>
             {% for lang in site.languages %}
               {% if  lang != site.lang  %}
                 {% if forloop.first %}
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ site.url }}{{ site.baseurl_root }}/">{{ lang|upcase }}</a></li>
+                <li role="presentation">
+                    <a role="menuitem" tabindex="-1" href="{{ site.url }}{{ site.baseurl_root }}/">
+                        <span class="flag-icon flag-icon-{{lang}}"></span>
+                    </a>
+                </li>
                 {% else %}
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ site.url }}{{ site.baseurl_root }}/{{lang}}">{{ lang|upcase }}</a></li>
+                <li role="presentation">
+                    <a role="menuitem" tabindex="-1" href="{{ site.url }}{{ site.baseurl_root }}/{{lang}}">
+                        <span class="flag-icon flag-icon-{{lang}}"></span>
+                    </a>
+                </li>
                 {% endif %}
               {% endif %}
             {% endfor %}
@@ -178,40 +189,92 @@
         </h1>
     </div>
 
-    <div id="account_balance" class="ls-box youraccount">
-    <h5 class="ls-title-4 ls-text-uppercase">Your Account</h5>
-    <form class="row">
-        <div class="col-md-6">
-            <label class="control-label" for="id_instrument_1">{% t views.sidebar.market %}</label>
-        </div>
-        <div class="col-md-6">
-            <select id="id_instrument_1" class="ls-dropdown-nav">
-            <option></option>
-            </select>
-        </div>
-    </form>
-    <div id="id_account_summary_content" ></div>
-    </div>
+    <div id="sidebar_wrap">
+      <div id="account_balance" class="ls-box youraccount">
+          <h5 class="ls-title-4 ls-text-uppercase">{% t views.account_overview.title %}</h5>
+        <form class="row">
+            <div class="col-md-6">
+                <label class="control-label" for="id_instrument_1">{% t views.sidebar.market %}</label>
+            </div>
+            <div class="col-md-6">
+                <select id="id_instrument_1" class="ls-dropdown-nav">
+                <option></option>
+                </select>
+            </div>
+        </form>
+        <div id="id_account_summary_content"></div>
+      </div>
 
-    <div id="id_remittance_box" style="border-right:1px solid #eee" class="youraccount"></div>
+      <div id="id_remittance_box" style="border-right:1px solid #eee" class="youraccount"></div>
+    </div>
 
     <nav class="ls-menu" role="navigation">
         <ul role="menu">
-            <li><a href="" data-switch-view="profile" class="ls-ico-user" role="menuitem" style="outline: none;">{% t views.sidebar.my_profile %}</a></li>
-            <li class=""><a href="" data-switch-view="my_broker" class="ls-ico-info" role="menuitem" style="outline: none;"> {% t views.sidebar.my_broker %}</a></li>
-            <li><a href="" data-switch-view="trading" class="ls-ico-docs" role="menuitem">{% t views.sidebar.trading %}</a></li>
-            <li><a href="" data-switch-view="offerbook" class="ls-ico-book" role="menuitem">{% t views.sidebar.offerbook %}</a></li>
-            <li><a href="" data-switch-view="algotrading" class="ls-ico-cog" role="menuitem">{% t views.sidebar.algotrading %}</a></li>
-            <li><a href="" data-switch-view="ledger" class="ls-ico-list" role="menuitem">{% t views.sidebar.ledger %}</a></li>
-
-            <li class="bitex-display-if-broker"><a href="" data-switch-view="customers" class="ls-ico-user" role="menuitem">{% t views.sidebar.customers %}</a></li>
-            <li class="bitex-display-if-broker"><a href="" data-switch-view="deposit_requests" class="ls-ico-download" role="menuitem">{% t views.sidebar.deposit_requests %}</a></li>
-            <li class="bitex-display-if-broker"><a href="" data-switch-view="withdraw_requests" class="ls-ico-upload" role="menuitem">{% t views.sidebar.withdraw_requests %}</a></li>
-
-            <li><a href="" data-switch-view="deposit_requests" class="ls-ico-download" role="menuitem">{% t views.sidebar.deposit %}</a></li>
-            <li><a href="" data-switch-view="withdraw_requests" class="ls-ico-upload" role="menuitem">{% t views.sidebar.withdraw %}</a></li>
-            <li id="verification_menu_id"><a href="" data-switch-view="verification"  role="menuitem">{% t views.sidebar.verification %}</a></li>
-            <li><a href="" data-switch-view="api" class="ls-ico-upload" role="menuitem">{% t views.sidebar.api %}</a></li>
+            <li id="menu-profile">
+              <a href="" data-switch-view="profile" class="ls-ico-user" role="menuitem" style="outline: none;">
+                {% t views.sidebar.my_profile %}
+              </a>
+            </li>
+            <li id="menu-my_broker">
+              <a href="" data-switch-view="my_broker" class="ls-ico-info" role="menuitem" style="outline: none;">
+                {% t views.sidebar.my_broker %}
+              </a>
+            </li>
+            <li id="menu-trading">
+              <a href="" data-switch-view="trading" class="ls-ico-docs" role="menuitem">
+                {% t views.sidebar.trading %}
+              </a>
+            </li>
+            <li id="menu-offerbook">
+              <a href="" data-switch-view="offerbook" class="ls-ico-book" role="menuitem">
+                {% t views.sidebar.offerbook %}
+              </a>
+            </li>
+            <li id="menu-algotrading">
+              <a href="" data-switch-view="algotrading" class="ls-ico-cog" role="menuitem">
+                {% t views.sidebar.algotrading %}
+              </a>
+            </li>
+            <li id="menu-ledger">
+              <a href="" data-switch-view="ledger" class="ls-ico-list" role="menuitem">
+                {% t views.sidebar.ledger %}
+              </a>
+            </li>
+            <li id="menu-customers" class="bitex-display-if-broker">
+              <a href="" data-switch-view="customers" class="ls-ico-user" role="menuitem">
+                {% t views.sidebar.customers %}
+              </a>
+            </li>
+            <li id="menu-deposit_requests" class="bitex-display-if-broker">
+              <a href="" data-switch-view="deposit_requests" class="ls-ico-download" role="menuitem">
+                {% t views.sidebar.deposit_requests %}
+              </a>
+            </li>
+            <li id="menu-withdraw_requests" class="bitex-display-if-broker">
+              <a href="" data-switch-view="withdraw_requests" class="ls-ico-upload" role="menuitem">
+                {% t views.sidebar.withdraw_requests %}
+              </a>
+            </li>
+            <li id="menu-deposit">
+              <a href="" data-switch-view="deposit" class="ls-ico-download" role="menuitem">
+                {% t views.sidebar.deposit %}
+              </a>
+            </li>
+            <li id="menu-withdraw">
+              <a href="" data-switch-view="withdraw" class="ls-ico-upload" role="menuitem">
+                {% t views.sidebar.withdraw %}
+              </a>
+            </li>
+            <li id="verification_menu_id">
+              <a href="" data-switch-view="verification" class="ls-ico-checkbox-checked"  role="menuitem">
+                {% t views.sidebar.verification %}
+              </a>
+            </li>
+            <li id="menu-api">
+              <a href="" data-switch-view="api" class="ls-ico-upload" role="menuitem">
+                {% t views.sidebar.api %}
+              </a>
+            </li>
         </ul>
     </nav>
 

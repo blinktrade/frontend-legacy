@@ -13,9 +13,9 @@
             <option value="broker" {if $data['side'] == 'broker'}selected{/if}>{msg desc="Broker option on side select"}Broker{/msg}</option>
         </select>
     </td>
-    <td><input id="{$id}_field_name_{$idx}" type="text" class="input-block-level withdraw-method-editor-field-name"  data-uniform-label="{msg desc="Field name"}Name{/msg}" data-uniform-filters="non_space"  data-uniform-validators="required ; validatePhrase"  placeholder="" required value="{$data['name']}"></td>
-    <td><input id="{$id}_field_label_{$idx}" type="text" class="input-block-level withdraw-method-editor-field-label"  data-uniform-label="{msg desc="Field name"}Label{/msg}"  data-uniform-validators="required" placeholder="" required value="{$data['label']}"></td>
-    <td><input id="{$id}_field_placeholder_{$idx}" type="text" class="input-block-level withdraw-method-editor-field-placeholder" placeholder="" value="{$data['placeholder']}"></td>
+    <td><input id="{$id}_field_name_{$idx}" type="text" class="form-control input-block-level withdraw-method-editor-field-name"  data-uniform-label="{msg desc="Field name"}Name{/msg}" data-uniform-filters="non_space"  data-uniform-validators="required ; validatePhrase"  placeholder="" required value="{$data['name']}"></td>
+    <td><input id="{$id}_field_label_{$idx}" type="text" class="form-control input-block-level withdraw-method-editor-field-label"  data-uniform-label="{msg desc="Field name"}Label{/msg}"  data-uniform-validators="required" placeholder="" required value="{$data['label']}"></td>
+    <td><input id="{$id}_field_placeholder_{$idx}" type="text" class="form-control input-block-level withdraw-method-editor-field-placeholder" placeholder="" value="{$data['placeholder']}"></td>
 
     <td>
         <select id="{$id}_field_type_{$idx}" class="withdraw-method-editor-field-type">
@@ -36,7 +36,7 @@
         </select>
     </td>
 
-    <td><input id="{$id}_field_value_{$idx}" type="text" class="input-block-level withdraw-method-editor-field-value" placeholder="" value="{$data['value']}"></td>
+    <td><input id="{$id}_field_value_{$idx}" type="text" class="form-control input-block-level withdraw-method-editor-field-value" placeholder="" value="{$data['value']}"></td>
     <td><button id="{$id}_field_delete_{$idx}" data-index="{$idx}" class="btn btn-mini btn-danger withdraw-method-editor-field-action-delete withdraw-method-editor-field-action">{msg desc="Field delete action"}delete{/msg}</button></td>
   </tr>
 {/template}
@@ -49,27 +49,27 @@
 {template .WithdrawMethodEditor}
 
   <div class="row-fluid">
-    <div class="span12">
+    <div class="col-xs-12" style="overflow-y:auto">
       <form id="{$id}" class="form-horizontal span6"  data-uniform-control-holder-class="control-group">
         <fieldset>
           <div class="control-group">
             <label class="control-label">{msg desc="Method name label"}Method name{/msg}</label>
             <div class="controls">
-              <input id="{$id}_name"  type="text" class="input-block-level"  data-uniform-validators="required; validateAlphaNum" data-uniform-filters="non_space" placeholder="" required value="{$model['method']}">
+              <input id="{$id}_name"  type="text" class="form-control"  data-uniform-validators="required; validateAlphaNum" data-uniform-filters="non_space" placeholder="" required value="{$model['method']}">
             </div>
           </div>
 
           <div class="control-group">
             <label class="control-label">{msg desc="Method description label"}Description{/msg}</label>
             <div class="controls">
-              <input id="{$id}_description"  type="text" class="input-block-level" data-uniform-validators="required" placeholder="" required value="{$model['description']}">
+              <input id="{$id}_description"  type="text" class="form-control" data-uniform-validators="required" placeholder="" required value="{$model['description']}">
             </div>
           </div>
 
           <div class="control-group">
             <label class="control-label">{msg desc="Method disclaimer label"}Disclaimer{/msg}</label>
             <div class="controls">
-              <input id="{$id}_placeholder"  type="text" class="input-block-level" placeholder="" value="{$model['disclaimer']}">
+              <input id="{$id}_placeholder"  type="text" class="form-control" placeholder="" value="{$model['disclaimer']}">
             </div>
           </div>
 
@@ -77,27 +77,27 @@
           <div class="control-group">
             <label class="control-label">{msg desc="Method Fees label"}Fees{/msg}</label>
             <div class="controls">
-              <div class="row-fluid">
-                <div class="span6">
-                  <div class="input-append">
+              <div class="row">
+                <div class="col-xs-6">
+                  <div class="input-group">
                     <input id="{$id}_percent_fee"
                            type="text"
-                           class="input-block-level"
+                           class="form-control"
                            autocomplete="off"
                            maxlength="4"
                            data-uniform-validators="required ; validateNumber; validateMin 0; validateMax 25"
                            label="{msg desc="Percent fee placeholder"}Percent fee{/msg}"
                            required
                            value="{$model['percent_fee'] }">
-                    <span class="add-on">%</span>
+                    <span class="input-group-addon">%</span>
                   </div>
                 </div>
-                <div class="span6">
-                  <div class="input-prepend">
-                    <span class="add-on">{$model['currency']}</span>
+                <div class="col-xs-6">
+                  <div class="input-group">
+                    <span class="input-group-addon">{$model['currency']}</span>
                     <input id="{$id}_fixed_fee"
                            type="text"
-                           class="input-block-level"
+                           class="form-control"
                            autocomplete="off"
                            data-uniform-validators="required ; validateNumber; validateMin 0"
                            label="{msg desc="Fixed fee placeholder"}Fixed fee{/msg}"
@@ -108,12 +108,12 @@
               </div>
             </div>
           </div>
-
-          <div class="control-group">
-            <table id="{$id}_table" class="table table-condensed table-bordered table-hover">
+          <hr>
+          <div class="control-group" style="overflow: auto">
+            <table id="{$id}_table" class="table table-condensed table-bordered table-hover" style="max-width:160%;width:160%;padding-bottom:10px;">
                 <thead>
                   <tr>
-                      <td colspan="7" style="text-align: center">{msg desc="Method fields header"}Custom fields{/msg}</td>
+                      <td colspan="8" style="text-align: center">{msg desc="Method fields header"}Custom fields{/msg}</td>
                   </tr>
                   <tr>
                       <th> {msg desc="Method field header"}Side{/msg}</th>
@@ -138,8 +138,8 @@
             </table>
             <button id="{$id}_add" class="btn btn-primary"><i class="icon-white icon-plus"></i> {msg desc="Add field button label"}Add field{/msg}</button>
           </div>
-
-          <div class="control-group">
+          <hr>
+          <div class="control-group" style="max-height:130px">
             <table id="{$id}_limits" class="table table-condensed table-bordered table-hover">
               <thead>
                 <tr>
@@ -181,7 +181,7 @@
                     <td>
                       <input id="{$id}_level_{$level}_min" name="min_{$level}"
                       type="text" autocomplete="off"
-                      class="input-small withdraw-method-editor-limit-max"
+                      class="form-control input-small withdraw-method-editor-limit-max"
                       data-uniform-label="{msg desc="Limit table field header"}Min{/msg}"
                       data-uniform-validators="validateNumber; validateMin 0"
                       data-uniform-meta="display If {$id}_level_{$level}_enabled == 'on'; enable If {$id}_level_{$level}_enabled == 'on'"
@@ -199,7 +199,7 @@
                     <td>
                       <input id="{$id}_level_{$level}_max" name="max_{$level}"
                        type="text" autocomplete="off"
-                       class="input-small withdraw-method-editor-limit-max"
+                       class="form-control input-small withdraw-method-editor-limit-max"
                        data-uniform-label="{msg desc="Limit table field header"}Max{/msg}"
                        data-uniform-validators="validateNumber"
                        data-uniform-meta="display If {$id}_level_{$level}_enabled == 'on'; enable If {$id}_level_{$level}_enabled == 'on'""

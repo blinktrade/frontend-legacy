@@ -3,9 +3,9 @@
   <footer class="foot">
     <!-- .wrapper -->
     <div class="container">
-      <div class="col-xs-8 col-xs-offset-2">
+      <div class="col-md-8 col-md-offset-2">
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-sm-4">
                 <h5>{% t views.footer.company %}</h5>
                 <ul>
                     <li>
@@ -14,8 +14,7 @@
                     {% if site.blog %}
                     <li>
                         <a href="{{ site.blog }}" target="_blank">{% t views.footer.blog %}</a>
-                    </li>
-                    {% endif %}
+                    </li> {% endif %}
                     {% if site.chart %}
                     <li>
                         <a href="{{ site.chart }}" target="_blank">{% t views.footer.chart %}</a>
@@ -23,12 +22,15 @@
                     {% endif %}
                 </ul>
             </div>
-            <div class="col-md-4">
+            <div class="col-sm-4">
                 <h5>{% t views.footer.platform %}</h5>
                 <ul>
                     {% if page.load_application %}
                     <li>
                         <a href="" data-switch-view="admin">admin</a>
+                    </li>
+                    <li>
+                        <a href="" data-switch-view="themes">{% t views.themes.title %}</a>
                     </li>
                     <li>
                         Latency: <span class="bitex-model" data-model-key="latency">0</span> ms
@@ -45,7 +47,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="col-md-4">
+            <div class="col-sm-4">
                 <h5></h5>
                 <ul>
                     <li>
@@ -63,7 +65,7 @@
         </div>
         <div class="row foot-social">
             {% if site.facebook %}
-            <div class="col-xs-2 col-xs-offset-2">
+            <div class="col-sm-2 col-sm-offset-2">
                 <div class="social-button">
                     <h3>
                         <a href="{{ site.facebook }}" target="_blank">
@@ -74,7 +76,7 @@
             </div>
             {% endif %}
             {% if site.twitter %}
-            <div class="col-xs-2">
+            <div class="col-sm-2">
                 <div class="social-button">
                     <h3>
                         <a href="{{ site.twitter }}" target="_blank">
@@ -85,7 +87,7 @@
             </div>
             {% endif %}
             {% if site.gplus %}
-            <div class="col-xs-2">
+            <div class="col-sm-2">
                 <div class="social-button">
                     <h3>
                         <a href="{{ site.gplus }}" target="_blank">
@@ -96,7 +98,7 @@
             </div>
             {% endif %}
             {% if site.youtube %}
-            <div class="col-xs-2">
+            <div class="col-sm-2">
                 <div class="social-button">
                     <h3>
                         <a href="{{ site.youtube }}" target="_blank">

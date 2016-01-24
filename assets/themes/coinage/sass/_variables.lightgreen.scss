@@ -895,6 +895,9 @@ $hr-border:                   $gray-lighter !default;
     /* background: $navbar-default-toggle-hover-bg !important; */
 /* } */
 
+.home-img{
+  -webkit-filter: hue-rotate(-60deg) saturate(55%) brightness(139%) contrast(110%);
+}
 .page__content{
     background-color: #F5FDFB!important;
 }

@@ -305,6 +305,8 @@ bitex.view.DepositView.prototype.onDepositListTableClick_ = function(e) {
       case 'UPLOAD':
         this.dispatchEvent(bitex.view.View.EventType.UPLOAD_RECEIPT);
         break;
+      case 'KYC':
+        this.dispatchEvent(bitex.view.View.EventType.SHOW_KYC);
       case 'CANCEL':
       case 'PROGRESS':
       case 'COMPLETE':
@@ -413,4 +415,11 @@ bitex.view.DepositView.prototype.onDepositListReponse_ = function(e) {
   var msg = e.data;
 
   this.deposit_list_table_.setResultSet( msg['DepositListGrp'], msg['Columns'] );
+};
+
+/**
+ * @return {Object}
+ */
+bitex.view.DepositView.prototype.getData = function() {
+  return this.data_;
 };

@@ -37,57 +37,51 @@
  * @param dataRow
  */
 {template .btnShowReceipt}
-  <div class="btn-group">
-    <a class="btn btn-mini btn-success btn-deposit-show-receipt" data-row="{$dataRow}" data-action="SHOW_RECEIPT">
-      {msg desc="view"}view{/msg}
-      <i class="icon-white icon-file"></i>
-    </a>
-  </div>
+  <button class="btn btn-mini btn-success btn-deposit-show-receipt" data-row="{$dataRow}" data-action="SHOW_RECEIPT">
+    {msg desc="view"}View{/msg}
+    <i class="icon-white icon-file"></i>
+  </button>
 {/template}
 
 /**
  * @param url
  */
 {template .btnDepositDetails}
-  <div class="btn-group">
-    <a class="btn btn-mini btn-info btn-deposit-view" target="_blank" href="{$url}">
-      {msg desc="view"}view{/msg}
-      <i class="icon-white icon-eye-open"></i>
-    </a>
-  </div>
+  <a class="btn btn-mini btn-info btn-deposit-view" target="_blank" href="{$url}">
+    {msg desc="view"}view{/msg}
+    <i class="icon-white icon-eye-open"></i>
+  </a>
 {/template}
 
 /**
  * @param dataRow
  */
 {template .btnShowQRCode}
-  <div class="btn-group"></div>
-    <a class="btn btn-mini btn-info btn-deposit-view-qr" href="#" data-action="SHOW_QR" data-row="{$dataRow}">
-      {msg desc="qr"}qr{/msg}
-      <i class="icon-white icon-qrcode"></i>
-    </a>
-  </div>
+  <button class="btn btn-mini btn-info btn-deposit-view-qr" data-action="SHOW_QR" data-row="{$dataRow}">
+    {msg desc="qr"}qr{/msg}
+    <i class="icon-white icon-qrcode"></i>
+  </button>
 {/template}
 
 /**
  * @param dataRow
  */
 {template .btnInstantFiatDeposit}
-  <a class="btn btn-mini btn-success btn-deposit-instantaneus"
+  <button class="btn btn-mini btn-success btn-deposit-instantaneus"
     data-action="INSTANTANEOUS" data-row="{$dataRow}">
     {msg desc="Pre Approve"}pre-approve{/msg}
     <i class="icon-white icon-fire"></i>
-  </a>
+  </button>
 {/template}
 
 /**
  * @param dataRow
  */
 {template .btnUpload}
-  <a class="btn btn-mini btn-success btn-deposit-upload" href="#" data-action="UPLOAD" data-row="{$dataRow}">
+  <button class="btn btn-mini btn-success btn-deposit-upload" data-action="UPLOAD" data-row="{$dataRow}">
     {msg desc="send receipt"}send receipt{/msg}
     <i class="icon-white icon-file"></i>
-  </a>
+  </button>
 {/template}
 
 /**
@@ -134,11 +128,11 @@
  * @param dataRow
  */
 {template .btnBrokerDespositCancel}
-  <a class="btn btn-mini btn-danger btn-deposit-cancel" href="#"
+  <button class="btn btn-mini btn-danger btn-deposit-cancel"
     data-action="CANCEL" data-row="{$dataRow}">
     {msg desc="cancel"}cancel{/msg}
     <i class="icon-white icon-remove"></i>
-  </a>
+  </button>
 {/template}
 
 
@@ -146,11 +140,11 @@
  * @param dataRow
  */
 {template .btnBrokerDespositProgress}
-  <a class="btn btn-mini btn-deposit-progress" href="#"
+  <button class="btn btn-mini btn-deposit-progress"
     data-action="PROGRESS" data-row="{$dataRow}">
     {msg desc="Set in progress"}Set in progress{/msg}
     <i class="icon-white icon-refresh"></i>
-  </a>
+  </button>
 {/template}
 
 
@@ -158,9 +152,9 @@
  * @param dataRow
  */
 {template .btnBrokerDespositComplete}
-  <a class="btn btn-mini btn-success btn-deposit-complete" href="#"
+  <button class="btn btn-mini btn-success btn-deposit-complete"
     data-action="COMPLETE" data-row="{$dataRow}">
     {msg desc="Set as complete"}Set as complete{/msg}
     <i class="icon-white icon-ok"></i>
-  </a>
+  </button>
 {/template}

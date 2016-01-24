@@ -28,10 +28,8 @@
  * @param blockchainAddress
  */
 {template .InputAddress}
-  <div>
-    <div style="max-width: 120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">
-      <a href="{$blockchainAddress}" target="_blank">{$address}</a>
-    </div>
+  <div style="max-width: 120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">
+    <a href="{$blockchainAddress}" target="_blank">{$address}</a>
   </div>
 {/template}
 
@@ -39,66 +37,67 @@
  * @param dataRow
  */
 {template .btnShowReceipt}
-  <div class="btn-group">
-    <a class="btn btn-sm btn-success btn-deposit-show-receipt" data-row="{$dataRow}" data-action="SHOW_RECEIPT">
-      {msg desc="view"}view{/msg}
-      <i class="glyphicon glyphicon-file"></i>
-    </a>
-  </div>
+  <button class="btn btn-sm btn-success btn-deposit-show-receipt" data-row="{$dataRow}" data-action="SHOW_RECEIPT">
+    {msg desc="view"}view{/msg}
+    <i class="glyphicon glyphicon-file"></i>
+  </button>
 {/template}
 
 /**
  * @param url
  */
 {template .btnDepositDetails}
-  <div class="btn-group">
-    <a class="btn btn-sm btn-info btn-deposit-view" target="_blank" href="{$url}">
-      {msg desc="view"}view{/msg}
-      <i class="glyphicon glyphicon-eye-open"></i>
-    </a>
-  </div>
+  <a class="btn btn-sm btn-info btn-deposit-view" target="_blank" href="{$url}">
+    {msg desc="view"}view{/msg}
+    <i class="glyphicon glyphicon-eye-open"></i>
+  </a>
 {/template}
 
 /**
  * @param dataRow
  */
 {template .btnShowQRCode}
-  <div class="btn-group"></div>
-    <a class="btn btn-sm btn-info btn-deposit-view-qr" href="#" data-action="SHOW_QR" data-row="{$dataRow}">
-      {msg desc="qr"}qr{/msg}
-      <i class="glyphicon glyphicon-qrcode"></i>
-    </a>
-  </div>
+  <button class="btn btn-sm btn-info btn-deposit-view-qr" data-action="SHOW_QR" data-row="{$dataRow}">
+    {msg desc="qr"}qr{/msg}
+    <i class="glyphicon glyphicon-qrcode"></i>
+  </button>
 {/template}
 
 /**
  * @param dataRow
  */
 {template .btnInstantFiatDeposit}
-  <a class="btn btn-sm btn-success btn-deposit-instantaneus"
+  <button class="btn btn-sm btn-success btn-deposit-instantaneus"
     data-action="INSTANTANEOUS" data-row="{$dataRow}">
     {msg desc="Pre Approve"}pre-approve{/msg}
     <i class="glyphicon glyphicon-fire"></i>
-  </a>
+  </button>
 {/template}
 
 /**
  * @param dataRow
  */
 {template .btnUpload}
-  <a class="btn btn-sm btn-success btn-deposit-upload" href="#" data-action="UPLOAD" data-row="{$dataRow}">
+  <button class="btn btn-sm btn-success btn-deposit-upload" data-action="UPLOAD" data-row="{$dataRow}">
     {msg desc="send receipt"}send receipt{/msg} 
     <i class="glyphicon glyphicon-open-file"></i>
-  </a>
+  </button>
 {/template}
 
 /**
  * @param button1
  * @param button2
+ * @param? button3
  * @param dataRow
+ * @param? userVerification
  */
 {template .btnGroup}
   <div class="btn-group">
+    {if $button1 == 'kyc'}
+      {call .btnBrokerKYC}
+        {param userVerification: $userVerification /}
+      {/call}
+    {/if}
     {if $button1 == 'cancel'}
       {call .btnBrokerDespositCancel}
         {param dataRow: $dataRow /}
@@ -112,6 +111,12 @@
     {if $button1 == 'complete'}
       {call .btnBrokerDespositComplete}
         {param dataRow: $dataRow /}
+      {/call}
+    {/if}
+
+    {if $button2 == 'kyc'}
+      {call .btnBrokerKYC}
+        {param userVerification: $userVerification /}
       {/call}
     {/if}
     {if $button2 == 'cancel'}
@@ -129,6 +134,27 @@
         {param dataRow: $dataRow /}
       {/call}
     {/if}
+
+    {if $button3 == 'kyc'}
+      {call .btnBrokerKYC}
+        {param userVerification: $userVerification /}
+      {/call}
+    {/if}
+    {if $button3 == 'cancel'}
+      {call .btnBrokerDespositCancel}
+        {param dataRow: $dataRow /}
+      {/call}
+    {/if}
+    {if $button3 == 'progress'}
+      {call .btnBrokerDespositProgress}
+        {param dataRow: $dataRow /}
+      {/call}
+    {/if}
+    {if $button3 == 'complete'}
+      {call .btnBrokerDespositComplete}
+        {param dataRow: $dataRow /}
+      {/call}
+    {/if}
   </div>
 {/template}
 
@@ -136,11 +162,20 @@
  * @param dataRow
  */
 {template .btnBrokerDespositCancel}
-  <a class="btn btn-sm btn-danger btn-deposit-cancel" href="#"
+  <button class="btn btn-xs btn-danger btn-deposit-cancel"
     data-action="CANCEL" data-row="{$dataRow}">
     {msg desc="cancel"}cancel{/msg}
     <i class="glyphicon glyphicon-remove-sign"></i>
-  </a>
+  </button>
+{/template}
+
+/**
+ * @param userVerification
+ */
+{template .btnBrokerKYC }
+  <button class="btn btn-xs btn-warning btn-deposit-kyc" data-action="KYC" data-row="{$userVerification}">
+   {msg desc="KYC"}KYC{/msg}
+  </button>
 {/template}
 
 
@@ -148,11 +183,11 @@
  * @param dataRow
  */
 {template .btnBrokerDespositProgress}
-  <a class="btn btn-sm btn-deposit-progress" href="#"
+  <button class="btn btn-sm btn-default btn-deposit-progress"
     data-action="PROGRESS" data-row="{$dataRow}">
     {msg desc="Set in progress"}Set in progress{/msg}
     <i class="glyphicon glyphicon-refresh"></i>
-  </a>
+  </button>
 {/template}
 
 
@@ -160,9 +195,9 @@
  * @param dataRow
  */
 {template .btnBrokerDespositComplete}
-  <a class="btn btn-sm btn-success btn-deposit-complete" href="#"
+  <button class="btn btn-xs btn-success btn-deposit-complete"
     data-action="COMPLETE" data-row="{$dataRow}">
     {msg desc="Set as complete"}Set as complete{/msg}
     <i class="glyphicon glyphicon-ok-sign"></i>
-  </a>
+  </button>
 {/template}

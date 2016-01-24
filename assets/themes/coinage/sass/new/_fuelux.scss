@@ -21,6 +21,7 @@
       border-bottom: 1px solid #ddd;
       vertical-align: middle;
       .btn {
+        text-transform: uppercase;
         .glyphicon{
           margin-left: 5px;
         }
@@ -64,11 +65,17 @@
     left: auto;
   }
 
+  .order-manager-new{
+    border-left: 6px solid #eee;
+  }
+
   .order-manager-fill{
-      background: lighten($brand-success, 40%);
+    background: lighten($brand-success, 40%);
+    border-left: 6px solid $brand-success;
   }
 
   .order-manager-cancel{
     background: lighten($brand-danger, 37%);
+    border-left: 6px solid $brand-danger;
   }
 }

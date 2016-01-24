@@ -184,7 +184,7 @@ bitex.ui.DepositList = function( crypto_currencies_def, opt_broker_mode, opt_sho
         };
         var label_class_text = status(s);
         return goog.soy.renderAsElement(bitex.ui.DepositList.templates.LabelStatus, {
-          label: label_class_text[0],
+          label: label_class_text[0] || "default",
           status: label_class_text[1]
         });
       },
@@ -382,6 +382,13 @@ bitex.ui.DepositList = function( crypto_currencies_def, opt_broker_mode, opt_sho
           dataRow: data_row
         });
 
+        var btn_kyc;
+        if (goog.object.containsKey(rowSet, 'UserVerificationData') && goog.isDefAndNotNull(rowSet['UserVerificationData']) ) {
+          btn_kyc = goog.soy.renderAsElement(bitex.ui.DepositList.templates.btnBrokerKYC, {
+            userVerification: goog.json.serialize(rowSet['UserVerificationData'])
+          });
+        }
+
         switch (rowSet['Type']) {
           case 'CRY':
             switch(rowSet['Status']) {
@@ -398,29 +405,62 @@ bitex.ui.DepositList = function( crypto_currencies_def, opt_broker_mode, opt_sho
             break;
 
           default:
-            switch(rowSet['Status']) {
-              case '0':
-                return goog.soy.renderAsElement(bitex.ui.DepositList.templates.btnGroup, {
-                  button1: 'cancel',
-                  button2: 'progress',
-                  dataRow: data_row
-                });
-              case '1':
-                return goog.soy.renderAsElement(bitex.ui.DepositList.templates.btnGroup, {
-                  button1: 'cancel',
-                  button2: 'progress',
-                  dataRow: data_row
-                });
-              case '2':
-                return goog.soy.renderAsElement(bitex.ui.DepositList.templates.btnGroup, {
-                  button1: 'cancel',
-                  button2: 'complete',
-                  dataRow: data_row
-                });
-              case '4':
-                return btn_cancel;
-              case '8':
-                return btn_progress;
+            if (goog.isDefAndNotNull(btn_kyc)) {
+              var userVerificationData = goog.json.serialize(rowSet['UserVerificationData']);
+              switch(rowSet['Status']) {
+                case '0':
+                  return goog.soy.renderAsElement(bitex.ui.DepositList.templates.btnGroup, {
+                    button1: 'cancel',
+                    button2: 'progress',
+                    dataRow: data_row,
+                    userVerification: userVerificationData
+                  });
+                case '1':
+                  return goog.soy.renderAsElement(bitex.ui.DepositList.templates.btnGroup, {
+                    button1: 'kyc',
+                    button2: 'cancel',
+                    button3: 'progress',
+                    dataRow: data_row,
+                    userVerification: userVerificationData
+                  });
+                case '2':
+                  return goog.soy.renderAsElement(bitex.ui.DepositList.templates.btnGroup, {
+                    button1: 'kyc',
+                    button2: 'cancel',
+                    button3: 'complete',
+                    dataRow: data_row,
+                    userVerification: userVerificationData
+                  });
+                case '4':
+                  return btn_kyc;
+                case '8':
+                  return btn_kyc;
+              }
+            } else {
+              switch(rowSet['Status']) {
+                case '0':
+                  return goog.soy.renderAsElement(bitex.ui.DepositList.templates.btnGroup, {
+                    button1: 'cancel',
+                    button2: 'progress',
+                    dataRow: data_row
+                  });
+                case '1':
+                  return goog.soy.renderAsElement(bitex.ui.DepositList.templates.btnGroup, {
+                    button1: 'cancel',
+                    button2: 'progress',
+                    dataRow: data_row
+                  });
+                case '2':
+                  return goog.soy.renderAsElement(bitex.ui.DepositList.templates.btnGroup, {
+                    button1: 'cancel',
+                    button2: 'complete',
+                    dataRow: data_row
+                  });
+                case '4':
+                  return btn_cancel;
+                case '8':
+                  return btn_progress;
+              }
             }
         }
 

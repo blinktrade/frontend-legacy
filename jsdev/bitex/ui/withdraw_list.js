@@ -486,7 +486,7 @@ bitex.ui.WithdrawList = function( methodDescriptionObj, opt_broker_mode,  opt_sh
         }
 
         if (goog.isDefAndNotNull(data['TransactionID'])) {
-          if (data['Currency'] == 'BTC' ) {
+          if (data['Currency'] == 'BTC' && typeof rowSet['Data']['Wallet'] !== 'undefined') {
              /**
               * @desc Withdraw qr button label in the  broker's withdraw list
               */
@@ -598,34 +598,40 @@ bitex.ui.WithdrawList = function( methodDescriptionObj, opt_broker_mode,  opt_sh
 
         var btn_kyc;
         if (goog.object.containsKey(row_set_obj, 'UserVerificationData') && goog.isDefAndNotNull(row_set_obj['UserVerificationData']) ) {
-          btn_kyc = goog.soy.renderAsElement(bitex.ui.WithdrawList.templates.btnKYC, { dataRow: goog.json.serialize(row_set_obj['UserVerificationData']) });
+          btn_kyc = goog.soy.renderAsElement(bitex.ui.WithdrawList.templates.btnKYC, {
+            userVerification: goog.json.serialize(row_set_obj['UserVerificationData'])
+          });
         }
 
-        var btn_cancel   = goog.soy.renderAsElement(bitex.ui.WithdrawList.templates.btnCancel, { dataRow: data_row });
+        var btn_cancel   = goog.soy.renderAsElement(bitex.ui.WithdrawList.templates.btnCancel,   { dataRow: data_row });
         var btn_progress = goog.soy.renderAsElement(bitex.ui.WithdrawList.templates.btnProgress, { dataRow: data_row });
         var btn_complete = goog.soy.renderAsElement(bitex.ui.WithdrawList.templates.btnComplete, { dataRow: data_row });
 
         if (goog.isDefAndNotNull(btn_kyc)) {
+          var userVerificationData = goog.json.serialize(row_set_obj['UserVerificationData']);
           switch(row_set_obj['Status']){
             case '0':
               return goog.soy.renderAsElement(bitex.ui.WithdrawList.templates.btnGroup, {
                 button1: 'kyc',
                 button2: 'cancel',
-                dataRow: data_row
+                dataRow: data_row,
+                userVerification: userVerificationData
               });
             case '1':
               return goog.soy.renderAsElement(bitex.ui.WithdrawList.templates.btnGroup, {
                 button1: 'kyc',
                 button2: 'cancel',
                 button3: 'progress',
-                dataRow: data_row
+                dataRow: data_row,
+                userVerification: userVerificationData
               });
             case '2':
               return goog.soy.renderAsElement(bitex.ui.WithdrawList.templates.btnGroup, {
                 button1: 'kyc',
                 button2: 'cancel',
                 button3: 'complete',
-                dataRow: data_row
+                dataRow: data_row,
+                userVerification: userVerificationData
               });
             case '4': return btn_kyc;
             case '8': return btn_kyc;

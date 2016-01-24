@@ -128,27 +128,35 @@ load_application:       True
   <!-- /#themes -->
   <div id="themes" class="bitex-view container page bitex-view" style="display: none">
     <div class="page__head">
-        <h1 class="page__title beta bitex-view-title">Themes</h1>
-        <p>Choose a Theme</p>
+        <h1 class="page__title beta bitex-view-title">{% t views.themes.title %}</h1>
+        <p>{% t views.themes.choose %}</p>
     </div>
     <hr>
     <div class="bitex-view-content">
+        <div class="layout row" style="margin:auto;text-align:center">
+            <div class="layout__item">
+                <a href="{{ site.url}}{{ site.baseurl}}/themes/coinage/">
+                    <img src="{{ site.url}}{{ site.baseurl }}/assets/exchange_logos/thumb-themes/{{ site.exchange }}-coinage-thumb.jpg" alt="Coinage Theme">
+                    <h3>Coinage Theme</h3>
+                </a>
+            </div>
+        </div>
         <div class="layout row" style="text-align:center;margin:auto">
             <div class="layout__item" style="width: 380px">
                 <a href="{{ site.url}}{{ site.baseurl}}/themes/default/">
-                    <img src="{{ site.url}}{{ site.baseurl }}/assets/exchange_logos/thumb-themes/default-theme.jpg" alt="Default Theme">
+                    <img src="{{ site.url}}{{ site.baseurl }}/assets/exchange_logos/thumb-themes/{{ site.exchange }}-default-thumb.jpg" alt="Default Theme">
                     <h3>Default Theme</h3>
                 </a>
             </div>
             <div class="layout__item" style="width: 380px">
                 <a href="{{ site.url}}{{ site.baseurl}}/themes/ander/">
-                    <img src="{{ site.url}}{{ site.baseurl }}/assets/exchange_logos/thumb-themes/ander-theme.jpg" alt="Ander Theme">
+                    <img src="{{ site.url}}{{ site.baseurl }}/assets/exchange_logos/thumb-themes/{{ site.exchange }}-ander-thumb.jpg" alt="Ander Theme">
                     <h3>Ander</h3>
                 </a>
             </div>
             <div class="layout__item" style="width: 380px">
                 <a href="{{ site.url}}{{ site.baseurl}}/themes/whitedev/">
-                    <img src="{{ site.url}}{{ site.baseurl }}/assets/exchange_logos/thumb-themes/whitedev-theme.jpg" alt="Whitedev Theme">
+                    <img src="{{ site.url}}{{ site.baseurl }}/assets/exchange_logos/thumb-themes/{{ site.exchange }}-whitedev-thumb.jpg" alt="Whitedev Theme">
                     <h3>Whitedev</h3>
                 </a>
             </div>
@@ -329,6 +337,7 @@ load_application:       True
           <!-- .sidebar -->
           <div id="id_sidebar" class="sidebar bitex-view
                                               bitex-view-profile
+                                              bitex-view-twofactor
                                               bitex-view-trading
                                               bitex-view-offerbook
                                               bitex-view-customers
@@ -515,6 +524,9 @@ load_application:       True
             <!-- /.page__body -->
           </div>
           <!-- /#my_broker -->
+          <div id="twofactor" class="bitex-view">
+            <div id="twofactor_content"></div>
+          </div>
 
           <!-- #trading -->
           <div id="trading" class="bitex-view">

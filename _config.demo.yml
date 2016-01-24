@@ -1,9 +1,9 @@
 # Site settings
-url: "https://testnet.blinktrade.com"
+url: "//localhost:4000"
 author: "BlinkTrade"
+# baseurl: "/frontend"
 baseurl: ""
-# baseurl: ""
-deploy_version: "27b57c4"
+deploy_version: "0f24df4"
 
 exchange: "demo"
 exchange_logo: "demo"
@@ -49,6 +49,7 @@ symbol: "BTCUSD"
 languages: ["en_US", "es", "pt_BR", "ro", "zn_CN", "vi"]
 
 navbar: 'navbar-inverse'
+phrases: [phrase1, phrase2, phrase3]
 
 exclude:     [ "jsdev", "LICENSE", "README.md", "config.rb", "deploy.sh", "build_javascript.sh", "node_modules", "gulpfile.js" ]
 source:      .

@@ -180,32 +180,44 @@ load_application:       True
 
   <div id="themes" class="bitex-view container min-height-view" style="margin-top:20px;">
     <div class="page-header ls-title-4">
-        <h1 class="bitex-view-title">Themes</h1>
+        <h1 class="bitex-view-title">{% t views.themes.title %}</h1>
     </div>
     <br>
-    <p>Choose a Theme</p>
+    <p>{% t views.themes.choose %}</p>
     <hr>
     <div class="bitex-view-content">
         <div class="row" style="text-align:center">
+            <a href="{{ site.url}}{{ site.baseurl}}/themes/coinage/">
+                <div class="col-md-5 thumb-theme" style="margin:auto;float:none">
+                    <img src="{{ site.url}}{{ site.baseurl }}/assets/exchange_logos/thumb-themes/{{ site.exchange }}-coinage-thumb.jpg" alt="Coinage Theme">
+                    <h3>Coinage Theme</h3>
+                </div>
+            </a>
+        </div>
+        <hr>
+        <div class="row" style="text-align:center">
             <div class="col-md-4">
                 <a href="{{ site.url}}{{ site.baseurl}}/themes/default/">
-                    <img src="{{ site.url}}{{ site.baseurl }}/assets/exchange_logos/thumb-themes/default-theme.jpg" alt="Default Theme" class="thumb-theme">
-                    <hr>
-                    <h3 class="ls-title-4">Default Theme</h3>
+                    <div class="thumb-theme">
+                        <img src="{{ site.url}}{{ site.baseurl }}/assets/exchange_logos/thumb-themes/{{ site.exchange }}-default-thumb.jpg" alt="Default Theme">
+                        <h3 class="ls-title-4">Default Theme</h3>
+                    </div>
                 </a>
             </div>
             <div class="col-md-4">
                 <a href="{{ site.url}}{{ site.baseurl}}/themes/ander/">
-                    <img src="{{ site.url}}{{ site.baseurl }}/assets/exchange_logos/thumb-themes/ander-theme.jpg" alt="Ander Theme" class="thumb-theme">
-                    <hr>
-                    <h3 class="ls-title-4">Ander</h3>
+                    <div class="thumb-theme">
+                        <img src="{{ site.url}}{{ site.baseurl }}/assets/exchange_logos/thumb-themes/{{ site.exchange }}-ander-thumb.jpg" alt="Ander Theme">
+                        <h3 class="ls-title-4">Ander</h3>
+                    </div>
                 </a>
             </div>
             <div class="col-md-4">
                 <a href="{{ site.url}}{{ site.baseurl}}/themes/whitedev/">
-                    <img src="{{ site.url}}{{ site.baseurl }}/assets/exchange_logos/thumb-themes/whitedev-theme.jpg" alt="Whitedev Theme" class="thumb-theme">
-                    <hr>
-                    <h3 class="ls-title-4">Whitedev</h3>
+                    <div class="thumb-theme">
+                        <img src="{{ site.url}}{{ site.baseurl }}/assets/exchange_logos/thumb-themes/{{ site.exchange }}-whitedev-thumb.jpg" alt="Whitedev Theme">
+                        <h3 class="ls-title-4">Whitedev</h3>
+                    </div>
                 </a>
             </div>
         </div>
@@ -325,6 +337,10 @@ load_application:       True
                 </div>
             </div>
         </div>
+      </div>
+
+      <div id="twofactor" class="bitex-view">
+        <div id="twofactor_content"></div>
       </div>
 
       <div id="trading" class="bitex-view">

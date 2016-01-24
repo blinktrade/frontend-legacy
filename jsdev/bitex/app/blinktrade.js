@@ -29,6 +29,8 @@ goog.require('bitex.ui.WithdrawList');
 
 goog.require('bitex.ui.Customers');
 
+goog.require('bitex.ui.TwoFactor');
+
 goog.require('goog.Uri');
 
 goog.require('goog.fx');
@@ -87,6 +89,7 @@ goog.require('bitex.view.ProfileView');
 goog.require('bitex.view.RankingView');
 goog.require('bitex.view.APIView');
 goog.require('bitex.view.LineOfCreditView');
+goog.require('bitex.view.TwoFactor');
 
 goog.require('uniform.Uniform');
 goog.require('uniform.Meta');               // Switch according to the test($MODULE_NAME$)
@@ -440,6 +443,7 @@ bitex.app.BlinkTrade.prototype.run = function(host_api) {
 
   // Populate all the views
   var startView           = new bitex.view.StartView(this);
+  var twoFactorView       = new bitex.view.TwoFactor(this);
   var faqView             = new bitex.view.NullView(this);
   var themesView          = new bitex.view.NullView(this);
   var setNewPasswordView  = new bitex.view.SetNewPasswordView(this);
@@ -472,6 +476,7 @@ bitex.app.BlinkTrade.prototype.run = function(host_api) {
   this.views_.addChild( toolBarView         );
   this.views_.addChild( sideBarView         );
   this.views_.addChild( startView           );
+  this.views_.addChild( twoFactorView       );
   this.views_.addChild( faqView             );
   this.views_.addChild( themesView          );
   this.views_.addChild( setNewPasswordView  );
@@ -511,6 +516,7 @@ bitex.app.BlinkTrade.prototype.run = function(host_api) {
 
   this.router_.addView( '(account_overview)/(\\w+)/$'   , accountOverviewView );
   this.router_.addView( '(start)'                       , startView           );
+  this.router_.addView( '(twofactor)'                   , twoFactorView       );
   this.router_.addView( '(faq)'                         , faqView             );
   this.router_.addView( '(themes)'                      , themesView          );
   this.router_.addView( '(admin)'                       , startView           );
@@ -590,8 +596,8 @@ bitex.app.BlinkTrade.prototype.run = function(host_api) {
   handler.listen(signUpView, bitex.view.SignupView.EventType.SIGNUP, this.onUserSignupButton_ );
   handler.listen(loginView, bitex.view.LoginView.EventType.LOGIN, this.onUserLoginButtonClick_) ;
 
-  handler.listen(profileView, bitex.view.View.EventType.ENABLE_TWOFACTOR, this.onUserEnableTwoFactor_);
-  handler.listen(profileView, bitex.view.View.EventType.DISABLE_TWOFACTOR, this.onUserDisableTwoFactor_);
+  handler.listen(this.views_, bitex.view.View.EventType.ENABLE_TWOFACTOR, this.onUserEnableTwoFactor_);
+  handler.listen(this.views_, bitex.view.View.EventType.DISABLE_TWOFACTOR, this.onUserDisableTwoFactor_);
 
   handler.listen(forgotPasswordView, bitex.view.ForgotPasswordView.EventType.RECOVER_PASSWORD, this.onUserForgotPassword_);
   handler.listen(setNewPasswordView, bitex.view.SetNewPasswordView.EventType.SET_NEW_PASSWORD, this.onUserSetNewPassword_);
