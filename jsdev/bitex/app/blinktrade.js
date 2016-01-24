@@ -3236,12 +3236,14 @@ bitex.app.BlinkTrade.prototype.onInstantFiatDeposit_ = function(e){
 
   var gross_limit_credit_formula = '(((' +portfolio_balance_model_key +
       ' + ' + portfolio_position_model_key + ' ) * 3) + ' + portfolio_position_model_key + ') ';
-  var limit_credit_percent_fees_formula = '(' +  gross_limit_credit_formula + ' - ' + deposit_data['FixedFee']
-      + ') * (' + deposit_data['PercentFee']/100.0 + ') ';
 
 
-  var formula = '(' + gross_limit_credit_formula
-      + ' - ( ' + deposit_data['FixedFee'] + ' + ' + limit_credit_percent_fees_formula + ' ) ) / 100000000';
+  var expected_fees_formula = '( ' + deposit_data['FixedFee']
+      + ' + ( (' +  gross_limit_credit_formula + ' - ' + deposit_data['FixedFee'] + ')'
+      + ' * (' + deposit_data['PercentFee']/100.0 + ') ) )';
+
+
+  var formula = '(' + gross_limit_credit_formula + ' - ' +  expected_fees_formula + ' ) / 100000000';
 
 
   var variable_list = new goog.structs.Set();
