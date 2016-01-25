@@ -7507,7 +7507,7 @@ function $bitex$templates$CancelDepositDialogContent$$() {
   '" rows="2" style=""></textarea></div></div></fieldset></form>');
 }
 function $bitex$templates$GoogleAuthenticationCodeDialogContent$$() {
-  return'<form class="form-horizontal" data-deposit-status="prepare" data-uniform-control-holder-class="control-group"><fieldset><div class="control-group"><label>Google Authenticator code:</label><input name="token" data-uniform-validators="required" data-uniform-label="Google authenticator code" label="eg. 555555" class="input-large" type="text" size="10"></div></fieldset></form>';
+  return'<form class="form-horizontal" data-deposit-status="prepare" data-uniform-control-holder-class="control-group"><fieldset><div class="control-group"><label>Google Authenticator code:</label><input name="token" id="id_input_google_authenticator" data-uniform-validators="required" data-uniform-label="Google authenticator code" label="eg. 555555" class="input-large" type="text" size="10"></div></fieldset></form>';
 }
 function $bitex$templates$WithdrawConfirmationDialogContent$$() {
   return'<form class="form-horizontal" data-deposit-status="prepare" data-uniform-control-holder-class="control-group"><fieldset><p>We just sent a confirmation code to your email.</p><div class="control-group"><label>Confirmation Code</label><input name="confirmation_code" type="text" data-uniform-validators="required" label="Confirmation code" class="input-block-level"></div><p><i>This is security measure to improve your account security</i></p></fieldset></form>';
@@ -17276,18 +17276,19 @@ $JSCompiler_prototypeAlias$$.$onUserLoginOk_$ = function $$JSCompiler_prototypeA
   this.$model_$.set("FinishedInitialOpenOrdersRequest", !1);
   this.$conn_$.$requestOrderList$(this.$open_orders_request_id_$, 0, 100, ["has_leaves_qty eq 1"]);
 };
-$JSCompiler_prototypeAlias$$.$onUserLoginError_$ = function $$JSCompiler_prototypeAlias$$$$onUserLoginError_$$($e$$423_msg$$134$$) {
+$JSCompiler_prototypeAlias$$.$onUserLoginError_$ = function $$JSCompiler_prototypeAlias$$$$onUserLoginError_$$($e$$423_input_element_msg$$134$$) {
   $goog$dom$classes$add$$(document.body, "bitex-not-logged");
   $goog$dom$classes$remove$$(document.body, "bitex-logged");
   $goog$dom$classes$remove$$(document.body, "bitex-broker");
   $goog$dom$classes$remove$$(document.body, "bitex-non-broker");
-  $e$$423_msg$$134$$ = $e$$423_msg$$134$$.data;
+  $e$$423_input_element_msg$$134$$ = $e$$423_input_element_msg$$134$$.data;
   this.$model_$.set("UserID", "");
   this.$model_$.set("Username", "");
-  if ($e$$423_msg$$134$$.NeedSecondFactor) {
+  if ($e$$423_input_element_msg$$134$$.NeedSecondFactor) {
     var $dlg_$$1$$ = this.$showDialog$($bitex$templates$GoogleAuthenticationCodeDialogContent$$(), "2 steps authentication", $bitex$ui$Dialog$ButtonSet$createOkCancel$$()), $gauth_uniform$$1$$ = new $uniform$Uniform$$;
     $gauth_uniform$$1$$.$decorate$($goog$dom$getFirstElementChild$$($dlg_$$1$$.$getContentElement$()));
-    $goog$dom$getElement$$("id_input_google_authenticator").focus();
+    $e$$423_input_element_msg$$134$$ = $goog$dom$getElement$$("id_input_google_authenticator");
+    null != $e$$423_input_element_msg$$134$$ && $e$$423_input_element_msg$$134$$.focus();
     this.$getHandler$().$listen$($dlg_$$1$$, $goog$ui$Dialog$EventType$SELECT$$, function($e$$424_second_factor$$1$$) {
       if ("ok" == $e$$424_second_factor$$1$$.key) {
         var $error_list$$17$$ = $gauth_uniform$$1$$.$validate$();
@@ -17297,8 +17298,8 @@ $JSCompiler_prototypeAlias$$.$onUserLoginError_$ = function $$JSCompiler_prototy
       }
     });
   } else {
-    var $user_status_text$$ = $e$$423_msg$$134$$.UserStatusText;
-    switch($e$$423_msg$$134$$.UserStatusText) {
+    var $user_status_text$$ = $e$$423_input_element_msg$$134$$.UserStatusText;
+    switch($e$$423_input_element_msg$$134$$.UserStatusText) {
       case "MSG_LOGIN_ERROR_INVALID_PASSWORD":
         $user_status_text$$ = "Invalid password";
         break;

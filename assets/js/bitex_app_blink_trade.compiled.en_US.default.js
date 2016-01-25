@@ -17295,18 +17295,19 @@ $JSCompiler_prototypeAlias$$.$onUserLoginOk_$ = function $$JSCompiler_prototypeA
   this.$model_$.set("FinishedInitialOpenOrdersRequest", !1);
   this.$conn_$.$requestOrderList$(this.$open_orders_request_id_$, 0, 100, ["has_leaves_qty eq 1"]);
 };
-$JSCompiler_prototypeAlias$$.$onUserLoginError_$ = function $$JSCompiler_prototypeAlias$$$$onUserLoginError_$$($e$$423_msg$$134$$) {
+$JSCompiler_prototypeAlias$$.$onUserLoginError_$ = function $$JSCompiler_prototypeAlias$$$$onUserLoginError_$$($e$$423_input_element_msg$$134$$) {
   $goog$dom$classes$add$$(document.body, "bitex-not-logged");
   $goog$dom$classes$remove$$(document.body, "bitex-logged");
   $goog$dom$classes$remove$$(document.body, "bitex-broker");
   $goog$dom$classes$remove$$(document.body, "bitex-non-broker");
-  $e$$423_msg$$134$$ = $e$$423_msg$$134$$.data;
+  $e$$423_input_element_msg$$134$$ = $e$$423_input_element_msg$$134$$.data;
   this.$model_$.set("UserID", "");
   this.$model_$.set("Username", "");
-  if ($e$$423_msg$$134$$.NeedSecondFactor) {
+  if ($e$$423_input_element_msg$$134$$.NeedSecondFactor) {
     var $dlg_$$1$$ = this.$showDialog$($bitex$templates$GoogleAuthenticationCodeDialogContent$$(), "2 steps authentication", $bitex$ui$Dialog$ButtonSet$createOkCancel$$()), $gauth_uniform$$1$$ = new $uniform$Uniform$$;
     $gauth_uniform$$1$$.$decorate$($goog$dom$getFirstElementChild$$($dlg_$$1$$.$getContentElement$()));
-    $goog$dom$getElement$$("id_input_google_authenticator").focus();
+    $e$$423_input_element_msg$$134$$ = $goog$dom$getElement$$("id_input_google_authenticator");
+    null != $e$$423_input_element_msg$$134$$ && $e$$423_input_element_msg$$134$$.focus();
     this.$getHandler$().$listen$($dlg_$$1$$, $goog$ui$Dialog$EventType$SELECT$$, function($e$$424_second_factor$$1$$) {
       if ("ok" == $e$$424_second_factor$$1$$.key) {
         var $error_list$$17$$ = $gauth_uniform$$1$$.$validate$();
@@ -17316,8 +17317,8 @@ $JSCompiler_prototypeAlias$$.$onUserLoginError_$ = function $$JSCompiler_prototy
       }
     });
   } else {
-    var $user_status_text$$ = $e$$423_msg$$134$$.UserStatusText;
-    switch($e$$423_msg$$134$$.UserStatusText) {
+    var $user_status_text$$ = $e$$423_input_element_msg$$134$$.UserStatusText;
+    switch($e$$423_input_element_msg$$134$$.UserStatusText) {
       case "MSG_LOGIN_ERROR_INVALID_PASSWORD":
         $user_status_text$$ = "Invalid password";
         break;
