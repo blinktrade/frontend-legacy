@@ -143,6 +143,13 @@ bitex.app.UrlRouter.prototype.setView = function(view_name) {
   var view_id = view_data[1];
   var view_args = view_data.splice(2);
 
+  var menu = goog.dom.getElement("menu-" + actual_view_name);
+  if(goog.isDefAndNotNull(menu)) {
+    goog.array.forEach(goog.dom.getElementsByClass("menu-active"), function(el){
+        goog.dom.classes.remove(el, "menu-active");
+    });
+    goog.dom.classes.add(menu, "menu-active");
+  }
 
   var res = this.dispatchEvent(
       new bitex.app.UrlRouterEvent( bitex.app.UrlRouter.EventType.SET_VIEW, view_id, urlMapping.view, view_args,view_url ));

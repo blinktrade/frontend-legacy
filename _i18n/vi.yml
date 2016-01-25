@@ -1,53 +1,84 @@
 global:
-  portuguese: Tiếng Bồ Đào Nha
-  english: Tiếng Anh
-  spanish: Tiếng Tây Ban Nha
+  portuguese: Português
+  english: English
+  spanish: Español
+  Chinese: 中文
   tagline: Tiếng Việt
   about: Về chúng tôi
   twitter: Twitter
 exchanges:
   demo:
-    title: BlinkDemo - Open Source Bitcoin Exchange demo website
-    description: Open Source Bitcoin Exchange demo website
-    keywords: bitcoin, bitcoin exchange, open source bitcoin exchange, bitcoin trading plataform, open source bitcoin trading plataform
+    title: BlinkDemo - Trang mẫu sàn giao dịch Bitcoin mã nguồn mở
+    description: Trang mẫu sàn giao dịch Bitcoin mã nguồn mở
+    keywords: bitcoin, bitcoin exchange, open source bitcoin exchange, bitcoin trading platform, open source bitcoin trading plataform
     lead: See our open source Bitcoin exchange in action
   chilebit:
-    title: ChileBit.NET - The first bitcoin exchange in Chile
-    description: The first bitcoin exchange in Chile
+    title: ChileBit.NET - Mua và bán Bitcoin tại Chile
+    description: Mua và bán Bitcoin tại Chile
     keywords: Buy and sell bitcoin in Chile, bitcoin exchange in Chile, sell bitcoins in Chile, buy bitcoins in Chile
-    lead: The first bitcoin exchange in Chile
+    lead: Sàn giao dịch Bitcoin đầu tiên tại Chile
   surbitcoin:
-    title: SurBitcoin - The first bitcoin exchange in Venezuela
-    description: The first bitcoin exchange in Venezuela
+    title: SurBitcoin - Mua và bán Bitcoin tại Venezuela
+    description: Mua và bán Bitcoin tại Venezuela
     keywords: Buy and sell bitcoin in Venezuela, bitcoin exchange in Venezuela, sell bitcoins in Venezuela, buy bitcoins in Venezuela
-    lead: The first bitcoin exchange in Venezuela
+    lead: Sàn giao dịch Bitcoin đầu tiên tại Venezuela
   urdubit:
-    title: UrduBit - The first bitcoin exchange in Pakistan
-    description: The first bitcoin exchange in Pakistan
+    title: UrduBit - Mua và bán Bitcoin tại Pakistan
+    description: Mua và bán Bitcoin tại Pakistan
     keywords: Buy and sell bitcoin in Pakistan, bitcoin exchange in Pakistan, sell bitcoins in Pakistan, buy bitcoins in Pakistan
-    lead: The first bitcoin exchange in Pakistan
+    lead: Sàn giao dịch Bitcoin đầu tiên tại Pakistan
   foxbit:
-    title: FoxBit - Buy or sell bitcoins in Brazil
-    description: Compre e venda bitcoins no Brasil de maneira segura através da FoxBit. Com o FoxBit você pode começar a comprar e vender bitcoins hoje. O processo de registro dura menos de um minuto.
+    title: FoxBit - Mua và bán Bitcoin tại Brazil
+    description: Mua và bán Bitcoin tại Brazil
     keywords: Buy and sell bitcoin in Brazil, bitcoin exchange in Brazil, sell bitcoins in Brazil, buy bitcoins in Brazil, Bitcoin exchange in Brazil
-    lead: Compre ou venda seus Bitcoins no Brasil
+    lead: Sàn giao dịch Bitcoin đầu tiên tại Brasil
   romaniabex:
-    title: RomaniaBitcoin.Exchange - Buy or sell bitcoins in Romania
-    description: Buy and sell bitcoin in Romania
+    title: RomaniaBitcoin.Exchange - Mua và bán Bitcoin tại Romania
+    description: Mua và bán Bitcoin tại Romania
     keywords: Buy and sell bitcoin in Romania, bitcoin exchange in Romania, sell bitcoins in Romania, buy bitcoins in Romania
-    lead: Buy and sell bitcoin in Romania
+    lead: Sàn giao dịch Bitcoin đầu tiên tại Romania
   bitcoinvietnam:
     title: VBTC - Mua và bán Bitcoin tại Việt Nam
     description: Mua và bán Bitcoin tại Việt Nam
-    keywords: Mua và bán Bitcoin, sàn giao dịch Bitcoin, mua Bitcoin, bán Bitcoin, Buy and sell bitcoin in Vietnam, bitcoin exchange in Vietnam, sell bitcoins in Vietnam, buy bitcoins in Vietnam
+    keywords: Mua và bán Bitcoin, sàn giao dịch Bitcoin, mua Bitcoin, bán Bitcoin, Buy and sell bitcoin in Vietnam, bitcoin exchange in Vietnam, sell bitcoins in Vietnam, buy bitcoins in Vietnam, VBTC
     lead: Mua và bán Bitcoin tại Việt Nam
   yuanbit:
-    title: YuanBit.com - Buy or sell bitcoins in China
-    description: Buy and sell bitcoin in China
+    title: YuanBit.com - Mua và bán Bitcoin tại Trung Quốc
+    description: Mua và bán Bitcoin tại Trung Quốc
     keywords: Buy and sell bitcoin in China, bitcoin exchange in China, sell bitcoins in China, buy bitcoins in China
-    lead: Buy and sell bitcoin in China
+    lead: Mua và bán Bitcoin tại Trung Quốc
+  bitinvest:
+    title: Bitinvest - Bitcoin rápido, fácil e seguro - Comprar e Vender Bitcoin com as menores taxas do Brasil
+    description: Bitinvest - Bitcoin rápido, fácil e seguro - Comprar e Vender Bitcoin com as menores taxas do Brasil
+    keywords: Bitinvest - Bitcoin rápido, fácil e seguro - Comprar e Vender Bitcoin com as menores taxas do Brasil
+    lead: Bitcoin rápido, fácil e seguro - Comprar e Vender Bitcoin com as menores taxas do Brasil
 views:
+  landing:
+    about:
+      learn: Learn More
+      phrase1:
+        title: Proin quis egestas eros
+        description: Nunc non est ut neque lobortis mattis. Donec ultricies tortor at mi lobortis cursus. Vestibulum felis tellus, ultrices nec odio vitae, facilisis gravida sapien. Etiam efficitur quam at nunc consequat, sed ullamcorper ante convallis. Etiam ultrices, eros a egestas faucibus, nisi lectus ultrices arcu, eu viverra risus justo a est. Fusce laoreet sapien non mattis auctor. Proin odio felis, convallis eu velit quis, condimentum lobortis nibh.
+      phrase2:
+        title: Pellentesque vestibulum lectus
+        description: Integer placerat urna lectus, in luctus odio vehicula vel. Praesent eu sagittis massa. Vivamus ut urna interdum, porttitor ex sed, congue risus. Vestibulum sit amet mattis leo. Curabitur tempor convallis ornare. In dignissim est at pellentesque consequat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In a dui quis metus eleifend maximus.
+      phrase3:
+        title: Maecenas vel magna
+        description: Donec ac tincidunt enim, quis porttitor massa. Sed vulputate ex at quam venenatis, non facilisis justo vestibulum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi diam nisl, congue vehicula maximus eget, tempor nec ipsum. Vestibulum feugiat consequat lacus et congue. Phasellus eu felis vel dui cursus pharetra quis non lectus. Curabitur porta ultrices magna sit amet ultrices. Nam cursus lorem mollis arcu dignissim congue. Praesent vitae venenatis lorem, sit amet efficitur ipsum.
+      phrase4:
+        title: Sed vulputate ex at quam venenatis
+        description: Sed tincidunt libero id ex fermentum, quis interdum dolor sollicitudin. Nunc sit amet tempor nisi. Sed ac justo libero. Sed rhoncus leo in massa tincidunt aliquam. Curabitur eu iaculis purus. Nam eu dui tempor, faucibus dolor et, sodales nisi. Mauris scelerisque velit et magna imperdiet ultrices. Mauris ut libero bibendum, volutpat nulla ac, congue eros. Duis rhoncus facilisis lacinia
+    orderbook:
+      title: Live Order Book
+    signup:
+      title: CREATE YOUR ACCOUNT NOW
+      description: Sign up and discover how easy it is to trade with us.
   footer:
+    about: About
+    company: Company
+    platform: Platform
+    blog: Blog
+    chart: Chart
     latency: Độ trễ
     version: Phiên bản
 
@@ -174,6 +205,9 @@ views:
   line_of_credit:
     title: Hạn mức tín dụng
 
+  history:
+    title: Lịch sử giao dịch
+
   sidebar:
     market: "Thị trường:"
     menu: Menu
@@ -193,3 +227,9 @@ views:
     api: API
     logout: Thoát
     algotrading: Thuật toán cho giao dịch
+    history: Lịch sử giao dịch
+    card:  Blink Card
+  themes:
+    title: Themes
+    choose: Choose a Theme
+

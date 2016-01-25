@@ -36,11 +36,23 @@ body {
 .section-title {
 }
 
+.title-float {
+  float: left;
+}
+
+.content-padding {
+  padding-top: 10px;
+}
+
 /* Give a quick and non-cross-browser friendly divider */
 .sidebar {
   margin-left: 0;
   padding-left: 19px;
   border-left: 1px solid #eee;
+}
+
+.sidebar .nav-list {
+  padding-left: 0px;
 }
 
 .footer {
@@ -217,6 +229,7 @@ ul.parsley-error-list li {
 
 .last-trades-row td {
   line-height: 2px;
+  white-space: nowrap;
 }
 
 .order-book-drag td {
@@ -229,6 +242,7 @@ ul.parsley-error-list li {
 }
 .order-book-row td {
   line-height: 2px;
+  white-space: nowrap;
 }
 .order-book-qty,
 .order-book-price {
@@ -616,5 +630,26 @@ keyframes notification {
 .net-amount {
   font-weight: bold;
   color: #b94a48;
+}
+
+
+.twofactor_steps h2 {
+  display: inline-block;
+  vertical-align: sub;
+}
+
+.twofactor_steps span {
+  margin-left: 10px;
+}
+
+.twofactor_logo{
+  max-width: 70px;
+  padding-left: 5px;
+}
+
+.twofactor_store{
+  max-width: 150px;
+  margin-top: 5px;
+  padding-left: 5px;
 }
 

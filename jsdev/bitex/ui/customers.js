@@ -160,15 +160,12 @@ bitex.ui.Customers = function( opt_domHelper) {
       'label': MSG_CUSTOMER_TABLE_COLUMN_ACTION,
       'sortable': true,
       'formatter': function(id, row_set_obj){
-        /**
-         * @desc Label for deposit button inside the customer table in broker view.
-         */
-        var MSG_CUSTOMER_TABLE_ACTION_DETAILS = goog.getMsg('details');
 
-        var data_row = goog.json.serialize( row_set_obj );
+        var data_row = goog.json.serialize(row_set_obj);
 
-        var classes = "btn btn-mini btn-primary btn-deposit";
-        return goog.dom.createDom( 'button', { 'class':classes, 'data-row': data_row}, MSG_CUSTOMER_TABLE_ACTION_DETAILS );
+        return goog.soy.renderAsElement(bitex.templates.CustomerDetailButton, {
+          dataRow: data_row
+        });
       },
       'classes': function() { return goog.getCssName(bitex.ui.Customers.CSS_CLASS, 'last-login'); }
     }

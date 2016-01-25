@@ -22,6 +22,7 @@ SOY_TEMPLATES="
                ui/bitex_datagrid
                ui/bitex_listview
                ui/order_book
+               ui/order_manager
                ui/simple_chart
                ui/withdraw_methods
                ui/withdraw_method_editor
@@ -35,9 +36,16 @@ SOY_TEMPLATES="
                ui/remittance_box
                ui/api_key_data_entry
                ui/dialog
+               ui/withdraw_request_data_entry
+               ui/deposit_list
+               ui/line_of_credit_table
                view/line_of_credit
+               ui/card_data_entry
+               ui/withdraw_list
+               ui/two_factor
                view/profile
                view/side_bar
+               view/withdraw
 "
 
 for template in $SOY_TEMPLATES ; do 

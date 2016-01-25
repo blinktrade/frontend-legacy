@@ -12,22 +12,8 @@ load_application:       True
     <header class="jumbotron">
       <img src="{{ site.baseurl }}/assets/exchange_logos/{{ site.exchange_logo }}_landing_page_logo.png" style="">
       <p class="lead bitex-view-title bitex-view-title">
-        {% case site.exchange %}
-          {% when 'chilebit' %}
-            {% t exchanges.chilebit.lead  %}
-          {% when 'surbitcoin' %}
-            {% t exchanges.surbitcoin.lead  %}
-          {% when 'urdubit' %}
-            {% t exchanges.urdubit.lead  %}
-          {% when 'foxbit' %}
-            {% t exchanges.foxbit.lead  %}
-          {% when 'romaniabex' %}
-            {% t exchanges.romaniabex.lead  %}
-          {% when 'bitcoinvietnam' %}
-            {% t exchanges.bitcoinvietnam.lead  %}
-          {% else %}
-            {% t exchanges.demo.lead  %}
-          {% endcase %}
+        {% assign lead = "exchanges." | append: site.exchange | append: ".lead" %}
+        {% t lead %}
       </p>
     </header>
 
@@ -36,7 +22,7 @@ load_application:       True
         <form action="" class="form-inline">
           <div class="row-fluid">
             <label for="id_landing_username">{% t views.start.username %}</label>
-            <input class="focus" id="id_landing_username" placeholder="" size="30" type="text">
+            <input class="focus" id="id_landing_username" placeholder="" size="30" type="text" autofocus>
             <label for="id_landing_password">{% t views.start.password %}</label>
             <input id="id_landing_password" placeholder="" size="30"  type="password">
             <button id="id_landing_signin" class="btn btn-primary">{% t views.start.login %}</button>
@@ -263,7 +249,7 @@ load_application:       True
 
     <div class="alert alert-success | bitex-model" style="display: none" data-model-key="TwoFactorEnabled" data-model-action="hide_element">
       <button type="button" class="close" data-dismiss="alert">&times;</button>
-      <a href="" data-switch-view="profile"> {% t views.alerts.enable_two_factor %} </a>
+      <a href="" data-switch-view="twofactor"> {% t views.alerts.enable_two_factor %} </a>
     </div>
 
     <div class="alert alert-error | bitex-model" style="display: none" data-model-key="IsAccountBlocked" data-model-action="show_element">
@@ -324,6 +310,10 @@ load_application:       True
         </div>
       </div>
 
+      <div id="twofactor" class="bitex-view">
+        <div id="twofactor_content"></div>
+      </div>
+
       <div id="trading" class="bitex-view">
         <div class="section-title">
           <h3 class="bitex-view-title">{% t views.trading.title %}</h3>
@@ -363,6 +353,14 @@ load_application:       True
         </div>
       </div>
 
+      <div id="history" class="bitex-view">
+        <div class="section-title">
+          <h3 class="bitex-view-title">{% t views.history.title %}</h3>
+        </div>
+        <div class="content bitex-view-content">
+        </div>
+      </div>
+
       <div id="customers" class="bitex-view">
         <div class="section-title">
           <h3 class="bitex-view-title">{% t views.customers.title %}</h3>
@@ -398,10 +396,10 @@ load_application:       True
       </div>
 
       <div id="withdraw" class="bitex-view">
-        <div class="section-title">
+        <div class="section-title title-float">
           <h3 class="bitex-view-title">{% t views.withdraw.title %}</h3>
         </div>
-        <div class="content bitex-view-content">
+        <div class="content bitex-view-content content-padding">
           <div id="id_withdraw_button_group" class="row-fluid text-right" style="margin-bottom:20px" ></div>
           <div id="id_user_balances_well"></div>
 
@@ -419,10 +417,10 @@ load_application:       True
       </div>
 
       <div id="deposit" class="bitex-view">
-        <div class="section-title">
+        <div class="section-title title-float">
           <h3 class="bitex-view-title">{% t views.deposit.title %}</h3>
         </div>
-        <div class="content bitex-view-content">
+        <div class="content bitex-view-content content-padding">
           <div id="id_deposit_button_group" class="row-fluid text-right" style="margin-bottom:20px" ></div>
           <div id="id_deposit_balances_container"></div>
 
@@ -437,6 +435,23 @@ load_application:       True
         <div class="content bitex-view-content">
           <div id="id_deposit_request_list"></div>
         </div>
+      </div>
+
+      <div id="card" class="bitex-view">
+          <div class="section-title">
+              <h3 class="bitex-view-title">
+                  <i class="icon-tag"></i>
+                  <span>BlinkCard</span>
+              </h3>
+          </div>
+          <div class="content bitex-view-content">
+              <div id="id_card_button_group" class="row-fluid text-right">
+                  <a id="id_btn_new_card" class="btn btn-primary">
+                      <i class="icon-plus">New Card</i>
+                  </a>
+              </div>
+              <br>
+          </div>
       </div>
 
       <div id="ledger" class="bitex-view">
@@ -519,12 +534,15 @@ load_application:       True
 
     <div id="id_sidebar" class="span3 sidebar bitex-view
                                                 bitex-view-profile
+                                                bitex-view-twofactor
                                                 bitex-view-trading
                                                 bitex-view-offerbook
+                                                bitex-view-history
                                                 bitex-view-customers
                                                 bitex-view-account_overview
                                                 bitex-view-withdraw
                                                 bitex-view-withdraw_requests
+                                                bitex-view-card
                                                 bitex-view-deposit
                                                 bitex-view-deposit_requests
                                                 bitex-view-ledger
@@ -534,8 +552,7 @@ load_application:       True
                                                 bitex-view-line_of_credit 
                                                 bitex-view-my_broker
                                                 bitex-view-verification">
-      <h3><span class="bitex-model bitex-view-title" data-model-key="DisplayName"></span></h3>
-
+      <h3><span class="bitex-model bitex-view-title" data-model-key="DisplayName"></span></h3> 
       <div class="bitex-view-content">
         <div id="account_balance" style="">
 
@@ -553,57 +570,67 @@ load_application:       True
 
         <h6>{% t views.sidebar.menu %}</h6>
         <ul class="nav nav-list">
-          <li style="">
+          <li id="menu-profile">
             <a href="" data-switch-view="profile">
               <i data-switch-view="profile" class="icon-user"></i> {% t views.sidebar.my_profile %}</a>
           </li>
-          <li style="">
+          <li id="menu-broker">
             <a href="" data-switch-view="my_broker">
               <i data-switch-view="my_broker" class="icon-search"></i> {% t views.sidebar.my_broker %}</a></li>
 
-          <li>
+          <li id="menu-trading">
             <a href="" data-switch-view="trading">
               <i data-switch-view="trading" class="icon-random"></i> {% t views.sidebar.trading %}</a>
           </li>
 
-          <li>
+          <li id="menu-offerbook">
             <a href="" data-switch-view="offerbook">
               <i data-switch-view="offerbook" class="icon-book"></i> {% t views.sidebar.offerbook %}</a>
           </li>
 
-          <li style="">
+          <li class="bitex-display-if-non-broker" id="menu-history">
+            <a href="" data-switch-view="history">
+              <i data-switch-view="history" class="icon-list-alt"></i> {% t views.sidebar.history %}</a>
+          </li>
+
+          <li id="menu-algotrading">
             <a href="" data-switch-view="algotrading">
               <i data-switch-view="algotrading" class="icon-cog"></i> {% t views.sidebar.algotrading %}</a>
           </li>
 
-          <li style="">
+          <li id="menu-ledger">
             <a href="" data-switch-view="ledger">
               <i data-switch-view="ledger" class="icon-list"></i> {% t views.sidebar.ledger %}</a>
           </li>
 
-          <li style="" class="bitex-display-if-broker">
+          <li class="bitex-display-if-broker" id="menu-customers">
             <a href="" data-switch-view="customers">
               <i data-switch-view="customers" class="icon-user"></i> {% t views.sidebar.customers %}</a>
           </li>
 
-          <li style="" class="bitex-display-if-broker">
+          <li class="bitex-display-if-broker" id="menu-deposit_requests">
             <a href="" data-switch-view="deposit_requests">
               <i data-switch-view="deposit_requests" class="icon-plus"></i> {% t views.sidebar.deposit_requests %}</a>
           </li>
 
-          <li style="" class="bitex-display-if-broker">
+          <li class="bitex-display-if-broker" id="menu-withdraw_requests">
             <a href="" data-switch-view="withdraw_requests">
               <i data-switch-view="withdraw_requests" class="icon-minus"></i> {% t views.sidebar.withdraw_requests %}</a>
           </li>
 
-          <li style="">
+          <li id="menu-deposit">
             <a href="" data-switch-view="deposit">
               <i data-switch-view="deposit" class="icon-plus"></i> {% t views.sidebar.deposit %}</a>
           </li>
 
-          <li style="">
+          <li id="menu-withdraw">
             <a href="" data-switch-view="withdraw">
               <i data-switch-view="withdraw" class="icon-minus"></i> {% t views.sidebar.withdraw %}</a>
+          </li>
+
+          <li class="bitex-display-if-non-broker bitex-model" style="display: none" id="card_menu_id"  data-model-key="HasCardFeature" data-model-action="show_element" id="menu-card">
+              <a href="" data-switch-view="card">
+                  <i data-switch-view="card" class="icon-tag"></i> {% t views.sidebar.card %}</a>
           </li>
 
           <li style="" class="bitex-display-if-non-broker" id="verification_menu_id">
@@ -612,7 +639,7 @@ load_application:       True
           </li>
 
 
-          <li style="" class="bitex-display-if-non-broker bitex-model" style="display: none"  id="line_of_credit_menu_id" data-model-key="HasLineOfCredit" data-model-action="show_element">
+          <li style="" class="bitex-display-if-non-broker bitex-model" style="display: none"  id="line_of_credit_menu_id" data-model-key="HasLineOfCredit" data-model-action="show_element" id="menu-line_of_credit">
             <a href="" data-switch-view="line_of_credit">
               <i data-switch-view="line_of_credit" class="icon-retweet"></i> {% t views.sidebar.line_of_credit %}</a>
           </li>
@@ -622,7 +649,7 @@ load_application:       True
               <i data-switch-view="faq" class="icon-question"></i> {% t views.sidebar.support %}</a>
           </li>
 
-          <li style="">
+          <li style="" id="menu-api">
             <a href="" data-switch-view="api">
               <i data-switch-view="api" class="icon-globe"></i> {% t views.sidebar.api %}</a>
           </li>
@@ -649,27 +676,35 @@ load_application:       True
 
   <div id="themes" class="bitex-view container page" style="display: none">
     <div class="page-header ls-title-4">
-        <h1 class="bitex-view-title">Themes</h1>
+        <h1 class="bitex-view-title">{% t views.themes.title %}</h1>
     </div>
-    <p>Choose a Theme</p>
+    <p>{% t views.themes.choose %}</p>
     <hr>
     <div class="bitex-view-content">
         <div class="row" style="text-align:center">
+            <div class="span5" style="margin:auto;float:none">
+                <a href="{{ site.url}}{{ site.baseurl}}/themes/coinage/">
+                    <img src="{{ site.url}}{{ site.baseurl }}/assets/exchange_logos/thumb-themes/{{ site.exchange }}-coinage-thumb.jpg" alt="Coinage Theme">
+                    <h3>Coinage Theme</h3>
+                </a>
+            </div>
+        </div>
+        <div class="row" style="text-align:center">
             <div class="span4">
                 <a href="{{ site.url}}{{ site.baseurl}}/themes/default/">
-                    <img src="{{ site.url}}{{ site.baseurl }}/assets/exchange_logos/thumb-themes/default-theme.jpg" alt="Default Theme">
+                    <img src="{{ site.url}}{{ site.baseurl }}/assets/exchange_logos/thumb-themes/{{ site.exchange }}-default-thumb.jpg" alt="Default Theme">
                     <h3>Default Theme</h3>
                 </a>
             </div>
             <div class="span4">
                 <a href="{{ site.url}}{{ site.baseurl}}/themes/ander/">
-                    <img src="{{ site.url}}{{ site.baseurl }}/assets/exchange_logos/thumb-themes/ander-theme.jpg" alt="Ander Theme">
+                    <img src="{{ site.url}}{{ site.baseurl }}/assets/exchange_logos/thumb-themes/{{ site.exchange }}-ander-thumb.jpg" alt="Ander Theme">
                     <h3>Ander</h3>
                 </a>
             </div>
             <div class="span4">
                 <a href="{{ site.url}}{{ site.baseurl}}/themes/whitedev/">
-                    <img src="{{ site.url}}{{ site.baseurl }}/assets/exchange_logos/thumb-themes/whitedev-theme.jpg" alt="Whitedev Theme">
+                    <img src="{{ site.url}}{{ site.baseurl }}/assets/exchange_logos/thumb-themes/{{ site.exchange }}-whitedev-thumb.jpg" alt="Whitedev Theme">
                     <h3>Whitedev</h3>
                 </a>
             </div>

@@ -33,7 +33,10 @@
 .ls-menu{
     background: #444 url(../images/blur.png) center no-repeat;
     background-size: 200%;
-    height: calc(100% - 360px)!important;
+    height: calc(100% - 430px)!important;
+}
+.brand-menu {
+    max-height: 55px;
 }
 /* FONTES*/
 @font-face{
@@ -42,6 +45,28 @@
 }
 .ls-box{
 	border-radius: 0 !important;
+}
+
+#sidebar_wrap{
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 350px;
+}
+
+#account_balance {
+    margin-bottom: -2px;
+    padding-bottom: 0px;
+    /* display: inline-block; */
+    width: 100%;
+    /* overflow-y: auto; */
+    /* overflow-x: hidden; */
+}
+#id_remittance_box {
+    /* max-height: 150px; */
+    /* overflow-y: auto; */
+}
+#id_remittance_box table {
+    margin:0;
 }
 .youraccount strong,.b{ 
 	color: #E8683E;
@@ -56,16 +81,33 @@ a:hover:not(.ls-btn),a:focus,a{
 .youraccount [class^="flaticon-"]:before{
 	margin-left: 0 !important;
 }
-.youraccount{
-  padding-right: 0;
-}
 .ls-menu{
-    margin-top: -20px!important;
+    /* margin-top: -20px!important; */
 	overflow-y: auto;
 }
 #id_account_summary_content{
-    max-height:200px;
-    overflow-y: auto;
+    /* max-height:200px; */
+}
+
+.api-key-data-entry-form-block {
+    padding: 10px;
+    padding-left: 0;
+}
+.api-key-data-entry-form-block .lsbox {
+    padding: 15px;
+}
+.api-key-data-entry-form-block input {
+    margin-left: 10px;
+}
+
+.api-key-data-entry-form-permissions-table{
+    width: 50%
+}
+.api-key-data-entry-form-permissions-table tr{
+    height: 30px;
+}
+.api-key-data-entry-form-permissions-table tr input{
+    margin-right: 10px;
 }
 
 /* mudar os botoes */
@@ -237,7 +279,18 @@ body{
 }
 
 .thumb-theme{
-    box-shadow: 0px 0px 7px #808080;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 0px 0px 4px #ddd;
+}
+
+.thumb-theme img{
+    border: 1px solid #ddd;
+}
+
+.thumb-theme h3{
+    margin-top: 10px;
 }
 
 .login-input input{
@@ -251,10 +304,22 @@ body{
     padding: 25px 20px!important;
     border-top: 1px solid #F7F7F7;
 }
-.active, .active:hover{
+.active, .active:hover {
     background-color: #E8683E;
     border-color: #B07200;
     color:white;
+}
+
+.menu-active {
+}
+.menu-active a {
+  color: white!important;
+  background-color: #323232;
+  padding-left: 65px;
+}
+
+.menu-active a:before {
+  left: 25px;
 }
 
 ul.start-links{
@@ -292,14 +357,16 @@ ul.ls-footer-list li{
 .ls-language .ls-dropdown-nav{
     border:none;
     border-radius:0px;
-    margin-top:22px;
-    margin-left:-30px
+    margin-top:24px;
+    margin-left:-30px;
+    min-width: 82px;
 }
 
 .ls-language nav ul a {
     background: #222;
     padding: 15px 20px!important;
     color:#888!important;
+    text-align: center!important;
     -ms-transition: all 0.2s ease-out;
     -moz-transition: all 0.2s ease-out;
     -webkit-transition: all 0.2s ease-out;
@@ -324,6 +391,17 @@ footer{
 .ul-form li label{
     width: 35%;
     display: table-cell;
+}
+
+.order-entry-row {
+    height: 60px;
+    border-bottom: 1px solid #eee;
+    padding-top: 15px;
+    padding-bottom: 50px;
+}
+
+.order-entry-row > div > span {
+    vertical-align: middle;
 }
 
 .md-blink,
@@ -352,7 +430,7 @@ footer{
 
 #id_order_book_ask_content .ls-table td,
 #id_order_book_bid_content .ls-table td {
-    padding:7px;
+    padding:5px;
 }
 
 .flaticon-refresh56{
@@ -441,6 +519,12 @@ footer{
 }
 .withdraw-list-details > table {
     width : 100%;
+}
+
+label.control-label.withdraw-method-label {
+    vertical-align: middle;
+    font-size: initial;
+    width: 15%;
 }
 
 /* accordion */
@@ -566,4 +650,9 @@ footer{
 
 .ws-not-connected .bitex-display-if-ws-connected {
   display: none;
+}
+
+.zopim {
+    right: 10px;
+    left: initial!important;
 }

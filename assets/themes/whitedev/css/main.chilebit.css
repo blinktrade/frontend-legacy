@@ -8,8 +8,19 @@
 .ls-menu{
     background:none;
 }
+
+.ls-user-account .ls-user-menu ul a {
+    border-bottom: 1px solid #ddd!important;
+}
 .ls-user-account .ls-user-menu-header, .ls-language nav ul a{
     background:#eee!important;
+}
+.md-blink,
+.md-blink > td,
+.order-manager-blink td,
+.balance-info-blink td,
+.order-book-blink td {
+  background: rgba(40, 166, 222, 0.25)!important;
 }
 
 .modal > .modal-footer > .btn-primary,
@@ -56,12 +67,24 @@ textarea{
 .ls-btn-danger:hover, .ls-btn-danger:focus, .ls-btn-danger.ls-active{
 }
 
+.fuelux a{
+    color: #3E82E1!important;
+}
+.fuelux .btn{
+    border: 2px solid #3E82E1!important;
+}
+.fuelux .btn-info, .fuelux .dropdown-menu > li > a:hover{
+    color: white!important;
+    background: #3E82E1!important;
+}
+
+
 .ls-theme-orange .ls-brand-name{
     background:#3E82E1!important;
     background-color:#3E82E1!important;
 }
 .ls-btn-danger, .ls-theme-orange .ls-table tbody a:not([class*="ls-btn"]){
-    color:#CD1931!important;
+    /* color:#CD1931!important; */
 }
 .ls-btn-danger:hover{
     color:white!important;

@@ -1,32 +1,134 @@
 .balance {
     color: #9d9d9d;
-    line-height: 20px;
-    padding: 15px 15px;
+    /* padding: 8px 0; */
+
+    .btn-balance{
+      outline: none;
+      color: $brand-primary;
+      transition: all .2s ease;
+      &:hover{
+        color: lighten($brand-primary, 10%);
+      }
+    }
+    .btn-deposit {
+      padding: 0px 2px 0px 12px!important;
+    }
+    .btn-withdraw {
+      padding: 0px 4px!important;
+    }
 }
 
 .balance__title {
     color: #fff;
     display: inline-block;
     font-weight: 700;
+    margin-bottom: 5px;
+
+    @media (min-width: $screen-desktop) {
+        margin-bottom: 0;
+    }
 }
 
 .balance__currencies {
-    display: inline-block;
     list-style: none;
     margin: 0;
     padding-left: 0;
+
+    a {
+        color: $brand-primary;
+    }
+
+    @media (min-width: $screen-desktop) {
+        display: inline-block;
+    }
 }
 
 .balance-currency {
-    border-right: 1px solid #9d9d9d;
-    display: inline-block;
-    padding: 0 8px;
+    padding: 5px 0;
 
-    &:last-child {
-        border-right: none;
+    @media (min-width: $screen-desktop) {
+        /* border-right: 1px solid #9d9d9d; */
+        display: inline-block;
+        padding: 0 8px;
+
+        &:last-child {
+            border-right: none;
+            padding-right: 0;
+        }
     }
 }
 
 .balance-currency__amount {
     color: #fff;
 }
+
+.separator {
+    border-left: 1px solid #4f5b63;
+    display: inline-block;
+    height: 16px;
+    position: relative;
+    top: 3px;
+    margin-left: 8px;
+    margin-right: 4px;
+}
+
+.dropdown-account {
+    background-color: #f5fafd;
+    a {
+        &:hover {
+            background-color: #f5fafd!important;
+            color: #333!important;
+        }
+    }
+}
+
+.dropdown-menu {
+    padding: 0px 0!important;
+    border-top-right-radius: 3px!important;
+    border-top-left-radius: 3px!important;
+    border-color: rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    li {
+        padding: 0!important;
+    }
+}
+
+.dropdown.open {
+    .dropdown-arrow {
+        visibility: visible;
+    }
+}
+
+.dropdown-arrow {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+    z-index: 999999;
+    bottom: -1px;
+    right: 40%;
+    margin-left: -5px;
+    border-width: 0 5px 5px;
+    border-bottom-color: #f5fafd;
+    visibility: hidden;
+}
+
+
+.thumb {
+    border-radius: 100%;
+}
+
+.thumb-p{
+    width: 28px;
+    height: 28px;
+    margin-top: -4px;
+    margin-right: 8px;
+}
+
+.thumb-g {
+    width: 50px;
+    height: 50px;
+    margin-right: 8px;
+}
+

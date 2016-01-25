@@ -14,7 +14,7 @@
   * @param price_currency_code
   */
 {template .AdvancedOrderEntry}
-  <form id="{$id}" class="col-md-6 ls-box advanced-order-entry" data-uniform-control-holder-class="uniform-control-holder">
+  <form id="{$id}" class="col-md-6 ls-box advanced-order-entry" data-uniform-control-holder-class="uniform-control-holder" style="padding-top:0">
     <input id="{$id}_symbol" type="hidden" name="symbol" value="{$symbol}">
     <input id="{$id}_side" type="hidden" name="side" value="{$side}">
     <input id="{$id}_type" type="hidden" name="type" value="{$type}">
@@ -22,7 +22,7 @@
     <input id="{$id}_broker_id" type="hidden" name="broker_id" value="{$broker_id}">
 
 
-    <div class="row">
+    <div class="row order-entry-row">
       <div class="col-md-6">
         <span>{msg desc="Amount label in Advanced Order Entry"}Amount:{/msg}</span>
       </div>
@@ -42,8 +42,7 @@
           </div>
       </div>
     </div>
-    <div class="row">
-        <hr>
+    <div class="row order-entry-row">
         <div class="col-md-6">
             <span>{msg desc="'Price per label' in Order Entry"}Price per {/msg}<span class="advanced-order-entry-amount-sign">{$amount_currency_symbol}</span>:</span>
         </div>
@@ -62,8 +61,7 @@
             </div>
         </div>
     </div>
-    <div class="row">
-        <hr>
+    <div class="row order-entry-row">
         <div class="col-md-6"><span>{msg desc="Total label in Order Entry"}Total:{/msg}</span>
         </div>
         <div class="col-md-6">
@@ -81,8 +79,7 @@
             </div>
         </div>
     </div>
-    <hr>
-    <div class="row-fluid">
+    <div class="row-fluid order-entry-row" style="border-bottom:0">
     <div class="col-md-6">
       {if $is_broker }
         <input id="{$id}_client_id"

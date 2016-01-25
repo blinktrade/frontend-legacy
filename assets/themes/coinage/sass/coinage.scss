@@ -1,6 +1,3 @@
-// Core variables and mixins
-@import "bootstrap/variables";
-@import "bootstrap/mixins";
 
 // Reset and dependencies
 @import "bootstrap/normalize";
@@ -50,6 +47,13 @@
 @import "bootstrap/responsive-utilities";
 
 // Coinage
+@import "new/fuelux";
+@import "new/profile";
+@import "new/font";
+@import "new/head";
+@import "new/algo";
+@import "new/main";
+@import "new/home";
 @import "new/page";
 @import "new/order";
 @import "new/balance";
@@ -57,3 +61,14 @@
 @import "new/market";
 @import "new/broker";
 @import "new/sidebar";
+@import "new/lock";
+@import "new/ledger";
+@import "new/notifications";
+@import "new/dialog";
+@import "new/withdraw";
+@import "new/remittance_box";
+@import "new/alert";
+@import "new/themes";
+
+// Coinage Themed
+@import "themed/home";
