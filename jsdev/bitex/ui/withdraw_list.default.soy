@@ -28,6 +28,11 @@
         {param dataRow: $dataRow /}
       {/call}
     {/if}
+    {if $button1 == 'user_cancel'}
+      {call .btnUserCancel }
+        {param dataRow: $dataRow /}
+      {/call}
+    {/if}
     {if $button1 == 'progress'}
       {call .btnProgress }
         {param dataRow: $dataRow /}
@@ -52,6 +57,11 @@
     {/if}
     {if $button2 == 'cancel'}
       {call .btnCancel }
+        {param dataRow: $dataRow /}
+      {/call}
+    {/if}
+    {if $button2 == 'user_cancel'}
+      {call .btnUserCancel }
         {param dataRow: $dataRow /}
       {/call}
     {/if}
@@ -82,6 +92,11 @@
         {param dataRow: $dataRow /}
       {/call}
     {/if}
+    {if $button3 == 'user_cancel'}
+      {call .btnUserCancel }
+        {param dataRow: $dataRow /}
+      {/call}
+    {/if}
     {if $button3 == 'progress'}
       {call .btnProgress }
         {param dataRow: $dataRow /}
@@ -105,6 +120,16 @@
  */
 {template .btnCancel}
   <button class="btn btn-mini btn-danger btn-withdraw-cancel" data-row="{$dataRow}" >
+   {msg desc="Cancel"}Cancel{/msg}
+   <i class="icon-white icon-remove"></i>
+  </button>
+{/template}
+
+/**
+ * @param dataRow
+ */
+{template .btnUserCancel}
+  <button class="btn btn-mini btn-danger btn-withdraw-user-cancel" data-row="{$dataRow}" >
    {msg desc="Cancel"}Cancel{/msg}
    <i class="icon-white icon-remove"></i>
   </button>

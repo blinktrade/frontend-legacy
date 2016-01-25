@@ -523,7 +523,6 @@ bitex.ui.WithdrawList = function( methodDescriptionObj, opt_broker_mode,  opt_sh
           data_row = goog.json.serialize(rowSet);
 
           var btn_user_redo   = goog.soy.renderAsElement(bitex.ui.WithdrawList.templates.btnRedo,   { dataRow: data_row });
-          var btn_user_cancel = goog.soy.renderAsElement(bitex.ui.WithdrawList.templates.btnCancel, { dataRow: data_row });
 
           switch(rowSet['Status']){
             case '0':
@@ -533,7 +532,7 @@ bitex.ui.WithdrawList = function( methodDescriptionObj, opt_broker_mode,  opt_sh
                         goog.dom.createDom('td', goog.getCssName(bitex.ui.WithdrawList.CSS_CLASS, 'details-td-value'),
                             goog.soy.renderAsElement(bitex.ui.WithdrawList.templates.btnGroup, {
                               button1: 'redo',
-                              button2: 'cancel',
+                              button2: 'user_cancel',
                               dataRow: data_row
                             })
                             )));
@@ -545,7 +544,7 @@ bitex.ui.WithdrawList = function( methodDescriptionObj, opt_broker_mode,  opt_sh
                         goog.dom.createDom('td', goog.getCssName(bitex.ui.WithdrawList.CSS_CLASS, 'details-td-value'),
                           goog.soy.renderAsElement(bitex.ui.WithdrawList.templates.btnGroup, {
                             button1: 'redo',
-                            button2: 'cancel',
+                            button2: 'user_cancel',
                             dataRow: data_row
                           })
                         )));
@@ -604,8 +603,6 @@ bitex.ui.WithdrawList = function( methodDescriptionObj, opt_broker_mode,  opt_sh
         }
 
         var btn_cancel   = goog.soy.renderAsElement(bitex.ui.WithdrawList.templates.btnCancel,   { dataRow: data_row });
-        var btn_progress = goog.soy.renderAsElement(bitex.ui.WithdrawList.templates.btnProgress, { dataRow: data_row });
-        var btn_complete = goog.soy.renderAsElement(bitex.ui.WithdrawList.templates.btnComplete, { dataRow: data_row });
 
         if (goog.isDefAndNotNull(btn_kyc)) {
           var userVerificationData = goog.json.serialize(row_set_obj['UserVerificationData']);
