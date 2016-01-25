@@ -6,7 +6,7 @@
  */
 {template .CancelOrder}
   <button class="btn btn-mini btn-danger" data-action="cancel"
-    data-client-order-id="{$dataClientOrderId}" data-order-id="{$dataOrderId}">
+    data-client-order-id="{$dataClientOrderId}" {if $dataOrderId}data-order-id="{$dataOrderId}"{/if}>
     {msg desc="cancel"}cancel{/msg}
   </button>
 {/template}
