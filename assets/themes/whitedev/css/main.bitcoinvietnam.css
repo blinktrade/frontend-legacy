@@ -1,0 +1,92 @@
+/* 
+ * pallete
+ * GreenLight : #88DA65
+ * Green      : #01411c
+ * #60774F
+ */
+
+.ls-menu{
+    background:none;
+}
+.ls-user-account .ls-user-menu-header, .ls-language nav ul a{
+    background:#eee!important;
+}
+
+.modal > .modal-footer > .btn-primary,
+.ls-theme-orange .ls-btn-primary, .active, .active:hover{
+    background-color: #88DA65;
+    border-color: #88DA65!important;
+    color:white!important;
+}
+
+.modal > .modal-footer > .btn-primary,
+.ls-theme-orange .ls-btn-primary:hover, .ls-btn-primary:focus{
+    background-color: #88DA65!important;
+    border-color: #88DA65!important;
+}
+.ls-btn, .modal > .modal-footer > .btn{
+    border: 2px solid #88DA65!important;
+}
+.ls-theme-orange [class*="ls-go"],
+.ls-theme-orange .ls-dropdown ul a:focus, .ls-theme-orange .ls-dropdown ul a:hover{
+    background:#60774F!important;
+}
+
+.ls-input-text,
+.ls-theme-orange .ls-topbar .ls-alerts-list [class^="ls-ico"],
+.ls-theme-orange .ls-info-header [class*="ls-title"],
+.youraccount strong, .b,
+.ls-txt a,
+ul.start-links a,
+input[type],
+textarea{
+    color: #88DA65!important;
+}
+
+.ls-theme-orange .ls-table.ls-bg-header thead{
+    background-color:#88DA65;
+}
+
+@media (max-width: 768px){
+    .ls-theme-orange .ls-topbar{
+        background: #60774F url(../images/brand-bitcoinvietnam-p.png) center center no-repeat !important;
+        background-size:30px;
+    }
+}
+.ls-btn-danger:hover, .ls-btn-danger:focus, .ls-btn-danger.ls-active{
+}
+
+.ls-btn, .fuelux .btn{
+    border-color: #88DA65!important;
+}
+.ls-theme-orange .ls-brand-name,
+.fuelux .label-important, .fuelux .badge-important{
+    background:#60774F!important;
+    background-color:#60774F!important;
+}
+.fuelux a.btn-info{
+    background:white!important;
+    background-color:white!important;
+    color:#000!important;
+}
+.ls-btn-danger {
+    color:#CD1931!important;
+}
+.ls-btn-danger:hover{
+    color:white!important;
+}
+.ls-btn-danger, .ls-theme-orange .ls-table tbody a:not([class*="ls-btn"]){
+    color:#000!important;
+}
+
+.md-blink,
+.md-blink > td,
+.order-manager-blink td,
+.balance-info-blink td,
+.order-book-blink td {
+  background: #DBFFEA!important;
+}
+
+.ls-topbar .ls-ico-menu:before, .ls-topbar .ls-show-notifications:before{
+    color:white!important;
+}

@@ -31,7 +31,7 @@
 .navbar-header {
   @include clearfix;
 
-  @media (min-width: $grid-float-breakpoint) {
+  @media (min-width: $screen-desktop) {
     float: left;
   }
 }
@@ -60,7 +60,7 @@
     overflow-y: auto;
   }
 
-  @media (min-width: $grid-float-breakpoint) {
+  @media (min-width: $screen-desktop) {
     width: auto;
     border-top: 0;
     box-shadow: none;
@@ -218,8 +218,13 @@
     margin-top: 4px;
   }
 
-  @media (min-width: $grid-float-breakpoint) {
+  @media (min-width: $screen-tablet) {
+    margin-right: 0;
+  }
+
+  @media (min-width: $screen-desktop) {
     display: none;
+    margin-right: 0;
   }
 }
 
@@ -238,7 +243,7 @@
     line-height: $line-height-computed;
   }
 
-  @media (max-width: $grid-float-breakpoint-max) {
+  @media (max-width: $screen-desktop) {
     // Dropdowns get custom display when collapsed
     .open .dropdown-menu {
       position: static;
@@ -263,7 +268,7 @@
   }
 
   // Uncollapse the nav
-  @media (min-width: $grid-float-breakpoint) {
+  @media (min-width: $screen-desktop) {
     float: left;
     margin: 0;
 
@@ -380,12 +385,17 @@
     float: left !important;
   }
   .navbar-right {
-    float: right !important;
-  margin-right: -$navbar-padding-horizontal;
+    margin-right: -$navbar-padding-horizontal;
 
     ~ .navbar-right {
       margin-right: 0;
     }
+  }
+}
+
+@media (min-width: $screen-desktop) {
+  .navbar-right {
+      float: right !important;
   }
 }
 
@@ -467,7 +477,7 @@
       }
     }
 
-    @media (max-width: $grid-float-breakpoint-max) {
+    @media (max-width: $screen-desktop) {
       // Dropdowns get custom display when collapsed
       .open .dropdown-menu {
         > li > a {
@@ -601,7 +611,7 @@
       }
     }
 
-    @media (max-width: $grid-float-breakpoint-max) {
+    @media (max-width: $screen-desktop) {
       // Dropdowns get custom display
       .open .dropdown-menu {
         > .dropdown-header {

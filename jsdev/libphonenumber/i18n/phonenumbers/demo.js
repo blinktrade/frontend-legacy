@@ -136,10 +136,6 @@ function phoneNumberParser() {
     output.append(isNumberValid ?
                   phoneUtil.formatOutOfCountryCallingNumber(number, 'CH') :
                   'invalid');
-    output.append('\nOut-of-country format from Brazil: ');
-    output.append(isNumberValid ?
-                  phoneUtil.formatOutOfCountryCallingNumber(number, 'BR') :
-                  'invalid');
     if (carrierCode.length > 0) {
       output.append('\nNational format with carrier code: ');
       output.append(phoneUtil.formatNationalNumberWithCarrierCode(number,

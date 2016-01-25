@@ -156,8 +156,8 @@ bitex.view.OfferBookView.prototype.destroyOrderBookComponents_ = function( ) {
 
   if (goog.isDefAndNotNull(this.order_book_bid_) ) {
     handler.unlisten(this.order_book_bid_ ,bitex.ui.OrderBook.EventType.CANCEL, this.onCancelOrder_ );
-    handler.unlisten(this.order_book_bid_ ,bitex.ui.OrderBook.EventType.QTY_CLICK, this.onQtyClick_ );
-    handler.unlisten(this.order_book_bid_ ,bitex.ui.OrderBook.EventType.PRICE_CLICK, this.onPriceClick_ );
+    handler.unlisten(this.order_book_bid_ ,bitex.ui.OrderBook.EventType.QTY_CLICK, this.onPriceQtyClick_ );
+    handler.unlisten(this.order_book_bid_ ,bitex.ui.OrderBook.EventType.PRICE_CLICK, this.onPriceQtyClick_ );
     handler.unlisten(this.order_book_bid_ ,bitex.ui.OrderBook.EventType.CANCEL_REPLACE, goog.bind(this.onCancelReplaceOrder_, this, '1'));
 
 
@@ -165,8 +165,8 @@ bitex.view.OfferBookView.prototype.destroyOrderBookComponents_ = function( ) {
   }
   if (goog.isDefAndNotNull(this.order_book_offer_) ) {
     handler.unlisten(this.order_book_offer_ ,bitex.ui.OrderBook.EventType.CANCEL, this.onCancelOrder_ );
-    handler.unlisten(this.order_book_offer_ ,bitex.ui.OrderBook.EventType.QTY_CLICK, this.onQtyClick_ );
-    handler.unlisten(this.order_book_offer_ ,bitex.ui.OrderBook.EventType.PRICE_CLICK, this.onPriceClick_ );
+    handler.unlisten(this.order_book_offer_ ,bitex.ui.OrderBook.EventType.QTY_CLICK, this.onPriceQtyClick_ );
+    handler.unlisten(this.order_book_offer_ ,bitex.ui.OrderBook.EventType.PRICE_CLICK, this.onPriceQtyClick_ );
     handler.unlisten(this.order_book_offer_ ,bitex.ui.OrderBook.EventType.CANCEL_REPLACE, goog.bind(this.onCancelReplaceOrder_, this, '2'));
 
     this.order_book_offer_.dispose();

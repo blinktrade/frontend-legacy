@@ -260,3 +260,40 @@ ul.parsley-error-list li {
     z-index: 9999;
     margin: 0 0 12px;
 }
+
+.twofactor_steps h2 {
+  display: inline-block;
+  vertical-align: sub;
+}
+
+.twofactor_steps span {
+  margin-left: 10px;
+}
+
+.twofactor_logo{
+  max-width: 70px;
+  padding-left: 5px;
+}
+
+.twofactor_store{
+  max-width: 150px;
+  margin-top: 5px;
+  padding-left: 5px;
+}
+
+
+.highcharts-contextmenu > div:first-child {
+  box-shadow: 0 6px 12px rgba(0,0,0,0.175)!important;
+  border-radius: 4px;
+  padding: 0!important;
+}
+.highcharts-contextmenu hr {
+  padding: 0!important;
+}
+
+
+.highcharts-contextmenu * {
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 14px!important;
+  padding: 4px!important;
+}

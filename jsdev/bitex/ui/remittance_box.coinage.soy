@@ -5,21 +5,21 @@
   * @param remittance_data_record
   */
 {template .RemittancesBoxCurrency}
-  <tr>
-    <td style="padding: 4px;"><strong>{$remittance_data_record[0]}</strong></td>
-    <td style="padding: 4px;">
-      <!-- {$id} -->
-      {foreach $field_data in $remittance_data_record[3]}
-        <span class="bitex-model"
-        data-model-key-list="{$field_data[1]}"
-        data-model-formula="{$field_data[0]}"
-        data-model-formatter="currency"
-        data-model-formatter-pattern="{$remittance_data_record[2]}"
-        data-blink-class="md-blink"></span>
-        {if not isLast($field_data)}{sp}/{sp}{/if}
-      {/foreach}
-    </td>
-  </tr>
+  <div class="remittance-currency-row row-fluid">
+    <strong>{$remittance_data_record[0]}</strong>
+  </div>
+  <div class="remittance-currency-row row-fluid">
+    <!-- {$id} -->
+    {foreach $field_data in $remittance_data_record[3]}
+      <span class="bitex-model"
+      data-model-key-list="{$field_data[1]}"
+      data-model-formula="{$field_data[0]}"
+      data-model-formatter="currency"
+      data-model-formatter-pattern="{$remittance_data_record[2]}"
+      data-blink-class="md-blink"></span>
+      {if not isLast($field_data)}{sp}/{sp}{/if}
+    {/foreach}
+  </div>
 {/template}
 
 /**
@@ -32,18 +32,18 @@
   {foreach $remittance_data_record in $remittance_data_table}
     {if length($remittance_data_record) == 1 }
       {if not isFirst($remittance_data_record)}
-          </tbody>
-        </table>
+          </div>
+        </div>
       {/if}
-      <table id="{$id}_{$remittance_data_record[0]}" style="display:none" class="table table-bordered table-condensed remittance-box-table">
-      <thead>
-        <tr>
-          <td colspan="2">
+      <div id="{$id}_{$remittance_data_record[0]}" style="display:none" class="remittance-box-table">
+      <div>
+        <div>
+          <div>
             <strong>{msg desc="Remittance box title"}Be your own Remittance Service{/msg}</strong>
-          </td>
-        </tr>
-      </thead>
-      <tbody class="remittance-box-content">
+          </div>
+        </div>
+      </div>
+      <div class="remittance-box-content">
     {else}
         {call .RemittancesBoxCurrency}
           {param id: $id /}
@@ -53,4 +53,3 @@
   {/foreach}
   </div>
 {/template}
-

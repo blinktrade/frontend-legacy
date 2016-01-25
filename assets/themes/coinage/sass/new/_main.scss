@@ -1,0 +1,16 @@
+.main {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    padding: 20px;
+}
+
+.background {
+  background: #eaeff2
+}
+
+.zopim{
+    @media (max-width: $screen-sm-max){
+        display: none
+    }
+}

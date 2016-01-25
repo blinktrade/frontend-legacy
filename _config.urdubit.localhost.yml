@@ -37,13 +37,21 @@ remittance_box: "{
             ['USD -> BTC -> PKR',  'PKR', 'BLINK_BTCPKR_BEST_BID /  BITFINEX_BTCUSD_BEST_ASK', 'BLINK_BTCPKR_BEST_ASK /  BITFINEX_BTCUSD_BEST_BID' ] ]
     }"
 
+symbol: "BTCPKR"
 
 languages: ["en_US", "es", "pt_BR", "ro", "zn_CN", "vi"]
+phrases: [phrase1, phrase2, phrase3]
 
-exclude:     [ "jsdev", "LICENSE", "README.md", "config.rb", "deploy.sh", "build_javascript.sh" ]
+exclude:     [ "jsdev", "LICENSE", "README.md", "config.rb", "deploy.sh", "build_javascript.sh", "node_modules", "gulpfile.js" ]
 source:      .
 destination: ./_site
 plugins:     ./_plugins
 paginate:    5
 paginate_path: "post/page:num"
 permalink:     /post/:title/
+facebook: https://www.facebook.com/urdubit
+twitter: https://twitter.com/urdubit
+
+sass:
+  sass_dir: assets/themes/coinage/sass
+  style: :compressed
