@@ -1,7 +1,6 @@
 # Site settings
-url: "//localhost:4000"
+url: "https://testnet.blinktrade.com"
 author: "BlinkTrade"
-# baseurl: "/frontend"
 baseurl: ""
 deploy_version: "0f24df4"
 
