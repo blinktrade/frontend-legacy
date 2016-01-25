@@ -8367,7 +8367,7 @@ $JSCompiler_prototypeAlias$$.$onClearFile_$ = function $$JSCompiler_prototypeAli
 };
 // Input 164
 function $bitex$ui$OrderManager$templates$CancelOrder$$($opt_data$$42_output$$36$$) {
-  return $opt_data$$42_output$$36$$ = "" + ('<button class="btn btn-sm btn-danger" data-action="cancel" data-client-order-id="' + $soy$$0$0escapeHtml$$($opt_data$$42_output$$36$$.$dataClientOrderId$) + '" data-order-id="' + $soy$$0$0escapeHtml$$($opt_data$$42_output$$36$$.$dataOrderId$) + '">cancelar</button>');
+  return $opt_data$$42_output$$36$$ = "" + ('<button class="btn btn-sm btn-danger" data-action="cancel" data-client-order-id="' + $soy$$0$0escapeHtml$$($opt_data$$42_output$$36$$.$dataClientOrderId$) + '" ' + ($opt_data$$42_output$$36$$.$dataOrderId$ ? 'data-order-id="' + $soy$$0$0escapeHtml$$($opt_data$$42_output$$36$$.$dataOrderId$) + '"' : "") + ">cancelar</button>");
 }
 ;
 // Input 165
@@ -8404,8 +8404,8 @@ function $bitex$ui$OrderManager$$($grid_columns_simple_opt_mode$$1$$, $opt_openO
   }}, {property:"Volume", label:"Total", sortable:!1, classes:function() {
     return $bitex$ui$OrderManager$CSS_CLASS$$ + "-volume";
   }}, {property:"ClOrdID", label:"Acciones", sortable:!1, formatter:function($id$$16$$, $row_set_obj$$1$$) {
-    var $attributes$$3$$ = {dataClientOrderId:$id$$16$$};
-    return null != $row_set_obj$$1$$ && ($attributes$$3$$.dataOrderId = $row_set_obj$$1$$.OrderID, 0 == $row_set_obj$$1$$.LeavesQty) ? "" : $goog$soy$renderAsElement$$($bitex$ui$OrderManager$templates$CancelOrder$$, $attributes$$3$$);
+    var $attributes$$3$$ = {$dataClientOrderId$:$id$$16$$, $dataOrderId$:null};
+    return null != $row_set_obj$$1$$ && ($attributes$$3$$ = {$dataClientOrderId$:$id$$16$$, $dataOrderId$:$row_set_obj$$1$$.OrderID}, 0 == $row_set_obj$$1$$.LeavesQty) ? "" : $goog$soy$renderAsElement$$($bitex$ui$OrderManager$templates$CancelOrder$$, $attributes$$3$$);
   }, classes:function() {
     return $bitex$ui$OrderManager$CSS_CLASS$$ + "-actions";
   }}];
@@ -8448,8 +8448,8 @@ function $bitex$ui$OrderManager$$($grid_columns_simple_opt_mode$$1$$, $opt_openO
   }, classes:function() {
     return $bitex$ui$OrderManager$CSS_CLASS$$ + "-avg-price";
   }}, {property:"ClOrdID", label:"Acciones", sortable:!1, formatter:function($id$$17$$, $row_set_obj$$2$$) {
-    var $attributes$$4$$ = {dataClientOrderId:$id$$17$$};
-    return null != $row_set_obj$$2$$ && ($attributes$$4$$.dataOrderId = $row_set_obj$$2$$.OrderID, 0 == $row_set_obj$$2$$.LeavesQty) ? "" : $goog$soy$renderAsElement$$($bitex$ui$OrderManager$templates$CancelOrder$$, $attributes$$4$$);
+    var $attributes$$4$$ = {$dataClientOrderId$:$id$$17$$, $dataOrderId$:null};
+    return null != $row_set_obj$$2$$ && ($attributes$$4$$ = {$dataClientOrderId$:$id$$17$$, $dataOrderId$:$row_set_obj$$2$$.OrderID}, 0 == $row_set_obj$$2$$.LeavesQty) ? "" : $goog$soy$renderAsElement$$($bitex$ui$OrderManager$templates$CancelOrder$$, $attributes$$4$$);
   }, classes:function() {
     return $bitex$ui$OrderManager$CSS_CLASS$$ + "-actions";
   }}], title:"Mis ordenes", showSearch:!1, buttonFilters:[]};
