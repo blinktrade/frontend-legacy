@@ -965,9 +965,9 @@ $JSCompiler_prototypeAlias$$.$isFocusable$ = function $$JSCompiler_prototypeAlia
   return $JSCompiler_temp$$56_element$$21_rect$$inline_205$$;
 };
 // Input 32
-function $goog$soy$renderElement$$($element$$31$$, $template$$1_templateResult$$inline_1968$$, $opt_templateData$$) {
-  $template$$1_templateResult$$inline_1968$$ = $template$$1_templateResult$$inline_1968$$($opt_templateData$$ || $goog$soy$defaultTemplateData_$$, void 0, void 0);
-  $element$$31$$.innerHTML = $goog$isObject$$($template$$1_templateResult$$inline_1968$$) ? "zSoyz" : String($template$$1_templateResult$$inline_1968$$);
+function $goog$soy$renderElement$$($element$$31$$, $template$$1_templateResult$$inline_1983$$, $opt_templateData$$) {
+  $template$$1_templateResult$$inline_1983$$ = $template$$1_templateResult$$inline_1983$$($opt_templateData$$ || $goog$soy$defaultTemplateData_$$, void 0, void 0);
+  $element$$31$$.innerHTML = $goog$isObject$$($template$$1_templateResult$$inline_1983$$) ? "zSoyz" : String($template$$1_templateResult$$inline_1983$$);
 }
 function $goog$soy$renderAsElement$$($firstChild$$inline_211_template$$3_templateResult$$inline_207$$, $opt_templateData$$2$$, $opt_injectedData$$2$$, $JSCompiler_inline_result$$58_opt_domHelper$$1_wrapper$$inline_209$$) {
   a: {
@@ -1116,10 +1116,10 @@ function $goog$style$getBoundingClientRect_$$($doc$$33_el$$4$$) {
 function $goog$style$getPageOffset$$($box$$7_el$$7$$) {
   var $doc$$35_scrollCoord$$ = $goog$dom$getOwnerDocument$$($box$$7_el$$7$$), $pos$$2$$ = new $goog$math$Coordinate$$(0, 0), $doc$$inline_223$$;
   $doc$$inline_223$$ = $doc$$35_scrollCoord$$ ? $goog$dom$getOwnerDocument$$($doc$$35_scrollCoord$$) : document;
-  var $JSCompiler_temp$$1938_JSCompiler_temp$$1942$$;
-  ($JSCompiler_temp$$1938_JSCompiler_temp$$1942$$ = !$goog$userAgent$IE$$) || ($JSCompiler_temp$$1938_JSCompiler_temp$$1942$$ = 9 <= $goog$userAgent$DOCUMENT_MODE$$);
-  $JSCompiler_temp$$1938_JSCompiler_temp$$1942$$ || ($JSCompiler_temp$$1938_JSCompiler_temp$$1942$$ = "CSS1Compat" == $goog$dom$getDomHelper$$($doc$$inline_223$$).$document_$.compatMode);
-  if ($box$$7_el$$7$$ == ($JSCompiler_temp$$1938_JSCompiler_temp$$1942$$ ? $doc$$inline_223$$.documentElement : $doc$$inline_223$$.body)) {
+  var $JSCompiler_temp$$1953_JSCompiler_temp$$1957$$;
+  ($JSCompiler_temp$$1953_JSCompiler_temp$$1957$$ = !$goog$userAgent$IE$$) || ($JSCompiler_temp$$1953_JSCompiler_temp$$1957$$ = 9 <= $goog$userAgent$DOCUMENT_MODE$$);
+  $JSCompiler_temp$$1953_JSCompiler_temp$$1957$$ || ($JSCompiler_temp$$1953_JSCompiler_temp$$1957$$ = "CSS1Compat" == $goog$dom$getDomHelper$$($doc$$inline_223$$).$document_$.compatMode);
+  if ($box$$7_el$$7$$ == ($JSCompiler_temp$$1953_JSCompiler_temp$$1957$$ ? $doc$$inline_223$$.documentElement : $doc$$inline_223$$.body)) {
     return $pos$$2$$;
   }
   $box$$7_el$$7$$ = $goog$style$getBoundingClientRect_$$($box$$7_el$$7$$);
@@ -1920,8 +1920,8 @@ function $JSCompiler_StaticMethods_addChild$$($JSCompiler_StaticMethods_addChild
   }
   $JSCompiler_StaticMethods_addChild$self_contentElement$$inline_289$$.$childIndex_$ && $JSCompiler_StaticMethods_addChild$self_contentElement$$inline_289$$.$children_$ || ($JSCompiler_StaticMethods_addChild$self_contentElement$$inline_289$$.$childIndex_$ = {}, $JSCompiler_StaticMethods_addChild$self_contentElement$$inline_289$$.$children_$ = []);
   if ($child$$11$$.getParent() == $JSCompiler_StaticMethods_addChild$self_contentElement$$inline_289$$) {
-    var $key$$inline_1975$$ = $child$$11$$.$getId$();
-    $JSCompiler_StaticMethods_addChild$self_contentElement$$inline_289$$.$childIndex_$[$key$$inline_1975$$] = $child$$11$$;
+    var $key$$inline_1990$$ = $child$$11$$.$getId$();
+    $JSCompiler_StaticMethods_addChild$self_contentElement$$inline_289$$.$childIndex_$[$key$$inline_1990$$] = $child$$11$$;
     $goog$array$remove$$($JSCompiler_StaticMethods_addChild$self_contentElement$$inline_289$$.$children_$, $child$$11$$);
   } else {
     $goog$object$add$$($JSCompiler_StaticMethods_addChild$self_contentElement$$inline_289$$.$childIndex_$, $child$$11$$.$getId$(), $child$$11$$);
@@ -3808,37 +3808,37 @@ $i18n$phonenumbers$PhoneNumberUtil$$.prototype.format = function $$i18n$phonenum
       return $countryCallingCode$$2_rawInput$$;
     }
   }
-  var $countryCallingCode$$2_rawInput$$ = $number$$9$$.$getCountryCodeOrDefault$(), $JSCompiler_temp$$1953_nationalSignificantNumber$$1$$ = $JSCompiler_StaticMethods_getNationalSignificantNumber$$($number$$9$$);
+  var $countryCallingCode$$2_rawInput$$ = $number$$9$$.$getCountryCodeOrDefault$(), $JSCompiler_temp$$1968_nationalSignificantNumber$$1$$ = $JSCompiler_StaticMethods_getNationalSignificantNumber$$($number$$9$$);
   if (0 == $numberFormat$$) {
-    return $JSCompiler_StaticMethods_prefixNumberWithCountryCallingCode_$$($countryCallingCode$$2_rawInput$$, 0, $JSCompiler_temp$$1953_nationalSignificantNumber$$1$$, "");
+    return $JSCompiler_StaticMethods_prefixNumberWithCountryCallingCode_$$($countryCallingCode$$2_rawInput$$, 0, $JSCompiler_temp$$1968_nationalSignificantNumber$$1$$, "");
   }
   if (!($countryCallingCode$$2_rawInput$$ in $i18n$phonenumbers$metadata$countryCodeToRegionCodeMap$$)) {
-    return $JSCompiler_temp$$1953_nationalSignificantNumber$$1$$;
+    return $JSCompiler_temp$$1968_nationalSignificantNumber$$1$$;
   }
-  var $availableFormats$$inline_1999_formattingPattern$$inline_471_metadata$$3_numberFormatRule$$inline_2011$$ = $JSCompiler_StaticMethods_getMetadataForRegionOrCallingCode_$$(this, $countryCallingCode$$2_rawInput$$, $JSCompiler_StaticMethods_getRegionCodeForCountryCode$$($countryCallingCode$$2_rawInput$$)), $formattedExtension$$;
-  $formattedExtension$$ = null != $number$$9$$.$values_$[3] && 0 != $number$$9$$.getExtension().length ? 3 == $numberFormat$$ ? ";ext=" + $number$$9$$.getExtension() : null != $availableFormats$$inline_1999_formattingPattern$$inline_471_metadata$$3_numberFormatRule$$inline_2011$$.$values_$[13] ? $JSCompiler_StaticMethods_get$Value$$($availableFormats$$inline_1999_formattingPattern$$inline_471_metadata$$3_numberFormatRule$$inline_2011$$, 13) + $JSCompiler_StaticMethods_get$ValueOrDefault$$($number$$9$$, 
+  var $availableFormats$$inline_2014_formattingPattern$$inline_471_metadata$$3_numberFormatRule$$inline_2026$$ = $JSCompiler_StaticMethods_getMetadataForRegionOrCallingCode_$$(this, $countryCallingCode$$2_rawInput$$, $JSCompiler_StaticMethods_getRegionCodeForCountryCode$$($countryCallingCode$$2_rawInput$$)), $formattedExtension$$;
+  $formattedExtension$$ = null != $number$$9$$.$values_$[3] && 0 != $number$$9$$.getExtension().length ? 3 == $numberFormat$$ ? ";ext=" + $number$$9$$.getExtension() : null != $availableFormats$$inline_2014_formattingPattern$$inline_471_metadata$$3_numberFormatRule$$inline_2026$$.$values_$[13] ? $JSCompiler_StaticMethods_get$Value$$($availableFormats$$inline_2014_formattingPattern$$inline_471_metadata$$3_numberFormatRule$$inline_2026$$, 13) + $JSCompiler_StaticMethods_get$ValueOrDefault$$($number$$9$$, 
   3) : " ext. " + $JSCompiler_StaticMethods_get$ValueOrDefault$$($number$$9$$, 3) : "";
   a: {
-    for (var $availableFormats$$inline_1999_formattingPattern$$inline_471_metadata$$3_numberFormatRule$$inline_2011$$ = 0 == ($JSCompiler_StaticMethods_getValueForTag_$$($availableFormats$$inline_1999_formattingPattern$$inline_471_metadata$$3_numberFormatRule$$inline_2011$$, 20) || []).length || 2 == $numberFormat$$ ? $JSCompiler_StaticMethods_getValueForTag_$$($availableFormats$$inline_1999_formattingPattern$$inline_471_metadata$$3_numberFormatRule$$inline_2011$$, 19) || [] : $JSCompiler_StaticMethods_getValueForTag_$$($availableFormats$$inline_1999_formattingPattern$$inline_471_metadata$$3_numberFormatRule$$inline_2011$$, 
-    20) || [], $numFormat$$inline_2001_patternToMatch$$inline_2012$$, $formattingPattern$$inline_2008_l$$inline_2002_nationalPrefixFormattingRule$$inline_2016$$ = $availableFormats$$inline_1999_formattingPattern$$inline_471_metadata$$3_numberFormatRule$$inline_2011$$.length, $formattedNationalNumber$$inline_2014_i$$inline_2003$$ = 0;$formattedNationalNumber$$inline_2014_i$$inline_2003$$ < $formattingPattern$$inline_2008_l$$inline_2002_nationalPrefixFormattingRule$$inline_2016$$;++$formattedNationalNumber$$inline_2014_i$$inline_2003$$) {
-      $numFormat$$inline_2001_patternToMatch$$inline_2012$$ = $availableFormats$$inline_1999_formattingPattern$$inline_471_metadata$$3_numberFormatRule$$inline_2011$$[$formattedNationalNumber$$inline_2014_i$$inline_2003$$];
-      var $patternToMatch$$inline_2005_size$$inline_2004$$ = $JSCompiler_StaticMethods_count$Values$$($numFormat$$inline_2001_patternToMatch$$inline_2012$$, 3);
-      if (0 == $patternToMatch$$inline_2005_size$$inline_2004$$ || 0 == $JSCompiler_temp$$1953_nationalSignificantNumber$$1$$.search($JSCompiler_StaticMethods_get$Value$$($numFormat$$inline_2001_patternToMatch$$inline_2012$$, 3, $patternToMatch$$inline_2005_size$$inline_2004$$ - 1))) {
-        if ($patternToMatch$$inline_2005_size$$inline_2004$$ = new RegExp($JSCompiler_StaticMethods_get$Value$$($numFormat$$inline_2001_patternToMatch$$inline_2012$$, 1)), $i18n$phonenumbers$PhoneNumberUtil$matchesEntirely_$$($patternToMatch$$inline_2005_size$$inline_2004$$, $JSCompiler_temp$$1953_nationalSignificantNumber$$1$$)) {
-          $availableFormats$$inline_1999_formattingPattern$$inline_471_metadata$$3_numberFormatRule$$inline_2011$$ = $numFormat$$inline_2001_patternToMatch$$inline_2012$$;
+    for (var $availableFormats$$inline_2014_formattingPattern$$inline_471_metadata$$3_numberFormatRule$$inline_2026$$ = 0 == ($JSCompiler_StaticMethods_getValueForTag_$$($availableFormats$$inline_2014_formattingPattern$$inline_471_metadata$$3_numberFormatRule$$inline_2026$$, 20) || []).length || 2 == $numberFormat$$ ? $JSCompiler_StaticMethods_getValueForTag_$$($availableFormats$$inline_2014_formattingPattern$$inline_471_metadata$$3_numberFormatRule$$inline_2026$$, 19) || [] : $JSCompiler_StaticMethods_getValueForTag_$$($availableFormats$$inline_2014_formattingPattern$$inline_471_metadata$$3_numberFormatRule$$inline_2026$$, 
+    20) || [], $numFormat$$inline_2016_patternToMatch$$inline_2027$$, $formattingPattern$$inline_2023_l$$inline_2017_nationalPrefixFormattingRule$$inline_2031$$ = $availableFormats$$inline_2014_formattingPattern$$inline_471_metadata$$3_numberFormatRule$$inline_2026$$.length, $formattedNationalNumber$$inline_2029_i$$inline_2018$$ = 0;$formattedNationalNumber$$inline_2029_i$$inline_2018$$ < $formattingPattern$$inline_2023_l$$inline_2017_nationalPrefixFormattingRule$$inline_2031$$;++$formattedNationalNumber$$inline_2029_i$$inline_2018$$) {
+      $numFormat$$inline_2016_patternToMatch$$inline_2027$$ = $availableFormats$$inline_2014_formattingPattern$$inline_471_metadata$$3_numberFormatRule$$inline_2026$$[$formattedNationalNumber$$inline_2029_i$$inline_2018$$];
+      var $patternToMatch$$inline_2020_size$$inline_2019$$ = $JSCompiler_StaticMethods_count$Values$$($numFormat$$inline_2016_patternToMatch$$inline_2027$$, 3);
+      if (0 == $patternToMatch$$inline_2020_size$$inline_2019$$ || 0 == $JSCompiler_temp$$1968_nationalSignificantNumber$$1$$.search($JSCompiler_StaticMethods_get$Value$$($numFormat$$inline_2016_patternToMatch$$inline_2027$$, 3, $patternToMatch$$inline_2020_size$$inline_2019$$ - 1))) {
+        if ($patternToMatch$$inline_2020_size$$inline_2019$$ = new RegExp($JSCompiler_StaticMethods_get$Value$$($numFormat$$inline_2016_patternToMatch$$inline_2027$$, 1)), $i18n$phonenumbers$PhoneNumberUtil$matchesEntirely_$$($patternToMatch$$inline_2020_size$$inline_2019$$, $JSCompiler_temp$$1968_nationalSignificantNumber$$1$$)) {
+          $availableFormats$$inline_2014_formattingPattern$$inline_471_metadata$$3_numberFormatRule$$inline_2026$$ = $numFormat$$inline_2016_patternToMatch$$inline_2027$$;
           break a;
         }
       }
     }
-    $availableFormats$$inline_1999_formattingPattern$$inline_471_metadata$$3_numberFormatRule$$inline_2011$$ = null;
+    $availableFormats$$inline_2014_formattingPattern$$inline_471_metadata$$3_numberFormatRule$$inline_2026$$ = null;
   }
-  null != $availableFormats$$inline_1999_formattingPattern$$inline_471_metadata$$3_numberFormatRule$$inline_2011$$ && ($formattingPattern$$inline_2008_l$$inline_2002_nationalPrefixFormattingRule$$inline_2016$$ = $availableFormats$$inline_1999_formattingPattern$$inline_471_metadata$$3_numberFormatRule$$inline_2011$$, $availableFormats$$inline_1999_formattingPattern$$inline_471_metadata$$3_numberFormatRule$$inline_2011$$ = $JSCompiler_StaticMethods_get$ValueOrDefault$$($formattingPattern$$inline_2008_l$$inline_2002_nationalPrefixFormattingRule$$inline_2016$$, 
-  2), $numFormat$$inline_2001_patternToMatch$$inline_2012$$ = new RegExp($JSCompiler_StaticMethods_get$Value$$($formattingPattern$$inline_2008_l$$inline_2002_nationalPrefixFormattingRule$$inline_2016$$, 1)), $JSCompiler_StaticMethods_get$ValueOrDefault$$($formattingPattern$$inline_2008_l$$inline_2002_nationalPrefixFormattingRule$$inline_2016$$, 5), $formattedNationalNumber$$inline_2014_i$$inline_2003$$ = "", $formattingPattern$$inline_2008_l$$inline_2002_nationalPrefixFormattingRule$$inline_2016$$ = 
-  $JSCompiler_StaticMethods_get$ValueOrDefault$$($formattingPattern$$inline_2008_l$$inline_2002_nationalPrefixFormattingRule$$inline_2016$$, 4), $formattedNationalNumber$$inline_2014_i$$inline_2003$$ = 2 == $numberFormat$$ && null != $formattingPattern$$inline_2008_l$$inline_2002_nationalPrefixFormattingRule$$inline_2016$$ && 0 < $formattingPattern$$inline_2008_l$$inline_2002_nationalPrefixFormattingRule$$inline_2016$$.length ? $JSCompiler_temp$$1953_nationalSignificantNumber$$1$$.replace($numFormat$$inline_2001_patternToMatch$$inline_2012$$, 
-  $availableFormats$$inline_1999_formattingPattern$$inline_471_metadata$$3_numberFormatRule$$inline_2011$$.replace($i18n$phonenumbers$PhoneNumberUtil$FIRST_GROUP_PATTERN_$$, $formattingPattern$$inline_2008_l$$inline_2002_nationalPrefixFormattingRule$$inline_2016$$)) : $JSCompiler_temp$$1953_nationalSignificantNumber$$1$$.replace($numFormat$$inline_2001_patternToMatch$$inline_2012$$, $availableFormats$$inline_1999_formattingPattern$$inline_471_metadata$$3_numberFormatRule$$inline_2011$$), 3 == $numberFormat$$ && 
-  ($formattedNationalNumber$$inline_2014_i$$inline_2003$$ = $formattedNationalNumber$$inline_2014_i$$inline_2003$$.replace(RegExp("^[-x\u2010-\u2015\u2212\u30fc\uff0d-\uff0f \u00a0\u00ad\u200b\u2060\u3000()\uff08\uff09\uff3b\uff3d.\\[\\]/~\u2053\u223c\uff5e]+"), ""), $formattedNationalNumber$$inline_2014_i$$inline_2003$$ = $formattedNationalNumber$$inline_2014_i$$inline_2003$$.replace(RegExp("[-x\u2010-\u2015\u2212\u30fc\uff0d-\uff0f \u00a0\u00ad\u200b\u2060\u3000()\uff08\uff09\uff3b\uff3d.\\[\\]/~\u2053\u223c\uff5e]+", 
-  "g"), "-")), $JSCompiler_temp$$1953_nationalSignificantNumber$$1$$ = $formattedNationalNumber$$inline_2014_i$$inline_2003$$);
-  return $JSCompiler_StaticMethods_prefixNumberWithCountryCallingCode_$$($countryCallingCode$$2_rawInput$$, $numberFormat$$, $JSCompiler_temp$$1953_nationalSignificantNumber$$1$$, $formattedExtension$$);
+  null != $availableFormats$$inline_2014_formattingPattern$$inline_471_metadata$$3_numberFormatRule$$inline_2026$$ && ($formattingPattern$$inline_2023_l$$inline_2017_nationalPrefixFormattingRule$$inline_2031$$ = $availableFormats$$inline_2014_formattingPattern$$inline_471_metadata$$3_numberFormatRule$$inline_2026$$, $availableFormats$$inline_2014_formattingPattern$$inline_471_metadata$$3_numberFormatRule$$inline_2026$$ = $JSCompiler_StaticMethods_get$ValueOrDefault$$($formattingPattern$$inline_2023_l$$inline_2017_nationalPrefixFormattingRule$$inline_2031$$, 
+  2), $numFormat$$inline_2016_patternToMatch$$inline_2027$$ = new RegExp($JSCompiler_StaticMethods_get$Value$$($formattingPattern$$inline_2023_l$$inline_2017_nationalPrefixFormattingRule$$inline_2031$$, 1)), $JSCompiler_StaticMethods_get$ValueOrDefault$$($formattingPattern$$inline_2023_l$$inline_2017_nationalPrefixFormattingRule$$inline_2031$$, 5), $formattedNationalNumber$$inline_2029_i$$inline_2018$$ = "", $formattingPattern$$inline_2023_l$$inline_2017_nationalPrefixFormattingRule$$inline_2031$$ = 
+  $JSCompiler_StaticMethods_get$ValueOrDefault$$($formattingPattern$$inline_2023_l$$inline_2017_nationalPrefixFormattingRule$$inline_2031$$, 4), $formattedNationalNumber$$inline_2029_i$$inline_2018$$ = 2 == $numberFormat$$ && null != $formattingPattern$$inline_2023_l$$inline_2017_nationalPrefixFormattingRule$$inline_2031$$ && 0 < $formattingPattern$$inline_2023_l$$inline_2017_nationalPrefixFormattingRule$$inline_2031$$.length ? $JSCompiler_temp$$1968_nationalSignificantNumber$$1$$.replace($numFormat$$inline_2016_patternToMatch$$inline_2027$$, 
+  $availableFormats$$inline_2014_formattingPattern$$inline_471_metadata$$3_numberFormatRule$$inline_2026$$.replace($i18n$phonenumbers$PhoneNumberUtil$FIRST_GROUP_PATTERN_$$, $formattingPattern$$inline_2023_l$$inline_2017_nationalPrefixFormattingRule$$inline_2031$$)) : $JSCompiler_temp$$1968_nationalSignificantNumber$$1$$.replace($numFormat$$inline_2016_patternToMatch$$inline_2027$$, $availableFormats$$inline_2014_formattingPattern$$inline_471_metadata$$3_numberFormatRule$$inline_2026$$), 3 == $numberFormat$$ && 
+  ($formattedNationalNumber$$inline_2029_i$$inline_2018$$ = $formattedNationalNumber$$inline_2029_i$$inline_2018$$.replace(RegExp("^[-x\u2010-\u2015\u2212\u30fc\uff0d-\uff0f \u00a0\u00ad\u200b\u2060\u3000()\uff08\uff09\uff3b\uff3d.\\[\\]/~\u2053\u223c\uff5e]+"), ""), $formattedNationalNumber$$inline_2029_i$$inline_2018$$ = $formattedNationalNumber$$inline_2029_i$$inline_2018$$.replace(RegExp("[-x\u2010-\u2015\u2212\u30fc\uff0d-\uff0f \u00a0\u00ad\u200b\u2060\u3000()\uff08\uff09\uff3b\uff3d.\\[\\]/~\u2053\u223c\uff5e]+", 
+  "g"), "-")), $JSCompiler_temp$$1968_nationalSignificantNumber$$1$$ = $formattedNationalNumber$$inline_2029_i$$inline_2018$$);
+  return $JSCompiler_StaticMethods_prefixNumberWithCountryCallingCode_$$($countryCallingCode$$2_rawInput$$, $numberFormat$$, $JSCompiler_temp$$1968_nationalSignificantNumber$$1$$, $formattedExtension$$);
 };
 function $JSCompiler_StaticMethods_getMetadataForRegionOrCallingCode_$$($JSCompiler_StaticMethods_getMetadataForRegionOrCallingCode_$self$$, $countryCallingCode$$5$$, $regionCode$$6$$) {
   return "001" == $regionCode$$6$$ ? $JSCompiler_StaticMethods_getMetadataForRegion$$($JSCompiler_StaticMethods_getMetadataForRegionOrCallingCode_$self$$, "" + $countryCallingCode$$5$$) : $JSCompiler_StaticMethods_getMetadataForRegion$$($JSCompiler_StaticMethods_getMetadataForRegionOrCallingCode_$self$$, $regionCode$$6$$);
@@ -3885,53 +3885,53 @@ function $JSCompiler_StaticMethods_isNumberMatchingDesc_$$($nationalNumber$$7$$,
   return $i18n$phonenumbers$PhoneNumberUtil$matchesEntirely_$$($JSCompiler_StaticMethods_get$ValueOrDefault$$($numberDesc$$, 3), $nationalNumber$$7$$) && $i18n$phonenumbers$PhoneNumberUtil$matchesEntirely_$$($JSCompiler_StaticMethods_get$ValueOrDefault$$($numberDesc$$, 2), $nationalNumber$$7$$);
 }
 function $JSCompiler_StaticMethods_isValidNumber$$($JSCompiler_StaticMethods_isValidNumber$self$$, $number$$23$$) {
-  var $JSCompiler_inline_result$$96_JSCompiler_temp$$1954_JSCompiler_temp$$1955_countryCode$$inline_475_metadata$$inline_482_regionCode$$16_regions$$inline_476$$;
+  var $JSCompiler_inline_result$$96_JSCompiler_temp$$1969_JSCompiler_temp$$1970_countryCode$$inline_475_metadata$$inline_482_regionCode$$16_regions$$inline_476$$;
   if (null == $number$$23$$) {
-    $JSCompiler_inline_result$$96_JSCompiler_temp$$1954_JSCompiler_temp$$1955_countryCode$$inline_475_metadata$$inline_482_regionCode$$16_regions$$inline_476$$ = null;
+    $JSCompiler_inline_result$$96_JSCompiler_temp$$1969_JSCompiler_temp$$1970_countryCode$$inline_475_metadata$$inline_482_regionCode$$16_regions$$inline_476$$ = null;
   } else {
-    if ($JSCompiler_inline_result$$96_JSCompiler_temp$$1954_JSCompiler_temp$$1955_countryCode$$inline_475_metadata$$inline_482_regionCode$$16_regions$$inline_476$$ = $number$$23$$.$getCountryCodeOrDefault$(), $JSCompiler_inline_result$$96_JSCompiler_temp$$1954_JSCompiler_temp$$1955_countryCode$$inline_475_metadata$$inline_482_regionCode$$16_regions$$inline_476$$ = $i18n$phonenumbers$metadata$countryCodeToRegionCodeMap$$[$JSCompiler_inline_result$$96_JSCompiler_temp$$1954_JSCompiler_temp$$1955_countryCode$$inline_475_metadata$$inline_482_regionCode$$16_regions$$inline_476$$], 
-    null == $JSCompiler_inline_result$$96_JSCompiler_temp$$1954_JSCompiler_temp$$1955_countryCode$$inline_475_metadata$$inline_482_regionCode$$16_regions$$inline_476$$) {
-      $JSCompiler_inline_result$$96_JSCompiler_temp$$1954_JSCompiler_temp$$1955_countryCode$$inline_475_metadata$$inline_482_regionCode$$16_regions$$inline_476$$ = null;
+    if ($JSCompiler_inline_result$$96_JSCompiler_temp$$1969_JSCompiler_temp$$1970_countryCode$$inline_475_metadata$$inline_482_regionCode$$16_regions$$inline_476$$ = $number$$23$$.$getCountryCodeOrDefault$(), $JSCompiler_inline_result$$96_JSCompiler_temp$$1969_JSCompiler_temp$$1970_countryCode$$inline_475_metadata$$inline_482_regionCode$$16_regions$$inline_476$$ = $i18n$phonenumbers$metadata$countryCodeToRegionCodeMap$$[$JSCompiler_inline_result$$96_JSCompiler_temp$$1969_JSCompiler_temp$$1970_countryCode$$inline_475_metadata$$inline_482_regionCode$$16_regions$$inline_476$$], 
+    null == $JSCompiler_inline_result$$96_JSCompiler_temp$$1969_JSCompiler_temp$$1970_countryCode$$inline_475_metadata$$inline_482_regionCode$$16_regions$$inline_476$$) {
+      $JSCompiler_inline_result$$96_JSCompiler_temp$$1969_JSCompiler_temp$$1970_countryCode$$inline_475_metadata$$inline_482_regionCode$$16_regions$$inline_476$$ = null;
     } else {
-      if (1 == $JSCompiler_inline_result$$96_JSCompiler_temp$$1954_JSCompiler_temp$$1955_countryCode$$inline_475_metadata$$inline_482_regionCode$$16_regions$$inline_476$$.length) {
-        $JSCompiler_inline_result$$96_JSCompiler_temp$$1954_JSCompiler_temp$$1955_countryCode$$inline_475_metadata$$inline_482_regionCode$$16_regions$$inline_476$$ = $JSCompiler_inline_result$$96_JSCompiler_temp$$1954_JSCompiler_temp$$1955_countryCode$$inline_475_metadata$$inline_482_regionCode$$16_regions$$inline_476$$[0];
+      if (1 == $JSCompiler_inline_result$$96_JSCompiler_temp$$1969_JSCompiler_temp$$1970_countryCode$$inline_475_metadata$$inline_482_regionCode$$16_regions$$inline_476$$.length) {
+        $JSCompiler_inline_result$$96_JSCompiler_temp$$1969_JSCompiler_temp$$1970_countryCode$$inline_475_metadata$$inline_482_regionCode$$16_regions$$inline_476$$ = $JSCompiler_inline_result$$96_JSCompiler_temp$$1969_JSCompiler_temp$$1970_countryCode$$inline_475_metadata$$inline_482_regionCode$$16_regions$$inline_476$$[0];
       } else {
         b: {
-          for (var $countryCode$$inline_481_nationalNumber$$inline_2021_nationalSignificantNumber$$inline_483$$ = $JSCompiler_StaticMethods_getNationalSignificantNumber$$($number$$23$$), $JSCompiler_inline_result$$1958_regionCode$$inline_2022_regionCode$$inline_480$$, $JSCompiler_temp$$1956_JSCompiler_temp$$1957_metadata$$inline_2029_regionCodesLength$$inline_2023$$ = $JSCompiler_inline_result$$96_JSCompiler_temp$$1954_JSCompiler_temp$$1955_countryCode$$inline_475_metadata$$inline_482_regionCode$$16_regions$$inline_476$$.length, 
-          $i$$inline_2024$$ = 0;$i$$inline_2024$$ < $JSCompiler_temp$$1956_JSCompiler_temp$$1957_metadata$$inline_2029_regionCodesLength$$inline_2023$$;$i$$inline_2024$$++) {
-            $JSCompiler_inline_result$$1958_regionCode$$inline_2022_regionCode$$inline_480$$ = $JSCompiler_inline_result$$96_JSCompiler_temp$$1954_JSCompiler_temp$$1955_countryCode$$inline_475_metadata$$inline_482_regionCode$$16_regions$$inline_476$$[$i$$inline_2024$$];
-            var $metadata$$inline_2025$$ = $JSCompiler_StaticMethods_getMetadataForRegion$$($JSCompiler_StaticMethods_isValidNumber$self$$, $JSCompiler_inline_result$$1958_regionCode$$inline_2022_regionCode$$inline_480$$);
-            if (null != $metadata$$inline_2025$$.$values_$[23]) {
-              if (0 == $countryCode$$inline_481_nationalNumber$$inline_2021_nationalSignificantNumber$$inline_483$$.search($JSCompiler_StaticMethods_get$Value$$($metadata$$inline_2025$$, 23))) {
-                $JSCompiler_inline_result$$96_JSCompiler_temp$$1954_JSCompiler_temp$$1955_countryCode$$inline_475_metadata$$inline_482_regionCode$$16_regions$$inline_476$$ = $JSCompiler_inline_result$$1958_regionCode$$inline_2022_regionCode$$inline_480$$;
+          for (var $countryCode$$inline_481_nationalNumber$$inline_2036_nationalSignificantNumber$$inline_483$$ = $JSCompiler_StaticMethods_getNationalSignificantNumber$$($number$$23$$), $JSCompiler_inline_result$$1973_regionCode$$inline_2037_regionCode$$inline_480$$, $JSCompiler_temp$$1971_JSCompiler_temp$$1972_metadata$$inline_2044_regionCodesLength$$inline_2038$$ = $JSCompiler_inline_result$$96_JSCompiler_temp$$1969_JSCompiler_temp$$1970_countryCode$$inline_475_metadata$$inline_482_regionCode$$16_regions$$inline_476$$.length, 
+          $i$$inline_2039$$ = 0;$i$$inline_2039$$ < $JSCompiler_temp$$1971_JSCompiler_temp$$1972_metadata$$inline_2044_regionCodesLength$$inline_2038$$;$i$$inline_2039$$++) {
+            $JSCompiler_inline_result$$1973_regionCode$$inline_2037_regionCode$$inline_480$$ = $JSCompiler_inline_result$$96_JSCompiler_temp$$1969_JSCompiler_temp$$1970_countryCode$$inline_475_metadata$$inline_482_regionCode$$16_regions$$inline_476$$[$i$$inline_2039$$];
+            var $metadata$$inline_2040$$ = $JSCompiler_StaticMethods_getMetadataForRegion$$($JSCompiler_StaticMethods_isValidNumber$self$$, $JSCompiler_inline_result$$1973_regionCode$$inline_2037_regionCode$$inline_480$$);
+            if (null != $metadata$$inline_2040$$.$values_$[23]) {
+              if (0 == $countryCode$$inline_481_nationalNumber$$inline_2036_nationalSignificantNumber$$inline_483$$.search($JSCompiler_StaticMethods_get$Value$$($metadata$$inline_2040$$, 23))) {
+                $JSCompiler_inline_result$$96_JSCompiler_temp$$1969_JSCompiler_temp$$1970_countryCode$$inline_475_metadata$$inline_482_regionCode$$16_regions$$inline_476$$ = $JSCompiler_inline_result$$1973_regionCode$$inline_2037_regionCode$$inline_480$$;
                 break b;
               }
             } else {
-              if (-1 != $JSCompiler_StaticMethods_getNumberTypeHelper_$$($countryCode$$inline_481_nationalNumber$$inline_2021_nationalSignificantNumber$$inline_483$$, $metadata$$inline_2025$$)) {
-                $JSCompiler_inline_result$$96_JSCompiler_temp$$1954_JSCompiler_temp$$1955_countryCode$$inline_475_metadata$$inline_482_regionCode$$16_regions$$inline_476$$ = $JSCompiler_inline_result$$1958_regionCode$$inline_2022_regionCode$$inline_480$$;
+              if (-1 != $JSCompiler_StaticMethods_getNumberTypeHelper_$$($countryCode$$inline_481_nationalNumber$$inline_2036_nationalSignificantNumber$$inline_483$$, $metadata$$inline_2040$$)) {
+                $JSCompiler_inline_result$$96_JSCompiler_temp$$1969_JSCompiler_temp$$1970_countryCode$$inline_475_metadata$$inline_482_regionCode$$16_regions$$inline_476$$ = $JSCompiler_inline_result$$1973_regionCode$$inline_2037_regionCode$$inline_480$$;
                 break b;
               }
             }
           }
-          $JSCompiler_inline_result$$96_JSCompiler_temp$$1954_JSCompiler_temp$$1955_countryCode$$inline_475_metadata$$inline_482_regionCode$$16_regions$$inline_476$$ = null;
+          $JSCompiler_inline_result$$96_JSCompiler_temp$$1969_JSCompiler_temp$$1970_countryCode$$inline_475_metadata$$inline_482_regionCode$$16_regions$$inline_476$$ = null;
         }
       }
     }
   }
-  $JSCompiler_inline_result$$1958_regionCode$$inline_2022_regionCode$$inline_480$$ = $JSCompiler_inline_result$$96_JSCompiler_temp$$1954_JSCompiler_temp$$1955_countryCode$$inline_475_metadata$$inline_482_regionCode$$16_regions$$inline_476$$;
-  $countryCode$$inline_481_nationalNumber$$inline_2021_nationalSignificantNumber$$inline_483$$ = $number$$23$$.$getCountryCodeOrDefault$();
-  $JSCompiler_inline_result$$96_JSCompiler_temp$$1954_JSCompiler_temp$$1955_countryCode$$inline_475_metadata$$inline_482_regionCode$$16_regions$$inline_476$$ = $JSCompiler_StaticMethods_getMetadataForRegionOrCallingCode_$$($JSCompiler_StaticMethods_isValidNumber$self$$, $countryCode$$inline_481_nationalNumber$$inline_2021_nationalSignificantNumber$$inline_483$$, $JSCompiler_inline_result$$1958_regionCode$$inline_2022_regionCode$$inline_480$$);
-  if (!($JSCompiler_temp$$1956_JSCompiler_temp$$1957_metadata$$inline_2029_regionCodesLength$$inline_2023$$ = null == $JSCompiler_inline_result$$96_JSCompiler_temp$$1954_JSCompiler_temp$$1955_countryCode$$inline_475_metadata$$inline_482_regionCode$$16_regions$$inline_476$$) && ($JSCompiler_temp$$1956_JSCompiler_temp$$1957_metadata$$inline_2029_regionCodesLength$$inline_2023$$ = "001" != $JSCompiler_inline_result$$1958_regionCode$$inline_2022_regionCode$$inline_480$$)) {
-    $JSCompiler_temp$$1956_JSCompiler_temp$$1957_metadata$$inline_2029_regionCodesLength$$inline_2023$$ = $JSCompiler_StaticMethods_getMetadataForRegion$$($JSCompiler_StaticMethods_isValidNumber$self$$, $JSCompiler_inline_result$$1958_regionCode$$inline_2022_regionCode$$inline_480$$);
-    if (null == $JSCompiler_temp$$1956_JSCompiler_temp$$1957_metadata$$inline_2029_regionCodesLength$$inline_2023$$) {
-      throw "Invalid region code: " + $JSCompiler_inline_result$$1958_regionCode$$inline_2022_regionCode$$inline_480$$;
+  $JSCompiler_inline_result$$1973_regionCode$$inline_2037_regionCode$$inline_480$$ = $JSCompiler_inline_result$$96_JSCompiler_temp$$1969_JSCompiler_temp$$1970_countryCode$$inline_475_metadata$$inline_482_regionCode$$16_regions$$inline_476$$;
+  $countryCode$$inline_481_nationalNumber$$inline_2036_nationalSignificantNumber$$inline_483$$ = $number$$23$$.$getCountryCodeOrDefault$();
+  $JSCompiler_inline_result$$96_JSCompiler_temp$$1969_JSCompiler_temp$$1970_countryCode$$inline_475_metadata$$inline_482_regionCode$$16_regions$$inline_476$$ = $JSCompiler_StaticMethods_getMetadataForRegionOrCallingCode_$$($JSCompiler_StaticMethods_isValidNumber$self$$, $countryCode$$inline_481_nationalNumber$$inline_2036_nationalSignificantNumber$$inline_483$$, $JSCompiler_inline_result$$1973_regionCode$$inline_2037_regionCode$$inline_480$$);
+  if (!($JSCompiler_temp$$1971_JSCompiler_temp$$1972_metadata$$inline_2044_regionCodesLength$$inline_2038$$ = null == $JSCompiler_inline_result$$96_JSCompiler_temp$$1969_JSCompiler_temp$$1970_countryCode$$inline_475_metadata$$inline_482_regionCode$$16_regions$$inline_476$$) && ($JSCompiler_temp$$1971_JSCompiler_temp$$1972_metadata$$inline_2044_regionCodesLength$$inline_2038$$ = "001" != $JSCompiler_inline_result$$1973_regionCode$$inline_2037_regionCode$$inline_480$$)) {
+    $JSCompiler_temp$$1971_JSCompiler_temp$$1972_metadata$$inline_2044_regionCodesLength$$inline_2038$$ = $JSCompiler_StaticMethods_getMetadataForRegion$$($JSCompiler_StaticMethods_isValidNumber$self$$, $JSCompiler_inline_result$$1973_regionCode$$inline_2037_regionCode$$inline_480$$);
+    if (null == $JSCompiler_temp$$1971_JSCompiler_temp$$1972_metadata$$inline_2044_regionCodesLength$$inline_2038$$) {
+      throw "Invalid region code: " + $JSCompiler_inline_result$$1973_regionCode$$inline_2037_regionCode$$inline_480$$;
     }
-    $JSCompiler_inline_result$$1958_regionCode$$inline_2022_regionCode$$inline_480$$ = $JSCompiler_temp$$1956_JSCompiler_temp$$1957_metadata$$inline_2029_regionCodesLength$$inline_2023$$.$getCountryCodeOrDefault$();
-    $JSCompiler_temp$$1956_JSCompiler_temp$$1957_metadata$$inline_2029_regionCodesLength$$inline_2023$$ = $countryCode$$inline_481_nationalNumber$$inline_2021_nationalSignificantNumber$$inline_483$$ != $JSCompiler_inline_result$$1958_regionCode$$inline_2022_regionCode$$inline_480$$;
+    $JSCompiler_inline_result$$1973_regionCode$$inline_2037_regionCode$$inline_480$$ = $JSCompiler_temp$$1971_JSCompiler_temp$$1972_metadata$$inline_2044_regionCodesLength$$inline_2038$$.$getCountryCodeOrDefault$();
+    $JSCompiler_temp$$1971_JSCompiler_temp$$1972_metadata$$inline_2044_regionCodesLength$$inline_2038$$ = $countryCode$$inline_481_nationalNumber$$inline_2036_nationalSignificantNumber$$inline_483$$ != $JSCompiler_inline_result$$1973_regionCode$$inline_2037_regionCode$$inline_480$$;
   }
-  $JSCompiler_temp$$1956_JSCompiler_temp$$1957_metadata$$inline_2029_regionCodesLength$$inline_2023$$ ? $JSCompiler_inline_result$$96_JSCompiler_temp$$1954_JSCompiler_temp$$1955_countryCode$$inline_475_metadata$$inline_482_regionCode$$16_regions$$inline_476$$ = !1 : ($countryCode$$inline_481_nationalNumber$$inline_2021_nationalSignificantNumber$$inline_483$$ = $JSCompiler_StaticMethods_getNationalSignificantNumber$$($number$$23$$), $JSCompiler_inline_result$$96_JSCompiler_temp$$1954_JSCompiler_temp$$1955_countryCode$$inline_475_metadata$$inline_482_regionCode$$16_regions$$inline_476$$ = 
-  -1 != $JSCompiler_StaticMethods_getNumberTypeHelper_$$($countryCode$$inline_481_nationalNumber$$inline_2021_nationalSignificantNumber$$inline_483$$, $JSCompiler_inline_result$$96_JSCompiler_temp$$1954_JSCompiler_temp$$1955_countryCode$$inline_475_metadata$$inline_482_regionCode$$16_regions$$inline_476$$));
-  return $JSCompiler_inline_result$$96_JSCompiler_temp$$1954_JSCompiler_temp$$1955_countryCode$$inline_475_metadata$$inline_482_regionCode$$16_regions$$inline_476$$;
+  $JSCompiler_temp$$1971_JSCompiler_temp$$1972_metadata$$inline_2044_regionCodesLength$$inline_2038$$ ? $JSCompiler_inline_result$$96_JSCompiler_temp$$1969_JSCompiler_temp$$1970_countryCode$$inline_475_metadata$$inline_482_regionCode$$16_regions$$inline_476$$ = !1 : ($countryCode$$inline_481_nationalNumber$$inline_2036_nationalSignificantNumber$$inline_483$$ = $JSCompiler_StaticMethods_getNationalSignificantNumber$$($number$$23$$), $JSCompiler_inline_result$$96_JSCompiler_temp$$1969_JSCompiler_temp$$1970_countryCode$$inline_475_metadata$$inline_482_regionCode$$16_regions$$inline_476$$ = 
+  -1 != $JSCompiler_StaticMethods_getNumberTypeHelper_$$($countryCode$$inline_481_nationalNumber$$inline_2036_nationalSignificantNumber$$inline_483$$, $JSCompiler_inline_result$$96_JSCompiler_temp$$1969_JSCompiler_temp$$1970_countryCode$$inline_475_metadata$$inline_482_regionCode$$16_regions$$inline_476$$));
+  return $JSCompiler_inline_result$$96_JSCompiler_temp$$1969_JSCompiler_temp$$1970_countryCode$$inline_475_metadata$$inline_482_regionCode$$16_regions$$inline_476$$;
 }
 function $JSCompiler_StaticMethods_getRegionCodeForCountryCode$$($countryCallingCode$$12_regionCodes$$1$$) {
   $countryCallingCode$$12_regionCodes$$1$$ = $i18n$phonenumbers$metadata$countryCodeToRegionCodeMap$$[$countryCallingCode$$12_regionCodes$$1$$];
@@ -3941,58 +3941,58 @@ function $JSCompiler_StaticMethods_testNumberLengthAgainstPattern_$$($numberPatt
   return $i18n$phonenumbers$PhoneNumberUtil$matchesEntirely_$$($numberPattern$$, $number$$29$$) ? 0 : 0 == $number$$29$$.search($numberPattern$$) ? 3 : 2;
 }
 function $JSCompiler_StaticMethods_isPossibleNumberWithReason$$($JSCompiler_StaticMethods_isPossibleNumberWithReason$self$$, $number$$31$$) {
-  var $nationalNumber$$9$$ = $JSCompiler_StaticMethods_getNationalSignificantNumber$$($number$$31$$), $JSCompiler_StaticMethods_getGeneralDesc$self$$inline_2031_JSCompiler_inline_result$$1951_countryCode$$3_possibleNumberPattern$$1$$ = $number$$31$$.$getCountryCodeOrDefault$();
-  if (!($JSCompiler_StaticMethods_getGeneralDesc$self$$inline_2031_JSCompiler_inline_result$$1951_countryCode$$3_possibleNumberPattern$$1$$ in $i18n$phonenumbers$metadata$countryCodeToRegionCodeMap$$)) {
+  var $nationalNumber$$9$$ = $JSCompiler_StaticMethods_getNationalSignificantNumber$$($number$$31$$), $JSCompiler_StaticMethods_getGeneralDesc$self$$inline_2046_JSCompiler_inline_result$$1966_countryCode$$3_possibleNumberPattern$$1$$ = $number$$31$$.$getCountryCodeOrDefault$();
+  if (!($JSCompiler_StaticMethods_getGeneralDesc$self$$inline_2046_JSCompiler_inline_result$$1966_countryCode$$3_possibleNumberPattern$$1$$ in $i18n$phonenumbers$metadata$countryCodeToRegionCodeMap$$)) {
     return 1;
   }
-  $JSCompiler_StaticMethods_getGeneralDesc$self$$inline_2031_JSCompiler_inline_result$$1951_countryCode$$3_possibleNumberPattern$$1$$ = $JSCompiler_StaticMethods_getMetadataForRegionOrCallingCode_$$($JSCompiler_StaticMethods_isPossibleNumberWithReason$self$$, $JSCompiler_StaticMethods_getGeneralDesc$self$$inline_2031_JSCompiler_inline_result$$1951_countryCode$$3_possibleNumberPattern$$1$$, $JSCompiler_StaticMethods_getRegionCodeForCountryCode$$($JSCompiler_StaticMethods_getGeneralDesc$self$$inline_2031_JSCompiler_inline_result$$1951_countryCode$$3_possibleNumberPattern$$1$$));
-  $JSCompiler_StaticMethods_getGeneralDesc$self$$inline_2031_JSCompiler_inline_result$$1951_countryCode$$3_possibleNumberPattern$$1$$ = $JSCompiler_StaticMethods_get$Value$$($JSCompiler_StaticMethods_getGeneralDesc$self$$inline_2031_JSCompiler_inline_result$$1951_countryCode$$3_possibleNumberPattern$$1$$, 1);
-  $JSCompiler_StaticMethods_getGeneralDesc$self$$inline_2031_JSCompiler_inline_result$$1951_countryCode$$3_possibleNumberPattern$$1$$ = $JSCompiler_StaticMethods_get$ValueOrDefault$$($JSCompiler_StaticMethods_getGeneralDesc$self$$inline_2031_JSCompiler_inline_result$$1951_countryCode$$3_possibleNumberPattern$$1$$, 3);
-  return $JSCompiler_StaticMethods_testNumberLengthAgainstPattern_$$($JSCompiler_StaticMethods_getGeneralDesc$self$$inline_2031_JSCompiler_inline_result$$1951_countryCode$$3_possibleNumberPattern$$1$$, $nationalNumber$$9$$);
+  $JSCompiler_StaticMethods_getGeneralDesc$self$$inline_2046_JSCompiler_inline_result$$1966_countryCode$$3_possibleNumberPattern$$1$$ = $JSCompiler_StaticMethods_getMetadataForRegionOrCallingCode_$$($JSCompiler_StaticMethods_isPossibleNumberWithReason$self$$, $JSCompiler_StaticMethods_getGeneralDesc$self$$inline_2046_JSCompiler_inline_result$$1966_countryCode$$3_possibleNumberPattern$$1$$, $JSCompiler_StaticMethods_getRegionCodeForCountryCode$$($JSCompiler_StaticMethods_getGeneralDesc$self$$inline_2046_JSCompiler_inline_result$$1966_countryCode$$3_possibleNumberPattern$$1$$));
+  $JSCompiler_StaticMethods_getGeneralDesc$self$$inline_2046_JSCompiler_inline_result$$1966_countryCode$$3_possibleNumberPattern$$1$$ = $JSCompiler_StaticMethods_get$Value$$($JSCompiler_StaticMethods_getGeneralDesc$self$$inline_2046_JSCompiler_inline_result$$1966_countryCode$$3_possibleNumberPattern$$1$$, 1);
+  $JSCompiler_StaticMethods_getGeneralDesc$self$$inline_2046_JSCompiler_inline_result$$1966_countryCode$$3_possibleNumberPattern$$1$$ = $JSCompiler_StaticMethods_get$ValueOrDefault$$($JSCompiler_StaticMethods_getGeneralDesc$self$$inline_2046_JSCompiler_inline_result$$1966_countryCode$$3_possibleNumberPattern$$1$$, 3);
+  return $JSCompiler_StaticMethods_testNumberLengthAgainstPattern_$$($JSCompiler_StaticMethods_getGeneralDesc$self$$inline_2046_JSCompiler_inline_result$$1966_countryCode$$3_possibleNumberPattern$$1$$, $nationalNumber$$9$$);
 }
 function $JSCompiler_StaticMethods_maybeExtractCountryCode$$($fullNumber$$1_number$$34_potentialCountryCode$$inline_497$$, $defaultRegionMetadata_numberLength$$inline_498_potentialNationalNumberStr$$, $nationalNumber$$12_potentialCountryCode$$1$$, $fullNumberStr$$inline_496_keepRawInput$$, $phoneNumber$$1$$) {
   if (0 == $fullNumber$$1_number$$34_potentialCountryCode$$inline_497$$.length) {
     return 0;
   }
   $fullNumber$$1_number$$34_potentialCountryCode$$inline_497$$ = new $goog$string$StringBuffer$$($fullNumber$$1_number$$34_potentialCountryCode$$inline_497$$);
-  var $JSCompiler_inline_result$$1959_countryCodeSource_defaultCountryCode_i$$inline_499_numberStr$$inline_2035_possibleCountryIddPrefix_possibleIddPrefix$$inline_487$$;
-  null != $defaultRegionMetadata_numberLength$$inline_498_potentialNationalNumberStr$$ && ($JSCompiler_inline_result$$1959_countryCodeSource_defaultCountryCode_i$$inline_499_numberStr$$inline_2035_possibleCountryIddPrefix_possibleIddPrefix$$inline_487$$ = $JSCompiler_StaticMethods_get$Value$$($defaultRegionMetadata_numberLength$$inline_498_potentialNationalNumberStr$$, 11));
-  null == $JSCompiler_inline_result$$1959_countryCodeSource_defaultCountryCode_i$$inline_499_numberStr$$inline_2035_possibleCountryIddPrefix_possibleIddPrefix$$inline_487$$ && ($JSCompiler_inline_result$$1959_countryCodeSource_defaultCountryCode_i$$inline_499_numberStr$$inline_2035_possibleCountryIddPrefix_possibleIddPrefix$$inline_487$$ = "NonMatch");
-  var $defaultCountryCodeString_iddPattern$$inline_489_matchEnd$$inline_2036_numberStr$$inline_488_validNumberPattern$$ = $fullNumber$$1_number$$34_potentialCountryCode$$inline_497$$.toString();
-  if (0 == $defaultCountryCodeString_iddPattern$$inline_489_matchEnd$$inline_2036_numberStr$$inline_488_validNumberPattern$$.length) {
-    $JSCompiler_inline_result$$1959_countryCodeSource_defaultCountryCode_i$$inline_499_numberStr$$inline_2035_possibleCountryIddPrefix_possibleIddPrefix$$inline_487$$ = 20;
+  var $JSCompiler_inline_result$$1974_countryCodeSource_defaultCountryCode_i$$inline_499_numberStr$$inline_2050_possibleCountryIddPrefix_possibleIddPrefix$$inline_487$$;
+  null != $defaultRegionMetadata_numberLength$$inline_498_potentialNationalNumberStr$$ && ($JSCompiler_inline_result$$1974_countryCodeSource_defaultCountryCode_i$$inline_499_numberStr$$inline_2050_possibleCountryIddPrefix_possibleIddPrefix$$inline_487$$ = $JSCompiler_StaticMethods_get$Value$$($defaultRegionMetadata_numberLength$$inline_498_potentialNationalNumberStr$$, 11));
+  null == $JSCompiler_inline_result$$1974_countryCodeSource_defaultCountryCode_i$$inline_499_numberStr$$inline_2050_possibleCountryIddPrefix_possibleIddPrefix$$inline_487$$ && ($JSCompiler_inline_result$$1974_countryCodeSource_defaultCountryCode_i$$inline_499_numberStr$$inline_2050_possibleCountryIddPrefix_possibleIddPrefix$$inline_487$$ = "NonMatch");
+  var $defaultCountryCodeString_iddPattern$$inline_489_matchEnd$$inline_2051_numberStr$$inline_488_validNumberPattern$$ = $fullNumber$$1_number$$34_potentialCountryCode$$inline_497$$.toString();
+  if (0 == $defaultCountryCodeString_iddPattern$$inline_489_matchEnd$$inline_2051_numberStr$$inline_488_validNumberPattern$$.length) {
+    $JSCompiler_inline_result$$1974_countryCodeSource_defaultCountryCode_i$$inline_499_numberStr$$inline_2050_possibleCountryIddPrefix_possibleIddPrefix$$inline_487$$ = 20;
   } else {
-    if ($i18n$phonenumbers$PhoneNumberUtil$LEADING_PLUS_CHARS_PATTERN_$$.test($defaultCountryCodeString_iddPattern$$inline_489_matchEnd$$inline_2036_numberStr$$inline_488_validNumberPattern$$)) {
-      $defaultCountryCodeString_iddPattern$$inline_489_matchEnd$$inline_2036_numberStr$$inline_488_validNumberPattern$$ = $defaultCountryCodeString_iddPattern$$inline_489_matchEnd$$inline_2036_numberStr$$inline_488_validNumberPattern$$.replace($i18n$phonenumbers$PhoneNumberUtil$LEADING_PLUS_CHARS_PATTERN_$$, ""), $fullNumber$$1_number$$34_potentialCountryCode$$inline_497$$.clear(), $fullNumber$$1_number$$34_potentialCountryCode$$inline_497$$.append($i18n$phonenumbers$PhoneNumberUtil$normalize$$($defaultCountryCodeString_iddPattern$$inline_489_matchEnd$$inline_2036_numberStr$$inline_488_validNumberPattern$$)), 
-      $JSCompiler_inline_result$$1959_countryCodeSource_defaultCountryCode_i$$inline_499_numberStr$$inline_2035_possibleCountryIddPrefix_possibleIddPrefix$$inline_487$$ = 1;
+    if ($i18n$phonenumbers$PhoneNumberUtil$LEADING_PLUS_CHARS_PATTERN_$$.test($defaultCountryCodeString_iddPattern$$inline_489_matchEnd$$inline_2051_numberStr$$inline_488_validNumberPattern$$)) {
+      $defaultCountryCodeString_iddPattern$$inline_489_matchEnd$$inline_2051_numberStr$$inline_488_validNumberPattern$$ = $defaultCountryCodeString_iddPattern$$inline_489_matchEnd$$inline_2051_numberStr$$inline_488_validNumberPattern$$.replace($i18n$phonenumbers$PhoneNumberUtil$LEADING_PLUS_CHARS_PATTERN_$$, ""), $fullNumber$$1_number$$34_potentialCountryCode$$inline_497$$.clear(), $fullNumber$$1_number$$34_potentialCountryCode$$inline_497$$.append($i18n$phonenumbers$PhoneNumberUtil$normalize$$($defaultCountryCodeString_iddPattern$$inline_489_matchEnd$$inline_2051_numberStr$$inline_488_validNumberPattern$$)), 
+      $JSCompiler_inline_result$$1974_countryCodeSource_defaultCountryCode_i$$inline_499_numberStr$$inline_2050_possibleCountryIddPrefix_possibleIddPrefix$$inline_487$$ = 1;
     } else {
-      $defaultCountryCodeString_iddPattern$$inline_489_matchEnd$$inline_2036_numberStr$$inline_488_validNumberPattern$$ = new RegExp($JSCompiler_inline_result$$1959_countryCodeSource_defaultCountryCode_i$$inline_499_numberStr$$inline_2035_possibleCountryIddPrefix_possibleIddPrefix$$inline_487$$);
+      $defaultCountryCodeString_iddPattern$$inline_489_matchEnd$$inline_2051_numberStr$$inline_488_validNumberPattern$$ = new RegExp($JSCompiler_inline_result$$1974_countryCodeSource_defaultCountryCode_i$$inline_499_numberStr$$inline_2050_possibleCountryIddPrefix_possibleIddPrefix$$inline_487$$);
       $i18n$phonenumbers$PhoneNumberUtil$normalizeSB_$$($fullNumber$$1_number$$34_potentialCountryCode$$inline_497$$);
-      $JSCompiler_inline_result$$1959_countryCodeSource_defaultCountryCode_i$$inline_499_numberStr$$inline_2035_possibleCountryIddPrefix_possibleIddPrefix$$inline_487$$ = $fullNumber$$1_number$$34_potentialCountryCode$$inline_497$$.toString();
-      if (0 == $JSCompiler_inline_result$$1959_countryCodeSource_defaultCountryCode_i$$inline_499_numberStr$$inline_2035_possibleCountryIddPrefix_possibleIddPrefix$$inline_487$$.search($defaultCountryCodeString_iddPattern$$inline_489_matchEnd$$inline_2036_numberStr$$inline_488_validNumberPattern$$)) {
-        var $defaultCountryCodeString_iddPattern$$inline_489_matchEnd$$inline_2036_numberStr$$inline_488_validNumberPattern$$ = $JSCompiler_inline_result$$1959_countryCodeSource_defaultCountryCode_i$$inline_499_numberStr$$inline_2035_possibleCountryIddPrefix_possibleIddPrefix$$inline_487$$.match($defaultCountryCodeString_iddPattern$$inline_489_matchEnd$$inline_2036_numberStr$$inline_488_validNumberPattern$$)[0].length, $generalDesc_matchedGroups$$inline_2037_normalizedNumber$$2_possibleNumberPattern$$2$$ = 
-        $JSCompiler_inline_result$$1959_countryCodeSource_defaultCountryCode_i$$inline_499_numberStr$$inline_2035_possibleCountryIddPrefix_possibleIddPrefix$$inline_487$$.substring($defaultCountryCodeString_iddPattern$$inline_489_matchEnd$$inline_2036_numberStr$$inline_488_validNumberPattern$$).match($i18n$phonenumbers$PhoneNumberUtil$CAPTURING_DIGIT_PATTERN$$);
-        $generalDesc_matchedGroups$$inline_2037_normalizedNumber$$2_possibleNumberPattern$$2$$ && null != $generalDesc_matchedGroups$$inline_2037_normalizedNumber$$2_possibleNumberPattern$$2$$[1] && 0 < $generalDesc_matchedGroups$$inline_2037_normalizedNumber$$2_possibleNumberPattern$$2$$[1].length && "0" == $i18n$phonenumbers$PhoneNumberUtil$normalizeHelper_$$($generalDesc_matchedGroups$$inline_2037_normalizedNumber$$2_possibleNumberPattern$$2$$[1], $i18n$phonenumbers$PhoneNumberUtil$DIGIT_MAPPINGS$$) ? 
-        $JSCompiler_inline_result$$1959_countryCodeSource_defaultCountryCode_i$$inline_499_numberStr$$inline_2035_possibleCountryIddPrefix_possibleIddPrefix$$inline_487$$ = !1 : ($fullNumber$$1_number$$34_potentialCountryCode$$inline_497$$.clear(), $fullNumber$$1_number$$34_potentialCountryCode$$inline_497$$.append($JSCompiler_inline_result$$1959_countryCodeSource_defaultCountryCode_i$$inline_499_numberStr$$inline_2035_possibleCountryIddPrefix_possibleIddPrefix$$inline_487$$.substring($defaultCountryCodeString_iddPattern$$inline_489_matchEnd$$inline_2036_numberStr$$inline_488_validNumberPattern$$)), 
-        $JSCompiler_inline_result$$1959_countryCodeSource_defaultCountryCode_i$$inline_499_numberStr$$inline_2035_possibleCountryIddPrefix_possibleIddPrefix$$inline_487$$ = !0);
+      $JSCompiler_inline_result$$1974_countryCodeSource_defaultCountryCode_i$$inline_499_numberStr$$inline_2050_possibleCountryIddPrefix_possibleIddPrefix$$inline_487$$ = $fullNumber$$1_number$$34_potentialCountryCode$$inline_497$$.toString();
+      if (0 == $JSCompiler_inline_result$$1974_countryCodeSource_defaultCountryCode_i$$inline_499_numberStr$$inline_2050_possibleCountryIddPrefix_possibleIddPrefix$$inline_487$$.search($defaultCountryCodeString_iddPattern$$inline_489_matchEnd$$inline_2051_numberStr$$inline_488_validNumberPattern$$)) {
+        var $defaultCountryCodeString_iddPattern$$inline_489_matchEnd$$inline_2051_numberStr$$inline_488_validNumberPattern$$ = $JSCompiler_inline_result$$1974_countryCodeSource_defaultCountryCode_i$$inline_499_numberStr$$inline_2050_possibleCountryIddPrefix_possibleIddPrefix$$inline_487$$.match($defaultCountryCodeString_iddPattern$$inline_489_matchEnd$$inline_2051_numberStr$$inline_488_validNumberPattern$$)[0].length, $generalDesc_matchedGroups$$inline_2052_normalizedNumber$$2_possibleNumberPattern$$2$$ = 
+        $JSCompiler_inline_result$$1974_countryCodeSource_defaultCountryCode_i$$inline_499_numberStr$$inline_2050_possibleCountryIddPrefix_possibleIddPrefix$$inline_487$$.substring($defaultCountryCodeString_iddPattern$$inline_489_matchEnd$$inline_2051_numberStr$$inline_488_validNumberPattern$$).match($i18n$phonenumbers$PhoneNumberUtil$CAPTURING_DIGIT_PATTERN$$);
+        $generalDesc_matchedGroups$$inline_2052_normalizedNumber$$2_possibleNumberPattern$$2$$ && null != $generalDesc_matchedGroups$$inline_2052_normalizedNumber$$2_possibleNumberPattern$$2$$[1] && 0 < $generalDesc_matchedGroups$$inline_2052_normalizedNumber$$2_possibleNumberPattern$$2$$[1].length && "0" == $i18n$phonenumbers$PhoneNumberUtil$normalizeHelper_$$($generalDesc_matchedGroups$$inline_2052_normalizedNumber$$2_possibleNumberPattern$$2$$[1], $i18n$phonenumbers$PhoneNumberUtil$DIGIT_MAPPINGS$$) ? 
+        $JSCompiler_inline_result$$1974_countryCodeSource_defaultCountryCode_i$$inline_499_numberStr$$inline_2050_possibleCountryIddPrefix_possibleIddPrefix$$inline_487$$ = !1 : ($fullNumber$$1_number$$34_potentialCountryCode$$inline_497$$.clear(), $fullNumber$$1_number$$34_potentialCountryCode$$inline_497$$.append($JSCompiler_inline_result$$1974_countryCodeSource_defaultCountryCode_i$$inline_499_numberStr$$inline_2050_possibleCountryIddPrefix_possibleIddPrefix$$inline_487$$.substring($defaultCountryCodeString_iddPattern$$inline_489_matchEnd$$inline_2051_numberStr$$inline_488_validNumberPattern$$)), 
+        $JSCompiler_inline_result$$1974_countryCodeSource_defaultCountryCode_i$$inline_499_numberStr$$inline_2050_possibleCountryIddPrefix_possibleIddPrefix$$inline_487$$ = !0);
       } else {
-        $JSCompiler_inline_result$$1959_countryCodeSource_defaultCountryCode_i$$inline_499_numberStr$$inline_2035_possibleCountryIddPrefix_possibleIddPrefix$$inline_487$$ = !1;
+        $JSCompiler_inline_result$$1974_countryCodeSource_defaultCountryCode_i$$inline_499_numberStr$$inline_2050_possibleCountryIddPrefix_possibleIddPrefix$$inline_487$$ = !1;
       }
-      $JSCompiler_inline_result$$1959_countryCodeSource_defaultCountryCode_i$$inline_499_numberStr$$inline_2035_possibleCountryIddPrefix_possibleIddPrefix$$inline_487$$ = $JSCompiler_inline_result$$1959_countryCodeSource_defaultCountryCode_i$$inline_499_numberStr$$inline_2035_possibleCountryIddPrefix_possibleIddPrefix$$inline_487$$ ? 5 : 20;
+      $JSCompiler_inline_result$$1974_countryCodeSource_defaultCountryCode_i$$inline_499_numberStr$$inline_2050_possibleCountryIddPrefix_possibleIddPrefix$$inline_487$$ = $JSCompiler_inline_result$$1974_countryCodeSource_defaultCountryCode_i$$inline_499_numberStr$$inline_2050_possibleCountryIddPrefix_possibleIddPrefix$$inline_487$$ ? 5 : 20;
     }
   }
-  $fullNumberStr$$inline_496_keepRawInput$$ && $JSCompiler_StaticMethods_set$Value$$($phoneNumber$$1$$, 6, $JSCompiler_inline_result$$1959_countryCodeSource_defaultCountryCode_i$$inline_499_numberStr$$inline_2035_possibleCountryIddPrefix_possibleIddPrefix$$inline_487$$);
-  if (20 != $JSCompiler_inline_result$$1959_countryCodeSource_defaultCountryCode_i$$inline_499_numberStr$$inline_2035_possibleCountryIddPrefix_possibleIddPrefix$$inline_487$$) {
+  $fullNumberStr$$inline_496_keepRawInput$$ && $JSCompiler_StaticMethods_set$Value$$($phoneNumber$$1$$, 6, $JSCompiler_inline_result$$1974_countryCodeSource_defaultCountryCode_i$$inline_499_numberStr$$inline_2050_possibleCountryIddPrefix_possibleIddPrefix$$inline_487$$);
+  if (20 != $JSCompiler_inline_result$$1974_countryCodeSource_defaultCountryCode_i$$inline_499_numberStr$$inline_2050_possibleCountryIddPrefix_possibleIddPrefix$$inline_487$$) {
     if (2 >= $fullNumber$$1_number$$34_potentialCountryCode$$inline_497$$.$buffer_$.length) {
       throw "Phone number too short after IDD";
     }
     a: {
       $fullNumberStr$$inline_496_keepRawInput$$ = $fullNumber$$1_number$$34_potentialCountryCode$$inline_497$$.toString();
       if (0 != $fullNumberStr$$inline_496_keepRawInput$$.length && "0" != $fullNumberStr$$inline_496_keepRawInput$$.charAt(0)) {
-        for ($defaultRegionMetadata_numberLength$$inline_498_potentialNationalNumberStr$$ = $fullNumberStr$$inline_496_keepRawInput$$.length, $JSCompiler_inline_result$$1959_countryCodeSource_defaultCountryCode_i$$inline_499_numberStr$$inline_2035_possibleCountryIddPrefix_possibleIddPrefix$$inline_487$$ = 1;3 >= $JSCompiler_inline_result$$1959_countryCodeSource_defaultCountryCode_i$$inline_499_numberStr$$inline_2035_possibleCountryIddPrefix_possibleIddPrefix$$inline_487$$ && $JSCompiler_inline_result$$1959_countryCodeSource_defaultCountryCode_i$$inline_499_numberStr$$inline_2035_possibleCountryIddPrefix_possibleIddPrefix$$inline_487$$ <= 
-        $defaultRegionMetadata_numberLength$$inline_498_potentialNationalNumberStr$$;++$JSCompiler_inline_result$$1959_countryCodeSource_defaultCountryCode_i$$inline_499_numberStr$$inline_2035_possibleCountryIddPrefix_possibleIddPrefix$$inline_487$$) {
-          if ($fullNumber$$1_number$$34_potentialCountryCode$$inline_497$$ = parseInt($fullNumberStr$$inline_496_keepRawInput$$.substring(0, $JSCompiler_inline_result$$1959_countryCodeSource_defaultCountryCode_i$$inline_499_numberStr$$inline_2035_possibleCountryIddPrefix_possibleIddPrefix$$inline_487$$), 10), $fullNumber$$1_number$$34_potentialCountryCode$$inline_497$$ in $i18n$phonenumbers$metadata$countryCodeToRegionCodeMap$$) {
-            $nationalNumber$$12_potentialCountryCode$$1$$.append($fullNumberStr$$inline_496_keepRawInput$$.substring($JSCompiler_inline_result$$1959_countryCodeSource_defaultCountryCode_i$$inline_499_numberStr$$inline_2035_possibleCountryIddPrefix_possibleIddPrefix$$inline_487$$));
+        for ($defaultRegionMetadata_numberLength$$inline_498_potentialNationalNumberStr$$ = $fullNumberStr$$inline_496_keepRawInput$$.length, $JSCompiler_inline_result$$1974_countryCodeSource_defaultCountryCode_i$$inline_499_numberStr$$inline_2050_possibleCountryIddPrefix_possibleIddPrefix$$inline_487$$ = 1;3 >= $JSCompiler_inline_result$$1974_countryCodeSource_defaultCountryCode_i$$inline_499_numberStr$$inline_2050_possibleCountryIddPrefix_possibleIddPrefix$$inline_487$$ && $JSCompiler_inline_result$$1974_countryCodeSource_defaultCountryCode_i$$inline_499_numberStr$$inline_2050_possibleCountryIddPrefix_possibleIddPrefix$$inline_487$$ <= 
+        $defaultRegionMetadata_numberLength$$inline_498_potentialNationalNumberStr$$;++$JSCompiler_inline_result$$1974_countryCodeSource_defaultCountryCode_i$$inline_499_numberStr$$inline_2050_possibleCountryIddPrefix_possibleIddPrefix$$inline_487$$) {
+          if ($fullNumber$$1_number$$34_potentialCountryCode$$inline_497$$ = parseInt($fullNumberStr$$inline_496_keepRawInput$$.substring(0, $JSCompiler_inline_result$$1974_countryCodeSource_defaultCountryCode_i$$inline_499_numberStr$$inline_2050_possibleCountryIddPrefix_possibleIddPrefix$$inline_487$$), 10), $fullNumber$$1_number$$34_potentialCountryCode$$inline_497$$ in $i18n$phonenumbers$metadata$countryCodeToRegionCodeMap$$) {
+            $nationalNumber$$12_potentialCountryCode$$1$$.append($fullNumberStr$$inline_496_keepRawInput$$.substring($JSCompiler_inline_result$$1974_countryCodeSource_defaultCountryCode_i$$inline_499_numberStr$$inline_2050_possibleCountryIddPrefix_possibleIddPrefix$$inline_487$$));
             $nationalNumber$$12_potentialCountryCode$$1$$ = $fullNumber$$1_number$$34_potentialCountryCode$$inline_497$$;
             break a;
           }
@@ -4005,16 +4005,16 @@ function $JSCompiler_StaticMethods_maybeExtractCountryCode$$($fullNumber$$1_numb
     }
     throw "Invalid country calling code";
   }
-  if (null != $defaultRegionMetadata_numberLength$$inline_498_potentialNationalNumberStr$$ && ($JSCompiler_inline_result$$1959_countryCodeSource_defaultCountryCode_i$$inline_499_numberStr$$inline_2035_possibleCountryIddPrefix_possibleIddPrefix$$inline_487$$ = $defaultRegionMetadata_numberLength$$inline_498_potentialNationalNumberStr$$.$getCountryCodeOrDefault$(), $defaultCountryCodeString_iddPattern$$inline_489_matchEnd$$inline_2036_numberStr$$inline_488_validNumberPattern$$ = "" + $JSCompiler_inline_result$$1959_countryCodeSource_defaultCountryCode_i$$inline_499_numberStr$$inline_2035_possibleCountryIddPrefix_possibleIddPrefix$$inline_487$$, 
-  $generalDesc_matchedGroups$$inline_2037_normalizedNumber$$2_possibleNumberPattern$$2$$ = $fullNumber$$1_number$$34_potentialCountryCode$$inline_497$$.toString(), 0 == $generalDesc_matchedGroups$$inline_2037_normalizedNumber$$2_possibleNumberPattern$$2$$.lastIndexOf($defaultCountryCodeString_iddPattern$$inline_489_matchEnd$$inline_2036_numberStr$$inline_488_validNumberPattern$$, 0))) {
-    var $potentialNationalNumber$$ = new $goog$string$StringBuffer$$($generalDesc_matchedGroups$$inline_2037_normalizedNumber$$2_possibleNumberPattern$$2$$.substring($defaultCountryCodeString_iddPattern$$inline_489_matchEnd$$inline_2036_numberStr$$inline_488_validNumberPattern$$.length)), $generalDesc_matchedGroups$$inline_2037_normalizedNumber$$2_possibleNumberPattern$$2$$ = $JSCompiler_StaticMethods_get$Value$$($defaultRegionMetadata_numberLength$$inline_498_potentialNationalNumberStr$$, 1), $defaultCountryCodeString_iddPattern$$inline_489_matchEnd$$inline_2036_numberStr$$inline_488_validNumberPattern$$ = 
-    new RegExp($JSCompiler_StaticMethods_get$ValueOrDefault$$($generalDesc_matchedGroups$$inline_2037_normalizedNumber$$2_possibleNumberPattern$$2$$, 2));
+  if (null != $defaultRegionMetadata_numberLength$$inline_498_potentialNationalNumberStr$$ && ($JSCompiler_inline_result$$1974_countryCodeSource_defaultCountryCode_i$$inline_499_numberStr$$inline_2050_possibleCountryIddPrefix_possibleIddPrefix$$inline_487$$ = $defaultRegionMetadata_numberLength$$inline_498_potentialNationalNumberStr$$.$getCountryCodeOrDefault$(), $defaultCountryCodeString_iddPattern$$inline_489_matchEnd$$inline_2051_numberStr$$inline_488_validNumberPattern$$ = "" + $JSCompiler_inline_result$$1974_countryCodeSource_defaultCountryCode_i$$inline_499_numberStr$$inline_2050_possibleCountryIddPrefix_possibleIddPrefix$$inline_487$$, 
+  $generalDesc_matchedGroups$$inline_2052_normalizedNumber$$2_possibleNumberPattern$$2$$ = $fullNumber$$1_number$$34_potentialCountryCode$$inline_497$$.toString(), 0 == $generalDesc_matchedGroups$$inline_2052_normalizedNumber$$2_possibleNumberPattern$$2$$.lastIndexOf($defaultCountryCodeString_iddPattern$$inline_489_matchEnd$$inline_2051_numberStr$$inline_488_validNumberPattern$$, 0))) {
+    var $potentialNationalNumber$$ = new $goog$string$StringBuffer$$($generalDesc_matchedGroups$$inline_2052_normalizedNumber$$2_possibleNumberPattern$$2$$.substring($defaultCountryCodeString_iddPattern$$inline_489_matchEnd$$inline_2051_numberStr$$inline_488_validNumberPattern$$.length)), $generalDesc_matchedGroups$$inline_2052_normalizedNumber$$2_possibleNumberPattern$$2$$ = $JSCompiler_StaticMethods_get$Value$$($defaultRegionMetadata_numberLength$$inline_498_potentialNationalNumberStr$$, 1), $defaultCountryCodeString_iddPattern$$inline_489_matchEnd$$inline_2051_numberStr$$inline_488_validNumberPattern$$ = 
+    new RegExp($JSCompiler_StaticMethods_get$ValueOrDefault$$($generalDesc_matchedGroups$$inline_2052_normalizedNumber$$2_possibleNumberPattern$$2$$, 2));
     $JSCompiler_StaticMethods_maybeStripNationalPrefixAndCarrierCode$$($potentialNationalNumber$$, $defaultRegionMetadata_numberLength$$inline_498_potentialNationalNumberStr$$, null);
     $defaultRegionMetadata_numberLength$$inline_498_potentialNationalNumberStr$$ = $potentialNationalNumber$$.toString();
-    $generalDesc_matchedGroups$$inline_2037_normalizedNumber$$2_possibleNumberPattern$$2$$ = $JSCompiler_StaticMethods_get$ValueOrDefault$$($generalDesc_matchedGroups$$inline_2037_normalizedNumber$$2_possibleNumberPattern$$2$$, 3);
-    if (!$i18n$phonenumbers$PhoneNumberUtil$matchesEntirely_$$($defaultCountryCodeString_iddPattern$$inline_489_matchEnd$$inline_2036_numberStr$$inline_488_validNumberPattern$$, $fullNumber$$1_number$$34_potentialCountryCode$$inline_497$$.toString()) && $i18n$phonenumbers$PhoneNumberUtil$matchesEntirely_$$($defaultCountryCodeString_iddPattern$$inline_489_matchEnd$$inline_2036_numberStr$$inline_488_validNumberPattern$$, $defaultRegionMetadata_numberLength$$inline_498_potentialNationalNumberStr$$) || 
-    3 == $JSCompiler_StaticMethods_testNumberLengthAgainstPattern_$$($generalDesc_matchedGroups$$inline_2037_normalizedNumber$$2_possibleNumberPattern$$2$$, $fullNumber$$1_number$$34_potentialCountryCode$$inline_497$$.toString())) {
-      return $nationalNumber$$12_potentialCountryCode$$1$$.append($defaultRegionMetadata_numberLength$$inline_498_potentialNationalNumberStr$$), $fullNumberStr$$inline_496_keepRawInput$$ && $JSCompiler_StaticMethods_set$Value$$($phoneNumber$$1$$, 6, 10), $phoneNumber$$1$$.$setCountryCode$($JSCompiler_inline_result$$1959_countryCodeSource_defaultCountryCode_i$$inline_499_numberStr$$inline_2035_possibleCountryIddPrefix_possibleIddPrefix$$inline_487$$), $JSCompiler_inline_result$$1959_countryCodeSource_defaultCountryCode_i$$inline_499_numberStr$$inline_2035_possibleCountryIddPrefix_possibleIddPrefix$$inline_487$$
+    $generalDesc_matchedGroups$$inline_2052_normalizedNumber$$2_possibleNumberPattern$$2$$ = $JSCompiler_StaticMethods_get$ValueOrDefault$$($generalDesc_matchedGroups$$inline_2052_normalizedNumber$$2_possibleNumberPattern$$2$$, 3);
+    if (!$i18n$phonenumbers$PhoneNumberUtil$matchesEntirely_$$($defaultCountryCodeString_iddPattern$$inline_489_matchEnd$$inline_2051_numberStr$$inline_488_validNumberPattern$$, $fullNumber$$1_number$$34_potentialCountryCode$$inline_497$$.toString()) && $i18n$phonenumbers$PhoneNumberUtil$matchesEntirely_$$($defaultCountryCodeString_iddPattern$$inline_489_matchEnd$$inline_2051_numberStr$$inline_488_validNumberPattern$$, $defaultRegionMetadata_numberLength$$inline_498_potentialNationalNumberStr$$) || 
+    3 == $JSCompiler_StaticMethods_testNumberLengthAgainstPattern_$$($generalDesc_matchedGroups$$inline_2052_normalizedNumber$$2_possibleNumberPattern$$2$$, $fullNumber$$1_number$$34_potentialCountryCode$$inline_497$$.toString())) {
+      return $nationalNumber$$12_potentialCountryCode$$1$$.append($defaultRegionMetadata_numberLength$$inline_498_potentialNationalNumberStr$$), $fullNumberStr$$inline_496_keepRawInput$$ && $JSCompiler_StaticMethods_set$Value$$($phoneNumber$$1$$, 6, 10), $phoneNumber$$1$$.$setCountryCode$($JSCompiler_inline_result$$1974_countryCodeSource_defaultCountryCode_i$$inline_499_numberStr$$inline_2050_possibleCountryIddPrefix_possibleIddPrefix$$inline_487$$), $JSCompiler_inline_result$$1974_countryCodeSource_defaultCountryCode_i$$inline_499_numberStr$$inline_2050_possibleCountryIddPrefix_possibleIddPrefix$$inline_487$$
       ;
     }
   }
@@ -4060,22 +4060,22 @@ function $JSCompiler_StaticMethods_parseHelper_$$($JSCompiler_StaticMethods_pars
   }
   var $nationalNumber$$14_number$$inline_536_phoneNumberRegion$$1$$ = new $goog$string$StringBuffer$$, $indexOfPhoneContext$$inline_508_nationalNumberStr$$inline_512_numberToParse$$inline_516_phoneNumber$$3$$ = $extension_normalizedNationalNumber$$1_numberStr$$inline_523_numberToParse$$3$$.indexOf(";phone-context=");
   if (0 < $indexOfPhoneContext$$inline_508_nationalNumberStr$$inline_512_numberToParse$$inline_516_phoneNumber$$3$$) {
-    var $JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2301_indexOfIsdn$$inline_513_indexOfRfc3966Prefix$$inline_511_mStart$$inline_524_phoneContextStart$$inline_509_possibleNumberPattern$$inline_537_regionMetadata$$2$$ = $indexOfPhoneContext$$inline_508_nationalNumberStr$$inline_512_numberToParse$$inline_516_phoneNumber$$3$$ + 15;
-    if ("+" == $extension_normalizedNationalNumber$$1_numberStr$$inline_523_numberToParse$$3$$.charAt($JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2301_indexOfIsdn$$inline_513_indexOfRfc3966Prefix$$inline_511_mStart$$inline_524_phoneContextStart$$inline_509_possibleNumberPattern$$inline_537_regionMetadata$$2$$)) {
-      var $countryCode$$4_matchedGroups$$inline_525_phoneContextEnd$$inline_510$$ = $extension_normalizedNationalNumber$$1_numberStr$$inline_523_numberToParse$$3$$.indexOf(";", $JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2301_indexOfIsdn$$inline_513_indexOfRfc3966Prefix$$inline_511_mStart$$inline_524_phoneContextStart$$inline_509_possibleNumberPattern$$inline_537_regionMetadata$$2$$);
-      0 < $countryCode$$4_matchedGroups$$inline_525_phoneContextEnd$$inline_510$$ ? $nationalNumber$$14_number$$inline_536_phoneNumberRegion$$1$$.append($extension_normalizedNationalNumber$$1_numberStr$$inline_523_numberToParse$$3$$.substring($JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2301_indexOfIsdn$$inline_513_indexOfRfc3966Prefix$$inline_511_mStart$$inline_524_phoneContextStart$$inline_509_possibleNumberPattern$$inline_537_regionMetadata$$2$$, $countryCode$$4_matchedGroups$$inline_525_phoneContextEnd$$inline_510$$)) : 
-      $nationalNumber$$14_number$$inline_536_phoneNumberRegion$$1$$.append($extension_normalizedNationalNumber$$1_numberStr$$inline_523_numberToParse$$3$$.substring($JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2301_indexOfIsdn$$inline_513_indexOfRfc3966Prefix$$inline_511_mStart$$inline_524_phoneContextStart$$inline_509_possibleNumberPattern$$inline_537_regionMetadata$$2$$));
+    var $JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2316_indexOfIsdn$$inline_513_indexOfRfc3966Prefix$$inline_511_mStart$$inline_524_phoneContextStart$$inline_509_possibleNumberPattern$$inline_537_regionMetadata$$2$$ = $indexOfPhoneContext$$inline_508_nationalNumberStr$$inline_512_numberToParse$$inline_516_phoneNumber$$3$$ + 15;
+    if ("+" == $extension_normalizedNationalNumber$$1_numberStr$$inline_523_numberToParse$$3$$.charAt($JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2316_indexOfIsdn$$inline_513_indexOfRfc3966Prefix$$inline_511_mStart$$inline_524_phoneContextStart$$inline_509_possibleNumberPattern$$inline_537_regionMetadata$$2$$)) {
+      var $countryCode$$4_matchedGroups$$inline_525_phoneContextEnd$$inline_510$$ = $extension_normalizedNationalNumber$$1_numberStr$$inline_523_numberToParse$$3$$.indexOf(";", $JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2316_indexOfIsdn$$inline_513_indexOfRfc3966Prefix$$inline_511_mStart$$inline_524_phoneContextStart$$inline_509_possibleNumberPattern$$inline_537_regionMetadata$$2$$);
+      0 < $countryCode$$4_matchedGroups$$inline_525_phoneContextEnd$$inline_510$$ ? $nationalNumber$$14_number$$inline_536_phoneNumberRegion$$1$$.append($extension_normalizedNationalNumber$$1_numberStr$$inline_523_numberToParse$$3$$.substring($JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2316_indexOfIsdn$$inline_513_indexOfRfc3966Prefix$$inline_511_mStart$$inline_524_phoneContextStart$$inline_509_possibleNumberPattern$$inline_537_regionMetadata$$2$$, $countryCode$$4_matchedGroups$$inline_525_phoneContextEnd$$inline_510$$)) : 
+      $nationalNumber$$14_number$$inline_536_phoneNumberRegion$$1$$.append($extension_normalizedNationalNumber$$1_numberStr$$inline_523_numberToParse$$3$$.substring($JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2316_indexOfIsdn$$inline_513_indexOfRfc3966Prefix$$inline_511_mStart$$inline_524_phoneContextStart$$inline_509_possibleNumberPattern$$inline_537_regionMetadata$$2$$));
     }
-    $JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2301_indexOfIsdn$$inline_513_indexOfRfc3966Prefix$$inline_511_mStart$$inline_524_phoneContextStart$$inline_509_possibleNumberPattern$$inline_537_regionMetadata$$2$$ = $extension_normalizedNationalNumber$$1_numberStr$$inline_523_numberToParse$$3$$.indexOf("tel:");
-    $nationalNumber$$14_number$$inline_536_phoneNumberRegion$$1$$.append($extension_normalizedNationalNumber$$1_numberStr$$inline_523_numberToParse$$3$$.substring(0 <= $JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2301_indexOfIsdn$$inline_513_indexOfRfc3966Prefix$$inline_511_mStart$$inline_524_phoneContextStart$$inline_509_possibleNumberPattern$$inline_537_regionMetadata$$2$$ ? $JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2301_indexOfIsdn$$inline_513_indexOfRfc3966Prefix$$inline_511_mStart$$inline_524_phoneContextStart$$inline_509_possibleNumberPattern$$inline_537_regionMetadata$$2$$ + 
+    $JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2316_indexOfIsdn$$inline_513_indexOfRfc3966Prefix$$inline_511_mStart$$inline_524_phoneContextStart$$inline_509_possibleNumberPattern$$inline_537_regionMetadata$$2$$ = $extension_normalizedNationalNumber$$1_numberStr$$inline_523_numberToParse$$3$$.indexOf("tel:");
+    $nationalNumber$$14_number$$inline_536_phoneNumberRegion$$1$$.append($extension_normalizedNationalNumber$$1_numberStr$$inline_523_numberToParse$$3$$.substring(0 <= $JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2316_indexOfIsdn$$inline_513_indexOfRfc3966Prefix$$inline_511_mStart$$inline_524_phoneContextStart$$inline_509_possibleNumberPattern$$inline_537_regionMetadata$$2$$ ? $JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2316_indexOfIsdn$$inline_513_indexOfRfc3966Prefix$$inline_511_mStart$$inline_524_phoneContextStart$$inline_509_possibleNumberPattern$$inline_537_regionMetadata$$2$$ + 
     4 : 0, $indexOfPhoneContext$$inline_508_nationalNumberStr$$inline_512_numberToParse$$inline_516_phoneNumber$$3$$));
   } else {
     $nationalNumber$$14_number$$inline_536_phoneNumberRegion$$1$$.append($i18n$phonenumbers$PhoneNumberUtil$extractPossibleNumber$$($extension_normalizedNationalNumber$$1_numberStr$$inline_523_numberToParse$$3$$));
   }
   $indexOfPhoneContext$$inline_508_nationalNumberStr$$inline_512_numberToParse$$inline_516_phoneNumber$$3$$ = $nationalNumber$$14_number$$inline_536_phoneNumberRegion$$1$$.toString();
-  $JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2301_indexOfIsdn$$inline_513_indexOfRfc3966Prefix$$inline_511_mStart$$inline_524_phoneContextStart$$inline_509_possibleNumberPattern$$inline_537_regionMetadata$$2$$ = $indexOfPhoneContext$$inline_508_nationalNumberStr$$inline_512_numberToParse$$inline_516_phoneNumber$$3$$.indexOf(";isub=");
-  0 < $JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2301_indexOfIsdn$$inline_513_indexOfRfc3966Prefix$$inline_511_mStart$$inline_524_phoneContextStart$$inline_509_possibleNumberPattern$$inline_537_regionMetadata$$2$$ && ($nationalNumber$$14_number$$inline_536_phoneNumberRegion$$1$$.clear(), $nationalNumber$$14_number$$inline_536_phoneNumberRegion$$1$$.append($indexOfPhoneContext$$inline_508_nationalNumberStr$$inline_512_numberToParse$$inline_516_phoneNumber$$3$$.substring(0, 
-  $JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2301_indexOfIsdn$$inline_513_indexOfRfc3966Prefix$$inline_511_mStart$$inline_524_phoneContextStart$$inline_509_possibleNumberPattern$$inline_537_regionMetadata$$2$$)));
+  $JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2316_indexOfIsdn$$inline_513_indexOfRfc3966Prefix$$inline_511_mStart$$inline_524_phoneContextStart$$inline_509_possibleNumberPattern$$inline_537_regionMetadata$$2$$ = $indexOfPhoneContext$$inline_508_nationalNumberStr$$inline_512_numberToParse$$inline_516_phoneNumber$$3$$.indexOf(";isub=");
+  0 < $JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2316_indexOfIsdn$$inline_513_indexOfRfc3966Prefix$$inline_511_mStart$$inline_524_phoneContextStart$$inline_509_possibleNumberPattern$$inline_537_regionMetadata$$2$$ && ($nationalNumber$$14_number$$inline_536_phoneNumberRegion$$1$$.clear(), $nationalNumber$$14_number$$inline_536_phoneNumberRegion$$1$$.append($indexOfPhoneContext$$inline_508_nationalNumberStr$$inline_512_numberToParse$$inline_516_phoneNumber$$3$$.substring(0, 
+  $JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2316_indexOfIsdn$$inline_513_indexOfRfc3966Prefix$$inline_511_mStart$$inline_524_phoneContextStart$$inline_509_possibleNumberPattern$$inline_537_regionMetadata$$2$$)));
   if (!$i18n$phonenumbers$PhoneNumberUtil$isViablePhoneNumber$$($nationalNumber$$14_number$$inline_536_phoneNumberRegion$$1$$.toString())) {
     throw "The string supplied did not seem to be a phone number";
   }
@@ -4087,12 +4087,12 @@ function $JSCompiler_StaticMethods_parseHelper_$$($JSCompiler_StaticMethods_pars
   $keepRawInput$$1_normalizedNationalNumberStr$$ && $JSCompiler_StaticMethods_set$Value$$($indexOfPhoneContext$$inline_508_nationalNumberStr$$inline_512_numberToParse$$inline_516_phoneNumber$$3$$, 5, $extension_normalizedNationalNumber$$1_numberStr$$inline_523_numberToParse$$3$$);
   a: {
     $extension_normalizedNationalNumber$$1_numberStr$$inline_523_numberToParse$$3$$ = $nationalNumber$$14_number$$inline_536_phoneNumberRegion$$1$$.toString();
-    $JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2301_indexOfIsdn$$inline_513_indexOfRfc3966Prefix$$inline_511_mStart$$inline_524_phoneContextStart$$inline_509_possibleNumberPattern$$inline_537_regionMetadata$$2$$ = $extension_normalizedNationalNumber$$1_numberStr$$inline_523_numberToParse$$3$$.search($i18n$phonenumbers$PhoneNumberUtil$EXTN_PATTERN_$$);
-    if (0 <= $JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2301_indexOfIsdn$$inline_513_indexOfRfc3966Prefix$$inline_511_mStart$$inline_524_phoneContextStart$$inline_509_possibleNumberPattern$$inline_537_regionMetadata$$2$$ && $i18n$phonenumbers$PhoneNumberUtil$isViablePhoneNumber$$($extension_normalizedNationalNumber$$1_numberStr$$inline_523_numberToParse$$3$$.substring(0, $JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2301_indexOfIsdn$$inline_513_indexOfRfc3966Prefix$$inline_511_mStart$$inline_524_phoneContextStart$$inline_509_possibleNumberPattern$$inline_537_regionMetadata$$2$$))) {
+    $JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2316_indexOfIsdn$$inline_513_indexOfRfc3966Prefix$$inline_511_mStart$$inline_524_phoneContextStart$$inline_509_possibleNumberPattern$$inline_537_regionMetadata$$2$$ = $extension_normalizedNationalNumber$$1_numberStr$$inline_523_numberToParse$$3$$.search($i18n$phonenumbers$PhoneNumberUtil$EXTN_PATTERN_$$);
+    if (0 <= $JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2316_indexOfIsdn$$inline_513_indexOfRfc3966Prefix$$inline_511_mStart$$inline_524_phoneContextStart$$inline_509_possibleNumberPattern$$inline_537_regionMetadata$$2$$ && $i18n$phonenumbers$PhoneNumberUtil$isViablePhoneNumber$$($extension_normalizedNationalNumber$$1_numberStr$$inline_523_numberToParse$$3$$.substring(0, $JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2316_indexOfIsdn$$inline_513_indexOfRfc3966Prefix$$inline_511_mStart$$inline_524_phoneContextStart$$inline_509_possibleNumberPattern$$inline_537_regionMetadata$$2$$))) {
       for (var $countryCode$$4_matchedGroups$$inline_525_phoneContextEnd$$inline_510$$ = $extension_normalizedNationalNumber$$1_numberStr$$inline_523_numberToParse$$3$$.match($i18n$phonenumbers$PhoneNumberUtil$EXTN_PATTERN_$$), $matchedGroupsLength$$inline_526_nationalNumberStr$$ = $countryCode$$4_matchedGroups$$inline_525_phoneContextEnd$$inline_510$$.length, $i$$inline_527$$ = 1;$i$$inline_527$$ < $matchedGroupsLength$$inline_526_nationalNumberStr$$;++$i$$inline_527$$) {
         if (null != $countryCode$$4_matchedGroups$$inline_525_phoneContextEnd$$inline_510$$[$i$$inline_527$$] && 0 < $countryCode$$4_matchedGroups$$inline_525_phoneContextEnd$$inline_510$$[$i$$inline_527$$].length) {
           $nationalNumber$$14_number$$inline_536_phoneNumberRegion$$1$$.clear();
-          $nationalNumber$$14_number$$inline_536_phoneNumberRegion$$1$$.append($extension_normalizedNationalNumber$$1_numberStr$$inline_523_numberToParse$$3$$.substring(0, $JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2301_indexOfIsdn$$inline_513_indexOfRfc3966Prefix$$inline_511_mStart$$inline_524_phoneContextStart$$inline_509_possibleNumberPattern$$inline_537_regionMetadata$$2$$));
+          $nationalNumber$$14_number$$inline_536_phoneNumberRegion$$1$$.append($extension_normalizedNationalNumber$$1_numberStr$$inline_523_numberToParse$$3$$.substring(0, $JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2316_indexOfIsdn$$inline_513_indexOfRfc3966Prefix$$inline_511_mStart$$inline_524_phoneContextStart$$inline_509_possibleNumberPattern$$inline_537_regionMetadata$$2$$));
           $extension_normalizedNationalNumber$$1_numberStr$$inline_523_numberToParse$$3$$ = $countryCode$$4_matchedGroups$$inline_525_phoneContextEnd$$inline_510$$[$i$$inline_527$$];
           break a;
         }
@@ -4101,16 +4101,16 @@ function $JSCompiler_StaticMethods_parseHelper_$$($JSCompiler_StaticMethods_pars
     $extension_normalizedNationalNumber$$1_numberStr$$inline_523_numberToParse$$3$$ = "";
   }
   0 < $extension_normalizedNationalNumber$$1_numberStr$$inline_523_numberToParse$$3$$.length && $JSCompiler_StaticMethods_set$Value$$($indexOfPhoneContext$$inline_508_nationalNumberStr$$inline_512_numberToParse$$inline_516_phoneNumber$$3$$, 3, $extension_normalizedNationalNumber$$1_numberStr$$inline_523_numberToParse$$3$$);
-  $JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2301_indexOfIsdn$$inline_513_indexOfRfc3966Prefix$$inline_511_mStart$$inline_524_phoneContextStart$$inline_509_possibleNumberPattern$$inline_537_regionMetadata$$2$$ = $JSCompiler_StaticMethods_getMetadataForRegion$$($JSCompiler_StaticMethods_parseHelper_$self_carrierCode$$2_lengthOfNationalNumber_numberOfLeadingZeros$$inline_544$$, $defaultRegion$$3_potentialNationalNumber$$1$$);
+  $JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2316_indexOfIsdn$$inline_513_indexOfRfc3966Prefix$$inline_511_mStart$$inline_524_phoneContextStart$$inline_509_possibleNumberPattern$$inline_537_regionMetadata$$2$$ = $JSCompiler_StaticMethods_getMetadataForRegion$$($JSCompiler_StaticMethods_parseHelper_$self_carrierCode$$2_lengthOfNationalNumber_numberOfLeadingZeros$$inline_544$$, $defaultRegion$$3_potentialNationalNumber$$1$$);
   $extension_normalizedNationalNumber$$1_numberStr$$inline_523_numberToParse$$3$$ = new $goog$string$StringBuffer$$;
   $countryCode$$4_matchedGroups$$inline_525_phoneContextEnd$$inline_510$$ = 0;
   $matchedGroupsLength$$inline_526_nationalNumberStr$$ = $nationalNumber$$14_number$$inline_536_phoneNumberRegion$$1$$.toString();
   try {
-    $countryCode$$4_matchedGroups$$inline_525_phoneContextEnd$$inline_510$$ = $JSCompiler_StaticMethods_maybeExtractCountryCode$$($matchedGroupsLength$$inline_526_nationalNumberStr$$, $JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2301_indexOfIsdn$$inline_513_indexOfRfc3966Prefix$$inline_511_mStart$$inline_524_phoneContextStart$$inline_509_possibleNumberPattern$$inline_537_regionMetadata$$2$$, $extension_normalizedNationalNumber$$1_numberStr$$inline_523_numberToParse$$3$$, 
+    $countryCode$$4_matchedGroups$$inline_525_phoneContextEnd$$inline_510$$ = $JSCompiler_StaticMethods_maybeExtractCountryCode$$($matchedGroupsLength$$inline_526_nationalNumberStr$$, $JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2316_indexOfIsdn$$inline_513_indexOfRfc3966Prefix$$inline_511_mStart$$inline_524_phoneContextStart$$inline_509_possibleNumberPattern$$inline_537_regionMetadata$$2$$, $extension_normalizedNationalNumber$$1_numberStr$$inline_523_numberToParse$$3$$, 
     $keepRawInput$$1_normalizedNationalNumberStr$$, $indexOfPhoneContext$$inline_508_nationalNumberStr$$inline_512_numberToParse$$inline_516_phoneNumber$$3$$);
   } catch ($e$$47$$) {
     if ("Invalid country calling code" == $e$$47$$ && $i18n$phonenumbers$PhoneNumberUtil$LEADING_PLUS_CHARS_PATTERN_$$.test($matchedGroupsLength$$inline_526_nationalNumberStr$$)) {
-      if ($matchedGroupsLength$$inline_526_nationalNumberStr$$ = $matchedGroupsLength$$inline_526_nationalNumberStr$$.replace($i18n$phonenumbers$PhoneNumberUtil$LEADING_PLUS_CHARS_PATTERN_$$, ""), $countryCode$$4_matchedGroups$$inline_525_phoneContextEnd$$inline_510$$ = $JSCompiler_StaticMethods_maybeExtractCountryCode$$($matchedGroupsLength$$inline_526_nationalNumberStr$$, $JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2301_indexOfIsdn$$inline_513_indexOfRfc3966Prefix$$inline_511_mStart$$inline_524_phoneContextStart$$inline_509_possibleNumberPattern$$inline_537_regionMetadata$$2$$, 
+      if ($matchedGroupsLength$$inline_526_nationalNumberStr$$ = $matchedGroupsLength$$inline_526_nationalNumberStr$$.replace($i18n$phonenumbers$PhoneNumberUtil$LEADING_PLUS_CHARS_PATTERN_$$, ""), $countryCode$$4_matchedGroups$$inline_525_phoneContextEnd$$inline_510$$ = $JSCompiler_StaticMethods_maybeExtractCountryCode$$($matchedGroupsLength$$inline_526_nationalNumberStr$$, $JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2316_indexOfIsdn$$inline_513_indexOfRfc3966Prefix$$inline_511_mStart$$inline_524_phoneContextStart$$inline_509_possibleNumberPattern$$inline_537_regionMetadata$$2$$, 
       $extension_normalizedNationalNumber$$1_numberStr$$inline_523_numberToParse$$3$$, $keepRawInput$$1_normalizedNationalNumberStr$$, $indexOfPhoneContext$$inline_508_nationalNumberStr$$inline_512_numberToParse$$inline_516_phoneNumber$$3$$), 0 == $countryCode$$4_matchedGroups$$inline_525_phoneContextEnd$$inline_510$$) {
         throw $e$$47$$;
       }
@@ -4118,18 +4118,18 @@ function $JSCompiler_StaticMethods_parseHelper_$$($JSCompiler_StaticMethods_pars
       throw $e$$47$$;
     }
   }
-  0 != $countryCode$$4_matchedGroups$$inline_525_phoneContextEnd$$inline_510$$ ? ($nationalNumber$$14_number$$inline_536_phoneNumberRegion$$1$$ = $JSCompiler_StaticMethods_getRegionCodeForCountryCode$$($countryCode$$4_matchedGroups$$inline_525_phoneContextEnd$$inline_510$$), $nationalNumber$$14_number$$inline_536_phoneNumberRegion$$1$$ != $defaultRegion$$3_potentialNationalNumber$$1$$ && ($JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2301_indexOfIsdn$$inline_513_indexOfRfc3966Prefix$$inline_511_mStart$$inline_524_phoneContextStart$$inline_509_possibleNumberPattern$$inline_537_regionMetadata$$2$$ = 
+  0 != $countryCode$$4_matchedGroups$$inline_525_phoneContextEnd$$inline_510$$ ? ($nationalNumber$$14_number$$inline_536_phoneNumberRegion$$1$$ = $JSCompiler_StaticMethods_getRegionCodeForCountryCode$$($countryCode$$4_matchedGroups$$inline_525_phoneContextEnd$$inline_510$$), $nationalNumber$$14_number$$inline_536_phoneNumberRegion$$1$$ != $defaultRegion$$3_potentialNationalNumber$$1$$ && ($JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2316_indexOfIsdn$$inline_513_indexOfRfc3966Prefix$$inline_511_mStart$$inline_524_phoneContextStart$$inline_509_possibleNumberPattern$$inline_537_regionMetadata$$2$$ = 
   $JSCompiler_StaticMethods_getMetadataForRegionOrCallingCode_$$($JSCompiler_StaticMethods_parseHelper_$self_carrierCode$$2_lengthOfNationalNumber_numberOfLeadingZeros$$inline_544$$, $countryCode$$4_matchedGroups$$inline_525_phoneContextEnd$$inline_510$$, $nationalNumber$$14_number$$inline_536_phoneNumberRegion$$1$$))) : ($i18n$phonenumbers$PhoneNumberUtil$normalizeSB_$$($nationalNumber$$14_number$$inline_536_phoneNumberRegion$$1$$), $extension_normalizedNationalNumber$$1_numberStr$$inline_523_numberToParse$$3$$.append($nationalNumber$$14_number$$inline_536_phoneNumberRegion$$1$$.toString()), 
-  null != $defaultRegion$$3_potentialNationalNumber$$1$$ ? ($countryCode$$4_matchedGroups$$inline_525_phoneContextEnd$$inline_510$$ = $JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2301_indexOfIsdn$$inline_513_indexOfRfc3966Prefix$$inline_511_mStart$$inline_524_phoneContextStart$$inline_509_possibleNumberPattern$$inline_537_regionMetadata$$2$$.$getCountryCodeOrDefault$(), $indexOfPhoneContext$$inline_508_nationalNumberStr$$inline_512_numberToParse$$inline_516_phoneNumber$$3$$.$setCountryCode$($countryCode$$4_matchedGroups$$inline_525_phoneContextEnd$$inline_510$$)) : 
+  null != $defaultRegion$$3_potentialNationalNumber$$1$$ ? ($countryCode$$4_matchedGroups$$inline_525_phoneContextEnd$$inline_510$$ = $JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2316_indexOfIsdn$$inline_513_indexOfRfc3966Prefix$$inline_511_mStart$$inline_524_phoneContextStart$$inline_509_possibleNumberPattern$$inline_537_regionMetadata$$2$$.$getCountryCodeOrDefault$(), $indexOfPhoneContext$$inline_508_nationalNumberStr$$inline_512_numberToParse$$inline_516_phoneNumber$$3$$.$setCountryCode$($countryCode$$4_matchedGroups$$inline_525_phoneContextEnd$$inline_510$$)) : 
   $keepRawInput$$1_normalizedNationalNumberStr$$ && $JSCompiler_StaticMethods_clear$Field$$($indexOfPhoneContext$$inline_508_nationalNumberStr$$inline_512_numberToParse$$inline_516_phoneNumber$$3$$, 6));
   if (2 > $extension_normalizedNationalNumber$$1_numberStr$$inline_523_numberToParse$$3$$.$buffer_$.length) {
     throw "The string supplied is too short to be a phone number";
   }
-  null != $JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2301_indexOfIsdn$$inline_513_indexOfRfc3966Prefix$$inline_511_mStart$$inline_524_phoneContextStart$$inline_509_possibleNumberPattern$$inline_537_regionMetadata$$2$$ && ($JSCompiler_StaticMethods_parseHelper_$self_carrierCode$$2_lengthOfNationalNumber_numberOfLeadingZeros$$inline_544$$ = new $goog$string$StringBuffer$$, $defaultRegion$$3_potentialNationalNumber$$1$$ = new $goog$string$StringBuffer$$($extension_normalizedNationalNumber$$1_numberStr$$inline_523_numberToParse$$3$$.toString()), 
-  $JSCompiler_StaticMethods_maybeStripNationalPrefixAndCarrierCode$$($defaultRegion$$3_potentialNationalNumber$$1$$, $JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2301_indexOfIsdn$$inline_513_indexOfRfc3966Prefix$$inline_511_mStart$$inline_524_phoneContextStart$$inline_509_possibleNumberPattern$$inline_537_regionMetadata$$2$$, $JSCompiler_StaticMethods_parseHelper_$self_carrierCode$$2_lengthOfNationalNumber_numberOfLeadingZeros$$inline_544$$), $nationalNumber$$14_number$$inline_536_phoneNumberRegion$$1$$ = 
-  $defaultRegion$$3_potentialNationalNumber$$1$$.toString(), $JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2301_indexOfIsdn$$inline_513_indexOfRfc3966Prefix$$inline_511_mStart$$inline_524_phoneContextStart$$inline_509_possibleNumberPattern$$inline_537_regionMetadata$$2$$ = $JSCompiler_StaticMethods_get$Value$$($JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2301_indexOfIsdn$$inline_513_indexOfRfc3966Prefix$$inline_511_mStart$$inline_524_phoneContextStart$$inline_509_possibleNumberPattern$$inline_537_regionMetadata$$2$$, 
-  1), $JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2301_indexOfIsdn$$inline_513_indexOfRfc3966Prefix$$inline_511_mStart$$inline_524_phoneContextStart$$inline_509_possibleNumberPattern$$inline_537_regionMetadata$$2$$ = $JSCompiler_StaticMethods_get$ValueOrDefault$$($JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2301_indexOfIsdn$$inline_513_indexOfRfc3966Prefix$$inline_511_mStart$$inline_524_phoneContextStart$$inline_509_possibleNumberPattern$$inline_537_regionMetadata$$2$$, 
-  3), 2 != $JSCompiler_StaticMethods_testNumberLengthAgainstPattern_$$($JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2301_indexOfIsdn$$inline_513_indexOfRfc3966Prefix$$inline_511_mStart$$inline_524_phoneContextStart$$inline_509_possibleNumberPattern$$inline_537_regionMetadata$$2$$, $nationalNumber$$14_number$$inline_536_phoneNumberRegion$$1$$) && ($extension_normalizedNationalNumber$$1_numberStr$$inline_523_numberToParse$$3$$ = $defaultRegion$$3_potentialNationalNumber$$1$$, 
+  null != $JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2316_indexOfIsdn$$inline_513_indexOfRfc3966Prefix$$inline_511_mStart$$inline_524_phoneContextStart$$inline_509_possibleNumberPattern$$inline_537_regionMetadata$$2$$ && ($JSCompiler_StaticMethods_parseHelper_$self_carrierCode$$2_lengthOfNationalNumber_numberOfLeadingZeros$$inline_544$$ = new $goog$string$StringBuffer$$, $defaultRegion$$3_potentialNationalNumber$$1$$ = new $goog$string$StringBuffer$$($extension_normalizedNationalNumber$$1_numberStr$$inline_523_numberToParse$$3$$.toString()), 
+  $JSCompiler_StaticMethods_maybeStripNationalPrefixAndCarrierCode$$($defaultRegion$$3_potentialNationalNumber$$1$$, $JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2316_indexOfIsdn$$inline_513_indexOfRfc3966Prefix$$inline_511_mStart$$inline_524_phoneContextStart$$inline_509_possibleNumberPattern$$inline_537_regionMetadata$$2$$, $JSCompiler_StaticMethods_parseHelper_$self_carrierCode$$2_lengthOfNationalNumber_numberOfLeadingZeros$$inline_544$$), $nationalNumber$$14_number$$inline_536_phoneNumberRegion$$1$$ = 
+  $defaultRegion$$3_potentialNationalNumber$$1$$.toString(), $JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2316_indexOfIsdn$$inline_513_indexOfRfc3966Prefix$$inline_511_mStart$$inline_524_phoneContextStart$$inline_509_possibleNumberPattern$$inline_537_regionMetadata$$2$$ = $JSCompiler_StaticMethods_get$Value$$($JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2316_indexOfIsdn$$inline_513_indexOfRfc3966Prefix$$inline_511_mStart$$inline_524_phoneContextStart$$inline_509_possibleNumberPattern$$inline_537_regionMetadata$$2$$, 
+  1), $JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2316_indexOfIsdn$$inline_513_indexOfRfc3966Prefix$$inline_511_mStart$$inline_524_phoneContextStart$$inline_509_possibleNumberPattern$$inline_537_regionMetadata$$2$$ = $JSCompiler_StaticMethods_get$ValueOrDefault$$($JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2316_indexOfIsdn$$inline_513_indexOfRfc3966Prefix$$inline_511_mStart$$inline_524_phoneContextStart$$inline_509_possibleNumberPattern$$inline_537_regionMetadata$$2$$, 
+  3), 2 != $JSCompiler_StaticMethods_testNumberLengthAgainstPattern_$$($JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2316_indexOfIsdn$$inline_513_indexOfRfc3966Prefix$$inline_511_mStart$$inline_524_phoneContextStart$$inline_509_possibleNumberPattern$$inline_537_regionMetadata$$2$$, $nationalNumber$$14_number$$inline_536_phoneNumberRegion$$1$$) && ($extension_normalizedNationalNumber$$1_numberStr$$inline_523_numberToParse$$3$$ = $defaultRegion$$3_potentialNationalNumber$$1$$, 
   $keepRawInput$$1_normalizedNationalNumberStr$$ && $JSCompiler_StaticMethods_set$Value$$($indexOfPhoneContext$$inline_508_nationalNumberStr$$inline_512_numberToParse$$inline_516_phoneNumber$$3$$, 7, $JSCompiler_StaticMethods_parseHelper_$self_carrierCode$$2_lengthOfNationalNumber_numberOfLeadingZeros$$inline_544$$.toString())));
   $keepRawInput$$1_normalizedNationalNumberStr$$ = $extension_normalizedNationalNumber$$1_numberStr$$inline_523_numberToParse$$3$$.toString();
   $JSCompiler_StaticMethods_parseHelper_$self_carrierCode$$2_lengthOfNationalNumber_numberOfLeadingZeros$$inline_544$$ = $keepRawInput$$1_normalizedNationalNumberStr$$.length;
@@ -4163,9 +4163,9 @@ var $goog$i18n$currency$CurrencyInfo$$ = {AED:[2, "dh", "\u062f.\u0625.", "DH"],
 "\u20ac"], GBP:[2, "\u00a3", "GB\u00a3"], HKD:[2, "$", "HK$"], HRK:[2, "kn", "kn"], HUF:[0, "Ft", "Ft"], IDR:[0, "Rp", "Rp"], ILS:[2, "\u20aa", "IL\u20aa"], INR:[2, "\u20b9", "Rs"], IRR:[0, "Rial", "IRR"], ISK:[0, "kr", "kr"], JMD:[2, "$", "JA$"], JPY:[0, "\u00a5", "JP\u00a5"], KRW:[0, "\u20a9", "KR\u20a9"], LKR:[2, "Rs", "SLRs"], LTL:[2, "Lt", "Lt"], MNT:[0, "\u20ae", "MN\u20ae"], MVR:[2, "Rf", "MVR"], MXN:[2, "$", "Mex$"], MYR:[2, "RM", "RM"], NOK:[50, "kr", "NOkr"], PAB:[2, "B/.", "B/."], PEN:[2, 
 "S/.", "S/."], PHP:[2, "\u20b1", "Php"], PKR:[0, "Rs", "PKRs."], PLN:[50, "z\u0142", "z\u0142"], RON:[2, "RON", "RON"], RSD:[0, "din", "RSD"], RUB:[50, "\u0440\u0443\u0431.", "\u0440\u0443\u0431."], SAR:[2, "Rial", "Rial"], SEK:[2, "kr", "kr"], SGD:[2, "$", "S$"], THB:[2, "\u0e3f", "THB"], TRY:[2, "TL", "YTL"], TWD:[2, "NT$", "NT$"], TZS:[0, "TSh", "TSh"], UAH:[2, "\u20b4", "UAH"], USD:[2, "$", "US$"], UYU:[2, "$", "$U"], VND:[0, "\u20ab", "VN\u20ab"], YER:[0, "Rial", "Rial"], ZAR:[2, "R", "ZAR"]};
 // Input 93
-function $goog$i18n$NumberFormat$$($JSCompiler_inline_result$$1960_pattern$$2_pattern$$inline_2045$$, $opt_currency_strParts$$inline_2046$$, $opt_currencyStyle_precision$$inline_2047$$) {
-  this.$intlCurrencyCode_$ = $opt_currency_strParts$$inline_2046$$ || $goog$i18n$NumberFormatSymbols$$.$DEF_CURRENCY_CODE$;
-  this.$currencyStyle_$ = $opt_currencyStyle_precision$$inline_2047$$ || $goog$i18n$NumberFormat$CurrencyStyle$LOCAL$$;
+function $goog$i18n$NumberFormat$$($JSCompiler_inline_result$$1975_pattern$$2_pattern$$inline_2060$$, $opt_currency_strParts$$inline_2061$$, $opt_currencyStyle_precision$$inline_2062$$) {
+  this.$intlCurrencyCode_$ = $opt_currency_strParts$$inline_2061$$ || $goog$i18n$NumberFormatSymbols$$.$DEF_CURRENCY_CODE$;
+  this.$currencyStyle_$ = $opt_currencyStyle_precision$$inline_2062$$ || $goog$i18n$NumberFormat$CurrencyStyle$LOCAL$$;
   this.$maximumIntegerDigits_$ = 40;
   this.$minimumIntegerDigits_$ = 1;
   this.$significantDigits_$ = 0;
@@ -4180,8 +4180,8 @@ function $goog$i18n$NumberFormat$$($JSCompiler_inline_result$$1960_pattern$$2_pa
   this.$useExponentialNotation_$ = this.$decimalSeparatorAlwaysShown_$ = !1;
   this.$compactStyle_$ = $goog$i18n$NumberFormat$CompactStyle$NONE$$;
   this.$baseFormattingNumber_$ = null;
-  if ("number" == typeof $JSCompiler_inline_result$$1960_pattern$$2_pattern$$inline_2045$$) {
-    switch($JSCompiler_inline_result$$1960_pattern$$2_pattern$$inline_2045$$) {
+  if ("number" == typeof $JSCompiler_inline_result$$1975_pattern$$2_pattern$$inline_2060$$) {
+    switch($JSCompiler_inline_result$$1975_pattern$$2_pattern$$inline_2060$$) {
       case 1:
         $JSCompiler_StaticMethods_applyPattern_$$(this, $goog$i18n$NumberFormatSymbols$$.$DECIMAL_PATTERN$);
         break;
@@ -4192,17 +4192,17 @@ function $goog$i18n$NumberFormat$$($JSCompiler_inline_result$$1960_pattern$$2_pa
         $JSCompiler_StaticMethods_applyPattern_$$(this, $goog$i18n$NumberFormatSymbols$$.$PERCENT_PATTERN$);
         break;
       case 4:
-        $JSCompiler_inline_result$$1960_pattern$$2_pattern$$inline_2045$$ = $goog$i18n$NumberFormatSymbols$$.$CURRENCY_PATTERN$;
-        $opt_currency_strParts$$inline_2046$$ = ["0"];
-        $opt_currencyStyle_precision$$inline_2047$$ = $goog$i18n$currency$CurrencyInfo$$[this.$intlCurrencyCode_$][0] & 7;
-        if (0 < $opt_currencyStyle_precision$$inline_2047$$) {
-          $opt_currency_strParts$$inline_2046$$.push(".");
-          for (var $i$$inline_2048$$ = 0;$i$$inline_2048$$ < $opt_currencyStyle_precision$$inline_2047$$;$i$$inline_2048$$++) {
-            $opt_currency_strParts$$inline_2046$$.push("0");
+        $JSCompiler_inline_result$$1975_pattern$$2_pattern$$inline_2060$$ = $goog$i18n$NumberFormatSymbols$$.$CURRENCY_PATTERN$;
+        $opt_currency_strParts$$inline_2061$$ = ["0"];
+        $opt_currencyStyle_precision$$inline_2062$$ = $goog$i18n$currency$CurrencyInfo$$[this.$intlCurrencyCode_$][0] & 7;
+        if (0 < $opt_currencyStyle_precision$$inline_2062$$) {
+          $opt_currency_strParts$$inline_2061$$.push(".");
+          for (var $i$$inline_2063$$ = 0;$i$$inline_2063$$ < $opt_currencyStyle_precision$$inline_2062$$;$i$$inline_2063$$++) {
+            $opt_currency_strParts$$inline_2061$$.push("0");
           }
         }
-        $JSCompiler_inline_result$$1960_pattern$$2_pattern$$inline_2045$$ = $JSCompiler_inline_result$$1960_pattern$$2_pattern$$inline_2045$$.replace(/0.00/g, $opt_currency_strParts$$inline_2046$$.join(""));
-        $JSCompiler_StaticMethods_applyPattern_$$(this, $JSCompiler_inline_result$$1960_pattern$$2_pattern$$inline_2045$$);
+        $JSCompiler_inline_result$$1975_pattern$$2_pattern$$inline_2060$$ = $JSCompiler_inline_result$$1975_pattern$$2_pattern$$inline_2060$$.replace(/0.00/g, $opt_currency_strParts$$inline_2061$$.join(""));
+        $JSCompiler_StaticMethods_applyPattern_$$(this, $JSCompiler_inline_result$$1975_pattern$$2_pattern$$inline_2060$$);
         break;
       case 5:
         $JSCompiler_StaticMethods_applyCompactStyle_$$(this, 1);
@@ -4214,7 +4214,7 @@ function $goog$i18n$NumberFormat$$($JSCompiler_inline_result$$1960_pattern$$2_pa
         throw Error("Unsupported pattern type.");;
     }
   } else {
-    $JSCompiler_StaticMethods_applyPattern_$$(this, $JSCompiler_inline_result$$1960_pattern$$2_pattern$$inline_2045$$);
+    $JSCompiler_StaticMethods_applyPattern_$$(this, $JSCompiler_inline_result$$1975_pattern$$2_pattern$$inline_2060$$);
   }
 }
 var $goog$i18n$NumberFormat$CurrencyStyle$LOCAL$$ = 0, $goog$i18n$NumberFormat$CompactStyle$NONE$$ = 0;
@@ -4394,10 +4394,10 @@ $goog$i18n$NumberFormat$$.prototype.format = function $$goog$i18n$NumberFormat$$
     return $goog$i18n$NumberFormatSymbols$$.$NAN$;
   }
   var $parts$$4$$ = [], $initialDivisor$$inline_585_unit$$;
-  var $formattingAttempt$$inline_588_formattingNumber$$inline_583_formattingRounded$$inline_589_isNegative$$ = null === this.$baseFormattingNumber_$ ? $number$$41_number$$inline_592$$ : this.$baseFormattingNumber_$, $exponent$$inline_594_num$$inline_2053_pluralityAttempt$$inline_586_pluralityNumber$$inline_584$$ = $number$$41_number$$inline_592$$;
-  this.$compactStyle_$ == $goog$i18n$NumberFormat$CompactStyle$NONE$$ ? $initialDivisor$$inline_585_unit$$ = $goog$i18n$NumberFormat$NULL_UNIT_$$ : ($formattingAttempt$$inline_588_formattingNumber$$inline_583_formattingRounded$$inline_589_isNegative$$ = Math.abs($formattingAttempt$$inline_588_formattingNumber$$inline_583_formattingRounded$$inline_589_isNegative$$), $exponent$$inline_594_num$$inline_2053_pluralityAttempt$$inline_586_pluralityNumber$$inline_584$$ = Math.abs($exponent$$inline_594_num$$inline_2053_pluralityAttempt$$inline_586_pluralityNumber$$inline_584$$), 
-  $initialDivisor$$inline_585_unit$$ = $JSCompiler_StaticMethods_getUnitFor_$$(this, 1 >= $formattingAttempt$$inline_588_formattingNumber$$inline_583_formattingRounded$$inline_589_isNegative$$ ? 0 : $JSCompiler_StaticMethods_intLog10_$$($formattingAttempt$$inline_588_formattingNumber$$inline_583_formattingRounded$$inline_589_isNegative$$)).$divisorBase$, $exponent$$inline_594_num$$inline_2053_pluralityAttempt$$inline_586_pluralityNumber$$inline_584$$ /= Math.pow(10, $initialDivisor$$inline_585_unit$$), 
-  $JSCompiler_StaticMethods_roundNumber_$$(this, $exponent$$inline_594_num$$inline_2053_pluralityAttempt$$inline_586_pluralityNumber$$inline_584$$), $formattingAttempt$$inline_588_formattingNumber$$inline_583_formattingRounded$$inline_589_isNegative$$ /= Math.pow(10, $initialDivisor$$inline_585_unit$$), $formattingAttempt$$inline_588_formattingNumber$$inline_583_formattingRounded$$inline_589_isNegative$$ = $JSCompiler_StaticMethods_roundNumber_$$(this, $formattingAttempt$$inline_588_formattingNumber$$inline_583_formattingRounded$$inline_589_isNegative$$), 
+  var $formattingAttempt$$inline_588_formattingNumber$$inline_583_formattingRounded$$inline_589_isNegative$$ = null === this.$baseFormattingNumber_$ ? $number$$41_number$$inline_592$$ : this.$baseFormattingNumber_$, $exponent$$inline_594_num$$inline_2068_pluralityAttempt$$inline_586_pluralityNumber$$inline_584$$ = $number$$41_number$$inline_592$$;
+  this.$compactStyle_$ == $goog$i18n$NumberFormat$CompactStyle$NONE$$ ? $initialDivisor$$inline_585_unit$$ = $goog$i18n$NumberFormat$NULL_UNIT_$$ : ($formattingAttempt$$inline_588_formattingNumber$$inline_583_formattingRounded$$inline_589_isNegative$$ = Math.abs($formattingAttempt$$inline_588_formattingNumber$$inline_583_formattingRounded$$inline_589_isNegative$$), $exponent$$inline_594_num$$inline_2068_pluralityAttempt$$inline_586_pluralityNumber$$inline_584$$ = Math.abs($exponent$$inline_594_num$$inline_2068_pluralityAttempt$$inline_586_pluralityNumber$$inline_584$$), 
+  $initialDivisor$$inline_585_unit$$ = $JSCompiler_StaticMethods_getUnitFor_$$(this, 1 >= $formattingAttempt$$inline_588_formattingNumber$$inline_583_formattingRounded$$inline_589_isNegative$$ ? 0 : $JSCompiler_StaticMethods_intLog10_$$($formattingAttempt$$inline_588_formattingNumber$$inline_583_formattingRounded$$inline_589_isNegative$$)).$divisorBase$, $exponent$$inline_594_num$$inline_2068_pluralityAttempt$$inline_586_pluralityNumber$$inline_584$$ /= Math.pow(10, $initialDivisor$$inline_585_unit$$), 
+  $JSCompiler_StaticMethods_roundNumber_$$(this, $exponent$$inline_594_num$$inline_2068_pluralityAttempt$$inline_586_pluralityNumber$$inline_584$$), $formattingAttempt$$inline_588_formattingNumber$$inline_583_formattingRounded$$inline_589_isNegative$$ /= Math.pow(10, $initialDivisor$$inline_585_unit$$), $formattingAttempt$$inline_588_formattingNumber$$inline_583_formattingRounded$$inline_589_isNegative$$ = $JSCompiler_StaticMethods_roundNumber_$$(this, $formattingAttempt$$inline_588_formattingNumber$$inline_583_formattingRounded$$inline_589_isNegative$$), 
   $initialDivisor$$inline_585_unit$$ = $JSCompiler_StaticMethods_getUnitFor_$$(this, $initialDivisor$$inline_585_unit$$ + $JSCompiler_StaticMethods_intLog10_$$($formattingAttempt$$inline_588_formattingNumber$$inline_583_formattingRounded$$inline_589_isNegative$$.$intValue$)));
   $number$$41_number$$inline_592$$ /= Math.pow(10, $initialDivisor$$inline_585_unit$$.$divisorBase$);
   $parts$$4$$.push($initialDivisor$$inline_585_unit$$.prefix);
@@ -4408,20 +4408,20 @@ $goog$i18n$NumberFormat$$.prototype.format = function $$goog$i18n$NumberFormat$$
       if (0 == $number$$41_number$$inline_592$$) {
         $JSCompiler_StaticMethods_subformatFixed_$$(this, $number$$41_number$$inline_592$$, this.$minimumIntegerDigits_$, $parts$$4$$), $JSCompiler_StaticMethods_addExponentPart_$$(this, 0, $parts$$4$$);
       } else {
-        $exponent$$inline_594_num$$inline_2053_pluralityAttempt$$inline_586_pluralityNumber$$inline_584$$ = Math.log($number$$41_number$$inline_592$$) / Math.log(10);
-        $exponent$$inline_594_num$$inline_2053_pluralityAttempt$$inline_586_pluralityNumber$$inline_584$$ = Math.floor($exponent$$inline_594_num$$inline_2053_pluralityAttempt$$inline_586_pluralityNumber$$inline_584$$ + 2E-15);
-        $number$$41_number$$inline_592$$ /= Math.pow(10, $exponent$$inline_594_num$$inline_2053_pluralityAttempt$$inline_586_pluralityNumber$$inline_584$$);
+        $exponent$$inline_594_num$$inline_2068_pluralityAttempt$$inline_586_pluralityNumber$$inline_584$$ = Math.log($number$$41_number$$inline_592$$) / Math.log(10);
+        $exponent$$inline_594_num$$inline_2068_pluralityAttempt$$inline_586_pluralityNumber$$inline_584$$ = Math.floor($exponent$$inline_594_num$$inline_2068_pluralityAttempt$$inline_586_pluralityNumber$$inline_584$$ + 2E-15);
+        $number$$41_number$$inline_592$$ /= Math.pow(10, $exponent$$inline_594_num$$inline_2068_pluralityAttempt$$inline_586_pluralityNumber$$inline_584$$);
         var $minIntDigits$$inline_595$$ = this.$minimumIntegerDigits_$;
         if (1 < this.$maximumIntegerDigits_$ && this.$maximumIntegerDigits_$ > this.$minimumIntegerDigits_$) {
-          for (;0 != $exponent$$inline_594_num$$inline_2053_pluralityAttempt$$inline_586_pluralityNumber$$inline_584$$ % this.$maximumIntegerDigits_$;) {
-            $number$$41_number$$inline_592$$ *= 10, $exponent$$inline_594_num$$inline_2053_pluralityAttempt$$inline_586_pluralityNumber$$inline_584$$--;
+          for (;0 != $exponent$$inline_594_num$$inline_2068_pluralityAttempt$$inline_586_pluralityNumber$$inline_584$$ % this.$maximumIntegerDigits_$;) {
+            $number$$41_number$$inline_592$$ *= 10, $exponent$$inline_594_num$$inline_2068_pluralityAttempt$$inline_586_pluralityNumber$$inline_584$$--;
           }
           $minIntDigits$$inline_595$$ = 1;
         } else {
-          1 > this.$minimumIntegerDigits_$ ? ($exponent$$inline_594_num$$inline_2053_pluralityAttempt$$inline_586_pluralityNumber$$inline_584$$++, $number$$41_number$$inline_592$$ /= 10) : ($exponent$$inline_594_num$$inline_2053_pluralityAttempt$$inline_586_pluralityNumber$$inline_584$$ -= this.$minimumIntegerDigits_$ - 1, $number$$41_number$$inline_592$$ *= Math.pow(10, this.$minimumIntegerDigits_$ - 1));
+          1 > this.$minimumIntegerDigits_$ ? ($exponent$$inline_594_num$$inline_2068_pluralityAttempt$$inline_586_pluralityNumber$$inline_584$$++, $number$$41_number$$inline_592$$ /= 10) : ($exponent$$inline_594_num$$inline_2068_pluralityAttempt$$inline_586_pluralityNumber$$inline_584$$ -= this.$minimumIntegerDigits_$ - 1, $number$$41_number$$inline_592$$ *= Math.pow(10, this.$minimumIntegerDigits_$ - 1));
         }
         $JSCompiler_StaticMethods_subformatFixed_$$(this, $number$$41_number$$inline_592$$, $minIntDigits$$inline_595$$, $parts$$4$$);
-        $JSCompiler_StaticMethods_addExponentPart_$$(this, $exponent$$inline_594_num$$inline_2053_pluralityAttempt$$inline_586_pluralityNumber$$inline_584$$, $parts$$4$$);
+        $JSCompiler_StaticMethods_addExponentPart_$$(this, $exponent$$inline_594_num$$inline_2068_pluralityAttempt$$inline_586_pluralityNumber$$inline_584$$, $parts$$4$$);
       }
     } else {
       $JSCompiler_StaticMethods_subformatFixed_$$(this, $number$$41_number$$inline_592$$, this.$minimumIntegerDigits_$, $parts$$4$$);
@@ -4870,25 +4870,25 @@ function $goog$structs$forEach$$($col$$6$$, $f$$48$$, $opt_obj$$44$$) {
     if ($goog$isArrayLike$$($col$$6$$) || $goog$isString$$($col$$6$$)) {
       $goog$array$forEach$$($col$$6$$, $f$$48$$, $opt_obj$$44$$);
     } else {
-      var $keys$$4_rv$$inline_2056$$;
+      var $keys$$4_rv$$inline_2071$$;
       if ("function" == typeof $col$$6$$.$getKeys$) {
-        $keys$$4_rv$$inline_2056$$ = $col$$6$$.$getKeys$();
+        $keys$$4_rv$$inline_2071$$ = $col$$6$$.$getKeys$();
       } else {
         if ("function" != typeof $col$$6$$.$getValues$) {
           if ($goog$isArrayLike$$($col$$6$$) || $goog$isString$$($col$$6$$)) {
-            $keys$$4_rv$$inline_2056$$ = [];
-            for (var $l$$inline_2057_values$$10$$ = $col$$6$$.length, $i$$inline_2058_l$$15$$ = 0;$i$$inline_2058_l$$15$$ < $l$$inline_2057_values$$10$$;$i$$inline_2058_l$$15$$++) {
-              $keys$$4_rv$$inline_2056$$.push($i$$inline_2058_l$$15$$);
+            $keys$$4_rv$$inline_2071$$ = [];
+            for (var $l$$inline_2072_values$$10$$ = $col$$6$$.length, $i$$inline_2073_l$$15$$ = 0;$i$$inline_2073_l$$15$$ < $l$$inline_2072_values$$10$$;$i$$inline_2073_l$$15$$++) {
+              $keys$$4_rv$$inline_2071$$.push($i$$inline_2073_l$$15$$);
             }
           } else {
-            $keys$$4_rv$$inline_2056$$ = $goog$object$getKeys$$($col$$6$$);
+            $keys$$4_rv$$inline_2071$$ = $goog$object$getKeys$$($col$$6$$);
           }
         } else {
-          $keys$$4_rv$$inline_2056$$ = void 0;
+          $keys$$4_rv$$inline_2071$$ = void 0;
         }
       }
-      for (var $l$$inline_2057_values$$10$$ = $goog$structs$getValues$$($col$$6$$), $i$$inline_2058_l$$15$$ = $l$$inline_2057_values$$10$$.length, $i$$136$$ = 0;$i$$136$$ < $i$$inline_2058_l$$15$$;$i$$136$$++) {
-        $f$$48$$.call($opt_obj$$44$$, $l$$inline_2057_values$$10$$[$i$$136$$], $keys$$4_rv$$inline_2056$$ && $keys$$4_rv$$inline_2056$$[$i$$136$$], $col$$6$$);
+      for (var $l$$inline_2072_values$$10$$ = $goog$structs$getValues$$($col$$6$$), $i$$inline_2073_l$$15$$ = $l$$inline_2072_values$$10$$.length, $i$$136$$ = 0;$i$$136$$ < $i$$inline_2073_l$$15$$;$i$$136$$++) {
+        $f$$48$$.call($opt_obj$$44$$, $l$$inline_2072_values$$10$$[$i$$136$$], $keys$$4_rv$$inline_2071$$ && $keys$$4_rv$$inline_2071$$[$i$$136$$], $col$$6$$);
       }
     }
   }
@@ -8347,6 +8347,11 @@ $JSCompiler_prototypeAlias$$.$onClearFile_$ = function $$JSCompiler_prototypeAli
   $goog$style$setElementShown$$($btn_browse_container_el$$1$$, !0);
 };
 // Input 164
+function $bitex$ui$OrderManager$templates$CancelOrder$$($opt_data$$41_output$$35$$) {
+  return $opt_data$$41_output$$35$$ = "" + ('<button class="btn btn-mini btn-danger" data-action="cancel" data-client-order-id="' + $soy$$0$0escapeHtml$$($opt_data$$41_output$$35$$.$dataClientOrderId$) + '" data-order-id="' + $soy$$0$0escapeHtml$$($opt_data$$41_output$$35$$.$dataOrderId$) + '">t\u1eeb ch\u1ed1i</button>');
+}
+;
+// Input 165
 function $bitex$ui$OrderManager$$($grid_columns_simple_opt_mode$$1$$, $opt_openOrdersTitle$$, $opt_filterOrder_options$$12$$, $opt_blinkDelay$$2$$, $opt_domHelper$$17$$) {
   function $getFilterButton$$($button_type$$) {
     switch($button_type$$) {
@@ -8380,8 +8385,8 @@ function $bitex$ui$OrderManager$$($grid_columns_simple_opt_mode$$1$$, $opt_openO
   }}, {property:"Volume", label:"T\u1ed5ng s\u1ed1", sortable:!1, classes:function() {
     return $bitex$ui$OrderManager$CSS_CLASS$$ + "-volume";
   }}, {property:"ClOrdID", label:"H\u00e0nh \u0111\u1ed9ng", sortable:!1, formatter:function($id$$16$$, $row_set_obj$$1$$) {
-    var $attributes$$3$$ = {"class":"btn btn-mini btn-danger", "data-action":"cancel", "data-client-order-id":$id$$16$$};
-    return null != $row_set_obj$$1$$ && ($attributes$$3$$["data-order-id"] = $row_set_obj$$1$$.OrderID, 0 == $row_set_obj$$1$$.LeavesQty) ? "" : $goog$dom$createDom$$("a", $attributes$$3$$, "h\u1ee7y");
+    var $attributes$$3$$ = {dataClientOrderId:$id$$16$$};
+    return null != $row_set_obj$$1$$ && ($attributes$$3$$.dataOrderId = $row_set_obj$$1$$.OrderID, 0 == $row_set_obj$$1$$.LeavesQty) ? "" : $goog$soy$renderAsElement$$($bitex$ui$OrderManager$templates$CancelOrder$$, $attributes$$3$$);
   }, classes:function() {
     return $bitex$ui$OrderManager$CSS_CLASS$$ + "-actions";
   }}];
@@ -8424,8 +8429,8 @@ function $bitex$ui$OrderManager$$($grid_columns_simple_opt_mode$$1$$, $opt_openO
   }, classes:function() {
     return $bitex$ui$OrderManager$CSS_CLASS$$ + "-avg-price";
   }}, {property:"ClOrdID", label:"H\u00e0nh \u0111\u1ed9ng", sortable:!1, formatter:function($id$$17$$, $row_set_obj$$2$$) {
-    var $attributes$$4$$ = {"class":"btn btn-mini btn-danger", "data-action":"cancel", "data-client-order-id":$id$$17$$};
-    return null != $row_set_obj$$2$$ && ($attributes$$4$$["data-order-id"] = $row_set_obj$$2$$.OrderID, 0 == $row_set_obj$$2$$.LeavesQty) ? "" : $goog$dom$createDom$$("a", $attributes$$4$$, "h\u1ee7y");
+    var $attributes$$4$$ = {dataClientOrderId:$id$$17$$};
+    return null != $row_set_obj$$2$$ && ($attributes$$4$$.dataOrderId = $row_set_obj$$2$$.OrderID, 0 == $row_set_obj$$2$$.LeavesQty) ? "" : $goog$soy$renderAsElement$$($bitex$ui$OrderManager$templates$CancelOrder$$, $attributes$$4$$);
   }, classes:function() {
     return $bitex$ui$OrderManager$CSS_CLASS$$ + "-actions";
   }}], title:"C\u00e1c \u0111\u01a1n h\u00e0ng c\u1ee7a t\u00f4i", showSearch:!1, buttonFilters:[]};
@@ -8484,21 +8489,21 @@ $goog$inherits$$($bitex$ui$OrderManagerEvent$$, $goog$events$Event$$);
 $goog$ui$registry$setDecoratorByClassName$$($bitex$ui$OrderManager$CSS_CLASS$$, function() {
   return new $bitex$ui$OrderManager$$;
 });
-// Input 165
-function $bitex$ui$AlgorithmRunner$templates$AlgorithmRunner$$($opt_data$$41$$) {
-  var $output$$35$$;
-  $output$$35$$ = "" + ('<form id="' + $soy$$0$0escapeHtml$$($opt_data$$41$$.id) + '_form" class="algo-runner form-horizontal well" data-uniform-control-holder-class="control-group" ><legend>' + $soy$$0$0escapeHtml$$($opt_data$$41$$.$algorithmDefinition$.description) + '</legend><div class="control-group" style=""><label class="control-label">Th\u1ecb tr\u01b0\u1eddng</label><div class="controls"><label id="' + $soy$$0$0escapeHtml$$($opt_data$$41$$.id) + '" class="control-label" style="text-align: left;">' + 
-  $soy$$0$0escapeHtml$$($opt_data$$41$$.$symbol$.$symbol$) + "</label></div></div>");
-  for (var $fieldList15$$ = $opt_data$$41$$.$algorithmDefinition$.params, $fieldListLen15$$ = $fieldList15$$.length, $fieldIndex15$$ = 0;$fieldIndex15$$ < $fieldListLen15$$;$fieldIndex15$$++) {
+// Input 166
+function $bitex$ui$AlgorithmRunner$templates$AlgorithmRunner$$($opt_data$$42$$) {
+  var $output$$36$$;
+  $output$$36$$ = "" + ('<form id="' + $soy$$0$0escapeHtml$$($opt_data$$42$$.id) + '_form" class="algo-runner form-horizontal well" data-uniform-control-holder-class="control-group" ><legend>' + $soy$$0$0escapeHtml$$($opt_data$$42$$.$algorithmDefinition$.description) + '</legend><div class="control-group" style=""><label class="control-label">Th\u1ecb tr\u01b0\u1eddng</label><div class="controls"><label id="' + $soy$$0$0escapeHtml$$($opt_data$$42$$.id) + '" class="control-label" style="text-align: left;">' + 
+  $soy$$0$0escapeHtml$$($opt_data$$42$$.$symbol$.$symbol$) + "</label></div></div>");
+  for (var $fieldList15$$ = $opt_data$$42$$.$algorithmDefinition$.params, $fieldListLen15$$ = $fieldList15$$.length, $fieldIndex15$$ = 0;$fieldIndex15$$ < $fieldListLen15$$;$fieldIndex15$$++) {
     var $fieldData15$$ = $fieldList15$$[$fieldIndex15$$];
-    $output$$35$$ += '<div class="control-group"><label class="control-label">' + $soy$$0$0escapeHtml$$($fieldData15$$.label) + '</label><div class="controls"><input class="algo-runner-field"' + ($fieldData15$$.validator ? ' data-uniform-validators="' + $soy$$0$0escapeHtml$$($fieldData15$$.validator) + '" ' : "") + ($fieldData15$$.filter ? ' data-uniform-filters="' + $soy$$0$0escapeHtml$$($fieldData15$$.filter) + '" ' : "") + 'type="' + $soy$$0$0escapeHtml$$($fieldData15$$.type) + '" name="' + $soy$$0$0escapeHtml$$($fieldData15$$.name) + 
+    $output$$36$$ += '<div class="control-group"><label class="control-label">' + $soy$$0$0escapeHtml$$($fieldData15$$.label) + '</label><div class="controls"><input class="algo-runner-field"' + ($fieldData15$$.validator ? ' data-uniform-validators="' + $soy$$0$0escapeHtml$$($fieldData15$$.validator) + '" ' : "") + ($fieldData15$$.filter ? ' data-uniform-filters="' + $soy$$0$0escapeHtml$$($fieldData15$$.filter) + '" ' : "") + 'type="' + $soy$$0$0escapeHtml$$($fieldData15$$.type) + '" name="' + $soy$$0$0escapeHtml$$($fieldData15$$.name) + 
     '" label="' + ($fieldData15$$.placeholder ? $soy$$0$0escapeHtml$$($fieldData15$$.placeholder) : "") + '" value="' + ($fieldData15$$.value ? $soy$$0$0escapeHtml$$($fieldData15$$.value) : "") + '" /></div></div>';
   }
-  return $output$$35$$ += '<div class="control-group" style=""><div class="controls"><button id="' + $soy$$0$0escapeHtml$$($opt_data$$41$$.id) + '_btn_update_params" class="btn btn-primary" ' + ("1" == $opt_data$$41$$.status || "3" == $opt_data$$41$$.status ? "disabled" : "") + '></button><button id="' + $soy$$0$0escapeHtml$$($opt_data$$41$$.id) + '_btn_stop" class="btn btn-danger" style="' + ("0" == $opt_data$$41$$.status || "1" == $opt_data$$41$$.status ? "display:none;" : "") + '"  ' + ("3" == 
-  $opt_data$$41$$.status ? "disabled" : "") + '></button></div></div><small><i id="' + $soy$$0$0escapeHtml$$($opt_data$$41$$.id) + '_instance_id">' + $soy$$0$0escapeHtml$$($opt_data$$41$$.$instanceID$) + "</i></small></form>";
+  return $output$$36$$ += '<div class="control-group" style=""><div class="controls"><button id="' + $soy$$0$0escapeHtml$$($opt_data$$42$$.id) + '_btn_update_params" class="btn btn-primary" ' + ("1" == $opt_data$$42$$.status || "3" == $opt_data$$42$$.status ? "disabled" : "") + '></button><button id="' + $soy$$0$0escapeHtml$$($opt_data$$42$$.id) + '_btn_stop" class="btn btn-danger" style="' + ("0" == $opt_data$$42$$.status || "1" == $opt_data$$42$$.status ? "display:none;" : "") + '"  ' + ("3" == 
+  $opt_data$$42$$.status ? "disabled" : "") + '></button></div></div><small><i id="' + $soy$$0$0escapeHtml$$($opt_data$$42$$.id) + '_instance_id">' + $soy$$0$0escapeHtml$$($opt_data$$42$$.$instanceID$) + "</i></small></form>";
 }
 ;
-// Input 166
+// Input 167
 function $bitex$ui$AlgorithmRunner$$($opt_domHelper$$18$$) {
   $goog$ui$Component$$.call(this, $opt_domHelper$$18$$);
   this.$uniform_$ = new $uniform$Uniform$$;
@@ -8556,7 +8561,7 @@ $JSCompiler_prototypeAlias$$.$onBtnParams_$ = function $$JSCompiler_prototypeAli
   this.$error_list_$ = this.$uniform_$.$validate$();
   0 < this.$error_list_$.length ? this.dispatchEvent("algo-runner-params-error") : (this.$model_$.$params$ = $JSCompiler_StaticMethods_getAsJSON$$(this.$uniform_$), this.dispatchEvent("algo-runner-params"));
 };
-// Input 167
+// Input 168
 function $bitex$view$AlgorithmTradingView$$($app$$5$$, $opt_domHelper$$19$$) {
   $bitex$view$View$$.call(this, $app$$5$$, $opt_domHelper$$19$$);
   this.$request_order_id_$ = this.$client_order_id$ = this.$order_id_$ = this.$algo_selector_$ = null;
@@ -8693,7 +8698,7 @@ $JSCompiler_prototypeAlias$$.$onOrderManagerRequestData_$ = function $$JSCompile
 $JSCompiler_prototypeAlias$$.$onOrderListResponse_$ = function $$JSCompiler_prototypeAlias$$$$onOrderListResponse_$$($e$$122_msg$$22$$) {
   null != this.$order_manager_table_$ && ($e$$122_msg$$22$$ = $e$$122_msg$$22$$.data, $JSCompiler_StaticMethods_setResultSet$$(this.$order_manager_table_$, $e$$122_msg$$22$$.OrdListGrp, $e$$122_msg$$22$$.Columns));
 };
-// Input 168
+// Input 169
 function $bitex$view$LoginView$$($app$$6$$, $opt_domHelper$$20$$) {
   $bitex$view$View$$.call(this, $app$$6$$, $opt_domHelper$$20$$);
   this.$password_el_$ = this.$username_el_$ = null;
@@ -8731,34 +8736,34 @@ $bitex$view$LoginView$$.prototype.clear = function $$bitex$view$LoginView$$$$cle
   null != this.$username_el_$ && $goog$dom$forms$setValue$$(this.$username_el_$, "");
   null != this.$password_el_$ && $goog$dom$forms$setValue$$(this.$password_el_$, "");
 };
-// Input 169
-function $bitex$ui$OrderBook$templates$OrderBook$$($columnList6_opt_data$$42$$) {
-  var $output$$36$$ = '<div class="box box--history box--push-bottom">\x3c!-- .box__head --\x3e<header class="box__head">' + $soy$$0$0escapeHtml$$($columnList6_opt_data$$42$$.title) + '</header>\x3c!-- /.box__head --\x3e\x3c!-- .box__body --\x3e<div class="box__body box__body--slide-x">\x3c!-- .table --\x3e<table class="table table--bordered table--striped"><thead><tr>';
-  $columnList6_opt_data$$42$$ = $columnList6_opt_data$$42$$.$columns$;
-  for (var $columnListLen6$$ = $columnList6_opt_data$$42$$.length, $columnIndex6$$ = 0;$columnIndex6$$ < $columnListLen6$$;$columnIndex6$$++) {
-    $output$$36$$ += "<th>" + $soy$$0$0escapeHtml$$($columnList6_opt_data$$42$$[$columnIndex6$$]) + "</th>";
+// Input 170
+function $bitex$ui$OrderBook$templates$OrderBook$$($columnList6_opt_data$$43$$) {
+  var $output$$37$$ = '<div class="box box--history box--push-bottom">\x3c!-- .box__head --\x3e<header class="box__head">' + $soy$$0$0escapeHtml$$($columnList6_opt_data$$43$$.title) + '</header>\x3c!-- /.box__head --\x3e\x3c!-- .box__body --\x3e<div class="box__body box__body--slide-x">\x3c!-- .table --\x3e<table class="table table--bordered table--striped"><thead><tr>';
+  $columnList6_opt_data$$43$$ = $columnList6_opt_data$$43$$.$columns$;
+  for (var $columnListLen6$$ = $columnList6_opt_data$$43$$.length, $columnIndex6$$ = 0;$columnIndex6$$ < $columnListLen6$$;$columnIndex6$$++) {
+    $output$$37$$ += "<th>" + $soy$$0$0escapeHtml$$($columnList6_opt_data$$43$$[$columnIndex6$$]) + "</th>";
   }
-  return $output$$36$$ + "</tr></thead><tbody></tbody></table></div>\x3c!-- /.box__body --\x3e</div>";
+  return $output$$37$$ + "</tr></thead><tbody></tbody></table></div>\x3c!-- /.box__body --\x3e</div>";
 }
 function $bitex$ui$OrderBook$templates$OrderBookDragOrder$$() {
   return'<div class="order-book-drag-order">Hu\u1ef7 / Thay th\u1ebf \u0111\u01a1n h\u00e0ng</div>';
 }
-function $bitex$ui$OrderBook$templates$OrderBookOrderQtyEl$$($opt_data$$44$$) {
-  return'<td class="order-book-qty">' + $soy$$0$0escapeHtml$$($opt_data$$44$$.$qty$) + "</td>";
+function $bitex$ui$OrderBook$templates$OrderBookOrderQtyEl$$($opt_data$$45$$) {
+  return'<td class="order-book-qty">' + $soy$$0$0escapeHtml$$($opt_data$$45$$.$qty$) + "</td>";
 }
-function $bitex$ui$OrderBook$templates$OrderBookOrderPriceEl$$($opt_data$$45$$) {
-  return'<td class="order-book-price ' + ("0" == $opt_data$$45$$.$side$ ? "order-book-right" : "order-book-left") + '">' + $soy$$0$0escapeHtml$$($opt_data$$45$$.$price$) + "</td>";
+function $bitex$ui$OrderBook$templates$OrderBookOrderPriceEl$$($opt_data$$46$$) {
+  return'<td class="order-book-price ' + ("0" == $opt_data$$46$$.$side$ ? "order-book-right" : "order-book-left") + '">' + $soy$$0$0escapeHtml$$($opt_data$$46$$.$price$) + "</td>";
 }
-function $bitex$ui$OrderBook$templates$OrderBookOrderUsernameEl$$($opt_data$$46$$) {
-  return $opt_data$$46$$.$orderId$ ? '<td class="order-book-username ' + ("0" == $opt_data$$46$$.$side$ ? "order-book-left" : "order-book-right") + '"><a href="" class="btn-cancel-order text-error" data-order-id="' + $soy$$0$0escapeHtml$$($opt_data$$46$$.$orderId$) + '">' + ("0" == $opt_data$$46$$.$side$ ? '<i class="icon-remove" data-order-id="' + $soy$$0$0escapeHtml$$($opt_data$$46$$.$orderId$) + '" style="line-height:2px;"></i> ' + $soy$$0$0escapeHtml$$($opt_data$$46$$.$username$) : $soy$$0$0escapeHtml$$($opt_data$$46$$.$username$) + 
-  ' <i class="icon-remove" data-order-id="' + $soy$$0$0escapeHtml$$($opt_data$$46$$.$orderId$) + '" style="line-height:2px;"></i>') + "</a></td>" : '<td class="order-book-username ' + ("0" == $opt_data$$46$$.$side$ ? "order-book-left" : "order-book-right") + '">' + $soy$$0$0escapeHtml$$($opt_data$$46$$.$username$) + "</td>";
+function $bitex$ui$OrderBook$templates$OrderBookOrderUsernameEl$$($opt_data$$47$$) {
+  return $opt_data$$47$$.$orderId$ ? '<td class="order-book-username ' + ("0" == $opt_data$$47$$.$side$ ? "order-book-left" : "order-book-right") + '"><a href="" class="btn-cancel-order text-error" data-order-id="' + $soy$$0$0escapeHtml$$($opt_data$$47$$.$orderId$) + '">' + ("0" == $opt_data$$47$$.$side$ ? '<i class="icon-remove" data-order-id="' + $soy$$0$0escapeHtml$$($opt_data$$47$$.$orderId$) + '" style="line-height:2px;"></i> ' + $soy$$0$0escapeHtml$$($opt_data$$47$$.$username$) : $soy$$0$0escapeHtml$$($opt_data$$47$$.$username$) + 
+  ' <i class="icon-remove" data-order-id="' + $soy$$0$0escapeHtml$$($opt_data$$47$$.$orderId$) + '" style="line-height:2px;"></i>') + "</a></td>" : '<td class="order-book-username ' + ("0" == $opt_data$$47$$.$side$ ? "order-book-left" : "order-book-right") + '">' + $soy$$0$0escapeHtml$$($opt_data$$47$$.$username$) + "</td>";
 }
-function $bitex$ui$OrderBook$templates$OrderBookOrderRow$$($opt_data$$47$$) {
-  return'<tr class="order-book-row">' + ("0" == $opt_data$$47$$.$side$ ? $bitex$ui$OrderBook$templates$OrderBookOrderUsernameEl$$($opt_data$$47$$) + $bitex$ui$OrderBook$templates$OrderBookOrderQtyEl$$($opt_data$$47$$) + $bitex$ui$OrderBook$templates$OrderBookOrderPriceEl$$($opt_data$$47$$) : $bitex$ui$OrderBook$templates$OrderBookOrderPriceEl$$($opt_data$$47$$) + $bitex$ui$OrderBook$templates$OrderBookOrderQtyEl$$($opt_data$$47$$) + $bitex$ui$OrderBook$templates$OrderBookOrderUsernameEl$$($opt_data$$47$$)) + 
+function $bitex$ui$OrderBook$templates$OrderBookOrderRow$$($opt_data$$48$$) {
+  return'<tr class="order-book-row">' + ("0" == $opt_data$$48$$.$side$ ? $bitex$ui$OrderBook$templates$OrderBookOrderUsernameEl$$($opt_data$$48$$) + $bitex$ui$OrderBook$templates$OrderBookOrderQtyEl$$($opt_data$$48$$) + $bitex$ui$OrderBook$templates$OrderBookOrderPriceEl$$($opt_data$$48$$) : $bitex$ui$OrderBook$templates$OrderBookOrderPriceEl$$($opt_data$$48$$) + $bitex$ui$OrderBook$templates$OrderBookOrderQtyEl$$($opt_data$$48$$) + $bitex$ui$OrderBook$templates$OrderBookOrderUsernameEl$$($opt_data$$48$$)) + 
   "</tr>";
 }
 ;
-// Input 170
+// Input 171
 function $goog$fx$Dragger$$($target$$58$$, $opt_handle$$, $opt_limits$$) {
   $goog$events$EventTarget$$.call(this);
   this.target = $target$$58$$;
@@ -8798,35 +8803,35 @@ function $JSCompiler_StaticMethods_isRightToLeft_$$($JSCompiler_StaticMethods_is
   $goog$isDef$$($JSCompiler_StaticMethods_isRightToLeft_$self$$.$rightToLeft_$) || ($JSCompiler_StaticMethods_isRightToLeft_$self$$.$rightToLeft_$ = $goog$style$isRightToLeft$$($JSCompiler_StaticMethods_isRightToLeft_$self$$.target));
   return $JSCompiler_StaticMethods_isRightToLeft_$self$$.$rightToLeft_$;
 }
-$JSCompiler_prototypeAlias$$.$startDrag$ = function $$JSCompiler_prototypeAlias$$$$startDrag$$($JSCompiler_temp$$1963_e$$125_element$$inline_2111$$) {
-  var $doc$$inline_1002_isMouseDown_offsetLeftForReal$$inline_2112$$ = "mousedown" == $JSCompiler_temp$$1963_e$$125_element$$inline_2111$$.type;
-  if (!this.$enabled_$ || this.$dragging_$ || $doc$$inline_1002_isMouseDown_offsetLeftForReal$$inline_2112$$ && !$JSCompiler_StaticMethods_isMouseActionButton$$($JSCompiler_temp$$1963_e$$125_element$$inline_2111$$)) {
+$JSCompiler_prototypeAlias$$.$startDrag$ = function $$JSCompiler_prototypeAlias$$$$startDrag$$($JSCompiler_temp$$1978_e$$125_element$$inline_2126$$) {
+  var $doc$$inline_1002_isMouseDown_offsetLeftForReal$$inline_2127$$ = "mousedown" == $JSCompiler_temp$$1978_e$$125_element$$inline_2126$$.type;
+  if (!this.$enabled_$ || this.$dragging_$ || $doc$$inline_1002_isMouseDown_offsetLeftForReal$$inline_2127$$ && !$JSCompiler_StaticMethods_isMouseActionButton$$($JSCompiler_temp$$1978_e$$125_element$$inline_2126$$)) {
     this.dispatchEvent("earlycancel");
   } else {
     if (0 == this.$hysteresisDistanceSquared_$) {
-      if (this.dispatchEvent(new $goog$fx$DragEvent$$("start", this, $JSCompiler_temp$$1963_e$$125_element$$inline_2111$$.clientX, $JSCompiler_temp$$1963_e$$125_element$$inline_2111$$.clientY))) {
-        this.$dragging_$ = !0, this.$preventMouseDown_$ && $JSCompiler_temp$$1963_e$$125_element$$inline_2111$$.preventDefault();
+      if (this.dispatchEvent(new $goog$fx$DragEvent$$("start", this, $JSCompiler_temp$$1978_e$$125_element$$inline_2126$$.clientX, $JSCompiler_temp$$1978_e$$125_element$$inline_2126$$.clientY))) {
+        this.$dragging_$ = !0, this.$preventMouseDown_$ && $JSCompiler_temp$$1978_e$$125_element$$inline_2126$$.preventDefault();
       } else {
         return;
       }
     } else {
-      this.$preventMouseDown_$ && $JSCompiler_temp$$1963_e$$125_element$$inline_2111$$.preventDefault();
+      this.$preventMouseDown_$ && $JSCompiler_temp$$1978_e$$125_element$$inline_2126$$.preventDefault();
     }
-    var $doc$$inline_1002_isMouseDown_offsetLeftForReal$$inline_2112$$ = this.$document_$, $bestParent$$inline_2113_docEl$$inline_1003$$ = $doc$$inline_1002_isMouseDown_offsetLeftForReal$$inline_2112$$.documentElement, $borderWidths$$inline_2114_useCapture$$inline_1004$$ = !$goog$fx$Dragger$HAS_SET_CAPTURE_$$;
-    this.$eventHandler_$.$listen$($doc$$inline_1002_isMouseDown_offsetLeftForReal$$inline_2112$$, ["touchmove", "mousemove"], this.$handleMove_$, $borderWidths$$inline_2114_useCapture$$inline_1004$$);
-    this.$eventHandler_$.$listen$($doc$$inline_1002_isMouseDown_offsetLeftForReal$$inline_2112$$, ["touchend", "mouseup"], this.$endDrag$, $borderWidths$$inline_2114_useCapture$$inline_1004$$);
-    $goog$fx$Dragger$HAS_SET_CAPTURE_$$ ? ($bestParent$$inline_2113_docEl$$inline_1003$$.setCapture(!1), this.$eventHandler_$.$listen$($bestParent$$inline_2113_docEl$$inline_1003$$, "losecapture", this.$endDrag$)) : this.$eventHandler_$.$listen$($doc$$inline_1002_isMouseDown_offsetLeftForReal$$inline_2112$$ ? $goog$dom$getWindow_$$($doc$$inline_1002_isMouseDown_offsetLeftForReal$$inline_2112$$) : window, "blur", this.$endDrag$);
-    $goog$userAgent$IE$$ && this.$ieDragStartCancellingOn_$ && this.$eventHandler_$.$listen$($doc$$inline_1002_isMouseDown_offsetLeftForReal$$inline_2112$$, "dragstart", $goog$events$Event$preventDefault$$);
-    this.$scrollTarget_$ && this.$eventHandler_$.$listen$(this.$scrollTarget_$, "scroll", this.$onScroll_$, $borderWidths$$inline_2114_useCapture$$inline_1004$$);
-    this.clientX = this.$startX$ = $JSCompiler_temp$$1963_e$$125_element$$inline_2111$$.clientX;
-    this.clientY = this.$startY$ = $JSCompiler_temp$$1963_e$$125_element$$inline_2111$$.clientY;
-    this.screenX = $JSCompiler_temp$$1963_e$$125_element$$inline_2111$$.screenX;
-    this.screenY = $JSCompiler_temp$$1963_e$$125_element$$inline_2111$$.screenY;
-    this.$useRightPositioningForRtl_$ ? ($JSCompiler_temp$$1963_e$$125_element$$inline_2111$$ = this.target, $doc$$inline_1002_isMouseDown_offsetLeftForReal$$inline_2112$$ = $JSCompiler_temp$$1963_e$$125_element$$inline_2111$$.offsetLeft, $bestParent$$inline_2113_docEl$$inline_1003$$ = $JSCompiler_temp$$1963_e$$125_element$$inline_2111$$.offsetParent, $bestParent$$inline_2113_docEl$$inline_1003$$ || "fixed" != $goog$style$getStyle_$$($JSCompiler_temp$$1963_e$$125_element$$inline_2111$$, "position") || 
-    ($bestParent$$inline_2113_docEl$$inline_1003$$ = $goog$dom$getOwnerDocument$$($JSCompiler_temp$$1963_e$$125_element$$inline_2111$$).documentElement), $bestParent$$inline_2113_docEl$$inline_1003$$ ? ($goog$userAgent$GECKO$$ ? ($borderWidths$$inline_2114_useCapture$$inline_1004$$ = $goog$style$getBorderBox$$($bestParent$$inline_2113_docEl$$inline_1003$$), $doc$$inline_1002_isMouseDown_offsetLeftForReal$$inline_2112$$ += $borderWidths$$inline_2114_useCapture$$inline_1004$$.left) : 8 <= $goog$userAgent$DOCUMENT_MODE$$ && 
-    !(9 <= $goog$userAgent$DOCUMENT_MODE$$) && ($borderWidths$$inline_2114_useCapture$$inline_1004$$ = $goog$style$getBorderBox$$($bestParent$$inline_2113_docEl$$inline_1003$$), $doc$$inline_1002_isMouseDown_offsetLeftForReal$$inline_2112$$ -= $borderWidths$$inline_2114_useCapture$$inline_1004$$.left), $JSCompiler_temp$$1963_e$$125_element$$inline_2111$$ = $goog$style$isRightToLeft$$($bestParent$$inline_2113_docEl$$inline_1003$$) ? $bestParent$$inline_2113_docEl$$inline_1003$$.clientWidth - ($doc$$inline_1002_isMouseDown_offsetLeftForReal$$inline_2112$$ + 
-    $JSCompiler_temp$$1963_e$$125_element$$inline_2111$$.offsetWidth) : $doc$$inline_1002_isMouseDown_offsetLeftForReal$$inline_2112$$) : $JSCompiler_temp$$1963_e$$125_element$$inline_2111$$ = $doc$$inline_1002_isMouseDown_offsetLeftForReal$$inline_2112$$) : $JSCompiler_temp$$1963_e$$125_element$$inline_2111$$ = this.target.offsetLeft;
-    this.deltaX = $JSCompiler_temp$$1963_e$$125_element$$inline_2111$$;
+    var $doc$$inline_1002_isMouseDown_offsetLeftForReal$$inline_2127$$ = this.$document_$, $bestParent$$inline_2128_docEl$$inline_1003$$ = $doc$$inline_1002_isMouseDown_offsetLeftForReal$$inline_2127$$.documentElement, $borderWidths$$inline_2129_useCapture$$inline_1004$$ = !$goog$fx$Dragger$HAS_SET_CAPTURE_$$;
+    this.$eventHandler_$.$listen$($doc$$inline_1002_isMouseDown_offsetLeftForReal$$inline_2127$$, ["touchmove", "mousemove"], this.$handleMove_$, $borderWidths$$inline_2129_useCapture$$inline_1004$$);
+    this.$eventHandler_$.$listen$($doc$$inline_1002_isMouseDown_offsetLeftForReal$$inline_2127$$, ["touchend", "mouseup"], this.$endDrag$, $borderWidths$$inline_2129_useCapture$$inline_1004$$);
+    $goog$fx$Dragger$HAS_SET_CAPTURE_$$ ? ($bestParent$$inline_2128_docEl$$inline_1003$$.setCapture(!1), this.$eventHandler_$.$listen$($bestParent$$inline_2128_docEl$$inline_1003$$, "losecapture", this.$endDrag$)) : this.$eventHandler_$.$listen$($doc$$inline_1002_isMouseDown_offsetLeftForReal$$inline_2127$$ ? $goog$dom$getWindow_$$($doc$$inline_1002_isMouseDown_offsetLeftForReal$$inline_2127$$) : window, "blur", this.$endDrag$);
+    $goog$userAgent$IE$$ && this.$ieDragStartCancellingOn_$ && this.$eventHandler_$.$listen$($doc$$inline_1002_isMouseDown_offsetLeftForReal$$inline_2127$$, "dragstart", $goog$events$Event$preventDefault$$);
+    this.$scrollTarget_$ && this.$eventHandler_$.$listen$(this.$scrollTarget_$, "scroll", this.$onScroll_$, $borderWidths$$inline_2129_useCapture$$inline_1004$$);
+    this.clientX = this.$startX$ = $JSCompiler_temp$$1978_e$$125_element$$inline_2126$$.clientX;
+    this.clientY = this.$startY$ = $JSCompiler_temp$$1978_e$$125_element$$inline_2126$$.clientY;
+    this.screenX = $JSCompiler_temp$$1978_e$$125_element$$inline_2126$$.screenX;
+    this.screenY = $JSCompiler_temp$$1978_e$$125_element$$inline_2126$$.screenY;
+    this.$useRightPositioningForRtl_$ ? ($JSCompiler_temp$$1978_e$$125_element$$inline_2126$$ = this.target, $doc$$inline_1002_isMouseDown_offsetLeftForReal$$inline_2127$$ = $JSCompiler_temp$$1978_e$$125_element$$inline_2126$$.offsetLeft, $bestParent$$inline_2128_docEl$$inline_1003$$ = $JSCompiler_temp$$1978_e$$125_element$$inline_2126$$.offsetParent, $bestParent$$inline_2128_docEl$$inline_1003$$ || "fixed" != $goog$style$getStyle_$$($JSCompiler_temp$$1978_e$$125_element$$inline_2126$$, "position") || 
+    ($bestParent$$inline_2128_docEl$$inline_1003$$ = $goog$dom$getOwnerDocument$$($JSCompiler_temp$$1978_e$$125_element$$inline_2126$$).documentElement), $bestParent$$inline_2128_docEl$$inline_1003$$ ? ($goog$userAgent$GECKO$$ ? ($borderWidths$$inline_2129_useCapture$$inline_1004$$ = $goog$style$getBorderBox$$($bestParent$$inline_2128_docEl$$inline_1003$$), $doc$$inline_1002_isMouseDown_offsetLeftForReal$$inline_2127$$ += $borderWidths$$inline_2129_useCapture$$inline_1004$$.left) : 8 <= $goog$userAgent$DOCUMENT_MODE$$ && 
+    !(9 <= $goog$userAgent$DOCUMENT_MODE$$) && ($borderWidths$$inline_2129_useCapture$$inline_1004$$ = $goog$style$getBorderBox$$($bestParent$$inline_2128_docEl$$inline_1003$$), $doc$$inline_1002_isMouseDown_offsetLeftForReal$$inline_2127$$ -= $borderWidths$$inline_2129_useCapture$$inline_1004$$.left), $JSCompiler_temp$$1978_e$$125_element$$inline_2126$$ = $goog$style$isRightToLeft$$($bestParent$$inline_2128_docEl$$inline_1003$$) ? $bestParent$$inline_2128_docEl$$inline_1003$$.clientWidth - ($doc$$inline_1002_isMouseDown_offsetLeftForReal$$inline_2127$$ + 
+    $JSCompiler_temp$$1978_e$$125_element$$inline_2126$$.offsetWidth) : $doc$$inline_1002_isMouseDown_offsetLeftForReal$$inline_2127$$) : $JSCompiler_temp$$1978_e$$125_element$$inline_2126$$ = $doc$$inline_1002_isMouseDown_offsetLeftForReal$$inline_2127$$) : $JSCompiler_temp$$1978_e$$125_element$$inline_2126$$ = this.target.offsetLeft;
+    this.deltaX = $JSCompiler_temp$$1978_e$$125_element$$inline_2126$$;
     this.deltaY = this.target.offsetTop;
     this.$pageScroll$ = $JSCompiler_StaticMethods_getDocumentScroll$$($goog$dom$getDomHelper$$(this.$document_$));
   }
@@ -8905,7 +8910,7 @@ function $goog$fx$DragEvent$$($type$$143$$, $dragobj$$, $clientX$$2$$, $clientY$
   this.$dragCanceled$ = !!$opt_dragCanceled$$1$$;
 }
 $goog$inherits$$($goog$fx$DragEvent$$, $goog$events$Event$$);
-// Input 171
+// Input 172
 function $goog$fx$AbstractDragDrop$$() {
   $goog$events$EventTarget$$.call(this);
   this.$items_$ = [];
@@ -8946,25 +8951,25 @@ $JSCompiler_prototypeAlias$$.$startDrag$ = function $$JSCompiler_prototypeAlias$
     if (this.$dragItem_$ = $item$$20$$, 0 == this.dispatchEvent(new $goog$fx$DragDropEvent$$("dragstart", 0, this.$dragItem_$))) {
       this.$dragItem_$ = null;
     } else {
-      var $bottom$$inline_2307_el$$100_i$$inline_2124$$ = $item$$20$$.$currentDragElement_$;
-      this.$dragEl_$ = this.$createDragElement$($bottom$$inline_2307_el$$100_i$$inline_2124$$);
-      var $container$$inline_1027_container$$inline_1035_doc$$44_target$$inline_1021$$ = $goog$dom$getOwnerDocument$$($bottom$$inline_2307_el$$100_i$$inline_2124$$);
+      var $bottom$$inline_2322_el$$100_i$$inline_2139$$ = $item$$20$$.$currentDragElement_$;
+      this.$dragEl_$ = this.$createDragElement$($bottom$$inline_2322_el$$100_i$$inline_2139$$);
+      var $container$$inline_1027_container$$inline_1035_doc$$44_target$$inline_1021$$ = $goog$dom$getOwnerDocument$$($bottom$$inline_2322_el$$100_i$$inline_2139$$);
       $container$$inline_1027_container$$inline_1035_doc$$44_target$$inline_1021$$.body.appendChild(this.$dragEl_$);
-      var $el$$inline_1016_i$$inline_1022_i$$inline_1028_i$$inline_1036$$ = this.$dragEl_$, $j$$inline_1024_j$$inline_1029_pos$$inline_1031_pos$$inline_2117$$ = $goog$style$getPageOffset$$($bottom$$inline_2307_el$$100_i$$inline_2124$$), $left$$inline_2304_marginBox$$inline_2118_size$$inline_1032_target$$inline_1030_target$$inline_2121$$;
+      var $el$$inline_1016_i$$inline_1022_i$$inline_1028_i$$inline_1036$$ = this.$dragEl_$, $j$$inline_1024_j$$inline_1029_pos$$inline_1031_pos$$inline_2132$$ = $goog$style$getPageOffset$$($bottom$$inline_2322_el$$100_i$$inline_2139$$), $left$$inline_2319_marginBox$$inline_2133_size$$inline_1032_target$$inline_1030_target$$inline_2136$$;
       if ($goog$userAgent$IE$$) {
-        $left$$inline_2304_marginBox$$inline_2118_size$$inline_1032_target$$inline_1030_target$$inline_2121$$ = $goog$style$getIePixelDistance_$$($bottom$$inline_2307_el$$100_i$$inline_2124$$, "marginLeft");
-        var $item$$inline_2122_itm$$inline_1023_right$$inline_2305$$ = $goog$style$getIePixelDistance_$$($bottom$$inline_2307_el$$100_i$$inline_2124$$, "marginRight"), $draggableElements$$inline_2123_top$$inline_2306$$ = $goog$style$getIePixelDistance_$$($bottom$$inline_2307_el$$100_i$$inline_2124$$, "marginTop"), $bottom$$inline_2307_el$$100_i$$inline_2124$$ = $goog$style$getIePixelDistance_$$($bottom$$inline_2307_el$$100_i$$inline_2124$$, "marginBottom");
-        $left$$inline_2304_marginBox$$inline_2118_size$$inline_1032_target$$inline_1030_target$$inline_2121$$ = new $goog$math$Box$$($draggableElements$$inline_2123_top$$inline_2306$$, $item$$inline_2122_itm$$inline_1023_right$$inline_2305$$, $bottom$$inline_2307_el$$100_i$$inline_2124$$, $left$$inline_2304_marginBox$$inline_2118_size$$inline_1032_target$$inline_1030_target$$inline_2121$$);
+        $left$$inline_2319_marginBox$$inline_2133_size$$inline_1032_target$$inline_1030_target$$inline_2136$$ = $goog$style$getIePixelDistance_$$($bottom$$inline_2322_el$$100_i$$inline_2139$$, "marginLeft");
+        var $item$$inline_2137_itm$$inline_1023_right$$inline_2320$$ = $goog$style$getIePixelDistance_$$($bottom$$inline_2322_el$$100_i$$inline_2139$$, "marginRight"), $draggableElements$$inline_2138_top$$inline_2321$$ = $goog$style$getIePixelDistance_$$($bottom$$inline_2322_el$$100_i$$inline_2139$$, "marginTop"), $bottom$$inline_2322_el$$100_i$$inline_2139$$ = $goog$style$getIePixelDistance_$$($bottom$$inline_2322_el$$100_i$$inline_2139$$, "marginBottom");
+        $left$$inline_2319_marginBox$$inline_2133_size$$inline_1032_target$$inline_1030_target$$inline_2136$$ = new $goog$math$Box$$($draggableElements$$inline_2138_top$$inline_2321$$, $item$$inline_2137_itm$$inline_1023_right$$inline_2320$$, $bottom$$inline_2322_el$$100_i$$inline_2139$$, $left$$inline_2319_marginBox$$inline_2133_size$$inline_1032_target$$inline_1030_target$$inline_2136$$);
       } else {
-        $left$$inline_2304_marginBox$$inline_2118_size$$inline_1032_target$$inline_1030_target$$inline_2121$$ = $goog$style$getComputedStyle$$($bottom$$inline_2307_el$$100_i$$inline_2124$$, "marginLeft"), $item$$inline_2122_itm$$inline_1023_right$$inline_2305$$ = $goog$style$getComputedStyle$$($bottom$$inline_2307_el$$100_i$$inline_2124$$, "marginRight"), $draggableElements$$inline_2123_top$$inline_2306$$ = $goog$style$getComputedStyle$$($bottom$$inline_2307_el$$100_i$$inline_2124$$, "marginTop"), 
-        $bottom$$inline_2307_el$$100_i$$inline_2124$$ = $goog$style$getComputedStyle$$($bottom$$inline_2307_el$$100_i$$inline_2124$$, "marginBottom"), $left$$inline_2304_marginBox$$inline_2118_size$$inline_1032_target$$inline_1030_target$$inline_2121$$ = new $goog$math$Box$$(parseFloat($draggableElements$$inline_2123_top$$inline_2306$$), parseFloat($item$$inline_2122_itm$$inline_1023_right$$inline_2305$$), parseFloat($bottom$$inline_2307_el$$100_i$$inline_2124$$), parseFloat($left$$inline_2304_marginBox$$inline_2118_size$$inline_1032_target$$inline_1030_target$$inline_2121$$))
+        $left$$inline_2319_marginBox$$inline_2133_size$$inline_1032_target$$inline_1030_target$$inline_2136$$ = $goog$style$getComputedStyle$$($bottom$$inline_2322_el$$100_i$$inline_2139$$, "marginLeft"), $item$$inline_2137_itm$$inline_1023_right$$inline_2320$$ = $goog$style$getComputedStyle$$($bottom$$inline_2322_el$$100_i$$inline_2139$$, "marginRight"), $draggableElements$$inline_2138_top$$inline_2321$$ = $goog$style$getComputedStyle$$($bottom$$inline_2322_el$$100_i$$inline_2139$$, "marginTop"), 
+        $bottom$$inline_2322_el$$100_i$$inline_2139$$ = $goog$style$getComputedStyle$$($bottom$$inline_2322_el$$100_i$$inline_2139$$, "marginBottom"), $left$$inline_2319_marginBox$$inline_2133_size$$inline_1032_target$$inline_1030_target$$inline_2136$$ = new $goog$math$Box$$(parseFloat($draggableElements$$inline_2138_top$$inline_2321$$), parseFloat($item$$inline_2137_itm$$inline_1023_right$$inline_2320$$), parseFloat($bottom$$inline_2322_el$$100_i$$inline_2139$$), parseFloat($left$$inline_2319_marginBox$$inline_2133_size$$inline_1032_target$$inline_1030_target$$inline_2136$$))
         ;
       }
-      $j$$inline_1024_j$$inline_1029_pos$$inline_1031_pos$$inline_2117$$.x -= 2 * ($left$$inline_2304_marginBox$$inline_2118_size$$inline_1032_target$$inline_1030_target$$inline_2121$$.left || 0);
-      $j$$inline_1024_j$$inline_1029_pos$$inline_1031_pos$$inline_2117$$.y -= 2 * ($left$$inline_2304_marginBox$$inline_2118_size$$inline_1032_target$$inline_1030_target$$inline_2121$$.top || 0);
+      $j$$inline_1024_j$$inline_1029_pos$$inline_1031_pos$$inline_2132$$.x -= 2 * ($left$$inline_2319_marginBox$$inline_2133_size$$inline_1032_target$$inline_1030_target$$inline_2136$$.left || 0);
+      $j$$inline_1024_j$$inline_1029_pos$$inline_1031_pos$$inline_2132$$.y -= 2 * ($left$$inline_2319_marginBox$$inline_2133_size$$inline_1032_target$$inline_1030_target$$inline_2136$$.top || 0);
       $el$$inline_1016_i$$inline_1022_i$$inline_1028_i$$inline_1036$$.style.position = "absolute";
-      $el$$inline_1016_i$$inline_1022_i$$inline_1028_i$$inline_1036$$.style.left = $j$$inline_1024_j$$inline_1029_pos$$inline_1031_pos$$inline_2117$$.x + "px";
-      $el$$inline_1016_i$$inline_1022_i$$inline_1028_i$$inline_1036$$.style.top = $j$$inline_1024_j$$inline_1029_pos$$inline_1031_pos$$inline_2117$$.y + "px";
+      $el$$inline_1016_i$$inline_1022_i$$inline_1028_i$$inline_1036$$.style.left = $j$$inline_1024_j$$inline_1029_pos$$inline_1031_pos$$inline_2132$$.x + "px";
+      $el$$inline_1016_i$$inline_1022_i$$inline_1028_i$$inline_1036$$.style.top = $j$$inline_1024_j$$inline_1029_pos$$inline_1031_pos$$inline_2132$$.y + "px";
       this.$dragger_$ = new $goog$fx$Dragger$$($el$$inline_1016_i$$inline_1022_i$$inline_1028_i$$inline_1036$$);
       this.$dragger_$.$setScrollTarget$(this.$scrollTarget_$);
       $goog$events$listen$$(this.$dragger_$, "drag", this.$moveDrag_$, !1, this);
@@ -8972,27 +8977,27 @@ $JSCompiler_prototypeAlias$$.$startDrag$ = function $$JSCompiler_prototypeAlias$
       $goog$events$listen$$($container$$inline_1027_container$$inline_1035_doc$$44_target$$inline_1021$$.body, "selectstart", this.$suppressSelect_$);
       this.$targetList_$ = [];
       for ($el$$inline_1016_i$$inline_1022_i$$inline_1028_i$$inline_1036$$ = 0;$container$$inline_1027_container$$inline_1035_doc$$44_target$$inline_1021$$ = this.$targets_$[$el$$inline_1016_i$$inline_1022_i$$inline_1028_i$$inline_1036$$];$el$$inline_1016_i$$inline_1022_i$$inline_1028_i$$inline_1036$$++) {
-        for ($j$$inline_1024_j$$inline_1029_pos$$inline_1031_pos$$inline_2117$$ = 0;$item$$inline_2122_itm$$inline_1023_right$$inline_2305$$ = $container$$inline_1027_container$$inline_1035_doc$$44_target$$inline_1021$$.$items_$[$j$$inline_1024_j$$inline_1029_pos$$inline_1031_pos$$inline_2117$$];$j$$inline_1024_j$$inline_1029_pos$$inline_1031_pos$$inline_2117$$++) {
-          for ($left$$inline_2304_marginBox$$inline_2118_size$$inline_1032_target$$inline_1030_target$$inline_2121$$ = $container$$inline_1027_container$$inline_1035_doc$$44_target$$inline_1021$$, $draggableElements$$inline_2123_top$$inline_2306$$ = [$item$$inline_2122_itm$$inline_1023_right$$inline_2305$$.element], $bottom$$inline_2307_el$$100_i$$inline_2124$$ = 0;$bottom$$inline_2307_el$$100_i$$inline_2124$$ < $draggableElements$$inline_2123_top$$inline_2306$$.length;$bottom$$inline_2307_el$$100_i$$inline_2124$$++) {
-            var $draggableElement$$inline_2125$$ = $draggableElements$$inline_2123_top$$inline_2306$$[$bottom$$inline_2307_el$$100_i$$inline_2124$$], $box$$inline_2126_pos$$inline_2128$$, $element$$inline_2127_size$$inline_2129$$ = $draggableElement$$inline_2125$$;
-            $box$$inline_2126_pos$$inline_2128$$ = $goog$style$getPageOffset$$($element$$inline_2127_size$$inline_2129$$);
-            $element$$inline_2127_size$$inline_2129$$ = $goog$style$evaluateWithTemporaryDisplay_$$($element$$inline_2127_size$$inline_2129$$);
-            $box$$inline_2126_pos$$inline_2128$$ = new $goog$math$Box$$($box$$inline_2126_pos$$inline_2128$$.y, $box$$inline_2126_pos$$inline_2128$$.x + $element$$inline_2127_size$$inline_2129$$.width, $box$$inline_2126_pos$$inline_2128$$.y + $element$$inline_2127_size$$inline_2129$$.height, $box$$inline_2126_pos$$inline_2128$$.x);
-            this.$targetList_$.push(new $goog$fx$ActiveDropTarget_$$($box$$inline_2126_pos$$inline_2128$$, $left$$inline_2304_marginBox$$inline_2118_size$$inline_1032_target$$inline_1030_target$$inline_2121$$, $item$$inline_2122_itm$$inline_1023_right$$inline_2305$$, $draggableElement$$inline_2125$$));
-            $JSCompiler_StaticMethods_calculateTargetBox_$$(this, $box$$inline_2126_pos$$inline_2128$$);
+        for ($j$$inline_1024_j$$inline_1029_pos$$inline_1031_pos$$inline_2132$$ = 0;$item$$inline_2137_itm$$inline_1023_right$$inline_2320$$ = $container$$inline_1027_container$$inline_1035_doc$$44_target$$inline_1021$$.$items_$[$j$$inline_1024_j$$inline_1029_pos$$inline_1031_pos$$inline_2132$$];$j$$inline_1024_j$$inline_1029_pos$$inline_1031_pos$$inline_2132$$++) {
+          for ($left$$inline_2319_marginBox$$inline_2133_size$$inline_1032_target$$inline_1030_target$$inline_2136$$ = $container$$inline_1027_container$$inline_1035_doc$$44_target$$inline_1021$$, $draggableElements$$inline_2138_top$$inline_2321$$ = [$item$$inline_2137_itm$$inline_1023_right$$inline_2320$$.element], $bottom$$inline_2322_el$$100_i$$inline_2139$$ = 0;$bottom$$inline_2322_el$$100_i$$inline_2139$$ < $draggableElements$$inline_2138_top$$inline_2321$$.length;$bottom$$inline_2322_el$$100_i$$inline_2139$$++) {
+            var $draggableElement$$inline_2140$$ = $draggableElements$$inline_2138_top$$inline_2321$$[$bottom$$inline_2322_el$$100_i$$inline_2139$$], $box$$inline_2141_pos$$inline_2143$$, $element$$inline_2142_size$$inline_2144$$ = $draggableElement$$inline_2140$$;
+            $box$$inline_2141_pos$$inline_2143$$ = $goog$style$getPageOffset$$($element$$inline_2142_size$$inline_2144$$);
+            $element$$inline_2142_size$$inline_2144$$ = $goog$style$evaluateWithTemporaryDisplay_$$($element$$inline_2142_size$$inline_2144$$);
+            $box$$inline_2141_pos$$inline_2143$$ = new $goog$math$Box$$($box$$inline_2141_pos$$inline_2143$$.y, $box$$inline_2141_pos$$inline_2143$$.x + $element$$inline_2142_size$$inline_2144$$.width, $box$$inline_2141_pos$$inline_2143$$.y + $element$$inline_2142_size$$inline_2144$$.height, $box$$inline_2141_pos$$inline_2143$$.x);
+            this.$targetList_$.push(new $goog$fx$ActiveDropTarget_$$($box$$inline_2141_pos$$inline_2143$$, $left$$inline_2319_marginBox$$inline_2133_size$$inline_1032_target$$inline_1030_target$$inline_2136$$, $item$$inline_2137_itm$$inline_1023_right$$inline_2320$$, $draggableElement$$inline_2140$$));
+            $JSCompiler_StaticMethods_calculateTargetBox_$$(this, $box$$inline_2141_pos$$inline_2143$$);
           }
         }
       }
       this.$targetBox_$ || (this.$targetBox_$ = new $goog$math$Box$$(0, 0, 0, 0));
       for ($el$$inline_1016_i$$inline_1022_i$$inline_1028_i$$inline_1036$$ = 0;$container$$inline_1027_container$$inline_1035_doc$$44_target$$inline_1021$$ = this.$scrollableContainers_$[$el$$inline_1016_i$$inline_1022_i$$inline_1028_i$$inline_1036$$];$el$$inline_1016_i$$inline_1022_i$$inline_1028_i$$inline_1036$$++) {
         $container$$inline_1027_container$$inline_1035_doc$$44_target$$inline_1021$$.$containedTargets_$ = [], $container$$inline_1027_container$$inline_1035_doc$$44_target$$inline_1021$$.$savedScrollLeft_$ = $container$$inline_1027_container$$inline_1035_doc$$44_target$$inline_1021$$.$element_$.scrollLeft, $container$$inline_1027_container$$inline_1035_doc$$44_target$$inline_1021$$.$savedScrollTop_$ = $container$$inline_1027_container$$inline_1035_doc$$44_target$$inline_1021$$.$element_$.scrollTop, 
-        $j$$inline_1024_j$$inline_1029_pos$$inline_1031_pos$$inline_2117$$ = $goog$style$getPageOffset$$($container$$inline_1027_container$$inline_1035_doc$$44_target$$inline_1021$$.$element_$), $left$$inline_2304_marginBox$$inline_2118_size$$inline_1032_target$$inline_1030_target$$inline_2121$$ = $goog$style$evaluateWithTemporaryDisplay_$$($container$$inline_1027_container$$inline_1035_doc$$44_target$$inline_1021$$.$element_$), $container$$inline_1027_container$$inline_1035_doc$$44_target$$inline_1021$$.$box_$ = 
-        new $goog$math$Box$$($j$$inline_1024_j$$inline_1029_pos$$inline_1031_pos$$inline_2117$$.y, $j$$inline_1024_j$$inline_1029_pos$$inline_1031_pos$$inline_2117$$.x + $left$$inline_2304_marginBox$$inline_2118_size$$inline_1032_target$$inline_1030_target$$inline_2121$$.width, $j$$inline_1024_j$$inline_1029_pos$$inline_1031_pos$$inline_2117$$.y + $left$$inline_2304_marginBox$$inline_2118_size$$inline_1032_target$$inline_1030_target$$inline_2121$$.height, $j$$inline_1024_j$$inline_1029_pos$$inline_1031_pos$$inline_2117$$.x)
+        $j$$inline_1024_j$$inline_1029_pos$$inline_1031_pos$$inline_2132$$ = $goog$style$getPageOffset$$($container$$inline_1027_container$$inline_1035_doc$$44_target$$inline_1021$$.$element_$), $left$$inline_2319_marginBox$$inline_2133_size$$inline_1032_target$$inline_1030_target$$inline_2136$$ = $goog$style$evaluateWithTemporaryDisplay_$$($container$$inline_1027_container$$inline_1035_doc$$44_target$$inline_1021$$.$element_$), $container$$inline_1027_container$$inline_1035_doc$$44_target$$inline_1021$$.$box_$ = 
+        new $goog$math$Box$$($j$$inline_1024_j$$inline_1029_pos$$inline_1031_pos$$inline_2132$$.y, $j$$inline_1024_j$$inline_1029_pos$$inline_1031_pos$$inline_2132$$.x + $left$$inline_2319_marginBox$$inline_2133_size$$inline_1032_target$$inline_1030_target$$inline_2136$$.width, $j$$inline_1024_j$$inline_1029_pos$$inline_1031_pos$$inline_2132$$.y + $left$$inline_2319_marginBox$$inline_2133_size$$inline_1032_target$$inline_1030_target$$inline_2136$$.height, $j$$inline_1024_j$$inline_1029_pos$$inline_1031_pos$$inline_2132$$.x)
         ;
       }
-      for ($el$$inline_1016_i$$inline_1022_i$$inline_1028_i$$inline_1036$$ = 0;$left$$inline_2304_marginBox$$inline_2118_size$$inline_1032_target$$inline_1030_target$$inline_2121$$ = this.$targetList_$[$el$$inline_1016_i$$inline_1022_i$$inline_1028_i$$inline_1036$$];$el$$inline_1016_i$$inline_1022_i$$inline_1028_i$$inline_1036$$++) {
-        for ($j$$inline_1024_j$$inline_1029_pos$$inline_1031_pos$$inline_2117$$ = 0;$container$$inline_1027_container$$inline_1035_doc$$44_target$$inline_1021$$ = this.$scrollableContainers_$[$j$$inline_1024_j$$inline_1029_pos$$inline_1031_pos$$inline_2117$$];$j$$inline_1024_j$$inline_1029_pos$$inline_1031_pos$$inline_2117$$++) {
-          $goog$dom$contains$$($container$$inline_1027_container$$inline_1035_doc$$44_target$$inline_1021$$.$element_$, $left$$inline_2304_marginBox$$inline_2118_size$$inline_1032_target$$inline_1030_target$$inline_2121$$.$element_$) && ($container$$inline_1027_container$$inline_1035_doc$$44_target$$inline_1021$$.$containedTargets_$.push($left$$inline_2304_marginBox$$inline_2118_size$$inline_1032_target$$inline_1030_target$$inline_2121$$), $left$$inline_2304_marginBox$$inline_2118_size$$inline_1032_target$$inline_1030_target$$inline_2121$$.$scrollableContainer_$ = 
+      for ($el$$inline_1016_i$$inline_1022_i$$inline_1028_i$$inline_1036$$ = 0;$left$$inline_2319_marginBox$$inline_2133_size$$inline_1032_target$$inline_1030_target$$inline_2136$$ = this.$targetList_$[$el$$inline_1016_i$$inline_1022_i$$inline_1028_i$$inline_1036$$];$el$$inline_1016_i$$inline_1022_i$$inline_1028_i$$inline_1036$$++) {
+        for ($j$$inline_1024_j$$inline_1029_pos$$inline_1031_pos$$inline_2132$$ = 0;$container$$inline_1027_container$$inline_1035_doc$$44_target$$inline_1021$$ = this.$scrollableContainers_$[$j$$inline_1024_j$$inline_1029_pos$$inline_1031_pos$$inline_2132$$];$j$$inline_1024_j$$inline_1029_pos$$inline_1031_pos$$inline_2132$$++) {
+          $goog$dom$contains$$($container$$inline_1027_container$$inline_1035_doc$$44_target$$inline_1021$$.$element_$, $left$$inline_2319_marginBox$$inline_2133_size$$inline_1032_target$$inline_1030_target$$inline_2136$$.$element_$) && ($container$$inline_1027_container$$inline_1035_doc$$44_target$$inline_1021$$.$containedTargets_$.push($left$$inline_2319_marginBox$$inline_2133_size$$inline_1032_target$$inline_1030_target$$inline_2136$$), $left$$inline_2319_marginBox$$inline_2133_size$$inline_1032_target$$inline_1030_target$$inline_2136$$.$scrollableContainer_$ = 
           $container$$inline_1027_container$$inline_1035_doc$$44_target$$inline_1021$$);
         }
       }
@@ -9006,22 +9011,22 @@ $JSCompiler_prototypeAlias$$.$startDrag$ = function $$JSCompiler_prototypeAlias$
   }
 };
 $JSCompiler_prototypeAlias$$.$endDrag$ = function $$JSCompiler_prototypeAlias$$$$endDrag$$($clientY$$3_event$$10$$) {
-  var $activeTarget_doc$$45_i$$inline_2132$$ = $clientY$$3_event$$10$$.$dragCanceled$ ? null : this.$activeTarget_$;
-  if ($activeTarget_doc$$45_i$$inline_2132$$ && $activeTarget_doc$$45_i$$inline_2132$$.$target_$) {
-    var $clientX$$3_container$$inline_2133$$ = $clientY$$3_event$$10$$.clientX;
+  var $activeTarget_doc$$45_i$$inline_2147$$ = $clientY$$3_event$$10$$.$dragCanceled$ ? null : this.$activeTarget_$;
+  if ($activeTarget_doc$$45_i$$inline_2147$$ && $activeTarget_doc$$45_i$$inline_2147$$.$target_$) {
+    var $clientX$$3_container$$inline_2148$$ = $clientY$$3_event$$10$$.clientX;
     $clientY$$3_event$$10$$ = $clientY$$3_event$$10$$.clientY;
-    var $scroll$$2_y$$48$$ = $JSCompiler_StaticMethods_getDocumentScroll$$($goog$dom$getDomHelper$$(this.$dragEl_$)), $x$$78$$ = $clientX$$3_container$$inline_2133$$ + $scroll$$2_y$$48$$.x, $scroll$$2_y$$48$$ = $clientY$$3_event$$10$$ + $scroll$$2_y$$48$$.y, $subtarget$$;
-    this.$subtargetFunction_$ && ($subtarget$$ = this.$subtargetFunction_$($activeTarget_doc$$45_i$$inline_2132$$.$item_$, $activeTarget_doc$$45_i$$inline_2132$$.$box_$, $x$$78$$, $scroll$$2_y$$48$$));
-    this.dispatchEvent(new $goog$fx$DragDropEvent$$("drag", 0, this.$dragItem_$, 0, $activeTarget_doc$$45_i$$inline_2132$$.$item_$, 0, $clientX$$3_container$$inline_2133$$, $clientY$$3_event$$10$$));
-    $activeTarget_doc$$45_i$$inline_2132$$.$target_$.dispatchEvent(new $goog$fx$DragDropEvent$$("drop", 0, this.$dragItem_$, 0, $activeTarget_doc$$45_i$$inline_2132$$.$item_$, 0, $clientX$$3_container$$inline_2133$$, $clientY$$3_event$$10$$, 0, 0, $subtarget$$));
+    var $scroll$$2_y$$48$$ = $JSCompiler_StaticMethods_getDocumentScroll$$($goog$dom$getDomHelper$$(this.$dragEl_$)), $x$$78$$ = $clientX$$3_container$$inline_2148$$ + $scroll$$2_y$$48$$.x, $scroll$$2_y$$48$$ = $clientY$$3_event$$10$$ + $scroll$$2_y$$48$$.y, $subtarget$$;
+    this.$subtargetFunction_$ && ($subtarget$$ = this.$subtargetFunction_$($activeTarget_doc$$45_i$$inline_2147$$.$item_$, $activeTarget_doc$$45_i$$inline_2147$$.$box_$, $x$$78$$, $scroll$$2_y$$48$$));
+    this.dispatchEvent(new $goog$fx$DragDropEvent$$("drag", 0, this.$dragItem_$, 0, $activeTarget_doc$$45_i$$inline_2147$$.$item_$, 0, $clientX$$3_container$$inline_2148$$, $clientY$$3_event$$10$$));
+    $activeTarget_doc$$45_i$$inline_2147$$.$target_$.dispatchEvent(new $goog$fx$DragDropEvent$$("drop", 0, this.$dragItem_$, 0, $activeTarget_doc$$45_i$$inline_2147$$.$item_$, 0, $clientX$$3_container$$inline_2148$$, $clientY$$3_event$$10$$, 0, 0, $subtarget$$));
   }
   this.dispatchEvent(new $goog$fx$DragDropEvent$$("dragend", 0, this.$dragItem_$));
   $goog$events$unlisten$$(this.$dragger_$, "drag", this.$moveDrag_$, !1, this);
   $goog$events$unlisten$$(this.$dragger_$, "end", this.$endDrag$, !1, this);
-  $activeTarget_doc$$45_i$$inline_2132$$ = $goog$dom$getOwnerDocument$$(this.$dragItem_$.$currentDragElement_$);
-  $goog$events$unlisten$$($activeTarget_doc$$45_i$$inline_2132$$.body, "selectstart", this.$suppressSelect_$);
-  for ($activeTarget_doc$$45_i$$inline_2132$$ = 0;$clientX$$3_container$$inline_2133$$ = this.$scrollableContainers_$[$activeTarget_doc$$45_i$$inline_2132$$];$activeTarget_doc$$45_i$$inline_2132$$++) {
-    $goog$events$unlisten$$($clientX$$3_container$$inline_2133$$.$element_$, "scroll", this.$containerScrollHandler_$, !1, this), $clientX$$3_container$$inline_2133$$.$containedTargets_$ = [];
+  $activeTarget_doc$$45_i$$inline_2147$$ = $goog$dom$getOwnerDocument$$(this.$dragItem_$.$currentDragElement_$);
+  $goog$events$unlisten$$($activeTarget_doc$$45_i$$inline_2147$$.body, "selectstart", this.$suppressSelect_$);
+  for ($activeTarget_doc$$45_i$$inline_2147$$ = 0;$clientX$$3_container$$inline_2148$$ = this.$scrollableContainers_$[$activeTarget_doc$$45_i$$inline_2147$$];$activeTarget_doc$$45_i$$inline_2147$$++) {
+    $goog$events$unlisten$$($clientX$$3_container$$inline_2148$$.$element_$, "scroll", this.$containerScrollHandler_$, !1, this), $clientX$$3_container$$inline_2148$$.$containedTargets_$ = [];
   }
   this.$dragger_$.$dispose$();
   $goog$dom$removeNode$$(this.$dragEl_$);
@@ -9110,22 +9115,22 @@ $JSCompiler_prototypeAlias$$.$containerScrollHandler_$ = function $$JSCompiler_p
 };
 $JSCompiler_prototypeAlias$$.$createDragElement$ = function $$JSCompiler_prototypeAlias$$$$createDragElement$$($dragEl_sourceEl$$2$$) {
   a: {
-    for (var $clonedEl$$inline_2310$$ = $dragEl_sourceEl$$2$$.cloneNode(!0), $origTexts$$inline_2311$$ = $dragEl_sourceEl$$2$$.getElementsByTagName("TEXTAREA"), $dragTexts$$inline_2312$$ = $clonedEl$$inline_2310$$.getElementsByTagName("TEXTAREA"), $i$$inline_2313$$ = 0;$i$$inline_2313$$ < $origTexts$$inline_2311$$.length;$i$$inline_2313$$++) {
-      $dragTexts$$inline_2312$$[$i$$inline_2313$$].value = $origTexts$$inline_2311$$[$i$$inline_2313$$].value;
+    for (var $clonedEl$$inline_2325$$ = $dragEl_sourceEl$$2$$.cloneNode(!0), $origTexts$$inline_2326$$ = $dragEl_sourceEl$$2$$.getElementsByTagName("TEXTAREA"), $dragTexts$$inline_2327$$ = $clonedEl$$inline_2325$$.getElementsByTagName("TEXTAREA"), $i$$inline_2328$$ = 0;$i$$inline_2328$$ < $origTexts$$inline_2326$$.length;$i$$inline_2328$$++) {
+      $dragTexts$$inline_2327$$[$i$$inline_2328$$].value = $origTexts$$inline_2326$$[$i$$inline_2328$$].value;
     }
     switch($dragEl_sourceEl$$2$$.tagName) {
       case "TR":
-        $dragEl_sourceEl$$2$$ = $goog$dom$createDom$$("TABLE", null, $goog$dom$createDom$$("TBODY", null, $clonedEl$$inline_2310$$));
+        $dragEl_sourceEl$$2$$ = $goog$dom$createDom$$("TABLE", null, $goog$dom$createDom$$("TBODY", null, $clonedEl$$inline_2325$$));
         break a;
       case "TD":
       ;
       case "TH":
-        $dragEl_sourceEl$$2$$ = $goog$dom$createDom$$("TABLE", null, $goog$dom$createDom$$("TBODY", null, $goog$dom$createDom$$("TR", null, $clonedEl$$inline_2310$$)));
+        $dragEl_sourceEl$$2$$ = $goog$dom$createDom$$("TABLE", null, $goog$dom$createDom$$("TBODY", null, $goog$dom$createDom$$("TR", null, $clonedEl$$inline_2325$$)));
         break a;
       case "TEXTAREA":
-        $clonedEl$$inline_2310$$.value = $dragEl_sourceEl$$2$$.value;
+        $clonedEl$$inline_2325$$.value = $dragEl_sourceEl$$2$$.value;
       default:
-        $dragEl_sourceEl$$2$$ = $clonedEl$$inline_2310$$;
+        $dragEl_sourceEl$$2$$ = $clonedEl$$inline_2325$$;
     }
   }
   this.$dragClass_$ && $goog$dom$classlist$add$$($dragEl_sourceEl$$2$$, this.$dragClass_$);
@@ -9155,10 +9160,10 @@ function $goog$fx$DragDropEvent$$($type$$144$$, $source$$5$$, $sourceItem$$, $op
   this.$subtarget$ = $opt_subtarget$$;
 }
 $goog$inherits$$($goog$fx$DragDropEvent$$, $goog$events$Event$$);
-function $goog$fx$DragDropItem$$($element$$161$$, $opt_data$$48$$) {
+function $goog$fx$DragDropItem$$($element$$161$$, $opt_data$$49$$) {
   $goog$events$EventTarget$$.call(this);
   this.element = $goog$dom$getElement$$($element$$161$$);
-  this.data = $opt_data$$48$$;
+  this.data = $opt_data$$49$$;
   this.$parent_$ = null;
   this.$eventHandler_$ = new $goog$events$EventHandler$$(this);
   $JSCompiler_StaticMethods_addOnDisposeCallback$$(this, $goog$partial$$($goog$dispose$$, this.$eventHandler_$));
@@ -9207,14 +9212,14 @@ function $goog$fx$ActiveDropTarget_$$($box$$15$$, $opt_target$$4$$, $opt_item$$,
   this.$scrollableContainer_$ = null;
 }
 ;
-// Input 172
 // Input 173
+// Input 174
 function $goog$fx$DragDropGroup$$() {
   $goog$fx$AbstractDragDrop$$.call(this);
 }
 $goog$inherits$$($goog$fx$DragDropGroup$$, $goog$fx$AbstractDragDrop$$);
-function $JSCompiler_StaticMethods_addItem$$($JSCompiler_StaticMethods_addItem$self$$, $element$$166_item$$inline_1077$$, $opt_data$$50$$) {
-  $element$$166_item$$inline_1077$$ = new $goog$fx$DragDropItem$$($element$$166_item$$inline_1077$$, $opt_data$$50$$);
+function $JSCompiler_StaticMethods_addItem$$($JSCompiler_StaticMethods_addItem$self$$, $element$$166_item$$inline_1077$$, $opt_data$$51$$) {
+  $element$$166_item$$inline_1077$$ = new $goog$fx$DragDropItem$$($element$$166_item$$inline_1077$$, $opt_data$$51$$);
   $element$$166_item$$inline_1077$$.$setParent$($JSCompiler_StaticMethods_addItem$self$$);
   $JSCompiler_StaticMethods_addItem$self$$.$items_$.push($element$$166_item$$inline_1077$$);
   $JSCompiler_StaticMethods_addItem$self$$.$initialized_$ && $JSCompiler_StaticMethods_initItem$$($JSCompiler_StaticMethods_addItem$self$$, $element$$166_item$$inline_1077$$);
@@ -9229,7 +9234,7 @@ $goog$fx$DragDropGroup$$.prototype.removeItem = function $$goog$fx$DragDropGroup
     }
   }
 };
-// Input 174
+// Input 175
 function $bitex$ui$OrderBookDrag$$() {
   $goog$fx$AbstractDragDrop$$.call(this);
 }
@@ -9444,7 +9449,7 @@ $bitex$ui$OrderBook$$.prototype.$insertOrder$ = function $$bitex$ui$OrderBook$$$
     $goog$dom$classes$remove$$($rowEl$$, "md-blink");
   }, this.$blink_delay_$, this);
 };
-// Input 175
+// Input 176
 function $bitex$ui$SimpleOrderBook$$($side$$5$$, $qtyCurrencyDef$$1$$, $priceCurrencyDef$$1$$, $opt_blinkDelay$$4$$, $opt_domHelper$$22$$) {
   $goog$ui$Component$$.call(this, $opt_domHelper$$22$$);
   this.$blink_delay_$ = $opt_blinkDelay$$4$$ || 1200;
@@ -9525,42 +9530,42 @@ $JSCompiler_prototypeAlias$$.$insertOrder$ = function $$JSCompiler_prototypeAlia
     $goog$dom$classes$remove$$($rowEl$$1$$, "md-blink");
   }, this.$blink_delay_$, this);
 };
-// Input 176
-function $bitex$ui$WithdrawList$templates$labelStatus$$($opt_data$$51$$) {
-  return'<span title="' + $soy$$0$0escapeHtml$$($opt_data$$51$$.reason) + '" class="label label-' + $soy$$0$0escapeHtml$$($opt_data$$51$$.label) + '">' + $soy$$0$0escapeHtml$$($opt_data$$51$$.status) + "</span>";
+// Input 177
+function $bitex$ui$WithdrawList$templates$labelStatus$$($opt_data$$52$$) {
+  return'<span title="' + $soy$$0$0escapeHtml$$($opt_data$$52$$.reason) + '" class="label label-' + $soy$$0$0escapeHtml$$($opt_data$$52$$.label) + '">' + $soy$$0$0escapeHtml$$($opt_data$$52$$.status) + "</span>";
 }
-function $bitex$ui$WithdrawList$templates$btnGroup$$($opt_data$$52$$) {
-  return'<div class="btn-group">' + ("kyc" == $opt_data$$52$$.$button1$ ? $bitex$ui$WithdrawList$templates$btnKYC$$($opt_data$$52$$) : "") + ("cancel" == $opt_data$$52$$.$button1$ ? $bitex$ui$WithdrawList$templates$btnCancel$$($opt_data$$52$$) : "") + ("progress" == $opt_data$$52$$.$button1$ ? $bitex$ui$WithdrawList$templates$btnProgress$$($opt_data$$52$$) : "") + ("complete" == $opt_data$$52$$.$button1$ ? $bitex$ui$WithdrawList$templates$btnComplete$$($opt_data$$52$$) : "") + ("redo" == $opt_data$$52$$.$button1$ ? 
-  $bitex$ui$WithdrawList$templates$btnRedo$$($opt_data$$52$$) : "") + ("kyc" == $opt_data$$52$$.$button2$ ? $bitex$ui$WithdrawList$templates$btnKYC$$($opt_data$$52$$) : "") + ("cancel" == $opt_data$$52$$.$button2$ ? $bitex$ui$WithdrawList$templates$btnCancel$$($opt_data$$52$$) : "") + ("progress" == $opt_data$$52$$.$button2$ ? $bitex$ui$WithdrawList$templates$btnProgress$$($opt_data$$52$$) : "") + ("complete" == $opt_data$$52$$.$button2$ ? $bitex$ui$WithdrawList$templates$btnComplete$$($opt_data$$52$$) : 
-  "") + ("redo" == $opt_data$$52$$.$button2$ ? $bitex$ui$WithdrawList$templates$btnRedo$$($opt_data$$52$$) : "") + ("kyc" == $opt_data$$52$$.$button3$ ? $bitex$ui$WithdrawList$templates$btnKYC$$($opt_data$$52$$) : "") + ("cancel" == $opt_data$$52$$.$button3$ ? $bitex$ui$WithdrawList$templates$btnCancel$$($opt_data$$52$$) : "") + ("progress" == $opt_data$$52$$.$button3$ ? $bitex$ui$WithdrawList$templates$btnProgress$$($opt_data$$52$$) : "") + ("complete" == $opt_data$$52$$.$button3$ ? $bitex$ui$WithdrawList$templates$btnComplete$$($opt_data$$52$$) : 
-  "") + ("redo" == $opt_data$$52$$.$button3$ ? $bitex$ui$WithdrawList$templates$btnRedo$$($opt_data$$52$$) : "") + "</div>";
+function $bitex$ui$WithdrawList$templates$btnGroup$$($opt_data$$53$$) {
+  return'<div class="btn-group">' + ("kyc" == $opt_data$$53$$.$button1$ ? $bitex$ui$WithdrawList$templates$btnKYC$$($opt_data$$53$$) : "") + ("cancel" == $opt_data$$53$$.$button1$ ? $bitex$ui$WithdrawList$templates$btnCancel$$($opt_data$$53$$) : "") + ("progress" == $opt_data$$53$$.$button1$ ? $bitex$ui$WithdrawList$templates$btnProgress$$($opt_data$$53$$) : "") + ("complete" == $opt_data$$53$$.$button1$ ? $bitex$ui$WithdrawList$templates$btnComplete$$($opt_data$$53$$) : "") + ("redo" == $opt_data$$53$$.$button1$ ? 
+  $bitex$ui$WithdrawList$templates$btnRedo$$($opt_data$$53$$) : "") + ("kyc" == $opt_data$$53$$.$button2$ ? $bitex$ui$WithdrawList$templates$btnKYC$$($opt_data$$53$$) : "") + ("cancel" == $opt_data$$53$$.$button2$ ? $bitex$ui$WithdrawList$templates$btnCancel$$($opt_data$$53$$) : "") + ("progress" == $opt_data$$53$$.$button2$ ? $bitex$ui$WithdrawList$templates$btnProgress$$($opt_data$$53$$) : "") + ("complete" == $opt_data$$53$$.$button2$ ? $bitex$ui$WithdrawList$templates$btnComplete$$($opt_data$$53$$) : 
+  "") + ("redo" == $opt_data$$53$$.$button2$ ? $bitex$ui$WithdrawList$templates$btnRedo$$($opt_data$$53$$) : "") + ("kyc" == $opt_data$$53$$.$button3$ ? $bitex$ui$WithdrawList$templates$btnKYC$$($opt_data$$53$$) : "") + ("cancel" == $opt_data$$53$$.$button3$ ? $bitex$ui$WithdrawList$templates$btnCancel$$($opt_data$$53$$) : "") + ("progress" == $opt_data$$53$$.$button3$ ? $bitex$ui$WithdrawList$templates$btnProgress$$($opt_data$$53$$) : "") + ("complete" == $opt_data$$53$$.$button3$ ? $bitex$ui$WithdrawList$templates$btnComplete$$($opt_data$$53$$) : 
+  "") + ("redo" == $opt_data$$53$$.$button3$ ? $bitex$ui$WithdrawList$templates$btnRedo$$($opt_data$$53$$) : "") + "</div>";
 }
-function $bitex$ui$WithdrawList$templates$btnCancel$$($opt_data$$53_output$$38$$) {
-  return $opt_data$$53_output$$38$$ = "" + ('<a class="btn btn-mini btn-danger btn-withdraw-cancel" href="#" data-row="' + $soy$$0$0escapeHtml$$($opt_data$$53_output$$38$$.$dataRow$) + '" >\u0110\u00f3ng<i class="icon-white icon-remove"></i></a>');
+function $bitex$ui$WithdrawList$templates$btnCancel$$($opt_data$$54_output$$39$$) {
+  return $opt_data$$54_output$$39$$ = "" + ('<button class="btn btn-mini btn-danger btn-withdraw-cancel" data-row="' + $soy$$0$0escapeHtml$$($opt_data$$54_output$$39$$.$dataRow$) + '" >\u0110\u00f3ng<i class="icon-white icon-remove"></i></button>');
 }
-function $bitex$ui$WithdrawList$templates$btnProgress$$($opt_data$$54_output$$39$$) {
-  return $opt_data$$54_output$$39$$ = "" + ('<a class="btn btn-mini btn-primary btn-withdraw-progress" href="#" data-row="' + $soy$$0$0escapeHtml$$($opt_data$$54_output$$39$$.$dataRow$) + '" >\u0110\u1eb7t l\u00e0 \u0111ang x\u1eed l\u00fd</a>');
+function $bitex$ui$WithdrawList$templates$btnProgress$$($opt_data$$55_output$$40$$) {
+  return $opt_data$$55_output$$40$$ = "" + ('<button class="btn btn-mini btn-primary btn-withdraw-progress" data-row="' + $soy$$0$0escapeHtml$$($opt_data$$55_output$$40$$.$dataRow$) + '" >\u0110\u1eb7t l\u00e0 \u0111ang x\u1eed l\u00fd</button>');
 }
-function $bitex$ui$WithdrawList$templates$btnComplete$$($opt_data$$55_output$$40$$) {
-  return $opt_data$$55_output$$40$$ = "" + ('<a class="btn btn-mini btn-success btn-withdraw-complete" href="#" data-row="' + $soy$$0$0escapeHtml$$($opt_data$$55_output$$40$$.$dataRow$) + '" >\u0110\u1eb7t l\u00e0 \u0111\u00e3 xong</a>');
+function $bitex$ui$WithdrawList$templates$btnComplete$$($opt_data$$56_output$$41$$) {
+  return $opt_data$$56_output$$41$$ = "" + ('<button class="btn btn-mini btn-success btn-withdraw-complete" data-row="' + $soy$$0$0escapeHtml$$($opt_data$$56_output$$41$$.$dataRow$) + '" >\u0110\u1eb7t l\u00e0 \u0111\u00e3 xong</button>');
 }
-function $bitex$ui$WithdrawList$templates$btnKYC$$($opt_data$$56_output$$41$$) {
-  return $opt_data$$56_output$$41$$ = "" + ('<a class="btn btn-mini btn-warning btn-withdraw-kyc" href="#" data-row="' + $soy$$0$0escapeHtml$$($opt_data$$56_output$$41$$.$dataRow$) + '">KYC<i class="icon-white icon-remove"></i></a>');
+function $bitex$ui$WithdrawList$templates$btnKYC$$($opt_data$$57_output$$42$$) {
+  return $opt_data$$57_output$$42$$ = "" + ('<button class="btn btn-mini btn-warning btn-withdraw-kyc" data-row="' + $soy$$0$0escapeHtml$$($opt_data$$57_output$$42$$.$userVerification$) + '">KYC</button>');
 }
-function $bitex$ui$WithdrawList$templates$btnBlockchain$$($opt_data$$57_output$$42$$) {
-  return $opt_data$$57_output$$42$$ = "" + ('<a class="btn btn-mini btn-info btn-btc-blockchain" href="' + $soy$$0$0escapeHtml$$($opt_data$$57_output$$42$$.link) + '" target="_blank">blockchain<i class="icon-white icon-share-alt"></i></a>');
+function $bitex$ui$WithdrawList$templates$btnBlockchain$$($opt_data$$58_output$$43$$) {
+  return $opt_data$$58_output$$43$$ = "" + ('<a class="btn btn-mini btn-info btn-btc-blockchain" href="' + $soy$$0$0escapeHtml$$($opt_data$$58_output$$43$$.link) + '" target="_blank">blockchain<i class="icon-white icon-share-alt"></i></a>');
 }
-function $bitex$ui$WithdrawList$templates$btnQR$$($opt_data$$58_output$$43$$) {
-  return $opt_data$$58_output$$43$$ = "" + ('<a class="btn btn-mini btn-info btn-withdraw-list-qr" href="#" data-action="SHOW_QR" data-row="' + $soy$$0$0escapeHtml$$($opt_data$$58_output$$43$$.$dataRow$) + '">m\u00e3 QR<i class="icon-white icon-qrcode"></i></a>');
+function $bitex$ui$WithdrawList$templates$btnQR$$($opt_data$$59_output$$44$$) {
+  return $opt_data$$59_output$$44$$ = "" + ('<button class="btn btn-mini btn-info btn-withdraw-list-qr" data-action="SHOW_QR" data-row="' + $soy$$0$0escapeHtml$$($opt_data$$59_output$$44$$.$dataRow$) + '">m\u00e3 QR<i class="icon-white icon-qrcode"></i></button>');
 }
-function $bitex$ui$WithdrawList$templates$btnRedo$$($opt_data$$59_output$$44$$) {
-  return $opt_data$$59_output$$44$$ = "" + ('<a class="btn btn-mini btn-withdraw-redo" data-row="' + $soy$$0$0escapeHtml$$($opt_data$$59_output$$44$$.$dataRow$) + '" href="#">L\u00e0m l\u1ea1i<i class="icon-white icon-refresh"></i></a>');
+function $bitex$ui$WithdrawList$templates$btnRedo$$($opt_data$$60_output$$45$$) {
+  return $opt_data$$60_output$$45$$ = "" + ('<button class="btn btn-mini btn-withdraw-redo" data-row="' + $soy$$0$0escapeHtml$$($opt_data$$60_output$$45$$.$dataRow$) + '">L\u00e0m l\u1ea1i<i class="icon-white icon-refresh"></i></button>');
 }
-function $bitex$ui$WithdrawList$templates$btnBrokerReceipt$$($opt_data$$60_output$$45$$) {
-  return $opt_data$$60_output$$45$$ = "" + ('<a class="btn btn-mini btn-primary btn-btc-blockchain" href="' + $soy$$0$0escapeHtml$$($opt_data$$60_output$$45$$.link) + '" target="_blank" >view<i class="icon-white icon-eye-open"></i></a>');
+function $bitex$ui$WithdrawList$templates$btnBrokerReceipt$$($opt_data$$61_output$$46$$) {
+  return $opt_data$$61_output$$46$$ = "" + ('<a class="btn btn-mini btn-primary btn-btc-blockchain" href="' + $soy$$0$0escapeHtml$$($opt_data$$61_output$$46$$.link) + '" target="_blank" >view<i class="icon-white icon-eye-open"></i></a>');
 }
 ;
-// Input 177
+// Input 178
 function $bitex$ui$WithdrawList$$($methodDescriptionObj$$, $opt_broker_mode_show_customers$$, $grid_columns$$2_opt_show_customers$$, $opt_domHelper$$23$$) {
   var $broker_mode$$ = !1, $data_row$$1$$;
   !0 === $opt_broker_mode_show_customers$$ && ($broker_mode$$ = $opt_broker_mode_show_customers$$);
@@ -9712,7 +9717,7 @@ function $bitex$ui$WithdrawList$$($methodDescriptionObj$$, $opt_broker_mode_show
       }
     }
     if (null != $data$$49$$.TransactionID) {
-      if ("BTC" == $data$$49$$.Currency) {
+      if ("BTC" == $data$$49$$.Currency && "undefined" !== typeof $rowSet$$14$$.Data.Wallet) {
         $block_explorer_btn_blockchain_btn_user_redo_method$$3_original_fee_element$$ = "https://www.blocktrail.com/BTC";
         switch($rowSet$$14$$.Data.Wallet[0]) {
           case "m":
@@ -9762,18 +9767,18 @@ function $bitex$ui$WithdrawList$$($methodDescriptionObj$$, $opt_broker_mode_show
   }, formatter:function($s$$48$$, $row_set_obj$$3$$) {
     $data_row$$1$$ = $goog$json$serialize$$($row_set_obj$$3$$);
     var $btn_kyc$$;
-    "UserVerificationData" in $row_set_obj$$3$$ && null != $row_set_obj$$3$$.UserVerificationData && ($btn_kyc$$ = $goog$soy$renderAsElement$$($bitex$ui$WithdrawList$templates$btnKYC$$, {$dataRow$:$goog$json$serialize$$($row_set_obj$$3$$.UserVerificationData)}));
-    var $btn_cancel$$ = $goog$soy$renderAsElement$$($bitex$ui$WithdrawList$templates$btnCancel$$, {$dataRow$:$data_row$$1$$});
+    "UserVerificationData" in $row_set_obj$$3$$ && null != $row_set_obj$$3$$.UserVerificationData && ($btn_kyc$$ = $goog$soy$renderAsElement$$($bitex$ui$WithdrawList$templates$btnKYC$$, {$userVerification$:$goog$json$serialize$$($row_set_obj$$3$$.UserVerificationData)}));
+    var $btn_cancel_userVerificationData$$ = $goog$soy$renderAsElement$$($bitex$ui$WithdrawList$templates$btnCancel$$, {$dataRow$:$data_row$$1$$});
     $goog$soy$renderAsElement$$($bitex$ui$WithdrawList$templates$btnProgress$$, {$dataRow$:$data_row$$1$$});
     $goog$soy$renderAsElement$$($bitex$ui$WithdrawList$templates$btnComplete$$, {$dataRow$:$data_row$$1$$});
     if (null != $btn_kyc$$) {
-      switch($row_set_obj$$3$$.Status) {
+      switch($btn_cancel_userVerificationData$$ = $goog$json$serialize$$($row_set_obj$$3$$.UserVerificationData), $row_set_obj$$3$$.Status) {
         case "0":
-          return $goog$soy$renderAsElement$$($bitex$ui$WithdrawList$templates$btnGroup$$, {$button1$:"kyc", $button2$:"cancel", $dataRow$:$data_row$$1$$});
+          return $goog$soy$renderAsElement$$($bitex$ui$WithdrawList$templates$btnGroup$$, {$button1$:"kyc", $button2$:"cancel", $dataRow$:$data_row$$1$$, $userVerification$:$btn_cancel_userVerificationData$$});
         case "1":
-          return $goog$soy$renderAsElement$$($bitex$ui$WithdrawList$templates$btnGroup$$, {$button1$:"kyc", $button2$:"cancel", $button3$:"progress", $dataRow$:$data_row$$1$$});
+          return $goog$soy$renderAsElement$$($bitex$ui$WithdrawList$templates$btnGroup$$, {$button1$:"kyc", $button2$:"cancel", $button3$:"progress", $dataRow$:$data_row$$1$$, $userVerification$:$btn_cancel_userVerificationData$$});
         case "2":
-          return $goog$soy$renderAsElement$$($bitex$ui$WithdrawList$templates$btnGroup$$, {$button1$:"kyc", $button2$:"cancel", $button3$:"complete", $dataRow$:$data_row$$1$$});
+          return $goog$soy$renderAsElement$$($bitex$ui$WithdrawList$templates$btnGroup$$, {$button1$:"kyc", $button2$:"cancel", $button3$:"complete", $dataRow$:$data_row$$1$$, $userVerification$:$btn_cancel_userVerificationData$$});
         case "4":
           return $btn_kyc$$;
         case "8":
@@ -9782,7 +9787,7 @@ function $bitex$ui$WithdrawList$$($methodDescriptionObj$$, $opt_broker_mode_show
     } else {
       switch($row_set_obj$$3$$.Status) {
         case "0":
-          return $btn_cancel$$;
+          return $btn_cancel_userVerificationData$$;
         case "1":
           return $goog$soy$renderAsElement$$($bitex$ui$WithdrawList$templates$btnGroup$$, {$button1$:"cancel", $button2$:"progress", $dataRow$:$data_row$$1$$});
         case "2":
@@ -9838,7 +9843,7 @@ $JSCompiler_prototypeAlias$$.$getRowClass$ = function $$JSCompiler_prototypeAlia
   }
   return $class_status$$3$$;
 };
-// Input 178
+// Input 179
 function $bootstrap$Dropdown$closeAll$$() {
   var $dropdown_elements$$ = $goog$dom$getElementsByClass$$("dropdown-toggle", document.body);
   $goog$array$forEach$$($dropdown_elements$$, function($dropdown_element_dropdown_element_parent$$) {
@@ -9861,48 +9866,52 @@ function $bootstrap$Dropdown$install$$() {
   });
 }
 ;
-// Input 179
-function $bitex$ui$DepositList$templates$NodesProgressBar$$($opt_data$$61$$) {
-  var $output$$46$$ = "", $MSG_UNNAMED_123$$ = $soy$$0$0escapeHtml$$($opt_data$$61$$.count) + " node";
-  return $output$$46$$ += '<div class="progress progress-success progress-striped active" style="margin: 0px;position: relative;"><div class="bar" role="progressbar" aria-valuenow="' + $soy$$0$0escapeHtml$$($opt_data$$61$$.$confidence$) + '" aria-valuemin="0" aria-valuemax="100" style="width:' + $soy$$0$0escapeHtml$$($opt_data$$61$$.$confidence$) + '%"></div><div style="position:absolute;width:100%;font-size:13px;color:black;height:100%;text-align:center;font-weight:300;">' + $MSG_UNNAMED_123$$ + 
+// Input 180
+function $bitex$ui$DepositList$templates$NodesProgressBar$$($opt_data$$62$$) {
+  var $output$$47$$ = "", $MSG_UNNAMED_155$$1$$ = $soy$$0$0escapeHtml$$($opt_data$$62$$.count) + " node";
+  return $output$$47$$ += '<div class="progress progress-success progress-striped active" style="margin: 0px;position: relative;"><div class="bar" role="progressbar" aria-valuenow="' + $soy$$0$0escapeHtml$$($opt_data$$62$$.$confidence$) + '" aria-valuemin="0" aria-valuemax="100" style="width:' + $soy$$0$0escapeHtml$$($opt_data$$62$$.$confidence$) + '%"></div><div style="position:absolute;width:100%;font-size:13px;color:black;height:100%;text-align:center;font-weight:300;">' + $MSG_UNNAMED_155$$1$$ + 
   "</div></div>";
 }
-function $bitex$ui$DepositList$templates$LabelStatus$$($opt_data$$62$$) {
-  return'<span class="label label-' + $soy$$0$0escapeHtml$$($opt_data$$62$$.label) + '">' + $soy$$0$0escapeHtml$$($opt_data$$62$$.status) + "</span>";
+function $bitex$ui$DepositList$templates$LabelStatus$$($opt_data$$63$$) {
+  return'<span class="label label-' + $soy$$0$0escapeHtml$$($opt_data$$63$$.label) + '">' + $soy$$0$0escapeHtml$$($opt_data$$63$$.status) + "</span>";
 }
-function $bitex$ui$DepositList$templates$InputAddress$$($opt_data$$63$$) {
-  return'<div><div style="max-width: 120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"><a href="' + $soy$$0$0escapeHtml$$($opt_data$$63$$.$blockchainAddress$) + '" target="_blank">' + $soy$$0$0escapeHtml$$($opt_data$$63$$.$address$) + "</a></div></div>";
+function $bitex$ui$DepositList$templates$InputAddress$$($opt_data$$64$$) {
+  return'<div style="max-width: 120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"><a href="' + $soy$$0$0escapeHtml$$($opt_data$$64$$.$blockchainAddress$) + '" target="_blank">' + $soy$$0$0escapeHtml$$($opt_data$$64$$.$address$) + "</a></div>";
 }
-function $bitex$ui$DepositList$templates$btnShowReceipt$$($opt_data$$64_output$$47$$) {
-  return $opt_data$$64_output$$47$$ = "" + ('<div class="btn-group"><a class="btn btn-mini btn-success btn-deposit-show-receipt" data-row="' + $soy$$0$0escapeHtml$$($opt_data$$64_output$$47$$.$dataRow$) + '" data-action="SHOW_RECEIPT">view<i class="icon-white icon-file"></i></a></div>');
+function $bitex$ui$DepositList$templates$btnShowReceipt$$($opt_data$$65_output$$48$$) {
+  return $opt_data$$65_output$$48$$ = "" + ('<button class="btn btn-mini btn-success btn-deposit-show-receipt" data-row="' + $soy$$0$0escapeHtml$$($opt_data$$65_output$$48$$.$dataRow$) + '" data-action="SHOW_RECEIPT">view<i class="icon-white icon-file"></i></button><i class="icon-white icon-file"></i></a></div>');
 }
-function $bitex$ui$DepositList$templates$btnDepositDetails$$($opt_data$$65_output$$48$$) {
-  return $opt_data$$65_output$$48$$ = "" + ('<div class="btn-group"><a class="btn btn-mini btn-info btn-deposit-view" target="_blank" href="' + $soy$$0$0escapeHtml$$($opt_data$$65_output$$48$$.url) + '">view<i class="icon-white icon-eye-open"></i></a></div>');
+function $bitex$ui$DepositList$templates$btnDepositDetails$$($opt_data$$66_output$$49$$) {
+  return $opt_data$$66_output$$49$$ = "" + ('<a class="btn btn-mini btn-info btn-deposit-view" target="_blank" href="' + $soy$$0$0escapeHtml$$($opt_data$$66_output$$49$$.url) + '">view<i class="icon-white icon-eye-open"></i></a>');
 }
-function $bitex$ui$DepositList$templates$btnShowQRCode$$($opt_data$$66_output$$49$$) {
-  return $opt_data$$66_output$$49$$ = "" + ('<div class="btn-group"></div><a class="btn btn-mini btn-info btn-deposit-view-qr" href="#" data-action="SHOW_QR" data-row="' + $soy$$0$0escapeHtml$$($opt_data$$66_output$$49$$.$dataRow$) + '">QR<i class="icon-white icon-qrcode"></i></a></div>');
+function $bitex$ui$DepositList$templates$btnShowQRCode$$($opt_data$$67_output$$50$$) {
+  return $opt_data$$67_output$$50$$ = "" + ('<button class="btn btn-mini btn-info btn-deposit-view-qr" data-action="SHOW_QR" data-row="' + $soy$$0$0escapeHtml$$($opt_data$$67_output$$50$$.$dataRow$) + '">QR<i class="icon-white icon-qrcode"></i></button>');
 }
-function $bitex$ui$DepositList$templates$btnInstantFiatDeposit$$($opt_data$$67_output$$50$$) {
-  return $opt_data$$67_output$$50$$ = "" + ('<a class="btn btn-mini btn-success btn-deposit-instantaneus" data-action="INSTANTANEOUS" data-row="' + $soy$$0$0escapeHtml$$($opt_data$$67_output$$50$$.$dataRow$) + '">t\u00edn d\u1ee5ng<i class="icon-white icon-fire"></i></a>');
+function $bitex$ui$DepositList$templates$btnInstantFiatDeposit$$($opt_data$$68_output$$51$$) {
+  return $opt_data$$68_output$$51$$ = "" + ('<button class="btn btn-mini btn-success btn-deposit-instantaneus" data-action="INSTANTANEOUS" data-row="' + $soy$$0$0escapeHtml$$($opt_data$$68_output$$51$$.$dataRow$) + '">t\u00edn d\u1ee5ng<i class="icon-white icon-fire"></i></button>');
 }
-function $bitex$ui$DepositList$templates$btnUpload$$($opt_data$$68_output$$51$$) {
-  return $opt_data$$68_output$$51$$ = "" + ('<a class="btn btn-mini btn-success btn-deposit-upload" href="#" data-action="UPLOAD" data-row="' + $soy$$0$0escapeHtml$$($opt_data$$68_output$$51$$.$dataRow$) + '">g\u1eedi bi\u00ean lai<i class="icon-white icon-file"></i></a>');
+function $bitex$ui$DepositList$templates$btnUpload$$($opt_data$$69_output$$52$$) {
+  return $opt_data$$69_output$$52$$ = "" + ('<button class="btn btn-mini btn-success btn-deposit-upload" data-action="UPLOAD" data-row="' + $soy$$0$0escapeHtml$$($opt_data$$69_output$$52$$.$dataRow$) + '">g\u1eedi bi\u00ean lai<i class="icon-white icon-file"></i></button>');
 }
-function $bitex$ui$DepositList$templates$btnGroup$$($opt_data$$69$$) {
-  return'<div class="btn-group">' + ("cancel" == $opt_data$$69$$.$button1$ ? $bitex$ui$DepositList$templates$btnBrokerDespositCancel$$($opt_data$$69$$) : "") + ("progress" == $opt_data$$69$$.$button1$ ? $bitex$ui$DepositList$templates$btnBrokerDespositProgress$$($opt_data$$69$$) : "") + ("complete" == $opt_data$$69$$.$button1$ ? $bitex$ui$DepositList$templates$btnBrokerDespositComplete$$($opt_data$$69$$) : "") + ("cancel" == $opt_data$$69$$.$button2$ ? $bitex$ui$DepositList$templates$btnBrokerDespositCancel$$($opt_data$$69$$) : 
-  "") + ("progress" == $opt_data$$69$$.$button2$ ? $bitex$ui$DepositList$templates$btnBrokerDespositProgress$$($opt_data$$69$$) : "") + ("complete" == $opt_data$$69$$.$button2$ ? $bitex$ui$DepositList$templates$btnBrokerDespositComplete$$($opt_data$$69$$) : "") + "</div>";
+function $bitex$ui$DepositList$templates$btnGroup$$($opt_data$$70$$) {
+  return'<div class="btn-group">' + ("kyc" == $opt_data$$70$$.$button1$ ? $bitex$ui$DepositList$templates$btnBrokerKYC$$($opt_data$$70$$) : "") + ("cancel" == $opt_data$$70$$.$button1$ ? $bitex$ui$DepositList$templates$btnBrokerDespositCancel$$($opt_data$$70$$) : "") + ("progress" == $opt_data$$70$$.$button1$ ? $bitex$ui$DepositList$templates$btnBrokerDespositProgress$$($opt_data$$70$$) : "") + ("complete" == $opt_data$$70$$.$button1$ ? $bitex$ui$DepositList$templates$btnBrokerDespositComplete$$($opt_data$$70$$) : 
+  "") + ("kyc" == $opt_data$$70$$.$button2$ ? $bitex$ui$DepositList$templates$btnBrokerKYC$$($opt_data$$70$$) : "") + ("cancel" == $opt_data$$70$$.$button2$ ? $bitex$ui$DepositList$templates$btnBrokerDespositCancel$$($opt_data$$70$$) : "") + ("progress" == $opt_data$$70$$.$button2$ ? $bitex$ui$DepositList$templates$btnBrokerDespositProgress$$($opt_data$$70$$) : "") + ("complete" == $opt_data$$70$$.$button2$ ? $bitex$ui$DepositList$templates$btnBrokerDespositComplete$$($opt_data$$70$$) : "") + ("kyc" == 
+  $opt_data$$70$$.$button3$ ? $bitex$ui$DepositList$templates$btnBrokerKYC$$($opt_data$$70$$) : "") + ("cancel" == $opt_data$$70$$.$button3$ ? $bitex$ui$DepositList$templates$btnBrokerDespositCancel$$($opt_data$$70$$) : "") + ("progress" == $opt_data$$70$$.$button3$ ? $bitex$ui$DepositList$templates$btnBrokerDespositProgress$$($opt_data$$70$$) : "") + ("complete" == $opt_data$$70$$.$button3$ ? $bitex$ui$DepositList$templates$btnBrokerDespositComplete$$($opt_data$$70$$) : "") + "</div>";
 }
-function $bitex$ui$DepositList$templates$btnBrokerDespositCancel$$($opt_data$$70_output$$52$$) {
-  return $opt_data$$70_output$$52$$ = "" + ('<a class="btn btn-mini btn-danger btn-deposit-cancel" href="#" data-action="CANCEL" data-row="' + $soy$$0$0escapeHtml$$($opt_data$$70_output$$52$$.$dataRow$) + '">t\u1eeb ch\u1ed1i<i class="icon-white icon-remove"></i></a>');
+function $bitex$ui$DepositList$templates$btnBrokerDespositCancel$$($opt_data$$71_output$$53$$) {
+  return $opt_data$$71_output$$53$$ = "" + ('<button class="btn btn-mini btn-danger btn-deposit-cancel" data-action="CANCEL" data-row="' + $soy$$0$0escapeHtml$$($opt_data$$71_output$$53$$.$dataRow$) + '">t\u1eeb ch\u1ed1i<i class="icon-white icon-remove"></i></button>');
 }
-function $bitex$ui$DepositList$templates$btnBrokerDespositProgress$$($opt_data$$71_output$$53$$) {
-  return $opt_data$$71_output$$53$$ = "" + ('<a class="btn btn-mini btn-deposit-progress" href="#" data-action="PROGRESS" data-row="' + $soy$$0$0escapeHtml$$($opt_data$$71_output$$53$$.$dataRow$) + '">\u0110\u1eb7t l\u00e0 \u0111ang x\u1eed l\u00fd<i class="icon-white icon-refresh"></i></a>');
+function $bitex$ui$DepositList$templates$btnBrokerKYC$$($opt_data$$72_output$$54$$) {
+  return $opt_data$$72_output$$54$$ = "" + ('<button class="btn btn-mini btn-warning btn-deposit-kyc" data-action="KYC" data-row="' + $soy$$0$0escapeHtml$$($opt_data$$72_output$$54$$.$userVerification$) + '">KYC</button>');
 }
-function $bitex$ui$DepositList$templates$btnBrokerDespositComplete$$($opt_data$$72_output$$54$$) {
-  return $opt_data$$72_output$$54$$ = "" + ('<a class="btn btn-mini btn-success btn-deposit-complete" href="#" data-action="COMPLETE" data-row="' + $soy$$0$0escapeHtml$$($opt_data$$72_output$$54$$.$dataRow$) + '">\u0110\u1eb7t l\u00e0 \u0111\u00e3 xong<i class="icon-white icon-ok"></i></a>');
+function $bitex$ui$DepositList$templates$btnBrokerDespositProgress$$($opt_data$$73_output$$55$$) {
+  return $opt_data$$73_output$$55$$ = "" + ('<button class="btn btn-mini btn-deposit-progress" data-action="PROGRESS" data-row="' + $soy$$0$0escapeHtml$$($opt_data$$73_output$$55$$.$dataRow$) + '">\u0110\u1eb7t l\u00e0 \u0111ang x\u1eed l\u00fd<i class="icon-white icon-refresh"></i></button>');
+}
+function $bitex$ui$DepositList$templates$btnBrokerDespositComplete$$($opt_data$$74_output$$56$$) {
+  return $opt_data$$74_output$$56$$ = "" + ('<button class="btn btn-mini btn-success btn-deposit-complete" data-action="COMPLETE" data-row="' + $soy$$0$0escapeHtml$$($opt_data$$74_output$$56$$.$dataRow$) + '">\u0110\u1eb7t l\u00e0 \u0111\u00e3 xong<i class="icon-white icon-ok"></i></button>');
 }
 ;
-// Input 180
+// Input 181
 function $bitex$ui$DepositList$$($crypto_currencies_def$$, $opt_broker_mode$$1_show_customers$$1$$, $grid_columns$$3_opt_show_customers$$1$$, $opt_rest_url$$, $opt_domHelper$$24$$) {
   var $broker_mode$$1$$ = !1;
   !0 === $opt_broker_mode$$1_show_customers$$1$$ && ($broker_mode$$1$$ = $opt_broker_mode$$1_show_customers$$1$$);
@@ -9943,7 +9952,7 @@ function $bitex$ui$DepositList$$($crypto_currencies_def$$, $opt_broker_mode$$1_s
       }
       return["", ""];
     }($s$$50$$);
-    return $goog$soy$renderAsElement$$($bitex$ui$DepositList$templates$LabelStatus$$, {label:$crypto_currency_def_label_class_text$$1_number_of_necessary_confirmations$$[0], status:$crypto_currency_def_label_class_text$$1_number_of_necessary_confirmations$$[1]});
+    return $goog$soy$renderAsElement$$($bitex$ui$DepositList$templates$LabelStatus$$, {label:$crypto_currency_def_label_class_text$$1_number_of_necessary_confirmations$$[0] || "default", status:$crypto_currency_def_label_class_text$$1_number_of_necessary_confirmations$$[1]});
   }, classes:function() {
     return $bitex$ui$DepositList$CSS_CLASS$$ + "-status";
   }}, {property:"Value", label:"Gi\u00e1 tr\u1ecb", sortable:!1, classes:function() {
@@ -10029,7 +10038,9 @@ function $bitex$ui$DepositList$$($crypto_currencies_def$$, $opt_broker_mode$$1_s
     return $bitex$ui$DepositList$CSS_CLASS$$ + "-username";
   }});
   $broker_mode$$1$$ ? $grid_columns$$3_opt_show_customers$$1$$.push({property:"DepositID", label:"C\u00e1c h\u00e0nh \u0111\u1ed9ng", sortable:!1, formatter:function($value$$264$$, $rowSet$$19$$) {
-    var $data_row$$3$$ = $goog$json$serialize$$($rowSet$$19$$), $btn_cancel$$1$$ = $goog$soy$renderAsElement$$($bitex$ui$DepositList$templates$btnBrokerDespositCancel$$, {$dataRow$:$data_row$$3$$}), $btn_progress$$1$$ = $goog$soy$renderAsElement$$($bitex$ui$DepositList$templates$btnBrokerDespositProgress$$, {$dataRow$:$data_row$$3$$}), $btn_complete$$1$$ = $goog$soy$renderAsElement$$($bitex$ui$DepositList$templates$btnBrokerDespositComplete$$, {$dataRow$:$data_row$$3$$});
+    var $data_row$$3$$ = $goog$json$serialize$$($rowSet$$19$$), $btn_cancel$$1_userVerificationData$$1$$ = $goog$soy$renderAsElement$$($bitex$ui$DepositList$templates$btnBrokerDespositCancel$$, {$dataRow$:$data_row$$3$$}), $btn_progress$$1$$ = $goog$soy$renderAsElement$$($bitex$ui$DepositList$templates$btnBrokerDespositProgress$$, {$dataRow$:$data_row$$3$$}), $btn_complete$$1$$ = $goog$soy$renderAsElement$$($bitex$ui$DepositList$templates$btnBrokerDespositComplete$$, {$dataRow$:$data_row$$3$$}), 
+    $btn_kyc$$1$$;
+    "UserVerificationData" in $rowSet$$19$$ && null != $rowSet$$19$$.UserVerificationData && ($btn_kyc$$1$$ = $goog$soy$renderAsElement$$($bitex$ui$DepositList$templates$btnBrokerKYC$$, {$userVerification$:$goog$json$serialize$$($rowSet$$19$$.UserVerificationData)}));
     switch($rowSet$$19$$.Type) {
       case "CRY":
         switch($rowSet$$19$$.Status) {
@@ -10046,17 +10057,32 @@ function $bitex$ui$DepositList$$($crypto_currencies_def$$, $opt_broker_mode$$1_s
         }
         break;
       default:
-        switch($rowSet$$19$$.Status) {
-          case "0":
-            return $goog$soy$renderAsElement$$($bitex$ui$DepositList$templates$btnGroup$$, {$button1$:"cancel", $button2$:"progress", $dataRow$:$data_row$$3$$});
-          case "1":
-            return $goog$soy$renderAsElement$$($bitex$ui$DepositList$templates$btnGroup$$, {$button1$:"cancel", $button2$:"progress", $dataRow$:$data_row$$3$$});
-          case "2":
-            return $goog$soy$renderAsElement$$($bitex$ui$DepositList$templates$btnGroup$$, {$button1$:"cancel", $button2$:"complete", $dataRow$:$data_row$$3$$});
-          case "4":
-            return $btn_cancel$$1$$;
-          case "8":
-            return $btn_progress$$1$$;
+        if (null != $btn_kyc$$1$$) {
+          switch($btn_cancel$$1_userVerificationData$$1$$ = $goog$json$serialize$$($rowSet$$19$$.UserVerificationData), $rowSet$$19$$.Status) {
+            case "0":
+              return $goog$soy$renderAsElement$$($bitex$ui$DepositList$templates$btnGroup$$, {$button1$:"cancel", $button2$:"progress", $dataRow$:$data_row$$3$$, $userVerification$:$btn_cancel$$1_userVerificationData$$1$$});
+            case "1":
+              return $goog$soy$renderAsElement$$($bitex$ui$DepositList$templates$btnGroup$$, {$button1$:"kyc", $button2$:"cancel", $button3$:"progress", $dataRow$:$data_row$$3$$, $userVerification$:$btn_cancel$$1_userVerificationData$$1$$});
+            case "2":
+              return $goog$soy$renderAsElement$$($bitex$ui$DepositList$templates$btnGroup$$, {$button1$:"kyc", $button2$:"cancel", $button3$:"complete", $dataRow$:$data_row$$3$$, $userVerification$:$btn_cancel$$1_userVerificationData$$1$$});
+            case "4":
+              return $btn_kyc$$1$$;
+            case "8":
+              return $btn_kyc$$1$$;
+          }
+        } else {
+          switch($rowSet$$19$$.Status) {
+            case "0":
+              return $goog$soy$renderAsElement$$($bitex$ui$DepositList$templates$btnGroup$$, {$button1$:"cancel", $button2$:"progress", $dataRow$:$data_row$$3$$});
+            case "1":
+              return $goog$soy$renderAsElement$$($bitex$ui$DepositList$templates$btnGroup$$, {$button1$:"cancel", $button2$:"progress", $dataRow$:$data_row$$3$$});
+            case "2":
+              return $goog$soy$renderAsElement$$($bitex$ui$DepositList$templates$btnGroup$$, {$button1$:"cancel", $button2$:"complete", $dataRow$:$data_row$$3$$});
+            case "4":
+              return $btn_cancel$$1_userVerificationData$$1$$;
+            case "8":
+              return $btn_progress$$1$$;
+          }
         }
       ;
     }
@@ -10144,14 +10170,14 @@ $JSCompiler_prototypeAlias$$.$getRowClass$ = function $$JSCompiler_prototypeAlia
 $goog$ui$registry$setDecoratorByClassName$$($bitex$ui$DepositList$CSS_CLASS$$, function() {
   return new $bitex$ui$DepositList$$;
 });
-// Input 181
+// Input 182
 function $goog$ui$ModalAriaVisibilityHelper$$($element$$174$$, $domHelper$$) {
   this.$element_$ = $element$$174$$;
   this.$dom_$ = $domHelper$$;
 }
 ;
-// Input 182
 // Input 183
+// Input 184
 function $goog$events$FocusHandler$$($element$$178_typeOut$$) {
   $goog$events$EventTarget$$.call(this);
   this.$element_$ = $element$$178_typeOut$$;
@@ -10171,9 +10197,9 @@ $goog$events$FocusHandler$$.prototype.$disposeInternal$ = function $$goog$events
   $goog$events$unlistenByKey$$(this.$listenKeyOut_$);
   delete this.$element_$;
 };
-// Input 184
-var $goog$dom$iframe$BLANK_SOURCE$$ = $goog$userAgent$IE$$ ? 'javascript:""' : "about:blank";
 // Input 185
+var $goog$dom$iframe$BLANK_SOURCE$$ = $goog$userAgent$IE$$ ? 'javascript:""' : "about:blank";
+// Input 186
 function $goog$ui$ModalPopup$$($opt_useIframeMask$$, $opt_domHelper$$25$$) {
   $goog$ui$Component$$.call(this, $opt_domHelper$$25$$);
   this.$useIframeMask_$ = !!$opt_useIframeMask$$;
@@ -10259,11 +10285,11 @@ function $JSCompiler_StaticMethods_setA11YDetectBackground$$($JSCompiler_StaticM
   if ($hide$$1$$) {
     $JSCompiler_StaticMethods_setBackgroundVisibility$self$$inline_1129$$.$hiddenElements_$ || ($JSCompiler_StaticMethods_setBackgroundVisibility$self$$inline_1129$$.$hiddenElements_$ = []);
     for (var $topLevelChildren$$inline_1131$$ = $JSCompiler_StaticMethods_setBackgroundVisibility$self$$inline_1129$$.$dom_$.$getChildren$($JSCompiler_StaticMethods_setBackgroundVisibility$self$$inline_1129$$.$dom_$.$document_$.body), $i$$inline_1132$$ = 0;$i$$inline_1132$$ < $topLevelChildren$$inline_1131$$.length;$i$$inline_1132$$++) {
-      var $child$$inline_1133$$ = $topLevelChildren$$inline_1131$$[$i$$inline_1132$$], $JSCompiler_temp$$1949_attr$$inline_2138$$;
-      if ($JSCompiler_temp$$1949_attr$$inline_2138$$ = $child$$inline_1133$$ != $JSCompiler_StaticMethods_setBackgroundVisibility$self$$inline_1129$$.$element_$) {
-        $JSCompiler_temp$$1949_attr$$inline_2138$$ = $child$$inline_1133$$.getAttribute("aria-hidden"), $JSCompiler_temp$$1949_attr$$inline_2138$$ = !(null == $JSCompiler_temp$$1949_attr$$inline_2138$$ || void 0 == $JSCompiler_temp$$1949_attr$$inline_2138$$ ? 0 : String($JSCompiler_temp$$1949_attr$$inline_2138$$));
+      var $child$$inline_1133$$ = $topLevelChildren$$inline_1131$$[$i$$inline_1132$$], $JSCompiler_temp$$1964_attr$$inline_2153$$;
+      if ($JSCompiler_temp$$1964_attr$$inline_2153$$ = $child$$inline_1133$$ != $JSCompiler_StaticMethods_setBackgroundVisibility$self$$inline_1129$$.$element_$) {
+        $JSCompiler_temp$$1964_attr$$inline_2153$$ = $child$$inline_1133$$.getAttribute("aria-hidden"), $JSCompiler_temp$$1964_attr$$inline_2153$$ = !(null == $JSCompiler_temp$$1964_attr$$inline_2153$$ || void 0 == $JSCompiler_temp$$1964_attr$$inline_2153$$ ? 0 : String($JSCompiler_temp$$1964_attr$$inline_2153$$));
       }
-      $JSCompiler_temp$$1949_attr$$inline_2138$$ && ($goog$a11y$aria$setState$$($child$$inline_1133$$, "hidden", !0), $JSCompiler_StaticMethods_setBackgroundVisibility$self$$inline_1129$$.$hiddenElements_$.push($child$$inline_1133$$));
+      $JSCompiler_temp$$1964_attr$$inline_2153$$ && ($goog$a11y$aria$setState$$($child$$inline_1133$$, "hidden", !0), $JSCompiler_StaticMethods_setBackgroundVisibility$self$$inline_1129$$.$hiddenElements_$.push($child$$inline_1133$$));
     }
   } else {
     if ($JSCompiler_StaticMethods_setBackgroundVisibility$self$$inline_1129$$.$hiddenElements_$) {
@@ -10362,7 +10388,7 @@ $JSCompiler_prototypeAlias$$.$disposeInternal$ = function $$JSCompiler_prototype
   this.$bgHideTransition_$ = null;
   $goog$ui$ModalPopup$$.$superClass_$.$disposeInternal$.call(this);
 };
-// Input 186
+// Input 187
 function $goog$ui$Dialog$$($opt_class$$4$$, $opt_useIframeMask$$1$$, $opt_domHelper$$26$$) {
   $goog$ui$ModalPopup$$.call(this, $opt_useIframeMask$$1$$, $opt_domHelper$$26$$);
   this.$class_$ = $opt_class$$4$$ || "modal-dialog";
@@ -10651,12 +10677,12 @@ var $goog$ui$Dialog$DefaultButtonKeys$CANCEL$$ = "cancel", $goog$ui$Dialog$MSG_G
 {key:"save", caption:"L\u01b0u tr\u1eef"}, $goog$ui$Dialog$ButtonSet$DefaultButtons$CONTINUE$$ = {key:"continue", caption:"Ti\u1ebfp t\u1ee5c"};
 "undefined" != typeof document && ((new $goog$ui$Dialog$ButtonSet$$).$addButton$($goog$ui$Dialog$ButtonSet$DefaultButtons$OK$$, !0, !0), (new $goog$ui$Dialog$ButtonSet$$).$addButton$($goog$ui$Dialog$ButtonSet$DefaultButtons$OK$$, !0).$addButton$($goog$ui$Dialog$ButtonSet$DefaultButtons$CANCEL$$, !1, !0), (new $goog$ui$Dialog$ButtonSet$$).$addButton$($goog$ui$Dialog$ButtonSet$DefaultButtons$YES$$, !0).$addButton$($goog$ui$Dialog$ButtonSet$DefaultButtons$NO$$, !1, !0), (new $goog$ui$Dialog$ButtonSet$$).$addButton$($goog$ui$Dialog$ButtonSet$DefaultButtons$YES$$).$addButton$($goog$ui$Dialog$ButtonSet$DefaultButtons$NO$$, 
 !0).$addButton$($goog$ui$Dialog$ButtonSet$DefaultButtons$CANCEL$$, !1, !0), (new $goog$ui$Dialog$ButtonSet$$).$addButton$($goog$ui$Dialog$ButtonSet$DefaultButtons$CONTINUE$$).$addButton$($goog$ui$Dialog$ButtonSet$DefaultButtons$SAVE$$).$addButton$($goog$ui$Dialog$ButtonSet$DefaultButtons$CANCEL$$, !0, !0));
-// Input 187
-function $bitex$ui$Dialog$templates$Dialog$$($opt_data$$73$$) {
-  return'<div id="' + $soy$$0$0escapeHtml$$($opt_data$$73$$.id) + '" class="modal" role="dialog"><div class="modal-header"><a class="close" href="javascript:;">\u00d7</a><h3 class="modal-title" >' + $soy$$0$0escapeHtml$$($opt_data$$73$$.title) + '</h3></div><div class="modal-body"></div><div class="modal-footer"></div></div>';
+// Input 188
+function $bitex$ui$Dialog$templates$Dialog$$($opt_data$$75$$) {
+  return'<div id="' + $soy$$0$0escapeHtml$$($opt_data$$75$$.id) + '" class="modal" role="dialog"><div class="modal-header"><a class="close" href="javascript:;">\u00d7</a><h3 class="modal-title" >' + $soy$$0$0escapeHtml$$($opt_data$$75$$.title) + '</h3></div><div class="modal-body"></div><div class="modal-footer"></div></div>';
 }
 ;
-// Input 188
+// Input 189
 function $bitex$ui$Dialog$$() {
   $goog$ui$Dialog$$.call(this, "modal");
 }
@@ -10690,7 +10716,11 @@ $bitex$ui$Dialog$$.prototype.$createDom$ = function $$bitex$ui$Dialog$$$$$create
 };
 $bitex$ui$Dialog$$.prototype.$onShow$ = function $$bitex$ui$Dialog$$$$$onShow$$() {
   $bitex$ui$Dialog$$.$superClass_$.$onShow$.call(this);
-  this.$getElement$().style.display = "block";
+  var $modal$$2$$ = this.$getElement$();
+  $modal$$2$$.style.display = "block";
+  $goog$dom$classlist$contains$$($modal$$2$$, "in") || setTimeout(function() {
+    $goog$dom$classlist$add$$($modal$$2$$, "in");
+  }, 10);
 };
 $bitex$ui$Dialog$$.prototype.$setBackgroundElementOpacity$ = function $$bitex$ui$Dialog$$$$$setBackgroundElementOpacity$$($bgEl$$1_opacity$$3$$) {
   $bitex$ui$Dialog$$.$superClass_$.$setBackgroundElementOpacity$.call(this, $bgEl$$1_opacity$$3$$);
@@ -10722,7 +10752,7 @@ function $bitex$ui$Dialog$ButtonSet$createYesNoCancel$$() {
   return(new $bitex$ui$Dialog$ButtonSet$$).$addButton$($goog$ui$Dialog$ButtonSet$DefaultButtons$YES$$).$addButton$($goog$ui$Dialog$ButtonSet$DefaultButtons$NO$$, !0).$addButton$($goog$ui$Dialog$ButtonSet$DefaultButtons$CANCEL$$, !1, !0);
 }
 ;
-// Input 189
+// Input 190
 function $bitex$view$AccountOverview$$($app$$7$$, $opt_domHelper$$29$$) {
   $bitex$view$View$$.call(this, $app$$7$$, $opt_domHelper$$29$$);
   this.$verification_data_$ = this.$qr_data_verb_$ = this.$qr_data_$ = this.$deposit_data_$ = this.$deposit_action_$ = this.$withdraw_action_$ = this.$request_id_$ = null;
@@ -11062,7 +11092,7 @@ $JSCompiler_prototypeAlias$$.$onBalanceResponse_$ = function $$JSCompiler_protot
 $JSCompiler_prototypeAlias$$.$onWithdrawRefresh_$ = function $$JSCompiler_prototypeAlias$$$$onWithdrawRefresh_$$($e$$185$$) {
   $JSCompiler_StaticMethods_insertOrUpdateRecord$$(this.$withdraw_list_table_$, $e$$185$$.data);
 };
-// Input 190
+// Input 191
 function $bitex$view$ToolBarView$$($app$$8$$, $opt_domHelper$$30$$) {
   $bitex$view$View$$.call(this, $app$$8$$, $opt_domHelper$$30$$);
 }
@@ -11089,7 +11119,7 @@ $bitex$view$ToolBarView$$.prototype.$enterDocument$ = function $$bitex$view$Tool
     this.dispatchEvent("connect_bitex");
   });
 };
-// Input 191
+// Input 192
 function $goog$ui$ControlRenderer$$() {
 }
 var $goog$ui$ControlRenderer$ariaAttributeMap_$$;
@@ -11242,11 +11272,11 @@ function $JSCompiler_StaticMethods_getClassNames$$($JSCompiler_StaticMethods_get
   $goog$userAgent$IE$$ && !$goog$userAgent$isVersionOrHigher$$("7") && $classNames$$5$$.push.apply($classNames$$5$$, $JSCompiler_StaticMethods_getAppliedCombinedClassNames_$$($classNames$$5$$));
   return $classNames$$5$$;
 }
-function $JSCompiler_StaticMethods_getAppliedCombinedClassNames_$$($classes$$9$$, $opt_includedClass$$) {
+function $JSCompiler_StaticMethods_getAppliedCombinedClassNames_$$($classes$$7$$, $opt_includedClass$$) {
   var $toAdd$$ = [];
-  $opt_includedClass$$ && ($classes$$9$$ = $classes$$9$$.concat([$opt_includedClass$$]));
+  $opt_includedClass$$ && ($classes$$7$$ = $classes$$7$$.concat([$opt_includedClass$$]));
   $goog$array$forEach$$([], function($combo$$) {
-    !$goog$array$every$$($combo$$, $goog$partial$$($goog$array$contains$$, $classes$$9$$)) || $opt_includedClass$$ && !$goog$array$contains$$($combo$$, $opt_includedClass$$) || $toAdd$$.push($combo$$.join("_"));
+    !$goog$array$every$$($combo$$, $goog$partial$$($goog$array$contains$$, $classes$$7$$)) || $opt_includedClass$$ && !$goog$array$contains$$($combo$$, $opt_includedClass$$) || $toAdd$$.push($combo$$.join("_"));
   });
   return $toAdd$$;
 }
@@ -11257,14 +11287,14 @@ $JSCompiler_prototypeAlias$$.$getClassForState$ = function $$JSCompiler_prototyp
 function $JSCompiler_StaticMethods_getStateFromClass$$($JSCompiler_StaticMethods_getStateFromClass$self$$, $className$$45$$) {
   if (!$JSCompiler_StaticMethods_getStateFromClass$self$$.$stateByClass_$) {
     $JSCompiler_StaticMethods_getStateFromClass$self$$.$classByState_$ || $JSCompiler_StaticMethods_createClassByStateMap_$$($JSCompiler_StaticMethods_getStateFromClass$self$$);
-    var $obj$$inline_2167_state$$12$$ = $JSCompiler_StaticMethods_getStateFromClass$self$$.$classByState_$, $transposed$$inline_2168$$ = {}, $key$$inline_2169$$;
-    for ($key$$inline_2169$$ in $obj$$inline_2167_state$$12$$) {
-      $transposed$$inline_2168$$[$obj$$inline_2167_state$$12$$[$key$$inline_2169$$]] = $key$$inline_2169$$;
+    var $obj$$inline_2182_state$$12$$ = $JSCompiler_StaticMethods_getStateFromClass$self$$.$classByState_$, $transposed$$inline_2183$$ = {}, $key$$inline_2184$$;
+    for ($key$$inline_2184$$ in $obj$$inline_2182_state$$12$$) {
+      $transposed$$inline_2183$$[$obj$$inline_2182_state$$12$$[$key$$inline_2184$$]] = $key$$inline_2184$$;
     }
-    $JSCompiler_StaticMethods_getStateFromClass$self$$.$stateByClass_$ = $transposed$$inline_2168$$;
+    $JSCompiler_StaticMethods_getStateFromClass$self$$.$stateByClass_$ = $transposed$$inline_2183$$;
   }
-  $obj$$inline_2167_state$$12$$ = parseInt($JSCompiler_StaticMethods_getStateFromClass$self$$.$stateByClass_$[$className$$45$$], 10);
-  return isNaN($obj$$inline_2167_state$$12$$) ? 0 : $obj$$inline_2167_state$$12$$;
+  $obj$$inline_2182_state$$12$$ = parseInt($JSCompiler_StaticMethods_getStateFromClass$self$$.$stateByClass_$[$className$$45$$], 10);
+  return isNaN($obj$$inline_2182_state$$12$$) ? 0 : $obj$$inline_2182_state$$12$$;
 }
 function $JSCompiler_StaticMethods_createClassByStateMap_$$($JSCompiler_StaticMethods_createClassByStateMap_$self$$) {
   var $baseClass$$ = $JSCompiler_StaticMethods_createClassByStateMap_$self$$.$getCssClass$();
@@ -11272,8 +11302,8 @@ function $JSCompiler_StaticMethods_createClassByStateMap_$$($JSCompiler_StaticMe
   $JSCompiler_StaticMethods_createClassByStateMap_$self$$.$classByState_$ = {1:$baseClass$$ + "-disabled", 2:$baseClass$$ + "-hover", 4:$baseClass$$ + "-active", 8:$baseClass$$ + "-selected", 16:$baseClass$$ + "-checked", 32:$baseClass$$ + "-focused", 64:$baseClass$$ + "-open"};
 }
 ;
-// Input 192
 // Input 193
+// Input 194
 function $goog$ui$ButtonRenderer$$() {
 }
 $goog$inherits$$($goog$ui$ButtonRenderer$$, $goog$ui$ControlRenderer$$);
@@ -11324,7 +11354,7 @@ $JSCompiler_prototypeAlias$$.$setTooltip$ = function $$JSCompiler_prototypeAlias
 $JSCompiler_prototypeAlias$$.$getCssClass$ = function $$JSCompiler_prototypeAlias$$$$getCssClass$$() {
   return "goog-button";
 };
-// Input 194
+// Input 195
 function $goog$ui$NativeButtonRenderer$$() {
 }
 $goog$inherits$$($goog$ui$NativeButtonRenderer$$, $goog$ui$ButtonRenderer$$);
@@ -11371,7 +11401,7 @@ $JSCompiler_prototypeAlias$$.$setValue$ = function $$JSCompiler_prototypeAlias$$
   $element$$217$$ && ($element$$217$$.value = $value$$269$$);
 };
 $JSCompiler_prototypeAlias$$.$updateAriaState$ = $goog$nullFunction$$;
-// Input 195
+// Input 196
 function $bootstrap$ButtonRenderer$$() {
 }
 $goog$inherits$$($bootstrap$ButtonRenderer$$, $goog$ui$NativeButtonRenderer$$);
@@ -11403,9 +11433,9 @@ $bootstrap$ButtonRenderer$$.prototype.$canDecorate$ = function $$bootstrap$Butto
 $bootstrap$ButtonRenderer$$.prototype.$getCssClass$ = function $$bootstrap$ButtonRenderer$$$$$getCssClass$$() {
   return "btn";
 };
-// Input 196
 // Input 197
 // Input 198
+// Input 199
 function $goog$ui$Control$$($opt_content$$4$$, $JSCompiler_temp$$103_componentCtor$$inline_1262_opt_renderer$$, $opt_domHelper$$31$$) {
   $goog$ui$Component$$.call(this, $opt_domHelper$$31$$);
   if (!$JSCompiler_temp$$103_componentCtor$$inline_1262_opt_renderer$$) {
@@ -11660,7 +11690,7 @@ $goog$ui$Control$IeMouseEventSequenceSimulator_$$.prototype.$disposeInternal$ = 
   this.$control_$ = null;
   $goog$ui$Control$IeMouseEventSequenceSimulator_$$.$superClass_$.$disposeInternal$.call(this);
 };
-// Input 199
+// Input 200
 function $goog$ui$Button$$($opt_content$$5$$, $opt_renderer$$1$$, $opt_domHelper$$32$$) {
   $goog$ui$Control$$.call(this, $opt_content$$5$$, $opt_renderer$$1$$ || $goog$ui$NativeButtonRenderer$$.$getInstance$(), $opt_domHelper$$32$$);
 }
@@ -11698,15 +11728,15 @@ $JSCompiler_prototypeAlias$$.$handleKeyEventInternal$ = function $$JSCompiler_pr
 $goog$ui$registry$setDecoratorByClassName$$("goog-button", function() {
   return new $goog$ui$Button$$(null);
 });
-// Input 200
 // Input 201
-function $bitex$ui$LockedBalanceDisplay$templates$LockedBalanceDisplay$$($opt_data$$74_output$$55$$) {
-  return $opt_data$$74_output$$55$$ = "" + ('<div class="row-fluid locked-balance-display"><div class="span6 text-left locked-balance-display-buying">B\u1ea1n \u0111ang mua t\u1ed5ng c\u1ed9ng <span id="' + $soy$$0$0escapeHtml$$($opt_data$$74_output$$55$$.id) + '_buy_account" class="bitex-model" data-model-key="formatted_locked_balance_' + $soy$$0$0escapeHtml$$($opt_data$$74_output$$55$$.$accountBuy$) + '" data-blink-class="balance-info-blink">' + ($opt_data$$74_output$$55$$.$formattedAmountBuying$ ? 
-  $soy$$0$0escapeHtml$$($opt_data$$74_output$$55$$.$formattedAmountBuying$) : "") + '</span></div><div class="span6 text-right locked-balance-display-selling">B\u1ea1n \u0111ang b\u00e1n t\u1ed5ng c\u1ed9ng <span id="' + $soy$$0$0escapeHtml$$($opt_data$$74_output$$55$$.id) + '_sell_account"  class="bitex-model" data-model-key="formatted_locked_balance_' + $soy$$0$0escapeHtml$$($opt_data$$74_output$$55$$.$accountSell$) + '" data-blink-class="balance-info-blink">' + ($opt_data$$74_output$$55$$.$formattedAmountSelling$ ? 
-  $soy$$0$0escapeHtml$$($opt_data$$74_output$$55$$.$formattedAmountSelling$) : "") + "</span></div></div>");
+// Input 202
+function $bitex$ui$LockedBalanceDisplay$templates$LockedBalanceDisplay$$($opt_data$$76_output$$57$$) {
+  return $opt_data$$76_output$$57$$ = "" + ('<div class="row-fluid locked-balance-display"><div class="span6 text-left locked-balance-display-buying">B\u1ea1n \u0111ang mua t\u1ed5ng c\u1ed9ng <span id="' + $soy$$0$0escapeHtml$$($opt_data$$76_output$$57$$.id) + '_buy_account" class="bitex-model" data-model-key="formatted_locked_balance_' + $soy$$0$0escapeHtml$$($opt_data$$76_output$$57$$.$accountBuy$) + '" data-blink-class="balance-info-blink">' + ($opt_data$$76_output$$57$$.$formattedAmountBuying$ ? 
+  $soy$$0$0escapeHtml$$($opt_data$$76_output$$57$$.$formattedAmountBuying$) : "") + '</span></div><div class="span6 text-right locked-balance-display-selling">B\u1ea1n \u0111ang b\u00e1n t\u1ed5ng c\u1ed9ng <span id="' + $soy$$0$0escapeHtml$$($opt_data$$76_output$$57$$.id) + '_sell_account"  class="bitex-model" data-model-key="formatted_locked_balance_' + $soy$$0$0escapeHtml$$($opt_data$$76_output$$57$$.$accountSell$) + '" data-blink-class="balance-info-blink">' + ($opt_data$$76_output$$57$$.$formattedAmountSelling$ ? 
+  $soy$$0$0escapeHtml$$($opt_data$$76_output$$57$$.$formattedAmountSelling$) : "") + "</span></div></div>");
 }
 ;
-// Input 202
+// Input 203
 function $bitex$ui$LockedBalanceDisplay$$($opt_domHelper$$34$$) {
   $goog$ui$Component$$.call(this, $opt_domHelper$$34$$);
   this.$setModel$({$currency_buy$:"", $currency_sell$:"", $broker_id$:0, $account_id$:0});
@@ -11736,7 +11766,7 @@ function $JSCompiler_StaticMethods_setAccountID$$($JSCompiler_StaticMethods_setA
   $goog$dom$getElement$$($JSCompiler_StaticMethods_makeId$$($JSCompiler_StaticMethods_setAccountID$self$$, "locked_sell_account")).setAttribute("data-model-key", "formatted_locked_balance_" + $JSCompiler_StaticMethods_setAccountID$self$$.$model_$.$broker_id$ + ":" + $JSCompiler_StaticMethods_setAccountID$self$$.$model_$.$account_id$ + "_" + $JSCompiler_StaticMethods_setAccountID$self$$.$model_$.$currency_sell$);
 }
 ;
-// Input 203
+// Input 204
 function $goog$ui$CustomButtonRenderer$$() {
 }
 $goog$inherits$$($goog$ui$CustomButtonRenderer$$, $goog$ui$ButtonRenderer$$);
@@ -11800,7 +11830,7 @@ function $goog$ui$CustomButtonRenderer$trimTextNodes_$$($element$$234$$, $fromSt
   }
 }
 ;
-// Input 204
+// Input 205
 function $goog$ui$ToggleButton$$($content$$26$$, $opt_renderer$$3$$, $opt_domHelper$$35$$) {
   $goog$ui$Button$$.call(this, $content$$26$$, $opt_renderer$$3$$ || $goog$ui$CustomButtonRenderer$$.$getInstance$(), $opt_domHelper$$35$$);
   $JSCompiler_StaticMethods_setSupportedState$$(this, 16, !0);
@@ -11809,23 +11839,23 @@ $goog$inherits$$($goog$ui$ToggleButton$$, $goog$ui$Button$$);
 $goog$ui$registry$setDecoratorByClassName$$("goog-toggle-button", function() {
   return new $goog$ui$ToggleButton$$(null);
 });
-// Input 205
-function $bitex$ui$AdvancedOrderEntry$templates$AdvancedOrderEntry$$($opt_data$$75$$) {
-  var $output$$56$$;
-  $output$$56$$ = "" + ('<form id="' + $soy$$0$0escapeHtml$$($opt_data$$75$$.id) + '" class="layout__item one-whole desk--one-half order-entry" data-uniform-control-holder-class="uniform-control-holder"><input id="' + $soy$$0$0escapeHtml$$($opt_data$$75$$.id) + '_symbol" type="hidden" name="symbol" value="' + $soy$$0$0escapeHtml$$($opt_data$$75$$.$symbol$) + '"><input id="' + $soy$$0$0escapeHtml$$($opt_data$$75$$.id) + '_side" type="hidden" name="side" value="' + $soy$$0$0escapeHtml$$($opt_data$$75$$.$side$) + 
-  '"><input id="' + $soy$$0$0escapeHtml$$($opt_data$$75$$.id) + '_type" type="hidden" name="type" value="' + $soy$$0$0escapeHtml$$($opt_data$$75$$.type) + '"><input id="' + $soy$$0$0escapeHtml$$($opt_data$$75$$.id) + '_is_broker" type="hidden" value="' + $soy$$0$0escapeHtml$$($opt_data$$75$$.$is_broker$) + '"><input id="' + $soy$$0$0escapeHtml$$($opt_data$$75$$.id) + '_broker_id" type="hidden" name="broker_id" value="' + $soy$$0$0escapeHtml$$($opt_data$$75$$.$broker_id$) + '">\x3c!-- .box --\x3e<div class="box box--bid-ask box--push-bottom">\x3c!-- .box__head --\x3e<header class="box__head">');
-  $output$$56$$ = 1 == $opt_data$$75$$.$side$ ? $output$$56$$ + "Mua" : $output$$56$$ + "B\u00e1n";
-  $output$$56$$ += '</header>\x3c!-- /.box__head --\x3e\x3c!-- .box__body --\x3e<div class="box__body">\x3c!-- .table --\x3e<table class="table table--bordered table--bid-ask"><tbody><tr class="uniform-control-holder"><th class="one-half lap--four-tenths"><label for="" class="order-entry-label"><span>S\u1ed1 ti\u1ec1n:<span id="' + $soy$$0$0escapeHtml$$($opt_data$$75$$.id) + '_amount_sign" class="advanced-order-entry-amount-sign">' + $soy$$0$0escapeHtml$$($opt_data$$75$$.$amount_currency_symbol$) + 
-  '</span></label></th><td class="one-half lap--six-tenths order-entry-data"><input id="' + $soy$$0$0escapeHtml$$($opt_data$$75$$.id) + '_amount" name="amount" type="text" class="input input--full" data-uniform-label="S\u1ed1 ti\u1ec1n" data-uniform-validators="validateNumber; required" data-uniform-type="number" data-uniform-filters="positive_number" value="" required/></td></tr><tr class="uniform-control-holder"><th class="one-half lap--four-tenths"><label for=""><strong>Gi\u00e1 m\u1ed7i <span class="advanced-order-entry-amount-sign">' + 
-  $soy$$0$0escapeHtml$$($opt_data$$75$$.$amount_currency_symbol$) + '</span>:</strong></label></th><td class="one-half lap--six-tenths order-entry-data"><input id="' + $soy$$0$0escapeHtml$$($opt_data$$75$$.id) + '_price" name="price" type="text" class="input input--full" data-uniform-label="Gi\u00e1" data-uniform-validators="validateNumber; required" data-uniform-type="number" data-uniform-filters="positive_number" required/></td></tr><tr class="uniform-control-holder"><th class="one-half lap--four-tenths"><strong>T\u1ed5ng s\u1ed1:  <span id="' + 
-  $soy$$0$0escapeHtml$$($opt_data$$75$$.id) + '_price_sign" class="add-on advanced-order-entry-price-sign">' + $soy$$0$0escapeHtml$$($opt_data$$75$$.$price_currency_symbol$) + '</span></strong></th><td class="one-half lap--four-tenths order-entry-data"><input id="' + $soy$$0$0escapeHtml$$($opt_data$$75$$.id) + '_total" name="total" type="text" class="input input--full" data-uniform-label="T\u1ed5ng" data-uniform-validators="validateNumber; required" data-uniform-type="number" data-uniform-filters="positive_number" required/></td></tr></tbody></table></div>\x3c!-- /.box__body --\x3e\x3c!-- .box__foot --\x3e<footer class="box__foot uniform-control-holder">\x3c!-- .layout --\x3e<div class="layout layout--half">\x3c!-- .layout__item --\x3e<div class="layout__item six-tenths"><input id="' + 
-  $soy$$0$0escapeHtml$$($opt_data$$75$$.id) + '_client_id" name="client_id" type="text" value="' + ($opt_data$$75$$.$client_id$ ? $soy$$0$0escapeHtml$$($opt_data$$75$$.$client_id$) : "") + '" class="input input--full" label="M\u00e3 kh\u00e1ch h\u00e0ng" data-uniform-label="M\u00e3 kh\u00e1ch h\u00e0ng"' + ($opt_data$$75$$.$is_broker$ ? 'data-uniform-validators="required"' : 'style="display:none" disabled') + '/></div>\x3c!-- /.layout__item --\x3e\x3c!-- .layout__item --\x3e<div class="layout__item four-tenths"><button id="' + 
-  $soy$$0$0escapeHtml$$($opt_data$$75$$.id) + '_action" class="btn btn--mini btn--full ' + (1 == $opt_data$$75$$.$side$ ? "btn--positive" : "btn--negative") + ' btn-execution"><i class="icon-shopping-cart"></i>&nbsp;';
-  $output$$56$$ = 1 == $opt_data$$75$$.$side$ ? $output$$56$$ + "MUA" : $output$$56$$ + "B\u00c1N";
-  return $output$$56$$ + "</button></div>\x3c!-- /.layout__item --\x3e</div>\x3c!-- /.layout --\x3e</footer>\x3c!-- /.box__foot --\x3e</div>\x3c!-- /.box --\x3e</form>";
+// Input 206
+function $bitex$ui$AdvancedOrderEntry$templates$AdvancedOrderEntry$$($opt_data$$77$$) {
+  var $output$$58$$;
+  $output$$58$$ = "" + ('<form id="' + $soy$$0$0escapeHtml$$($opt_data$$77$$.id) + '" class="layout__item one-whole desk--one-half order-entry" data-uniform-control-holder-class="uniform-control-holder"><input id="' + $soy$$0$0escapeHtml$$($opt_data$$77$$.id) + '_symbol" type="hidden" name="symbol" value="' + $soy$$0$0escapeHtml$$($opt_data$$77$$.$symbol$) + '"><input id="' + $soy$$0$0escapeHtml$$($opt_data$$77$$.id) + '_side" type="hidden" name="side" value="' + $soy$$0$0escapeHtml$$($opt_data$$77$$.$side$) + 
+  '"><input id="' + $soy$$0$0escapeHtml$$($opt_data$$77$$.id) + '_type" type="hidden" name="type" value="' + $soy$$0$0escapeHtml$$($opt_data$$77$$.type) + '"><input id="' + $soy$$0$0escapeHtml$$($opt_data$$77$$.id) + '_is_broker" type="hidden" value="' + $soy$$0$0escapeHtml$$($opt_data$$77$$.$is_broker$) + '"><input id="' + $soy$$0$0escapeHtml$$($opt_data$$77$$.id) + '_broker_id" type="hidden" name="broker_id" value="' + $soy$$0$0escapeHtml$$($opt_data$$77$$.$broker_id$) + '">\x3c!-- .box --\x3e<div class="box box--bid-ask box--push-bottom">\x3c!-- .box__head --\x3e<header class="box__head">');
+  $output$$58$$ = 1 == $opt_data$$77$$.$side$ ? $output$$58$$ + "Mua" : $output$$58$$ + "B\u00e1n";
+  $output$$58$$ += '</header>\x3c!-- /.box__head --\x3e\x3c!-- .box__body --\x3e<div class="box__body">\x3c!-- .table --\x3e<table class="table table--bordered table--bid-ask"><tbody><tr class="uniform-control-holder"><th class="one-half lap--four-tenths"><label for="" class="order-entry-label"><span>S\u1ed1 ti\u1ec1n:<span id="' + $soy$$0$0escapeHtml$$($opt_data$$77$$.id) + '_amount_sign" class="advanced-order-entry-amount-sign">' + $soy$$0$0escapeHtml$$($opt_data$$77$$.$amount_currency_symbol$) + 
+  '</span></label></th><td class="one-half lap--six-tenths order-entry-data"><input id="' + $soy$$0$0escapeHtml$$($opt_data$$77$$.id) + '_amount" name="amount" type="text" class="input input--full" data-uniform-label="S\u1ed1 ti\u1ec1n" data-uniform-validators="validateNumber; required" data-uniform-type="number" data-uniform-filters="positive_number" value="" required/></td></tr><tr class="uniform-control-holder"><th class="one-half lap--four-tenths"><label for=""><strong>Gi\u00e1 m\u1ed7i <span class="advanced-order-entry-amount-sign">' + 
+  $soy$$0$0escapeHtml$$($opt_data$$77$$.$amount_currency_symbol$) + '</span>:</strong></label></th><td class="one-half lap--six-tenths order-entry-data"><input id="' + $soy$$0$0escapeHtml$$($opt_data$$77$$.id) + '_price" name="price" type="text" class="input input--full" data-uniform-label="Gi\u00e1" data-uniform-validators="validateNumber; required" data-uniform-type="number" data-uniform-filters="positive_number" required/></td></tr><tr class="uniform-control-holder"><th class="one-half lap--four-tenths"><strong>T\u1ed5ng s\u1ed1:  <span id="' + 
+  $soy$$0$0escapeHtml$$($opt_data$$77$$.id) + '_price_sign" class="add-on advanced-order-entry-price-sign">' + $soy$$0$0escapeHtml$$($opt_data$$77$$.$price_currency_symbol$) + '</span></strong></th><td class="one-half lap--four-tenths order-entry-data"><input id="' + $soy$$0$0escapeHtml$$($opt_data$$77$$.id) + '_total" name="total" type="text" class="input input--full" data-uniform-label="T\u1ed5ng" data-uniform-validators="validateNumber; required" data-uniform-type="number" data-uniform-filters="positive_number" required/></td></tr></tbody></table></div>\x3c!-- /.box__body --\x3e\x3c!-- .box__foot --\x3e<footer class="box__foot uniform-control-holder">\x3c!-- .layout --\x3e<div class="layout layout--half">\x3c!-- .layout__item --\x3e<div class="layout__item six-tenths"><input id="' + 
+  $soy$$0$0escapeHtml$$($opt_data$$77$$.id) + '_client_id" name="client_id" type="text" value="' + ($opt_data$$77$$.$client_id$ ? $soy$$0$0escapeHtml$$($opt_data$$77$$.$client_id$) : "") + '" class="input input--full" label="M\u00e3 kh\u00e1ch h\u00e0ng" data-uniform-label="M\u00e3 kh\u00e1ch h\u00e0ng"' + ($opt_data$$77$$.$is_broker$ ? 'data-uniform-validators="required"' : 'style="display:none" disabled') + '/></div>\x3c!-- /.layout__item --\x3e\x3c!-- .layout__item --\x3e<div class="layout__item four-tenths"><button id="' + 
+  $soy$$0$0escapeHtml$$($opt_data$$77$$.id) + '_action" class="btn btn--mini btn--full ' + (1 == $opt_data$$77$$.$side$ ? "btn--positive" : "btn--negative") + ' btn-execution"><i class="icon-shopping-cart"></i>&nbsp;';
+  $output$$58$$ = 1 == $opt_data$$77$$.$side$ ? $output$$58$$ + "MUA" : $output$$58$$ + "B\u00c1N";
+  return $output$$58$$ + "</button></div>\x3c!-- /.layout__item --\x3e</div>\x3c!-- /.layout --\x3e</footer>\x3c!-- /.box__foot --\x3e</div>\x3c!-- /.box --\x3e</form>";
 }
 ;
-// Input 206
+// Input 207
 function $bitex$ui$AdvancedOrderEntry$$($opt_model$$1$$, $opt_domHelper$$36$$) {
   $goog$ui$Component$$.call(this, $opt_domHelper$$36$$);
   this.$setModel$($opt_model$$1$$ || {});
@@ -12006,7 +12036,7 @@ $JSCompiler_prototypeAlias$$.$setTotal$ = function $$JSCompiler_prototypeAlias$$
   var $el$$120$$ = $goog$dom$getElement$$($JSCompiler_StaticMethods_makeId$$(this, "order_entry_total"));
   $goog$dom$forms$setValue$$($el$$120$$, $fmt$$9$$.format($value$$279$$ / this.$factor_price_$));
 };
-// Input 207
+// Input 208
 function $bitex$view$OfferBookView$$($app$$9$$, $opt_domHelper$$37$$) {
   $bitex$view$View$$.call(this, $app$$9$$, $opt_domHelper$$37$$);
   this.$client_order_id$ = this.$order_id_$ = this.$market_data_subscription_symbol_$ = this.$market_data_subscription_id_$ = this.$locked_balance_display_$ = this.$order_book_offer_$ = this.$order_book_bid_$ = null;
@@ -12229,33 +12259,33 @@ $JSCompiler_prototypeAlias$$.$exitDocument$ = function $$JSCompiler_prototypeAli
   $bitex$view$OfferBookView$$.$superClass_$.$exitDocument$.call(this);
   $JSCompiler_StaticMethods_destroyOrderBookComponents_$$(this);
 };
-// Input 208
-function $bitex$ui$CardDataEntry$templates$CardDataEntry$$($opt_data$$76$$) {
-  var $output$$57$$;
-  $output$$57$$ = "" + ('<form  id="' + $soy$$0$0escapeHtml$$($opt_data$$76$$.id) + '_form" class="api-key-data-entry-form"><fieldset><h2>Create Card</h2><div class="api-key-data-entry-form-block control-group"><label>Card Label<input id="' + $soy$$0$0escapeHtml$$($opt_data$$76$$.id) + '_label" type="text" class="input-block-level"></label></div><div class="api-key-data-entry-form-block"><div class="control-group"><h3>Your Card</h3><label for="">Metodo de pagamento</label><select id="' + $soy$$0$0escapeHtml$$($opt_data$$76$$.id) + 
+// Input 209
+function $bitex$ui$CardDataEntry$templates$CardDataEntry$$($opt_data$$78$$) {
+  var $output$$59$$;
+  $output$$59$$ = "" + ('<form  id="' + $soy$$0$0escapeHtml$$($opt_data$$78$$.id) + '_form" class="api-key-data-entry-form"><fieldset><h2>Create Card</h2><div class="api-key-data-entry-form-block control-group"><label>Card Label<input id="' + $soy$$0$0escapeHtml$$($opt_data$$78$$.id) + '_label" type="text" class="input-block-level"></label></div><div class="api-key-data-entry-form-block"><div class="control-group"><h3>Your Card</h3><label for="">Metodo de pagamento</label><select id="' + $soy$$0$0escapeHtml$$($opt_data$$78$$.id) + 
   '_method" name="Method" class="withdraw-method-selector">');
-  for (var $methodList13_methodList33$$ = $opt_data$$76$$.methods, $methodListLen13_methodListLen33$$ = $methodList13_methodList33$$.length, $methodIndex13_methodIndex33$$ = 0;$methodIndex13_methodIndex33$$ < $methodListLen13_methodListLen33$$;$methodIndex13_methodIndex33$$++) {
+  for (var $methodList13_methodList33$$ = $opt_data$$78$$.methods, $methodListLen13_methodListLen33$$ = $methodList13_methodList33$$.length, $methodIndex13_methodIndex33$$ = 0;$methodIndex13_methodIndex33$$ < $methodListLen13_methodListLen33$$;$methodIndex13_methodIndex33$$++) {
     var $fieldList41_methodData13_methodData33$$ = $methodList13_methodList33$$[$methodIndex13_methodIndex33$$];
-    $output$$57$$ += '<option value="' + $soy$$0$0escapeHtml$$($fieldList41_methodData13_methodData33$$.method) + '" data-net-value="' + $soy$$0$0escapeHtml$$($opt_data$$76$$.id) + "_method_" + $soy$$0$0escapeHtml$$($fieldList41_methodData13_methodData33$$.method) + '_net_value" data-percent-fee="' + $soy$$0$0escapeHtml$$($opt_data$$76$$.id) + "_method_" + $soy$$0$0escapeHtml$$($fieldList41_methodData13_methodData33$$.method) + '_percent_fee" data-fixed-fee="' + $soy$$0$0escapeHtml$$($opt_data$$76$$.id) + 
+    $output$$59$$ += '<option value="' + $soy$$0$0escapeHtml$$($fieldList41_methodData13_methodData33$$.method) + '" data-net-value="' + $soy$$0$0escapeHtml$$($opt_data$$78$$.id) + "_method_" + $soy$$0$0escapeHtml$$($fieldList41_methodData13_methodData33$$.method) + '_net_value" data-percent-fee="' + $soy$$0$0escapeHtml$$($opt_data$$78$$.id) + "_method_" + $soy$$0$0escapeHtml$$($fieldList41_methodData13_methodData33$$.method) + '_percent_fee" data-fixed-fee="' + $soy$$0$0escapeHtml$$($opt_data$$78$$.id) + 
     "_method_" + $soy$$0$0escapeHtml$$($fieldList41_methodData13_methodData33$$.method) + '_fixed_fee">' + $soy$$0$0escapeHtml$$($fieldList41_methodData13_methodData33$$.description) + "</option>";
   }
-  $output$$57$$ += '</select></div><div class="card-methods">';
-  $methodList13_methodList33$$ = $opt_data$$76$$.methods;
+  $output$$59$$ += '</select></div><div class="card-methods">';
+  $methodList13_methodList33$$ = $opt_data$$78$$.methods;
   $methodListLen13_methodListLen33$$ = $methodList13_methodList33$$.length;
   for ($methodIndex13_methodIndex33$$ = 0;$methodIndex13_methodIndex33$$ < $methodListLen13_methodListLen33$$;$methodIndex13_methodIndex33$$++) {
     $fieldList41_methodData13_methodData33$$ = $methodList13_methodList33$$[$methodIndex13_methodIndex33$$];
-    $output$$57$$ += '<div class="withdraw-method" data-withdraw-method="' + $soy$$0$0escapeHtml$$($fieldList41_methodData13_methodData33$$.method) + '" style="' + (1 < $opt_data$$76$$.methods.length ? "display:none;" : "") + '">';
+    $output$$59$$ += '<div class="withdraw-method" data-withdraw-method="' + $soy$$0$0escapeHtml$$($fieldList41_methodData13_methodData33$$.method) + '" style="' + (1 < $opt_data$$78$$.methods.length ? "display:none;" : "") + '">';
     for (var $fieldList41_methodData13_methodData33$$ = $fieldList41_methodData13_methodData33$$.fields, $fieldListLen41$$ = $fieldList41_methodData13_methodData33$$.length, $fieldIndex41$$ = 0;$fieldIndex41$$ < $fieldListLen41$$;$fieldIndex41$$++) {
       var $fieldData41$$ = $fieldList41_methodData13_methodData33$$[$fieldIndex41$$];
-      $output$$57$$ += "client" == $fieldData41$$.side ? '<div class="control-group"><label class="control-label">' + $soy$$0$0escapeHtml$$($fieldData41$$.label) + '</label><div class="controls"><input class="withdraw-field" data-uniform-validators="' + ($fieldData41$$.required ? "required;" : "") + $soy$$0$0escapeHtml$$($fieldData41$$.validator) + '" type="' + $soy$$0$0escapeHtml$$($fieldData41$$.type) + '" name="' + $soy$$0$0escapeHtml$$($fieldData41$$.name) + '" label="' + $soy$$0$0escapeHtml$$($fieldData41$$.placeholder) + 
+      $output$$59$$ += "client" == $fieldData41$$.side ? '<div class="control-group"><label class="control-label">' + $soy$$0$0escapeHtml$$($fieldData41$$.label) + '</label><div class="controls"><input class="withdraw-field" data-uniform-validators="' + ($fieldData41$$.required ? "required;" : "") + $soy$$0$0escapeHtml$$($fieldData41$$.validator) + '" type="' + $soy$$0$0escapeHtml$$($fieldData41$$.type) + '" name="' + $soy$$0$0escapeHtml$$($fieldData41$$.name) + '" label="' + $soy$$0$0escapeHtml$$($fieldData41$$.placeholder) + 
       '" value="' + $soy$$0$0escapeHtml$$($fieldData41$$.value) + '"' + (0 != $methodIndex13_methodIndex33$$ ? "disabled" : "") + " /></div></div>" : "";
     }
-    $output$$57$$ += "</div>";
+    $output$$59$$ += "</div>";
   }
-  return $output$$57$$ += '</div></div><div class="api-key-data-entry-form-block"><div class="control-group"><label class="control-label" for="">Card ID</label><div class="controls"><input type="text" class=\'' + $soy$$0$0escapeHtml$$($opt_data$$76$$.id) + '_card_id input-block-level\'></div></div></div><div class="text-center"><button id="' + $soy$$0$0escapeHtml$$($opt_data$$76$$.id) + '_cancel_btn" class="btn">Cancel</button><button id="' + $soy$$0$0escapeHtml$$($opt_data$$76$$.id) + '_create_btn" type="submit" class="btn btn-primary">Create</button></div></fieldset></form>';
+  return $output$$59$$ += '</div></div><div class="api-key-data-entry-form-block"><div class="control-group"><label class="control-label" for="">Card ID</label><div class="controls"><input type="text" class=\'' + $soy$$0$0escapeHtml$$($opt_data$$78$$.id) + '_card_id input-block-level\'></div></div></div><div class="text-center"><button id="' + $soy$$0$0escapeHtml$$($opt_data$$78$$.id) + '_cancel_btn" class="btn">Cancel</button><button id="' + $soy$$0$0escapeHtml$$($opt_data$$78$$.id) + '_create_btn" type="submit" class="btn btn-primary">Create</button></div></fieldset></form>';
 }
 ;
-// Input 209
+// Input 210
 function $bitex$ui$CardDataEntry$$($opt_model$$2$$, $opt_domHelper$$38$$) {
   $goog$ui$Component$$.call(this, $opt_domHelper$$38$$);
   this.$setModel$($opt_model$$2$$ || {methods:[]});
@@ -12294,7 +12324,7 @@ $JSCompiler_prototypeAlias$$.$onSubmit_$ = function $$JSCompiler_prototypeAlias$
 };
 $JSCompiler_prototypeAlias$$.$onSelectMethod_$ = function $$JSCompiler_prototypeAlias$$$$onSelectMethod_$$() {
 };
-// Input 210
+// Input 211
 function $bitex$ui$CardList$$($opt_domHelper$$39$$) {
   $bitex$ui$DataGrid$$.call(this, {rowIDFn:this.$getRowId$, rowClassFn:this.$getRowClass$, columns:[{property:"LastUsed", label:"Last Used", sortable:!1, formatter:function($s$$52$$) {
     return $bitex$util$convertServerUTCDateTimeStrToTimestamp$$($s$$52$$.substr(0, 10), $s$$52$$.substr(11)).toLocaleString();
@@ -12327,7 +12357,7 @@ $bitex$ui$CardList$$.prototype.$getRowId$ = function $$bitex$ui$CardList$$$$$get
 $goog$ui$registry$setDecoratorByClassName$$($bitex$ui$CardList$CSS_CLASS$$, function() {
   return new $bitex$ui$CardList$$;
 });
-// Input 211
+// Input 212
 function $bitex$view$CardView$$($app$$10$$, $opt_domHelper$$40$$) {
   $bitex$view$View$$.call(this, $app$$10$$, $opt_domHelper$$40$$);
 }
@@ -12411,25 +12441,25 @@ $JSCompiler_prototypeAlias$$.$onApiListRequestData_$ = function $$JSCompiler_pro
 $JSCompiler_prototypeAlias$$.$onApiKeyListResponse_$ = function $$JSCompiler_prototypeAlias$$$$onApiKeyListResponse_$$($e$$232_msg$$37$$) {
   null != this.$card_list_$ && ($e$$232_msg$$37$$ = $e$$232_msg$$37$$.data, $JSCompiler_StaticMethods_setResultSet$$(this.$card_list_$, $e$$232_msg$$37$$.ApiKeyListGrp, $e$$232_msg$$37$$.Columns));
 };
-// Input 212
-function $bitex$ui$withdraw_methods$templates$WithdrawMethods$$($currList62_opt_data$$77$$) {
-  var $output$$58$$;
-  $output$$58$$ = "" + ('<table id="' + $soy$$0$0escapeHtml$$($currList62_opt_data$$77$$.id) + '_table" class="profile-table table"><thead><tr><th> Ti\u1ec1n t\u1ec7</th><th> T\u00ean</th><th> Ghi ch\u00fa </th><th> Ph\u00ed</th><th> C\u00e1c h\u00e0nh \u0111\u1ed9ng </th></tr></thead><tbody>');
-  for (var $currListLen62_methodList21$$ = $currList62_opt_data$$77$$.methods, $currIndex62_methodListLen21$$ = $currListLen62_methodList21$$.length, $currData62_methodIndex21$$ = 0;$currData62_methodIndex21$$ < $currIndex62_methodListLen21$$;$currData62_methodIndex21$$++) {
+// Input 213
+function $bitex$ui$withdraw_methods$templates$WithdrawMethods$$($currList62_opt_data$$79$$) {
+  var $output$$60$$;
+  $output$$60$$ = "" + ('<table id="' + $soy$$0$0escapeHtml$$($currList62_opt_data$$79$$.id) + '_table" class="profile-table table"><thead><tr><th> Ti\u1ec1n t\u1ec7</th><th> T\u00ean</th><th> Ghi ch\u00fa </th><th> Ph\u00ed</th><th> C\u00e1c h\u00e0nh \u0111\u1ed9ng </th></tr></thead><tbody>');
+  for (var $currListLen62_methodList21$$ = $currList62_opt_data$$79$$.methods, $currIndex62_methodListLen21$$ = $currListLen62_methodList21$$.length, $currData62_methodIndex21$$ = 0;$currData62_methodIndex21$$ < $currIndex62_methodListLen21$$;$currData62_methodIndex21$$++) {
     var $methodData21$$ = $currListLen62_methodList21$$[$currData62_methodIndex21$$];
-    $output$$58$$ += '<tr data-withdraw-currency="' + $soy$$0$0escapeHtml$$($methodData21$$.currency) + '"  data-withdraw-method="' + $soy$$0$0escapeHtml$$($methodData21$$.method) + '"><td>' + $soy$$0$0escapeHtml$$($methodData21$$.currency_description) + "</td><td>" + $soy$$0$0escapeHtml$$($methodData21$$.description) + "</td><td>" + $soy$$0$0escapeHtml$$($methodData21$$.disclaimer) + "</td>" + ($methodData21$$.has_fixed_fee ? "<td>" + $soy$$0$0escapeHtml$$($methodData21$$.formatted_percent_fee) + 
+    $output$$60$$ += '<tr data-withdraw-currency="' + $soy$$0$0escapeHtml$$($methodData21$$.currency) + '"  data-withdraw-method="' + $soy$$0$0escapeHtml$$($methodData21$$.method) + '"><td>' + $soy$$0$0escapeHtml$$($methodData21$$.currency_description) + "</td><td>" + $soy$$0$0escapeHtml$$($methodData21$$.description) + "</td><td>" + $soy$$0$0escapeHtml$$($methodData21$$.disclaimer) + "</td>" + ($methodData21$$.has_fixed_fee ? "<td>" + $soy$$0$0escapeHtml$$($methodData21$$.formatted_percent_fee) + 
     "% + " + $soy$$0$0escapeHtml$$($methodData21$$.formatted_fixed_fee) + "</td>" : "<td>" + $soy$$0$0escapeHtml$$($methodData21$$.formatted_percent_fee) + "%</td>") + '<td><div class="btn-group"><button class="btn btn-mini btn-success withdraw-methods-action-edit withdraw-method-action">\u0111i\u1ec1u ch\u1ec9nh</button><button class="btn btn-mini btn-danger withdraw-methods-action-delete withdraw-method-action">x\u00f3a</button></div></td></tr>';
   }
-  $output$$58$$ += '</tbody></table><div class="withdraw-methods-show-when-dirty-state"><button class="btn btn--positive withdraw-methods-action-save">L\u01b0u</button><button class="btn btn--negative withdraw-methods-action-cancel">\u0110\u00f3ng</button></div><div class="withdraw-methods-show-when-clean-state"><a class="btn btn--primary dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-white icon-plus"></i> Th\u00eam ph\u01b0\u01a1ng th\u1ee9c r\u00fat ti\u1ec1n</a><ul class="dropdown-menu">';
-  $currList62_opt_data$$77$$ = $currList62_opt_data$$77$$.$currencies$;
-  $currListLen62_methodList21$$ = $currList62_opt_data$$77$$.length;
+  $output$$60$$ += '</tbody></table><div class="withdraw-methods-show-when-dirty-state"><button class="btn btn--positive withdraw-methods-action-save">L\u01b0u</button><button class="btn btn--negative withdraw-methods-action-cancel">\u0110\u00f3ng</button></div><div class="withdraw-methods-show-when-clean-state"><a class="btn btn--primary dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-white icon-plus"></i> Th\u00eam ph\u01b0\u01a1ng th\u1ee9c r\u00fat ti\u1ec1n</a><ul class="dropdown-menu">';
+  $currList62_opt_data$$79$$ = $currList62_opt_data$$79$$.$currencies$;
+  $currListLen62_methodList21$$ = $currList62_opt_data$$79$$.length;
   for ($currIndex62_methodListLen21$$ = 0;$currIndex62_methodListLen21$$ < $currListLen62_methodList21$$;$currIndex62_methodListLen21$$++) {
-    $currData62_methodIndex21$$ = $currList62_opt_data$$77$$[$currIndex62_methodListLen21$$], $output$$58$$ += '<li><a href="" data-withdraw-currency="' + $soy$$0$0escapeHtml$$($currData62_methodIndex21$$.code) + '" class="withdraw-methods-action-add withdraw-method-action" >' + $soy$$0$0escapeHtml$$($currData62_methodIndex21$$.description) + "</a></li>";
+    $currData62_methodIndex21$$ = $currList62_opt_data$$79$$[$currIndex62_methodListLen21$$], $output$$60$$ += '<li><a href="" data-withdraw-currency="' + $soy$$0$0escapeHtml$$($currData62_methodIndex21$$.code) + '" class="withdraw-methods-action-add withdraw-method-action" >' + $soy$$0$0escapeHtml$$($currData62_methodIndex21$$.description) + "</a></li>";
   }
-  return $output$$58$$ + '</ul></div><div class="withdraw-methods-show-when-saving-state"><div class="progress progress-success progress-striped active"><div class="bar" style="width: 100%">\u0110ang l\u01b0u tr\u1eef...</div></div></div>';
+  return $output$$60$$ + '</ul></div><div class="withdraw-methods-show-when-saving-state"><div class="progress progress-success progress-striped active"><div class="bar" style="width: 100%">\u0110ang l\u01b0u tr\u1eef...</div></div></div>';
 }
 ;
-// Input 213
+// Input 214
 function $bitex$ui$WithdrawMethods$$($currencyFormatterFn$$, $currencyDescriptionFn$$, $opt_domHelper$$41$$) {
   $goog$ui$Component$$.call(this, $opt_domHelper$$41$$);
   this.$currency_formatter_function_$ = $currencyFormatterFn$$;
@@ -12560,93 +12590,93 @@ $JSCompiler_prototypeAlias$$.$onAddField_$ = function $$JSCompiler_prototypeAlia
     }, this);
   }
 };
-// Input 214
+// Input 215
 function $bitex$view$ProfileView$templates$ProfileViewChangePasswordPlaceHolder$$() {
   return'<div class="span6 well"></div>';
 }
-function $bitex$view$ProfileView$templates$AccountOverviewUser$$($opt_data$$80_output$$inline_1459$$) {
-  var $output$$60$$;
-  $output$$60$$ = "" + ('<table class="profile-table table"><tbody><tr><td><strong>ID</strong></td><td>' + $soy$$0$0escapeHtml$$($opt_data$$80_output$$inline_1459$$.$msg_customer_detail$.ID) + "</td></tr><tr><td><strong>T\u00ean \u0111\u0103ng nh\u1eadp</strong></td><td>" + $soy$$0$0escapeHtml$$($opt_data$$80_output$$inline_1459$$.$msg_customer_detail$.Username) + "</td></tr><tr><td><strong>Email</strong></td><td>" + $soy$$0$0escapeHtml$$($opt_data$$80_output$$inline_1459$$.$msg_customer_detail$.Email) + 
-  "</td></tr><tr><td><strong>T\u1ec9nh/Th\u00e0nh Ph\u1ed1</strong></td><td>" + $soy$$0$0escapeHtml$$($opt_data$$80_output$$inline_1459$$.$msg_customer_detail$.State) + "</td></tr><tr><td><strong>Qu\u1ed1c Gia</strong></td><td>" + $soy$$0$0escapeHtml$$($opt_data$$80_output$$inline_1459$$.$msg_customer_detail$.CountryCode) + '</td></tr><tr><td><strong>\u0110\u01b0\u1ee3c x\u00e1c minh</strong></td><td class="account-overview-val account-overview-verified">');
-  switch($opt_data$$80_output$$inline_1459$$.$msg_customer_detail$.Verified) {
+function $bitex$view$ProfileView$templates$AccountOverviewUser$$($opt_data$$82_output$$inline_1459$$) {
+  var $output$$62$$;
+  $output$$62$$ = "" + ('<table class="profile-table table"><tbody><tr><td><strong>ID</strong></td><td>' + $soy$$0$0escapeHtml$$($opt_data$$82_output$$inline_1459$$.$msg_customer_detail$.ID) + "</td></tr><tr><td><strong>T\u00ean \u0111\u0103ng nh\u1eadp</strong></td><td>" + $soy$$0$0escapeHtml$$($opt_data$$82_output$$inline_1459$$.$msg_customer_detail$.Username) + "</td></tr><tr><td><strong>Email</strong></td><td>" + $soy$$0$0escapeHtml$$($opt_data$$82_output$$inline_1459$$.$msg_customer_detail$.Email) + 
+  "</td></tr><tr><td><strong>T\u1ec9nh/Th\u00e0nh Ph\u1ed1</strong></td><td>" + $soy$$0$0escapeHtml$$($opt_data$$82_output$$inline_1459$$.$msg_customer_detail$.State) + "</td></tr><tr><td><strong>Qu\u1ed1c Gia</strong></td><td>" + $soy$$0$0escapeHtml$$($opt_data$$82_output$$inline_1459$$.$msg_customer_detail$.CountryCode) + '</td></tr><tr><td><strong>\u0110\u01b0\u1ee3c x\u00e1c minh</strong></td><td class="account-overview-val account-overview-verified">');
+  switch($opt_data$$82_output$$inline_1459$$.$msg_customer_detail$.Verified) {
     case 0:
-      $output$$60$$ += '<span class="label label-important">Kh\u00f4ng</span>';
+      $output$$62$$ += '<span class="label label-important">Kh\u00f4ng</span>';
       break;
     case 1:
-      $output$$60$$ += '<span class="label label-important">\u0110ang ch\u1edd</span>';
+      $output$$62$$ += '<span class="label label-important">\u0110ang ch\u1edd</span>';
       break;
     case 2:
-      $output$$60$$ += '<span class="label label-important">X\u1eed l\u00fd</span>';
+      $output$$62$$ += '<span class="label label-important">X\u1eed l\u00fd</span>';
       break;
     case 3:
-      $output$$60$$ += '<span class="label label-success">C\u00f3</span>';
+      $output$$62$$ += '<span class="label label-success">C\u00f3</span>';
       break;
     case 4:
-      $output$$60$$ += '<span class="label label-success">C\u00f3 - M\u1ee9c II</span>';
+      $output$$62$$ += '<span class="label label-success">C\u00f3 - M\u1ee9c II</span>';
       break;
     case 5:
-      $output$$60$$ += '<span class="label label-success">C\u00f3 - M\u1ee9c III</span>';
+      $output$$62$$ += '<span class="label label-success">C\u00f3 - M\u1ee9c III</span>';
   }
-  $opt_data$$80_output$$inline_1459$$ = "" + ('<select id="id_select_new_email_language" data-profile-change="EmailLang" ><option value="en" ' + ("en" == $opt_data$$80_output$$inline_1459$$.$msg_customer_detail$.EmailLang ? "selected" : "") + '>English</option><option value="pt_BR" ' + ("pt_BR" == $opt_data$$80_output$$inline_1459$$.$msg_customer_detail$.EmailLang ? "selected" : "") + '>Portugu\u00eas</option><option value="es" ' + ("es" == $opt_data$$80_output$$inline_1459$$.$msg_customer_detail$.EmailLang ? 
-  "selected" : "") + '>Espa\u00f1ol</option><option value="vi" ' + ("vi" == $opt_data$$80_output$$inline_1459$$.$msg_customer_detail$.EmailLang ? "selected" : "") + ">Ti\u1ebfng Vi\u1ec7t</option></select>");
-  return $output$$60$$ + ("</td></tr><tr><td><strong>Ng\u00f4n ng\u1eef cho email</strong></td><td>" + $opt_data$$80_output$$inline_1459$$ + "</td></tr></tbody></table>");
-}
-;
-// Input 215
-function $bitex$ui$withdraw_method_editor$templates$WithdrawMethodFieldLineEditor$$($opt_data$$81_output$$61$$) {
-  return $opt_data$$81_output$$61$$ = "" + ('<tr id="' + $soy$$0$0escapeHtml$$($opt_data$$81_output$$61$$.id) + "_field_" + $soy$$0$0escapeHtml$$($opt_data$$81_output$$61$$.$idx$) + '"><td><select id="' + $soy$$0$0escapeHtml$$($opt_data$$81_output$$61$$.id) + "_field_side_" + $soy$$0$0escapeHtml$$($opt_data$$81_output$$61$$.$idx$) + '" class="withdraw-method-editor-field-side"><option value="client" ' + ("client" == $opt_data$$81_output$$61$$.data.side ? "selected" : "") + '>Kh\u00e1ch h\u00e0ng</option><option value="broker" ' + 
-  ("broker" == $opt_data$$81_output$$61$$.data.side ? "selected" : "") + '>Ng\u01b0\u1eddi m\u00f4i gi\u1edbi</option></select></td><td><input id="' + $soy$$0$0escapeHtml$$($opt_data$$81_output$$61$$.id) + "_field_name_" + $soy$$0$0escapeHtml$$($opt_data$$81_output$$61$$.$idx$) + '" type="text" class="input-block-level withdraw-method-editor-field-name"  data-uniform-label="T\u00ean" data-uniform-filters="non_space"  data-uniform-validators="required ; validatePhrase"  placeholder="" required value="' + 
-  $soy$$0$0escapeHtml$$($opt_data$$81_output$$61$$.data.name) + '"></td><td><input id="' + $soy$$0$0escapeHtml$$($opt_data$$81_output$$61$$.id) + "_field_label_" + $soy$$0$0escapeHtml$$($opt_data$$81_output$$61$$.$idx$) + '" type="text" class="input-block-level withdraw-method-editor-field-label"  data-uniform-label="Nh\u00e3n"  data-uniform-validators="required" placeholder="" required value="' + $soy$$0$0escapeHtml$$($opt_data$$81_output$$61$$.data.label) + '"></td><td><input id="' + $soy$$0$0escapeHtml$$($opt_data$$81_output$$61$$.id) + 
-  "_field_placeholder_" + $soy$$0$0escapeHtml$$($opt_data$$81_output$$61$$.$idx$) + '" type="text" class="input-block-level withdraw-method-editor-field-placeholder" placeholder="" value="' + $soy$$0$0escapeHtml$$($opt_data$$81_output$$61$$.data.placeholder) + '"></td><td><select id="' + $soy$$0$0escapeHtml$$($opt_data$$81_output$$61$$.id) + "_field_type_" + $soy$$0$0escapeHtml$$($opt_data$$81_output$$61$$.$idx$) + '" class="withdraw-method-editor-field-type"><option value="text" ' + ("text" == $opt_data$$81_output$$61$$.data.type ? 
-  "selected" : "") + '>V\u0103n b\u1ea3n</option></select></td><td><select id="' + $soy$$0$0escapeHtml$$($opt_data$$81_output$$61$$.id) + "_field_validator_" + $soy$$0$0escapeHtml$$($opt_data$$81_output$$61$$.$idx$) + '" class="withdraw-method-editor-field-validator"><option value="required" ' + ("required" == $opt_data$$81_output$$61$$.data.validator ? "selected" : "") + ' >Required</option><option value="validateEmail" ' + ("validateEmail" == $opt_data$$81_output$$61$$.data.validator ? "selected" : 
-  "") + ' >Email</option><option value="validateNumber" ' + ("validateNumber" == $opt_data$$81_output$$61$$.data.validator ? "selected" : "") + ' >Number</option><option value="validateInteger" ' + ("validateInteger" == $opt_data$$81_output$$61$$.data.validator ? "selected" : "") + ' >Integer</option><option value="validateAlpha" ' + ("validateAlpha" == $opt_data$$81_output$$61$$.data.validator ? "selected" : "") + ' >Alpha</option><option value="validateUsername" ' + ("validateUsername" == $opt_data$$81_output$$61$$.data.validator ? 
-  "selected" : "") + ' >Username</option><option value="validateAlphaNum" ' + ("validateAlphaNum" == $opt_data$$81_output$$61$$.data.validator ? "selected" : "") + ' >Alpha Numeric</option><option value="validatePhrase" ' + ("validatePhrase" == $opt_data$$81_output$$61$$.data.validator ? "selected" : "") + ' >Phrase</option><option value="validatePhoneNumber" ' + ("validatePhoneNumber" == $opt_data$$81_output$$61$$.data.validator ? "selected" : "") + ' >Phone Number</option><option value="validateAddress" ' + 
-  ("validateAddress" == $opt_data$$81_output$$61$$.data.validator ? "selected" : "") + '  >BTC Address</option><option value="validateCPFCNPJ" ' + ("validateCPFCNPJ" == $opt_data$$81_output$$61$$.data.validator ? "selected" : "") + '  >CPF/CNPJ</option></select></td><td><input id="' + $soy$$0$0escapeHtml$$($opt_data$$81_output$$61$$.id) + "_field_value_" + $soy$$0$0escapeHtml$$($opt_data$$81_output$$61$$.$idx$) + '" type="text" class="input-block-level withdraw-method-editor-field-value" placeholder="" value="' + 
-  $soy$$0$0escapeHtml$$($opt_data$$81_output$$61$$.data.value) + '"></td><td><button id="' + $soy$$0$0escapeHtml$$($opt_data$$81_output$$61$$.id) + "_field_delete_" + $soy$$0$0escapeHtml$$($opt_data$$81_output$$61$$.$idx$) + '" data-index="' + $soy$$0$0escapeHtml$$($opt_data$$81_output$$61$$.$idx$) + '" class="btn btn-mini btn-danger withdraw-method-editor-field-action-delete withdraw-method-editor-field-action">x\u00f3a</button></td></tr>');
-}
-function $bitex$ui$withdraw_method_editor$templates$WithdrawMethodEditor$$($opt_data$$82$$) {
-  var $output$$62$$;
-  $output$$62$$ = "" + ('<div class="row-fluid"><div class="span12"><form id="' + $soy$$0$0escapeHtml$$($opt_data$$82$$.id) + '" class="form-horizontal span6"  data-uniform-control-holder-class="control-group"><fieldset><div class="control-group"><label class="control-label">T\u00ean ph\u01b0\u01a1ng th\u1ee9c</label><div class="controls"><input id="' + $soy$$0$0escapeHtml$$($opt_data$$82$$.id) + '_name"  type="text" class="input-block-level"  data-uniform-validators="required; validateAlphaNum" data-uniform-filters="non_space" placeholder="" required value="' + 
-  $soy$$0$0escapeHtml$$($opt_data$$82$$.$model$.method) + '"></div></div><div class="control-group"><label class="control-label">Mi\u00eau t\u1ea3</label><div class="controls"><input id="' + $soy$$0$0escapeHtml$$($opt_data$$82$$.id) + '_description"  type="text" class="input-block-level" data-uniform-validators="required" placeholder="" required value="' + $soy$$0$0escapeHtml$$($opt_data$$82$$.$model$.description) + '"></div></div><div class="control-group"><label class="control-label">Ghi ch\u00fa</label><div class="controls"><input id="' + 
-  $soy$$0$0escapeHtml$$($opt_data$$82$$.id) + '_placeholder"  type="text" class="input-block-level" placeholder="" value="' + $soy$$0$0escapeHtml$$($opt_data$$82$$.$model$.disclaimer) + '"></div></div><div class="control-group"><label class="control-label">Ph\u00ed</label><div class="controls"><div class="row-fluid"><div class="span6"><div class="input-append"><input id="' + $soy$$0$0escapeHtml$$($opt_data$$82$$.id) + '_percent_fee" type="text" class="input-block-level" autocomplete="off" maxlength="4" data-uniform-validators="required ; validateNumber; validateMin 0; validateMax 25" label="Ph\u1ea7n tr\u0103m ph\u00ed" required value="' + 
-  $soy$$0$0escapeHtml$$($opt_data$$82$$.$model$.percent_fee) + '"><span class="add-on">%</span></div></div><div class="span6"><div class="input-prepend"><span class="add-on">' + $soy$$0$0escapeHtml$$($opt_data$$82$$.$model$.currency) + '</span><input id="' + $soy$$0$0escapeHtml$$($opt_data$$82$$.id) + '_fixed_fee" type="text" class="input-block-level" autocomplete="off" data-uniform-validators="required ; validateNumber; validateMin 0" label="Ph\u00ed c\u1ed1 \u0111\u1ecbnh" required value="' + $soy$$0$0escapeHtml$$($opt_data$$82$$.$model$.fixed_fee) + 
-  '"></div></div></div></div></div><div class="control-group"><table id="' + $soy$$0$0escapeHtml$$($opt_data$$82$$.id) + '_table" class="table table-condensed table-bordered table-hover"><thead><tr><td colspan="7" style="text-align: center">Tr\u01b0\u1eddng tu\u1ef3 bi\u1ebfn</td></tr><tr><th> Ph\u00eda</th><th> T\u00ean </th><th> Nh\u00e3n </th><th> Ph\u1ea7n gi\u1eef ch\u1ed7 </th><th> Lo\u1ea1i </th><th> Ki\u1ec3u d\u1eef li\u1ec7u </th><th> Gi\u00e1 tr\u1ecb </th><th> C\u00e1c h\u00e0nh \u0111\u1ed9ng </th></tr></thead><tbody>');
-  for (var $fieldList197_level226$$ = $opt_data$$82$$.$model$.fields, $fieldListLen197$$ = $fieldList197_level226$$.length, $fieldIndex197$$ = 0;$fieldIndex197$$ < $fieldListLen197$$;$fieldIndex197$$++) {
-    $output$$62$$ += $bitex$ui$withdraw_method_editor$templates$WithdrawMethodFieldLineEditor$$({id:$opt_data$$82$$.id, $idx$:$fieldIndex197$$, data:$fieldList197_level226$$[$fieldIndex197$$]});
-  }
-  $output$$62$$ += '</tbody></table><button id="' + $soy$$0$0escapeHtml$$($opt_data$$82$$.id) + '_add" class="btn btn-primary"><i class="icon-white icon-plus"></i> Th\u00eam tr\u01b0\u1eddng</button></div><div class="control-group"><table id="' + $soy$$0$0escapeHtml$$($opt_data$$82$$.id) + '_limits" class="table table-condensed table-bordered table-hover"><thead><tr><td colspan="4" style="text-align: center">C\u00e1c gi\u1edbi h\u1ea1n</td></tr><tr><th>C\u1ea5p \u0111\u1ed9 x\u00e1c minh</th><th>\u0110\u00e3 b\u1eadt</th><th>Th\u1ea5p nh\u1ea5t</th><th>Cao nh\u1ea5t</th></tr></thead><tbody>';
-  for ($fieldList197_level226$$ = 0;6 > $fieldList197_level226$$;$fieldList197_level226$$++) {
-    $output$$62$$ += "<tr>";
-    switch($fieldList197_level226$$) {
-      case 0:
-        $output$$62$$ += "<td>Ch\u01b0a x\u00e1c minh</td>";
-        break;
-      case 1:
-        $output$$62$$ += "<td>\u0110ang ch\u1edd</td>";
-        break;
-      case 2:
-        $output$$62$$ += "<td>X\u1eed l\u00fd</td>";
-        break;
-      case 3:
-        $output$$62$$ += "<td>\u0110\u00e3 x\u00e1c minh - C\u1ea5p I</td>";
-        break;
-      case 4:
-        $output$$62$$ += "<td>\u0110\u00e3 x\u00e1c minh - C\u1ea5p II</td>";
-        break;
-      case 5:
-        $output$$62$$ += "<td>\u0110\u00e3 x\u00e1c minh - C\u1ea5p III</td>";
-    }
-    $output$$62$$ += '<td><input id="' + $soy$$0$0escapeHtml$$($opt_data$$82$$.id) + "_level_" + $soy$$0$0escapeHtml$$($fieldList197_level226$$) + '_enabled" type="checkbox" class="withdraw-method-editor-limit-enabled"' + ($opt_data$$82$$.$model$.limits && $opt_data$$82$$.$model$.limits[$fieldList197_level226$$] && $opt_data$$82$$.$model$.limits[$fieldList197_level226$$].enabled ? "checked" : "") + '/></td><td><input id="' + $soy$$0$0escapeHtml$$($opt_data$$82$$.id) + "_level_" + $soy$$0$0escapeHtml$$($fieldList197_level226$$) + 
-    '_min" name="min_' + $soy$$0$0escapeHtml$$($fieldList197_level226$$) + '" type="text" autocomplete="off" class="input-small withdraw-method-editor-limit-max" data-uniform-label="Th\u1ea5p nh\u1ea5t" data-uniform-validators="validateNumber; validateMin 0" data-uniform-meta="display If ' + $soy$$0$0escapeHtml$$($opt_data$$82$$.id) + "_level_" + $soy$$0$0escapeHtml$$($fieldList197_level226$$) + "_enabled == 'on'; enable If " + $soy$$0$0escapeHtml$$($opt_data$$82$$.id) + "_level_" + $soy$$0$0escapeHtml$$($fieldList197_level226$$) + 
-    "_enabled == 'on'\" value=\"" + ($opt_data$$82$$.$model$.limits && $opt_data$$82$$.$model$.limits[$fieldList197_level226$$] && $opt_data$$82$$.$model$.limits[$fieldList197_level226$$].min ? $soy$$0$0escapeHtml$$($opt_data$$82$$.$model$.limits[$fieldList197_level226$$].min) : "0") + '"' + ($opt_data$$82$$.$model$.limits && $opt_data$$82$$.$model$.limits[$fieldList197_level226$$] && !$opt_data$$82$$.$model$.limits[$fieldList197_level226$$].enabled ? 'style="display: none;" disabled' : "") + '/></td><td><input id="' + 
-    $soy$$0$0escapeHtml$$($opt_data$$82$$.id) + "_level_" + $soy$$0$0escapeHtml$$($fieldList197_level226$$) + '_max" name="max_' + $soy$$0$0escapeHtml$$($fieldList197_level226$$) + '" type="text" autocomplete="off" class="input-small withdraw-method-editor-limit-max" data-uniform-label="Cao nh\u1ea5t" data-uniform-validators="validateNumber" data-uniform-meta="display If ' + $soy$$0$0escapeHtml$$($opt_data$$82$$.id) + "_level_" + $soy$$0$0escapeHtml$$($fieldList197_level226$$) + "_enabled == 'on'; enable If " + 
-    $soy$$0$0escapeHtml$$($opt_data$$82$$.id) + "_level_" + $soy$$0$0escapeHtml$$($fieldList197_level226$$) + '_enabled == \'on\'"" value="' + ($opt_data$$82$$.$model$.limits && $opt_data$$82$$.$model$.limits[$fieldList197_level226$$] && $opt_data$$82$$.$model$.limits[$fieldList197_level226$$].max ? $soy$$0$0escapeHtml$$($opt_data$$82$$.$model$.limits[$fieldList197_level226$$].max) : "") + '"' + ($opt_data$$82$$.$model$.limits && $opt_data$$82$$.$model$.limits[$fieldList197_level226$$] && !$opt_data$$82$$.$model$.limits[$fieldList197_level226$$].enabled ? 
-    'style="display: none;" disabled' : "") + "/></td></tr>";
-  }
-  return $output$$62$$ + "</tbody></table></div></fieldset></form></div></div>";
+  $opt_data$$82_output$$inline_1459$$ = "" + ('<select id="id_select_new_email_language" data-profile-change="EmailLang" ><option value="en" ' + ("en" == $opt_data$$82_output$$inline_1459$$.$msg_customer_detail$.EmailLang ? "selected" : "") + '>English</option><option value="pt_BR" ' + ("pt_BR" == $opt_data$$82_output$$inline_1459$$.$msg_customer_detail$.EmailLang ? "selected" : "") + '>Portugu\u00eas</option><option value="es" ' + ("es" == $opt_data$$82_output$$inline_1459$$.$msg_customer_detail$.EmailLang ? 
+  "selected" : "") + '>Espa\u00f1ol</option><option value="vi" ' + ("vi" == $opt_data$$82_output$$inline_1459$$.$msg_customer_detail$.EmailLang ? "selected" : "") + ">Ti\u1ebfng Vi\u1ec7t</option></select>");
+  return $output$$62$$ + ("</td></tr><tr><td><strong>Ng\u00f4n ng\u1eef cho email</strong></td><td>" + $opt_data$$82_output$$inline_1459$$ + "</td></tr></tbody></table>");
 }
 ;
 // Input 216
+function $bitex$ui$withdraw_method_editor$templates$WithdrawMethodFieldLineEditor$$($opt_data$$83_output$$63$$) {
+  return $opt_data$$83_output$$63$$ = "" + ('<tr id="' + $soy$$0$0escapeHtml$$($opt_data$$83_output$$63$$.id) + "_field_" + $soy$$0$0escapeHtml$$($opt_data$$83_output$$63$$.$idx$) + '"><td><select id="' + $soy$$0$0escapeHtml$$($opt_data$$83_output$$63$$.id) + "_field_side_" + $soy$$0$0escapeHtml$$($opt_data$$83_output$$63$$.$idx$) + '" class="withdraw-method-editor-field-side"><option value="client" ' + ("client" == $opt_data$$83_output$$63$$.data.side ? "selected" : "") + '>Kh\u00e1ch h\u00e0ng</option><option value="broker" ' + 
+  ("broker" == $opt_data$$83_output$$63$$.data.side ? "selected" : "") + '>Ng\u01b0\u1eddi m\u00f4i gi\u1edbi</option></select></td><td><input id="' + $soy$$0$0escapeHtml$$($opt_data$$83_output$$63$$.id) + "_field_name_" + $soy$$0$0escapeHtml$$($opt_data$$83_output$$63$$.$idx$) + '" type="text" class="input-block-level withdraw-method-editor-field-name"  data-uniform-label="T\u00ean" data-uniform-filters="non_space"  data-uniform-validators="required ; validatePhrase"  placeholder="" required value="' + 
+  $soy$$0$0escapeHtml$$($opt_data$$83_output$$63$$.data.name) + '"></td><td><input id="' + $soy$$0$0escapeHtml$$($opt_data$$83_output$$63$$.id) + "_field_label_" + $soy$$0$0escapeHtml$$($opt_data$$83_output$$63$$.$idx$) + '" type="text" class="input-block-level withdraw-method-editor-field-label"  data-uniform-label="Nh\u00e3n"  data-uniform-validators="required" placeholder="" required value="' + $soy$$0$0escapeHtml$$($opt_data$$83_output$$63$$.data.label) + '"></td><td><input id="' + $soy$$0$0escapeHtml$$($opt_data$$83_output$$63$$.id) + 
+  "_field_placeholder_" + $soy$$0$0escapeHtml$$($opt_data$$83_output$$63$$.$idx$) + '" type="text" class="input-block-level withdraw-method-editor-field-placeholder" placeholder="" value="' + $soy$$0$0escapeHtml$$($opt_data$$83_output$$63$$.data.placeholder) + '"></td><td><select id="' + $soy$$0$0escapeHtml$$($opt_data$$83_output$$63$$.id) + "_field_type_" + $soy$$0$0escapeHtml$$($opt_data$$83_output$$63$$.$idx$) + '" class="withdraw-method-editor-field-type"><option value="text" ' + ("text" == $opt_data$$83_output$$63$$.data.type ? 
+  "selected" : "") + '>V\u0103n b\u1ea3n</option></select></td><td><select id="' + $soy$$0$0escapeHtml$$($opt_data$$83_output$$63$$.id) + "_field_validator_" + $soy$$0$0escapeHtml$$($opt_data$$83_output$$63$$.$idx$) + '" class="withdraw-method-editor-field-validator"><option value="required" ' + ("required" == $opt_data$$83_output$$63$$.data.validator ? "selected" : "") + ' >Required</option><option value="validateEmail" ' + ("validateEmail" == $opt_data$$83_output$$63$$.data.validator ? "selected" : 
+  "") + ' >Email</option><option value="validateNumber" ' + ("validateNumber" == $opt_data$$83_output$$63$$.data.validator ? "selected" : "") + ' >Number</option><option value="validateInteger" ' + ("validateInteger" == $opt_data$$83_output$$63$$.data.validator ? "selected" : "") + ' >Integer</option><option value="validateAlpha" ' + ("validateAlpha" == $opt_data$$83_output$$63$$.data.validator ? "selected" : "") + ' >Alpha</option><option value="validateUsername" ' + ("validateUsername" == $opt_data$$83_output$$63$$.data.validator ? 
+  "selected" : "") + ' >Username</option><option value="validateAlphaNum" ' + ("validateAlphaNum" == $opt_data$$83_output$$63$$.data.validator ? "selected" : "") + ' >Alpha Numeric</option><option value="validatePhrase" ' + ("validatePhrase" == $opt_data$$83_output$$63$$.data.validator ? "selected" : "") + ' >Phrase</option><option value="validatePhoneNumber" ' + ("validatePhoneNumber" == $opt_data$$83_output$$63$$.data.validator ? "selected" : "") + ' >Phone Number</option><option value="validateAddress" ' + 
+  ("validateAddress" == $opt_data$$83_output$$63$$.data.validator ? "selected" : "") + '  >BTC Address</option><option value="validateCPFCNPJ" ' + ("validateCPFCNPJ" == $opt_data$$83_output$$63$$.data.validator ? "selected" : "") + '  >CPF/CNPJ</option></select></td><td><input id="' + $soy$$0$0escapeHtml$$($opt_data$$83_output$$63$$.id) + "_field_value_" + $soy$$0$0escapeHtml$$($opt_data$$83_output$$63$$.$idx$) + '" type="text" class="input-block-level withdraw-method-editor-field-value" placeholder="" value="' + 
+  $soy$$0$0escapeHtml$$($opt_data$$83_output$$63$$.data.value) + '"></td><td><button id="' + $soy$$0$0escapeHtml$$($opt_data$$83_output$$63$$.id) + "_field_delete_" + $soy$$0$0escapeHtml$$($opt_data$$83_output$$63$$.$idx$) + '" data-index="' + $soy$$0$0escapeHtml$$($opt_data$$83_output$$63$$.$idx$) + '" class="btn btn-mini btn-danger withdraw-method-editor-field-action-delete withdraw-method-editor-field-action">x\u00f3a</button></td></tr>');
+}
+function $bitex$ui$withdraw_method_editor$templates$WithdrawMethodEditor$$($opt_data$$84$$) {
+  var $output$$64$$;
+  $output$$64$$ = "" + ('<div class="row-fluid"><div class="span12"><form id="' + $soy$$0$0escapeHtml$$($opt_data$$84$$.id) + '" class="form-horizontal span6"  data-uniform-control-holder-class="control-group"><fieldset><div class="control-group"><label class="control-label">T\u00ean ph\u01b0\u01a1ng th\u1ee9c</label><div class="controls"><input id="' + $soy$$0$0escapeHtml$$($opt_data$$84$$.id) + '_name"  type="text" class="input-block-level"  data-uniform-validators="required; validateAlphaNum" data-uniform-filters="non_space" placeholder="" required value="' + 
+  $soy$$0$0escapeHtml$$($opt_data$$84$$.$model$.method) + '"></div></div><div class="control-group"><label class="control-label">Mi\u00eau t\u1ea3</label><div class="controls"><input id="' + $soy$$0$0escapeHtml$$($opt_data$$84$$.id) + '_description"  type="text" class="input-block-level" data-uniform-validators="required" placeholder="" required value="' + $soy$$0$0escapeHtml$$($opt_data$$84$$.$model$.description) + '"></div></div><div class="control-group"><label class="control-label">Ghi ch\u00fa</label><div class="controls"><input id="' + 
+  $soy$$0$0escapeHtml$$($opt_data$$84$$.id) + '_placeholder"  type="text" class="input-block-level" placeholder="" value="' + $soy$$0$0escapeHtml$$($opt_data$$84$$.$model$.disclaimer) + '"></div></div><div class="control-group"><label class="control-label">Ph\u00ed</label><div class="controls"><div class="row-fluid"><div class="span6"><div class="input-append"><input id="' + $soy$$0$0escapeHtml$$($opt_data$$84$$.id) + '_percent_fee" type="text" class="input-block-level" autocomplete="off" maxlength="4" data-uniform-validators="required ; validateNumber; validateMin 0; validateMax 25" label="Ph\u1ea7n tr\u0103m ph\u00ed" required value="' + 
+  $soy$$0$0escapeHtml$$($opt_data$$84$$.$model$.percent_fee) + '"><span class="add-on">%</span></div></div><div class="span6"><div class="input-prepend"><span class="add-on">' + $soy$$0$0escapeHtml$$($opt_data$$84$$.$model$.currency) + '</span><input id="' + $soy$$0$0escapeHtml$$($opt_data$$84$$.id) + '_fixed_fee" type="text" class="input-block-level" autocomplete="off" data-uniform-validators="required ; validateNumber; validateMin 0" label="Ph\u00ed c\u1ed1 \u0111\u1ecbnh" required value="' + $soy$$0$0escapeHtml$$($opt_data$$84$$.$model$.fixed_fee) + 
+  '"></div></div></div></div></div><div class="control-group"><table id="' + $soy$$0$0escapeHtml$$($opt_data$$84$$.id) + '_table" class="table table-condensed table-bordered table-hover"><thead><tr><td colspan="7" style="text-align: center">Tr\u01b0\u1eddng tu\u1ef3 bi\u1ebfn</td></tr><tr><th> Ph\u00eda</th><th> T\u00ean </th><th> Nh\u00e3n </th><th> Ph\u1ea7n gi\u1eef ch\u1ed7 </th><th> Lo\u1ea1i </th><th> Ki\u1ec3u d\u1eef li\u1ec7u </th><th> Gi\u00e1 tr\u1ecb </th><th> C\u00e1c h\u00e0nh \u0111\u1ed9ng </th></tr></thead><tbody>');
+  for (var $fieldList197_level226$$ = $opt_data$$84$$.$model$.fields, $fieldListLen197$$ = $fieldList197_level226$$.length, $fieldIndex197$$ = 0;$fieldIndex197$$ < $fieldListLen197$$;$fieldIndex197$$++) {
+    $output$$64$$ += $bitex$ui$withdraw_method_editor$templates$WithdrawMethodFieldLineEditor$$({id:$opt_data$$84$$.id, $idx$:$fieldIndex197$$, data:$fieldList197_level226$$[$fieldIndex197$$]});
+  }
+  $output$$64$$ += '</tbody></table><button id="' + $soy$$0$0escapeHtml$$($opt_data$$84$$.id) + '_add" class="btn btn-primary"><i class="icon-white icon-plus"></i> Th\u00eam tr\u01b0\u1eddng</button></div><div class="control-group"><table id="' + $soy$$0$0escapeHtml$$($opt_data$$84$$.id) + '_limits" class="table table-condensed table-bordered table-hover"><thead><tr><td colspan="4" style="text-align: center">C\u00e1c gi\u1edbi h\u1ea1n</td></tr><tr><th>C\u1ea5p \u0111\u1ed9 x\u00e1c minh</th><th>\u0110\u00e3 b\u1eadt</th><th>Th\u1ea5p nh\u1ea5t</th><th>Cao nh\u1ea5t</th></tr></thead><tbody>';
+  for ($fieldList197_level226$$ = 0;6 > $fieldList197_level226$$;$fieldList197_level226$$++) {
+    $output$$64$$ += "<tr>";
+    switch($fieldList197_level226$$) {
+      case 0:
+        $output$$64$$ += "<td>Ch\u01b0a x\u00e1c minh</td>";
+        break;
+      case 1:
+        $output$$64$$ += "<td>\u0110ang ch\u1edd</td>";
+        break;
+      case 2:
+        $output$$64$$ += "<td>X\u1eed l\u00fd</td>";
+        break;
+      case 3:
+        $output$$64$$ += "<td>\u0110\u00e3 x\u00e1c minh - C\u1ea5p I</td>";
+        break;
+      case 4:
+        $output$$64$$ += "<td>\u0110\u00e3 x\u00e1c minh - C\u1ea5p II</td>";
+        break;
+      case 5:
+        $output$$64$$ += "<td>\u0110\u00e3 x\u00e1c minh - C\u1ea5p III</td>";
+    }
+    $output$$64$$ += '<td><input id="' + $soy$$0$0escapeHtml$$($opt_data$$84$$.id) + "_level_" + $soy$$0$0escapeHtml$$($fieldList197_level226$$) + '_enabled" type="checkbox" class="withdraw-method-editor-limit-enabled"' + ($opt_data$$84$$.$model$.limits && $opt_data$$84$$.$model$.limits[$fieldList197_level226$$] && $opt_data$$84$$.$model$.limits[$fieldList197_level226$$].enabled ? "checked" : "") + '/></td><td><input id="' + $soy$$0$0escapeHtml$$($opt_data$$84$$.id) + "_level_" + $soy$$0$0escapeHtml$$($fieldList197_level226$$) + 
+    '_min" name="min_' + $soy$$0$0escapeHtml$$($fieldList197_level226$$) + '" type="text" autocomplete="off" class="input-small withdraw-method-editor-limit-max" data-uniform-label="Th\u1ea5p nh\u1ea5t" data-uniform-validators="validateNumber; validateMin 0" data-uniform-meta="display If ' + $soy$$0$0escapeHtml$$($opt_data$$84$$.id) + "_level_" + $soy$$0$0escapeHtml$$($fieldList197_level226$$) + "_enabled == 'on'; enable If " + $soy$$0$0escapeHtml$$($opt_data$$84$$.id) + "_level_" + $soy$$0$0escapeHtml$$($fieldList197_level226$$) + 
+    "_enabled == 'on'\" value=\"" + ($opt_data$$84$$.$model$.limits && $opt_data$$84$$.$model$.limits[$fieldList197_level226$$] && $opt_data$$84$$.$model$.limits[$fieldList197_level226$$].min ? $soy$$0$0escapeHtml$$($opt_data$$84$$.$model$.limits[$fieldList197_level226$$].min) : "0") + '"' + ($opt_data$$84$$.$model$.limits && $opt_data$$84$$.$model$.limits[$fieldList197_level226$$] && !$opt_data$$84$$.$model$.limits[$fieldList197_level226$$].enabled ? 'style="display: none;" disabled' : "") + '/></td><td><input id="' + 
+    $soy$$0$0escapeHtml$$($opt_data$$84$$.id) + "_level_" + $soy$$0$0escapeHtml$$($fieldList197_level226$$) + '_max" name="max_' + $soy$$0$0escapeHtml$$($fieldList197_level226$$) + '" type="text" autocomplete="off" class="input-small withdraw-method-editor-limit-max" data-uniform-label="Cao nh\u1ea5t" data-uniform-validators="validateNumber" data-uniform-meta="display If ' + $soy$$0$0escapeHtml$$($opt_data$$84$$.id) + "_level_" + $soy$$0$0escapeHtml$$($fieldList197_level226$$) + "_enabled == 'on'; enable If " + 
+    $soy$$0$0escapeHtml$$($opt_data$$84$$.id) + "_level_" + $soy$$0$0escapeHtml$$($fieldList197_level226$$) + '_enabled == \'on\'"" value="' + ($opt_data$$84$$.$model$.limits && $opt_data$$84$$.$model$.limits[$fieldList197_level226$$] && $opt_data$$84$$.$model$.limits[$fieldList197_level226$$].max ? $soy$$0$0escapeHtml$$($opt_data$$84$$.$model$.limits[$fieldList197_level226$$].max) : "") + '"' + ($opt_data$$84$$.$model$.limits && $opt_data$$84$$.$model$.limits[$fieldList197_level226$$] && !$opt_data$$84$$.$model$.limits[$fieldList197_level226$$].enabled ? 
+    'style="display: none;" disabled' : "") + "/></td></tr>";
+  }
+  return $output$$64$$ + "</tbody></table></div></fieldset></form></div></div>";
+}
+;
+// Input 217
 function $bitex$ui$WithdrawMethodEditor$$($opt_domHelper$$42$$) {
   $goog$ui$Component$$.call(this, $opt_domHelper$$42$$);
   this.$form_$ = new $uniform$Uniform$$;
@@ -12763,14 +12793,14 @@ $JSCompiler_prototypeAlias$$.$onAddField_$ = function $$JSCompiler_prototypeAlia
   $wrapper$$7$$.innerHTML = $bitex$ui$withdraw_method_editor$templates$WithdrawMethodFieldLineEditor$$({id:$JSCompiler_StaticMethods_makeId$$(this, "form"), $idx$:"", data:{side:"client", name:"", validator:"", label:"", placeholder:"", type:"", value:"", required:!1}});
   $e$$238_table_tbody_el$$.appendChild($wrapper$$7$$.firstChild);
 };
-// Input 217
-function $bitex$ui$ChangePassword$templates$ChangePassword$$($opt_data$$83_output$$63$$) {
-  return $opt_data$$83_output$$63$$ = "" + ('<div class="profile-change-password"><h4 class="profile-change-password__title">\u0110\u1ed5i m\u1eadt kh\u1ea9u</h4>\x3c!-- .profile-change-password__form --\x3e<ul id="' + $soy$$0$0escapeHtml$$($opt_data$$83_output$$63$$.id) + '" class="profile-change-password__form"><li><label class="profile-change-password__label" for="' + $soy$$0$0escapeHtml$$($opt_data$$83_output$$63$$.id) + '_oldpassword">M\u1eadt kh\u1ea9u hi\u1ec7n t\u1ea1i:</label><input autocapitalize="off" autocorrect="off" id="' + 
-  $soy$$0$0escapeHtml$$($opt_data$$83_output$$63$$.id) + '_oldpassword" class="input input--full" name="username" type="password" ></li><li><label class="profile-change-password__label" for="' + $soy$$0$0escapeHtml$$($opt_data$$83_output$$63$$.id) + '_password">M\u1eadt kh\u1ea9u m\u1edbi:</label><input id="' + $soy$$0$0escapeHtml$$($opt_data$$83_output$$63$$.id) + '_password" class="input input--full" placeholder="" name="password" type="password"></li><li><label class="profile-change-password__label" for="' + 
-  $soy$$0$0escapeHtml$$($opt_data$$83_output$$63$$.id) + '_repeat_password">X\u00e1c minh m\u1eadt kh\u1ea9u m\u1edbi:</label><input id="' + $soy$$0$0escapeHtml$$($opt_data$$83_output$$63$$.id) + '_repeat_password" class="input input--full" placeholder="" name="repeat_password" type="password"></li><li><button id="' + $soy$$0$0escapeHtml$$($opt_data$$83_output$$63$$.id) + '_change" class="profile-change-password__btn btn btn--primary">\u0110\u1ed5i m\u1eadt kh\u1ea9u</button></li></ul>\x3c!-- /.profile-change-password__form --\x3e</div>');
+// Input 218
+function $bitex$ui$ChangePassword$templates$ChangePassword$$($opt_data$$85_output$$65$$) {
+  return $opt_data$$85_output$$65$$ = "" + ('<div class="profile-change-password"><h4 class="profile-change-password__title">\u0110\u1ed5i m\u1eadt kh\u1ea9u</h4>\x3c!-- .profile-change-password__form --\x3e<ul id="' + $soy$$0$0escapeHtml$$($opt_data$$85_output$$65$$.id) + '" class="profile-change-password__form"><li><label class="profile-change-password__label" for="' + $soy$$0$0escapeHtml$$($opt_data$$85_output$$65$$.id) + '_oldpassword">M\u1eadt kh\u1ea9u hi\u1ec7n t\u1ea1i:</label><input autocapitalize="off" autocorrect="off" id="' + 
+  $soy$$0$0escapeHtml$$($opt_data$$85_output$$65$$.id) + '_oldpassword" class="input input--full" name="username" type="password" ></li><li><label class="profile-change-password__label" for="' + $soy$$0$0escapeHtml$$($opt_data$$85_output$$65$$.id) + '_password">M\u1eadt kh\u1ea9u m\u1edbi:</label><input id="' + $soy$$0$0escapeHtml$$($opt_data$$85_output$$65$$.id) + '_password" class="input input--full" placeholder="" name="password" type="password"></li><li><label class="profile-change-password__label" for="' + 
+  $soy$$0$0escapeHtml$$($opt_data$$85_output$$65$$.id) + '_repeat_password">X\u00e1c minh m\u1eadt kh\u1ea9u m\u1edbi:</label><input id="' + $soy$$0$0escapeHtml$$($opt_data$$85_output$$65$$.id) + '_repeat_password" class="input input--full" placeholder="" name="repeat_password" type="password"></li><li><button id="' + $soy$$0$0escapeHtml$$($opt_data$$85_output$$65$$.id) + '_change" class="profile-change-password__btn btn btn--primary">\u0110\u1ed5i m\u1eadt kh\u1ea9u</button></li></ul>\x3c!-- /.profile-change-password__form --\x3e</div>');
 }
 ;
-// Input 218
+// Input 219
 function $bitex$ui$ChangePassword$$($opt_domHelper$$43$$) {
   $goog$ui$Component$$.call(this, $opt_domHelper$$43$$);
 }
@@ -12803,7 +12833,6 @@ $JSCompiler_prototypeAlias$$.$getPassword$ = function $$JSCompiler_prototypeAlia
 $JSCompiler_prototypeAlias$$.$getNewPassword$ = function $$JSCompiler_prototypeAlias$$$$getNewPassword$$() {
   return $goog$dom$forms$getValue$$($goog$dom$getElement$$($JSCompiler_StaticMethods_makeId$$(this, "form_repeat_password")));
 };
-// Input 219
 // Input 220
 // Input 221
 // Input 222
@@ -12811,6 +12840,7 @@ $JSCompiler_prototypeAlias$$.$getNewPassword$ = function $$JSCompiler_prototypeA
 // Input 224
 // Input 225
 // Input 226
+// Input 227
 function $bitex$view$ProfileView$$($app$$11$$, $opt_domHelper$$44$$) {
   $bitex$view$View$$.call(this, $app$$11$$, $opt_domHelper$$44$$);
 }
@@ -12945,12 +12975,15 @@ $JSCompiler_prototypeAlias$$.$onCancelWithdrawStructure_$ = function $$JSCompile
   $JSCompiler_StaticMethods_updateWindow$$($e$$251$$.target);
   $JSCompiler_StaticMethods_setDirty$$($e$$251$$.target, !1);
 };
-// Input 227
+$JSCompiler_prototypeAlias$$.$getCode$ = function $$JSCompiler_prototypeAlias$$$$getCode$$() {
+  return $goog$dom$forms$getValue$$($goog$dom$getElement$$("id_second_step_verification"));
+};
+// Input 228
 function $bitex$view$NullView$$($app$$12$$, $opt_domHelper$$45$$) {
   $bitex$view$View$$.call(this, $app$$12$$, $opt_domHelper$$45$$);
 }
 $goog$inherits$$($bitex$view$NullView$$, $bitex$view$View$$);
-// Input 228
+// Input 229
 function $goog$json$parse$$($o$$2_s$$54$$) {
   $o$$2_s$$54$$ = String($o$$2_s$$54$$);
   if (/^\s*$/.test($o$$2_s$$54$$) ? 0 : /^[\],:{}\s\u2028\u2029]*$/.test($o$$2_s$$54$$.replace(/\\["\\\/bfnrtu]/g, "@").replace(/"[^"\\\n\r\u2028\u2029\x00-\x08\x0a-\x1f]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g, "]").replace(/(?:^|:|,)(?:[\s\u2028\u2029]*\[)+/g, ""))) {
@@ -13031,7 +13064,7 @@ $goog$json$Serializer$$.prototype.serializeArray = function $$goog$json$Serializ
   }
   $sb$$10$$.push("]");
 };
-// Input 229
+// Input 230
 function $bitex$ui$Customers$$($opt_domHelper$$46$$) {
   this.$selected_customer_$ = null;
   $bitex$ui$DataGrid$$.call(this, {title:"Kh\u00e1ch h\u00e0ng", rowClassFn:this.$getRowClass$, columns:[{property:"Username", label:"T\u00ean \u0111\u0103ng nh\u1eadp", sortable:!1, classes:function() {
@@ -13088,7 +13121,7 @@ $bitex$ui$Customers$$.prototype.$enterDocument$ = function $$bitex$ui$Customers$
 $goog$ui$registry$setDecoratorByClassName$$($bitex$ui$Customers$CSS_CLASS$$, function() {
   return new $bitex$ui$Customers$$;
 });
-// Input 230
+// Input 231
 function $bitex$view$BrokerView$$($app$$13$$, $opt_domHelper$$47$$) {
   $bitex$view$View$$.call(this, $app$$13$$, $opt_domHelper$$47$$);
 }
@@ -13114,15 +13147,15 @@ $bitex$view$BrokerView$$.prototype.$onModelSetBroker_$ = function $$bitex$view$B
     $goog$soy$renderElement$$($goog$dom$getElement$$("my_broker"), $bitex$templates$BrokerView$$, {$show_title$:!0, $msg_broker$:$broker$$8$$, $broker_list$:$broker_list$$2_model$$34$$});
   }
 };
-// Input 231
 // Input 232
+// Input 233
 function $goog$history$Event$$($token$$8$$, $isNavigation$$) {
   $goog$events$Event$$.call(this, "navigate");
   this.$token$ = $token$$8$$;
   this.$isNavigation$ = $isNavigation$$;
 }
 $goog$inherits$$($goog$history$Event$$, $goog$events$Event$$);
-// Input 233
+// Input 234
 function $goog$history$Html5History$$($opt_win$$, $opt_transformer$$) {
   $goog$events$EventTarget$$.call(this);
   this.$window_$ = $opt_win$$ || window;
@@ -13156,7 +13189,7 @@ $JSCompiler_prototypeAlias$$.$disposeInternal$ = function $$JSCompiler_prototype
 $JSCompiler_prototypeAlias$$.$onHistoryEvent_$ = function $$JSCompiler_prototypeAlias$$$$onHistoryEvent_$$() {
   this.$enabled_$ && this.dispatchEvent(new $goog$history$Event$$(this.$getToken$(), !0));
 };
-// Input 234
+// Input 235
 function $bitex$app$UrlRouter$$($app$$14$$, $baseUrl$$, $defaultView$$) {
   $goog$events$EventTarget$$.call(this);
   this.$urls_$ = [];
@@ -13194,8 +13227,12 @@ $bitex$app$UrlRouter$$.prototype.$setView$ = function $$bitex$app$UrlRouter$$$$$
     }
   });
   if ("/" !== $view_name$$2$$[0] || null != $urlMapping$$1$$) {
-    var $actual_view_name$$1_view_data$$1$$ = $goog$string$remove$$($view_name$$2$$, this.$base_url_$), $actual_view_name$$1_view_data$$1$$ = (new RegExp($urlMapping$$1$$.$re$, "g")).exec($actual_view_name$$1_view_data$$1$$), $view_id$$1$$ = $actual_view_name$$1_view_data$$1$$[1];
-    $actual_view_name$$1_view_data$$1$$.splice(2);
+    var $actual_view_name$$1_menu$$ = $goog$string$remove$$($view_name$$2$$, this.$base_url_$), $view_data$$1$$ = (new RegExp($urlMapping$$1$$.$re$, "g")).exec($actual_view_name$$1_menu$$), $view_id$$1$$ = $view_data$$1$$[1];
+    $view_data$$1$$.splice(2);
+    $actual_view_name$$1_menu$$ = $goog$dom$getElement$$("menu-" + $actual_view_name$$1_menu$$);
+    null != $actual_view_name$$1_menu$$ && ($goog$array$forEach$$($goog$dom$getElementsByClass$$("menu-active"), function($el$$132$$) {
+      $goog$dom$classes$remove$$($el$$132$$, "menu-active");
+    }), $goog$dom$classes$add$$($actual_view_name$$1_menu$$, "menu-active"));
     this.dispatchEvent(new $bitex$app$UrlRouterEvent$$("set_view", $view_id$$1$$, $urlMapping$$1$$.view)) && $JSCompiler_StaticMethods_setViewInternal$$(this, $view_name$$2$$) && null != this.$history_$ && $JSCompiler_StaticMethods_setToken$$(this.$history_$, this.$base_url_$ + $view_name$$2$$);
   } else {
     this.$setView$($view_name$$2$$.substr(1));
@@ -13226,7 +13263,7 @@ function $bitex$app$UrlRouterEvent$$($type$$150$$, $view_id$$3$$, $view$$3$$) {
   this.view = $view$$3$$;
 }
 $goog$inherits$$($bitex$app$UrlRouterEvent$$, $goog$events$Event$$);
-// Input 235
+// Input 236
 function $bitex$view$CustomersView$$($app$$15$$, $opt_domHelper$$48$$) {
   $bitex$view$View$$.call(this, $app$$15$$, $opt_domHelper$$48$$);
   this.$confirmation_token_$ = this.$request_id_$ = null;
@@ -13278,23 +13315,23 @@ $JSCompiler_prototypeAlias$$.$onCustomerListTableRequestData_$ = function $$JSCo
 $JSCompiler_prototypeAlias$$.$onCustomerListReponse_$ = function $$JSCompiler_prototypeAlias$$$$onCustomerListReponse_$$($e$$258_msg$$38$$) {
   null != this.$customers_table_$ && ($e$$258_msg$$38$$ = $e$$258_msg$$38$$.data, $JSCompiler_StaticMethods_setResultSet$$(this.$customers_table_$, $e$$258_msg$$38$$.CustomerListGrp, $e$$258_msg$$38$$.Columns));
 };
-// Input 236
-function $bitex$ui$DepositWithdrawButtonGroup$templates$DepositWithdrawButtonGroup$$($buttonList6_opt_data$$84$$) {
-  var $output$$64$$ = '<div id="' + $soy$$0$0escapeHtml$$($buttonList6_opt_data$$84$$.id) + '" class="deposit-withdraw-button-group" >';
-  $buttonList6_opt_data$$84$$ = $buttonList6_opt_data$$84$$.buttons;
-  for (var $buttonListLen6$$ = $buttonList6_opt_data$$84$$.length, $buttonIndex6$$ = 0;$buttonIndex6$$ < $buttonListLen6$$;$buttonIndex6$$++) {
-    var $buttonData6$$ = $buttonList6_opt_data$$84$$[$buttonIndex6$$], $output$$64$$ = $output$$64$$ + ('<button class="btn btn-default btn-mini text-center" data-currency="' + $soy$$0$0escapeHtml$$($buttonData6$$.currency) + '" data-action="' + $soy$$0$0escapeHtml$$($buttonData6$$.mode) + '">');
+// Input 237
+function $bitex$ui$DepositWithdrawButtonGroup$templates$DepositWithdrawButtonGroup$$($buttonList6_opt_data$$86$$) {
+  var $output$$66$$ = '<div id="' + $soy$$0$0escapeHtml$$($buttonList6_opt_data$$86$$.id) + '" class="deposit-withdraw-button-group" >';
+  $buttonList6_opt_data$$86$$ = $buttonList6_opt_data$$86$$.buttons;
+  for (var $buttonListLen6$$ = $buttonList6_opt_data$$86$$.length, $buttonIndex6$$ = 0;$buttonIndex6$$ < $buttonListLen6$$;$buttonIndex6$$++) {
+    var $buttonData6$$ = $buttonList6_opt_data$$86$$[$buttonIndex6$$], $output$$66$$ = $output$$66$$ + ('<button class="btn btn-default btn-mini text-center" data-currency="' + $soy$$0$0escapeHtml$$($buttonData6$$.currency) + '" data-action="' + $soy$$0$0escapeHtml$$($buttonData6$$.mode) + '">');
     if ("deposit" == $buttonData6$$.mode) {
-      var $MSG_UNNAMED_39$$1_MSG_UNNAMED_41$$1$$ = "N\u1ea1p " + $soy$$0$0escapeHtml$$($buttonData6$$.currencyDescription), $output$$64$$ = $output$$64$$ + ('<h2 class="icon-download-alt"> ' + $soy$$0$0escapeHtml$$($buttonData6$$.currencySign) + "</h2><br>" + $MSG_UNNAMED_39$$1_MSG_UNNAMED_41$$1$$)
+      var $MSG_UNNAMED_39$$1_MSG_UNNAMED_41$$1$$ = "N\u1ea1p " + $soy$$0$0escapeHtml$$($buttonData6$$.currencyDescription), $output$$66$$ = $output$$66$$ + ('<h2 class="icon-download-alt"> ' + $soy$$0$0escapeHtml$$($buttonData6$$.currencySign) + "</h2><br>" + $MSG_UNNAMED_39$$1_MSG_UNNAMED_41$$1$$)
     } else {
-      $MSG_UNNAMED_39$$1_MSG_UNNAMED_41$$1$$ = "R\u00fat " + $soy$$0$0escapeHtml$$($buttonData6$$.currencyDescription), $output$$64$$ += '<h2 class="icon-upload-alt"> ' + $soy$$0$0escapeHtml$$($buttonData6$$.currencySign) + "</h2><br>" + $MSG_UNNAMED_39$$1_MSG_UNNAMED_41$$1$$;
+      $MSG_UNNAMED_39$$1_MSG_UNNAMED_41$$1$$ = "R\u00fat " + $soy$$0$0escapeHtml$$($buttonData6$$.currencyDescription), $output$$66$$ += '<h2 class="icon-upload-alt"> ' + $soy$$0$0escapeHtml$$($buttonData6$$.currencySign) + "</h2><br>" + $MSG_UNNAMED_39$$1_MSG_UNNAMED_41$$1$$;
     }
-    $output$$64$$ += "</button>&nbsp;";
+    $output$$66$$ += "</button>&nbsp;";
   }
-  return $output$$64$$ + "</div>";
+  return $output$$66$$ + "</div>";
 }
 ;
-// Input 237
+// Input 238
 function $bitex$ui$DepositWithdrawButtonGroup$$($opt_domHelper$$49$$) {
   $goog$ui$Component$$.call(this, $opt_domHelper$$49$$);
   this.$setModel$([]);
@@ -13320,7 +13357,7 @@ $JSCompiler_prototypeAlias$$.$logger_$ = $goog$debug$LogManager$getLogger$$("bit
 $JSCompiler_prototypeAlias$$.$enterDocument$ = function $$JSCompiler_prototypeAlias$$$$enterDocument$$() {
   $bitex$ui$DepositWithdrawButtonGroup$$.$superClass_$.$enterDocument$.call(this);
 };
-// Input 238
+// Input 239
 function $bitex$view$DepositView$$($app$$16$$, $opt_requests_from_customers$$, $opt_domHelper$$50$$) {
   $bitex$view$View$$.call(this, $app$$16$$, $opt_domHelper$$50$$);
   this.$is_requests_from_customers_$ = !1;
@@ -13396,6 +13433,8 @@ $JSCompiler_prototypeAlias$$.$onDepositListTableClick_$ = function $$JSCompiler_
       case "UPLOAD":
         this.dispatchEvent("upload_receipt");
         break;
+      case "KYC":
+        this.dispatchEvent("show_kyc");
       case "CANCEL":
       ;
       case "PROGRESS":
@@ -13433,9 +13472,12 @@ $JSCompiler_prototypeAlias$$.$onDepositRefresh_$ = function $$JSCompiler_prototy
 $JSCompiler_prototypeAlias$$.$onDepositListReponse_$ = function $$JSCompiler_prototypeAlias$$$$onDepositListReponse_$$($e$$262_msg$$40$$) {
   null != this.$deposit_list_table_$ && ($e$$262_msg$$40$$ = $e$$262_msg$$40$$.data, $JSCompiler_StaticMethods_setResultSet$$(this.$deposit_list_table_$, $e$$262_msg$$40$$.DepositListGrp, $e$$262_msg$$40$$.Columns));
 };
-// Input 239
+$JSCompiler_prototypeAlias$$.getData = function $$JSCompiler_prototypeAlias$$$getData$() {
+  return this.$data_$;
+};
 // Input 240
 // Input 241
+// Input 242
 function $bitex$view$TradingView$$($app$$18$$, $opt_domHelper$$51$$) {
   $bitex$view$View$$.call(this, $app$$18$$, $opt_domHelper$$51$$);
   this.$request_order_id_$ = this.$client_order_id$ = this.$order_id_$ = this.$market_data_subscription_symbol_$ = this.$market_data_subscription_id_$ = null;
@@ -13563,7 +13605,7 @@ $JSCompiler_prototypeAlias$$.$onOBNewOrder_$ = function $$JSCompiler_prototypeAl
   var $price$$8$$ = $msg$$45_side$$17$$.MDEntryPx, $qty$$12$$ = $msg$$45_side$$17$$.MDEntrySize, $username$$8$$ = $msg$$45_side$$17$$.UserID, $msg$$45_side$$17$$ = $msg$$45_side$$17$$.MDEntryType;
   "0" == $msg$$45_side$$17$$ ? ($goog$array$splice$$(this.$bids_$, $e$$273_index$$111$$, 0, [$price$$8$$, $qty$$12$$, $username$$8$$]), $JSCompiler_StaticMethods_setOrderDepth$$(this.$ask_order_entry_$, this.$bids_$)) : "1" == $msg$$45_side$$17$$ && ($goog$array$splice$$(this.$asks_$, $e$$273_index$$111$$, 0, [$price$$8$$, $qty$$12$$, $username$$8$$]), $JSCompiler_StaticMethods_setOrderDepth$$(this.$bid_order_entry_$, this.$asks_$));
 };
-// Input 242
+// Input 243
 function $bitex$view$HistoryView$$($app$$19$$, $opt_domHelper$$52$$) {
   $bitex$view$View$$.call(this, $app$$19$$, $opt_domHelper$$52$$);
   this.$request_order_id_$ = this.$client_order_id$ = this.$order_id_$ = null;
@@ -13623,109 +13665,109 @@ $JSCompiler_prototypeAlias$$.$onOrderListResponse_$ = function $$JSCompiler_prot
 $JSCompiler_prototypeAlias$$.$onCancelOrder_$ = function $$JSCompiler_prototypeAlias$$$$onCancelOrder_$$($e$$276$$) {
   "cancel" == $e$$276$$.target.getAttribute("data-action") && ($e$$276$$.stopPropagation(), $e$$276$$.preventDefault(), this.$order_id_$ = $e$$276$$.target.getAttribute("data-order-id"), this.$client_order_id_$ = $e$$276$$.target.getAttribute("data-client-order-id"), this.dispatchEvent("cancel_order"));
 };
-// Input 243
-function $bitex$view$LineOfCreditView$templates$PayLineOfCredit$$($opt_data$$86$$) {
-  var $output$$66$$;
-  $output$$66$$ = "" + ('<form  id="' + $soy$$0$0escapeHtml$$($opt_data$$86$$.id) + '_form" class="pay-line-of-credit-data-entry-form form-horizontal"><input type="hidden" name="ID"  value="' + $soy$$0$0escapeHtml$$($opt_data$$86$$.data.ID) + '"/><fieldset>');
-  if (1 < $opt_data$$86$$.data.DeliveryCurrencies.length) {
-    $output$$66$$ += '<div class="control-group"><label class="control-label">Ti\u1ec1n t\u1ec7</label><div class="controls"><select id="' + $soy$$0$0escapeHtml$$($opt_data$$86$$.id) + '_form_delivery_currency" name="Currency" class="delivery-method-selector">';
-    for (var $cList114_cList127_cList134$$ = $opt_data$$86$$.data.DeliveryCurrencies, $cListLen114_cListLen127_cListLen134$$ = $cList114_cList127_cList134$$.length, $cIndex114_cIndex127_cIndex134$$ = 0;$cIndex114_cIndex127_cIndex134$$ < $cListLen114_cListLen127_cListLen134$$;$cIndex114_cIndex127_cIndex134$$++) {
+// Input 244
+function $bitex$view$LineOfCreditView$templates$PayLineOfCredit$$($opt_data$$88$$) {
+  var $output$$68$$;
+  $output$$68$$ = "" + ('<form  id="' + $soy$$0$0escapeHtml$$($opt_data$$88$$.id) + '_form" class="pay-line-of-credit-data-entry-form form-horizontal"><input type="hidden" name="ID"  value="' + $soy$$0$0escapeHtml$$($opt_data$$88$$.data.ID) + '"/><fieldset>');
+  if (1 < $opt_data$$88$$.data.DeliveryCurrencies.length) {
+    $output$$68$$ += '<div class="control-group"><label class="control-label">Ti\u1ec1n t\u1ec7</label><div class="controls"><select id="' + $soy$$0$0escapeHtml$$($opt_data$$88$$.id) + '_form_delivery_currency" name="Currency" class="delivery-method-selector">';
+    for (var $cList114_cList127_cList134$$ = $opt_data$$88$$.data.DeliveryCurrencies, $cListLen114_cListLen127_cListLen134$$ = $cList114_cList127_cList134$$.length, $cIndex114_cIndex127_cIndex134$$ = 0;$cIndex114_cIndex127_cIndex134$$ < $cListLen114_cListLen127_cListLen134$$;$cIndex114_cIndex127_cIndex134$$++) {
       var $cData114_cData127_cData134$$ = $cList114_cList127_cList134$$[$cIndex114_cIndex127_cIndex134$$];
-      $output$$66$$ += "<option " + (0 == $cIndex114_cIndex127_cIndex134$$ ? "selected" : "") + ' value="' + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + '">' + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + "</option>";
+      $output$$68$$ += "<option " + (0 == $cIndex114_cIndex127_cIndex134$$ ? "selected" : "") + ' value="' + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + '">' + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + "</option>";
     }
-    $output$$66$$ += "</select></div></div>";
+    $output$$68$$ += "</select></div></div>";
   } else {
-    for ($cList114_cList127_cList134$$ = $opt_data$$86$$.data.DeliveryCurrencies, $cListLen114_cListLen127_cListLen134$$ = $cList114_cList127_cList134$$.length, $cIndex114_cIndex127_cIndex134$$ = 0;$cIndex114_cIndex127_cIndex134$$ < $cListLen114_cListLen127_cListLen134$$;$cIndex114_cIndex127_cIndex134$$++) {
-      $cData114_cData127_cData134$$ = $cList114_cList127_cList134$$[$cIndex114_cIndex127_cIndex134$$], $output$$66$$ += '<input  id="' + $soy$$0$0escapeHtml$$($opt_data$$86$$.id) + '_form_delivery_currency" type="hidden" name="Currency"  value="' + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + '"/>';
+    for ($cList114_cList127_cList134$$ = $opt_data$$88$$.data.DeliveryCurrencies, $cListLen114_cListLen127_cListLen134$$ = $cList114_cList127_cList134$$.length, $cIndex114_cIndex127_cIndex134$$ = 0;$cIndex114_cIndex127_cIndex134$$ < $cListLen114_cListLen127_cListLen134$$;$cIndex114_cIndex127_cIndex134$$++) {
+      $cData114_cData127_cData134$$ = $cList114_cList127_cList134$$[$cIndex114_cIndex127_cIndex134$$], $output$$68$$ += '<input  id="' + $soy$$0$0escapeHtml$$($opt_data$$88$$.id) + '_form_delivery_currency" type="hidden" name="Currency"  value="' + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + '"/>';
     }
   }
-  $cList114_cList127_cList134$$ = $opt_data$$86$$.data.DeliveryCurrencies;
+  $cList114_cList127_cList134$$ = $opt_data$$88$$.data.DeliveryCurrencies;
   $cListLen114_cListLen127_cListLen134$$ = $cList114_cList127_cList134$$.length;
   for ($cIndex114_cIndex127_cIndex134$$ = 0;$cIndex114_cIndex127_cIndex134$$ < $cListLen114_cListLen127_cListLen134$$;$cIndex114_cIndex127_cIndex134$$++) {
-    $cData114_cData127_cData134$$ = $cList114_cList127_cList134$$[$cIndex114_cIndex127_cIndex134$$], $output$$66$$ += '<div class="line-of-credit-delivery-currency" data-delivery-currency="' + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + '" style=""><div class="control-group"><label class="control-label">S\u1ed1 ti\u1ec1n:</label><div class="controls"><div class="input-prepend"><span class="add-on">' + $soy$$0$0escapeHtml$$($opt_data$$86$$.data.ContractInfo[$cData114_cData127_cData134$$].CurrencySign) + 
-    '</span><input id="' + $soy$$0$0escapeHtml$$($opt_data$$86$$.id) + "_form_amount_" + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + "_" + $soy$$0$0escapeHtml$$($opt_data$$86$$.data.Currency) + '" data-uniform-validators="required; validateNumber;" data-uniform-type="number" data-uniform-filters="positive_number" value="" type="text" class="input-small label-input-label" size="16" name="Amount" placeholder=""/></div></div></div></div>', $cData114_cData127_cData134$$ != $opt_data$$86$$.data.Currency && 
-    ($output$$66$$ += '<div class="control-group"><label class="control-label">T\u1ef7 gi\u00e1:</label><div class="controls"><label id="' + $soy$$0$0escapeHtml$$($opt_data$$86$$.id) + "_form_exchange_rate_" + $soy$$0$0escapeHtml$$($opt_data$$86$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + '" style="text-align: left;" class="bitex-model control-label" data-model-formatter="currency" data-blink-class="balance-info-blink" data-model-formatter-pattern="' + $soy$$0$0escapeHtml$$($opt_data$$86$$.data.ContractInfo[$cData114_cData127_cData134$$].payback_ticker.currency_pattern) + 
-    '" data-model-formula="(' + $soy$$0$0escapeHtml$$($opt_data$$86$$.data.ContractInfo[$cData114_cData127_cData134$$].payback_ticker.ticker) + " - ( (ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + "_" + $soy$$0$0escapeHtml$$($opt_data$$86$$.data.Currency) + "_PREMIUM / 100) * (" + $soy$$0$0escapeHtml$$($opt_data$$86$$.data.ContractInfo[$cData114_cData127_cData134$$].payback_ticker.ticker) + ' ) ) ) / 100000000" data-model-key-list="' + $soy$$0$0escapeHtml$$($opt_data$$86$$.data.ContractInfo[$cData114_cData127_cData134$$].payback_ticker.ticker) + 
-    ",ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + "_" + $soy$$0$0escapeHtml$$($opt_data$$86$$.data.Currency) + '_PREMIUM"></label></div></div><div class="control-group"><label class="control-label">T\u1ed5ng s\u1ed1:</label><div class="controls"><label id="' + $soy$$0$0escapeHtml$$($opt_data$$86$$.id) + "_form_total_" + $soy$$0$0escapeHtml$$($opt_data$$86$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + '" style="text-align: left;" class="bitex-model control-label" data-model-formatter="currency" data-blink-class="balance-info-blink" data-model-formatter-pattern="' + 
-    $soy$$0$0escapeHtml$$($opt_data$$86$$.data.ContractInfo[$cData114_cData127_cData134$$].payback_ticker.currency_pattern) + '" data-model-formula="ID_LOC_FORM_AMOUNT_' + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + "_" + $soy$$0$0escapeHtml$$($opt_data$$86$$.data.Currency) + " / 100000000 * ( (" + $soy$$0$0escapeHtml$$($opt_data$$86$$.data.ContractInfo[$cData114_cData127_cData134$$].payback_ticker.ticker) + " - ( (ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + 
-    "_" + $soy$$0$0escapeHtml$$($opt_data$$86$$.data.Currency) + "_PREMIUM / 100) * (" + $soy$$0$0escapeHtml$$($opt_data$$86$$.data.ContractInfo[$cData114_cData127_cData134$$].payback_ticker.ticker) + ' ) ) ) ) / 100000000 " data-model-key-list="ID_LOC_FORM_AMOUNT_' + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + "_" + $soy$$0$0escapeHtml$$($opt_data$$86$$.data.Currency) + ",ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + "_" + $soy$$0$0escapeHtml$$($opt_data$$86$$.data.Currency) + 
-    "_PREMIUM," + $soy$$0$0escapeHtml$$($opt_data$$86$$.data.ContractInfo[$cData114_cData127_cData134$$].payback_ticker.ticker) + '"></label></div></div>'), $output$$66$$ += '<div class="control-group"><label class="control-label">C\u00e1c ph\u00ed:</label><div class="controls"><label id="' + $soy$$0$0escapeHtml$$($opt_data$$86$$.id) + "_form_fee_" + $soy$$0$0escapeHtml$$($opt_data$$86$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + '" style="text-align: left;" class="bitex-model control-label" data-model-formatter="currency" data-blink-class="balance-info-blink" data-model-formatter-pattern="' + 
-    $soy$$0$0escapeHtml$$($opt_data$$86$$.data.ContractInfo[$cData114_cData127_cData134$$].CurrencyPattern) + '" data-model-formula="(' + $soy$$0$0escapeHtml$$($opt_data$$86$$.data.PercentFee) + "/100 * ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + "_" + $soy$$0$0escapeHtml$$($opt_data$$86$$.data.Currency) + ' ) " data-model-key-list="ID_LOC_FORM_AMOUNT_' + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + "_" + $soy$$0$0escapeHtml$$($opt_data$$86$$.data.Currency) + 
-    ",ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + "_" + $soy$$0$0escapeHtml$$($opt_data$$86$$.data.Currency) + "_PREMIUM," + $soy$$0$0escapeHtml$$($opt_data$$86$$.data.ContractInfo[$cData114_cData127_cData134$$].payback_ticker.ticker) + '"></label></div></div><div class="control-group"><label class="control-label">T\u1ed5ng r\u00f2ng:</label><div class="controls"><label id="' + $soy$$0$0escapeHtml$$($opt_data$$86$$.id) + "_form_net_total_" + $soy$$0$0escapeHtml$$($opt_data$$86$$.data.Currency) + 
-    "_" + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + '" style="text-align: left;" class="bitex-model control-label" data-model-formatter="currency" data-blink-class="balance-info-blink" data-model-formatter-pattern="' + $soy$$0$0escapeHtml$$($opt_data$$86$$.data.ContractInfo[$cData114_cData127_cData134$$].payback_ticker.currency_pattern) + '" data-model-formula="(ID_LOC_FORM_AMOUNT_' + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + "_" + $soy$$0$0escapeHtml$$($opt_data$$86$$.data.Currency) + 
-    " - (" + $soy$$0$0escapeHtml$$($opt_data$$86$$.data.PercentFee) + "/100 * ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + "_" + $soy$$0$0escapeHtml$$($opt_data$$86$$.data.Currency) + " ) ) / 100000000 * ( (" + $soy$$0$0escapeHtml$$($opt_data$$86$$.data.ContractInfo[$cData114_cData127_cData134$$].payback_ticker.ticker) + " - ( (ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + "_" + $soy$$0$0escapeHtml$$($opt_data$$86$$.data.Currency) + 
-    "_PREMIUM / 100) * (" + $soy$$0$0escapeHtml$$($opt_data$$86$$.data.ContractInfo[$cData114_cData127_cData134$$].payback_ticker.ticker) + ' ) ) ) ) / 100000000  " data-model-key-list="ID_LOC_FORM_AMOUNT_' + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + "_" + $soy$$0$0escapeHtml$$($opt_data$$86$$.data.Currency) + ",ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + "_" + $soy$$0$0escapeHtml$$($opt_data$$86$$.data.Currency) + "_PREMIUM," + $soy$$0$0escapeHtml$$($opt_data$$86$$.data.ContractInfo[$cData114_cData127_cData134$$].payback_ticker.ticker) + 
+    $cData114_cData127_cData134$$ = $cList114_cList127_cList134$$[$cIndex114_cIndex127_cIndex134$$], $output$$68$$ += '<div class="line-of-credit-delivery-currency" data-delivery-currency="' + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + '" style=""><div class="control-group"><label class="control-label">S\u1ed1 ti\u1ec1n:</label><div class="controls"><div class="input-prepend"><span class="add-on">' + $soy$$0$0escapeHtml$$($opt_data$$88$$.data.ContractInfo[$cData114_cData127_cData134$$].CurrencySign) + 
+    '</span><input id="' + $soy$$0$0escapeHtml$$($opt_data$$88$$.id) + "_form_amount_" + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + "_" + $soy$$0$0escapeHtml$$($opt_data$$88$$.data.Currency) + '" data-uniform-validators="required; validateNumber;" data-uniform-type="number" data-uniform-filters="positive_number" value="" type="text" class="input-small label-input-label" size="16" name="Amount" placeholder=""/></div></div></div></div>', $cData114_cData127_cData134$$ != $opt_data$$88$$.data.Currency && 
+    ($output$$68$$ += '<div class="control-group"><label class="control-label">T\u1ef7 gi\u00e1:</label><div class="controls"><label id="' + $soy$$0$0escapeHtml$$($opt_data$$88$$.id) + "_form_exchange_rate_" + $soy$$0$0escapeHtml$$($opt_data$$88$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + '" style="text-align: left;" class="bitex-model control-label" data-model-formatter="currency" data-blink-class="balance-info-blink" data-model-formatter-pattern="' + $soy$$0$0escapeHtml$$($opt_data$$88$$.data.ContractInfo[$cData114_cData127_cData134$$].payback_ticker.currency_pattern) + 
+    '" data-model-formula="(' + $soy$$0$0escapeHtml$$($opt_data$$88$$.data.ContractInfo[$cData114_cData127_cData134$$].payback_ticker.ticker) + " - ( (ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + "_" + $soy$$0$0escapeHtml$$($opt_data$$88$$.data.Currency) + "_PREMIUM / 100) * (" + $soy$$0$0escapeHtml$$($opt_data$$88$$.data.ContractInfo[$cData114_cData127_cData134$$].payback_ticker.ticker) + ' ) ) ) / 100000000" data-model-key-list="' + $soy$$0$0escapeHtml$$($opt_data$$88$$.data.ContractInfo[$cData114_cData127_cData134$$].payback_ticker.ticker) + 
+    ",ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + "_" + $soy$$0$0escapeHtml$$($opt_data$$88$$.data.Currency) + '_PREMIUM"></label></div></div><div class="control-group"><label class="control-label">T\u1ed5ng s\u1ed1:</label><div class="controls"><label id="' + $soy$$0$0escapeHtml$$($opt_data$$88$$.id) + "_form_total_" + $soy$$0$0escapeHtml$$($opt_data$$88$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + '" style="text-align: left;" class="bitex-model control-label" data-model-formatter="currency" data-blink-class="balance-info-blink" data-model-formatter-pattern="' + 
+    $soy$$0$0escapeHtml$$($opt_data$$88$$.data.ContractInfo[$cData114_cData127_cData134$$].payback_ticker.currency_pattern) + '" data-model-formula="ID_LOC_FORM_AMOUNT_' + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + "_" + $soy$$0$0escapeHtml$$($opt_data$$88$$.data.Currency) + " / 100000000 * ( (" + $soy$$0$0escapeHtml$$($opt_data$$88$$.data.ContractInfo[$cData114_cData127_cData134$$].payback_ticker.ticker) + " - ( (ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + 
+    "_" + $soy$$0$0escapeHtml$$($opt_data$$88$$.data.Currency) + "_PREMIUM / 100) * (" + $soy$$0$0escapeHtml$$($opt_data$$88$$.data.ContractInfo[$cData114_cData127_cData134$$].payback_ticker.ticker) + ' ) ) ) ) / 100000000 " data-model-key-list="ID_LOC_FORM_AMOUNT_' + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + "_" + $soy$$0$0escapeHtml$$($opt_data$$88$$.data.Currency) + ",ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + "_" + $soy$$0$0escapeHtml$$($opt_data$$88$$.data.Currency) + 
+    "_PREMIUM," + $soy$$0$0escapeHtml$$($opt_data$$88$$.data.ContractInfo[$cData114_cData127_cData134$$].payback_ticker.ticker) + '"></label></div></div>'), $output$$68$$ += '<div class="control-group"><label class="control-label">C\u00e1c ph\u00ed:</label><div class="controls"><label id="' + $soy$$0$0escapeHtml$$($opt_data$$88$$.id) + "_form_fee_" + $soy$$0$0escapeHtml$$($opt_data$$88$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + '" style="text-align: left;" class="bitex-model control-label" data-model-formatter="currency" data-blink-class="balance-info-blink" data-model-formatter-pattern="' + 
+    $soy$$0$0escapeHtml$$($opt_data$$88$$.data.ContractInfo[$cData114_cData127_cData134$$].CurrencyPattern) + '" data-model-formula="(' + $soy$$0$0escapeHtml$$($opt_data$$88$$.data.PercentFee) + "/100 * ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + "_" + $soy$$0$0escapeHtml$$($opt_data$$88$$.data.Currency) + ' ) " data-model-key-list="ID_LOC_FORM_AMOUNT_' + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + "_" + $soy$$0$0escapeHtml$$($opt_data$$88$$.data.Currency) + 
+    ",ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + "_" + $soy$$0$0escapeHtml$$($opt_data$$88$$.data.Currency) + "_PREMIUM," + $soy$$0$0escapeHtml$$($opt_data$$88$$.data.ContractInfo[$cData114_cData127_cData134$$].payback_ticker.ticker) + '"></label></div></div><div class="control-group"><label class="control-label">T\u1ed5ng r\u00f2ng:</label><div class="controls"><label id="' + $soy$$0$0escapeHtml$$($opt_data$$88$$.id) + "_form_net_total_" + $soy$$0$0escapeHtml$$($opt_data$$88$$.data.Currency) + 
+    "_" + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + '" style="text-align: left;" class="bitex-model control-label" data-model-formatter="currency" data-blink-class="balance-info-blink" data-model-formatter-pattern="' + $soy$$0$0escapeHtml$$($opt_data$$88$$.data.ContractInfo[$cData114_cData127_cData134$$].payback_ticker.currency_pattern) + '" data-model-formula="(ID_LOC_FORM_AMOUNT_' + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + "_" + $soy$$0$0escapeHtml$$($opt_data$$88$$.data.Currency) + 
+    " - (" + $soy$$0$0escapeHtml$$($opt_data$$88$$.data.PercentFee) + "/100 * ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + "_" + $soy$$0$0escapeHtml$$($opt_data$$88$$.data.Currency) + " ) ) / 100000000 * ( (" + $soy$$0$0escapeHtml$$($opt_data$$88$$.data.ContractInfo[$cData114_cData127_cData134$$].payback_ticker.ticker) + " - ( (ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + "_" + $soy$$0$0escapeHtml$$($opt_data$$88$$.data.Currency) + 
+    "_PREMIUM / 100) * (" + $soy$$0$0escapeHtml$$($opt_data$$88$$.data.ContractInfo[$cData114_cData127_cData134$$].payback_ticker.ticker) + ' ) ) ) ) / 100000000  " data-model-key-list="ID_LOC_FORM_AMOUNT_' + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + "_" + $soy$$0$0escapeHtml$$($opt_data$$88$$.data.Currency) + ",ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($cData114_cData127_cData134$$) + "_" + $soy$$0$0escapeHtml$$($opt_data$$88$$.data.Currency) + "_PREMIUM," + $soy$$0$0escapeHtml$$($opt_data$$88$$.data.ContractInfo[$cData114_cData127_cData134$$].payback_ticker.ticker) + 
     '"></label></div></div>';
   }
-  return $output$$66$$ + "</fieldset></form>";
+  return $output$$68$$ + "</fieldset></form>";
 }
-function $bitex$view$LineOfCreditView$templates$GetLineOfCredit$$($opt_data$$87$$) {
-  var $output$$67$$;
-  $output$$67$$ = "" + ('<form  id="' + $soy$$0$0escapeHtml$$($opt_data$$87$$.id) + '_form" class="get-line-of-credit-data-entry-form form-horizontal"><input type="hidden" name="ID"  value="' + $soy$$0$0escapeHtml$$($opt_data$$87$$.data.ID) + '"/><fieldset>');
-  if (1 < $opt_data$$87$$.data.DeliveryCurrencies.length) {
-    $output$$67$$ += '<div class="control-group"><label class="control-label">Ph\u01b0\u01a1ng th\u1ee9c chuy\u1ec3n giao</label><div class="controls"><select id="' + $soy$$0$0escapeHtml$$($opt_data$$87$$.id) + '_form_delivery_currency" name="DeliveryMethod" class="delivery-method-selector">';
-    for (var $cList293_cList306_cList313$$ = $opt_data$$87$$.data.DeliveryCurrencies, $cListLen293_cListLen306_cListLen313$$ = $cList293_cList306_cList313$$.length, $cIndex293_cIndex306_cIndex313$$ = 0;$cIndex293_cIndex306_cIndex313$$ < $cListLen293_cListLen306_cListLen313$$;$cIndex293_cIndex306_cIndex313$$++) {
+function $bitex$view$LineOfCreditView$templates$GetLineOfCredit$$($opt_data$$89$$) {
+  var $output$$69$$;
+  $output$$69$$ = "" + ('<form  id="' + $soy$$0$0escapeHtml$$($opt_data$$89$$.id) + '_form" class="get-line-of-credit-data-entry-form form-horizontal"><input type="hidden" name="ID"  value="' + $soy$$0$0escapeHtml$$($opt_data$$89$$.data.ID) + '"/><fieldset>');
+  if (1 < $opt_data$$89$$.data.DeliveryCurrencies.length) {
+    $output$$69$$ += '<div class="control-group"><label class="control-label">Ph\u01b0\u01a1ng th\u1ee9c chuy\u1ec3n giao</label><div class="controls"><select id="' + $soy$$0$0escapeHtml$$($opt_data$$89$$.id) + '_form_delivery_currency" name="DeliveryMethod" class="delivery-method-selector">';
+    for (var $cList293_cList306_cList313$$ = $opt_data$$89$$.data.DeliveryCurrencies, $cListLen293_cListLen306_cListLen313$$ = $cList293_cList306_cList313$$.length, $cIndex293_cIndex306_cIndex313$$ = 0;$cIndex293_cIndex306_cIndex313$$ < $cListLen293_cListLen306_cListLen313$$;$cIndex293_cIndex306_cIndex313$$++) {
       var $cData293_cData306_cData313$$ = $cList293_cList306_cList313$$[$cIndex293_cIndex306_cIndex313$$];
-      $output$$67$$ += "<option " + (0 == $cIndex293_cIndex306_cIndex313$$ ? "selected" : "") + ' value="' + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + '">' + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + "</option>";
+      $output$$69$$ += "<option " + (0 == $cIndex293_cIndex306_cIndex313$$ ? "selected" : "") + ' value="' + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + '">' + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + "</option>";
     }
-    $output$$67$$ += "</select></div></div>";
+    $output$$69$$ += "</select></div></div>";
   } else {
-    for ($cList293_cList306_cList313$$ = $opt_data$$87$$.data.DeliveryCurrencies, $cListLen293_cListLen306_cListLen313$$ = $cList293_cList306_cList313$$.length, $cIndex293_cIndex306_cIndex313$$ = 0;$cIndex293_cIndex306_cIndex313$$ < $cListLen293_cListLen306_cListLen313$$;$cIndex293_cIndex306_cIndex313$$++) {
-      $cData293_cData306_cData313$$ = $cList293_cList306_cList313$$[$cIndex293_cIndex306_cIndex313$$], $output$$67$$ += '<input  id="' + $soy$$0$0escapeHtml$$($opt_data$$87$$.id) + '_form_delivery_currency" type="hidden" name="DeliveryMethod"  value="' + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + '"/>';
+    for ($cList293_cList306_cList313$$ = $opt_data$$89$$.data.DeliveryCurrencies, $cListLen293_cListLen306_cListLen313$$ = $cList293_cList306_cList313$$.length, $cIndex293_cIndex306_cIndex313$$ = 0;$cIndex293_cIndex306_cIndex313$$ < $cListLen293_cListLen306_cListLen313$$;$cIndex293_cIndex306_cIndex313$$++) {
+      $cData293_cData306_cData313$$ = $cList293_cList306_cList313$$[$cIndex293_cIndex306_cIndex313$$], $output$$69$$ += '<input  id="' + $soy$$0$0escapeHtml$$($opt_data$$89$$.id) + '_form_delivery_currency" type="hidden" name="DeliveryMethod"  value="' + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + '"/>';
     }
   }
-  $cList293_cList306_cList313$$ = $opt_data$$87$$.data.DeliveryCurrencies;
+  $cList293_cList306_cList313$$ = $opt_data$$89$$.data.DeliveryCurrencies;
   $cListLen293_cListLen306_cListLen313$$ = $cList293_cList306_cList313$$.length;
   for ($cIndex293_cIndex306_cIndex313$$ = 0;$cIndex293_cIndex306_cIndex313$$ < $cListLen293_cListLen306_cListLen313$$;$cIndex293_cIndex306_cIndex313$$++) {
-    var $cData293_cData306_cData313$$ = $cList293_cList306_cList313$$[$cIndex293_cIndex306_cIndex313$$], $MSG_UNNAMED_753$$ = "\u00cdt nh\u1ea5t l\u00e0 " + ($soy$$0$0escapeHtml$$($opt_data$$87$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.min_size_human_format) + (" v\u00e0 nhi\u1ec1u nh\u1ea5t l\u00e0 " + ($soy$$0$0escapeHtml$$($opt_data$$87$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.max_size_human_format) + " cho m\u1ed7i giao d\u1ecbch.")));
-    $output$$67$$ += '<div class="line-of-credit-delivery-currency" data-delivery-currency="' + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + '" style=""><div class="control-group"><label class="control-label">S\u1ed1 ti\u1ec1n:</label><div class="controls"><div class="input-prepend"><span class="add-on">' + $soy$$0$0escapeHtml$$($opt_data$$87$$.data.CurrencySign) + '</span><input id="' + $soy$$0$0escapeHtml$$($opt_data$$87$$.id) + "_form_amount_" + $soy$$0$0escapeHtml$$($opt_data$$87$$.data.Currency) + 
-    "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + '" data-uniform-validators="required; validateNumber; validateMin ' + $soy$$0$0escapeHtml$$($opt_data$$87$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.min_size_decimal) + "; validateMax " + $soy$$0$0escapeHtml$$($opt_data$$87$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.max_size_decimal) + '" data-uniform-type="number" data-uniform-filters="positive_number" value="" type="text" class="input-small label-input-label" size="16" name="Amount" placeholder=""/></div><div><em><small> ' + 
+    var $cData293_cData306_cData313$$ = $cList293_cList306_cList313$$[$cIndex293_cIndex306_cIndex313$$], $MSG_UNNAMED_753$$ = "\u00cdt nh\u1ea5t l\u00e0 " + ($soy$$0$0escapeHtml$$($opt_data$$89$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.min_size_human_format) + (" v\u00e0 nhi\u1ec1u nh\u1ea5t l\u00e0 " + ($soy$$0$0escapeHtml$$($opt_data$$89$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.max_size_human_format) + " cho m\u1ed7i giao d\u1ecbch.")));
+    $output$$69$$ += '<div class="line-of-credit-delivery-currency" data-delivery-currency="' + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + '" style=""><div class="control-group"><label class="control-label">S\u1ed1 ti\u1ec1n:</label><div class="controls"><div class="input-prepend"><span class="add-on">' + $soy$$0$0escapeHtml$$($opt_data$$89$$.data.CurrencySign) + '</span><input id="' + $soy$$0$0escapeHtml$$($opt_data$$89$$.id) + "_form_amount_" + $soy$$0$0escapeHtml$$($opt_data$$89$$.data.Currency) + 
+    "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + '" data-uniform-validators="required; validateNumber; validateMin ' + $soy$$0$0escapeHtml$$($opt_data$$89$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.min_size_decimal) + "; validateMax " + $soy$$0$0escapeHtml$$($opt_data$$89$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.max_size_decimal) + '" data-uniform-type="number" data-uniform-filters="positive_number" value="" type="text" class="input-small label-input-label" size="16" name="Amount" placeholder=""/></div><div><em><small> ' + 
     $MSG_UNNAMED_753$$ + "</small></em></div></div></div></div>";
-    $cData293_cData306_cData313$$ != $opt_data$$87$$.data.Currency && ($output$$67$$ += '<div class="control-group"><label class="control-label">T\u1ef7 gi\u00e1:</label><div class="controls"><label id="' + $soy$$0$0escapeHtml$$($opt_data$$87$$.id) + "_form_exchange_rate_" + $soy$$0$0escapeHtml$$($opt_data$$87$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + '" style="text-align: left;" class="bitex-model control-label" data-model-formatter="currency" data-blink-class="balance-info-blink" data-model-formatter-pattern="' + 
-    $soy$$0$0escapeHtml$$($opt_data$$87$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.currency_pattern) + '" data-model-formula="(' + $soy$$0$0escapeHtml$$($opt_data$$87$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.ticker) + " +  ( (ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($opt_data$$87$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + "_PREMIUM / 100) * (" + $soy$$0$0escapeHtml$$($opt_data$$87$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.ticker) + 
-    ' ) ) ) / 100000000" data-model-key-list="' + $soy$$0$0escapeHtml$$($opt_data$$87$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.ticker) + ",ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($opt_data$$87$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + '_PREMIUM"></label></div></div><div class="control-group"><label class="control-label">T\u1ed5ng s\u1ed1:</label><div class="controls"><label id="' + $soy$$0$0escapeHtml$$($opt_data$$87$$.id) + "_form_total_" + 
-    $soy$$0$0escapeHtml$$($opt_data$$87$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + '" style="text-align: left;" class="bitex-model control-label" data-model-formatter="currency" data-blink-class="balance-info-blink" data-model-formatter-pattern="' + $soy$$0$0escapeHtml$$($opt_data$$87$$.data.ContractInfo[$cData293_cData306_cData313$$].CurrencyPattern) + '" data-model-formula="ID_LOC_FORM_AMOUNT_' + $soy$$0$0escapeHtml$$($opt_data$$87$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + 
-    " / ( (" + $soy$$0$0escapeHtml$$($opt_data$$87$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.ticker) + " +  ( (ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($opt_data$$87$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + "_PREMIUM / 100) * (" + $soy$$0$0escapeHtml$$($opt_data$$87$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.ticker) + ' ) ) ) ) " data-model-key-list="ID_LOC_FORM_AMOUNT_' + $soy$$0$0escapeHtml$$($opt_data$$87$$.data.Currency) + 
-    "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + ",ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($opt_data$$87$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + "_PREMIUM," + $soy$$0$0escapeHtml$$($opt_data$$87$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.ticker) + '"></label></div></div>');
-    $output$$67$$ += '<div class="control-group"><label class="control-label">C\u00e1c ph\u00ed:</label><div class="controls"><label id="' + $soy$$0$0escapeHtml$$($opt_data$$87$$.id) + "_form_fee_" + $soy$$0$0escapeHtml$$($opt_data$$87$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + '" style="text-align: left;" class="bitex-model control-label" data-model-formatter="currency" data-blink-class="balance-info-blink" data-model-formatter-pattern="' + $soy$$0$0escapeHtml$$($opt_data$$87$$.data.ContractInfo[$cData293_cData306_cData313$$].CurrencyPattern) + 
-    '" data-model-formula="( ( (ID_LOC_FORM_AMOUNT_' + $soy$$0$0escapeHtml$$($opt_data$$87$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + "_PREMIUM / 100) * (" + $soy$$0$0escapeHtml$$($opt_data$$87$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.ticker) + " ) ) ) ) + ( (" + $soy$$0$0escapeHtml$$($opt_data$$87$$.data.PercentFee) + "/100)  * (ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($opt_data$$87$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + 
-    " / ( (" + $soy$$0$0escapeHtml$$($opt_data$$87$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.ticker) + " +  ( (ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($opt_data$$87$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + "_PREMIUM / 100) * (" + $soy$$0$0escapeHtml$$($opt_data$$87$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.ticker) + " ) ) ) ) - ( ( (ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($opt_data$$87$$.data.Currency) + "_" + 
-    $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + "_PREMIUM / 100) * (" + $soy$$0$0escapeHtml$$($opt_data$$87$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.ticker) + ' ) ) ) ) ) )" data-model-key-list="ID_LOC_FORM_AMOUNT_' + $soy$$0$0escapeHtml$$($opt_data$$87$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + ",ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($opt_data$$87$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + 
-    "_PREMIUM," + $soy$$0$0escapeHtml$$($opt_data$$87$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.ticker) + '"></label></div></div><div class="control-group"><label class="control-label">T\u1ed5ng r\u00f2ng:</label><div class="controls"><label id="' + $soy$$0$0escapeHtml$$($opt_data$$87$$.id) + "_form_net_total_" + $soy$$0$0escapeHtml$$($opt_data$$87$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + '" style="text-align: left;" class="bitex-model control-label" data-model-formatter="currency" data-blink-class="balance-info-blink" data-model-formatter-pattern="' + 
-    $soy$$0$0escapeHtml$$($opt_data$$87$$.data.ContractInfo[$cData293_cData306_cData313$$].CurrencyPattern) + '" data-model-formula="(ID_LOC_FORM_AMOUNT_' + $soy$$0$0escapeHtml$$($opt_data$$87$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + " / ( (" + $soy$$0$0escapeHtml$$($opt_data$$87$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.ticker) + " +  ( (ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($opt_data$$87$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + 
-    "_PREMIUM / 100) * (" + $soy$$0$0escapeHtml$$($opt_data$$87$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.ticker) + " ) ) ) ) ) - ( ( ( (ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($opt_data$$87$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + "_PREMIUM / 100) * (" + $soy$$0$0escapeHtml$$($opt_data$$87$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.ticker) + " ) ) ) ) + ( (" + $soy$$0$0escapeHtml$$($opt_data$$87$$.data.PercentFee) + 
-    "/100)  * (ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($opt_data$$87$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + " / ( (" + $soy$$0$0escapeHtml$$($opt_data$$87$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.ticker) + " +  ( (ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($opt_data$$87$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + "_PREMIUM / 100) * (" + $soy$$0$0escapeHtml$$($opt_data$$87$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.ticker) + 
-    " ) ) ) ) - ( ( (ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($opt_data$$87$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + "_PREMIUM / 100) * (" + $soy$$0$0escapeHtml$$($opt_data$$87$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.ticker) + ' ) ) ) ) ) ) ) " data-model-key-list="ID_LOC_FORM_AMOUNT_' + $soy$$0$0escapeHtml$$($opt_data$$87$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + ",ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($opt_data$$87$$.data.Currency) + 
-    "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + "_PREMIUM," + $soy$$0$0escapeHtml$$($opt_data$$87$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.ticker) + '"></label></div></div><div class="control-group"><label class="control-label">L\u00e3i su\u1ea5t h\u00e0ng ng\u00e0y:</label><div class="controls"><label id="' + $soy$$0$0escapeHtml$$($opt_data$$87$$.id) + "_form_interest_rate_" + $soy$$0$0escapeHtml$$($opt_data$$87$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + 
-    '" class="control-label" style="text-align: left;">' + $soy$$0$0escapeHtml$$($opt_data$$87$$.data.ContractInfo.interest_rate_human_format) + "</label></div></div>";
+    $cData293_cData306_cData313$$ != $opt_data$$89$$.data.Currency && ($output$$69$$ += '<div class="control-group"><label class="control-label">T\u1ef7 gi\u00e1:</label><div class="controls"><label id="' + $soy$$0$0escapeHtml$$($opt_data$$89$$.id) + "_form_exchange_rate_" + $soy$$0$0escapeHtml$$($opt_data$$89$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + '" style="text-align: left;" class="bitex-model control-label" data-model-formatter="currency" data-blink-class="balance-info-blink" data-model-formatter-pattern="' + 
+    $soy$$0$0escapeHtml$$($opt_data$$89$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.currency_pattern) + '" data-model-formula="(' + $soy$$0$0escapeHtml$$($opt_data$$89$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.ticker) + " +  ( (ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($opt_data$$89$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + "_PREMIUM / 100) * (" + $soy$$0$0escapeHtml$$($opt_data$$89$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.ticker) + 
+    ' ) ) ) / 100000000" data-model-key-list="' + $soy$$0$0escapeHtml$$($opt_data$$89$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.ticker) + ",ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($opt_data$$89$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + '_PREMIUM"></label></div></div><div class="control-group"><label class="control-label">T\u1ed5ng s\u1ed1:</label><div class="controls"><label id="' + $soy$$0$0escapeHtml$$($opt_data$$89$$.id) + "_form_total_" + 
+    $soy$$0$0escapeHtml$$($opt_data$$89$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + '" style="text-align: left;" class="bitex-model control-label" data-model-formatter="currency" data-blink-class="balance-info-blink" data-model-formatter-pattern="' + $soy$$0$0escapeHtml$$($opt_data$$89$$.data.ContractInfo[$cData293_cData306_cData313$$].CurrencyPattern) + '" data-model-formula="ID_LOC_FORM_AMOUNT_' + $soy$$0$0escapeHtml$$($opt_data$$89$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + 
+    " / ( (" + $soy$$0$0escapeHtml$$($opt_data$$89$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.ticker) + " +  ( (ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($opt_data$$89$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + "_PREMIUM / 100) * (" + $soy$$0$0escapeHtml$$($opt_data$$89$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.ticker) + ' ) ) ) ) " data-model-key-list="ID_LOC_FORM_AMOUNT_' + $soy$$0$0escapeHtml$$($opt_data$$89$$.data.Currency) + 
+    "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + ",ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($opt_data$$89$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + "_PREMIUM," + $soy$$0$0escapeHtml$$($opt_data$$89$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.ticker) + '"></label></div></div>');
+    $output$$69$$ += '<div class="control-group"><label class="control-label">C\u00e1c ph\u00ed:</label><div class="controls"><label id="' + $soy$$0$0escapeHtml$$($opt_data$$89$$.id) + "_form_fee_" + $soy$$0$0escapeHtml$$($opt_data$$89$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + '" style="text-align: left;" class="bitex-model control-label" data-model-formatter="currency" data-blink-class="balance-info-blink" data-model-formatter-pattern="' + $soy$$0$0escapeHtml$$($opt_data$$89$$.data.ContractInfo[$cData293_cData306_cData313$$].CurrencyPattern) + 
+    '" data-model-formula="( ( (ID_LOC_FORM_AMOUNT_' + $soy$$0$0escapeHtml$$($opt_data$$89$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + "_PREMIUM / 100) * (" + $soy$$0$0escapeHtml$$($opt_data$$89$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.ticker) + " ) ) ) ) + ( (" + $soy$$0$0escapeHtml$$($opt_data$$89$$.data.PercentFee) + "/100)  * (ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($opt_data$$89$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + 
+    " / ( (" + $soy$$0$0escapeHtml$$($opt_data$$89$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.ticker) + " +  ( (ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($opt_data$$89$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + "_PREMIUM / 100) * (" + $soy$$0$0escapeHtml$$($opt_data$$89$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.ticker) + " ) ) ) ) - ( ( (ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($opt_data$$89$$.data.Currency) + "_" + 
+    $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + "_PREMIUM / 100) * (" + $soy$$0$0escapeHtml$$($opt_data$$89$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.ticker) + ' ) ) ) ) ) )" data-model-key-list="ID_LOC_FORM_AMOUNT_' + $soy$$0$0escapeHtml$$($opt_data$$89$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + ",ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($opt_data$$89$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + 
+    "_PREMIUM," + $soy$$0$0escapeHtml$$($opt_data$$89$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.ticker) + '"></label></div></div><div class="control-group"><label class="control-label">T\u1ed5ng r\u00f2ng:</label><div class="controls"><label id="' + $soy$$0$0escapeHtml$$($opt_data$$89$$.id) + "_form_net_total_" + $soy$$0$0escapeHtml$$($opt_data$$89$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + '" style="text-align: left;" class="bitex-model control-label" data-model-formatter="currency" data-blink-class="balance-info-blink" data-model-formatter-pattern="' + 
+    $soy$$0$0escapeHtml$$($opt_data$$89$$.data.ContractInfo[$cData293_cData306_cData313$$].CurrencyPattern) + '" data-model-formula="(ID_LOC_FORM_AMOUNT_' + $soy$$0$0escapeHtml$$($opt_data$$89$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + " / ( (" + $soy$$0$0escapeHtml$$($opt_data$$89$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.ticker) + " +  ( (ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($opt_data$$89$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + 
+    "_PREMIUM / 100) * (" + $soy$$0$0escapeHtml$$($opt_data$$89$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.ticker) + " ) ) ) ) ) - ( ( ( (ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($opt_data$$89$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + "_PREMIUM / 100) * (" + $soy$$0$0escapeHtml$$($opt_data$$89$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.ticker) + " ) ) ) ) + ( (" + $soy$$0$0escapeHtml$$($opt_data$$89$$.data.PercentFee) + 
+    "/100)  * (ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($opt_data$$89$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + " / ( (" + $soy$$0$0escapeHtml$$($opt_data$$89$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.ticker) + " +  ( (ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($opt_data$$89$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + "_PREMIUM / 100) * (" + $soy$$0$0escapeHtml$$($opt_data$$89$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.ticker) + 
+    " ) ) ) ) - ( ( (ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($opt_data$$89$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + "_PREMIUM / 100) * (" + $soy$$0$0escapeHtml$$($opt_data$$89$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.ticker) + ' ) ) ) ) ) ) ) " data-model-key-list="ID_LOC_FORM_AMOUNT_' + $soy$$0$0escapeHtml$$($opt_data$$89$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + ",ID_LOC_FORM_AMOUNT_" + $soy$$0$0escapeHtml$$($opt_data$$89$$.data.Currency) + 
+    "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + "_PREMIUM," + $soy$$0$0escapeHtml$$($opt_data$$89$$.data.ContractInfo[$cData293_cData306_cData313$$].get_ticker.ticker) + '"></label></div></div><div class="control-group"><label class="control-label">L\u00e3i su\u1ea5t h\u00e0ng ng\u00e0y:</label><div class="controls"><label id="' + $soy$$0$0escapeHtml$$($opt_data$$89$$.id) + "_form_interest_rate_" + $soy$$0$0escapeHtml$$($opt_data$$89$$.data.Currency) + "_" + $soy$$0$0escapeHtml$$($cData293_cData306_cData313$$) + 
+    '" class="control-label" style="text-align: left;">' + $soy$$0$0escapeHtml$$($opt_data$$89$$.data.ContractInfo.interest_rate_human_format) + "</label></div></div>";
   }
-  return $output$$67$$ + "</fieldset></form>";
-}
-;
-// Input 244
-function $bitex$ui$LineOfCreditTable$templates$btnGroup$$($opt_data$$88$$) {
-  return'<div class="btn-group">' + ("info" == $opt_data$$88$$.$button1$ ? $bitex$ui$LineOfCreditTable$templates$btnInfo$$($opt_data$$88$$) : "") + ("enable" == $opt_data$$88$$.$button1$ ? $bitex$ui$LineOfCreditTable$templates$btnEnable$$($opt_data$$88$$) : "") + ("disable" == $opt_data$$88$$.$button1$ ? $bitex$ui$LineOfCreditTable$templates$btnDisable$$($opt_data$$88$$) : "") + ("get" == $opt_data$$88$$.$button1$ ? $bitex$ui$LineOfCreditTable$templates$btnGet$$($opt_data$$88$$) : "") + ("payback" == 
-  $opt_data$$88$$.$button1$ ? $bitex$ui$LineOfCreditTable$templates$btnPayback$$($opt_data$$88$$) : "") + ("info" == $opt_data$$88$$.$button2$ ? $bitex$ui$LineOfCreditTable$templates$btnInfo$$($opt_data$$88$$) : "") + ("enable" == $opt_data$$88$$.$button2$ ? $bitex$ui$LineOfCreditTable$templates$btnEnable$$($opt_data$$88$$) : "") + ("disable" == $opt_data$$88$$.$button2$ ? $bitex$ui$LineOfCreditTable$templates$btnDisable$$($opt_data$$88$$) : "") + ("get" == $opt_data$$88$$.$button2$ ? $bitex$ui$LineOfCreditTable$templates$btnGet$$($opt_data$$88$$) : 
-  "") + ("payback" == $opt_data$$88$$.$button2$ ? $bitex$ui$LineOfCreditTable$templates$btnPayback$$($opt_data$$88$$) : "") + ("info" == $opt_data$$88$$.$button3$ ? $bitex$ui$LineOfCreditTable$templates$btnInfo$$($opt_data$$88$$) : "") + ("enable" == $opt_data$$88$$.$button3$ ? $bitex$ui$LineOfCreditTable$templates$btnEnable$$($opt_data$$88$$) : "") + ("disable" == $opt_data$$88$$.$button3$ ? $bitex$ui$LineOfCreditTable$templates$btnDisable$$($opt_data$$88$$) : "") + ("get" == $opt_data$$88$$.$button3$ ? 
-  $bitex$ui$LineOfCreditTable$templates$btnGet$$($opt_data$$88$$) : "") + ("payback" == $opt_data$$88$$.$button3$ ? $bitex$ui$LineOfCreditTable$templates$btnPayback$$($opt_data$$88$$) : "") + "</div>";
-}
-function $bitex$ui$LineOfCreditTable$templates$btnInfo$$($opt_data$$89_output$$68$$) {
-  return $opt_data$$89_output$$68$$ = "" + ('<a class="btn btn-mini btn-info btn-line-of-credit-action btn-line-of-credit-info" href="#" data-action="INFO" data-row="' + $soy$$0$0escapeHtml$$($opt_data$$89_output$$68$$.$dataRow$) + '">info<i class="icon-white icon-search"></i></a>');
-}
-function $bitex$ui$LineOfCreditTable$templates$btnEnable$$($opt_data$$90_output$$69$$) {
-  return $opt_data$$90_output$$69$$ = "" + ('<a class="btn btn-mini btn-success btn-line-of-credit-action btn-line-of-credit-enable" href="#" data-action="ENABLE" data-row="' + $soy$$0$0escapeHtml$$($opt_data$$90_output$$69$$.$dataRow$) + '">Enable<i class="icon-white icon-check"></i></a>');
-}
-function $bitex$ui$LineOfCreditTable$templates$btnDisable$$($opt_data$$91_output$$70$$) {
-  return $opt_data$$91_output$$70$$ = "" + ('<a class="btn btn-mini btn-info btn-line-of-credit-action btn-line-of-credit-disable" href="#" data-action="DISABLE" data-row="' + $soy$$0$0escapeHtml$$($opt_data$$91_output$$70$$.$dataRow$) + '">T\u1eaft<i class="icon-white icon-remove"></i></a>');
-}
-function $bitex$ui$LineOfCreditTable$templates$btnGet$$($opt_data$$92_output$$71$$) {
-  return $opt_data$$92_output$$71$$ = "" + ('<a class="btn btn-mini btn-success btn-line-of-credit-action btn-line-of-credit-get" href="#" data-action="GET" data-row="' + $soy$$0$0escapeHtml$$($opt_data$$92_output$$71$$.$dataRow$) + '">Get<i class="icon-white icon-upload-alt"></i></a>');
-}
-function $bitex$ui$LineOfCreditTable$templates$btnPayback$$($opt_data$$93_output$$72$$) {
-  return $opt_data$$93_output$$72$$ = "" + ('<a class="btn btn-mini btn-primary btn-line-of-credit-action btn-line-of-credit-payback" href="#" data-action="PAYBACK" data-row="' + $soy$$0$0escapeHtml$$($opt_data$$93_output$$72$$.$dataRow$) + '">Pay back<i class="icon-white icon-download-alt"></i></a>');
+  return $output$$69$$ + "</fieldset></form>";
 }
 ;
 // Input 245
+function $bitex$ui$LineOfCreditTable$templates$btnGroup$$($opt_data$$90$$) {
+  return'<div class="btn-group">' + ("info" == $opt_data$$90$$.$button1$ ? $bitex$ui$LineOfCreditTable$templates$btnInfo$$($opt_data$$90$$) : "") + ("enable" == $opt_data$$90$$.$button1$ ? $bitex$ui$LineOfCreditTable$templates$btnEnable$$($opt_data$$90$$) : "") + ("disable" == $opt_data$$90$$.$button1$ ? $bitex$ui$LineOfCreditTable$templates$btnDisable$$($opt_data$$90$$) : "") + ("get" == $opt_data$$90$$.$button1$ ? $bitex$ui$LineOfCreditTable$templates$btnGet$$($opt_data$$90$$) : "") + ("payback" == 
+  $opt_data$$90$$.$button1$ ? $bitex$ui$LineOfCreditTable$templates$btnPayback$$($opt_data$$90$$) : "") + ("info" == $opt_data$$90$$.$button2$ ? $bitex$ui$LineOfCreditTable$templates$btnInfo$$($opt_data$$90$$) : "") + ("enable" == $opt_data$$90$$.$button2$ ? $bitex$ui$LineOfCreditTable$templates$btnEnable$$($opt_data$$90$$) : "") + ("disable" == $opt_data$$90$$.$button2$ ? $bitex$ui$LineOfCreditTable$templates$btnDisable$$($opt_data$$90$$) : "") + ("get" == $opt_data$$90$$.$button2$ ? $bitex$ui$LineOfCreditTable$templates$btnGet$$($opt_data$$90$$) : 
+  "") + ("payback" == $opt_data$$90$$.$button2$ ? $bitex$ui$LineOfCreditTable$templates$btnPayback$$($opt_data$$90$$) : "") + ("info" == $opt_data$$90$$.$button3$ ? $bitex$ui$LineOfCreditTable$templates$btnInfo$$($opt_data$$90$$) : "") + ("enable" == $opt_data$$90$$.$button3$ ? $bitex$ui$LineOfCreditTable$templates$btnEnable$$($opt_data$$90$$) : "") + ("disable" == $opt_data$$90$$.$button3$ ? $bitex$ui$LineOfCreditTable$templates$btnDisable$$($opt_data$$90$$) : "") + ("get" == $opt_data$$90$$.$button3$ ? 
+  $bitex$ui$LineOfCreditTable$templates$btnGet$$($opt_data$$90$$) : "") + ("payback" == $opt_data$$90$$.$button3$ ? $bitex$ui$LineOfCreditTable$templates$btnPayback$$($opt_data$$90$$) : "") + "</div>";
+}
+function $bitex$ui$LineOfCreditTable$templates$btnInfo$$($opt_data$$91_output$$70$$) {
+  return $opt_data$$91_output$$70$$ = "" + ('<a class="btn btn-mini btn-info btn-line-of-credit-action btn-line-of-credit-info" href="#" data-action="INFO" data-row="' + $soy$$0$0escapeHtml$$($opt_data$$91_output$$70$$.$dataRow$) + '">info<i class="icon-white icon-search"></i></a>');
+}
+function $bitex$ui$LineOfCreditTable$templates$btnEnable$$($opt_data$$92_output$$71$$) {
+  return $opt_data$$92_output$$71$$ = "" + ('<a class="btn btn-mini btn-success btn-line-of-credit-action btn-line-of-credit-enable" href="#" data-action="ENABLE" data-row="' + $soy$$0$0escapeHtml$$($opt_data$$92_output$$71$$.$dataRow$) + '">Enable<i class="icon-white icon-check"></i></a>');
+}
+function $bitex$ui$LineOfCreditTable$templates$btnDisable$$($opt_data$$93_output$$72$$) {
+  return $opt_data$$93_output$$72$$ = "" + ('<a class="btn btn-mini btn-info btn-line-of-credit-action btn-line-of-credit-disable" href="#" data-action="DISABLE" data-row="' + $soy$$0$0escapeHtml$$($opt_data$$93_output$$72$$.$dataRow$) + '">T\u1eaft<i class="icon-white icon-remove"></i></a>');
+}
+function $bitex$ui$LineOfCreditTable$templates$btnGet$$($opt_data$$94_output$$73$$) {
+  return $opt_data$$94_output$$73$$ = "" + ('<a class="btn btn-mini btn-success btn-line-of-credit-action btn-line-of-credit-get" href="#" data-action="GET" data-row="' + $soy$$0$0escapeHtml$$($opt_data$$94_output$$73$$.$dataRow$) + '">Get<i class="icon-white icon-upload-alt"></i></a>');
+}
+function $bitex$ui$LineOfCreditTable$templates$btnPayback$$($opt_data$$95_output$$74$$) {
+  return $opt_data$$95_output$$74$$ = "" + ('<a class="btn btn-mini btn-primary btn-line-of-credit-action btn-line-of-credit-payback" href="#" data-action="PAYBACK" data-row="' + $soy$$0$0escapeHtml$$($opt_data$$95_output$$74$$.$dataRow$) + '">Pay back<i class="icon-white icon-download-alt"></i></a>');
+}
+;
+// Input 246
 function $bitex$ui$LineOfCreditTable$$($accountID$$, $opt_domHelper$$53$$) {
   $bitex$ui$DataGrid$$.call(this, {title:"H\u1ea1n m\u1ee9c t\u00edn d\u1ee5ng", showSearch:!1, rowIDFn:this.$getRowId$, columns:[{property:"Currency", label:"Ti\u1ec1n t\u1ec7", sortable:!1, classes:function() {
     return $bitex$ui$LineOfCreditTable$CSS_CLASS$$ + "-currency";
@@ -13778,7 +13820,7 @@ $bitex$ui$LineOfCreditTable$$.prototype.$getRowId$ = function $$bitex$ui$LineOfC
 $goog$ui$registry$setDecoratorByClassName$$($bitex$ui$LineOfCreditTable$CSS_CLASS$$, function() {
   return new $bitex$ui$LineOfCreditTable$$;
 });
-// Input 246
+// Input 247
 function $bitex$view$LineOfCreditView$$($app$$20$$, $opt_domHelper$$54$$) {
   $bitex$view$View$$.call(this, $app$$20$$, $opt_domHelper$$54$$);
   this.$request_id_$ = null;
@@ -13896,9 +13938,9 @@ $JSCompiler_prototypeAlias$$.$onLineOfCreditGet_$ = function $$JSCompiler_protot
   }, this);
   $handler$$112$$.$listen$($goog$dom$getElement$$($JSCompiler_StaticMethods_makeId$$(this, "loc_form_delivery_currency")), "change", function() {
     var $delivery_currency$$4$$ = $goog$dom$forms$getValue$$($goog$dom$getElement$$($JSCompiler_StaticMethods_makeId$$(this, "loc_form_delivery_currency")));
-    $goog$array$forEach$$($goog$dom$getElementsByClass$$("line-of-credit-delivery-currency"), function($el$$134$$) {
-      $goog$style$setElementShown$$($el$$134$$, !1);
-      $el$$134$$.getAttribute("data-delivery-currency") == $delivery_currency$$4$$ && $goog$style$setElementShown$$($el$$134$$, !0);
+    $goog$array$forEach$$($goog$dom$getElementsByClass$$("line-of-credit-delivery-currency"), function($el$$135$$) {
+      $goog$style$setElementShown$$($el$$135$$, !1);
+      $el$$135$$.getAttribute("data-delivery-currency") == $delivery_currency$$4$$ && $goog$style$setElementShown$$($el$$135$$, !0);
     }, this);
   }, this);
   $goog$array$forEach$$(line_of_credit.DeliveryCurrencies, function($delivery_currency$$5$$) {
@@ -13965,9 +14007,9 @@ $JSCompiler_prototypeAlias$$.$onLineOfCreditPayback_$ = function $$JSCompiler_pr
   }, this);
   $handler$$113$$.$listen$($goog$dom$getElement$$($JSCompiler_StaticMethods_makeId$$(this, "loc_form_delivery_currency")), "change", function() {
     var $delivery_currency$$7$$ = $goog$dom$forms$getValue$$($goog$dom$getElement$$($JSCompiler_StaticMethods_makeId$$(this, "loc_form_delivery_currency")));
-    $goog$array$forEach$$($goog$dom$getElementsByClass$$("line-of-credit-delivery-currency"), function($el$$135$$) {
-      $goog$style$setElementShown$$($el$$135$$, !1);
-      $el$$135$$.getAttribute("data-delivery-currency") == $delivery_currency$$7$$ && $goog$style$setElementShown$$($el$$135$$, !0);
+    $goog$array$forEach$$($goog$dom$getElementsByClass$$("line-of-credit-delivery-currency"), function($el$$136$$) {
+      $goog$style$setElementShown$$($el$$136$$, !1);
+      $el$$136$$.getAttribute("data-delivery-currency") == $delivery_currency$$7$$ && $goog$style$setElementShown$$($el$$136$$, !0);
     }, this);
   }, this);
   $goog$array$forEach$$(line_of_credit.DeliveryCurrencies, function($delivery_currency$$8$$) {
@@ -14000,21 +14042,21 @@ $JSCompiler_prototypeAlias$$.$onLineOfCreditPayback_$ = function $$JSCompiler_pr
   }, this);
   $JSCompiler_StaticMethods_updateDom$$(this.$app_$.$model_$);
 };
-$JSCompiler_prototypeAlias$$.$onLineOfCreditInfo_$ = function $$JSCompiler_prototypeAlias$$$$onLineOfCreditInfo_$$($JSCompiler_object_inline_data_1929_e$$288$$) {
-  $JSCompiler_object_inline_data_1929_e$$288$$ = line_of_credit = $JSCompiler_StaticMethods_formatLineOfCredit_$$(this, $JSCompiler_object_inline_data_1929_e$$288$$.target.$getLineOfCredit$());
+$JSCompiler_prototypeAlias$$.$onLineOfCreditInfo_$ = function $$JSCompiler_prototypeAlias$$$$onLineOfCreditInfo_$$($JSCompiler_object_inline_data_1944_e$$288$$) {
+  $JSCompiler_object_inline_data_1944_e$$288$$ = line_of_credit = $JSCompiler_StaticMethods_formatLineOfCredit_$$(this, $JSCompiler_object_inline_data_1944_e$$288$$.target.$getLineOfCredit$());
   var $output$$inline_1542$$;
-  $output$$inline_1542$$ = "" + ('<table class="table table-condensed table-bordered"><tr><td>Nh\u00e0 cung c\u1ea5p</td><td>' + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_1929_e$$288$$.ProviderFirstName) + " " + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_1929_e$$288$$.ProviderLastName) + "</td></tr><tr><td>Taker</td><td>" + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_1929_e$$288$$.TakerFirstName) + " " + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_1929_e$$288$$.TakerLastName) + 
-  "</td></tr><tr><td>Ti\u1ec1n t\u1ec7</td><td>" + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_1929_e$$288$$.Currency) + "</td></tr><tr><td>L\u00e3i su\u1ea5t h\u00e0ng ng\u00e0y</td><td>" + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_1929_e$$288$$.InterestRateHumanFormat) + "</td></tr><tr><td>H\u1ea1n m\u1ee9c t\u00edn d\u1ee5ng</td><td>" + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_1929_e$$288$$.CreditLimitHumanFormat) + "</td></tr><tr><td>Created</td><td>" + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_1929_e$$288$$.Created) + 
+  $output$$inline_1542$$ = "" + ('<table class="table table-condensed table-bordered"><tr><td>Nh\u00e0 cung c\u1ea5p</td><td>' + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_1944_e$$288$$.ProviderFirstName) + " " + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_1944_e$$288$$.ProviderLastName) + "</td></tr><tr><td>Taker</td><td>" + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_1944_e$$288$$.TakerFirstName) + " " + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_1944_e$$288$$.TakerLastName) + 
+  "</td></tr><tr><td>Ti\u1ec1n t\u1ec7</td><td>" + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_1944_e$$288$$.Currency) + "</td></tr><tr><td>L\u00e3i su\u1ea5t h\u00e0ng ng\u00e0y</td><td>" + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_1944_e$$288$$.InterestRateHumanFormat) + "</td></tr><tr><td>H\u1ea1n m\u1ee9c t\u00edn d\u1ee5ng</td><td>" + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_1944_e$$288$$.CreditLimitHumanFormat) + "</td></tr><tr><td>Created</td><td>" + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_1944_e$$288$$.Created) + 
   " UTC</td></tr>");
-  for (var $cList38$$inline_1543$$ = $JSCompiler_object_inline_data_1929_e$$288$$.DeliveryCurrencies, $cListLen38$$inline_1544$$ = $cList38$$inline_1543$$.length, $cIndex38$$inline_1545$$ = 0;$cIndex38$$inline_1545$$ < $cListLen38$$inline_1544$$;$cIndex38$$inline_1545$$++) {
+  for (var $cList38$$inline_1543$$ = $JSCompiler_object_inline_data_1944_e$$288$$.DeliveryCurrencies, $cListLen38$$inline_1544$$ = $cList38$$inline_1543$$.length, $cIndex38$$inline_1545$$ = 0;$cIndex38$$inline_1545$$ < $cListLen38$$inline_1544$$;$cIndex38$$inline_1545$$++) {
     var $cData38$$inline_1546$$ = $cList38$$inline_1543$$[$cIndex38$$inline_1545$$], $MSG_UNNAMED_729$$inline_1547$$ = "Nh\u1eadn l\u1ea5y v\u00e0 s\u1ebd tr\u1ea3 l\u1ea1i v\u00e0o " + $soy$$0$0escapeHtml$$($cData38$$inline_1546$$);
-    $output$$inline_1542$$ += '<tr><td colspan="2"> ' + $MSG_UNNAMED_729$$inline_1547$$ + "</td></tr><tr><td>Ticker for get</td><td>" + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_1929_e$$288$$.ContractInfo[$cData38$$inline_1546$$].get_ticker.market) + ":" + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_1929_e$$288$$.ContractInfo[$cData38$$inline_1546$$].get_ticker.instrument) + ":" + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_1929_e$$288$$.ContractInfo[$cData38$$inline_1546$$].get_ticker.column) + 
-    ' <span class="bitex-model" data-model-formatter="currency" data-model-formatter-pattern="' + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_1929_e$$288$$.ContractInfo[$cData38$$inline_1546$$].get_ticker.currency_pattern) + '" data-model-formula="' + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_1929_e$$288$$.ContractInfo[$cData38$$inline_1546$$].get_ticker.market) + "_" + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_1929_e$$288$$.ContractInfo[$cData38$$inline_1546$$].get_ticker.instrument) + 
-    "_" + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_1929_e$$288$$.ContractInfo[$cData38$$inline_1546$$].get_ticker.column) + ' / 100000000" data-model-key-list="' + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_1929_e$$288$$.ContractInfo[$cData38$$inline_1546$$].get_ticker.market) + "_" + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_1929_e$$288$$.ContractInfo[$cData38$$inline_1546$$].get_ticker.instrument) + "_" + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_1929_e$$288$$.ContractInfo[$cData38$$inline_1546$$].get_ticker.column) + 
-    '"></span></td></tr><tr><td>Ticker for payback</td><td>' + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_1929_e$$288$$.ContractInfo[$cData38$$inline_1546$$].payback_ticker.market) + ":" + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_1929_e$$288$$.ContractInfo[$cData38$$inline_1546$$].payback_ticker.instrument) + ":" + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_1929_e$$288$$.ContractInfo[$cData38$$inline_1546$$].payback_ticker.column) + ' <span class="bitex-model" data-model-formatter="currency" data-model-formatter-pattern="' + 
-    $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_1929_e$$288$$.ContractInfo[$cData38$$inline_1546$$].payback_ticker.currency_pattern) + '" data-model-formula="' + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_1929_e$$288$$.ContractInfo[$cData38$$inline_1546$$].payback_ticker.market) + "_" + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_1929_e$$288$$.ContractInfo[$cData38$$inline_1546$$].payback_ticker.instrument) + "_" + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_1929_e$$288$$.ContractInfo[$cData38$$inline_1546$$].payback_ticker.column) + 
-    ' / 100000000" data-model-key-list="' + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_1929_e$$288$$.ContractInfo[$cData38$$inline_1546$$].payback_ticker.market) + "_" + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_1929_e$$288$$.ContractInfo[$cData38$$inline_1546$$].payback_ticker.instrument) + "_" + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_1929_e$$288$$.ContractInfo[$cData38$$inline_1546$$].payback_ticker.column) + '"></span></td></tr><tr><td>S\u1ed1 l\u01b0\u1ee3ng Min/Max</td><td>' + 
-    $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_1929_e$$288$$.ContractInfo[$cData38$$inline_1546$$].get_ticker.min_size_human_format) + " / " + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_1929_e$$288$$.ContractInfo[$cData38$$inline_1546$$].get_ticker.max_size_human_format) + "</td></tr>";
+    $output$$inline_1542$$ += '<tr><td colspan="2"> ' + $MSG_UNNAMED_729$$inline_1547$$ + "</td></tr><tr><td>Ticker for get</td><td>" + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_1944_e$$288$$.ContractInfo[$cData38$$inline_1546$$].get_ticker.market) + ":" + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_1944_e$$288$$.ContractInfo[$cData38$$inline_1546$$].get_ticker.instrument) + ":" + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_1944_e$$288$$.ContractInfo[$cData38$$inline_1546$$].get_ticker.column) + 
+    ' <span class="bitex-model" data-model-formatter="currency" data-model-formatter-pattern="' + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_1944_e$$288$$.ContractInfo[$cData38$$inline_1546$$].get_ticker.currency_pattern) + '" data-model-formula="' + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_1944_e$$288$$.ContractInfo[$cData38$$inline_1546$$].get_ticker.market) + "_" + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_1944_e$$288$$.ContractInfo[$cData38$$inline_1546$$].get_ticker.instrument) + 
+    "_" + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_1944_e$$288$$.ContractInfo[$cData38$$inline_1546$$].get_ticker.column) + ' / 100000000" data-model-key-list="' + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_1944_e$$288$$.ContractInfo[$cData38$$inline_1546$$].get_ticker.market) + "_" + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_1944_e$$288$$.ContractInfo[$cData38$$inline_1546$$].get_ticker.instrument) + "_" + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_1944_e$$288$$.ContractInfo[$cData38$$inline_1546$$].get_ticker.column) + 
+    '"></span></td></tr><tr><td>Ticker for payback</td><td>' + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_1944_e$$288$$.ContractInfo[$cData38$$inline_1546$$].payback_ticker.market) + ":" + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_1944_e$$288$$.ContractInfo[$cData38$$inline_1546$$].payback_ticker.instrument) + ":" + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_1944_e$$288$$.ContractInfo[$cData38$$inline_1546$$].payback_ticker.column) + ' <span class="bitex-model" data-model-formatter="currency" data-model-formatter-pattern="' + 
+    $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_1944_e$$288$$.ContractInfo[$cData38$$inline_1546$$].payback_ticker.currency_pattern) + '" data-model-formula="' + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_1944_e$$288$$.ContractInfo[$cData38$$inline_1546$$].payback_ticker.market) + "_" + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_1944_e$$288$$.ContractInfo[$cData38$$inline_1546$$].payback_ticker.instrument) + "_" + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_1944_e$$288$$.ContractInfo[$cData38$$inline_1546$$].payback_ticker.column) + 
+    ' / 100000000" data-model-key-list="' + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_1944_e$$288$$.ContractInfo[$cData38$$inline_1546$$].payback_ticker.market) + "_" + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_1944_e$$288$$.ContractInfo[$cData38$$inline_1546$$].payback_ticker.instrument) + "_" + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_1944_e$$288$$.ContractInfo[$cData38$$inline_1546$$].payback_ticker.column) + '"></span></td></tr><tr><td>S\u1ed1 l\u01b0\u1ee3ng Min/Max</td><td>' + 
+    $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_1944_e$$288$$.ContractInfo[$cData38$$inline_1546$$].get_ticker.min_size_human_format) + " / " + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_1944_e$$288$$.ContractInfo[$cData38$$inline_1546$$].get_ticker.max_size_human_format) + "</td></tr>";
   }
   this.$app_$.$showDialog$($output$$inline_1542$$ + "</table>", line_of_credit.Description);
   $JSCompiler_StaticMethods_updateDom$$(this.$app_$.$model_$);
@@ -14032,8 +14074,8 @@ $JSCompiler_prototypeAlias$$.$onLineOfCreditListRefresh_$ = function $$JSCompile
 $JSCompiler_prototypeAlias$$.$onLineOfCreditListResponse_$ = function $$JSCompiler_prototypeAlias$$$$onLineOfCreditListResponse_$$($e$$291_msg$$48$$) {
   null != this.$line_of_credit_table_$ && ($e$$291_msg$$48$$ = $e$$291_msg$$48$$.data, $JSCompiler_StaticMethods_setResultSet$$(this.$line_of_credit_table_$, $e$$291_msg$$48$$.LineOfCreditListGrp, $e$$291_msg$$48$$.Columns));
 };
-// Input 247
 // Input 248
+// Input 249
 function $goog$net$WebSocket$$($opt_autoReconnect$$, $opt_getNextReconnect$$) {
   $goog$events$EventTarget$$.call(this);
   this.$autoReconnect_$ = $goog$isDef$$($opt_autoReconnect$$) ? $opt_autoReconnect$$ : !0;
@@ -14105,7 +14147,7 @@ function $goog$net$WebSocket$ErrorEvent$$($data$$53$$) {
   this.data = $data$$53$$;
 }
 $goog$inherits$$($goog$net$WebSocket$ErrorEvent$$, $goog$events$Event$$);
-// Input 249
+// Input 250
 function $bitex$api$BitEx$$($opt_browser_finger_print$$) {
   $goog$events$EventTarget$$.call(this);
   this.$all_markets_$ = this.$currency_info_$ = null;
@@ -14559,12 +14601,12 @@ $JSCompiler_prototypeAlias$$.$verifyCustomer$ = function $$JSCompiler_prototypeA
   $JSCompiler_StaticMethods_sendMessage$$(this, $clientId$$1_msg$$73$$);
   return $opt_requestId$$11_requestId$$14$$;
 };
-$JSCompiler_prototypeAlias$$.$processWithdraw$ = function $$JSCompiler_prototypeAlias$$$$processWithdraw$$($opt_requestId$$12_requestId$$15$$, $action$$2_msg$$74$$, $withdrawId$$1$$, $opt_reasonId$$, $opt_reason$$1$$, $opt_data$$94$$, $opt_percent_fee$$, $opt_fixed_fee$$) {
+$JSCompiler_prototypeAlias$$.$processWithdraw$ = function $$JSCompiler_prototypeAlias$$$$processWithdraw$$($opt_requestId$$12_requestId$$15$$, $action$$2_msg$$74$$, $withdrawId$$1$$, $opt_reasonId$$, $opt_reason$$1$$, $opt_data$$96$$, $opt_percent_fee$$, $opt_fixed_fee$$) {
   $opt_requestId$$12_requestId$$15$$ = $opt_requestId$$12_requestId$$15$$ || parseInt(1E7 * Math.random(), 10);
   $action$$2_msg$$74$$ = {MsgType:"B6", ProcessWithdrawReqID:$opt_requestId$$12_requestId$$15$$, WithdrawID:$withdrawId$$1$$, Action:$action$$2_msg$$74$$};
   null != $opt_reasonId$$ && ($action$$2_msg$$74$$.ReasonID = $opt_reasonId$$);
   null != $opt_reason$$1$$ && ($action$$2_msg$$74$$.Reason = $opt_reason$$1$$);
-  null != $opt_data$$94$$ && ($action$$2_msg$$74$$.Data = $opt_data$$94$$);
+  null != $opt_data$$96$$ && ($action$$2_msg$$74$$.Data = $opt_data$$96$$);
   null != $opt_percent_fee$$ && ($action$$2_msg$$74$$.PercentFee = $opt_percent_fee$$);
   null != $opt_fixed_fee$$ && ($action$$2_msg$$74$$.FixedFee = $opt_fixed_fee$$);
   $JSCompiler_StaticMethods_sendMessage$$(this, $action$$2_msg$$74$$);
@@ -14738,9 +14780,9 @@ $JSCompiler_prototypeAlias$$.$cardDisable$ = function $$JSCompiler_prototypeAlia
   $JSCompiler_StaticMethods_sendMessage$$(this, {MsgType:"U76", CardDisableReqID:$requestId$$36$$, CardID:$cardId$$1$$});
   return $requestId$$36$$;
 };
-function $bitex$api$BitExEvent$$($type$$151$$, $opt_data$$95$$) {
+function $bitex$api$BitExEvent$$($type$$151$$, $opt_data$$97$$) {
   $goog$events$Event$$.call(this, $type$$151$$);
-  this.data = $opt_data$$95$$;
+  this.data = $opt_data$$97$$;
 }
 $goog$inherits$$($bitex$api$BitExEvent$$, $goog$events$Event$$);
 $goog$exportSymbol$$("BitEx", $bitex$api$BitEx$$);
@@ -14793,7 +14835,7 @@ BitEx.prototype.requestCreateCard = $bitex$api$BitEx$$.prototype.$requestCreateC
 BitEx.prototype.cardDisable = $bitex$api$BitEx$$.prototype.$cardDisable$;
 BitEx.prototype.addEventListener = $bitex$api$BitEx$$.prototype.addEventListener;
 BitEx.prototype.removeEventListener = $bitex$api$BitEx$$.prototype.removeEventListener;
-// Input 250
+// Input 251
 function $bitex$ui$RankingViewTable$$($opt_domHelper$$55$$) {
   $bitex$ui$DataGrid$$.call(this, {rowIDFn:this.$getRowId$, columns:[{property:"Rank", label:"#", sortable:!1, classes:function() {
     return $bitex$ui$RankingViewTable$CSS_CLASS$$ + "-rank";
@@ -14815,7 +14857,7 @@ $bitex$ui$RankingViewTable$$.prototype.$getRowId$ = function $$bitex$ui$RankingV
 $goog$ui$registry$setDecoratorByClassName$$($bitex$ui$RankingViewTable$CSS_CLASS$$, function() {
   return new $bitex$ui$RankingViewTable$$;
 });
-// Input 251
+// Input 252
 function $bitex$view$RankingView$$($app$$21$$, $opt_domHelper$$56$$) {
   $bitex$view$View$$.call(this, $app$$21$$, $opt_domHelper$$56$$);
 }
@@ -14858,27 +14900,27 @@ $JSCompiler_prototypeAlias$$.$onRankingTableRequestData_$ = function $$JSCompile
 $JSCompiler_prototypeAlias$$.$onTradeRankResponse_$ = function $$JSCompiler_prototypeAlias$$$$onTradeRankResponse_$$($e$$296_msg$$103$$) {
   null != this.$ranking_table_$ && ($e$$296_msg$$103$$ = $e$$296_msg$$103$$.data, $JSCompiler_StaticMethods_setResultSet$$(this.$ranking_table_$, $e$$296_msg$$103$$.TradersRankGrp, $e$$296_msg$$103$$.Columns));
 };
-// Input 252
-function $bitex$ui$APIKeyDataEntry$templates$APIKeyDataEntry$$($opt_data$$96$$) {
-  var $output$$73$$;
-  $output$$73$$ = "" + ('<form  id="' + $soy$$0$0escapeHtml$$($opt_data$$96$$.id) + '_form" class="api-key-data-entry-form"><fieldset><h2>T\u1ea1o kho\u00e1 API</h2><div class="api-key-data-entry-form-block control-group"><label>API Key Label<input id="' + $soy$$0$0escapeHtml$$($opt_data$$96$$.id) + '_label" type="text" class="input-block-level"></label></div><div class="api-key-data-entry-form-block control-group"><div class="pull-right"><label class="no-selection">B\u1ecf ch\u1ecdn t\u1ea5t c\u1ea3</label></div><div class="pull-right api-key-data-entry-form-pipe">|</div><div class="pull-right"><label class="no-selection">Ch\u1ecdn t\u1ea5t c\u1ea3</label></div><h3>Quy\u1ec1n h\u1ea1n</h3><table id="' + 
-  $soy$$0$0escapeHtml$$($opt_data$$96$$.id) + '_permissions_table" class="api-key-data-entry-form-permissions-table"><tbody><tr><td colspan="2"><h4>T\u00e0i kho\u1ea3n c\u1ee7a b\u1ea1n</h4></td></tr><tr><td class="no-selection"><label class="checkbox"><input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="BF">Th\u00f4ng tin t\u00e0i kho\u1ea3n</input></label></td><td class="no-selection"><label class="checkbox"><input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="U4">L\u1ecbch s\u1eed giao d\u1ecbch</input></label></td></tr><tr><td class="no-selection"><label class="checkbox"><input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="U34">S\u1ed5 k\u1ebf to\u00e1n</input></label></td><td class="no-selection"><label class="checkbox"><input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="U26">Xem c\u00e1c l\u1ec7nh r\u00fat</input></label></td></tr><tr><td class="no-selection"><label class="checkbox"><input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="U2">Th\u00f4ng tin s\u1ed1 d\u01b0</input></label></td><td  class="no-selection"><label class="checkbox"><input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="U30">Xem c\u00e1c l\u1ec7nh n\u1ea1p</input></label></td></tr><tr><td colspan="2"><h4>Giao d\u1ecbch</h4></td></tr><tr><td class="no-selection"><label class="checkbox"><input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="D" data-permission-filters=\'[ ["Side","eq", "1", "OrdType","eq","2"]]\'>T\u1ea1o giao d\u1ecbch mua gi\u00e1 x\u00e1c \u0111\u1ecbnh</input></label></td><td class="no-selection"><label class="checkbox"><input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="D" data-permission-filters=\'[ ["Side","eq", "2", "OrdType","eq","2"]]\'>T\u1ea1o giao d\u1ecbch b\u00e1n gi\u00e1 x\u00e1c \u0111\u1ecbnh</input></label></td></tr><tr><td class="no-selection"><label class="checkbox"><input type="checkbox" class="api-key-data-entry-form-permissions-check"  data-permission-msg="D" data-permission-filters=\'[ ["Side","eq", "1", "OrdType","eq","1"]]\'>T\u1ea1o giao d\u1ecbch mua gi\u00e1 th\u1ecb tr\u01b0\u1eddng</input></label></td><td class="no-selection"><label class="checkbox"><input type="checkbox" class="api-key-data-entry-form-permissions-check"  data-permission-msg="D" data-permission-filters=\'[ ["Side","eq", "2" , "OrdType","eq","1"]]\'>T\u1ea1o giao d\u1ecbch b\u00e1n gi\u00e1 th\u1ecb tr\u01b0\u1eddng</input></label></td></tr><tr><td colspan="2" class="no-selection"><label class="checkbox"><input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="F">Hu\u1ef7 giao d\u1ecbch</input></label></td></tr><tr><td colspan="2"><h4>L\u1ec7nh g\u1eedi ti\u1ec1n</h4></td></tr><tr><td colspan="2" class="no-selection"><label class="checkbox"><input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="U18" data-permission-filters=\'[ ["Currency","eq", "BTC"]]\'>Bitcoin</input></label></td></tr>');
-  for (var $mList64_mList77$$ = $opt_data$$96$$.$depositMethods$, $mListLen64_mListLen77$$ = $mList64_mList77$$.length, $mIndex64_mIndex77$$ = 0;$mIndex64_mIndex77$$ < $mListLen64_mListLen77$$;$mIndex64_mIndex77$$++) {
+// Input 253
+function $bitex$ui$APIKeyDataEntry$templates$APIKeyDataEntry$$($opt_data$$98$$) {
+  var $output$$75$$;
+  $output$$75$$ = "" + ('<form  id="' + $soy$$0$0escapeHtml$$($opt_data$$98$$.id) + '_form" class="api-key-data-entry-form"><fieldset><h2>T\u1ea1o kho\u00e1 API</h2><div class="api-key-data-entry-form-block control-group"><label>API Key Label<input id="' + $soy$$0$0escapeHtml$$($opt_data$$98$$.id) + '_label" type="text" class="input-block-level"></label></div><div class="api-key-data-entry-form-block control-group"><div class="pull-right"><label class="no-selection">B\u1ecf ch\u1ecdn t\u1ea5t c\u1ea3</label></div><div class="pull-right api-key-data-entry-form-pipe">|</div><div class="pull-right"><label class="no-selection">Ch\u1ecdn t\u1ea5t c\u1ea3</label></div><h3>Quy\u1ec1n h\u1ea1n</h3><table id="' + 
+  $soy$$0$0escapeHtml$$($opt_data$$98$$.id) + '_permissions_table" class="api-key-data-entry-form-permissions-table"><tbody><tr><td colspan="2"><h4>T\u00e0i kho\u1ea3n c\u1ee7a b\u1ea1n</h4></td></tr><tr><td class="no-selection"><label class="checkbox"><input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="BF">Th\u00f4ng tin t\u00e0i kho\u1ea3n</input></label></td><td class="no-selection"><label class="checkbox"><input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="U4">L\u1ecbch s\u1eed giao d\u1ecbch</input></label></td></tr><tr><td class="no-selection"><label class="checkbox"><input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="U34">S\u1ed5 k\u1ebf to\u00e1n</input></label></td><td class="no-selection"><label class="checkbox"><input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="U26">Xem c\u00e1c l\u1ec7nh r\u00fat</input></label></td></tr><tr><td class="no-selection"><label class="checkbox"><input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="U2">Th\u00f4ng tin s\u1ed1 d\u01b0</input></label></td><td  class="no-selection"><label class="checkbox"><input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="U30">Xem c\u00e1c l\u1ec7nh n\u1ea1p</input></label></td></tr><tr><td colspan="2"><h4>Giao d\u1ecbch</h4></td></tr><tr><td class="no-selection"><label class="checkbox"><input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="D" data-permission-filters=\'[ ["Side","eq", "1", "OrdType","eq","2"]]\'>T\u1ea1o giao d\u1ecbch mua gi\u00e1 x\u00e1c \u0111\u1ecbnh</input></label></td><td class="no-selection"><label class="checkbox"><input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="D" data-permission-filters=\'[ ["Side","eq", "2", "OrdType","eq","2"]]\'>T\u1ea1o giao d\u1ecbch b\u00e1n gi\u00e1 x\u00e1c \u0111\u1ecbnh</input></label></td></tr><tr><td class="no-selection"><label class="checkbox"><input type="checkbox" class="api-key-data-entry-form-permissions-check"  data-permission-msg="D" data-permission-filters=\'[ ["Side","eq", "1", "OrdType","eq","1"]]\'>T\u1ea1o giao d\u1ecbch mua gi\u00e1 th\u1ecb tr\u01b0\u1eddng</input></label></td><td class="no-selection"><label class="checkbox"><input type="checkbox" class="api-key-data-entry-form-permissions-check"  data-permission-msg="D" data-permission-filters=\'[ ["Side","eq", "2" , "OrdType","eq","1"]]\'>T\u1ea1o giao d\u1ecbch b\u00e1n gi\u00e1 th\u1ecb tr\u01b0\u1eddng</input></label></td></tr><tr><td colspan="2" class="no-selection"><label class="checkbox"><input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="F">Hu\u1ef7 giao d\u1ecbch</input></label></td></tr><tr><td colspan="2"><h4>L\u1ec7nh g\u1eedi ti\u1ec1n</h4></td></tr><tr><td colspan="2" class="no-selection"><label class="checkbox"><input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="U18" data-permission-filters=\'[ ["Currency","eq", "BTC"]]\'>Bitcoin</input></label></td></tr>');
+  for (var $mList64_mList77$$ = $opt_data$$98$$.$depositMethods$, $mListLen64_mListLen77$$ = $mList64_mList77$$.length, $mIndex64_mIndex77$$ = 0;$mIndex64_mIndex77$$ < $mListLen64_mListLen77$$;$mIndex64_mIndex77$$++) {
     var $mData64_mData77$$ = $mList64_mList77$$[$mIndex64_mIndex77$$];
-    $output$$73$$ += '<tr><td colspan="2" class="no-selection"><label class="checkbox"><input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="U18" data-permission-filters=\'[ ["DepositMethodID","eq", "' + $soy$$0$0escapeHtml$$($mData64_mData77$$.id) + "\"]]' >" + $soy$$0$0escapeHtml$$($mData64_mData77$$.currency) + " - " + $soy$$0$0escapeHtml$$($mData64_mData77$$.description) + "</input></label></td></tr>";
+    $output$$75$$ += '<tr><td colspan="2" class="no-selection"><label class="checkbox"><input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="U18" data-permission-filters=\'[ ["DepositMethodID","eq", "' + $soy$$0$0escapeHtml$$($mData64_mData77$$.id) + "\"]]' >" + $soy$$0$0escapeHtml$$($mData64_mData77$$.currency) + " - " + $soy$$0$0escapeHtml$$($mData64_mData77$$.description) + "</input></label></td></tr>";
   }
-  $output$$73$$ += '<tr><td colspan="2"><h4>L\u1ec7nh r\u00fat ti\u1ec1n</h4></td></tr>';
-  $mList64_mList77$$ = $opt_data$$96$$.$withdrawalMethods$;
+  $output$$75$$ += '<tr><td colspan="2"><h4>L\u1ec7nh r\u00fat ti\u1ec1n</h4></td></tr>';
+  $mList64_mList77$$ = $opt_data$$98$$.$withdrawalMethods$;
   $mListLen64_mListLen77$$ = $mList64_mList77$$.length;
   for ($mIndex64_mIndex77$$ = 0;$mIndex64_mIndex77$$ < $mListLen64_mListLen77$$;$mIndex64_mIndex77$$++) {
-    $mData64_mData77$$ = $mList64_mList77$$[$mIndex64_mIndex77$$], $output$$73$$ += '<tr><td colspan="2" class="no-selection"><label class="checkbox"><input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="U6" data-permission-filters=\'[ ["Method", "eq", "' + $soy$$0$0escapeHtml$$($mData64_mData77$$.id) + "\" ] ]' >" + $soy$$0$0escapeHtml$$($mData64_mData77$$.currency) + " - " + $soy$$0$0escapeHtml$$($mData64_mData77$$.description) + "</input></label></td></tr>"
+    $mData64_mData77$$ = $mList64_mList77$$[$mIndex64_mIndex77$$], $output$$75$$ += '<tr><td colspan="2" class="no-selection"><label class="checkbox"><input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="U6" data-permission-filters=\'[ ["Method", "eq", "' + $soy$$0$0escapeHtml$$($mData64_mData77$$.id) + "\" ] ]' >" + $soy$$0$0escapeHtml$$($mData64_mData77$$.currency) + " - " + $soy$$0$0escapeHtml$$($mData64_mData77$$.description) + "</input></label></td></tr>"
     ;
   }
-  return $output$$73$$ += '<tr><td colspan="2" class="no-selection"><label class="checkbox"><input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="U24">X\u00e1c nh\u1eadn r\u00fat ti\u1ec1n</input></label></td></tr></tbody></table></div><div class="api-key-data-entry-form-block control-group"><h3>C\u00e1c IP \u0111\u01b0\u1ee3c cho ph\u00e9p</h3><label>C\u00e1c \u0111\u1ecba ch\u1ec9 IP<input id="' + $soy$$0$0escapeHtml$$($opt_data$$96$$.id) + '_ip_whitelist" type="text" class="input-block-level"><span class="helpblock">Nh\u1eadp m\u1ed9t danh s\u00e1ch c\u00e1c \u0111\u1ecba ch\u1ec9 IP \u0111\u01b0\u1ee3c ph\u00e2n c\u00e1ch b\u1eb1ng d\u1ea5u ph\u1ea9y (vd: 55.55.55.55, 44.44.44.44) m\u00e0 b\u1ea1n mu\u1ed1n cho v\u00e0o danh s\u00e1ch cho ph\u00e9p. \u0110\u1ec3 m\u1ee5c n\u00e0y tr\u1ed1ng ngh\u0129a l\u00e0 b\u1ea1n \u0111ang cho ph\u00e9p kho\u00e1 API n\u00e0y s\u1ebd \u0111\u01b0\u1ee3c s\u1eed d\u1ee5ng t\u1eeb b\u1ea5t k\u1ef3 \u0111\u1ecba ch\u1ec9 IP n\u00e0o.</span></label></div><div class="text-center"><button id="' + 
-  $soy$$0$0escapeHtml$$($opt_data$$96$$.id) + '_cancel_btn" class="btn">Cancel</button><button id="' + $soy$$0$0escapeHtml$$($opt_data$$96$$.id) + '_create_btn" type="submit" class="btn btn-primary">Create</button></div></fieldset></form>';
+  return $output$$75$$ += '<tr><td colspan="2" class="no-selection"><label class="checkbox"><input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="U24">X\u00e1c nh\u1eadn r\u00fat ti\u1ec1n</input></label></td></tr></tbody></table></div><div class="api-key-data-entry-form-block control-group"><h3>C\u00e1c IP \u0111\u01b0\u1ee3c cho ph\u00e9p</h3><label>C\u00e1c \u0111\u1ecba ch\u1ec9 IP<input id="' + $soy$$0$0escapeHtml$$($opt_data$$98$$.id) + '_ip_whitelist" type="text" class="input-block-level"><span class="helpblock">Nh\u1eadp m\u1ed9t danh s\u00e1ch c\u00e1c \u0111\u1ecba ch\u1ec9 IP \u0111\u01b0\u1ee3c ph\u00e2n c\u00e1ch b\u1eb1ng d\u1ea5u ph\u1ea9y (vd: 55.55.55.55, 44.44.44.44) m\u00e0 b\u1ea1n mu\u1ed1n cho v\u00e0o danh s\u00e1ch cho ph\u00e9p. \u0110\u1ec3 m\u1ee5c n\u00e0y tr\u1ed1ng ngh\u0129a l\u00e0 b\u1ea1n \u0111ang cho ph\u00e9p kho\u00e1 API n\u00e0y s\u1ebd \u0111\u01b0\u1ee3c s\u1eed d\u1ee5ng t\u1eeb b\u1ea5t k\u1ef3 \u0111\u1ecba ch\u1ec9 IP n\u00e0o.</span></label></div><div class="text-center"><button id="' + 
+  $soy$$0$0escapeHtml$$($opt_data$$98$$.id) + '_cancel_btn" class="btn">Cancel</button><button id="' + $soy$$0$0escapeHtml$$($opt_data$$98$$.id) + '_create_btn" type="submit" class="btn btn-primary">Create</button></div></fieldset></form>';
 }
 ;
-// Input 253
+// Input 254
 function $bitex$ui$APIKeyDataEntry$$($opt_model$$3$$, $opt_domHelper$$57$$) {
   $goog$ui$Component$$.call(this, $opt_domHelper$$57$$);
   this.$setModel$($opt_model$$3$$ || {deposit_methods:[], withdrawal_methods:[]});
@@ -14939,7 +14981,7 @@ $JSCompiler_prototypeAlias$$.$onSubmit_$ = function $$JSCompiler_prototypeAlias$
   $e$$299$$.preventDefault();
   0 < this.$uniform_$.$validate$().length ? $e$$299$$.stopPropagation() : this.dispatchEvent("api_key_data_entry_submit");
 };
-// Input 254
+// Input 255
 function $bitex$ui$ApiList$$($opt_domHelper$$58$$) {
   $bitex$ui$DataGrid$$.call(this, {rowIDFn:this.$getRowId$, rowClassFn:this.$getRowClass$, columns:[{property:"LastUsed", label:"L\u1ea7n cu\u1ed1i s\u1eed d\u1ee5ng", sortable:!1, formatter:function($s$$62$$) {
     return $bitex$util$convertServerUTCDateTimeStrToTimestamp$$($s$$62$$.substr(0, 10), $s$$62$$.substr(11)).toLocaleString();
@@ -14977,7 +15019,7 @@ $JSCompiler_prototypeAlias$$.$getRowId$ = function $$JSCompiler_prototypeAlias$$
 $goog$ui$registry$setDecoratorByClassName$$($bitex$ui$ApiList$CSS_CLASS$$, function() {
   return new $bitex$ui$ApiList$$;
 });
-// Input 255
+// Input 256
 function $bitex$view$APIView$$($app$$22$$, $opt_domHelper$$59$$) {
   $bitex$view$View$$.call(this, $app$$22$$, $opt_domHelper$$59$$);
 }
@@ -15065,7 +15107,7 @@ $JSCompiler_prototypeAlias$$.$onApiListRequestData_$ = function $$JSCompiler_pro
 $JSCompiler_prototypeAlias$$.$onApiKeyListResponse_$ = function $$JSCompiler_prototypeAlias$$$$onApiKeyListResponse_$$($e$$306_msg$$105$$) {
   null != this.$api_list_$ && ($e$$306_msg$$105$$ = $e$$306_msg$$105$$.data, $JSCompiler_StaticMethods_setResultSet$$(this.$api_list_$, $e$$306_msg$$105$$.ApiKeyListGrp, $e$$306_msg$$105$$.Columns));
 };
-// Input 256
+// Input 257
 function $bitex$view$ForgotPasswordView$$($app$$23$$, $opt_domHelper$$60$$) {
   $bitex$view$View$$.call(this, $app$$23$$, $opt_domHelper$$60$$);
 }
@@ -15081,16 +15123,16 @@ $bitex$view$ForgotPasswordView$$.prototype.$enterDocument$ = function $$bitex$vi
 $bitex$view$ForgotPasswordView$$.prototype.$getEmail$ = function $$bitex$view$ForgotPasswordView$$$$$getEmail$$() {
   return $goog$dom$forms$getValue$$($goog$dom$getElement$$("id_forgot_password_email"));
 };
-// Input 257
 // Input 258
 // Input 259
+// Input 260
 function $bitex$view$WithdrawView$templates$CancelWithdrawDialogContent$$() {
-  var $output$$74$$;
-  return $output$$74$$ = "" + ('<p>\u0110i\u1ec1n l\u00fd do h\u1ee7y l\u1ec7nh r\u00fat ti\u1ec1n</p><form class="form-horizontal"><fieldset><div class="control-group"><label class="control-label" for="' + $soy$$0$0escapeHtml$$("id_select_reason") + '" >L\u00fd do:</label><div class="controls"><select id="' + $soy$$0$0escapeHtml$$("id_select_reason") + '"><option value="0">Kh\u00e1c</option><option value="-1" selected>Kh\u00f4ng \u0111\u1ee7 ti\u1ec1n</option><option value="-2">T\u00e0i kho\u1ea3n ch\u01b0a \u0111\u01b0\u1ee3c x\u00e1c minh</option><option value="-3">Nghi ng\u1edd l\u1eeba \u0111\u1ea3o</option><option value="-4">R\u00fat ti\u1ec1n v\u00e0o t\u00e0i kho\u1ea3n kh\u00f4ng ph\u1ea3i c\u1ee7a b\u1ea1n</option><option value="-5">V\u00ed kh\u00f4ng h\u1ee3p l\u1ec7</option><option value="-6">T\u00e0i kho\u1ea3n ng\u00e2n h\u00e0ng kh\u00f4ng h\u1ee3p l\u1ec7</option><option value="-7">S\u1ed1 ti\u1ec1n v\u01b0\u1ee3t qu\u00e1 h\u1ea1n m\u1ee9c r\u00fat ti\u1ec1n h\u00e0ng ng\u00e0y</option><option value="-8">Ng\u01b0\u1eddi d\u00f9ng c\u00f3 kho\u1ea3n ti\u1ec1n g\u1eedi ch\u01b0a \u0111\u01b0\u1ee3c x\u00e1c minh</option></select></div></div><div class="control-group"><div class="controls"><textarea id="' + 
+  var $output$$76$$;
+  return $output$$76$$ = "" + ('<p>\u0110i\u1ec1n l\u00fd do h\u1ee7y l\u1ec7nh r\u00fat ti\u1ec1n</p><form class="form-horizontal"><fieldset><div class="control-group"><label class="control-label" for="' + $soy$$0$0escapeHtml$$("id_select_reason") + '" >L\u00fd do:</label><div class="controls"><select id="' + $soy$$0$0escapeHtml$$("id_select_reason") + '"><option value="0">Kh\u00e1c</option><option value="-1" selected>Kh\u00f4ng \u0111\u1ee7 ti\u1ec1n</option><option value="-2">T\u00e0i kho\u1ea3n ch\u01b0a \u0111\u01b0\u1ee3c x\u00e1c minh</option><option value="-3">Nghi ng\u1edd l\u1eeba \u0111\u1ea3o</option><option value="-4">R\u00fat ti\u1ec1n v\u00e0o t\u00e0i kho\u1ea3n kh\u00f4ng ph\u1ea3i c\u1ee7a b\u1ea1n</option><option value="-5">V\u00ed kh\u00f4ng h\u1ee3p l\u1ec7</option><option value="-6">T\u00e0i kho\u1ea3n ng\u00e2n h\u00e0ng kh\u00f4ng h\u1ee3p l\u1ec7</option><option value="-7">S\u1ed1 ti\u1ec1n v\u01b0\u1ee3t qu\u00e1 h\u1ea1n m\u1ee9c r\u00fat ti\u1ec1n h\u00e0ng ng\u00e0y</option><option value="-8">Ng\u01b0\u1eddi d\u00f9ng c\u00f3 kho\u1ea3n ti\u1ec1n g\u1eedi ch\u01b0a \u0111\u01b0\u1ee3c x\u00e1c minh</option></select></div></div><div class="control-group"><div class="controls"><textarea id="' + 
   $soy$$0$0escapeHtml$$("id_custom_reason_text") + '" rows="2" style="display:none;"></textarea></div></div></fieldset></form>');
 }
 ;
-// Input 260
+// Input 261
 function $bitex$view$WithdrawView$$($app$$24$$, $opt_requests_from_customers$$1$$, $opt_domHelper$$61$$) {
   $bitex$view$View$$.call(this, $app$$24$$, $opt_domHelper$$61$$);
   this.$is_requests_from_customers_$ = !1;
@@ -15233,7 +15275,7 @@ $JSCompiler_prototypeAlias$$.$onWithdrawRefresh_$ = function $$JSCompiler_protot
 $JSCompiler_prototypeAlias$$.$onWithdrawListReponse_$ = function $$JSCompiler_prototypeAlias$$$$onWithdrawListReponse_$$($e$$317_msg$$107$$) {
   null != this.$withdraw_list_table_$ && ($e$$317_msg$$107$$ = $e$$317_msg$$107$$.data, $JSCompiler_StaticMethods_setResultSet$$(this.$withdraw_list_table_$, $e$$317_msg$$107$$.WithdrawListGrp, $e$$317_msg$$107$$.Columns));
 };
-// Input 261
+// Input 262
 function $bitex$ui$LedgerActivity$$($button_filters$$, $pseudoNameFunction$$1$$, $opt_broker_mode$$2$$, $opt_domHelper$$62$$) {
   $bitex$ui$DataGrid$$.call(this, {title:"S\u1ed5 k\u1ebf to\u00e1n", showSearch:!0, searchPlaceholder:"T\u00ecm ki\u1ebfm ...", buttonFilters:$button_filters$$, rowClassFn:this.$getRowClass$, columns:[{property:"Created", label:"Ng\u00e0y/Gi\u1edd", sortable:!1, formatter:function($s$$63$$) {
     return $bitex$util$convertServerUTCDateTimeStrToTimestamp$$($s$$63$$.substr(0, 10), $s$$63$$.substr(11)).toLocaleString();
@@ -15315,7 +15357,7 @@ $bitex$ui$LedgerActivity$$.prototype.$getRowClass$ = function $$bitex$ui$LedgerA
 $goog$ui$registry$setDecoratorByClassName$$($bitex$ui$LedgerActivity$CSS_CLASS$$, function() {
   return new $bitex$ui$LedgerActivity$$;
 });
-// Input 262
+// Input 263
 function $bitex$view$LedgerView$$($app$$26$$, $opt_domHelper$$63$$) {
   $bitex$view$View$$.call(this, $app$$26$$, $opt_domHelper$$63$$);
   this.$request_id_$ = null;
@@ -15390,7 +15432,7 @@ $JSCompiler_prototypeAlias$$.$onLedgerTableRequestData_$ = function $$JSCompiler
 $JSCompiler_prototypeAlias$$.$onLedgerListResponse_$ = function $$JSCompiler_prototypeAlias$$$$onLedgerListResponse_$$($e$$319_msg$$108$$) {
   null != this.$ledger_table_$ && ($e$$319_msg$$108$$ = $e$$319_msg$$108$$.data, $JSCompiler_StaticMethods_setResultSet$$(this.$ledger_table_$, $e$$319_msg$$108$$.LedgerListGrp, $e$$319_msg$$108$$.Columns));
 };
-// Input 263
+// Input 264
 function $bitex$view$SetNewPasswordView$$($app$$27$$, $opt_domHelper$$64$$) {
   $bitex$view$View$$.call(this, $app$$27$$, $opt_domHelper$$64$$);
 }
@@ -15410,63 +15452,63 @@ $bitex$view$SetNewPasswordView$$.prototype.$enterDocument$ = function $$bitex$vi
     this.dispatchEvent("set_new_pwd");
   }, this);
 };
-// Input 264
-function $bitex$ui$WithdrawRequestDataEntry$templates$WithdrawRequestDataEntry$$($opt_data$$98$$) {
-  var $output$$75$$;
-  $output$$75$$ = "" + ('<form id="' + $soy$$0$0escapeHtml$$($opt_data$$98$$.id) + '_form" class="form-horizontal" data-deposit-status="prepare" data-uniform-control-holder-class="control-group"><input id="' + $soy$$0$0escapeHtml$$($opt_data$$98$$.id) + '_currency" type="hidden" name="Currency" value="' + $soy$$0$0escapeHtml$$($opt_data$$98$$.$currency$) + '"><div class="error"></div><div class="alert alert-warning text-left bitex-model" data-model-action="show_element" data-model-key-list="HasAnyPosition" data-model-formula="HasAnyPosition" style="display:none;">B\u1ea1n kh\u00f4ng th\u1ec3 r\u00fat ti\u1ec1n t\u1eeb s\u00e0n trong l\u00fac b\u1ea1n \u0111ang c\u00f3 kho\u1ea3n ti\u1ec1n n\u1ea1p ch\u01b0a \u0111\u01b0\u1ee3c x\u00e1c nh\u1eadn.</div>');
-  if (0 == $opt_data$$98$$.methods.length) {
-    2 >= $opt_data$$98$$.$verificationLevel$ ? ($output$$75$$ += '<div class="alert alert-warning text-left">\u0110\u1ec3 tu\u00e2n th\u1ee7 c\u00e1c nguy\u00ean t\u1eafc v\u00e0 lu\u1eadt l\u1ec7 ch\u1ed1ng r\u1eeda ti\u1ec1n, c\u00e1c l\u1ec7nh n\u1ea1p/r\u00fat ti\u1ec1n n\u1ed9i t\u1ec7 ch\u1ec9 d\u00e0nh cho nh\u1eefng kh\u00e1ch h\u00e0ng \u0111\u00e3 \u0111\u01b0\u1ee3c x\u00e1c minh.<br/><br/>Ch\u00fang t\u00f4i r\u1ea5t xin l\u1ed7i v\u1ec1 s\u1ef1 b\u1ea5t ti\u1ec7n n\u00e0y.</div>', 0 == 
-    $opt_data$$98$$.$verificationLevel$ && ($output$$75$$ += '<a href="" data-switch-view="verification"> X\u00e1c minh t\u00e0i kho\u1ea3n c\u1ee7a b\u1ea1n </a>')) : $output$$75$$ += '<div class="alert alert-danger text-center">Ch\u00fang t\u00f4i kh\u00f4ng ch\u1ea5p nh\u1eadn l\u1ec7nh n\u1ea1p ti\u1ec1n v\u00e0o th\u1eddi \u0111i\u1ec3m hi\u1ec7n t\u1ea1i. Ch\u00fang t\u00f4i r\u1ea5t xin l\u1ed7i v\u1ec1 s\u1ef1 b\u1ea5t ti\u1ec7n n\u00e0y.</div>';
+// Input 265
+function $bitex$ui$WithdrawRequestDataEntry$templates$WithdrawRequestDataEntry$$($opt_data$$100$$) {
+  var $output$$77$$;
+  $output$$77$$ = "" + ('<form id="' + $soy$$0$0escapeHtml$$($opt_data$$100$$.id) + '_form" class="form-horizontal" data-deposit-status="prepare" data-uniform-control-holder-class="control-group"><input id="' + $soy$$0$0escapeHtml$$($opt_data$$100$$.id) + '_currency" type="hidden" name="Currency" value="' + $soy$$0$0escapeHtml$$($opt_data$$100$$.$currency$) + '"><div class="error"></div><div class="alert alert-warning text-left bitex-model" data-model-action="show_element" data-model-key-list="HasAnyPosition" data-model-formula="HasAnyPosition" style="display:none;">B\u1ea1n kh\u00f4ng th\u1ec3 r\u00fat ti\u1ec1n t\u1eeb s\u00e0n trong l\u00fac b\u1ea1n \u0111ang c\u00f3 kho\u1ea3n ti\u1ec1n n\u1ea1p ch\u01b0a \u0111\u01b0\u1ee3c x\u00e1c nh\u1eadn.</div>');
+  if (0 == $opt_data$$100$$.methods.length) {
+    2 >= $opt_data$$100$$.$verificationLevel$ ? ($output$$77$$ += '<div class="alert alert-warning text-left">\u0110\u1ec3 tu\u00e2n th\u1ee7 c\u00e1c nguy\u00ean t\u1eafc v\u00e0 lu\u1eadt l\u1ec7 ch\u1ed1ng r\u1eeda ti\u1ec1n, c\u00e1c l\u1ec7nh n\u1ea1p/r\u00fat ti\u1ec1n n\u1ed9i t\u1ec7 ch\u1ec9 d\u00e0nh cho nh\u1eefng kh\u00e1ch h\u00e0ng \u0111\u00e3 \u0111\u01b0\u1ee3c x\u00e1c minh.<br/><br/>Ch\u00fang t\u00f4i r\u1ea5t xin l\u1ed7i v\u1ec1 s\u1ef1 b\u1ea5t ti\u1ec7n n\u00e0y.</div>', 0 == 
+    $opt_data$$100$$.$verificationLevel$ && ($output$$77$$ += '<a href="" data-switch-view="verification"> X\u00e1c minh t\u00e0i kho\u1ea3n c\u1ee7a b\u1ea1n </a>')) : $output$$77$$ += '<div class="alert alert-danger text-center">Ch\u00fang t\u00f4i kh\u00f4ng ch\u1ea5p nh\u1eadn l\u1ec7nh n\u1ea1p ti\u1ec1n v\u00e0o th\u1eddi \u0111i\u1ec3m hi\u1ec7n t\u1ea1i. Ch\u00fang t\u00f4i r\u1ea5t xin l\u1ed7i v\u1ec1 s\u1ef1 b\u1ea5t ti\u1ec7n n\u00e0y.</div>';
   } else {
-    if (1 == $opt_data$$98$$.methods.length) {
-      for (var $methodList41_methodList67_methodList88$$ = $opt_data$$98$$.methods, $methodListLen41_methodListLen67_methodListLen88$$ = $methodList41_methodList67_methodList88$$.length, $methodIndex41_methodIndex67_methodIndex88$$ = 0;$methodIndex41_methodIndex67_methodIndex88$$ < $methodListLen41_methodListLen67_methodListLen88$$;$methodIndex41_methodIndex67_methodIndex88$$++) {
+    if (1 == $opt_data$$100$$.methods.length) {
+      for (var $methodList41_methodList67_methodList88$$ = $opt_data$$100$$.methods, $methodListLen41_methodListLen67_methodListLen88$$ = $methodList41_methodList67_methodList88$$.length, $methodIndex41_methodIndex67_methodIndex88$$ = 0;$methodIndex41_methodIndex67_methodIndex88$$ < $methodListLen41_methodListLen67_methodListLen88$$;$methodIndex41_methodIndex67_methodIndex88$$++) {
         var $fieldList173_methodData41_methodData67_methodData88$$ = $methodList41_methodList67_methodList88$$[$methodIndex41_methodIndex67_methodIndex88$$];
-        $output$$75$$ += '<input id="' + $soy$$0$0escapeHtml$$($opt_data$$98$$.id) + '_method" type="hidden" name="Method" value="' + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.method) + '" data-net-value="' + $soy$$0$0escapeHtml$$($opt_data$$98$$.id) + "_method_" + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.method) + '_net_value" data-percent-fee="' + $soy$$0$0escapeHtml$$($opt_data$$98$$.id) + "_method_" + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.method) + 
-        '_percent_fee" data-fixed-fee="' + $soy$$0$0escapeHtml$$($opt_data$$98$$.id) + "_method_" + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.method) + '_fixed_fee">';
+        $output$$77$$ += '<input id="' + $soy$$0$0escapeHtml$$($opt_data$$100$$.id) + '_method" type="hidden" name="Method" value="' + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.method) + '" data-net-value="' + $soy$$0$0escapeHtml$$($opt_data$$100$$.id) + "_method_" + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.method) + '_net_value" data-percent-fee="' + $soy$$0$0escapeHtml$$($opt_data$$100$$.id) + "_method_" + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.method) + 
+        '_percent_fee" data-fixed-fee="' + $soy$$0$0escapeHtml$$($opt_data$$100$$.id) + "_method_" + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.method) + '_fixed_fee">';
       }
     } else {
-      $output$$75$$ += '<label class="modal-form__label">Ph\u01b0\u01a1ng th\u1ee9c:</label><select id="' + $soy$$0$0escapeHtml$$($opt_data$$98$$.id) + '_method" name="Method" class="withdraw-method-selector">';
-      $methodList41_methodList67_methodList88$$ = $opt_data$$98$$.methods;
+      $output$$77$$ += '<label class="modal-form__label">Ph\u01b0\u01a1ng th\u1ee9c:</label><select id="' + $soy$$0$0escapeHtml$$($opt_data$$100$$.id) + '_method" name="Method" class="withdraw-method-selector">';
+      $methodList41_methodList67_methodList88$$ = $opt_data$$100$$.methods;
       $methodListLen41_methodListLen67_methodListLen88$$ = $methodList41_methodList67_methodList88$$.length;
       for ($methodIndex41_methodIndex67_methodIndex88$$ = 0;$methodIndex41_methodIndex67_methodIndex88$$ < $methodListLen41_methodListLen67_methodListLen88$$;$methodIndex41_methodIndex67_methodIndex88$$++) {
-        $fieldList173_methodData41_methodData67_methodData88$$ = $methodList41_methodList67_methodList88$$[$methodIndex41_methodIndex67_methodIndex88$$], $output$$75$$ += '<option value="' + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.method) + '" data-net-value="' + $soy$$0$0escapeHtml$$($opt_data$$98$$.id) + "_method_" + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.method) + '_net_value" data-percent-fee="' + $soy$$0$0escapeHtml$$($opt_data$$98$$.id) + 
-        "_method_" + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.method) + '_percent_fee" data-fixed-fee="' + $soy$$0$0escapeHtml$$($opt_data$$98$$.id) + "_method_" + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.method) + '_fixed_fee">' + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.description) + "</option>";
+        $fieldList173_methodData41_methodData67_methodData88$$ = $methodList41_methodList67_methodList88$$[$methodIndex41_methodIndex67_methodIndex88$$], $output$$77$$ += '<option value="' + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.method) + '" data-net-value="' + $soy$$0$0escapeHtml$$($opt_data$$100$$.id) + "_method_" + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.method) + '_net_value" data-percent-fee="' + $soy$$0$0escapeHtml$$($opt_data$$100$$.id) + 
+        "_method_" + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.method) + '_percent_fee" data-fixed-fee="' + $soy$$0$0escapeHtml$$($opt_data$$100$$.id) + "_method_" + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.method) + '_fixed_fee">' + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.description) + "</option>";
       }
-      $output$$75$$ += "</select>";
+      $output$$77$$ += "</select>";
     }
-    $output$$75$$ += '<div class="withdraw-methods">';
-    $methodList41_methodList67_methodList88$$ = $opt_data$$98$$.methods;
+    $output$$77$$ += '<div class="withdraw-methods">';
+    $methodList41_methodList67_methodList88$$ = $opt_data$$100$$.methods;
     $methodListLen41_methodListLen67_methodListLen88$$ = $methodList41_methodList67_methodList88$$.length;
     for ($methodIndex41_methodIndex67_methodIndex88$$ = 0;$methodIndex41_methodIndex67_methodIndex88$$ < $methodListLen41_methodListLen67_methodListLen88$$;$methodIndex41_methodIndex67_methodIndex88$$++) {
       $fieldList173_methodData41_methodData67_methodData88$$ = $methodList41_methodList67_methodList88$$[$methodIndex41_methodIndex67_methodIndex88$$];
-      $output$$75$$ += '<div class="withdraw-method" data-withdraw-method="' + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.method) + '" style="' + (1 < $opt_data$$98$$.methods.length ? "display:none;" : "") + '"><label class="modal-form__label">S\u1ed1 ti\u1ec1n ' + $soy$$0$0escapeHtml$$($opt_data$$98$$.$currencySign$) + '</label><input id="' + $soy$$0$0escapeHtml$$($opt_data$$98$$.id) + "_method_" + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.method) + 
-      '_amount" data-uniform-validators="required; validateNumber ' + ($fieldList173_methodData41_methodData67_methodData88$$.limits[$opt_data$$98$$.$verificationLevel$].enabled ? " " + ($fieldList173_methodData41_methodData67_methodData88$$.limits[$opt_data$$98$$.$verificationLevel$].min ? "; validateMin " + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.limits[$opt_data$$98$$.$verificationLevel$].formatted_min_value) : "") + ($fieldList173_methodData41_methodData67_methodData88$$.limits[$opt_data$$98$$.$verificationLevel$].max ? 
-      "; validateMax " + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.limits[$opt_data$$98$$.$verificationLevel$].formatted_max_value) + " " : "") + " " : "") + '" data-uniform-type="number" data-uniform-filters="positive_number" value="" type="text" class="withdraw-field input input--full" size="16" name="Amount" ' + (0 != $methodIndex41_methodIndex67_methodIndex88$$ ? "disabled" : "") + ">";
-      if ($fieldList173_methodData41_methodData67_methodData88$$.limits[$opt_data$$98$$.$verificationLevel$].enabled) {
-        $output$$75$$ += "<small>";
-        if ($fieldList173_methodData41_methodData67_methodData88$$.limits[$opt_data$$98$$.$verificationLevel$].max) {
-          var $MSG_UNNAMED_261_MSG_UNNAMED_263_fieldListLen173$$ = " T\u1ed1i \u0111a: " + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.limits[$opt_data$$98$$.$verificationLevel$].formatted_max);
-          $output$$75$$ += $MSG_UNNAMED_261_MSG_UNNAMED_263_fieldListLen173$$ + "<br>";
+      $output$$77$$ += '<div class="withdraw-method" data-withdraw-method="' + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.method) + '" style="' + (1 < $opt_data$$100$$.methods.length ? "display:none;" : "") + '"><label class="modal-form__label">S\u1ed1 ti\u1ec1n ' + $soy$$0$0escapeHtml$$($opt_data$$100$$.$currencySign$) + '</label><input id="' + $soy$$0$0escapeHtml$$($opt_data$$100$$.id) + "_method_" + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.method) + 
+      '_amount" data-uniform-validators="required; validateNumber ' + ($fieldList173_methodData41_methodData67_methodData88$$.limits[$opt_data$$100$$.$verificationLevel$].enabled ? " " + ($fieldList173_methodData41_methodData67_methodData88$$.limits[$opt_data$$100$$.$verificationLevel$].min ? "; validateMin " + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.limits[$opt_data$$100$$.$verificationLevel$].formatted_min_value) : "") + ($fieldList173_methodData41_methodData67_methodData88$$.limits[$opt_data$$100$$.$verificationLevel$].max ? 
+      "; validateMax " + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.limits[$opt_data$$100$$.$verificationLevel$].formatted_max_value) + " " : "") + " " : "") + '" data-uniform-type="number" data-uniform-filters="positive_number" value="" type="text" class="withdraw-field input input--full" size="16" name="Amount" ' + (0 != $methodIndex41_methodIndex67_methodIndex88$$ ? "disabled" : "") + ">";
+      if ($fieldList173_methodData41_methodData67_methodData88$$.limits[$opt_data$$100$$.$verificationLevel$].enabled) {
+        $output$$77$$ += "<small>";
+        if ($fieldList173_methodData41_methodData67_methodData88$$.limits[$opt_data$$100$$.$verificationLevel$].max) {
+          var $MSG_UNNAMED_261_MSG_UNNAMED_263_fieldListLen173$$ = " T\u1ed1i \u0111a: " + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.limits[$opt_data$$100$$.$verificationLevel$].formatted_max);
+          $output$$77$$ += $MSG_UNNAMED_261_MSG_UNNAMED_263_fieldListLen173$$ + "<br>";
         }
-        $fieldList173_methodData41_methodData67_methodData88$$.limits[$opt_data$$98$$.$verificationLevel$].min && ($MSG_UNNAMED_261_MSG_UNNAMED_263_fieldListLen173$$ = " S\u1ed1 ti\u1ec1n t\u1ed1i thi\u1ec3u: " + ($soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.limits[$opt_data$$98$$.$verificationLevel$].formatted_min) + " m\u1ed7i \u0111\u01a1n h\u00e0ng.  "), $output$$75$$ += $MSG_UNNAMED_261_MSG_UNNAMED_263_fieldListLen173$$);
-        $output$$75$$ += "</small>";
+        $fieldList173_methodData41_methodData67_methodData88$$.limits[$opt_data$$100$$.$verificationLevel$].min && ($MSG_UNNAMED_261_MSG_UNNAMED_263_fieldListLen173$$ = " S\u1ed1 ti\u1ec1n t\u1ed1i thi\u1ec3u: " + ($soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.limits[$opt_data$$100$$.$verificationLevel$].formatted_min) + " m\u1ed7i \u0111\u01a1n h\u00e0ng.  "), $output$$77$$ += $MSG_UNNAMED_261_MSG_UNNAMED_263_fieldListLen173$$);
+        $output$$77$$ += "</small>";
       }
-      $output$$75$$ += '<label class="modal-form__label">' + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.disclaimer) + '</label><input id="' + $soy$$0$0escapeHtml$$($opt_data$$98$$.id) + "_method_" + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.method) + '_percent_fee" type="hidden" value="' + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.percent_fee) + '"><input id="' + $soy$$0$0escapeHtml$$($opt_data$$98$$.id) + 
-      "_method_" + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.method) + '_fixed_fee" type="hidden" value="' + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.fixed_fee) + '"><label class="modal-form__label">C\u00e1c ph\u00ed:</label><label id="' + $soy$$0$0escapeHtml$$($opt_data$$98$$.id) + "_method_" + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.method) + '_fees" class="control-label" style="text-align: left;"></label><label class="modal-form__label">' + 
-      $soy$$0$0escapeHtml$$($opt_data$$98$$.$netAmountLabel$) + ':</label><label id="' + $soy$$0$0escapeHtml$$($opt_data$$98$$.id) + "_method_" + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.method) + '_net_value" class="control-label net-amount" style="text-align: left;"></label><input id="' + $soy$$0$0escapeHtml$$($opt_data$$98$$.id) + "_method_" + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.method) + '_net_value_value" type="hidden" value="">';
+      $output$$77$$ += '<label class="modal-form__label">' + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.disclaimer) + '</label><input id="' + $soy$$0$0escapeHtml$$($opt_data$$100$$.id) + "_method_" + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.method) + '_percent_fee" type="hidden" value="' + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.percent_fee) + '"><input id="' + $soy$$0$0escapeHtml$$($opt_data$$100$$.id) + 
+      "_method_" + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.method) + '_fixed_fee" type="hidden" value="' + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.fixed_fee) + '"><label class="modal-form__label">C\u00e1c ph\u00ed:</label><label id="' + $soy$$0$0escapeHtml$$($opt_data$$100$$.id) + "_method_" + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.method) + '_fees" class="control-label" style="text-align: left;"></label><label class="modal-form__label">' + 
+      $soy$$0$0escapeHtml$$($opt_data$$100$$.$netAmountLabel$) + ':</label><label id="' + $soy$$0$0escapeHtml$$($opt_data$$100$$.id) + "_method_" + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.method) + '_net_value" class="control-label net-amount" style="text-align: left;"></label><input id="' + $soy$$0$0escapeHtml$$($opt_data$$100$$.id) + "_method_" + $soy$$0$0escapeHtml$$($fieldList173_methodData41_methodData67_methodData88$$.method) + '_net_value_value" type="hidden" value="">';
       for (var $fieldList173_methodData41_methodData67_methodData88$$ = $fieldList173_methodData41_methodData67_methodData88$$.fields, $MSG_UNNAMED_261_MSG_UNNAMED_263_fieldListLen173$$ = $fieldList173_methodData41_methodData67_methodData88$$.length, $fieldIndex173$$ = 0;$fieldIndex173$$ < $MSG_UNNAMED_261_MSG_UNNAMED_263_fieldListLen173$$;$fieldIndex173$$++) {
         var $fieldData173$$ = $fieldList173_methodData41_methodData67_methodData88$$[$fieldIndex173$$];
-        $output$$75$$ += "client" == $fieldData173$$.side ? '<label class="modal-form__label">' + $soy$$0$0escapeHtml$$($fieldData173$$.label) + '</label><input class="withdraw-field input input--full" data-uniform-validators="' + ($fieldData173$$.required ? "required;" : "") + $soy$$0$0escapeHtml$$($fieldData173$$.validator) + '" type="' + $soy$$0$0escapeHtml$$($fieldData173$$.type) + '" name="' + $soy$$0$0escapeHtml$$($fieldData173$$.name) + '" label="' + $soy$$0$0escapeHtml$$($fieldData173$$.placeholder) + 
+        $output$$77$$ += "client" == $fieldData173$$.side ? '<label class="modal-form__label">' + $soy$$0$0escapeHtml$$($fieldData173$$.label) + '</label><input class="withdraw-field input input--full" data-uniform-validators="' + ($fieldData173$$.required ? "required;" : "") + $soy$$0$0escapeHtml$$($fieldData173$$.validator) + '" type="' + $soy$$0$0escapeHtml$$($fieldData173$$.type) + '" name="' + $soy$$0$0escapeHtml$$($fieldData173$$.name) + '" label="' + $soy$$0$0escapeHtml$$($fieldData173$$.placeholder) + 
         '" value="' + $soy$$0$0escapeHtml$$($fieldData173$$.value) + '"' + (0 != $methodIndex41_methodIndex67_methodIndex88$$ ? "disabled" : "") + " />" : "";
       }
-      $output$$75$$ += "</div>";
+      $output$$77$$ += "</div>";
     }
-    $output$$75$$ += "</div>";
+    $output$$77$$ += "</div>";
   }
-  return $output$$75$$ + "</form>";
+  return $output$$77$$ + "</form>";
 }
 ;
-// Input 265
+// Input 266
 function $bitex$view$VerificationView$$($app$$28$$, $opt_domHelper$$65$$) {
   $bitex$view$View$$.call(this, $app$$28$$, $opt_domHelper$$65$$);
   this.$loaded_jot_form_$ = !1;
@@ -15488,27 +15530,27 @@ $bitex$view$VerificationView$$.prototype.$enterView$ = function $$bitex$view$Ver
 $bitex$view$VerificationView$$.prototype.$enterDocument$ = function $$bitex$view$VerificationView$$$$$enterDocument$$() {
   $bitex$view$VerificationView$$.$superClass_$.$enterDocument$.call(this);
 };
-// Input 266
-function $bitex$ui$RemittancesBox$templates$RemittancesBox$$($opt_data$$100$$) {
-  for (var $JSCompiler_temp$$162_JSCompiler_temp_const$$163_output$$77$$ = '<div id="' + $soy$$0$0escapeHtml$$($opt_data$$100$$.id) + '" class="remittance-box">', $remittance_data_recordList25$$ = $opt_data$$100$$.$remittance_data_table$, $remittance_data_recordListLen25$$ = $remittance_data_recordList25$$.length, $remittance_data_recordIndex25$$ = 0;$remittance_data_recordIndex25$$ < $remittance_data_recordListLen25$$;$remittance_data_recordIndex25$$++) {
-    var $JSCompiler_object_inline_remittance_data_record_1933_remittance_data_recordData25$$ = $remittance_data_recordList25$$[$remittance_data_recordIndex25$$];
-    if (1 == $JSCompiler_object_inline_remittance_data_record_1933_remittance_data_recordData25$$.length) {
-      $JSCompiler_temp$$162_JSCompiler_temp_const$$163_output$$77$$ += (0 != $remittance_data_recordIndex25$$ ? "</tbody></table>" : "") + '<table id="' + $soy$$0$0escapeHtml$$($opt_data$$100$$.id) + "_" + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_remittance_data_record_1933_remittance_data_recordData25$$[0]) + '" style="display:none" class="table table-bordered table-condensed remittance-box-table"><thead><tr><td colspan="2"><strong>T\u1ef7 gi\u00e1 giao d\u1ecbch qua BTC</strong></td></tr></thead><tbody class="remittance-box-content">'
+// Input 267
+function $bitex$ui$RemittancesBox$templates$RemittancesBox$$($opt_data$$102$$) {
+  for (var $JSCompiler_temp$$162_JSCompiler_temp_const$$163_output$$79$$ = '<div id="' + $soy$$0$0escapeHtml$$($opt_data$$102$$.id) + '" class="remittance-box">', $remittance_data_recordList25$$ = $opt_data$$102$$.$remittance_data_table$, $remittance_data_recordListLen25$$ = $remittance_data_recordList25$$.length, $remittance_data_recordIndex25$$ = 0;$remittance_data_recordIndex25$$ < $remittance_data_recordListLen25$$;$remittance_data_recordIndex25$$++) {
+    var $JSCompiler_object_inline_remittance_data_record_1948_remittance_data_recordData25$$ = $remittance_data_recordList25$$[$remittance_data_recordIndex25$$];
+    if (1 == $JSCompiler_object_inline_remittance_data_record_1948_remittance_data_recordData25$$.length) {
+      $JSCompiler_temp$$162_JSCompiler_temp_const$$163_output$$79$$ += (0 != $remittance_data_recordIndex25$$ ? "</tbody></table>" : "") + '<table id="' + $soy$$0$0escapeHtml$$($opt_data$$102$$.id) + "_" + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_remittance_data_record_1948_remittance_data_recordData25$$[0]) + '" style="display:none" class="table table-bordered table-condensed remittance-box-table"><thead><tr><td colspan="2"><strong>T\u1ef7 gi\u00e1 giao d\u1ecbch qua BTC</strong></td></tr></thead><tbody class="remittance-box-content">'
       ;
     } else {
-      for (var $JSCompiler_object_inline_id_1932_output$$inline_1795$$ = $opt_data$$100$$.id, $JSCompiler_object_inline_id_1932_output$$inline_1795$$ = '<tr><td style="padding: 4px;"><strong>' + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_remittance_data_record_1933_remittance_data_recordData25$$[0]) + '</strong></td><td style="padding: 4px;">\x3c!-- ' + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_id_1932_output$$inline_1795$$) + " --\x3e", $field_dataList8$$inline_1796$$ = $JSCompiler_object_inline_remittance_data_record_1933_remittance_data_recordData25$$[3], 
+      for (var $JSCompiler_object_inline_id_1947_output$$inline_1795$$ = $opt_data$$102$$.id, $JSCompiler_object_inline_id_1947_output$$inline_1795$$ = '<tr><td style="padding: 4px;"><strong>' + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_remittance_data_record_1948_remittance_data_recordData25$$[0]) + '</strong></td><td style="padding: 4px;">\x3c!-- ' + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_id_1947_output$$inline_1795$$) + " --\x3e", $field_dataList8$$inline_1796$$ = $JSCompiler_object_inline_remittance_data_record_1948_remittance_data_recordData25$$[3], 
       $field_dataListLen8$$inline_1797$$ = $field_dataList8$$inline_1796$$.length, $field_dataIndex8$$inline_1798$$ = 0;$field_dataIndex8$$inline_1798$$ < $field_dataListLen8$$inline_1797$$;$field_dataIndex8$$inline_1798$$++) {
-        var $field_dataData8$$inline_1799$$ = $field_dataList8$$inline_1796$$[$field_dataIndex8$$inline_1798$$], $JSCompiler_object_inline_id_1932_output$$inline_1795$$ = $JSCompiler_object_inline_id_1932_output$$inline_1795$$ + ('<span class="bitex-model" data-model-key-list="' + $soy$$0$0escapeHtml$$($field_dataData8$$inline_1799$$[1]) + '" data-model-formula="' + $soy$$0$0escapeHtml$$($field_dataData8$$inline_1799$$[0]) + '" data-model-formatter="currency" data-model-formatter-pattern="' + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_remittance_data_record_1933_remittance_data_recordData25$$[2]) + 
+        var $field_dataData8$$inline_1799$$ = $field_dataList8$$inline_1796$$[$field_dataIndex8$$inline_1798$$], $JSCompiler_object_inline_id_1947_output$$inline_1795$$ = $JSCompiler_object_inline_id_1947_output$$inline_1795$$ + ('<span class="bitex-model" data-model-key-list="' + $soy$$0$0escapeHtml$$($field_dataData8$$inline_1799$$[1]) + '" data-model-formula="' + $soy$$0$0escapeHtml$$($field_dataData8$$inline_1799$$[0]) + '" data-model-formatter="currency" data-model-formatter-pattern="' + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_remittance_data_record_1948_remittance_data_recordData25$$[2]) + 
         '" data-blink-class="md-blink"></span>' + ($field_dataIndex8$$inline_1798$$ != $field_dataListLen8$$inline_1797$$ - 1 ? " / " : ""))
       }
-      $JSCompiler_object_inline_id_1932_output$$inline_1795$$ += "</td></tr>";
-      $JSCompiler_temp$$162_JSCompiler_temp_const$$163_output$$77$$ += $JSCompiler_object_inline_id_1932_output$$inline_1795$$;
+      $JSCompiler_object_inline_id_1947_output$$inline_1795$$ += "</td></tr>";
+      $JSCompiler_temp$$162_JSCompiler_temp_const$$163_output$$79$$ += $JSCompiler_object_inline_id_1947_output$$inline_1795$$;
     }
   }
-  return $JSCompiler_temp$$162_JSCompiler_temp_const$$163_output$$77$$ + "</div>";
+  return $JSCompiler_temp$$162_JSCompiler_temp_const$$163_output$$79$$ + "</div>";
 }
 ;
-// Input 267
+// Input 268
 function $bitex$ui$RemittanceBox$$($opt_domHelper$$66$$) {
   $goog$ui$Component$$.call(this, $opt_domHelper$$66$$);
 }
@@ -15528,8 +15570,8 @@ $JSCompiler_prototypeAlias$$.$decorateInternal$ = function $$JSCompiler_prototyp
 };
 function $JSCompiler_StaticMethods_setCurrentCurrency$$($JSCompiler_StaticMethods_setCurrentCurrency$self$$, $currency$$20$$) {
   var $remittance_box_elements$$ = $goog$dom$getElementsByClass$$("remittance-box-table", $JSCompiler_StaticMethods_setCurrentCurrency$self$$.$getElement$());
-  $goog$array$forEach$$($remittance_box_elements$$, function($el$$139$$) {
-    $goog$style$setElementShown$$($el$$139$$, !1);
+  $goog$array$forEach$$($remittance_box_elements$$, function($el$$140$$) {
+    $goog$style$setElementShown$$($el$$140$$, !1);
   }, $JSCompiler_StaticMethods_setCurrentCurrency$self$$);
   $goog$style$showElement$$($goog$dom$getElement$$($JSCompiler_StaticMethods_makeId$$($JSCompiler_StaticMethods_setCurrentCurrency$self$$, "remittance_box_" + $currency$$20$$)), !0);
 }
@@ -15541,33 +15583,33 @@ $JSCompiler_prototypeAlias$$.$enterDocument$ = function $$JSCompiler_prototypeAl
 $JSCompiler_prototypeAlias$$.$exitDocument$ = function $$JSCompiler_prototypeAlias$$$$exitDocument$$() {
   $bitex$ui$RemittanceBox$$.$superClass_$.$exitDocument$.call(this);
 };
-// Input 268
-function $bitex$view$SideBarView$templates$YourAccountPortfolioValue$$($opt_data$$101$$) {
-  var $output$$78$$ = "", $MSG_UNNAMED_132$$1$$ = "T\u1ed5ng s\u1ed1 d\u01b0 c\u1ee7a b\u1ea1n d\u1ef1a tr\u00ean giao d\u1ecbch g\u1ea7n nh\u1ea5t l\u00e0 " + ($soy$$0$0escapeHtml$$($opt_data$$101$$.$desc$) + ". Gi\u00e1 tr\u1ecb n\u00e0y thay \u0111\u1ed5i theo th\u1ecb tr\u01b0\u1eddng. L\u01b0u \u00fd r\u1eb1ng gi\u00e1 tr\u1ecb n\u00e0y kh\u00f4ng \u0111\u1ea1i di\u1ec7n cho t\u1ed5ng s\u1ed1 d\u01b0 c\u1ee7a b\u1ea1n ho\u1eb7c b\u1ea5t k\u1ef3 cam k\u1ebft t\u1ef7 gi\u00e1 h\u1ed1i \u0111o\u00e1i n\u00e0o.");
-  return $output$$78$$ += '<td style="padding: 4px;"><span><i><abbr title="' + $MSG_UNNAMED_132$$1$$ + '">Gi\u00e1 tr\u1ecb x\u1ea5p x\u1ec9</abbr></i></span></td><td style="padding: 4px;" colspan="2"><i><span class="bitex-model" data-model-key-list="' + $soy$$0$0escapeHtml$$($opt_data$$101$$.$variables$) + '" data-model-formula="' + $soy$$0$0escapeHtml$$($opt_data$$101$$.$formula$) + '" data-model-formatter="currency" data-model-formatter-pattern="' + $soy$$0$0escapeHtml$$($opt_data$$101$$.pattern) + 
+// Input 269
+function $bitex$view$SideBarView$templates$YourAccountPortfolioValue$$($opt_data$$103$$) {
+  var $output$$80$$ = "", $MSG_UNNAMED_132$$1$$ = "T\u1ed5ng s\u1ed1 d\u01b0 c\u1ee7a b\u1ea1n d\u1ef1a tr\u00ean giao d\u1ecbch g\u1ea7n nh\u1ea5t l\u00e0 " + ($soy$$0$0escapeHtml$$($opt_data$$103$$.$desc$) + ". Gi\u00e1 tr\u1ecb n\u00e0y thay \u0111\u1ed5i theo th\u1ecb tr\u01b0\u1eddng. L\u01b0u \u00fd r\u1eb1ng gi\u00e1 tr\u1ecb n\u00e0y kh\u00f4ng \u0111\u1ea1i di\u1ec7n cho t\u1ed5ng s\u1ed1 d\u01b0 c\u1ee7a b\u1ea1n ho\u1eb7c b\u1ea5t k\u1ef3 cam k\u1ebft t\u1ef7 gi\u00e1 h\u1ed1i \u0111o\u00e1i n\u00e0o.");
+  return $output$$80$$ += '<td style="padding: 4px;"><span><i><abbr title="' + $MSG_UNNAMED_132$$1$$ + '">Gi\u00e1 tr\u1ecb x\u1ea5p x\u1ec9</abbr></i></span></td><td style="padding: 4px;" colspan="2"><i><span class="bitex-model" data-model-key-list="' + $soy$$0$0escapeHtml$$($opt_data$$103$$.$variables$) + '" data-model-formula="' + $soy$$0$0escapeHtml$$($opt_data$$103$$.$formula$) + '" data-model-formatter="currency" data-model-formatter-pattern="' + $soy$$0$0escapeHtml$$($opt_data$$103$$.pattern) + 
   '" data-blink-class="balance-info-blink"></span></i></td>';
 }
-function $bitex$view$SideBarView$templates$YourAccountSummary$$($opt_data$$102$$) {
-  var $output$$79$$;
-  $output$$79$$ = '<div class="sidebar-box__body">';
-  for (var $boxList21$$ = $opt_data$$102$$.$boxes$, $boxListLen21$$ = $boxList21$$.length, $boxIndex21$$ = 0;$boxIndex21$$ < $boxListLen21$$;$boxIndex21$$++) {
+function $bitex$view$SideBarView$templates$YourAccountSummary$$($opt_data$$104$$) {
+  var $output$$81$$;
+  $output$$81$$ = '<div class="sidebar-box__body">';
+  for (var $boxList21$$ = $opt_data$$104$$.$boxes$, $boxListLen21$$ = $boxList21$$.length, $boxIndex21$$ = 0;$boxIndex21$$ < $boxListLen21$$;$boxIndex21$$++) {
     var $balance_infoList25_boxData21$$ = $boxList21$$[$boxIndex21$$];
-    $output$$79$$ += '<table class="sidebar-box__table" ><tbody><tr class=\'account-summary-broker\'><td colspan="3"><strong>' + $soy$$0$0escapeHtml$$($balance_infoList25_boxData21$$.title) + "</strong></td></tr>";
+    $output$$81$$ += '<table class="sidebar-box__table" ><tbody><tr class=\'account-summary-broker\'><td colspan="3"><strong>' + $soy$$0$0escapeHtml$$($balance_infoList25_boxData21$$.title) + "</strong></td></tr>";
     for (var $balance_infoList25_boxData21$$ = $balance_infoList25_boxData21$$.balances, $balance_infoListLen25$$ = $balance_infoList25_boxData21$$.length, $balance_infoIndex25$$ = 0;$balance_infoIndex25$$ < $balance_infoListLen25$$;$balance_infoIndex25$$++) {
       var $balance_infoData25$$ = $balance_infoList25_boxData21$$[$balance_infoIndex25$$];
-      $output$$79$$ += '<tr><td style="padding: 4px;"><strong>' + $soy$$0$0escapeHtml$$($balance_infoData25$$.currency) + '</strong></td><td style="padding: 4px;"' + ($balance_infoData25$$.showDeposit || $balance_infoData25$$.showWithdraw ? "" : 'colspan="2"') + '><span class="bitex-model" data-model-key-list="Balance_' + $soy$$0$0escapeHtml$$($balance_infoData25$$.brokerID) + "_" + $soy$$0$0escapeHtml$$($balance_infoData25$$.accountID) + "_" + $soy$$0$0escapeHtml$$($balance_infoData25$$.currency) + 
+      $output$$81$$ += '<tr><td style="padding: 4px;"><strong>' + $soy$$0$0escapeHtml$$($balance_infoData25$$.currency) + '</strong></td><td style="padding: 4px;"' + ($balance_infoData25$$.showDeposit || $balance_infoData25$$.showWithdraw ? "" : 'colspan="2"') + '><span class="bitex-model" data-model-key-list="Balance_' + $soy$$0$0escapeHtml$$($balance_infoData25$$.brokerID) + "_" + $soy$$0$0escapeHtml$$($balance_infoData25$$.accountID) + "_" + $soy$$0$0escapeHtml$$($balance_infoData25$$.currency) + 
       '" data-model-formula="Balance_' + $soy$$0$0escapeHtml$$($balance_infoData25$$.brokerID) + "_" + $soy$$0$0escapeHtml$$($balance_infoData25$$.accountID) + "_" + $soy$$0$0escapeHtml$$($balance_infoData25$$.currency) + ' / 100000000" data-model-formatter="currency" data-model-formatter-pattern="' + $soy$$0$0escapeHtml$$($balance_infoData25$$.currencyPattern) + '" data-blink-class="balance-info-blink"></span> <abbr title="C\u00e1c l\u1ec7nh n\u1ea1p ch\u01b0a \u0111\u01b0\u1ee3c x\u00e1c nh\u1eadn" class="bitex-model" data-model-action="show_element" data-model-key-list="Position_' + 
       $soy$$0$0escapeHtml$$($balance_infoData25$$.brokerID) + "_" + $soy$$0$0escapeHtml$$($balance_infoData25$$.accountID) + "_" + $soy$$0$0escapeHtml$$($balance_infoData25$$.currency) + '" data-model-formula="Position_' + $soy$$0$0escapeHtml$$($balance_infoData25$$.brokerID) + "_" + $soy$$0$0escapeHtml$$($balance_infoData25$$.accountID) + "_" + $soy$$0$0escapeHtml$$($balance_infoData25$$.currency) + '"><em><span class="bitex-model" data-model-key-list="Position_' + $soy$$0$0escapeHtml$$($balance_infoData25$$.brokerID) + 
       "_" + $soy$$0$0escapeHtml$$($balance_infoData25$$.accountID) + "_" + $soy$$0$0escapeHtml$$($balance_infoData25$$.currency) + '" data-model-formula="Position_' + $soy$$0$0escapeHtml$$($balance_infoData25$$.brokerID) + "_" + $soy$$0$0escapeHtml$$($balance_infoData25$$.accountID) + "_" + $soy$$0$0escapeHtml$$($balance_infoData25$$.currency) + ' / 100000000" data-model-formatter="currency" data-model-formatter-pattern="' + $soy$$0$0escapeHtml$$($balance_infoData25$$.currencyPattern) + '" data-blink-class="balance-info-blink"></span></em></abbr></td>' + 
       ($balance_infoData25$$.showDeposit && $balance_infoData25$$.showWithdraw ? '<td style="padding: 4px;border-left:0;"><div class="btn-group">' + ($balance_infoData25$$.showDeposit ? '<button class="btn btn-mini" data-action="deposit" data-currency="' + $soy$$0$0escapeHtml$$($balance_infoData25$$.currency) + '"><i data-action="deposit" data-currency="' + $soy$$0$0escapeHtml$$($balance_infoData25$$.currency) + '" class="icon-download-alt"></i></button>' : "") + ($balance_infoData25$$.showWithdraw ? 
-      '<button class="btn btn-mini" data-action="withdraw" data-currency="' + $soy$$0$0escapeHtml$$($balance_infoData25$$.currency) + '"><i data-action="withdraw" data-currency="' + $soy$$0$0escapeHtml$$($balance_infoData25$$.currency) + '" class="icon-upload-alt"></i></button>' : "") + "</div></td>" : "") + '</tr><tr id="' + $soy$$0$0escapeHtml$$($opt_data$$102$$.id) + '_portfolio_value"></tr>';
+      '<button class="btn btn-mini" data-action="withdraw" data-currency="' + $soy$$0$0escapeHtml$$($balance_infoData25$$.currency) + '"><i data-action="withdraw" data-currency="' + $soy$$0$0escapeHtml$$($balance_infoData25$$.currency) + '" class="icon-upload-alt"></i></button>' : "") + "</div></td>" : "") + '</tr><tr id="' + $soy$$0$0escapeHtml$$($opt_data$$104$$.id) + '_portfolio_value"></tr>';
     }
-    $output$$79$$ += "</tbody></table>";
+    $output$$81$$ += "</tbody></table>";
   }
-  return $output$$79$$ + "</div>";
+  return $output$$81$$ + "</div>";
 }
 ;
-// Input 269
+// Input 270
 function $bitex$view$SideBarView$$($app$$29$$, $opt_domHelper$$67$$) {
   $bitex$view$View$$.call(this, $app$$29$$, $opt_domHelper$$67$$);
 }
@@ -15641,8 +15683,8 @@ $bitex$view$SideBarView$$.prototype.$enterDocument$ = function $$bitex$view$Side
       this.$market_data_subscription_symbol_$.push($instrument_info$$1$$.Symbol);
     }, this);
     $goog$dom$removeChildren$$($goog$dom$getElement$$("id_instrument_1"));
-    $goog$array$forEach$$($msg$$109_remittance_box_el$$.Instruments, function($el$$140_instrument$$2$$) {
-      "BLINK" == $el$$140_instrument$$2$$.Market && ($el$$140_instrument$$2$$ = $goog$dom$createDom$$("option", {value:$el$$140_instrument$$2$$.Symbol}, $el$$140_instrument$$2$$.Description), $goog$dom$getElement$$("id_instrument_1").appendChild($el$$140_instrument$$2$$));
+    $goog$array$forEach$$($msg$$109_remittance_box_el$$.Instruments, function($el$$141_instrument$$2$$) {
+      "BLINK" == $el$$141_instrument$$2$$.Market && ($el$$141_instrument$$2$$ = $goog$dom$createDom$$("option", {value:$el$$141_instrument$$2$$.Symbol}, $el$$141_instrument$$2$$.Description), $goog$dom$getElement$$("id_instrument_1").appendChild($el$$141_instrument$$2$$));
     }, this);
     if (null == this.$remittance_box_$) {
       var $remittance_box_model$$ = [];
@@ -15707,9 +15749,83 @@ function $JSCompiler_StaticMethods_showPortfolioValue_$$($JSCompiler_StaticMetho
 $bitex$view$SideBarView$$.prototype.$getSymbol$ = function $$bitex$view$SideBarView$$$$$getSymbol$$() {
   return $goog$dom$forms$getValue$$($goog$dom$getElement$$("id_instrument_1"));
 };
-// Input 270
-function $bitex$view$StartView$$($app$$31$$, $opt_domHelper$$68$$) {
+// Input 271
+function $bitex$ui$TwoFactor$templates$TwoFactor$$($opt_data$$105_output$$82$$) {
+  return $opt_data$$105_output$$82$$ = "" + ('<div id="' + $soy$$0$0escapeHtml$$($opt_data$$105_output$$82$$.id) + '"><h3>Two Factor Authentication</h3><p>We have made your system more secure. By protecting your login details with an extra layer of security. How?Your phone or tablet becomes your key to access your account, with the easy-to-use app.You will only be asked for additional authentication when our system detects a higher risk.If you do not have Google Authenticator installed and configured yet, follow these easy steps outlined below</p><hr><div class="twofactor_steps"><div class="row-fluid"><h2>1</h2> <span>Download and install the Authy on your mobile device.</span></div><div class="row-fluid"><h2>2</h2><span>Go to your app store and search for Authy or Google Authenticator</span><br><a href="https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2&hl=en" target="_blank"><img class="twofactor_logo" alt="Google Authenticator" src="data:image/png;base64,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"></a><a href="https://itunes.apple.com/us/app/authy/id494168017?mt=8" target="_blank"><img class="twofactor_logo" alt="Authy" src="data:image/png;base64,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"></a><br><a href="https://play.google.com/store/apps/details?id=com.authy.authy&hl=en" target="_blank"><img class="twofactor_store" alt="Google Play" src="data:image/png;base64,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"></a><a href="https://itunes.apple.com/us/app/authy/id494168017?mt=8" target="_blank"><img class="twofactor_store" alt="App Store" src="data:image/png;base64,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"></a></div><div class="row-fluid"><h2>3</h2> <span>On your mobile device, Tap \'Begin setup\', then \'Scan a barcode\'.</span></div><div class="row-fluid"><h2>4</h2> <span>After finishing setup, link your device to your account by following the instructions in the yellow frame.</span></div></div><div id="' + 
+  $soy$$0$0escapeHtml$$($opt_data$$105_output$$82$$.id) + '_enable_two_factor" class="well span6" style="text-align:center"><div class="control-group"><div class="controls"><img id="id_secret_qr_view" src=""><br><span>Key: </span><span id=\'secret\' class="bitex-model" data-model-key="TwoFactorSecret"></span></div></div><div class="control-group"><div class="controls"><input id="id_second_step_verification_view" type="text" class="input-block-level" pattern="\\d+" title=\'Authentication Code\' placeholder=\'Authentication Code\' required></div></div><button data-switch-view="offerbook" id="id_btn_enable_two_factor_cancel" class="btn btn-default">Skip</button><button id="id_btn_enable_two_factor_view" class="btn btn-primary">Enable</button></div></div>');
+}
+;
+// Input 272
+function $bitex$view$TwoFactor$$($app$$31$$, $opt_domHelper$$68$$) {
   $bitex$view$View$$.call(this, $app$$31$$, $opt_domHelper$$68$$);
+}
+$goog$inherits$$($bitex$view$TwoFactor$$, $bitex$view$View$$);
+$JSCompiler_prototypeAlias$$ = $bitex$view$TwoFactor$$.prototype;
+$JSCompiler_prototypeAlias$$.$enterView$ = function $$JSCompiler_prototypeAlias$$$$enterView$$() {
+  $bitex$view$TwoFactor$$.$superClass_$.$enterView$.call(this);
+  this.$recreateComponents_$();
+};
+$JSCompiler_prototypeAlias$$.$exitView$ = function $$JSCompiler_prototypeAlias$$$$exitView$$() {
+  $bitex$view$TwoFactor$$.$superClass_$.$exitView$.call(this);
+  this.$destroyComponents_$();
+};
+$JSCompiler_prototypeAlias$$.$enterDocument$ = function $$JSCompiler_prototypeAlias$$$$enterDocument$$() {
+  $bitex$view$TwoFactor$$.$superClass_$.$enterDocument$.call(this);
+  var $handler$$134$$ = this.$getHandler$(), $model$$55$$ = this.$app_$.$model_$;
+  $handler$$134$$.$listen$($model$$55$$, "model_setTwoFactorSecret", this.$onModelSetTwoFactorSecret_$);
+  $handler$$134$$.$listen$($model$$55$$, "model_setTwoFactorEnabled", this.$onModelSetTwoFactorEnabled_$);
+};
+$JSCompiler_prototypeAlias$$.$exitDocument$ = function $$JSCompiler_prototypeAlias$$$$exitDocument$$() {
+};
+$JSCompiler_prototypeAlias$$.$recreateComponents_$ = function $$JSCompiler_prototypeAlias$$$$recreateComponents_$$() {
+  var $handler$$135$$ = this.$getHandler$();
+  this.$app_$.$model_$.get("TwoFactorEnabled") ? this.$app_$.$router_$.$setView$("offerbook") : (this.$two_factor_component$ = new $bitex$ui$TwoFactor$$, this.$two_factor_component$.render($goog$dom$getElement$$("twofactor_content")), $handler$$135$$.$listen$($goog$dom$getElement$$("id_btn_enable_two_factor_view"), "click", function() {
+    this.dispatchEvent("two_factor_enable");
+  }, this), this.dispatchEvent("two_factor_enable"));
+};
+$JSCompiler_prototypeAlias$$.$destroyComponents_$ = function $$JSCompiler_prototypeAlias$$$$destroyComponents_$$() {
+  this.$getHandler$().$unlisten$(this.$app_$.$model_$, "model_setTwoFactorSecret", this.$onModelSetTwoFactorSecret_$);
+};
+$JSCompiler_prototypeAlias$$.$onModelSetTwoFactorSecret_$ = function $$JSCompiler_prototypeAlias$$$$onModelSetTwoFactorSecret_$$($e$$328_secret$$3$$) {
+  var $model$$57_qr_code$$1$$ = this.$app_$.$model_$;
+  $e$$328_secret$$3$$ = $e$$328_secret$$3$$.data;
+  if (null != $e$$328_secret$$3$$ && !$goog$string$isEmptyOrWhitespace$$($e$$328_secret$$3$$)) {
+    var $issuer$$1$$ = $model$$57_qr_code$$1$$.get("Broker").ShortName, $model$$57_qr_code$$1$$ = "https://chart.googleapis.com/chart?chs=200x200&chld=M%7C0&cht=qr&chl=" + encodeURIComponent("otpauth://totp/" + $model$$57_qr_code$$1$$.get("Profile").Email + "?secret=") + $e$$328_secret$$3$$ + encodeURIComponent("&issuer=" + $issuer$$1$$);
+    $goog$dom$getElement$$("id_secret_qr_view").setAttribute("src", $model$$57_qr_code$$1$$);
+  }
+};
+$JSCompiler_prototypeAlias$$.$onModelSetTwoFactorEnabled_$ = function $$JSCompiler_prototypeAlias$$$$onModelSetTwoFactorEnabled_$$($e$$329_enabled$$15$$) {
+  $e$$329_enabled$$15$$ = $e$$329_enabled$$15$$.data;
+  var $has_secret$$4_secret$$4$$ = this.$app_$.$model_$.get("TwoFactorSecret"), $has_secret$$4_secret$$4$$ = null != $has_secret$$4_secret$$4$$ && !$goog$string$isEmptyOrWhitespace$$($has_secret$$4_secret$$4$$), $divEl$$3$$ = $goog$dom$getElement$$("id_enable_two_factor_div"), $btnDisableEl$$2$$ = $goog$dom$getElement$$("id_btn_disable_two_factor");
+  $goog$style$setElementShown$$($goog$dom$getElement$$("id_btn_enable_two_factor"), !$e$$329_enabled$$15$$);
+  $goog$style$setElementShown$$($btnDisableEl$$2$$, $e$$329_enabled$$15$$);
+  $goog$style$setElementShown$$($divEl$$3$$, $has_secret$$4_secret$$4$$ && !$e$$329_enabled$$15$$);
+  this.$app_$.$router_$.$setView$("offerbook");
+};
+$JSCompiler_prototypeAlias$$.$getCode$ = function $$JSCompiler_prototypeAlias$$$$getCode$$() {
+  return $goog$dom$forms$getValue$$($goog$dom$getElement$$("id_second_step_verification_view"));
+};
+// Input 273
+function $bitex$ui$TwoFactor$$($opt_domHelper$$69$$) {
+  $goog$ui$Component$$.call(this, $opt_domHelper$$69$$);
+}
+$goog$inherits$$($bitex$ui$TwoFactor$$, $goog$ui$Component$$);
+$bitex$ui$TwoFactor$$.prototype.$decorateInternal$ = function $$bitex$ui$TwoFactor$$$$$decorateInternal$$($element$$249$$) {
+  this.$element_$ = $element$$249$$;
+};
+$bitex$ui$TwoFactor$$.prototype.$createDom$ = function $$bitex$ui$TwoFactor$$$$$createDom$$() {
+  this.$element_$ = $goog$soy$renderAsElement$$($bitex$ui$TwoFactor$templates$TwoFactor$$, {id:$JSCompiler_StaticMethods_makeId$$(this, "card")});
+};
+$bitex$ui$TwoFactor$$.prototype.$enterDocument$ = function $$bitex$ui$TwoFactor$$$$$enterDocument$$() {
+  $bitex$ui$TwoFactor$$.$superClass_$.$enterDocument$.call(this);
+};
+$bitex$ui$TwoFactor$$.prototype.$onSubmit_$ = function $$bitex$ui$TwoFactor$$$$$onSubmit_$$($e$$330$$) {
+  $e$$330$$.preventDefault();
+  0 < this.$uniform_$.$validate$().length ? $e$$330$$.stopPropagation() : this.dispatchEvent($bitex$ui$TwoFactor$$.$EventType$.$SUBMIT$);
+};
+// Input 274
+function $bitex$view$StartView$$($app$$32$$, $opt_domHelper$$70$$) {
+  $bitex$view$View$$.call(this, $app$$32$$, $opt_domHelper$$70$$);
 }
 $goog$inherits$$($bitex$view$StartView$$, $bitex$view$View$$);
 $JSCompiler_prototypeAlias$$ = $bitex$view$StartView$$.prototype;
@@ -15727,24 +15843,24 @@ $JSCompiler_prototypeAlias$$.$enterDocument$ = function $$JSCompiler_prototypeAl
 $JSCompiler_prototypeAlias$$.$exitDocument$ = function $$JSCompiler_prototypeAlias$$$$exitDocument$$() {
 };
 $JSCompiler_prototypeAlias$$.$recreateComponents_$ = function $$JSCompiler_prototypeAlias$$$$recreateComponents_$$() {
-  var $handler$$134$$ = this.$getHandler$(), $model$$55$$ = this.$app_$.$model_$, $defaultSymbol$$ = $model$$55$$.get("DefaultSymbol");
+  var $handler$$137$$ = this.$getHandler$(), $model$$58$$ = this.$app_$.$model_$, $defaultSymbol$$ = $model$$58$$.get("DefaultSymbol");
   $JSCompiler_StaticMethods_destroyOrderBookComponents_$$(this);
-  $handler$$134$$.$listen$($model$$55$$, "model_setSecurityList", function() {
-    $model$$55$$ = this.$app_$.$model_$;
-    msg = $model$$55$$.get("SecurityList");
-    var $JSCompiler_object_inline_price_currency_5_app$$32$$ = this.$app_$, $JSCompiler_object_inline_qty_currency_4_conn$$27$$ = $JSCompiler_object_inline_price_currency_5_app$$32$$.$getCurrency$($JSCompiler_object_inline_price_currency_5_app$$32$$.$getQtyCurrencyFromSymbol$($defaultSymbol$$)), $JSCompiler_object_inline_price_currency_5_app$$32$$ = $JSCompiler_object_inline_price_currency_5_app$$32$$.$getCurrency$($JSCompiler_object_inline_price_currency_5_app$$32$$.$getPriceCurrencyFromSymbol$($defaultSymbol$$));
-    this.$order_book_bid_$ = new $bitex$ui$SimpleOrderBook$$("0", $JSCompiler_object_inline_qty_currency_4_conn$$27$$, $JSCompiler_object_inline_price_currency_5_app$$32$$);
-    this.$order_book_offer_$ = new $bitex$ui$SimpleOrderBook$$("1", $JSCompiler_object_inline_qty_currency_4_conn$$27$$, $JSCompiler_object_inline_price_currency_5_app$$32$$);
+  $handler$$137$$.$listen$($model$$58$$, "model_setSecurityList", function() {
+    $model$$58$$ = this.$app_$.$model_$;
+    msg = $model$$58$$.get("SecurityList");
+    var $JSCompiler_object_inline_price_currency_5_app$$33$$ = this.$app_$, $JSCompiler_object_inline_qty_currency_4_conn$$27$$ = $JSCompiler_object_inline_price_currency_5_app$$33$$.$getCurrency$($JSCompiler_object_inline_price_currency_5_app$$33$$.$getQtyCurrencyFromSymbol$($defaultSymbol$$)), $JSCompiler_object_inline_price_currency_5_app$$33$$ = $JSCompiler_object_inline_price_currency_5_app$$33$$.$getCurrency$($JSCompiler_object_inline_price_currency_5_app$$33$$.$getPriceCurrencyFromSymbol$($defaultSymbol$$));
+    this.$order_book_bid_$ = new $bitex$ui$SimpleOrderBook$$("0", $JSCompiler_object_inline_qty_currency_4_conn$$27$$, $JSCompiler_object_inline_price_currency_5_app$$33$$);
+    this.$order_book_offer_$ = new $bitex$ui$SimpleOrderBook$$("1", $JSCompiler_object_inline_qty_currency_4_conn$$27$$, $JSCompiler_object_inline_price_currency_5_app$$33$$);
     this.$order_book_bid_$.render($goog$dom$getElement$$("id_simple_order_book_bid_content"));
     this.$order_book_offer_$.render($goog$dom$getElement$$("id_simple_order_book_ask_content"));
     this.$market_data_subscription_id_$ = parseInt(1E7 * Math.random(), 10);
     this.$market_data_subscription_symbol_$ = $defaultSymbol$$;
     $JSCompiler_object_inline_qty_currency_4_conn$$27$$ = this.$app_$.$conn_$;
-    $handler$$134$$.$listen$($JSCompiler_object_inline_qty_currency_4_conn$$27$$, $bitex$api$BitEx$EventType$ORDER_BOOK_CLEAR$$ + "." + this.$market_data_subscription_id_$, this.$onOBClear_$);
-    $handler$$134$$.$listen$($JSCompiler_object_inline_qty_currency_4_conn$$27$$, $bitex$api$BitEx$EventType$ORDER_BOOK_DELETE_ORDERS_THRU$$ + "." + this.$market_data_subscription_id_$, this.$onOBDeleteOrdersThru_$);
-    $handler$$134$$.$listen$($JSCompiler_object_inline_qty_currency_4_conn$$27$$, $bitex$api$BitEx$EventType$ORDER_BOOK_DELETE_ORDER$$ + "." + this.$market_data_subscription_id_$, this.$onOBDeleteOrder_$);
-    $handler$$134$$.$listen$($JSCompiler_object_inline_qty_currency_4_conn$$27$$, $bitex$api$BitEx$EventType$ORDER_BOOK_UPDATE_ORDER$$ + "." + this.$market_data_subscription_id_$, this.$onOBUpdateOrder_$);
-    $handler$$134$$.$listen$($JSCompiler_object_inline_qty_currency_4_conn$$27$$, $bitex$api$BitEx$EventType$ORDER_BOOK_NEW_ORDER$$ + "." + this.$market_data_subscription_id_$, this.$onOBNewOrder_$);
+    $handler$$137$$.$listen$($JSCompiler_object_inline_qty_currency_4_conn$$27$$, $bitex$api$BitEx$EventType$ORDER_BOOK_CLEAR$$ + "." + this.$market_data_subscription_id_$, this.$onOBClear_$);
+    $handler$$137$$.$listen$($JSCompiler_object_inline_qty_currency_4_conn$$27$$, $bitex$api$BitEx$EventType$ORDER_BOOK_DELETE_ORDERS_THRU$$ + "." + this.$market_data_subscription_id_$, this.$onOBDeleteOrdersThru_$);
+    $handler$$137$$.$listen$($JSCompiler_object_inline_qty_currency_4_conn$$27$$, $bitex$api$BitEx$EventType$ORDER_BOOK_DELETE_ORDER$$ + "." + this.$market_data_subscription_id_$, this.$onOBDeleteOrder_$);
+    $handler$$137$$.$listen$($JSCompiler_object_inline_qty_currency_4_conn$$27$$, $bitex$api$BitEx$EventType$ORDER_BOOK_UPDATE_ORDER$$ + "." + this.$market_data_subscription_id_$, this.$onOBUpdateOrder_$);
+    $handler$$137$$.$listen$($JSCompiler_object_inline_qty_currency_4_conn$$27$$, $bitex$api$BitEx$EventType$ORDER_BOOK_NEW_ORDER$$ + "." + this.$market_data_subscription_id_$, this.$onOBNewOrder_$);
     this.dispatchEvent("md_subscribe");
   }, this);
 };
@@ -15753,39 +15869,39 @@ $JSCompiler_prototypeAlias$$.$destroyComponents_$ = function $$JSCompiler_protot
 $JSCompiler_prototypeAlias$$.$onOBClear_$ = function $$JSCompiler_prototypeAlias$$$$onOBClear_$$() {
   null != this.$order_book_offer_$ && (this.$order_book_bid_$.clear(), this.$order_book_offer_$.clear());
 };
-$JSCompiler_prototypeAlias$$.$onOBDeleteOrdersThru_$ = function $$JSCompiler_prototypeAlias$$$$onOBDeleteOrdersThru_$$($e$$329_index$$113$$) {
+$JSCompiler_prototypeAlias$$.$onOBDeleteOrdersThru_$ = function $$JSCompiler_prototypeAlias$$$$onOBDeleteOrdersThru_$$($e$$333_index$$113$$) {
   if (null != this.$order_book_offer_$) {
-    var $msg$$110_side$$20$$ = $e$$329_index$$113$$.data;
-    $e$$329_index$$113$$ = $msg$$110_side$$20$$.MDEntryPositionNo;
+    var $msg$$110_side$$20$$ = $e$$333_index$$113$$.data;
+    $e$$333_index$$113$$ = $msg$$110_side$$20$$.MDEntryPositionNo;
     $msg$$110_side$$20$$ = $msg$$110_side$$20$$.MDEntryType;
-    "0" == $msg$$110_side$$20$$ ? $JSCompiler_StaticMethods_deleteOrderThru$$(this.$order_book_bid_$, $e$$329_index$$113$$) : "1" == $msg$$110_side$$20$$ && $JSCompiler_StaticMethods_deleteOrderThru$$(this.$order_book_offer_$, $e$$329_index$$113$$);
+    "0" == $msg$$110_side$$20$$ ? $JSCompiler_StaticMethods_deleteOrderThru$$(this.$order_book_bid_$, $e$$333_index$$113$$) : "1" == $msg$$110_side$$20$$ && $JSCompiler_StaticMethods_deleteOrderThru$$(this.$order_book_offer_$, $e$$333_index$$113$$);
   }
 };
-$JSCompiler_prototypeAlias$$.$onOBDeleteOrder_$ = function $$JSCompiler_prototypeAlias$$$$onOBDeleteOrder_$$($e$$330_index$$114$$) {
+$JSCompiler_prototypeAlias$$.$onOBDeleteOrder_$ = function $$JSCompiler_prototypeAlias$$$$onOBDeleteOrder_$$($e$$334_index$$114$$) {
   if (null != this.$order_book_offer_$) {
-    var $msg$$111_side$$21$$ = $e$$330_index$$114$$.data;
-    $e$$330_index$$114$$ = $msg$$111_side$$21$$.MDEntryPositionNo - 1;
+    var $msg$$111_side$$21$$ = $e$$334_index$$114$$.data;
+    $e$$334_index$$114$$ = $msg$$111_side$$21$$.MDEntryPositionNo - 1;
     $msg$$111_side$$21$$ = $msg$$111_side$$21$$.MDEntryType;
-    "0" == $msg$$111_side$$21$$ ? $JSCompiler_StaticMethods_deleteOrder$$(this.$order_book_bid_$, $e$$330_index$$114$$) : "1" == $msg$$111_side$$21$$ && $JSCompiler_StaticMethods_deleteOrder$$(this.$order_book_offer_$, $e$$330_index$$114$$);
+    "0" == $msg$$111_side$$21$$ ? $JSCompiler_StaticMethods_deleteOrder$$(this.$order_book_bid_$, $e$$334_index$$114$$) : "1" == $msg$$111_side$$21$$ && $JSCompiler_StaticMethods_deleteOrder$$(this.$order_book_offer_$, $e$$334_index$$114$$);
   }
 };
-$JSCompiler_prototypeAlias$$.$onOBUpdateOrder_$ = function $$JSCompiler_prototypeAlias$$$$onOBUpdateOrder_$$($e$$331_index$$115$$) {
+$JSCompiler_prototypeAlias$$.$onOBUpdateOrder_$ = function $$JSCompiler_prototypeAlias$$$$onOBUpdateOrder_$$($e$$335_index$$115$$) {
   if (null != this.$order_book_offer_$) {
-    var $msg$$112_side$$22$$ = $e$$331_index$$115$$.data;
-    $e$$331_index$$115$$ = $msg$$112_side$$22$$.MDEntryPositionNo - 1;
+    var $msg$$112_side$$22$$ = $e$$335_index$$115$$.data;
+    $e$$335_index$$115$$ = $msg$$112_side$$22$$.MDEntryPositionNo - 1;
     var $qty$$17$$ = $msg$$112_side$$22$$.MDEntrySize, $msg$$112_side$$22$$ = $msg$$112_side$$22$$.MDEntryType;
-    "0" == $msg$$112_side$$22$$ ? this.$order_book_bid_$.$updateOrder$($e$$331_index$$115$$, $qty$$17$$) : "1" == $msg$$112_side$$22$$ && this.$order_book_offer_$.$updateOrder$($e$$331_index$$115$$, $qty$$17$$);
+    "0" == $msg$$112_side$$22$$ ? this.$order_book_bid_$.$updateOrder$($e$$335_index$$115$$, $qty$$17$$) : "1" == $msg$$112_side$$22$$ && this.$order_book_offer_$.$updateOrder$($e$$335_index$$115$$, $qty$$17$$);
   }
 };
-$JSCompiler_prototypeAlias$$.$onOBNewOrder_$ = function $$JSCompiler_prototypeAlias$$$$onOBNewOrder_$$($e$$332_index$$116$$) {
+$JSCompiler_prototypeAlias$$.$onOBNewOrder_$ = function $$JSCompiler_prototypeAlias$$$$onOBNewOrder_$$($e$$336_index$$116$$) {
   if (null != this.$order_book_offer_$) {
-    var $broker$$14_model$$56$$ = this.$app_$.$model_$, $msg$$113_side$$23$$ = $e$$332_index$$116$$.data;
-    $e$$332_index$$116$$ = $msg$$113_side$$23$$.MDEntryPositionNo - 1;
+    var $broker$$14_model$$59$$ = this.$app_$.$model_$, $msg$$113_side$$23$$ = $e$$336_index$$116$$.data;
+    $e$$336_index$$116$$ = $msg$$113_side$$23$$.MDEntryPositionNo - 1;
     var $price$$13$$ = $msg$$113_side$$23$$.MDEntryPx, $qty$$18$$ = $msg$$113_side$$23$$.MDEntrySize, $username$$12$$;
     $username$$12$$ = null != $msg$$113_side$$23$$.Username ? $msg$$113_side$$23$$.Username : $bitex$util$getPseudoName$$($msg$$113_side$$23$$.UserID);
-    $msg$$113_side$$23$$.UserID === $broker$$14_model$$56$$.get("UserID") && ($username$$12$$ = $broker$$14_model$$56$$.get("Username"));
-    var $broker$$14_model$$56$$ = $msg$$113_side$$23$$.Broker, $orderId$$8$$ = $msg$$113_side$$23$$.OrderID, $msg$$113_side$$23$$ = $msg$$113_side$$23$$.MDEntryType;
-    "0" == $msg$$113_side$$23$$ ? this.$order_book_bid_$.$insertOrder$($e$$332_index$$116$$, $orderId$$8$$, $price$$13$$, $qty$$18$$, $username$$12$$, $broker$$14_model$$56$$) : "1" == $msg$$113_side$$23$$ && this.$order_book_offer_$.$insertOrder$($e$$332_index$$116$$, $orderId$$8$$, $price$$13$$, $qty$$18$$, $username$$12$$, $broker$$14_model$$56$$);
+    $msg$$113_side$$23$$.UserID === $broker$$14_model$$59$$.get("UserID") && ($username$$12$$ = $broker$$14_model$$59$$.get("Username"));
+    var $broker$$14_model$$59$$ = $msg$$113_side$$23$$.Broker, $orderId$$8$$ = $msg$$113_side$$23$$.OrderID, $msg$$113_side$$23$$ = $msg$$113_side$$23$$.MDEntryType;
+    "0" == $msg$$113_side$$23$$ ? this.$order_book_bid_$.$insertOrder$($e$$336_index$$116$$, $orderId$$8$$, $price$$13$$, $qty$$18$$, $username$$12$$, $broker$$14_model$$59$$) : "1" == $msg$$113_side$$23$$ && this.$order_book_offer_$.$insertOrder$($e$$336_index$$116$$, $orderId$$8$$, $price$$13$$, $qty$$18$$, $username$$12$$, $broker$$14_model$$59$$);
   }
 };
 $JSCompiler_prototypeAlias$$.$getMDInstruments$ = function $$JSCompiler_prototypeAlias$$$$getMDInstruments$$() {
@@ -15797,9 +15913,9 @@ $JSCompiler_prototypeAlias$$.$getMDMarketDepth$ = function $$JSCompiler_prototyp
 $JSCompiler_prototypeAlias$$.$getMDEntries$ = function $$JSCompiler_prototypeAlias$$$$getMDEntries$$() {
   return["0", "1"];
 };
-// Input 271
-function $bootstrap$Alert$$($opt_type$$14$$, $opt_content$$6$$, $opt_close$$, $opt_domHelper$$69$$) {
-  $goog$ui$Component$$.call(this, $opt_domHelper$$69$$);
+// Input 275
+function $bootstrap$Alert$$($opt_type$$14$$, $opt_content$$6$$, $opt_close$$, $opt_domHelper$$71$$) {
+  $goog$ui$Component$$.call(this, $opt_domHelper$$71$$);
   this.$type_$ = $opt_type$$14$$;
   this.$content_$ = $opt_content$$6$$;
   this.$has_close_$ = !0;
@@ -15810,48 +15926,48 @@ $bootstrap$Alert$$.prototype.$getCssClass$ = function $$bootstrap$Alert$$$$$getC
   return "alert";
 };
 $bootstrap$Alert$$.prototype.$createDom$ = function $$bootstrap$Alert$$$$$createDom$$() {
-  var $dom$$39_element$$249$$ = this.$getDomHelper$();
-  return this.$element_$ = $dom$$39_element$$249$$ = this.$has_close_$ ? $dom$$39_element$$249$$.$createDom$("div", [this.$getCssClass$(), this.$getCssClass$() + "-" + this.$type_$], $dom$$39_element$$249$$.$createDom$("button", ["close", "pull-right"], "\u00d7"), this.$content_$) : $dom$$39_element$$249$$.$createDom$("div", [this.$getCssClass$(), this.$getCssClass$() + "-" + this.$type_$], this.$content_$);
+  var $dom$$39_element$$250$$ = this.$getDomHelper$();
+  return this.$element_$ = $dom$$39_element$$250$$ = this.$has_close_$ ? $dom$$39_element$$250$$.$createDom$("div", [this.$getCssClass$(), this.$getCssClass$() + "-" + this.$type_$], $dom$$39_element$$250$$.$createDom$("button", ["close", "pull-right"], "\u00d7"), this.$content_$) : $dom$$39_element$$250$$.$createDom$("div", [this.$getCssClass$(), this.$getCssClass$() + "-" + this.$type_$], this.$content_$);
 };
 function $bootstrap$Alert$install$$() {
-  $goog$events$listen$$(document.body, "click", function($e$$333$$) {
-    var $alert_element_element$$250$$ = $e$$333$$.target;
-    "alert" === $alert_element_element$$250$$.getAttribute("data-dismiss") && ($alert_element_element$$250$$ = $goog$dom$getAncestorByTagNameAndClass$$($alert_element_element$$250$$, void 0, "alert"), null != $alert_element_element$$250$$ && ($goog$dom$removeNode$$($alert_element_element$$250$$), $e$$333$$.stopPropagation(), $e$$333$$.preventDefault()));
+  $goog$events$listen$$(document.body, "click", function($e$$337$$) {
+    var $alert_element_element$$251$$ = $e$$337$$.target;
+    "alert" === $alert_element_element$$251$$.getAttribute("data-dismiss") && ($alert_element_element$$251$$ = $goog$dom$getAncestorByTagNameAndClass$$($alert_element_element$$251$$, void 0, "alert"), null != $alert_element_element$$251$$ && ($goog$dom$removeNode$$($alert_element_element$$251$$), $e$$337$$.stopPropagation(), $e$$337$$.preventDefault()));
   });
 }
 $bootstrap$Alert$$.prototype.$logger_$ = $goog$debug$LogManager$getLogger$$("bootstrap.Alert");
 $bootstrap$Alert$$.prototype.$enterDocument$ = function $$bootstrap$Alert$$$$$enterDocument$$() {
   $bootstrap$Alert$$.$superClass_$.$enterDocument$.call(this);
-  var $closeBtn_dom$$40$$ = this.$getDomHelper$(), $handler$$135$$ = this.$getHandler$(), $closeBtn_dom$$40$$ = $closeBtn_dom$$40$$.$getElementByClass$("close", this.$getElement$());
-  null != $closeBtn_dom$$40$$ && $handler$$135$$.$listenOnce$($closeBtn_dom$$40$$, "click", function($e$$334$$) {
+  var $closeBtn_dom$$40$$ = this.$getDomHelper$(), $handler$$138$$ = this.$getHandler$(), $closeBtn_dom$$40$$ = $closeBtn_dom$$40$$.$getElementByClass$("close", this.$getElement$());
+  null != $closeBtn_dom$$40$$ && $handler$$138$$.$listenOnce$($closeBtn_dom$$40$$, "click", function($e$$338$$) {
     this.$dispose$();
-    $e$$334$$.stopPropagation();
-    $e$$334$$.preventDefault();
+    $e$$338$$.stopPropagation();
+    $e$$338$$.preventDefault();
   });
 };
-// Input 272
+// Input 276
 function $bootstrap$Accordion$closeAll$$() {
   var $accordion_body_elements_accordion_toggle_elements$$ = $goog$dom$getElementsByClass$$("accordion-toggle", document.body);
-  $goog$array$forEach$$($accordion_body_elements_accordion_toggle_elements$$, function($element$$251$$) {
-    $goog$dom$classes$add$$($element$$251$$, "collapsed");
+  $goog$array$forEach$$($accordion_body_elements_accordion_toggle_elements$$, function($element$$252$$) {
+    $goog$dom$classes$add$$($element$$252$$, "collapsed");
   });
   $accordion_body_elements_accordion_toggle_elements$$ = $goog$dom$getElementsByClass$$("accordion-body", document.body);
-  $goog$array$forEach$$($accordion_body_elements_accordion_toggle_elements$$, function($element$$252$$) {
-    $goog$dom$classes$remove$$($element$$252$$, "in");
-    $element$$252$$.style.height = $goog$style$getPixelStyleValue_$$(0, !0);
+  $goog$array$forEach$$($accordion_body_elements_accordion_toggle_elements$$, function($element$$253$$) {
+    $goog$dom$classes$remove$$($element$$253$$, "in");
+    $element$$253$$.style.height = $goog$style$getPixelStyleValue_$$(0, !0);
   });
 }
 function $bootstrap$Accordion$install$$() {
-  $goog$events$listen$$(document.body, "click", function($accordion_body_element_accordion_group_element_e$$335$$) {
-    var $accordion_element$$ = $accordion_body_element_accordion_group_element_e$$335$$.target, $is_accordion_toggle$$ = !1;
+  $goog$events$listen$$(document.body, "click", function($accordion_body_element_accordion_group_element_e$$339$$) {
+    var $accordion_element$$ = $accordion_body_element_accordion_group_element_e$$339$$.target, $is_accordion_toggle$$ = !1;
     $goog$dom$classes$has$$($accordion_element$$, "accordion-toggle") ? $is_accordion_toggle$$ = !0 : ($accordion_element$$ = $goog$dom$getAncestorByClass$$($accordion_element$$, "accordion-toggle"), null != $accordion_element$$ && ($is_accordion_toggle$$ = !0));
-    $is_accordion_toggle$$ && ($accordion_body_element_accordion_group_element_e$$335$$.preventDefault(), $accordion_body_element_accordion_group_element_e$$335$$.stopPropagation(), $accordion_body_element_accordion_group_element_e$$335$$ = $goog$dom$getAncestorByClass$$($accordion_element$$, "accordion-group"), $accordion_body_element_accordion_group_element_e$$335$$ = $goog$dom$getElementByClass$$("accordion-body", $accordion_body_element_accordion_group_element_e$$335$$), $goog$dom$classes$has$$($accordion_element$$, 
-    "collapsed") ? ($bootstrap$Accordion$closeAll$$(), $goog$dom$classes$add$$($accordion_body_element_accordion_group_element_e$$335$$, "in"), $accordion_body_element_accordion_group_element_e$$335$$.style.height = $goog$style$getPixelStyleValue_$$("auto", !0), $goog$dom$classes$remove$$($accordion_element$$, "collapsed")) : ($goog$dom$classes$remove$$($accordion_body_element_accordion_group_element_e$$335$$, "in"), $accordion_body_element_accordion_group_element_e$$335$$.style.height = $goog$style$getPixelStyleValue_$$(0, 
+    $is_accordion_toggle$$ && ($accordion_body_element_accordion_group_element_e$$339$$.preventDefault(), $accordion_body_element_accordion_group_element_e$$339$$.stopPropagation(), $accordion_body_element_accordion_group_element_e$$339$$ = $goog$dom$getAncestorByClass$$($accordion_element$$, "accordion-group"), $accordion_body_element_accordion_group_element_e$$339$$ = $goog$dom$getElementByClass$$("accordion-body", $accordion_body_element_accordion_group_element_e$$339$$), $goog$dom$classes$has$$($accordion_element$$, 
+    "collapsed") ? ($bootstrap$Accordion$closeAll$$(), $goog$dom$classes$add$$($accordion_body_element_accordion_group_element_e$$339$$, "in"), $accordion_body_element_accordion_group_element_e$$339$$.style.height = $goog$style$getPixelStyleValue_$$("auto", !0), $goog$dom$classes$remove$$($accordion_element$$, "collapsed")) : ($goog$dom$classes$remove$$($accordion_body_element_accordion_group_element_e$$339$$, "in"), $accordion_body_element_accordion_group_element_e$$339$$.style.height = $goog$style$getPixelStyleValue_$$(0, 
     !0), $goog$dom$classes$add$$($accordion_element$$, "collapsed")));
   });
 }
 ;
-// Input 273
+// Input 277
 function $bitex$app$BlinkTrade$$($broker_id$$7$$, $remittance_box$$, $opt_default_country$$, $opt_default_symbol$$, $opt_default_state$$, $opt_test_request_timer_in_ms$$, $opt_maximum_allowed_delay_in_ms$$) {
   $goog$events$EventTarget$$.call(this);
   $bootstrap$Dropdown$install$$();
@@ -15861,7 +15977,7 @@ function $bitex$app$BlinkTrade$$($broker_id$$7$$, $remittance_box$$, $opt_defaul
   this.$error_message_alert_timeout_$ = 5E3;
   try {
     this.$finger_print_$ = $bitex$util$getBrowserFingerPrint$$();
-  } catch ($e$$336$$) {
+  } catch ($e$$340$$) {
   }
   this.$ip_addresses_$ = {local:void 0, "public":[]};
   $bitex$util$getSTUNIpAddress$$($goog$bind$$(this.$onSTUNTIpAddressCallback_$, this));
@@ -15893,15 +16009,15 @@ $JSCompiler_prototypeAlias$$.$getHandler$ = function $$JSCompiler_prototypeAlias
 $JSCompiler_prototypeAlias$$.$onSTUNTIpAddressCallback_$ = function $$JSCompiler_prototypeAlias$$$$onSTUNTIpAddressCallback_$$($ip_address$$) {
   null != $ip_address$$ && ($ip_address$$.match(/^(192\.168\.|169\.254\.|10\.|172\.(1[6-9]|2\d|3[01]))/) ? this.$ip_addresses_$.local = $ip_address$$ : this.$ip_addresses_$["public"].push($ip_address$$), this.$conn_$.$setSTUNTIp$(this.$ip_addresses_$));
 };
-function $bitex$app$BlinkTrade$validateBitcoinAddress_$$($el$$141_elValue$$9$$, $MSG_BITEX_ERROR_VALIDATE_REQUIRED_condition$$21$$, $minLength$$2$$, $MSG_BITEX_ERROR_VALIDATE_BTC_ADDRESS_caption$$28$$) {
+function $bitex$app$BlinkTrade$validateBitcoinAddress_$$($el$$143_elValue$$9$$, $MSG_BITEX_ERROR_VALIDATE_REQUIRED_condition$$21$$, $minLength$$2$$, $MSG_BITEX_ERROR_VALIDATE_BTC_ADDRESS_caption$$28$$) {
   if (!$MSG_BITEX_ERROR_VALIDATE_REQUIRED_condition$$21$$ || eval($MSG_BITEX_ERROR_VALIDATE_REQUIRED_condition$$21$$)) {
     $MSG_BITEX_ERROR_VALIDATE_REQUIRED_condition$$21$$ = $MSG_BITEX_ERROR_VALIDATE_BTC_ADDRESS_caption$$28$$ + " l\u00e0 b\u1eaft bu\u1ed9c";
     $MSG_BITEX_ERROR_VALIDATE_BTC_ADDRESS_caption$$28$$ += " kh\u00f4ng ph\u1ea3i l\u00e0 \u0111\u1ecba ch\u1ec9 h\u1ee3p l\u1ec7";
-    $el$$141_elValue$$9$$ = $goog$dom$forms$getValue$$($el$$141_elValue$$9$$);
-    if (null == $el$$141_elValue$$9$$ || $goog$string$isEmptyOrWhitespace$$($el$$141_elValue$$9$$)) {
+    $el$$143_elValue$$9$$ = $goog$dom$forms$getValue$$($el$$143_elValue$$9$$);
+    if (null == $el$$143_elValue$$9$$ || $goog$string$isEmptyOrWhitespace$$($el$$143_elValue$$9$$)) {
       throw $MSG_BITEX_ERROR_VALIDATE_REQUIRED_condition$$21$$;
     }
-    if (!$bitex$util$isValidAddress$$($el$$141_elValue$$9$$)) {
+    if (!$bitex$util$isValidAddress$$($el$$143_elValue$$9$$)) {
       throw $MSG_BITEX_ERROR_VALIDATE_BTC_ADDRESS_caption$$28$$;
     }
   }
@@ -15911,14 +16027,15 @@ $JSCompiler_prototypeAlias$$.$run$ = function $$JSCompiler_prototypeAlias$$$$run
   this.$rest_url_$ = "https://" + $host_api_loginView$$;
   this.$wss_url_$ = "wss://" + $host_api_loginView$$ + "/trade/";
   $uniform$Validators$$.$getInstance$().$metaMap_$.set("validateAddress", $bitex$app$BlinkTrade$validateBitcoinAddress_$$);
-  var $handler$$136_startView$$ = new $bitex$view$StartView$$(this), $faqView$$ = new $bitex$view$NullView$$(this), $themesView$$ = new $bitex$view$NullView$$(this), $initial_view_setNewPasswordView$$ = new $bitex$view$SetNewPasswordView$$(this);
+  var $handler$$139_startView$$ = new $bitex$view$StartView$$(this), $twoFactorView$$ = new $bitex$view$TwoFactor$$(this), $faqView$$ = new $bitex$view$NullView$$(this), $themesView$$ = new $bitex$view$NullView$$(this), $initial_view_setNewPasswordView$$ = new $bitex$view$SetNewPasswordView$$(this);
   $host_api_loginView$$ = new $bitex$view$LoginView$$(this);
   var $signUpView$$ = new $bitex$view$SignupView$$(this), $forgotPasswordView$$ = new $bitex$view$ForgotPasswordView$$(this), $depositView$$ = new $bitex$view$DepositView$$(this, !1), $depositRequestsView$$ = new $bitex$view$DepositView$$(this, !0), $verificationView$$ = new $bitex$view$VerificationView$$(this), $offerBookView$$ = new $bitex$view$OfferBookView$$(this), $historyView$$ = new $bitex$view$HistoryView$$(this), $withdrawView$$ = new $bitex$view$WithdrawView$$(this, !1), $withdrawRequestsView$$ = 
   new $bitex$view$WithdrawView$$(this, !0), $cardView$$ = new $bitex$view$CardView$$(this), $customersView$$ = new $bitex$view$CustomersView$$(this), $accountOverviewView$$ = new $bitex$view$AccountOverview$$(this), $brokerView$$ = new $bitex$view$BrokerView$$(this), $marketView$$ = new $bitex$view$MarketView$$(this), $rankingView$$ = new $bitex$view$RankingView$$(this), $tradingView$$ = new $bitex$view$TradingView$$(this), $algorithmTradingView$$ = new $bitex$view$AlgorithmTradingView$$(this), $toolBarView$$ = 
   new $bitex$view$ToolBarView$$(this), $sideBarView$$ = new $bitex$view$SideBarView$$(this), $ledgerView$$ = new $bitex$view$LedgerView$$(this), $profileView$$ = new $bitex$view$ProfileView$$(this), $apiView$$ = new $bitex$view$APIView$$(this), $lineOfCreditView$$ = new $bitex$view$LineOfCreditView$$(this), $brokerApplicationView$$ = new $bitex$view$NullView$$(this);
   $JSCompiler_StaticMethods_addChild$$(this.$views_$, $toolBarView$$);
   $JSCompiler_StaticMethods_addChild$$(this.$views_$, $sideBarView$$);
-  $JSCompiler_StaticMethods_addChild$$(this.$views_$, $handler$$136_startView$$);
+  $JSCompiler_StaticMethods_addChild$$(this.$views_$, $handler$$139_startView$$);
+  $JSCompiler_StaticMethods_addChild$$(this.$views_$, $twoFactorView$$);
   $JSCompiler_StaticMethods_addChild$$(this.$views_$, $faqView$$);
   $JSCompiler_StaticMethods_addChild$$(this.$views_$, $themesView$$);
   $JSCompiler_StaticMethods_addChild$$(this.$views_$, $initial_view_setNewPasswordView$$);
@@ -15945,7 +16062,7 @@ $JSCompiler_prototypeAlias$$.$run$ = function $$JSCompiler_prototypeAlias$$$$run
   $JSCompiler_StaticMethods_addChild$$(this.$views_$, $lineOfCreditView$$);
   $JSCompiler_StaticMethods_addChild$$(this.$views_$, $profileView$$, !1);
   $JSCompiler_StaticMethods_addChild$$(this.$views_$, $brokerApplicationView$$);
-  $handler$$136_startView$$.$decorate$($goog$dom$getElement$$("start"));
+  $handler$$139_startView$$.$decorate$($goog$dom$getElement$$("start"));
   $faqView$$.$decorate$($goog$dom$getElement$$("faq"));
   $themesView$$.$decorate$($goog$dom$getElement$$("themes"));
   $sideBarView$$.$decorate$($goog$dom$getElement$$("id_sidebar"));
@@ -15954,10 +16071,11 @@ $JSCompiler_prototypeAlias$$.$run$ = function $$JSCompiler_prototypeAlias$$$$run
   $signUpView$$.$decorate$($goog$dom$getElement$$("signup"));
   this.$views_$.$decorate$(document.body);
   $JSCompiler_StaticMethods_addView$$(this.$router_$, "(account_overview)/(\\w+)/$", $accountOverviewView$$);
-  $JSCompiler_StaticMethods_addView$$(this.$router_$, "(start)", $handler$$136_startView$$);
+  $JSCompiler_StaticMethods_addView$$(this.$router_$, "(start)", $handler$$139_startView$$);
+  $JSCompiler_StaticMethods_addView$$(this.$router_$, "(twofactor)", $twoFactorView$$);
   $JSCompiler_StaticMethods_addView$$(this.$router_$, "(faq)", $faqView$$);
   $JSCompiler_StaticMethods_addView$$(this.$router_$, "(themes)", $themesView$$);
-  $JSCompiler_StaticMethods_addView$$(this.$router_$, "(admin)", $handler$$136_startView$$);
+  $JSCompiler_StaticMethods_addView$$(this.$router_$, "(admin)", $handler$$139_startView$$);
   $JSCompiler_StaticMethods_addView$$(this.$router_$, "(set_new_password)", $initial_view_setNewPasswordView$$);
   $JSCompiler_StaticMethods_addView$$(this.$router_$, "(signin)", $host_api_loginView$$);
   $JSCompiler_StaticMethods_addView$$(this.$router_$, "(signup)", $signUpView$$);
@@ -15981,70 +16099,70 @@ $JSCompiler_prototypeAlias$$.$run$ = function $$JSCompiler_prototypeAlias$$$$run
   $JSCompiler_StaticMethods_addView$$(this.$router_$, "(api)", $apiView$$);
   $JSCompiler_StaticMethods_addView$$(this.$router_$, "(line_of_credit)", $lineOfCreditView$$);
   $JSCompiler_StaticMethods_addView$$(this.$router_$, "(broker_application)", $brokerApplicationView$$);
-  $handler$$136_startView$$ = this.$getHandler$();
-  $handler$$136_startView$$.$listen$(this.$router_$, "set_view", this.$onBeforeSetView_$);
-  $handler$$136_startView$$.$listen$(this.$conn_$, "opened", this.$onConnectionOpen_$);
-  $handler$$136_startView$$.$listen$(this.$conn_$, "closed", this.$onConnectionClose_$);
-  $handler$$136_startView$$.$listen$(this.$conn_$, "error", this.$onConnectionError_$);
-  $handler$$136_startView$$.$listen$(this.$conn_$, "error_message", this.$onConnectionErrorMessage_$);
-  $handler$$136_startView$$.$listen$(this.$conn_$, "broker_list", this.$onBrokerListResponse_$);
-  $handler$$136_startView$$.$listen$(this.$conn_$, "security_list", this.$onSecurityList_$);
-  $handler$$136_startView$$.$listen$(this.$conn_$, "login_ok", this.$onUserLoginOk_$);
-  $handler$$136_startView$$.$listen$(this.$conn_$, "login_error", this.$onUserLoginError_$);
-  $handler$$136_startView$$.$listen$(this.$test_request_timer_$, $goog$Timer$TICK$$, this.$onTestRequestTimer_$);
-  $handler$$136_startView$$.$listen$(this.$conn_$, "heartbeat", this.$onHearbeat_$);
-  $handler$$136_startView$$.$listen$(this.$views_$, "change_password", this.$onUserChangePassword_$);
-  $handler$$136_startView$$.$listen$(this.$conn_$, "change_password_error", this.$onChangePasswordResponse_$);
-  $handler$$136_startView$$.$listen$(this.$conn_$, "two_factor_secret", this.$onBitexTwoFactorSecretResponse_$);
-  $handler$$136_startView$$.$listen$(this.$conn_$, $bitex$api$BitEx$EventType$BALANCE_RESPONSE$$, this.$onBitexBalanceResponse_$);
-  $handler$$136_startView$$.$listen$(this.$conn_$, "position_response", this.$onBitexPositionResponse_$);
-  $handler$$136_startView$$.$listen$(this.$conn_$, "pwd_changed_ok", this.$onBitexPasswordChangedOk_$);
-  $handler$$136_startView$$.$listen$(this.$conn_$, "pwd_changed_error", this.$onBitexPasswordChangedError_$);
-  $handler$$136_startView$$.$listen$(this.$conn_$, "deposit_methods_response", this.$onBitexDepositMethodsResponse_$);
-  $handler$$136_startView$$.$listen$(this.$conn_$, $bitex$api$BitEx$EventType$DEPOSIT_REFRESH$$, this.$onBitexDepositIncrementalUpdate_$);
-  $handler$$136_startView$$.$listen$(this.$conn_$, $bitex$api$BitEx$EventType$WITHDRAW_REFRESH$$, this.$onBitexWithdrawIncrementalUpdate_$);
-  $handler$$136_startView$$.$listen$(this.$conn_$, $bitex$api$BitEx$EventType$ORDER_LIST_RESPONSE$$ + "." + this.$open_orders_request_id_$, this.$onBitexOrderListResponse_$);
-  $handler$$136_startView$$.$listen$(this.$conn_$, $bitex$api$BitEx$EventType$EXECUTION_REPORT$$, this.$onBitexExecutionReport_$);
-  $handler$$136_startView$$.$listen$(this.$conn_$, "verify_customer_update", this.$onBitexVerifyCustomerUpdate_$);
-  $handler$$136_startView$$.$listen$(this.$conn_$, "withdraw_response", this.$onBitexWithdrawResponse_$);
-  $handler$$136_startView$$.$listen$(this.$conn_$, "withdraw_confirmation_response", this.$onBitexWithdrawConfirmationResponse_$);
-  $handler$$136_startView$$.$listen$(this.$conn_$, $bitex$api$BitEx$EventType$UPDATE_PROFILE_RESPONSE$$, this.$onUpdateProfileResponse_$);
-  $handler$$136_startView$$.$listen$(this.$conn_$, "security_status", this.$onBitexSecurityStatus_$);
-  $handler$$136_startView$$.$listen$(document.body, "click", this.$onBodyClick_$);
-  $handler$$136_startView$$.$listen$(document.body, "change", this.$onBodyChange_$);
-  $handler$$136_startView$$.$listen$($signUpView$$, "signup_click", this.$onUserSignupButton_$);
-  $handler$$136_startView$$.$listen$($host_api_loginView$$, "login_click", this.$onUserLoginButtonClick_$);
-  $handler$$136_startView$$.$listen$($profileView$$, "two_factor_enable", this.$onUserEnableTwoFactor_$);
-  $handler$$136_startView$$.$listen$($profileView$$, "two_factor_disable", this.$onUserDisableTwoFactor_$);
-  $handler$$136_startView$$.$listen$($forgotPasswordView$$, "recover_pwd", this.$onUserForgotPassword_$);
-  $handler$$136_startView$$.$listen$($initial_view_setNewPasswordView$$, "set_new_pwd", this.$onUserSetNewPassword_$);
-  $handler$$136_startView$$.$listen$($sideBarView$$, "changed_market", this.$onUserChangeMarket_$);
-  $handler$$136_startView$$.$listen$(this.$views_$, "advanced_order_entry_submitted", this.$onUserOrderEntry_$);
-  $handler$$136_startView$$.$listen$(this.$views_$, "simple_order_entry_submitted", this.$onUserOrderEntry_$);
-  $handler$$136_startView$$.$listen$(this.$views_$, "cancel_order", this.$onUserCancelOrder_$);
-  $handler$$136_startView$$.$listen$(this.$views_$, "cancel_replace_order", this.$onUserCancelReplaceOrder_$);
-  $handler$$136_startView$$.$listen$(this.$views_$, "md_subscribe", this.$onUserMarketDataSubscribe_$);
-  $handler$$136_startView$$.$listen$(this.$views_$, "md_unsubscribe", this.$onUserMarketDataUnsubscribe_$);
-  $handler$$136_startView$$.$listen$(this.$views_$, "sec_subscribe", this.$onUserSecurityStatusSubscribe_$);
-  $handler$$136_startView$$.$listen$(this.$views_$, "sec_unsubscribe", this.$onUserSecurityStatusUnsubscribe_$);
-  $handler$$136_startView$$.$listen$(this.$views_$, "cancel_withdraw", this.$onUserCancelWithdrawal_$);
-  $handler$$136_startView$$.$listen$(this.$views_$, "request_withdraw", this.$onUserWithdrawRequest_$);
-  $handler$$136_startView$$.$listen$(this.$views_$, "confirm_withdraw", this.$onUserConfirmWithdraw_$);
-  $handler$$136_startView$$.$listen$(this.$views_$, "process_withdraw", this.$onBrokerProcessWithdraw_$);
-  $handler$$136_startView$$.$listen$(this.$views_$, "request_deposit", this.$onUserDepositRequest_$);
-  $handler$$136_startView$$.$listen$(this.$views_$, "process_deposit", this.$onProcessDeposit_$);
-  $handler$$136_startView$$.$listen$(this.$views_$, "instantaneous_deposit", this.$onInstantFiatDeposit_$);
-  $handler$$136_startView$$.$listen$(this.$views_$, "connect_bitex", this.$onUserConnectBitEx_$);
-  $handler$$136_startView$$.$listen$(this.$views_$, "show_qr", this.$onUserShowQr_$);
-  $handler$$136_startView$$.$listen$(this.$views_$, "show_kyc", this.$onUserShowKYC_$);
-  $handler$$136_startView$$.$listen$(this.$views_$, "show_receipt", this.$onShowReceipt_$);
-  $handler$$136_startView$$.$listen$(this.$views_$, "upload_receipt", this.$onUserUploadReceipt_$);
-  $handler$$136_startView$$.$listen$(this.$views_$, "set_verified", this.$onBrokerSetUserAsVerified_$);
-  $handler$$136_startView$$.$listen$(this.$views_$, "update_profile", this.$onUpdateProfile_$);
-  $handler$$136_startView$$.$listen$(this.$views_$, "file_view", this.$onUserFileView_$);
-  $handler$$136_startView$$.$listen$(this.$model_$, "model_setBalance", this.$onUpdateBalance_$);
-  $handler$$136_startView$$.$listen$(this.$model_$, "model_setLockedBalance", this.$onUpdateLockedBalance_$);
-  $handler$$136_startView$$.$listen$(this.$model_$, "model_setAvailableBalance", this.$onUpdateAvailableBalance_$);
+  $handler$$139_startView$$ = this.$getHandler$();
+  $handler$$139_startView$$.$listen$(this.$router_$, "set_view", this.$onBeforeSetView_$);
+  $handler$$139_startView$$.$listen$(this.$conn_$, "opened", this.$onConnectionOpen_$);
+  $handler$$139_startView$$.$listen$(this.$conn_$, "closed", this.$onConnectionClose_$);
+  $handler$$139_startView$$.$listen$(this.$conn_$, "error", this.$onConnectionError_$);
+  $handler$$139_startView$$.$listen$(this.$conn_$, "error_message", this.$onConnectionErrorMessage_$);
+  $handler$$139_startView$$.$listen$(this.$conn_$, "broker_list", this.$onBrokerListResponse_$);
+  $handler$$139_startView$$.$listen$(this.$conn_$, "security_list", this.$onSecurityList_$);
+  $handler$$139_startView$$.$listen$(this.$conn_$, "login_ok", this.$onUserLoginOk_$);
+  $handler$$139_startView$$.$listen$(this.$conn_$, "login_error", this.$onUserLoginError_$);
+  $handler$$139_startView$$.$listen$(this.$test_request_timer_$, $goog$Timer$TICK$$, this.$onTestRequestTimer_$);
+  $handler$$139_startView$$.$listen$(this.$conn_$, "heartbeat", this.$onHearbeat_$);
+  $handler$$139_startView$$.$listen$(this.$views_$, "change_password", this.$onUserChangePassword_$);
+  $handler$$139_startView$$.$listen$(this.$conn_$, "change_password_error", this.$onChangePasswordResponse_$);
+  $handler$$139_startView$$.$listen$(this.$conn_$, "two_factor_secret", this.$onBitexTwoFactorSecretResponse_$);
+  $handler$$139_startView$$.$listen$(this.$conn_$, $bitex$api$BitEx$EventType$BALANCE_RESPONSE$$, this.$onBitexBalanceResponse_$);
+  $handler$$139_startView$$.$listen$(this.$conn_$, "position_response", this.$onBitexPositionResponse_$);
+  $handler$$139_startView$$.$listen$(this.$conn_$, "pwd_changed_ok", this.$onBitexPasswordChangedOk_$);
+  $handler$$139_startView$$.$listen$(this.$conn_$, "pwd_changed_error", this.$onBitexPasswordChangedError_$);
+  $handler$$139_startView$$.$listen$(this.$conn_$, "deposit_methods_response", this.$onBitexDepositMethodsResponse_$);
+  $handler$$139_startView$$.$listen$(this.$conn_$, $bitex$api$BitEx$EventType$DEPOSIT_REFRESH$$, this.$onBitexDepositIncrementalUpdate_$);
+  $handler$$139_startView$$.$listen$(this.$conn_$, $bitex$api$BitEx$EventType$WITHDRAW_REFRESH$$, this.$onBitexWithdrawIncrementalUpdate_$);
+  $handler$$139_startView$$.$listen$(this.$conn_$, $bitex$api$BitEx$EventType$ORDER_LIST_RESPONSE$$ + "." + this.$open_orders_request_id_$, this.$onBitexOrderListResponse_$);
+  $handler$$139_startView$$.$listen$(this.$conn_$, $bitex$api$BitEx$EventType$EXECUTION_REPORT$$, this.$onBitexExecutionReport_$);
+  $handler$$139_startView$$.$listen$(this.$conn_$, "verify_customer_update", this.$onBitexVerifyCustomerUpdate_$);
+  $handler$$139_startView$$.$listen$(this.$conn_$, "withdraw_response", this.$onBitexWithdrawResponse_$);
+  $handler$$139_startView$$.$listen$(this.$conn_$, "withdraw_confirmation_response", this.$onBitexWithdrawConfirmationResponse_$);
+  $handler$$139_startView$$.$listen$(this.$conn_$, $bitex$api$BitEx$EventType$UPDATE_PROFILE_RESPONSE$$, this.$onUpdateProfileResponse_$);
+  $handler$$139_startView$$.$listen$(this.$conn_$, "security_status", this.$onBitexSecurityStatus_$);
+  $handler$$139_startView$$.$listen$(document.body, "click", this.$onBodyClick_$);
+  $handler$$139_startView$$.$listen$(document.body, "change", this.$onBodyChange_$);
+  $handler$$139_startView$$.$listen$($signUpView$$, "signup_click", this.$onUserSignupButton_$);
+  $handler$$139_startView$$.$listen$($host_api_loginView$$, "login_click", this.$onUserLoginButtonClick_$);
+  $handler$$139_startView$$.$listen$(this.$views_$, "two_factor_enable", this.$onUserEnableTwoFactor_$);
+  $handler$$139_startView$$.$listen$(this.$views_$, "two_factor_disable", this.$onUserDisableTwoFactor_$);
+  $handler$$139_startView$$.$listen$($forgotPasswordView$$, "recover_pwd", this.$onUserForgotPassword_$);
+  $handler$$139_startView$$.$listen$($initial_view_setNewPasswordView$$, "set_new_pwd", this.$onUserSetNewPassword_$);
+  $handler$$139_startView$$.$listen$($sideBarView$$, "changed_market", this.$onUserChangeMarket_$);
+  $handler$$139_startView$$.$listen$(this.$views_$, "advanced_order_entry_submitted", this.$onUserOrderEntry_$);
+  $handler$$139_startView$$.$listen$(this.$views_$, "simple_order_entry_submitted", this.$onUserOrderEntry_$);
+  $handler$$139_startView$$.$listen$(this.$views_$, "cancel_order", this.$onUserCancelOrder_$);
+  $handler$$139_startView$$.$listen$(this.$views_$, "cancel_replace_order", this.$onUserCancelReplaceOrder_$);
+  $handler$$139_startView$$.$listen$(this.$views_$, "md_subscribe", this.$onUserMarketDataSubscribe_$);
+  $handler$$139_startView$$.$listen$(this.$views_$, "md_unsubscribe", this.$onUserMarketDataUnsubscribe_$);
+  $handler$$139_startView$$.$listen$(this.$views_$, "sec_subscribe", this.$onUserSecurityStatusSubscribe_$);
+  $handler$$139_startView$$.$listen$(this.$views_$, "sec_unsubscribe", this.$onUserSecurityStatusUnsubscribe_$);
+  $handler$$139_startView$$.$listen$(this.$views_$, "cancel_withdraw", this.$onUserCancelWithdrawal_$);
+  $handler$$139_startView$$.$listen$(this.$views_$, "request_withdraw", this.$onUserWithdrawRequest_$);
+  $handler$$139_startView$$.$listen$(this.$views_$, "confirm_withdraw", this.$onUserConfirmWithdraw_$);
+  $handler$$139_startView$$.$listen$(this.$views_$, "process_withdraw", this.$onBrokerProcessWithdraw_$);
+  $handler$$139_startView$$.$listen$(this.$views_$, "request_deposit", this.$onUserDepositRequest_$);
+  $handler$$139_startView$$.$listen$(this.$views_$, "process_deposit", this.$onProcessDeposit_$);
+  $handler$$139_startView$$.$listen$(this.$views_$, "instantaneous_deposit", this.$onInstantFiatDeposit_$);
+  $handler$$139_startView$$.$listen$(this.$views_$, "connect_bitex", this.$onUserConnectBitEx_$);
+  $handler$$139_startView$$.$listen$(this.$views_$, "show_qr", this.$onUserShowQr_$);
+  $handler$$139_startView$$.$listen$(this.$views_$, "show_kyc", this.$onUserShowKYC_$);
+  $handler$$139_startView$$.$listen$(this.$views_$, "show_receipt", this.$onShowReceipt_$);
+  $handler$$139_startView$$.$listen$(this.$views_$, "upload_receipt", this.$onUserUploadReceipt_$);
+  $handler$$139_startView$$.$listen$(this.$views_$, "set_verified", this.$onBrokerSetUserAsVerified_$);
+  $handler$$139_startView$$.$listen$(this.$views_$, "update_profile", this.$onUpdateProfile_$);
+  $handler$$139_startView$$.$listen$(this.$views_$, "file_view", this.$onUserFileView_$);
+  $handler$$139_startView$$.$listen$(this.$model_$, "model_setBalance", this.$onUpdateBalance_$);
+  $handler$$139_startView$$.$listen$(this.$model_$, "model_setLockedBalance", this.$onUpdateLockedBalance_$);
+  $handler$$139_startView$$.$listen$(this.$model_$, "model_setAvailableBalance", this.$onUpdateAvailableBalance_$);
   $initial_view_setNewPasswordView$$ = "start";
   $goog$string$isEmptyOrWhitespace$$(location.hash) || ($initial_view_setNewPasswordView$$ = location.hash.substr(1));
   this.$router_$.$setView$($initial_view_setNewPasswordView$$);
@@ -16057,36 +16175,36 @@ $JSCompiler_prototypeAlias$$.$run$ = function $$JSCompiler_prototypeAlias$$$$run
   $JSCompiler_StaticMethods_preventReload$$(this);
   "Notification" in window && "granted" !== Notification.permission && "denied" !== Notification.permission && Notification.requestPermission();
 };
-$JSCompiler_prototypeAlias$$.$onBitexSecurityStatus_$ = function $$JSCompiler_prototypeAlias$$$$onBitexSecurityStatus_$$($e$$337_msg$$114$$) {
-  $e$$337_msg$$114$$ = $e$$337_msg$$114$$.data;
-  var $model$$57$$ = this.$model_$, $currency$$28$$ = $e$$337_msg$$114$$.Symbol.substr(3), $crypto_currency$$ = $e$$337_msg$$114$$.Symbol.substr(0, 3), $vwap$$3$$ = parseInt($e$$337_msg$$114$$.BuyVolume / $e$$337_msg$$114$$.SellVolume * 1E8, 10);
-  "VWAP" in $e$$337_msg$$114$$ && ($vwap$$3$$ = $e$$337_msg$$114$$.VWAP);
-  $model$$57$$.set($e$$337_msg$$114$$.Market + "_" + $e$$337_msg$$114$$.Symbol + "_VWAP", $vwap$$3$$, !0);
-  $model$$57$$.set($e$$337_msg$$114$$.Market + "_" + $e$$337_msg$$114$$.Symbol + "_VOLUME", $e$$337_msg$$114$$.SellVolume, !0);
-  $model$$57$$.set($e$$337_msg$$114$$.Market + "_" + $e$$337_msg$$114$$.Symbol + "_SELL_VOLUME", $e$$337_msg$$114$$.SellVolume, !0);
-  $model$$57$$.set($e$$337_msg$$114$$.Market + "_" + $e$$337_msg$$114$$.Symbol + "_BUY_VOLUME", $e$$337_msg$$114$$.BuyVolume, !0);
-  $model$$57$$.set($e$$337_msg$$114$$.Market + "_" + $e$$337_msg$$114$$.Symbol + "_LOW_PX", $e$$337_msg$$114$$.LowPx, !0);
-  $model$$57$$.set($e$$337_msg$$114$$.Market + "_" + $e$$337_msg$$114$$.Symbol + "_HIGH_PX", $e$$337_msg$$114$$.HighPx, !0);
-  $model$$57$$.set($e$$337_msg$$114$$.Market + "_" + $e$$337_msg$$114$$.Symbol + "_BEST_BID", $e$$337_msg$$114$$.BestBid, !0);
-  $model$$57$$.set($e$$337_msg$$114$$.Market + "_" + $e$$337_msg$$114$$.Symbol + "_BEST_ASK", $e$$337_msg$$114$$.BestAsk, !0);
-  $model$$57$$.set($e$$337_msg$$114$$.Market + "_" + $e$$337_msg$$114$$.Symbol + "_LAST_PX", $e$$337_msg$$114$$.LastPx, !0);
-  $model$$57$$.set("formatted_" + $e$$337_msg$$114$$.Market + "_" + $e$$337_msg$$114$$.Symbol + "_VWAP", this.$formatCurrency$($vwap$$3$$ / 1E8, $currency$$28$$, !0), !0);
-  $model$$57$$.set("formatted_" + $e$$337_msg$$114$$.Market + "_" + $e$$337_msg$$114$$.Symbol + "_VOLUME", this.$formatCurrency$($e$$337_msg$$114$$.SellVolume / 1E8, $crypto_currency$$, !0), !0);
-  $model$$57$$.set("formatted_" + $e$$337_msg$$114$$.Market + "_" + $e$$337_msg$$114$$.Symbol + "_SELL_VOLUME", this.$formatCurrency$($e$$337_msg$$114$$.SellVolume / 1E8, $crypto_currency$$, !0), !0);
-  $model$$57$$.set("formatted_" + $e$$337_msg$$114$$.Market + "_" + $e$$337_msg$$114$$.Symbol + "_BUY_VOLUME", this.$formatCurrency$($e$$337_msg$$114$$.BuyVolume / 1E8, $currency$$28$$, !0), !0);
-  $model$$57$$.set("formatted_" + $e$$337_msg$$114$$.Market + "_" + $e$$337_msg$$114$$.Symbol + "_LOW_PX", this.$formatCurrency$($e$$337_msg$$114$$.LowPx / 1E8, $currency$$28$$, !0), !0);
-  $model$$57$$.set("formatted_" + $e$$337_msg$$114$$.Market + "_" + $e$$337_msg$$114$$.Symbol + "_HIGH_PX", this.$formatCurrency$($e$$337_msg$$114$$.HighPx / 1E8, $currency$$28$$, !0), !0);
-  $model$$57$$.set("formatted_" + $e$$337_msg$$114$$.Market + "_" + $e$$337_msg$$114$$.Symbol + "_BEST_BID", this.$formatCurrency$($e$$337_msg$$114$$.BestBid / 1E8, $currency$$28$$, !0), !0);
-  $model$$57$$.set("formatted_" + $e$$337_msg$$114$$.Market + "_" + $e$$337_msg$$114$$.Symbol + "_BEST_ASK", this.$formatCurrency$($e$$337_msg$$114$$.BestAsk / 1E8, $currency$$28$$, !0), !0);
-  $model$$57$$.set("formatted_" + $e$$337_msg$$114$$.Market + "_" + $e$$337_msg$$114$$.Symbol + "_LAST_PX", this.$formatCurrency$($e$$337_msg$$114$$.LastPx / 1E8, $currency$$28$$, !0), !0);
+$JSCompiler_prototypeAlias$$.$onBitexSecurityStatus_$ = function $$JSCompiler_prototypeAlias$$$$onBitexSecurityStatus_$$($e$$341_msg$$114$$) {
+  $e$$341_msg$$114$$ = $e$$341_msg$$114$$.data;
+  var $model$$60$$ = this.$model_$, $currency$$28$$ = $e$$341_msg$$114$$.Symbol.substr(3), $crypto_currency$$ = $e$$341_msg$$114$$.Symbol.substr(0, 3), $vwap$$3$$ = parseInt($e$$341_msg$$114$$.BuyVolume / $e$$341_msg$$114$$.SellVolume * 1E8, 10);
+  "VWAP" in $e$$341_msg$$114$$ && ($vwap$$3$$ = $e$$341_msg$$114$$.VWAP);
+  $model$$60$$.set($e$$341_msg$$114$$.Market + "_" + $e$$341_msg$$114$$.Symbol + "_VWAP", $vwap$$3$$, !0);
+  $model$$60$$.set($e$$341_msg$$114$$.Market + "_" + $e$$341_msg$$114$$.Symbol + "_VOLUME", $e$$341_msg$$114$$.SellVolume, !0);
+  $model$$60$$.set($e$$341_msg$$114$$.Market + "_" + $e$$341_msg$$114$$.Symbol + "_SELL_VOLUME", $e$$341_msg$$114$$.SellVolume, !0);
+  $model$$60$$.set($e$$341_msg$$114$$.Market + "_" + $e$$341_msg$$114$$.Symbol + "_BUY_VOLUME", $e$$341_msg$$114$$.BuyVolume, !0);
+  $model$$60$$.set($e$$341_msg$$114$$.Market + "_" + $e$$341_msg$$114$$.Symbol + "_LOW_PX", $e$$341_msg$$114$$.LowPx, !0);
+  $model$$60$$.set($e$$341_msg$$114$$.Market + "_" + $e$$341_msg$$114$$.Symbol + "_HIGH_PX", $e$$341_msg$$114$$.HighPx, !0);
+  $model$$60$$.set($e$$341_msg$$114$$.Market + "_" + $e$$341_msg$$114$$.Symbol + "_BEST_BID", $e$$341_msg$$114$$.BestBid, !0);
+  $model$$60$$.set($e$$341_msg$$114$$.Market + "_" + $e$$341_msg$$114$$.Symbol + "_BEST_ASK", $e$$341_msg$$114$$.BestAsk, !0);
+  $model$$60$$.set($e$$341_msg$$114$$.Market + "_" + $e$$341_msg$$114$$.Symbol + "_LAST_PX", $e$$341_msg$$114$$.LastPx, !0);
+  $model$$60$$.set("formatted_" + $e$$341_msg$$114$$.Market + "_" + $e$$341_msg$$114$$.Symbol + "_VWAP", this.$formatCurrency$($vwap$$3$$ / 1E8, $currency$$28$$, !0), !0);
+  $model$$60$$.set("formatted_" + $e$$341_msg$$114$$.Market + "_" + $e$$341_msg$$114$$.Symbol + "_VOLUME", this.$formatCurrency$($e$$341_msg$$114$$.SellVolume / 1E8, $crypto_currency$$, !0), !0);
+  $model$$60$$.set("formatted_" + $e$$341_msg$$114$$.Market + "_" + $e$$341_msg$$114$$.Symbol + "_SELL_VOLUME", this.$formatCurrency$($e$$341_msg$$114$$.SellVolume / 1E8, $crypto_currency$$, !0), !0);
+  $model$$60$$.set("formatted_" + $e$$341_msg$$114$$.Market + "_" + $e$$341_msg$$114$$.Symbol + "_BUY_VOLUME", this.$formatCurrency$($e$$341_msg$$114$$.BuyVolume / 1E8, $currency$$28$$, !0), !0);
+  $model$$60$$.set("formatted_" + $e$$341_msg$$114$$.Market + "_" + $e$$341_msg$$114$$.Symbol + "_LOW_PX", this.$formatCurrency$($e$$341_msg$$114$$.LowPx / 1E8, $currency$$28$$, !0), !0);
+  $model$$60$$.set("formatted_" + $e$$341_msg$$114$$.Market + "_" + $e$$341_msg$$114$$.Symbol + "_HIGH_PX", this.$formatCurrency$($e$$341_msg$$114$$.HighPx / 1E8, $currency$$28$$, !0), !0);
+  $model$$60$$.set("formatted_" + $e$$341_msg$$114$$.Market + "_" + $e$$341_msg$$114$$.Symbol + "_BEST_BID", this.$formatCurrency$($e$$341_msg$$114$$.BestBid / 1E8, $currency$$28$$, !0), !0);
+  $model$$60$$.set("formatted_" + $e$$341_msg$$114$$.Market + "_" + $e$$341_msg$$114$$.Symbol + "_BEST_ASK", this.$formatCurrency$($e$$341_msg$$114$$.BestAsk / 1E8, $currency$$28$$, !0), !0);
+  $model$$60$$.set("formatted_" + $e$$341_msg$$114$$.Market + "_" + $e$$341_msg$$114$$.Symbol + "_LAST_PX", this.$formatCurrency$($e$$341_msg$$114$$.LastPx / 1E8, $currency$$28$$, !0), !0);
   $JSCompiler_StaticMethods_calculatePortfolioValue$$(this, $currency$$28$$);
   $JSCompiler_StaticMethods_calculatePortfolioValue$$(this, $crypto_currency$$);
 };
-$JSCompiler_prototypeAlias$$.$onUpdateAvailableBalance_$ = function $$JSCompiler_prototypeAlias$$$$onUpdateAvailableBalance_$$($e$$338$$) {
+$JSCompiler_prototypeAlias$$.$onUpdateAvailableBalance_$ = function $$JSCompiler_prototypeAlias$$$$onUpdateAvailableBalance_$$($e$$342$$) {
   var $value_fmt$$10$$ = new $goog$i18n$NumberFormat$$(1);
   $value_fmt$$10$$.$maximumFractionDigits_$ = 8;
   $JSCompiler_StaticMethods_setMinimumFractionDigits$$($value_fmt$$10$$, 2);
-  $goog$object$forEach$$($e$$338$$.data, function($broker_balance$$, $broker_id$$8$$) {
+  $goog$object$forEach$$($e$$342$$.data, function($broker_balance$$, $broker_id$$8$$) {
     $goog$object$forEach$$($broker_balance$$, function($account_balance$$, $account_id$$1$$) {
       $goog$object$forEach$$($account_balance$$, function($balance$$3$$, $currency$$29$$) {
         var $available_balance_key$$ = "available_balance_" + $broker_id$$8$$ + ":" + $account_id$$1$$ + "_" + $currency$$29$$;
@@ -16098,13 +16216,13 @@ $JSCompiler_prototypeAlias$$.$onUpdateAvailableBalance_$ = function $$JSCompiler
     }, this);
   }, this);
 };
-$JSCompiler_prototypeAlias$$.$onUpdateLockedBalance_$ = function $$JSCompiler_prototypeAlias$$$$onUpdateLockedBalance_$$($e$$339$$) {
+$JSCompiler_prototypeAlias$$.$onUpdateLockedBalance_$ = function $$JSCompiler_prototypeAlias$$$$onUpdateLockedBalance_$$($e$$343$$) {
   var $should_update_available_balance$$ = !1, $available_balance$$ = this.$model_$.get("AvailableBalance");
   null == $available_balance$$ && ($available_balance$$ = {}, $should_update_available_balance$$ = !0);
   var $deposit_balance$$ = this.$model_$.get("Balance"), $value_fmt$$11$$ = new $goog$i18n$NumberFormat$$(1);
   $value_fmt$$11$$.$maximumFractionDigits_$ = 8;
   $JSCompiler_StaticMethods_setMinimumFractionDigits$$($value_fmt$$11$$, 2);
-  $goog$object$forEach$$($e$$339$$.data, function($broker_balance$$1$$, $broker_id$$9$$) {
+  $goog$object$forEach$$($e$$343$$.data, function($broker_balance$$1$$, $broker_id$$9$$) {
     null == $available_balance$$[$broker_id$$9$$] && ($available_balance$$[$broker_id$$9$$] = {}, $should_update_available_balance$$ = !0);
     $goog$object$forEach$$($broker_balance$$1$$, function($account_balance$$1$$, $account_id$$2$$) {
       null == $available_balance$$[$broker_id$$9$$][$account_id$$2$$] && ($available_balance$$[$broker_id$$9$$][$account_id$$2$$] = {}, $should_update_available_balance$$ = !0);
@@ -16113,13 +16231,13 @@ $JSCompiler_prototypeAlias$$.$onUpdateLockedBalance_$ = function $$JSCompiler_pr
           $available_balance$$[$broker_id$$9$$][$account_id$$2$$][$currency$$30$$] = $balance$$4$$;
           try {
             $available_balance$$[$broker_id$$9$$][$account_id$$2$$][$currency$$30$$] = $deposit_balance$$[$broker_id$$9$$][$account_id$$2$$][$currency$$30$$] - $balance$$4$$;
-          } catch ($e$$340$$) {
+          } catch ($e$$344$$) {
           }
           $should_update_available_balance$$ = !0;
         }
         try {
           $available_balance$$[$broker_id$$9$$][$account_id$$2$$][$currency$$30$$] != $deposit_balance$$[$broker_id$$9$$][$account_id$$2$$][$currency$$30$$] - $balance$$4$$ && ($available_balance$$[$broker_id$$9$$][$account_id$$2$$][$currency$$30$$] = $deposit_balance$$[$broker_id$$9$$][$account_id$$2$$][$currency$$30$$] - $balance$$4$$, $should_update_available_balance$$ = !0);
-        } catch ($e$$341$$) {
+        } catch ($e$$345$$) {
         }
         var $locked_balance_key$$ = "locked_balance_" + $broker_id$$9$$ + ":" + $account_id$$2$$ + "_" + $currency$$30$$;
         this.$model_$.set($locked_balance_key$$, $balance$$4$$);
@@ -16157,13 +16275,13 @@ function $JSCompiler_StaticMethods_calculatePortfolioValue$$($JSCompiler_StaticM
     $appModel$$1$$.set("Portfolio_" + $position_model_key$$ + "_" + $portfolio_currency$$1$$, $position_portfolio_balance$$);
   }
 }
-$JSCompiler_prototypeAlias$$.$onUpdateBalance_$ = function $$JSCompiler_prototypeAlias$$$$onUpdateBalance_$$($broker$$16_e$$342_securityList$$) {
+$JSCompiler_prototypeAlias$$.$onUpdateBalance_$ = function $$JSCompiler_prototypeAlias$$$$onUpdateBalance_$$($broker$$16_e$$346_securityList$$) {
   var $should_update_available_balance$$1$$ = !1, $available_balance$$1$$ = this.$model_$.get("AvailableBalance");
   null == $available_balance$$1$$ && ($available_balance$$1$$ = {}, $should_update_available_balance$$1$$ = !0);
   var $locked_balance$$ = this.$model_$.get("LockedBalance"), $value_fmt$$12$$ = new $goog$i18n$NumberFormat$$(1);
   $value_fmt$$12$$.$maximumFractionDigits_$ = 8;
   $JSCompiler_StaticMethods_setMinimumFractionDigits$$($value_fmt$$12$$, 2);
-  $goog$object$forEach$$($broker$$16_e$$342_securityList$$.data, function($broker_balance$$2$$, $broker_id$$10$$) {
+  $goog$object$forEach$$($broker$$16_e$$346_securityList$$.data, function($broker_balance$$2$$, $broker_id$$10$$) {
     null == $available_balance$$1$$[$broker_id$$10$$] && ($available_balance$$1$$[$broker_id$$10$$] = {}, $should_update_available_balance$$1$$ = !0);
     $goog$object$forEach$$($broker_balance$$2$$, function($account_balance$$2$$, $account_id$$3$$) {
       null == $available_balance$$1$$[$broker_id$$10$$][$account_id$$3$$] && ($available_balance$$1$$[$broker_id$$10$$][$account_id$$3$$] = {}, $should_update_available_balance$$1$$ = !0);
@@ -16172,13 +16290,13 @@ $JSCompiler_prototypeAlias$$.$onUpdateBalance_$ = function $$JSCompiler_prototyp
           $available_balance$$1$$[$broker_id$$10$$][$account_id$$3$$][$currency$$31$$] = $balance$$6$$;
           try {
             $available_balance$$1$$[$broker_id$$10$$][$account_id$$3$$][$currency$$31$$] = $balance$$6$$ - $locked_balance$$[$broker_id$$10$$][$account_id$$3$$][$currency$$31$$];
-          } catch ($e$$343$$) {
+          } catch ($e$$347$$) {
           }
           $should_update_available_balance$$1$$ = !0;
         }
         try {
           $available_balance$$1$$[$broker_id$$10$$][$account_id$$3$$][$currency$$31$$] != $balance$$6$$ - $locked_balance$$[$broker_id$$10$$][$account_id$$3$$][$currency$$31$$] && ($available_balance$$1$$[$broker_id$$10$$][$account_id$$3$$][$currency$$31$$] = $balance$$6$$ - $locked_balance$$[$broker_id$$10$$][$account_id$$3$$][$currency$$31$$], $should_update_available_balance$$1$$ = !0);
-        } catch ($e$$344$$) {
+        } catch ($e$$348$$) {
         }
         var $balance_key$$1$$ = "balance_" + $broker_id$$10$$ + ":" + $account_id$$3$$ + "_" + $currency$$31$$;
         this.$model_$.set($balance_key$$1$$, $balance$$6$$);
@@ -16189,63 +16307,63 @@ $JSCompiler_prototypeAlias$$.$onUpdateBalance_$ = function $$JSCompiler_prototyp
     }, this);
   }, this);
   $should_update_available_balance$$1$$ && this.$model_$.set("AvailableBalance", $available_balance$$1$$, !0);
-  $broker$$16_e$$342_securityList$$ = this.$model_$.get("SecurityList");
-  null != $broker$$16_e$$342_securityList$$ && $goog$array$forEach$$($broker$$16_e$$342_securityList$$.Instruments, function($instrument$$3$$) {
+  $broker$$16_e$$346_securityList$$ = this.$model_$.get("SecurityList");
+  null != $broker$$16_e$$346_securityList$$ && $goog$array$forEach$$($broker$$16_e$$346_securityList$$.Instruments, function($instrument$$3$$) {
     "BLINK" == $instrument$$3$$.Market && $JSCompiler_StaticMethods_calculatePortfolioValue$$(this, $instrument$$3$$.Currency);
   }, this);
-  $broker$$16_e$$342_securityList$$ = this.$model_$.get("Broker");
-  $goog$array$forEach$$($broker$$16_e$$342_securityList$$.CryptoCurrencies, function($broker_crypto_currency_info$$) {
+  $broker$$16_e$$346_securityList$$ = this.$model_$.get("Broker");
+  $goog$array$forEach$$($broker$$16_e$$346_securityList$$.CryptoCurrencies, function($broker_crypto_currency_info$$) {
     $JSCompiler_StaticMethods_calculatePortfolioValue$$(this, $broker_crypto_currency_info$$.CurrencyCode);
   }, this);
 };
-$JSCompiler_prototypeAlias$$.$onBitexWithdrawConfirmationResponse_$ = function $$JSCompiler_prototypeAlias$$$$onBitexWithdrawConfirmationResponse_$$($e$$345$$) {
-  var $msg$$115$$ = $e$$345$$.data;
+$JSCompiler_prototypeAlias$$.$onBitexWithdrawConfirmationResponse_$ = function $$JSCompiler_prototypeAlias$$$$onBitexWithdrawConfirmationResponse_$$($e$$349$$) {
+  var $msg$$115$$ = $e$$349$$.data;
   if (null == $msg$$115$$.Status || "1" != $msg$$115$$.Status) {
-    this.$showNotification$("error", "M\u00e3 x\u00e1c nh\u1eadn kh\u00f4ng h\u1ee3p l\u1ec7!"), this.$onBitexWithdrawResponse_$($e$$345$$);
+    this.$showNotification$("error", "M\u00e3 x\u00e1c nh\u1eadn kh\u00f4ng h\u1ee3p l\u1ec7!"), this.$onBitexWithdrawResponse_$($e$$349$$);
   }
 };
-$JSCompiler_prototypeAlias$$.$onBitexWithdrawResponse_$ = function $$JSCompiler_prototypeAlias$$$$onBitexWithdrawResponse_$$($dlg_content$$2_e$$346_withdrawConfirmationDialog$$) {
-  var $msg$$116$$ = $dlg_content$$2_e$$346_withdrawConfirmationDialog$$.data;
+$JSCompiler_prototypeAlias$$.$onBitexWithdrawResponse_$ = function $$JSCompiler_prototypeAlias$$$$onBitexWithdrawResponse_$$($dlg_content$$2_e$$350_withdrawConfirmationDialog$$) {
+  var $msg$$116$$ = $dlg_content$$2_e$$350_withdrawConfirmationDialog$$.data;
   if ("0" == $msg$$116$$.Status && this.$model_$.get("Profile").NeedWithdrawEmail) {
-    $dlg_content$$2_e$$346_withdrawConfirmationDialog$$ = this.$model_$.get("TwoFactorEnabled") ? $bitex$templates$GoogleAuthenticationCodeDialogContent$$() : $bitex$templates$WithdrawConfirmationDialogContent$$();
-    $dlg_content$$2_e$$346_withdrawConfirmationDialog$$ = this.$showDialog$($dlg_content$$2_e$$346_withdrawConfirmationDialog$$, "X\u00e1c nh\u1eadn", $bitex$ui$Dialog$ButtonSet$createOkCancel$$());
-    var $form_element$$ = $goog$dom$getFirstElementChild$$($dlg_content$$2_e$$346_withdrawConfirmationDialog$$.$getContentElement$()), $withdraw_confirmation_uniform$$ = new $uniform$Uniform$$;
+    $dlg_content$$2_e$$350_withdrawConfirmationDialog$$ = this.$model_$.get("TwoFactorEnabled") ? $bitex$templates$GoogleAuthenticationCodeDialogContent$$() : $bitex$templates$WithdrawConfirmationDialogContent$$();
+    $dlg_content$$2_e$$350_withdrawConfirmationDialog$$ = this.$showDialog$($dlg_content$$2_e$$350_withdrawConfirmationDialog$$, "X\u00e1c nh\u1eadn", $bitex$ui$Dialog$ButtonSet$createOkCancel$$());
+    var $form_element$$ = $goog$dom$getFirstElementChild$$($dlg_content$$2_e$$350_withdrawConfirmationDialog$$.$getContentElement$()), $withdraw_confirmation_uniform$$ = new $uniform$Uniform$$;
     $withdraw_confirmation_uniform$$.$decorate$($form_element$$);
-    this.$getHandler$().$listen$($dlg_content$$2_e$$346_withdrawConfirmationDialog$$, $goog$ui$Dialog$EventType$SELECT$$, function($e$$347_withdraw_confirmation_data$$) {
-      if ("ok" == $e$$347_withdraw_confirmation_data$$.key) {
-        var $error_list$$12$$ = $withdraw_confirmation_uniform$$.$validate$();
-        0 < $error_list$$12$$.length ? ($goog$array$forEach$$($error_list$$12$$, function($error_msg$$8$$) {
+    this.$getHandler$().$listen$($dlg_content$$2_e$$350_withdrawConfirmationDialog$$, $goog$ui$Dialog$EventType$SELECT$$, function($e$$351_withdraw_confirmation_data$$) {
+      if ("ok" == $e$$351_withdraw_confirmation_data$$.key) {
+        var $error_list$$13$$ = $withdraw_confirmation_uniform$$.$validate$();
+        0 < $error_list$$13$$.length ? ($goog$array$forEach$$($error_list$$13$$, function($error_msg$$8$$) {
           this.$showNotification$("error", $error_msg$$8$$);
-        }, this), $e$$347_withdraw_confirmation_data$$.stopPropagation(), $e$$347_withdraw_confirmation_data$$.preventDefault()) : ($e$$347_withdraw_confirmation_data$$ = $JSCompiler_StaticMethods_getAsJSON$$($withdraw_confirmation_uniform$$), this.$model_$.get("TwoFactorEnabled") ? this.$conn_$.$confirmWithdraw$(void 0, $msg$$116$$.WithdrawID, $e$$347_withdraw_confirmation_data$$.token) : this.$conn_$.$confirmWithdraw$($e$$347_withdraw_confirmation_data$$.confirmation_code));
+        }, this), $e$$351_withdraw_confirmation_data$$.stopPropagation(), $e$$351_withdraw_confirmation_data$$.preventDefault()) : ($e$$351_withdraw_confirmation_data$$ = $JSCompiler_StaticMethods_getAsJSON$$($withdraw_confirmation_uniform$$), this.$model_$.get("TwoFactorEnabled") ? this.$conn_$.$confirmWithdraw$(void 0, $msg$$116$$.WithdrawID, $e$$351_withdraw_confirmation_data$$.token) : this.$conn_$.$confirmWithdraw$($e$$351_withdraw_confirmation_data$$.confirmation_code));
       }
     }, this);
   }
 };
 function $JSCompiler_StaticMethods_preventReload$$($JSCompiler_StaticMethods_preventReload$self$$) {
-  window.onbeforeunload = function($e$$348$$) {
+  window.onbeforeunload = function($e$$352$$) {
     if (this.$conn_$.$logged_$) {
       return "B\u1ea1n s\u1ebd b\u1ecb ng\u1eaft k\u1ebft n\u1ed1i t\u1edbi s\u00e0n";
     }
-    $e$$348$$.preventDefault();
+    $e$$352$$.preventDefault();
   }.bind($JSCompiler_StaticMethods_preventReload$self$$);
 }
 function $JSCompiler_StaticMethods_connectBitEx$$($JSCompiler_StaticMethods_connectBitEx$self$$) {
   try {
     $JSCompiler_StaticMethods_connectBitEx$self$$.$conn_$.open($JSCompiler_StaticMethods_connectBitEx$self$$.$wss_url_$);
-  } catch ($e$$349$$) {
-    var $JSCompiler_object_inline_error_code_1935_output$$inline_1830$$ = "WebSocket: " + $e$$349$$, $JSCompiler_object_inline_error_code_1935_output$$inline_1830$$ = "" + ('<p class="lead">' + $soy$$0$0escapeHtml$$("Kh\u00f4ng k\u1ebft n\u1ed1i \u0111\u01b0\u1ee3c t\u1edbi m\u00e1y ch\u1ee7. Tr\u00ecnh duy\u1ec7t c\u1ee7a b\u1ea1n ph\u1ea3i h\u1ed7 tr\u1ee3 giao th\u1ee9c WebSockets.") + '</p><dl class="dl-horizontal"><dt>M\u00e3 l\u1ed7i</dt><dd>' + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_error_code_1935_output$$inline_1830$$) + 
+  } catch ($e$$353$$) {
+    var $JSCompiler_object_inline_error_code_1950_output$$inline_1845$$ = "WebSocket: " + $e$$353$$, $JSCompiler_object_inline_error_code_1950_output$$inline_1845$$ = "" + ('<p class="lead">' + $soy$$0$0escapeHtml$$("Kh\u00f4ng k\u1ebft n\u1ed1i \u0111\u01b0\u1ee3c t\u1edbi m\u00e1y ch\u1ee7. Tr\u00ecnh duy\u1ec7t c\u1ee7a b\u1ea1n ph\u1ea3i h\u1ed7 tr\u1ee3 giao th\u1ee9c WebSockets.") + '</p><dl class="dl-horizontal"><dt>M\u00e3 l\u1ed7i</dt><dd>' + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_error_code_1950_output$$inline_1845$$) + 
     "</dd></dl>");
-    $JSCompiler_StaticMethods_connectBitEx$self$$.$showDialog$($JSCompiler_object_inline_error_code_1935_output$$inline_1830$$, void 0, $bitex$ui$Dialog$ButtonSet$createYesNoCancel$$());
+    $JSCompiler_StaticMethods_connectBitEx$self$$.$showDialog$($JSCompiler_object_inline_error_code_1950_output$$inline_1845$$, void 0, $bitex$ui$Dialog$ButtonSet$createYesNoCancel$$());
   }
 }
 $JSCompiler_prototypeAlias$$.$setView$ = function $$JSCompiler_prototypeAlias$$$$setView$$($view_id$$4$$) {
   this.$router_$.$setView$($view_id$$4$$);
 };
-$JSCompiler_prototypeAlias$$.$onUserMarketDataSubscribe_$ = function $$JSCompiler_prototypeAlias$$$$onUserMarketDataSubscribe_$$($e$$350$$) {
-  this.$conn_$.$subscribeMarketData$($e$$350$$.target.$getMDMarketDepth$(), $e$$350$$.target.$getMDInstruments$(), $e$$350$$.target.$getMDEntries$(), $e$$350$$.target.$market_data_subscription_id_$);
+$JSCompiler_prototypeAlias$$.$onUserMarketDataSubscribe_$ = function $$JSCompiler_prototypeAlias$$$$onUserMarketDataSubscribe_$$($e$$354$$) {
+  this.$conn_$.$subscribeMarketData$($e$$354$$.target.$getMDMarketDepth$(), $e$$354$$.target.$getMDInstruments$(), $e$$354$$.target.$getMDEntries$(), $e$$354$$.target.$market_data_subscription_id_$);
 };
-$JSCompiler_prototypeAlias$$.$onUserMarketDataUnsubscribe_$ = function $$JSCompiler_prototypeAlias$$$$onUserMarketDataUnsubscribe_$$($e$$351$$) {
-  this.$conn_$.$unSubscribeMarketData$($e$$351$$.target.$market_data_subscription_id_$);
+$JSCompiler_prototypeAlias$$.$onUserMarketDataUnsubscribe_$ = function $$JSCompiler_prototypeAlias$$$$onUserMarketDataUnsubscribe_$$($e$$355$$) {
+  this.$conn_$.$unSubscribeMarketData$($e$$355$$.target.$market_data_subscription_id_$);
 };
 $JSCompiler_prototypeAlias$$.$onUserSecurityStatusSubscribe_$ = function $$JSCompiler_prototypeAlias$$$$onUserSecurityStatusSubscribe_$$() {
 };
@@ -16257,61 +16375,61 @@ $JSCompiler_prototypeAlias$$.$getPriceCurrencyFromSymbol$ = function $$JSCompile
 $JSCompiler_prototypeAlias$$.$getQtyCurrencyFromSymbol$ = function $$JSCompiler_prototypeAlias$$$$getQtyCurrencyFromSymbol$$($symbol$$20$$) {
   return $symbol$$20$$.substr(0, 3);
 };
-$JSCompiler_prototypeAlias$$.$onUserChangePassword_$ = function $$JSCompiler_prototypeAlias$$$$onUserChangePassword_$$($e$$354_new_password$$2$$) {
-  var $password$$6$$ = $e$$354_new_password$$2$$.target.$getCurrentPassword$();
-  $e$$354_new_password$$2$$ = $e$$354_new_password$$2$$.target.$getNewPassword$();
-  this.$conn_$.$changePassword$(this.$model_$.get("SelectedBrokerID"), this.$model_$.get("Username"), $password$$6$$, $e$$354_new_password$$2$$);
+$JSCompiler_prototypeAlias$$.$onUserChangePassword_$ = function $$JSCompiler_prototypeAlias$$$$onUserChangePassword_$$($e$$358_new_password$$2$$) {
+  var $password$$6$$ = $e$$358_new_password$$2$$.target.$getCurrentPassword$();
+  $e$$358_new_password$$2$$ = $e$$358_new_password$$2$$.target.$getNewPassword$();
+  this.$conn_$.$changePassword$(this.$model_$.get("SelectedBrokerID"), this.$model_$.get("Username"), $password$$6$$, $e$$358_new_password$$2$$);
 };
-$JSCompiler_prototypeAlias$$.$onChangePasswordResponse_$ = function $$JSCompiler_prototypeAlias$$$$onChangePasswordResponse_$$($e$$355_msg$$117$$) {
-  $e$$355_msg$$117$$ = $e$$355_msg$$117$$.data;
-  if ($e$$355_msg$$117$$.NeedSecondFactor) {
+$JSCompiler_prototypeAlias$$.$onChangePasswordResponse_$ = function $$JSCompiler_prototypeAlias$$$$onChangePasswordResponse_$$($e$$359_msg$$117$$) {
+  $e$$359_msg$$117$$ = $e$$359_msg$$117$$.data;
+  if ($e$$359_msg$$117$$.NeedSecondFactor) {
     var $dlg_$$ = this.$showDialog$($bitex$templates$GoogleAuthenticationCodeDialogContent$$(), "x\u00e1c th\u1ef1c 2 l\u1edbp", $bitex$ui$Dialog$ButtonSet$createOkCancel$$()), $gauth_uniform$$ = new $uniform$Uniform$$;
     $gauth_uniform$$.$decorate$($goog$dom$getFirstElementChild$$($dlg_$$.$getContentElement$()));
-    this.$getHandler$().$listen$($dlg_$$, $goog$ui$Dialog$EventType$SELECT$$, function($e$$356_second_factor$$) {
-      if ("ok" == $e$$356_second_factor$$.key) {
-        var $error_list$$13_password$$7$$ = $gauth_uniform$$.$validate$();
-        if (0 < $error_list$$13_password$$7$$.length) {
-          $goog$array$forEach$$($error_list$$13_password$$7$$, function($error_msg$$9$$) {
+    this.$getHandler$().$listen$($dlg_$$, $goog$ui$Dialog$EventType$SELECT$$, function($e$$360_second_factor$$) {
+      if ("ok" == $e$$360_second_factor$$.key) {
+        var $error_list$$14_password$$7$$ = $gauth_uniform$$.$validate$();
+        if (0 < $error_list$$14_password$$7$$.length) {
+          $goog$array$forEach$$($error_list$$14_password$$7$$, function($error_msg$$9$$) {
             this.$showNotification$("error", $error_msg$$9$$);
-          }, this), $e$$356_second_factor$$.stopPropagation(), $e$$356_second_factor$$.preventDefault();
+          }, this), $e$$360_second_factor$$.stopPropagation(), $e$$360_second_factor$$.preventDefault();
         } else {
-          $e$$356_second_factor$$ = $JSCompiler_StaticMethods_getAsJSON$$($gauth_uniform$$).token;
-          var $error_list$$13_password$$7$$ = this.$profileView_$.$getCurrentPassword$(), $new_password$$3$$ = this.$profileView_$.$getNewPassword$();
-          this.$conn_$.$changePassword$(this.$model_$.get("SelectedBrokerID"), this.$model_$.get("Username"), $error_list$$13_password$$7$$, $new_password$$3$$, $e$$356_second_factor$$);
+          $e$$360_second_factor$$ = $JSCompiler_StaticMethods_getAsJSON$$($gauth_uniform$$).token;
+          var $error_list$$14_password$$7$$ = this.$profileView_$.$getCurrentPassword$(), $new_password$$3$$ = this.$profileView_$.$getNewPassword$();
+          this.$conn_$.$changePassword$(this.$model_$.get("SelectedBrokerID"), this.$model_$.get("Username"), $error_list$$14_password$$7$$, $new_password$$3$$, $e$$360_second_factor$$);
           $dlg_$$.$dispose$();
         }
       }
     });
   } else {
-    "MSG_SUCCESS_PASSWORD_CHANGE" == $e$$355_msg$$117$$.UserStatusText ? this.$showDialog$("M\u1eadt kh\u1ea9u \u0111\u00e3 thay \u0111\u1ed5i!", "Th\u00e0nh c\u00f4ng") : this.$showDialog$($e$$355_msg$$117$$.UserStatusText);
+    "MSG_SUCCESS_PASSWORD_CHANGE" == $e$$359_msg$$117$$.UserStatusText ? this.$showDialog$("M\u1eadt kh\u1ea9u \u0111\u00e3 thay \u0111\u1ed5i!", "Th\u00e0nh c\u00f4ng") : this.$showDialog$($e$$359_msg$$117$$.UserStatusText);
   }
 };
-$JSCompiler_prototypeAlias$$.$onUserChangeMarket_$ = function $$JSCompiler_prototypeAlias$$$$onUserChangeMarket_$$($e$$357_symbol$$21$$) {
-  $e$$357_symbol$$21$$ = $e$$357_symbol$$21$$.target.$getSymbol$();
-  this.$model_$.set("SelectedSymbol", {$symbol$:$e$$357_symbol$$21$$, $qty_currency$:this.$currency_info_$[this.$getQtyCurrencyFromSymbol$($e$$357_symbol$$21$$)], $price_currency$:this.$currency_info_$[this.$getPriceCurrencyFromSymbol$($e$$357_symbol$$21$$)]});
+$JSCompiler_prototypeAlias$$.$onUserChangeMarket_$ = function $$JSCompiler_prototypeAlias$$$$onUserChangeMarket_$$($e$$361_symbol$$21$$) {
+  $e$$361_symbol$$21$$ = $e$$361_symbol$$21$$.target.$getSymbol$();
+  this.$model_$.set("SelectedSymbol", {$symbol$:$e$$361_symbol$$21$$, $qty_currency$:this.$currency_info_$[this.$getQtyCurrencyFromSymbol$($e$$361_symbol$$21$$)], $price_currency$:this.$currency_info_$[this.$getPriceCurrencyFromSymbol$($e$$361_symbol$$21$$)]});
 };
-$JSCompiler_prototypeAlias$$.$onBitexDepositMethodsResponse_$ = function $$JSCompiler_prototypeAlias$$$$onBitexDepositMethodsResponse_$$($e$$358$$) {
+$JSCompiler_prototypeAlias$$.$onBitexDepositMethodsResponse_$ = function $$JSCompiler_prototypeAlias$$$$onBitexDepositMethodsResponse_$$($e$$362$$) {
   var $deposit_methods$$ = [];
-  $goog$array$forEach$$($e$$358$$.data.DepositMethodGrp, function($deposit_method$$1$$) {
+  $goog$array$forEach$$($e$$362$$.data.DepositMethodGrp, function($deposit_method$$1$$) {
     $deposit_methods$$.push({id:$deposit_method$$1$$.DepositMethodID, description:$deposit_method$$1$$.Description, $disclaimer$:$deposit_method$$1$$.Disclaimer, type:$deposit_method$$1$$.Type, $currency$:$deposit_method$$1$$.Currency, $percent_fee$:$deposit_method$$1$$.PercentFee, $fixed_fee$:$deposit_method$$1$$.FixedFee, $deposit_limits$:$deposit_method$$1$$.DepositLimits, $user_receipt_url$:$deposit_method$$1$$.UserReceiptURL});
   });
   this.$model_$.set("DepositMethods", $deposit_methods$$);
 };
-$JSCompiler_prototypeAlias$$.$onBitexPasswordChangedOk_$ = function $$JSCompiler_prototypeAlias$$$$onBitexPasswordChangedOk_$$($e$$359_msg$$119$$) {
-  $e$$359_msg$$119$$ = $e$$359_msg$$119$$.data;
-  "MSG_SUCCESS_PASSWORD_CHANGE" == $e$$359_msg$$119$$.UserStatusText ? this.$showDialog$("M\u1eadt kh\u1ea9u \u0111\u00e3 thay \u0111\u1ed5i!", "Th\u00e0nh c\u00f4ng") : this.$showDialog$($e$$359_msg$$119$$.UserStatusText, "Th\u00e0nh c\u00f4ng");
+$JSCompiler_prototypeAlias$$.$onBitexPasswordChangedOk_$ = function $$JSCompiler_prototypeAlias$$$$onBitexPasswordChangedOk_$$($e$$363_msg$$119$$) {
+  $e$$363_msg$$119$$ = $e$$363_msg$$119$$.data;
+  "MSG_SUCCESS_PASSWORD_CHANGE" == $e$$363_msg$$119$$.UserStatusText ? this.$showDialog$("M\u1eadt kh\u1ea9u \u0111\u00e3 thay \u0111\u1ed5i!", "Th\u00e0nh c\u00f4ng") : this.$showDialog$($e$$363_msg$$119$$.UserStatusText, "Th\u00e0nh c\u00f4ng");
   this.$router_$.$setView$("signin");
 };
-$JSCompiler_prototypeAlias$$.$onBitexPasswordChangedError_$ = function $$JSCompiler_prototypeAlias$$$$onBitexPasswordChangedError_$$($e$$360$$) {
-  "MSG_CHANGE_PASSWORD_INVALID_SECURITY_CODE" == $e$$360$$.data.UserStatusText ? this.$showDialog$("M\u00e3 an ninh kh\u00f4ng h\u1ee3p l\u1ec7.", "L\u1ed7i") : this.$showDialog$("C\u00f3 l\u1ed7i x\u1ea3y ra khi \u0111\u1ed5i m\u1eadt kh\u1ea9u", "L\u1ed7i");
+$JSCompiler_prototypeAlias$$.$onBitexPasswordChangedError_$ = function $$JSCompiler_prototypeAlias$$$$onBitexPasswordChangedError_$$($e$$364$$) {
+  "MSG_CHANGE_PASSWORD_INVALID_SECURITY_CODE" == $e$$364$$.data.UserStatusText ? this.$showDialog$("M\u00e3 an ninh kh\u00f4ng h\u1ee3p l\u1ec7.", "L\u1ed7i") : this.$showDialog$("C\u00f3 l\u1ed7i x\u1ea3y ra khi \u0111\u1ed5i m\u1eadt kh\u1ea9u", "L\u1ed7i");
 };
-$JSCompiler_prototypeAlias$$.$onBitexWithdrawIncrementalUpdate_$ = function $$JSCompiler_prototypeAlias$$$$onBitexWithdrawIncrementalUpdate_$$($e$$361_msg$$121$$) {
-  $e$$361_msg$$121$$ = $e$$361_msg$$121$$.data;
-  var $MSG_WITHDRAW_NOTIFICATION_USER_CONFIRMED_TITLE$$ = "L\u1ec7nh r\u00fat [" + ($e$$361_msg$$121$$.WithdrawID + "] \u0111\u00e3 \u0111\u01b0\u1ee3c x\u00e1c nh\u1eadn"), $MSG_WITHDRAW_NOTIFICATION_USER_PROGRESS_TITLE$$ = "L\u1ec7nh r\u00fat [" + ($e$$361_msg$$121$$.WithdrawID + "] \u0111ang \u0111\u01b0\u1ee3c x\u1eed l\u00fd"), $MSG_WITHDRAW_NOTIFICATION_USER_COMPLETE_TITLE$$ = "L\u1ec7nh r\u00fat [" + ($e$$361_msg$$121$$.WithdrawID + "] \u0111\u00e3 ho\u00e0n th\u00e0nh"), $MSG_WITHDRAW_NOTIFICATION_USER_CANCEL_TITLE$$ = 
-  "L\u1ec7nh r\u00fat [" + ($e$$361_msg$$121$$.WithdrawID + "] \u0111\u00e3 b\u1ecb hu\u1ef7"), $MSG_WITHDRAW_NOTIFICATION_BROKER_CONFIRMED_TITLE$$ = "Kh\u00e1ch h\u00e0ng " + ($e$$361_msg$$121$$.Username + " y\u00eau c\u1ea7u r\u00fat"), $formatted_value$$2$$ = this.$formatCurrency$($e$$361_msg$$121$$.Amount / 1E8, $e$$361_msg$$121$$.Currency), $notification_type_title$$;
-  switch($e$$361_msg$$121$$.Status) {
+$JSCompiler_prototypeAlias$$.$onBitexWithdrawIncrementalUpdate_$ = function $$JSCompiler_prototypeAlias$$$$onBitexWithdrawIncrementalUpdate_$$($e$$365_msg$$121$$) {
+  $e$$365_msg$$121$$ = $e$$365_msg$$121$$.data;
+  var $MSG_WITHDRAW_NOTIFICATION_USER_CONFIRMED_TITLE$$ = "L\u1ec7nh r\u00fat [" + ($e$$365_msg$$121$$.WithdrawID + "] \u0111\u00e3 \u0111\u01b0\u1ee3c x\u00e1c nh\u1eadn"), $MSG_WITHDRAW_NOTIFICATION_USER_PROGRESS_TITLE$$ = "L\u1ec7nh r\u00fat [" + ($e$$365_msg$$121$$.WithdrawID + "] \u0111ang \u0111\u01b0\u1ee3c x\u1eed l\u00fd"), $MSG_WITHDRAW_NOTIFICATION_USER_COMPLETE_TITLE$$ = "L\u1ec7nh r\u00fat [" + ($e$$365_msg$$121$$.WithdrawID + "] \u0111\u00e3 ho\u00e0n th\u00e0nh"), $MSG_WITHDRAW_NOTIFICATION_USER_CANCEL_TITLE$$ = 
+  "L\u1ec7nh r\u00fat [" + ($e$$365_msg$$121$$.WithdrawID + "] \u0111\u00e3 b\u1ecb hu\u1ef7"), $MSG_WITHDRAW_NOTIFICATION_BROKER_CONFIRMED_TITLE$$ = "Kh\u00e1ch h\u00e0ng " + ($e$$365_msg$$121$$.Username + " y\u00eau c\u1ea7u r\u00fat"), $formatted_value$$2$$ = this.$formatCurrency$($e$$365_msg$$121$$.Amount / 1E8, $e$$365_msg$$121$$.Currency), $notification_type_title$$;
+  switch($e$$365_msg$$121$$.Status) {
     case "1":
-      this.$model_$.get("IsBroker") && "BTC" != $e$$361_msg$$121$$.Currency ? ($bitex$util$playSound$$("/assets/res/withdrawal-admin.mp3"), $notification_type_title$$ = ["warning", $MSG_WITHDRAW_NOTIFICATION_BROKER_CONFIRMED_TITLE$$, 3E5, !0]) : this.$model_$.get("IsBroker") || ($notification_type_title$$ = ["info", $MSG_WITHDRAW_NOTIFICATION_USER_CONFIRMED_TITLE$$, 3E3, !1]);
+      this.$model_$.get("IsBroker") && "BTC" != $e$$365_msg$$121$$.Currency ? ($bitex$util$playSound$$("/assets/res/withdrawal-admin.mp3"), $notification_type_title$$ = ["warning", $MSG_WITHDRAW_NOTIFICATION_BROKER_CONFIRMED_TITLE$$, 3E5, !0]) : this.$model_$.get("IsBroker") || ($notification_type_title$$ = ["info", $MSG_WITHDRAW_NOTIFICATION_USER_CONFIRMED_TITLE$$, 3E3, !1]);
       break;
     case "2":
       this.$model_$.get("IsBroker") || ($notification_type_title$$ = ["info", $MSG_WITHDRAW_NOTIFICATION_USER_PROGRESS_TITLE$$, 3E3, !1]);
@@ -16324,30 +16442,30 @@ $JSCompiler_prototypeAlias$$.$onBitexWithdrawIncrementalUpdate_$ = function $$JS
   }
   null != $notification_type_title$$ && this.$showNotification$($notification_type_title$$[0], $notification_type_title$$[1], $formatted_value$$2$$, $notification_type_title$$[2], $notification_type_title$$[3]);
 };
-$JSCompiler_prototypeAlias$$.$onBitexDepositIncrementalUpdate_$ = function $$JSCompiler_prototypeAlias$$$$onBitexDepositIncrementalUpdate_$$($e$$362_msg$$122$$) {
-  $e$$362_msg$$122$$ = $e$$362_msg$$122$$.data;
-  var $MSG_DEPOSIT_NOTIFICATION_COMPLETE$$ = "L\u1ec7nh n\u1ea1p " + ($e$$362_msg$$122$$.ControlNumber + " \u0111\u00e3 \u0111\u01b0\u1ee3c th\u1ef1c thi tr\u00ean t\u00e0i kho\u1ea3n c\u1ee7a b\u1ea1n"), $MSG_DEPOSIT_NOTIFICATION_CANCELLED$$ = "L\u1ec7nh n\u1ea1p " + ($e$$362_msg$$122$$.ControlNumber + " \u0111\u00e3 b\u1ecb h\u1ee7y"), $MSG_DEPOSIT_NOTIFICATION_USER_CONFIRMATION$$ = "Kh\u00e1ch h\u00e0ng v\u1eeba g\u1eedi bi\u00ean lai n\u1ea1p ti\u1ec1n cho l\u1ec7nh n\u1ea1p ti\u1ec1n " + $e$$362_msg$$122$$.ControlNumber, 
-  $formatted_value$$3$$ = this.$formatCurrency$($e$$362_msg$$122$$.PaidValue / 1E8, $e$$362_msg$$122$$.Currency), $notification_type_title$$1$$;
-  "CRY" != $e$$362_msg$$122$$.Type && ("4" != $e$$362_msg$$122$$.Status || this.$model_$.get("IsBroker") ? "8" != $e$$362_msg$$122$$.Status || this.$model_$.get("IsBroker") ? "1" == $e$$362_msg$$122$$.Status && this.$model_$.get("IsBroker") && ($formatted_value$$3$$ = this.$formatCurrency$($e$$362_msg$$122$$.Value / 1E8, $e$$362_msg$$122$$.Currency), $notification_type_title$$1$$ = ["success", $MSG_DEPOSIT_NOTIFICATION_USER_CONFIRMATION$$], $bitex$util$playSound$$("/assets/res/deposit-admin.mp3")) : 
-  ($formatted_value$$3$$ = this.$formatCurrency$($e$$362_msg$$122$$.Value / 1E8, $e$$362_msg$$122$$.Currency), $notification_type_title$$1$$ = ["error", $MSG_DEPOSIT_NOTIFICATION_CANCELLED$$], $bitex$util$playSound$$("/assets/res/error.mp3")) : ($notification_type_title$$1$$ = ["success", $MSG_DEPOSIT_NOTIFICATION_COMPLETE$$], $bitex$util$playSound$$("/assets/res/deposit.mp3")));
+$JSCompiler_prototypeAlias$$.$onBitexDepositIncrementalUpdate_$ = function $$JSCompiler_prototypeAlias$$$$onBitexDepositIncrementalUpdate_$$($e$$366_msg$$122$$) {
+  $e$$366_msg$$122$$ = $e$$366_msg$$122$$.data;
+  var $MSG_DEPOSIT_NOTIFICATION_COMPLETE$$ = "L\u1ec7nh n\u1ea1p " + ($e$$366_msg$$122$$.ControlNumber + " \u0111\u00e3 \u0111\u01b0\u1ee3c th\u1ef1c thi tr\u00ean t\u00e0i kho\u1ea3n c\u1ee7a b\u1ea1n"), $MSG_DEPOSIT_NOTIFICATION_CANCELLED$$ = "L\u1ec7nh n\u1ea1p " + ($e$$366_msg$$122$$.ControlNumber + " \u0111\u00e3 b\u1ecb h\u1ee7y"), $MSG_DEPOSIT_NOTIFICATION_USER_CONFIRMATION$$ = "Kh\u00e1ch h\u00e0ng v\u1eeba g\u1eedi bi\u00ean lai n\u1ea1p ti\u1ec1n cho l\u1ec7nh n\u1ea1p ti\u1ec1n " + $e$$366_msg$$122$$.ControlNumber, 
+  $formatted_value$$3$$ = this.$formatCurrency$($e$$366_msg$$122$$.PaidValue / 1E8, $e$$366_msg$$122$$.Currency), $notification_type_title$$1$$;
+  "CRY" != $e$$366_msg$$122$$.Type && ("4" != $e$$366_msg$$122$$.Status || this.$model_$.get("IsBroker") ? "8" != $e$$366_msg$$122$$.Status || this.$model_$.get("IsBroker") ? "1" == $e$$366_msg$$122$$.Status && this.$model_$.get("IsBroker") && ($formatted_value$$3$$ = this.$formatCurrency$($e$$366_msg$$122$$.Value / 1E8, $e$$366_msg$$122$$.Currency), $notification_type_title$$1$$ = ["success", $MSG_DEPOSIT_NOTIFICATION_USER_CONFIRMATION$$], $bitex$util$playSound$$("/assets/res/deposit-admin.mp3")) : 
+  ($formatted_value$$3$$ = this.$formatCurrency$($e$$366_msg$$122$$.Value / 1E8, $e$$366_msg$$122$$.Currency), $notification_type_title$$1$$ = ["error", $MSG_DEPOSIT_NOTIFICATION_CANCELLED$$], $bitex$util$playSound$$("/assets/res/error.mp3")) : ($notification_type_title$$1$$ = ["success", $MSG_DEPOSIT_NOTIFICATION_COMPLETE$$], $bitex$util$playSound$$("/assets/res/deposit.mp3")));
   null != $notification_type_title$$1$$ && this.$showNotification$($notification_type_title$$1$$[0], $notification_type_title$$1$$[1], $formatted_value$$3$$, 6E4, !0);
 };
-$JSCompiler_prototypeAlias$$.$onBitexVerifyCustomerUpdate_$ = function $$JSCompiler_prototypeAlias$$$$onBitexVerifyCustomerUpdate_$$($e$$363_profile$$2$$) {
-  var $MSG_ACCOUNT_VERIFIED_CONTENT_msg$$123$$ = $e$$363_profile$$2$$.data;
-  $e$$363_profile$$2$$ = this.$model_$.get("Profile");
-  var $old_verified$$ = $e$$363_profile$$2$$.Verified;
-  $e$$363_profile$$2$$.Verified = $MSG_ACCOUNT_VERIFIED_CONTENT_msg$$123$$.Verified;
-  $e$$363_profile$$2$$.VerificationData = $MSG_ACCOUNT_VERIFIED_CONTENT_msg$$123$$.VerificationData;
-  this.$model_$.set("Profile", $e$$363_profile$$2$$);
-  this.$model_$.set("IsVerified", 1 < $e$$363_profile$$2$$.Verified);
-  this.$model_$.set("IsMissingVerification", 0 == $e$$363_profile$$2$$.Verified);
-  this.$model_$.set("IsAccountBlocked", 0 > $e$$363_profile$$2$$.Verified);
-  $MSG_ACCOUNT_VERIFIED_CONTENT_msg$$123$$ = "T\u00e0i kho\u1ea3n c\u1ee7a b\u1ea1n \u0111\u00e3 \u0111\u01b0\u1ee3c x\u00e1c minh. C\u1ea5p \u0111\u1ed9 - " + ($e$$363_profile$$2$$.Verified - 2);
-  0 == $old_verified$$ && 1 == $e$$363_profile$$2$$.Verified ? this.$model_$.get("IsBroker") || (this.$router_$.$setView$("trading"), this.$showNotification$("success", "X\u00e1c nh\u1eadn:", "\u0110\u00e3 g\u1eedi t\u1edbi s\u00e0n.")) : 2 == $e$$363_profile$$2$$.Verified ? this.$model_$.get("IsBroker") || this.$showNotification$("success", "X\u00e1c nh\u1eadn:", "\u0110ang x\u1eed l\u00fd.") : 3 <= $e$$363_profile$$2$$.Verified && (this.$model_$.get("IsBroker") || this.$showNotification$("success", 
+$JSCompiler_prototypeAlias$$.$onBitexVerifyCustomerUpdate_$ = function $$JSCompiler_prototypeAlias$$$$onBitexVerifyCustomerUpdate_$$($e$$367_profile$$2$$) {
+  var $MSG_ACCOUNT_VERIFIED_CONTENT_msg$$123$$ = $e$$367_profile$$2$$.data;
+  $e$$367_profile$$2$$ = this.$model_$.get("Profile");
+  var $old_verified$$ = $e$$367_profile$$2$$.Verified;
+  $e$$367_profile$$2$$.Verified = $MSG_ACCOUNT_VERIFIED_CONTENT_msg$$123$$.Verified;
+  $e$$367_profile$$2$$.VerificationData = $MSG_ACCOUNT_VERIFIED_CONTENT_msg$$123$$.VerificationData;
+  this.$model_$.set("Profile", $e$$367_profile$$2$$);
+  this.$model_$.set("IsVerified", 1 < $e$$367_profile$$2$$.Verified);
+  this.$model_$.set("IsMissingVerification", 0 == $e$$367_profile$$2$$.Verified);
+  this.$model_$.set("IsAccountBlocked", 0 > $e$$367_profile$$2$$.Verified);
+  $MSG_ACCOUNT_VERIFIED_CONTENT_msg$$123$$ = "T\u00e0i kho\u1ea3n c\u1ee7a b\u1ea1n \u0111\u00e3 \u0111\u01b0\u1ee3c x\u00e1c minh. C\u1ea5p \u0111\u1ed9 - " + ($e$$367_profile$$2$$.Verified - 2);
+  0 == $old_verified$$ && 1 == $e$$367_profile$$2$$.Verified ? this.$model_$.get("IsBroker") || (this.$router_$.$setView$("trading"), this.$showNotification$("success", "X\u00e1c nh\u1eadn:", "\u0110\u00e3 g\u1eedi t\u1edbi s\u00e0n.")) : 2 == $e$$367_profile$$2$$.Verified ? this.$model_$.get("IsBroker") || this.$showNotification$("success", "X\u00e1c nh\u1eadn:", "\u0110ang x\u1eed l\u00fd.") : 3 <= $e$$367_profile$$2$$.Verified && (this.$model_$.get("IsBroker") || this.$showNotification$("success", 
   "X\u00e1c nh\u1eadn:", $MSG_ACCOUNT_VERIFIED_CONTENT_msg$$123$$, 3E3, !0));
 };
-$JSCompiler_prototypeAlias$$.$onBitexOrderListResponse_$ = function $$JSCompiler_prototypeAlias$$$$onBitexOrderListResponse_$$($e$$364$$) {
-  var $msg$$124$$ = $e$$364$$.data;
+$JSCompiler_prototypeAlias$$.$onBitexOrderListResponse_$ = function $$JSCompiler_prototypeAlias$$$$onBitexOrderListResponse_$$($e$$368$$) {
+  var $msg$$124$$ = $e$$368$$.data;
   $goog$array$forEach$$($msg$$124$$.OrdListGrp, function($record_array$$) {
     var $execution_report_msg$$2$$ = {};
     $goog$array$forEach$$($record_array$$, function($col_data$$, $col_index$$) {
@@ -16368,13 +16486,13 @@ function $JSCompiler_StaticMethods_processExecutionReport_$$($JSCompiler_StaticM
     $running_algorithm$$.worker.postMessage({req:"execution_report", execution_report:$execution_report$$});
   }, $JSCompiler_StaticMethods_processExecutionReport_$self$$));
 }
-$JSCompiler_prototypeAlias$$.$onBitexExecutionReport_$ = function $$JSCompiler_prototypeAlias$$$$onBitexExecutionReport_$$($e$$365_msg$$125$$) {
-  $e$$365_msg$$125$$ = $e$$365_msg$$125$$.data;
-  $JSCompiler_StaticMethods_processExecutionReport_$$(this, $e$$365_msg$$125$$);
-  var $MSG_ORDER_EXECUTION_TITLE_NOTIFICATION_order_id$$1$$ = $e$$365_msg$$125$$.OrderID;
-  null != $MSG_ORDER_EXECUTION_TITLE_NOTIFICATION_order_id$$1$$ || ($MSG_ORDER_EXECUTION_TITLE_NOTIFICATION_order_id$$1$$ = $e$$365_msg$$125$$.ClOrdID);
-  var $MSG_ORDER_EXECUTION_TITLE_NOTIFICATION_order_id$$1$$ = "\u0110\u01a1n h\u00e0ng " + ($MSG_ORDER_EXECUTION_TITLE_NOTIFICATION_order_id$$1$$ + " "), $MSG_NOTIFICATION_ORDER_REJECTED$$ = "\u0111\u00e3 t\u1eeb ch\u1ed1i - " + $e$$365_msg$$125$$.OrdRejReason, $should_beep$$ = !1;
-  switch($e$$365_msg$$125$$.ExecType) {
+$JSCompiler_prototypeAlias$$.$onBitexExecutionReport_$ = function $$JSCompiler_prototypeAlias$$$$onBitexExecutionReport_$$($e$$369_msg$$125$$) {
+  $e$$369_msg$$125$$ = $e$$369_msg$$125$$.data;
+  $JSCompiler_StaticMethods_processExecutionReport_$$(this, $e$$369_msg$$125$$);
+  var $MSG_ORDER_EXECUTION_TITLE_NOTIFICATION_order_id$$1$$ = $e$$369_msg$$125$$.OrderID;
+  null != $MSG_ORDER_EXECUTION_TITLE_NOTIFICATION_order_id$$1$$ || ($MSG_ORDER_EXECUTION_TITLE_NOTIFICATION_order_id$$1$$ = $e$$369_msg$$125$$.ClOrdID);
+  var $MSG_ORDER_EXECUTION_TITLE_NOTIFICATION_order_id$$1$$ = "\u0110\u01a1n h\u00e0ng " + ($MSG_ORDER_EXECUTION_TITLE_NOTIFICATION_order_id$$1$$ + " "), $MSG_NOTIFICATION_ORDER_REJECTED$$ = "\u0111\u00e3 t\u1eeb ch\u1ed1i - " + $e$$369_msg$$125$$.OrdRejReason, $should_beep$$ = !1;
+  switch($e$$369_msg$$125$$.ExecType) {
     case "1":
       $should_beep$$ = !0;
       this.$showNotification$("success", $MSG_ORDER_EXECUTION_TITLE_NOTIFICATION_order_id$$1$$, "\u0111\u00e3 kh\u1edbp l\u1ec7nh xong m\u1ed9t ph\u1ea7n");
@@ -16391,19 +16509,19 @@ $JSCompiler_prototypeAlias$$.$onBitexExecutionReport_$ = function $$JSCompiler_p
   }
   $should_beep$$ && $bitex$util$playSound$$("/assets/res/beep.wav");
 };
-$JSCompiler_prototypeAlias$$.$onBitexTwoFactorSecretResponse_$ = function $$JSCompiler_prototypeAlias$$$$onBitexTwoFactorSecretResponse_$$($e$$366_msg$$126$$) {
-  $e$$366_msg$$126$$ = $e$$366_msg$$126$$.data;
-  this.$model_$.set("TwoFactorSecret", $e$$366_msg$$126$$.TwoFactorSecret);
-  this.$model_$.set("TwoFactorEnabled", $e$$366_msg$$126$$.TwoFactorEnabled);
+$JSCompiler_prototypeAlias$$.$onBitexTwoFactorSecretResponse_$ = function $$JSCompiler_prototypeAlias$$$$onBitexTwoFactorSecretResponse_$$($e$$370_msg$$126$$) {
+  $e$$370_msg$$126$$ = $e$$370_msg$$126$$.data;
+  this.$model_$.set("TwoFactorSecret", $e$$370_msg$$126$$.TwoFactorSecret);
+  this.$model_$.set("TwoFactorEnabled", $e$$370_msg$$126$$.TwoFactorEnabled);
 };
-$JSCompiler_prototypeAlias$$.$onBitexPositionResponse_$ = function $$JSCompiler_prototypeAlias$$$$onBitexPositionResponse_$$($e$$367_msg$$127$$) {
-  $e$$367_msg$$127$$ = $e$$367_msg$$127$$.data;
-  delete $e$$367_msg$$127$$.MsgType;
-  delete $e$$367_msg$$127$$.PositionReqID;
-  var $clientID$$2$$ = $e$$367_msg$$127$$.ClientID, $has_any_position$$ = !1, $model_balances$$ = this.$model_$.get("Position");
+$JSCompiler_prototypeAlias$$.$onBitexPositionResponse_$ = function $$JSCompiler_prototypeAlias$$$$onBitexPositionResponse_$$($e$$371_msg$$127$$) {
+  $e$$371_msg$$127$$ = $e$$371_msg$$127$$.data;
+  delete $e$$371_msg$$127$$.MsgType;
+  delete $e$$371_msg$$127$$.PositionReqID;
+  var $clientID$$2$$ = $e$$371_msg$$127$$.ClientID, $has_any_position$$ = !1, $model_balances$$ = this.$model_$.get("Position");
   null != $model_balances$$ || ($model_balances$$ = {});
   var $changed_balance$$ = !1;
-  $goog$object$forEach$$($e$$367_msg$$127$$, function($balances$$, $brokerID$$4$$) {
+  $goog$object$forEach$$($e$$371_msg$$127$$, function($balances$$, $brokerID$$4$$) {
     $goog$object$forEach$$($balances$$, function($balance$$7$$, $currency$$33$$) {
       $goog$string$endsWith$$($currency$$33$$) || (null != $model_balances$$[$brokerID$$4$$] || ($model_balances$$[$brokerID$$4$$] = {}), null != $model_balances$$[$brokerID$$4$$][$clientID$$2$$] || ($model_balances$$[$brokerID$$4$$][$clientID$$2$$] = {}), $balance$$7$$ = (new $bitex$primitives$Price$$($balance$$7$$, $JSCompiler_StaticMethods_getCurrencyPip$$(this, $currency$$33$$))).floor(), $model_balances$$[$brokerID$$4$$][$clientID$$2$$][$currency$$33$$] = $balance$$7$$, 0 != $balance$$7$$ && 
       ($has_any_position$$ = !0), $changed_balance$$ = !0);
@@ -16411,7 +16529,7 @@ $JSCompiler_prototypeAlias$$.$onBitexPositionResponse_$ = function $$JSCompiler_
   }, this);
   $changed_balance$$ && this.$model_$.set("Position", $model_balances$$, !0);
   this.$model_$.set("HasAnyPosition", $has_any_position$$);
-  $goog$object$forEach$$($e$$367_msg$$127$$, function($positions$$, $broker$$17$$) {
+  $goog$object$forEach$$($e$$371_msg$$127$$, function($positions$$, $broker$$17$$) {
     $goog$object$forEach$$($positions$$, function($position$$7$$, $currency$$34$$) {
       $position$$7$$ /= 1E8;
       var $position_key$$ = "position_" + $broker$$17$$ + ":" + $clientID$$2$$ + "_" + $currency$$34$$;
@@ -16421,13 +16539,13 @@ $JSCompiler_prototypeAlias$$.$onBitexPositionResponse_$ = function $$JSCompiler_
     }, this);
   }, this);
 };
-$JSCompiler_prototypeAlias$$.$onBitexBalanceResponse_$ = function $$JSCompiler_prototypeAlias$$$$onBitexBalanceResponse_$$($e$$368_running_algorithms$$1$$) {
-  var $msg$$128$$ = $e$$368_running_algorithms$$1$$.data;
+$JSCompiler_prototypeAlias$$.$onBitexBalanceResponse_$ = function $$JSCompiler_prototypeAlias$$$$onBitexBalanceResponse_$$($e$$372_running_algorithms$$1$$) {
+  var $msg$$128$$ = $e$$372_running_algorithms$$1$$.data;
   delete $msg$$128$$.MsgType;
   delete $msg$$128$$.BalanceReqID;
   var $clientID$$3$$ = $msg$$128$$.ClientID;
-  $e$$368_running_algorithms$$1$$ = this.$model_$.get("RunningAlgorithms");
-  $goog$object$forEach$$($e$$368_running_algorithms$$1$$, function($running_algorithm$$1_worker$$1$$) {
+  $e$$372_running_algorithms$$1$$ = this.$model_$.get("RunningAlgorithms");
+  $goog$object$forEach$$($e$$372_running_algorithms$$1$$, function($running_algorithm$$1_worker$$1$$) {
     $running_algorithm$$1_worker$$1$$ = $running_algorithm$$1_worker$$1$$.worker;
     var $broker_id$$11$$ = this.$model_$.get("SelectedBrokerID");
     $broker_id$$11$$ in $msg$$128$$ && $running_algorithm$$1_worker$$1$$.postMessage({req:"balance", balances:$msg$$128$$[$broker_id$$11$$]});
@@ -16466,8 +16584,8 @@ $JSCompiler_prototypeAlias$$.$getBalance$ = function $$JSCompiler_prototypeAlias
   return "deposit" == $type$$153$$ ? this.$model_$.get($balance_key$$4_currency$$39$$) : "available" == $type$$153$$ ? null != this.$model_$.get($balance_key$$4_currency$$39$$) ? null != this.$model_$.get($locked_balance_key$$2_opt_clientID$$10$$) ? Math.round(this.$model_$.get($balance_key$$4_currency$$39$$) - this.$model_$.get($locked_balance_key$$2_opt_clientID$$10$$)) : this.$model_$.get($balance_key$$4_currency$$39$$) : 0 : "locked" == $type$$153$$ ? null != this.$model_$.get($locked_balance_key$$2_opt_clientID$$10$$) ? 
   this.$model_$.get($locked_balance_key$$2_opt_clientID$$10$$) : 0 : 0;
 };
-$JSCompiler_prototypeAlias$$.$onUserWithdrawRequest_$ = function $$JSCompiler_prototypeAlias$$$$onUserWithdrawRequest_$$($e$$369$$) {
-  $JSCompiler_StaticMethods_showWithdrawalDialog$$(this, $e$$369$$.target.$data_$.Currency, $e$$369$$.target.$data_$);
+$JSCompiler_prototypeAlias$$.$onUserWithdrawRequest_$ = function $$JSCompiler_prototypeAlias$$$$onUserWithdrawRequest_$$($e$$373$$) {
+  $JSCompiler_StaticMethods_showWithdrawalDialog$$(this, $e$$373$$.target.$data_$.Currency, $e$$373$$.target.$data_$);
 };
 function $JSCompiler_StaticMethods_showWithdrawalDialog$$($JSCompiler_StaticMethods_showWithdrawalDialog$self$$, $currency$$41$$, $dialogContent$$1_dlg$$4_fmt$$15_opt_preData_withdraw_methods$$2$$) {
   var $preData$$ = $dialogContent$$1_dlg$$4_fmt$$15_opt_preData_withdraw_methods$$2$$ || {};
@@ -16563,24 +16681,24 @@ function $JSCompiler_StaticMethods_showWithdrawalDialog$$($JSCompiler_StaticMeth
   $dialogContent$$1_dlg$$4_fmt$$15_opt_preData_withdraw_methods$$2$$ = $JSCompiler_StaticMethods_showWithdrawalDialog$self$$.$showDialog$($dialogContent$$1_dlg$$4_fmt$$15_opt_preData_withdraw_methods$$2$$, "R\u00fat  " + $JSCompiler_StaticMethods_showWithdrawalDialog$self$$.$getCurrencyDescription$($currency$$41$$), $bitex$ui$Dialog$ButtonSet$createOkCancel$$());
   $JSCompiler_StaticMethods_updateDom$$($JSCompiler_StaticMethods_showWithdrawalDialog$self$$.$model_$);
   1 < $user_verified_withdraw_methods$$.length && $goog$dom$forms$setValue$$($goog$dom$getElement$$($form_id$$ + "_method"));
-  var $handler$$139$$ = $JSCompiler_StaticMethods_showWithdrawalDialog$self$$.$getHandler$(), $balance_key$$5_value_fmt$$13_withdrawal_form_el$$ = $goog$dom$getFirstElementChild$$($dialogContent$$1_dlg$$4_fmt$$15_opt_preData_withdraw_methods$$2$$.$getContentElement$()), $withdrawal_uniform$$ = new $uniform$Uniform$$;
+  var $handler$$142$$ = $JSCompiler_StaticMethods_showWithdrawalDialog$self$$.$getHandler$(), $balance_key$$5_value_fmt$$13_withdrawal_form_el$$ = $goog$dom$getFirstElementChild$$($dialogContent$$1_dlg$$4_fmt$$15_opt_preData_withdraw_methods$$2$$.$getContentElement$()), $withdrawal_uniform$$ = new $uniform$Uniform$$;
   $withdrawal_uniform$$.$decorate$($balance_key$$5_value_fmt$$13_withdrawal_form_el$$);
   $goog$array$forEach$$($user_verified_withdraw_methods$$, function($withdraw_method$$1$$) {
     var $method_id$$ = $withdraw_method$$1$$.method;
-    $handler$$139$$.$listen$(new $goog$events$InputHandler$$($goog$dom$getElement$$($form_id$$ + "_method_" + $method_id$$ + "_amount")), "input", function() {
+    $handler$$142$$.$listen$(new $goog$events$InputHandler$$($goog$dom$getElement$$($form_id$$ + "_method_" + $method_id$$ + "_amount")), "input", function() {
       this.$doCalculateFees_$($form_id$$ + "_method_" + $method_id$$ + "_amount", $form_id$$ + "_method_" + $method_id$$ + "_fixed_fee", $form_id$$ + "_method_" + $method_id$$ + "_percent_fee", $currency$$41$$, $form_id$$ + "_method_" + $method_id$$ + "_fees", $form_id$$ + "_method_" + $method_id$$ + "_net_value", !0, !0, !1, !1, !0, !1);
     }, this);
   }, $JSCompiler_StaticMethods_showWithdrawalDialog$self$$);
   $balance_key$$5_value_fmt$$13_withdrawal_form_el$$ = new $goog$i18n$NumberFormat$$(1);
   $balance_key$$5_value_fmt$$13_withdrawal_form_el$$.$maximumFractionDigits_$ = 8;
   $JSCompiler_StaticMethods_setMinimumFractionDigits$$($balance_key$$5_value_fmt$$13_withdrawal_form_el$$, 2);
-  $handler$$139$$.$listen$($dialogContent$$1_dlg$$4_fmt$$15_opt_preData_withdraw_methods$$2$$, $goog$ui$Dialog$EventType$SELECT$$, function($e$$371$$) {
-    if ("ok" == $e$$371$$.key) {
-      var $error_list$$14_withdraw_data$$ = $withdrawal_uniform$$.$validate$();
-      if (0 < $error_list$$14_withdraw_data$$.length) {
-        $goog$array$forEach$$($error_list$$14_withdraw_data$$, function($error_msg$$10$$) {
+  $handler$$142$$.$listen$($dialogContent$$1_dlg$$4_fmt$$15_opt_preData_withdraw_methods$$2$$, $goog$ui$Dialog$EventType$SELECT$$, function($e$$375$$) {
+    if ("ok" == $e$$375$$.key) {
+      var $error_list$$15_withdraw_data$$ = $withdrawal_uniform$$.$validate$();
+      if (0 < $error_list$$15_withdraw_data$$.length) {
+        $goog$array$forEach$$($error_list$$15_withdraw_data$$, function($error_msg$$10$$) {
           this.$showNotification$("error", $error_msg$$10$$);
-        }, this), $e$$371$$.stopPropagation(), $e$$371$$.preventDefault();
+        }, this), $e$$375$$.stopPropagation(), $e$$375$$.preventDefault();
       } else {
         try {
           var $amount$$9_position_key$$1$$ = "Position_" + this.$model_$.get("Broker").BrokerID + "_" + this.$model_$.get("UserID"), $method$$7_positions$$1$$ = this.$model_$.get($amount$$9_position_key$$1$$);
@@ -16591,73 +16709,73 @@ function $JSCompiler_StaticMethods_showWithdrawalDialog$$($JSCompiler_StaticMeth
             }, this);
             if ($has_open_positions$$) {
               this.$showNotification$("error", "B\u1ea1n \u0111ang c\u00f3 kho\u1ea3n ti\u1ec1n n\u1ea1p ch\u01b0a \u0111\u01b0\u1ee3c x\u00e1c nh\u1eadn");
-              $e$$371$$.stopPropagation();
-              $e$$371$$.preventDefault();
+              $e$$375$$.stopPropagation();
+              $e$$375$$.preventDefault();
               return;
             }
           }
-        } catch ($e$$372$$) {
+        } catch ($e$$376$$) {
         }
-        $error_list$$14_withdraw_data$$ = $JSCompiler_StaticMethods_getAsJSON$$($withdrawal_uniform$$);
-        $amount$$9_position_key$$1$$ = $error_list$$14_withdraw_data$$.Amount;
+        $error_list$$15_withdraw_data$$ = $JSCompiler_StaticMethods_getAsJSON$$($withdrawal_uniform$$);
+        $amount$$9_position_key$$1$$ = $error_list$$15_withdraw_data$$.Amount;
         if (0 > $amount$$9_position_key$$1$$) {
-          this.$showNotification$("error", "L\u01b0\u1ee3ng r\u00fat kh\u00f4ng h\u1ee3p l\u1ec7"), $e$$371$$.stopPropagation(), $e$$371$$.preventDefault();
+          this.$showNotification$("error", "L\u01b0\u1ee3ng r\u00fat kh\u00f4ng h\u1ee3p l\u1ec7"), $e$$375$$.stopPropagation(), $e$$375$$.preventDefault();
         } else {
-          $amount$$9_position_key$$1$$ = (new $bitex$primitives$Price$$(1E8 * $amount$$9_position_key$$1$$, $JSCompiler_StaticMethods_getCurrencyPip$$(this, $error_list$$14_withdraw_data$$.Currency))).floor();
-          $goog$dom$forms$getValue$$($goog$dom$getElement$$($form_id$$ + "_method_" + $error_list$$14_withdraw_data$$.Method + "_net_value_value"));
-          $error_list$$14_withdraw_data$$.Fees = $goog$dom$getTextContent$$($goog$dom$getElement$$($form_id$$ + "_method_" + $error_list$$14_withdraw_data$$.Method + "_fees"));
-          delete $error_list$$14_withdraw_data$$.Amount;
-          $method$$7_positions$$1$$ = $error_list$$14_withdraw_data$$.Method;
-          delete $error_list$$14_withdraw_data$$.Method;
-          var $currency$$42$$ = $error_list$$14_withdraw_data$$.Currency;
-          delete $error_list$$14_withdraw_data$$.Currency;
-          this.$conn_$.$requestWithdraw$($e$$371$$.target.$request_id_$, $amount$$9_position_key$$1$$, $method$$7_positions$$1$$, $currency$$42$$, $error_list$$14_withdraw_data$$);
+          $amount$$9_position_key$$1$$ = (new $bitex$primitives$Price$$(1E8 * $amount$$9_position_key$$1$$, $JSCompiler_StaticMethods_getCurrencyPip$$(this, $error_list$$15_withdraw_data$$.Currency))).floor();
+          $goog$dom$forms$getValue$$($goog$dom$getElement$$($form_id$$ + "_method_" + $error_list$$15_withdraw_data$$.Method + "_net_value_value"));
+          $error_list$$15_withdraw_data$$.Fees = $goog$dom$getTextContent$$($goog$dom$getElement$$($form_id$$ + "_method_" + $error_list$$15_withdraw_data$$.Method + "_fees"));
+          delete $error_list$$15_withdraw_data$$.Amount;
+          $method$$7_positions$$1$$ = $error_list$$15_withdraw_data$$.Method;
+          delete $error_list$$15_withdraw_data$$.Method;
+          var $currency$$42$$ = $error_list$$15_withdraw_data$$.Currency;
+          delete $error_list$$15_withdraw_data$$.Currency;
+          this.$conn_$.$requestWithdraw$($e$$375$$.target.$request_id_$, $amount$$9_position_key$$1$$, $method$$7_positions$$1$$, $currency$$42$$, $error_list$$15_withdraw_data$$);
         }
       }
     }
   }, $JSCompiler_StaticMethods_showWithdrawalDialog$self$$);
 }
-$JSCompiler_prototypeAlias$$.$onUserConfirmWithdraw_$ = function $$JSCompiler_prototypeAlias$$$$onUserConfirmWithdraw_$$($e$$373$$) {
-  this.$conn_$.$confirmWithdraw$($e$$373$$.target.$confirmation_token_$);
+$JSCompiler_prototypeAlias$$.$onUserConfirmWithdraw_$ = function $$JSCompiler_prototypeAlias$$$$onUserConfirmWithdraw_$$($e$$377$$) {
+  this.$conn_$.$confirmWithdraw$($e$$377$$.target.$confirmation_token_$);
 };
-$JSCompiler_prototypeAlias$$.$onUpdateProfile_$ = function $$JSCompiler_prototypeAlias$$$$onUpdateProfile_$$($e$$374$$) {
-  var $client_id$$3$$ = $e$$374$$.target.$getClientID$();
-  $JSCompiler_StaticMethods_updateUserProfile$$(this.$conn_$, $e$$374$$.target.$update_profile_data_$, $client_id$$3$$);
+$JSCompiler_prototypeAlias$$.$onUpdateProfile_$ = function $$JSCompiler_prototypeAlias$$$$onUpdateProfile_$$($e$$378$$) {
+  var $client_id$$3$$ = $e$$378$$.target.$getClientID$();
+  $JSCompiler_StaticMethods_updateUserProfile$$(this.$conn_$, $e$$378$$.target.$update_profile_data_$, $client_id$$3$$);
 };
-$JSCompiler_prototypeAlias$$.$onUserFileView_$ = function $$JSCompiler_prototypeAlias$$$$onUserFileView_$$($e$$375_file_view_dialog_content$$) {
-  $e$$375_file_view_dialog_content$$ = '<img src="' + $soy$$0$0escapeHtml$$($e$$375_file_view_dialog_content$$.target.$file_name_$) + '" style="width:500px"/>';
-  this.$showDialog$($e$$375_file_view_dialog_content$$, "Xem", $bitex$ui$Dialog$ButtonSet$createOk$$());
+$JSCompiler_prototypeAlias$$.$onUserFileView_$ = function $$JSCompiler_prototypeAlias$$$$onUserFileView_$$($e$$379_file_view_dialog_content$$) {
+  $e$$379_file_view_dialog_content$$ = '<img src="' + $soy$$0$0escapeHtml$$($e$$379_file_view_dialog_content$$.target.$file_name_$) + '" style="width:500px"/>';
+  this.$showDialog$($e$$379_file_view_dialog_content$$, "Xem", $bitex$ui$Dialog$ButtonSet$createOk$$());
 };
-$JSCompiler_prototypeAlias$$.$onBrokerSetUserAsVerified_$ = function $$JSCompiler_prototypeAlias$$$$onBrokerSetUserAsVerified_$$($e$$376$$) {
-  var $request_id$$ = $e$$376$$.target.$request_id_$, $client_id$$4$$ = $e$$376$$.target.$getClientID$();
-  this.$conn_$.$verifyCustomer$($request_id$$, $client_id$$4$$, $e$$376$$.target.$verification_level_$, $e$$376$$.target.$verification_data_$);
+$JSCompiler_prototypeAlias$$.$onBrokerSetUserAsVerified_$ = function $$JSCompiler_prototypeAlias$$$$onBrokerSetUserAsVerified_$$($e$$380$$) {
+  var $request_id$$ = $e$$380$$.target.$request_id_$, $client_id$$4$$ = $e$$380$$.target.$getClientID$();
+  this.$conn_$.$verifyCustomer$($request_id$$, $client_id$$4$$, $e$$380$$.target.$verification_level_$, $e$$380$$.target.$verification_data_$);
 };
-$JSCompiler_prototypeAlias$$.$onUserCancelWithdrawal_$ = function $$JSCompiler_prototypeAlias$$$$onUserCancelWithdrawal_$$($e$$377_request_id$$1$$) {
-  var $withdraw_data$$1$$ = $e$$377_request_id$$1$$.target.$getWithdrawData$();
-  $e$$377_request_id$$1$$ = $e$$377_request_id$$1$$.target.$request_id_$;
+$JSCompiler_prototypeAlias$$.$onUserCancelWithdrawal_$ = function $$JSCompiler_prototypeAlias$$$$onUserCancelWithdrawal_$$($e$$381_request_id$$1$$) {
+  var $withdraw_data$$1$$ = $e$$381_request_id$$1$$.target.$getWithdrawData$();
+  $e$$381_request_id$$1$$ = $e$$381_request_id$$1$$.target.$request_id_$;
   this.$getHandler$();
-  this.$conn_$.$cancelWithdraw$($withdraw_data$$1$$.WithdrawID, $e$$377_request_id$$1$$);
+  this.$conn_$.$cancelWithdraw$($withdraw_data$$1$$.WithdrawID, $e$$381_request_id$$1$$);
 };
-$JSCompiler_prototypeAlias$$.$onBrokerProcessWithdraw_$ = function $$JSCompiler_prototypeAlias$$$$onBrokerProcessWithdraw_$$($e$$378_handler$$141$$) {
+$JSCompiler_prototypeAlias$$.$onBrokerProcessWithdraw_$ = function $$JSCompiler_prototypeAlias$$$$onBrokerProcessWithdraw_$$($e$$382_handler$$144$$) {
   var $valueFormatter$$3$$ = new $goog$i18n$NumberFormat$$(1);
   $JSCompiler_StaticMethods_setMinimumFractionDigits$$($valueFormatter$$3$$, 2);
   $valueFormatter$$3$$.$maximumFractionDigits_$ = 8;
-  var $withdraw_data$$2$$ = $e$$378_handler$$141$$.target.$getWithdrawData$(), $request_id$$2$$ = $e$$378_handler$$141$$.target.$request_id_$, $action$$5$$ = $e$$378_handler$$141$$.target.$withdraw_action_$;
-  $e$$378_handler$$141$$ = this.$getHandler$();
-  var $feeDialogContent_formatted_amount_model$$59$$ = this.$model_$, $fixed_fee$$2_method_element_id$$ = $goog$string$getRandomString$$(), $cancelWithdrawDlg_cancel_reason_dialog_content_dialogContent$$2_withdraw_amount_element_id$$ = $goog$string$getRandomString$$(), $fixed_fee_element_id$$ = $goog$string$getRandomString$$(), $percent_fee_element_id$$ = $goog$string$getRandomString$$(), $total_fees_element_id$$ = $goog$string$getRandomString$$(), $net_value_element_id$$ = $goog$string$getRandomString$$();
+  var $withdraw_data$$2$$ = $e$$382_handler$$144$$.target.$getWithdrawData$(), $request_id$$2$$ = $e$$382_handler$$144$$.target.$request_id_$, $action$$5$$ = $e$$382_handler$$144$$.target.$withdraw_action_$;
+  $e$$382_handler$$144$$ = this.$getHandler$();
+  var $feeDialogContent_formatted_amount_model$$62$$ = this.$model_$, $fixed_fee$$2_method_element_id$$ = $goog$string$getRandomString$$(), $cancelWithdrawDlg_cancel_reason_dialog_content_dialogContent$$2_withdraw_amount_element_id$$ = $goog$string$getRandomString$$(), $fixed_fee_element_id$$ = $goog$string$getRandomString$$(), $percent_fee_element_id$$ = $goog$string$getRandomString$$(), $total_fees_element_id$$ = $goog$string$getRandomString$$(), $net_value_element_id$$ = $goog$string$getRandomString$$();
   if ("CANCEL" === $action$$5$$) {
     var $cancelWithdrawDlg_cancel_reason_dialog_content_dialogContent$$2_withdraw_amount_element_id$$ = $bitex$view$WithdrawView$templates$CancelWithdrawDialogContent$$(), $cancelWithdrawDlg_cancel_reason_dialog_content_dialogContent$$2_withdraw_amount_element_id$$ = this.$showDialog$($cancelWithdrawDlg_cancel_reason_dialog_content_dialogContent$$2_withdraw_amount_element_id$$, "\u0110\u00f3ng", $bitex$ui$Dialog$ButtonSet$createOkCancel$$()), $select_reason_el$$ = $goog$dom$getElement$$("id_select_reason"), 
     $reason_el$$1$$ = $goog$dom$getElement$$("id_custom_reason_text");
-    $e$$378_handler$$141$$.$listen$($select_reason_el$$, "change", function() {
+    $e$$382_handler$$144$$.$listen$($select_reason_el$$, "change", function() {
       var $reason_id$$1$$ = $goog$string$toNumber$$($goog$dom$forms$getValue$$($select_reason_el$$));
       $goog$style$setElementShown$$($reason_el$$1$$, 0 === $reason_id$$1$$);
     });
-    $e$$378_handler$$141$$.$listen$($cancelWithdrawDlg_cancel_reason_dialog_content_dialogContent$$2_withdraw_amount_element_id$$, $goog$ui$Dialog$EventType$SELECT$$, function($e$$380$$) {
-      if ("ok" == $e$$380$$.key) {
+    $e$$382_handler$$144$$.$listen$($cancelWithdrawDlg_cancel_reason_dialog_content_dialogContent$$2_withdraw_amount_element_id$$, $goog$ui$Dialog$EventType$SELECT$$, function($e$$384$$) {
+      if ("ok" == $e$$384$$.key) {
         var $reason_id$$2$$ = $goog$string$toNumber$$($goog$dom$forms$getValue$$($select_reason_el$$)), $reason$$8$$;
         if (0 === $reason_id$$2$$ && ($reason$$8$$ = $goog$string$trim$$($goog$dom$forms$getValue$$($reason_el$$1$$)), $goog$string$isEmptyOrWhitespace$$($reason$$8$$))) {
-          $e$$380$$.stopPropagation();
-          $e$$380$$.preventDefault();
+          $e$$384$$.stopPropagation();
+          $e$$384$$.preventDefault();
           $goog$dom$getElement$$("id_custom_reason_text").focus();
           return;
         }
@@ -16666,133 +16784,133 @@ $JSCompiler_prototypeAlias$$.$onBrokerProcessWithdraw_$ = function $$JSCompiler_
     }, this);
   } else {
     if ("PROGRESS" === $action$$5$$) {
-      var $feeDialogContent_formatted_amount_model$$59$$ = this.$formatCurrency$($withdraw_data$$2$$.Amount / 1E8, $withdraw_data$$2$$.Currency), $fixed_fee$$2_method_element_id$$ = $valueFormatter$$3$$.format($withdraw_data$$2$$.FixedFee / 1E8), $percent_fee$$2$$ = $valueFormatter$$3$$.format($withdraw_data$$2$$.PercentFee);
+      var $feeDialogContent_formatted_amount_model$$62$$ = this.$formatCurrency$($withdraw_data$$2$$.Amount / 1E8, $withdraw_data$$2$$.Currency), $fixed_fee$$2_method_element_id$$ = $valueFormatter$$3$$.format($withdraw_data$$2$$.FixedFee / 1E8), $percent_fee$$2$$ = $valueFormatter$$3$$.format($withdraw_data$$2$$.PercentFee);
       this.$model_$.get("Profile").IsMarketMaker && ($percent_fee$$2$$ = $fixed_fee$$2_method_element_id$$ = 0);
-      var $feeDialogContent_formatted_amount_model$$59$$ = $bitex$templates$FeesForm$$({$amount$:$withdraw_data$$2$$.Amount, $formattedAmount$:$feeDialogContent_formatted_amount_model$$59$$, $currency$:$withdraw_data$$2$$.Currency, $currencySign$:this.$getCurrencySign$($withdraw_data$$2$$.Currency), $amountID$:$cancelWithdrawDlg_cancel_reason_dialog_content_dialogContent$$2_withdraw_amount_element_id$$, $fixedFeeID$:$fixed_fee_element_id$$, $percentFeeID$:$percent_fee_element_id$$, $totalFeesID$:$total_fees_element_id$$, 
-      $netValueID$:$net_value_element_id$$, $fixedFee$:$fixed_fee$$2_method_element_id$$, $percentFee$:$percent_fee$$2$$}), $feeDlg$$ = this.$showDialog$($feeDialogContent_formatted_amount_model$$59$$, "\u0110\u1eb7t vi\u1ec7c r\u00fat " + (this.$getCurrencyDescription$($withdraw_data$$2$$.Currency) + " \u0111ang trong qu\u00e1 tr\u00ecnh x\u1eed l\u00fd"), $bitex$ui$Dialog$ButtonSet$createOkCancel$$());
+      var $feeDialogContent_formatted_amount_model$$62$$ = $bitex$templates$FeesForm$$({$amount$:$withdraw_data$$2$$.Amount, $formattedAmount$:$feeDialogContent_formatted_amount_model$$62$$, $currency$:$withdraw_data$$2$$.Currency, $currencySign$:this.$getCurrencySign$($withdraw_data$$2$$.Currency), $amountID$:$cancelWithdrawDlg_cancel_reason_dialog_content_dialogContent$$2_withdraw_amount_element_id$$, $fixedFeeID$:$fixed_fee_element_id$$, $percentFeeID$:$percent_fee_element_id$$, $totalFeesID$:$total_fees_element_id$$, 
+      $netValueID$:$net_value_element_id$$, $fixedFee$:$fixed_fee$$2_method_element_id$$, $percentFee$:$percent_fee$$2$$}), $feeDlg$$ = this.$showDialog$($feeDialogContent_formatted_amount_model$$62$$, "\u0110\u1eb7t vi\u1ec7c r\u00fat " + (this.$getCurrencyDescription$($withdraw_data$$2$$.Currency) + " \u0111ang trong qu\u00e1 tr\u00ecnh x\u1eed l\u00fd"), $bitex$ui$Dialog$ButtonSet$createOkCancel$$());
       this.$doCalculateFees_$($cancelWithdrawDlg_cancel_reason_dialog_content_dialogContent$$2_withdraw_amount_element_id$$, $fixed_fee_element_id$$, $percent_fee_element_id$$, $withdraw_data$$2$$.Currency, $total_fees_element_id$$, $net_value_element_id$$, !0, !1, !0, !0, !1, !0);
-      $e$$378_handler$$141$$.$listen$(new $goog$events$InputHandler$$($goog$dom$getElement$$($cancelWithdrawDlg_cancel_reason_dialog_content_dialogContent$$2_withdraw_amount_element_id$$)), "input", $goog$bind$$(this.$doCalculateFees_$, this, $cancelWithdrawDlg_cancel_reason_dialog_content_dialogContent$$2_withdraw_amount_element_id$$, $fixed_fee_element_id$$, $percent_fee_element_id$$, $withdraw_data$$2$$.Currency, $total_fees_element_id$$, $net_value_element_id$$, !0, !1, !0, !0, !1, !0));
-      $e$$378_handler$$141$$.$listen$(new $goog$events$InputHandler$$($goog$dom$getElement$$($percent_fee_element_id$$)), "input", $goog$bind$$(this.$doCalculateFees_$, this, $cancelWithdrawDlg_cancel_reason_dialog_content_dialogContent$$2_withdraw_amount_element_id$$, $fixed_fee_element_id$$, $percent_fee_element_id$$, $withdraw_data$$2$$.Currency, $total_fees_element_id$$, $net_value_element_id$$, !0, !1, !0, !0, !1, !0));
-      $e$$378_handler$$141$$.$listen$(new $goog$events$InputHandler$$($goog$dom$getElement$$($fixed_fee_element_id$$)), "input", $goog$bind$$(this.$doCalculateFees_$, this, $cancelWithdrawDlg_cancel_reason_dialog_content_dialogContent$$2_withdraw_amount_element_id$$, $fixed_fee_element_id$$, $percent_fee_element_id$$, $withdraw_data$$2$$.Currency, $total_fees_element_id$$, $net_value_element_id$$, !0, !1, !0, !0, !1, !0));
-      $e$$378_handler$$141$$.$listen$($feeDlg$$, $goog$ui$Dialog$EventType$SELECT$$, function($e$$381$$) {
-        if ("ok" == $e$$381$$.key) {
+      $e$$382_handler$$144$$.$listen$(new $goog$events$InputHandler$$($goog$dom$getElement$$($cancelWithdrawDlg_cancel_reason_dialog_content_dialogContent$$2_withdraw_amount_element_id$$)), "input", $goog$bind$$(this.$doCalculateFees_$, this, $cancelWithdrawDlg_cancel_reason_dialog_content_dialogContent$$2_withdraw_amount_element_id$$, $fixed_fee_element_id$$, $percent_fee_element_id$$, $withdraw_data$$2$$.Currency, $total_fees_element_id$$, $net_value_element_id$$, !0, !1, !0, !0, !1, !0));
+      $e$$382_handler$$144$$.$listen$(new $goog$events$InputHandler$$($goog$dom$getElement$$($percent_fee_element_id$$)), "input", $goog$bind$$(this.$doCalculateFees_$, this, $cancelWithdrawDlg_cancel_reason_dialog_content_dialogContent$$2_withdraw_amount_element_id$$, $fixed_fee_element_id$$, $percent_fee_element_id$$, $withdraw_data$$2$$.Currency, $total_fees_element_id$$, $net_value_element_id$$, !0, !1, !0, !0, !1, !0));
+      $e$$382_handler$$144$$.$listen$(new $goog$events$InputHandler$$($goog$dom$getElement$$($fixed_fee_element_id$$)), "input", $goog$bind$$(this.$doCalculateFees_$, this, $cancelWithdrawDlg_cancel_reason_dialog_content_dialogContent$$2_withdraw_amount_element_id$$, $fixed_fee_element_id$$, $percent_fee_element_id$$, $withdraw_data$$2$$.Currency, $total_fees_element_id$$, $net_value_element_id$$, !0, !1, !0, !0, !1, !0));
+      $e$$382_handler$$144$$.$listen$($feeDlg$$, $goog$ui$Dialog$EventType$SELECT$$, function($e$$385$$) {
+        if ("ok" == $e$$385$$.key) {
           var $form_data$$ = $bitex$util$getFormAsJSON$$($goog$dom$getFirstElementChild$$($feeDlg$$.$getContentElement$())), $fixed_fee_value_percent_fee$$3$$ = $form_data$$.PercentFee, $original_fees_pos$$35$$ = [0], $percent_fee_value$$ = $valueFormatter$$3$$.parse($fixed_fee_value_percent_fee$$3$$, $original_fees_pos$$35$$);
           isNaN($percent_fee_value$$) && ($percent_fee_value$$ = 0);
           if ($original_fees_pos$$35$$[0] != $fixed_fee_value_percent_fee$$3$$.length || isNaN($percent_fee_value$$) || 0 > $percent_fee_value$$) {
-            $e$$381$$.stopPropagation(), $e$$381$$.preventDefault();
+            $e$$385$$.stopPropagation(), $e$$385$$.preventDefault();
           } else {
             var $effective_fees_fixed_fee$$3$$ = $form_data$$.FixedFee, $original_fees_pos$$35$$ = [0], $fixed_fee_value_percent_fee$$3$$ = $valueFormatter$$3$$.parse($effective_fees_fixed_fee$$3$$, $original_fees_pos$$35$$);
             isNaN($fixed_fee_value_percent_fee$$3$$) && ($fixed_fee_value_percent_fee$$3$$ = 0);
-            $original_fees_pos$$35$$[0] != $effective_fees_fixed_fee$$3$$.length || isNaN($fixed_fee_value_percent_fee$$3$$) || 0 > $fixed_fee_value_percent_fee$$3$$ ? ($e$$381$$.stopPropagation(), $e$$381$$.preventDefault()) : ($fixed_fee_value_percent_fee$$3$$ *= 1E8, $original_fees_pos$$35$$ = parseInt($withdraw_data$$2$$.PercentFee / 100 * ($withdraw_data$$2$$.Amount - $withdraw_data$$2$$.FixedFee), 10), $effective_fees_fixed_fee$$3$$ = parseInt($percent_fee_value$$ / 100 * ($withdraw_data$$2$$.Amount - 
-            $fixed_fee_value_percent_fee$$3$$), 10), $original_fees_pos$$35$$ < $effective_fees_fixed_fee$$3$$ ? ($e$$381$$.stopPropagation(), $e$$381$$.preventDefault()) : ($original_fees_pos$$35$$ > $effective_fees_fixed_fee$$3$$ && ($form_data$$.Fees = this.$formatCurrency$($original_fees_pos$$35$$ / 1E8, $withdraw_data$$2$$.Currency, !0) + "|" + this.$formatCurrency$($effective_fees_fixed_fee$$3$$ / 1E8, $withdraw_data$$2$$.Currency, !0)), delete $form_data$$.Amount, delete $form_data$$.FixedFee, 
+            $original_fees_pos$$35$$[0] != $effective_fees_fixed_fee$$3$$.length || isNaN($fixed_fee_value_percent_fee$$3$$) || 0 > $fixed_fee_value_percent_fee$$3$$ ? ($e$$385$$.stopPropagation(), $e$$385$$.preventDefault()) : ($fixed_fee_value_percent_fee$$3$$ *= 1E8, $original_fees_pos$$35$$ = parseInt($withdraw_data$$2$$.PercentFee / 100 * ($withdraw_data$$2$$.Amount - $withdraw_data$$2$$.FixedFee), 10), $effective_fees_fixed_fee$$3$$ = parseInt($percent_fee_value$$ / 100 * ($withdraw_data$$2$$.Amount - 
+            $fixed_fee_value_percent_fee$$3$$), 10), $original_fees_pos$$35$$ < $effective_fees_fixed_fee$$3$$ ? ($e$$385$$.stopPropagation(), $e$$385$$.preventDefault()) : ($original_fees_pos$$35$$ > $effective_fees_fixed_fee$$3$$ && ($form_data$$.Fees = this.$formatCurrency$($original_fees_pos$$35$$ / 1E8, $withdraw_data$$2$$.Currency, !0) + "|" + this.$formatCurrency$($effective_fees_fixed_fee$$3$$ / 1E8, $withdraw_data$$2$$.Currency, !0)), delete $form_data$$.Amount, delete $form_data$$.FixedFee, 
             delete $form_data$$.PercentFee, this.$conn_$.$processWithdraw$($request_id$$2$$, $action$$5$$, $withdraw_data$$2$$.WithdrawID, void 0, void 0, $form_data$$, $percent_fee_value$$, $fixed_fee_value_percent_fee$$3$$)));
           }
         }
       }, this);
     } else {
       if ("COMPLETE" === $action$$5$$) {
-        var $cancelWithdrawDlg_cancel_reason_dialog_content_dialogContent$$2_withdraw_amount_element_id$$ = $bitex$templates$DepositWithdrawDialogContent$$({$side$:"broker", $currency$:$withdraw_data$$2$$.Currency, $currencySign$:this.$getCurrencySign$($withdraw_data$$2$$.Currency), $force_method$:$withdraw_data$$2$$.Method, $amount$:$withdraw_data$$2$$.Amount, methods:$feeDialogContent_formatted_amount_model$$59$$.get("Profile").WithdrawStructure[$withdraw_data$$2$$.Currency], $methodID$:$fixed_fee$$2_method_element_id$$, 
+        var $cancelWithdrawDlg_cancel_reason_dialog_content_dialogContent$$2_withdraw_amount_element_id$$ = $bitex$templates$DepositWithdrawDialogContent$$({$side$:"broker", $currency$:$withdraw_data$$2$$.Currency, $currencySign$:this.$getCurrencySign$($withdraw_data$$2$$.Currency), $force_method$:$withdraw_data$$2$$.Method, $amount$:$withdraw_data$$2$$.Amount, methods:$feeDialogContent_formatted_amount_model$$62$$.get("Profile").WithdrawStructure[$withdraw_data$$2$$.Currency], $methodID$:$fixed_fee$$2_method_element_id$$, 
         $showFeeDataEntry$:!1, $amountID$:$cancelWithdrawDlg_cancel_reason_dialog_content_dialogContent$$2_withdraw_amount_element_id$$, $fixedFeeID$:$fixed_fee_element_id$$, $percentFeeID$:$percent_fee_element_id$$, $totalFeesID$:$total_fees_element_id$$, $netValueID$:$net_value_element_id$$, $hideNetAmount$:!1, type:"confirm_withdrawal", $netAmountLabel$:"T\u1ed5ng"}), $dlg$$5$$ = this.$showDialog$($cancelWithdrawDlg_cancel_reason_dialog_content_dialogContent$$2_withdraw_amount_element_id$$, "X\u00e1c nh\u1eadn r\u00fat " + 
         this.$getCurrencyDescription$($withdraw_data$$2$$.Currency), $bitex$ui$Dialog$ButtonSet$createOkCancel$$());
         $JSCompiler_StaticMethods_updateDom$$(this.$model_$);
-        $e$$378_handler$$141$$.$listen$($dlg$$5$$, $goog$ui$Dialog$EventType$SELECT$$, function($broker_withdraw_data_e$$382$$) {
-          "ok" == $broker_withdraw_data_e$$382$$.key && ($broker_withdraw_data_e$$382$$ = $bitex$util$getFormAsJSON$$($goog$dom$getFirstElementChild$$($dlg$$5$$.$getContentElement$())), delete $broker_withdraw_data_e$$382$$.Amount, this.$conn_$.$processWithdraw$($request_id$$2$$, $action$$5$$, $withdraw_data$$2$$.WithdrawID, void 0, void 0, $broker_withdraw_data_e$$382$$));
+        $e$$382_handler$$144$$.$listen$($dlg$$5$$, $goog$ui$Dialog$EventType$SELECT$$, function($broker_withdraw_data_e$$386$$) {
+          "ok" == $broker_withdraw_data_e$$386$$.key && ($broker_withdraw_data_e$$386$$ = $bitex$util$getFormAsJSON$$($goog$dom$getFirstElementChild$$($dlg$$5$$.$getContentElement$())), delete $broker_withdraw_data_e$$386$$.Amount, this.$conn_$.$processWithdraw$($request_id$$2$$, $action$$5$$, $withdraw_data$$2$$.WithdrawID, void 0, void 0, $broker_withdraw_data_e$$386$$));
         }, this);
       }
     }
   }
 };
-$JSCompiler_prototypeAlias$$.$onUserOrderEntry_$ = function $$JSCompiler_prototypeAlias$$$$onUserOrderEntry_$$($confirmDialogContent_dlgConfirm_e$$383$$) {
+$JSCompiler_prototypeAlias$$.$onUserOrderEntry_$ = function $$JSCompiler_prototypeAlias$$$$onUserOrderEntry_$$($confirmDialogContent_dlgConfirm_e$$387$$) {
   var $MSG_INSUFFICIENT_BALANCE_DEPOSIT_BUTTON_CAPTION_MSG_SEND_ORDER_NOTIFICATION_CONTENT_option_buttons_side_msg$$ = "Mua";
-  "2" == $confirmDialogContent_dlgConfirm_e$$383$$.target.$getSide$() && ($MSG_INSUFFICIENT_BALANCE_DEPOSIT_BUTTON_CAPTION_MSG_SEND_ORDER_NOTIFICATION_CONTENT_option_buttons_side_msg$$ = "B\u00e1n");
+  "2" == $confirmDialogContent_dlgConfirm_e$$387$$.target.$getSide$() && ($MSG_INSUFFICIENT_BALANCE_DEPOSIT_BUTTON_CAPTION_MSG_SEND_ORDER_NOTIFICATION_CONTENT_option_buttons_side_msg$$ = "B\u00e1n");
   if (!this.$model_$.get("IsBroker")) {
     var $balance_needed_to_send_the_order$$, $balance_currency$$2$$;
-    "1" == $confirmDialogContent_dlgConfirm_e$$383$$.target.$getSide$() ? ($balance_currency$$2$$ = this.$getPriceCurrencyFromSymbol$($confirmDialogContent_dlgConfirm_e$$383$$.target.$getSymbol$()), $balance_needed_to_send_the_order$$ = parseInt($confirmDialogContent_dlgConfirm_e$$383$$.target.$getPrice$() * $confirmDialogContent_dlgConfirm_e$$383$$.target.$getAmount$() / 1E8, 10)) : "2" == $confirmDialogContent_dlgConfirm_e$$383$$.target.$getSide$() && ($balance_currency$$2$$ = this.$getQtyCurrencyFromSymbol$($confirmDialogContent_dlgConfirm_e$$383$$.target.$getSymbol$()), 
-    $balance_needed_to_send_the_order$$ = $confirmDialogContent_dlgConfirm_e$$383$$.target.$getAmount$());
+    "1" == $confirmDialogContent_dlgConfirm_e$$387$$.target.$getSide$() ? ($balance_currency$$2$$ = this.$getPriceCurrencyFromSymbol$($confirmDialogContent_dlgConfirm_e$$387$$.target.$getSymbol$()), $balance_needed_to_send_the_order$$ = parseInt($confirmDialogContent_dlgConfirm_e$$387$$.target.$getPrice$() * $confirmDialogContent_dlgConfirm_e$$387$$.target.$getAmount$() / 1E8, 10)) : "2" == $confirmDialogContent_dlgConfirm_e$$387$$.target.$getSide$() && ($balance_currency$$2$$ = this.$getQtyCurrencyFromSymbol$($confirmDialogContent_dlgConfirm_e$$387$$.target.$getSymbol$()), 
+    $balance_needed_to_send_the_order$$ = $confirmDialogContent_dlgConfirm_e$$387$$.target.$getAmount$());
     var $broker_id$$15$$ = this.$model_$.get("SelectedBrokerID"), $client_id$$5$$ = this.$model_$.get("UserID"), $user_available_balance_for_trading$$ = this.$getBalance$($balance_currency$$2$$, "available"), $amount$$10$$ = Math.round($balance_needed_to_send_the_order$$ - $user_available_balance_for_trading$$);
     if (0 < $amount$$10$$) {
-      var $instructions$$1$$ = [{Timeout:60, Filter:{PaidValue:$amount$$10$$}, Msg:{MsgType:"D", ClOrdID:"" + (new Date).getTime() + ".L", Symbol:$confirmDialogContent_dlgConfirm_e$$383$$.target.$getSymbol$(), Side:$confirmDialogContent_dlgConfirm_e$$383$$.target.$getSide$(), OrdType:"2", Price:$confirmDialogContent_dlgConfirm_e$$383$$.target.$getPrice$(), OrderQty:$confirmDialogContent_dlgConfirm_e$$383$$.target.$getAmount$(), BrokerID:$confirmDialogContent_dlgConfirm_e$$383$$.target.$getBrokerID$()}}];
-      $confirmDialogContent_dlgConfirm_e$$383$$ = $bitex$templates$$.$InsufficientFundsContentDialog$({$currencyDescription$:this.$getCurrencyDescription$($balance_currency$$2$$), $balanceKey$:$broker_id$$15$$ + ":" + $client_id$$5$$ + "_" + $balance_currency$$2$$, $depositFormattedBalance$:this.$formatCurrency$($JSCompiler_StaticMethods_getDepositedAmount$$(this, $balance_currency$$2$$) / 1E8, $balance_currency$$2$$, !0), $lockedFormattedBalance$:this.$formatCurrency$($JSCompiler_StaticMethods_getLockedAmount$$(this, 
+      var $instructions$$1$$ = [{Timeout:60, Filter:{PaidValue:$amount$$10$$}, Msg:{MsgType:"D", ClOrdID:"" + (new Date).getTime() + ".L", Symbol:$confirmDialogContent_dlgConfirm_e$$387$$.target.$getSymbol$(), Side:$confirmDialogContent_dlgConfirm_e$$387$$.target.$getSide$(), OrdType:"2", Price:$confirmDialogContent_dlgConfirm_e$$387$$.target.$getPrice$(), OrderQty:$confirmDialogContent_dlgConfirm_e$$387$$.target.$getAmount$(), BrokerID:$confirmDialogContent_dlgConfirm_e$$387$$.target.$getBrokerID$()}}];
+      $confirmDialogContent_dlgConfirm_e$$387$$ = $bitex$templates$$.$InsufficientFundsContentDialog$({$currencyDescription$:this.$getCurrencyDescription$($balance_currency$$2$$), $balanceKey$:$broker_id$$15$$ + ":" + $client_id$$5$$ + "_" + $balance_currency$$2$$, $depositFormattedBalance$:this.$formatCurrency$($JSCompiler_StaticMethods_getDepositedAmount$$(this, $balance_currency$$2$$) / 1E8, $balance_currency$$2$$, !0), $lockedFormattedBalance$:this.$formatCurrency$($JSCompiler_StaticMethods_getLockedAmount$$(this, 
       $balance_currency$$2$$) / 1E8, $balance_currency$$2$$, !0), $availableFormattedBalance$:this.$formatCurrency$($user_available_balance_for_trading$$ / 1E8, $balance_currency$$2$$, !0)});
       $MSG_INSUFFICIENT_BALANCE_DEPOSIT_BUTTON_CAPTION_MSG_SEND_ORDER_NOTIFICATION_CONTENT_option_buttons_side_msg$$ = "N\u1ea1p " + this.$formatCurrency$($amount$$10$$ / 1E8, $balance_currency$$2$$, !0);
       $MSG_INSUFFICIENT_BALANCE_DEPOSIT_BUTTON_CAPTION_MSG_SEND_ORDER_NOTIFICATION_CONTENT_option_buttons_side_msg$$ = (new $bitex$ui$Dialog$ButtonSet$$).$addButton$({key:"deposit", caption:$MSG_INSUFFICIENT_BALANCE_DEPOSIT_BUTTON_CAPTION_MSG_SEND_ORDER_NOTIFICATION_CONTENT_option_buttons_side_msg$$}, !0, !0).$addButton$($goog$ui$Dialog$ButtonSet$DefaultButtons$CANCEL$$, !1, !0);
-      $confirmDialogContent_dlgConfirm_e$$383$$ = this.$showDialog$($confirmDialogContent_dlgConfirm_e$$383$$, "Kh\u00f4ng \u0111\u1ee7 ti\u1ec1n", $MSG_INSUFFICIENT_BALANCE_DEPOSIT_BUTTON_CAPTION_MSG_SEND_ORDER_NOTIFICATION_CONTENT_option_buttons_side_msg$$);
-      this.$getHandler$().$listen$($confirmDialogContent_dlgConfirm_e$$383$$, $goog$ui$Dialog$EventType$SELECT$$, function($e$$384_formatted_amount$$1$$) {
-        "deposit" == $e$$384_formatted_amount$$1$$.key && ($e$$384_formatted_amount$$1$$.preventDefault(), $e$$384_formatted_amount$$1$$.stopPropagation(), $e$$384_formatted_amount$$1$$ = (new $bitex$primitives$Price$$($amount$$10$$, $JSCompiler_StaticMethods_getCurrencyPip$$(this, $balance_currency$$2$$))).format(), $JSCompiler_StaticMethods_showDepositDialog$$(this, $balance_currency$$2$$, ($amount$$10$$ / 1E8).toFixed(8), $e$$384_formatted_amount$$1$$, !1, $instructions$$1$$));
+      $confirmDialogContent_dlgConfirm_e$$387$$ = this.$showDialog$($confirmDialogContent_dlgConfirm_e$$387$$, "Kh\u00f4ng \u0111\u1ee7 ti\u1ec1n", $MSG_INSUFFICIENT_BALANCE_DEPOSIT_BUTTON_CAPTION_MSG_SEND_ORDER_NOTIFICATION_CONTENT_option_buttons_side_msg$$);
+      this.$getHandler$().$listen$($confirmDialogContent_dlgConfirm_e$$387$$, $goog$ui$Dialog$EventType$SELECT$$, function($e$$388_formatted_amount$$1$$) {
+        "deposit" == $e$$388_formatted_amount$$1$$.key && ($e$$388_formatted_amount$$1$$.preventDefault(), $e$$388_formatted_amount$$1$$.stopPropagation(), $e$$388_formatted_amount$$1$$ = (new $bitex$primitives$Price$$($amount$$10$$, $JSCompiler_StaticMethods_getCurrencyPip$$(this, $balance_currency$$2$$))).format(), $JSCompiler_StaticMethods_showDepositDialog$$(this, $balance_currency$$2$$, ($amount$$10$$ / 1E8).toFixed(8), $e$$388_formatted_amount$$1$$, !1, $instructions$$1$$));
       }, this);
       return;
     }
   }
-  $MSG_INSUFFICIENT_BALANCE_DEPOSIT_BUTTON_CAPTION_MSG_SEND_ORDER_NOTIFICATION_CONTENT_option_buttons_side_msg$$ += " " + (this.$formatCurrency$($confirmDialogContent_dlgConfirm_e$$383$$.target.$getAmount$() / 1E8, this.$getQtyCurrencyFromSymbol$($confirmDialogContent_dlgConfirm_e$$383$$.target.$getSymbol$()), !0) + (" @ " + this.$formatCurrency$($confirmDialogContent_dlgConfirm_e$$383$$.target.$getPrice$() / 1E8, this.$getPriceCurrencyFromSymbol$($confirmDialogContent_dlgConfirm_e$$383$$.target.$getSymbol$()), 
+  $MSG_INSUFFICIENT_BALANCE_DEPOSIT_BUTTON_CAPTION_MSG_SEND_ORDER_NOTIFICATION_CONTENT_option_buttons_side_msg$$ += " " + (this.$formatCurrency$($confirmDialogContent_dlgConfirm_e$$387$$.target.$getAmount$() / 1E8, this.$getQtyCurrencyFromSymbol$($confirmDialogContent_dlgConfirm_e$$387$$.target.$getSymbol$()), !0) + (" @ " + this.$formatCurrency$($confirmDialogContent_dlgConfirm_e$$387$$.target.$getPrice$() / 1E8, this.$getPriceCurrencyFromSymbol$($confirmDialogContent_dlgConfirm_e$$387$$.target.$getSymbol$()), 
   !0)));
   this.$showNotification$("info", "\u0110ang g\u1eedi \u0111\u01a1n h\u00e0ng...", $MSG_INSUFFICIENT_BALANCE_DEPOSIT_BUTTON_CAPTION_MSG_SEND_ORDER_NOTIFICATION_CONTENT_option_buttons_side_msg$$);
-  $JSCompiler_StaticMethods_sendLimitedOrder$$(this.$conn_$, $confirmDialogContent_dlgConfirm_e$$383$$.target.$getSymbol$(), $confirmDialogContent_dlgConfirm_e$$383$$.target.$getAmount$(), $confirmDialogContent_dlgConfirm_e$$383$$.target.$getPrice$(), $confirmDialogContent_dlgConfirm_e$$383$$.target.$getSide$(), $confirmDialogContent_dlgConfirm_e$$383$$.target.$getBrokerID$(), $confirmDialogContent_dlgConfirm_e$$383$$.target.$getClientID$());
+  $JSCompiler_StaticMethods_sendLimitedOrder$$(this.$conn_$, $confirmDialogContent_dlgConfirm_e$$387$$.target.$getSymbol$(), $confirmDialogContent_dlgConfirm_e$$387$$.target.$getAmount$(), $confirmDialogContent_dlgConfirm_e$$387$$.target.$getPrice$(), $confirmDialogContent_dlgConfirm_e$$387$$.target.$getSide$(), $confirmDialogContent_dlgConfirm_e$$387$$.target.$getBrokerID$(), $confirmDialogContent_dlgConfirm_e$$387$$.target.$getClientID$());
 };
-$JSCompiler_prototypeAlias$$.$onUserCancelOrder_$ = function $$JSCompiler_prototypeAlias$$$$onUserCancelOrder_$$($e$$385$$) {
-  null != $e$$385$$.target.$client_order_id_$ ? this.$showNotification$("info", "\u0110ang hu\u1ef7 \u0111\u01a1n h\u00e0ng...", ":" + $e$$385$$.target.$client_order_id_$) : this.$showNotification$("info", "\u0110ang hu\u1ef7 \u0111\u01a1n h\u00e0ng...", ":" + $e$$385$$.target.$order_id_$);
-  this.$conn_$.$cancelOrder$($e$$385$$.target.$client_order_id_$, $e$$385$$.target.$order_id_$);
+$JSCompiler_prototypeAlias$$.$onUserCancelOrder_$ = function $$JSCompiler_prototypeAlias$$$$onUserCancelOrder_$$($e$$389$$) {
+  null != $e$$389$$.target.$client_order_id_$ ? this.$showNotification$("info", "\u0110ang hu\u1ef7 \u0111\u01a1n h\u00e0ng...", ":" + $e$$389$$.target.$client_order_id_$) : this.$showNotification$("info", "\u0110ang hu\u1ef7 \u0111\u01a1n h\u00e0ng...", ":" + $e$$389$$.target.$order_id_$);
+  this.$conn_$.$cancelOrder$($e$$389$$.target.$client_order_id_$, $e$$389$$.target.$order_id_$);
 };
-$JSCompiler_prototypeAlias$$.$onUserCancelReplaceOrder_$ = function $$JSCompiler_prototypeAlias$$$$onUserCancelReplaceOrder_$$($e$$386_opt_client_id$$inline_2269$$) {
-  this.$conn_$.$cancelOrder$($e$$386_opt_client_id$$inline_2269$$.target.$client_order_id_$, $e$$386_opt_client_id$$inline_2269$$.target.$order_id_$);
-  var $symbol$$inline_2264$$ = $e$$386_opt_client_id$$inline_2269$$.target.$getSymbol$(), $qty$$inline_2265$$ = $e$$386_opt_client_id$$inline_2269$$.target.$getAmount$(), $price$$inline_2266$$ = $e$$386_opt_client_id$$inline_2269$$.target.$getPrice$(), $side$$inline_2267$$ = $e$$386_opt_client_id$$inline_2269$$.target.$getSide$(), $broker_id$$inline_2268$$ = $e$$386_opt_client_id$$inline_2269$$.target.$getBrokerID$();
-  $e$$386_opt_client_id$$inline_2269$$ = $e$$386_opt_client_id$$inline_2269$$.target.$getClientID$();
-  $JSCompiler_StaticMethods_sendOrder_$$(this.$conn_$, $symbol$$inline_2264$$, $qty$$inline_2265$$, $price$$inline_2266$$, $side$$inline_2267$$, $broker_id$$inline_2268$$, $e$$386_opt_client_id$$inline_2269$$, void 0);
+$JSCompiler_prototypeAlias$$.$onUserCancelReplaceOrder_$ = function $$JSCompiler_prototypeAlias$$$$onUserCancelReplaceOrder_$$($e$$390_opt_client_id$$inline_2284$$) {
+  this.$conn_$.$cancelOrder$($e$$390_opt_client_id$$inline_2284$$.target.$client_order_id_$, $e$$390_opt_client_id$$inline_2284$$.target.$order_id_$);
+  var $symbol$$inline_2279$$ = $e$$390_opt_client_id$$inline_2284$$.target.$getSymbol$(), $qty$$inline_2280$$ = $e$$390_opt_client_id$$inline_2284$$.target.$getAmount$(), $price$$inline_2281$$ = $e$$390_opt_client_id$$inline_2284$$.target.$getPrice$(), $side$$inline_2282$$ = $e$$390_opt_client_id$$inline_2284$$.target.$getSide$(), $broker_id$$inline_2283$$ = $e$$390_opt_client_id$$inline_2284$$.target.$getBrokerID$();
+  $e$$390_opt_client_id$$inline_2284$$ = $e$$390_opt_client_id$$inline_2284$$.target.$getClientID$();
+  $JSCompiler_StaticMethods_sendOrder_$$(this.$conn_$, $symbol$$inline_2279$$, $qty$$inline_2280$$, $price$$inline_2281$$, $side$$inline_2282$$, $broker_id$$inline_2283$$, $e$$390_opt_client_id$$inline_2284$$, void 0);
 };
-$JSCompiler_prototypeAlias$$.$onShowReceipt_$ = function $$JSCompiler_prototypeAlias$$$$onShowReceipt_$$($MSG_SHOW_DEPOSIT_RECEIPT_DIALOG_TITLE_e$$387$$) {
-  var $receiptData$$ = $MSG_SHOW_DEPOSIT_RECEIPT_DIALOG_TITLE_e$$387$$.target.$receipt_data_$, $depositDetailTemplateData$$ = [];
-  $goog$object$forEach$$($MSG_SHOW_DEPOSIT_RECEIPT_DIALOG_TITLE_e$$387$$.target.$receipt_data_$, function($data$$59$$, $k$$2$$) {
+$JSCompiler_prototypeAlias$$.$onShowReceipt_$ = function $$JSCompiler_prototypeAlias$$$$onShowReceipt_$$($MSG_SHOW_DEPOSIT_RECEIPT_DIALOG_TITLE_e$$391$$) {
+  var $receiptData$$ = $MSG_SHOW_DEPOSIT_RECEIPT_DIALOG_TITLE_e$$391$$.target.$receipt_data_$, $depositDetailTemplateData$$ = [];
+  $goog$object$forEach$$($MSG_SHOW_DEPOSIT_RECEIPT_DIALOG_TITLE_e$$391$$.target.$receipt_data_$, function($data$$59$$, $k$$2$$) {
     "DepositReceipt" != $k$$2$$ && "SubmissionID" != $k$$2$$ && $depositDetailTemplateData$$.push({key:$k$$2$$, value:$data$$59$$});
   }, this);
   var $depositReceiptTemplateData$$ = [];
-  $goog$array$forEach$$($MSG_SHOW_DEPOSIT_RECEIPT_DIALOG_TITLE_e$$387$$.target.$receipt_data_$.DepositReceipt, function($url$$42$$) {
+  $goog$array$forEach$$($MSG_SHOW_DEPOSIT_RECEIPT_DIALOG_TITLE_e$$391$$.target.$receipt_data_$.DepositReceipt, function($url$$42$$) {
     var $is_txt$$ = $goog$string$caseInsensitiveEndsWith$$($url$$42$$, "txt"), $data$$60$$ = {url:$url$$42$$, type:"image"};
     $goog$string$caseInsensitiveEndsWith$$($url$$42$$, "pdf") ? $data$$60$$.type = "pdf" : $is_txt$$ && ($data$$60$$.type = "txt");
     $depositReceiptTemplateData$$.push($data$$60$$);
   }, this);
-  $MSG_SHOW_DEPOSIT_RECEIPT_DIALOG_TITLE_e$$387$$ = "Bi\u00ean lai " + $receiptData$$.SubmissionID;
-  this.$showDialog$($bitex$templates$DepositDetailDialogContent$$({$depositDetailData$:$depositDetailTemplateData$$, $depositReceiptList$:$depositReceiptTemplateData$$}), $MSG_SHOW_DEPOSIT_RECEIPT_DIALOG_TITLE_e$$387$$, $bitex$ui$Dialog$ButtonSet$createOk$$());
+  $MSG_SHOW_DEPOSIT_RECEIPT_DIALOG_TITLE_e$$391$$ = "Bi\u00ean lai " + $receiptData$$.SubmissionID;
+  this.$showDialog$($bitex$templates$DepositDetailDialogContent$$({$depositDetailData$:$depositDetailTemplateData$$, $depositReceiptList$:$depositReceiptTemplateData$$}), $MSG_SHOW_DEPOSIT_RECEIPT_DIALOG_TITLE_e$$391$$, $bitex$ui$Dialog$ButtonSet$createOk$$());
 };
-$JSCompiler_prototypeAlias$$.$onUpdateProfileResponse_$ = function $$JSCompiler_prototypeAlias$$$$onUpdateProfileResponse_$$($e$$388$$) {
-  this.$model_$.set("SelectedCustomer", $e$$388$$.data.Profile);
+$JSCompiler_prototypeAlias$$.$onUpdateProfileResponse_$ = function $$JSCompiler_prototypeAlias$$$$onUpdateProfileResponse_$$($e$$392$$) {
+  this.$model_$.set("SelectedCustomer", $e$$392$$.data.Profile);
 };
-$JSCompiler_prototypeAlias$$.$onUserShowKYC_$ = function $$JSCompiler_prototypeAlias$$$$onUserShowKYC_$$($e$$389_html$$29_verification_data$$4$$) {
-  $e$$389_html$$29_verification_data$$4$$ = $e$$389_html$$29_verification_data$$4$$.target.getData();
-  $e$$389_html$$29_verification_data$$4$$ = $bitex$util$verificationData2HTML$$($e$$389_html$$29_verification_data$$4$$);
-  this.$showDialog$($e$$389_html$$29_verification_data$$4$$, "X\u00e1c minh kh\u00e1ch h\u00e0ng");
+$JSCompiler_prototypeAlias$$.$onUserShowKYC_$ = function $$JSCompiler_prototypeAlias$$$$onUserShowKYC_$$($e$$393_html$$29_verification_data$$4$$) {
+  $e$$393_html$$29_verification_data$$4$$ = $e$$393_html$$29_verification_data$$4$$.target.getData();
+  $e$$393_html$$29_verification_data$$4$$ = $bitex$util$verificationData2HTML$$($e$$393_html$$29_verification_data$$4$$);
+  this.$showDialog$($e$$393_html$$29_verification_data$$4$$, "X\u00e1c minh kh\u00e1ch h\u00e0ng");
 };
-$JSCompiler_prototypeAlias$$.$onUserShowQr_$ = function $$JSCompiler_prototypeAlias$$$$onUserShowQr_$$($e$$390_handler$$143$$) {
-  var $qrData$$ = $e$$390_handler$$143$$.target.$qr_data_$, $MSG_SHOW_QR_CURRENCY_DEPOSIT_DIALOG_TITLE$$ = "N\u1ea1p " + this.$getCurrencyDescription$($qrData$$.Currency), $dialog_title$$ = "R\u00fat " + this.$getCurrencyDescription$($qrData$$.Currency);
-  "DEPOSIT" === $e$$390_handler$$143$$.target.$qr_data_verb_$ && ($dialog_title$$ = $MSG_SHOW_QR_CURRENCY_DEPOSIT_DIALOG_TITLE$$);
+$JSCompiler_prototypeAlias$$.$onUserShowQr_$ = function $$JSCompiler_prototypeAlias$$$$onUserShowQr_$$($e$$394_handler$$146$$) {
+  var $qrData$$ = $e$$394_handler$$146$$.target.$qr_data_$, $MSG_SHOW_QR_CURRENCY_DEPOSIT_DIALOG_TITLE$$ = "N\u1ea1p " + this.$getCurrencyDescription$($qrData$$.Currency), $dialog_title$$ = "R\u00fat " + this.$getCurrencyDescription$($qrData$$.Currency);
+  "DEPOSIT" === $e$$394_handler$$146$$.target.$qr_data_verb_$ && ($dialog_title$$ = $MSG_SHOW_QR_CURRENCY_DEPOSIT_DIALOG_TITLE$$);
   var $dlg$$7$$ = this.$showDialog$($bitex$templates$CryptoCurrencyQRContentDialog$$({data:$qrData$$}), $dialog_title$$, (new $bitex$ui$Dialog$ButtonSet$$).$addButton$($goog$ui$Dialog$ButtonSet$DefaultButtons$CANCEL$$, !1, !0));
-  $e$$390_handler$$143$$ = this.$getHandler$();
+  $e$$394_handler$$146$$ = this.$getHandler$();
   var $input_address$$ = $qrData$$.Wallet;
-  $e$$390_handler$$143$$.$listenOnce$(this.$conn_$, $bitex$api$BitEx$EventType$DEPOSIT_REFRESH$$, function($e$$391_refresh_msg$$) {
-    $e$$391_refresh_msg$$ = $e$$391_refresh_msg$$.data;
-    $e$$391_refresh_msg$$.Data.InputAddress === $input_address$$ && null != $e$$391_refresh_msg$$.Data.Confirmations && "0" == $e$$391_refresh_msg$$.Data.Confirmations && $dlg$$7$$.$dispose$();
+  $e$$394_handler$$146$$.$listenOnce$(this.$conn_$, $bitex$api$BitEx$EventType$DEPOSIT_REFRESH$$, function($e$$395_refresh_msg$$) {
+    $e$$395_refresh_msg$$ = $e$$395_refresh_msg$$.data;
+    $e$$395_refresh_msg$$.Data.InputAddress === $input_address$$ && null != $e$$395_refresh_msg$$.Data.Confirmations && "0" == $e$$395_refresh_msg$$.Data.Confirmations && $dlg$$7$$.$dispose$();
   });
 };
-$JSCompiler_prototypeAlias$$.$onUserUploadReceipt_$ = function $$JSCompiler_prototypeAlias$$$$onUserUploadReceipt_$$($e$$392_stunt_ip_str$$1$$) {
-  var $model$$61$$ = this.$model_$, $deposit_data$$ = $e$$392_stunt_ip_str$$1$$.target.$getDepositData$(), $broker$$18_upload_form_url$$ = $model$$61$$.get("Broker");
+$JSCompiler_prototypeAlias$$.$onUserUploadReceipt_$ = function $$JSCompiler_prototypeAlias$$$$onUserUploadReceipt_$$($e$$396_stunt_ip_str$$1$$) {
+  var $model$$64$$ = this.$model_$, $deposit_data$$ = $e$$396_stunt_ip_str$$1$$.target.$getDepositData$(), $broker$$18_upload_form_url$$ = $model$$64$$.get("Broker");
   if (null != $broker$$18_upload_form_url$$) {
-    $e$$392_stunt_ip_str$$1$$ = $goog$json$serialize$$(this.$ip_addresses_$);
+    $e$$396_stunt_ip_str$$1$$ = $goog$json$serialize$$(this.$ip_addresses_$);
     var $deposit_method$$2$$ = $goog$array$find$$(this.$model_$.get("DepositMethods"), function($dm$$) {
       return $dm$$.id == $deposit_data$$.DepositMethodID;
     }), $broker$$18_upload_form_url$$ = $broker$$18_upload_form_url$$.UploadForm;
     $deposit_method$$2$$ && ($broker$$18_upload_form_url$$ = $deposit_method$$2$$.$user_receipt_url$);
-    $broker$$18_upload_form_url$$ = $broker$$18_upload_form_url$$.replace("{{UserID}}", $model$$61$$.get("UserID"));
-    $broker$$18_upload_form_url$$ = $broker$$18_upload_form_url$$.replace("{{Username}}", $model$$61$$.get("Username"));
-    $broker$$18_upload_form_url$$ = $broker$$18_upload_form_url$$.replace("{{BrokerID}}", $model$$61$$.get("Broker").BrokerID);
-    $broker$$18_upload_form_url$$ = $broker$$18_upload_form_url$$.replace("{{BrokerUsername}}", $model$$61$$.get("Broker").ShortName);
-    $broker$$18_upload_form_url$$ = $broker$$18_upload_form_url$$.replace("{{Email}}", $model$$61$$.get("Profile").Email);
+    $broker$$18_upload_form_url$$ = $broker$$18_upload_form_url$$.replace("{{UserID}}", $model$$64$$.get("UserID"));
+    $broker$$18_upload_form_url$$ = $broker$$18_upload_form_url$$.replace("{{Username}}", $model$$64$$.get("Username"));
+    $broker$$18_upload_form_url$$ = $broker$$18_upload_form_url$$.replace("{{BrokerID}}", $model$$64$$.get("Broker").BrokerID);
+    $broker$$18_upload_form_url$$ = $broker$$18_upload_form_url$$.replace("{{BrokerUsername}}", $model$$64$$.get("Broker").ShortName);
+    $broker$$18_upload_form_url$$ = $broker$$18_upload_form_url$$.replace("{{Email}}", $model$$64$$.get("Profile").Email);
     $broker$$18_upload_form_url$$ = $broker$$18_upload_form_url$$.replace("{{DepositMethod}}", $deposit_data$$.DepositMethodName);
     $broker$$18_upload_form_url$$ = $broker$$18_upload_form_url$$.replace("{{ControlNumber}}", $deposit_data$$.ControlNumber);
     $broker$$18_upload_form_url$$ = $broker$$18_upload_form_url$$.replace("{{DepositID}}", $deposit_data$$.DepositID);
     $broker$$18_upload_form_url$$ = $broker$$18_upload_form_url$$.replace("{{Value}}", $deposit_data$$.Value);
     $broker$$18_upload_form_url$$ = $broker$$18_upload_form_url$$.replace("{{FingerPrint}}", this.$finger_print_$);
-    $broker$$18_upload_form_url$$ = $broker$$18_upload_form_url$$.replace("{{STUNTIp}}", $e$$392_stunt_ip_str$$1$$);
+    $broker$$18_upload_form_url$$ = $broker$$18_upload_form_url$$.replace("{{STUNTIp}}", $e$$396_stunt_ip_str$$1$$);
     try {
       var $formmatted_value$$ = this.$formatCurrency$($deposit_data$$.Value / 1E8, $deposit_data$$.Currency, !0), $broker$$18_upload_form_url$$ = $broker$$18_upload_form_url$$.replace("{{FormattedValue}}", $formmatted_value$$);
-    } catch ($e$$393$$) {
+    } catch ($e$$397$$) {
     }
     window.open($broker$$18_upload_form_url$$, "blank", "scrollbars=yes,toolbar=no,width=700,height=500");
   }
@@ -16842,21 +16960,21 @@ $fixed_fee$$4_is_amount_in_satoshis_opt_is_fixed_fee_formatted_percent_fee$$4$$,
   2), $goog$dom$forms$setValue$$($goog$dom$getElement$$($net_amount_element_validator_id_opt_net_amount_element_id$$), $currency$$44_formatted_net_amount_validatorFormatter$$.format($is_fixed_fee_in_satoshis_net_amount_opt_add_fees$$ / 1E8))));
   return[$amount$$11_amount_element_id$$, $percent_fee_element_id$$1_percent_fee_value$$1$$, $fixed_fee_element_id$$1_fixed_fee_value$$1$$, $is_fixed_fee_in_satoshis_net_amount_opt_add_fees$$];
 };
-$JSCompiler_prototypeAlias$$.$onProcessDeposit_$ = function $$JSCompiler_prototypeAlias$$$$onProcessDeposit_$$($e$$394_handler$$144$$) {
-  var $deposit_data$$1$$ = $e$$394_handler$$144$$.target.$getDepositData$(), $request_id$$3$$ = $e$$394_handler$$144$$.target.$request_id_$, $action$$6$$ = $e$$394_handler$$144$$.target.$getDepositAction$();
-  $e$$394_handler$$144$$ = this.$getHandler$();
+$JSCompiler_prototypeAlias$$.$onProcessDeposit_$ = function $$JSCompiler_prototypeAlias$$$$onProcessDeposit_$$($e$$398_handler$$147$$) {
+  var $deposit_data$$1$$ = $e$$398_handler$$147$$.target.$getDepositData$(), $request_id$$3$$ = $e$$398_handler$$147$$.target.$request_id_$, $action$$6$$ = $e$$398_handler$$147$$.target.$getDepositAction$();
+  $e$$398_handler$$147$$ = this.$getHandler$();
   if ("CANCEL" === $action$$6$$) {
     var $cancelWithdrawDlg$$1_cancel_reason_dialog_content$$1_total_fees_element_id$$1$$ = $bitex$templates$CancelDepositDialogContent$$(), $cancelWithdrawDlg$$1_cancel_reason_dialog_content$$1_total_fees_element_id$$1$$ = this.$showDialog$($cancelWithdrawDlg$$1_cancel_reason_dialog_content$$1_total_fees_element_id$$1$$, "\u0110\u00f3ng", $bitex$ui$Dialog$ButtonSet$createOkCancel$$()), $select_reason_el$$1$$ = $goog$dom$getElement$$("id_select_reason"), $reason_el$$2$$ = $goog$dom$getElement$$("id_custom_reason_text");
-    $e$$394_handler$$144$$.$listen$($select_reason_el$$1$$, "change", function() {
+    $e$$398_handler$$147$$.$listen$($select_reason_el$$1$$, "change", function() {
       var $reason_id$$3$$ = $goog$string$toNumber$$($goog$dom$forms$getValue$$($select_reason_el$$1$$));
       $goog$style$setElementShown$$($reason_el$$2$$, 0 === $reason_id$$3$$);
     });
-    $e$$394_handler$$144$$.$listen$($cancelWithdrawDlg$$1_cancel_reason_dialog_content$$1_total_fees_element_id$$1$$, $goog$ui$Dialog$EventType$SELECT$$, function($e$$396$$) {
-      if ("ok" == $e$$396$$.key) {
+    $e$$398_handler$$147$$.$listen$($cancelWithdrawDlg$$1_cancel_reason_dialog_content$$1_total_fees_element_id$$1$$, $goog$ui$Dialog$EventType$SELECT$$, function($e$$400$$) {
+      if ("ok" == $e$$400$$.key) {
         var $reason_id$$4$$ = $goog$string$toNumber$$($goog$dom$forms$getValue$$($select_reason_el$$1$$)), $reason$$9$$;
         if (0 === $reason_id$$4$$ && ($reason$$9$$ = $goog$string$trim$$($goog$dom$forms$getValue$$($reason_el$$2$$)), $goog$string$isEmptyOrWhitespace$$($reason$$9$$))) {
-          $e$$396$$.stopPropagation();
-          $e$$396$$.preventDefault();
+          $e$$400$$.stopPropagation();
+          $e$$400$$.preventDefault();
           $goog$dom$getElement$$("id_custom_reason_text").focus();
           return;
         }
@@ -16877,23 +16995,23 @@ $JSCompiler_prototypeAlias$$.$onProcessDeposit_$ = function $$JSCompiler_prototy
         value:$valueFormatter$$5$$.format($deposit_data$$1$$.Value / 1E8), $percentFee$:$valueFormatter$$5$$.format($deposit_data$$1$$.PercentFee), $fixedFee$:$valueFormatter$$5$$.format($deposit_data$$1$$.FixedFee / 1E8)});
         $confirmDepositDlg_confirm_deposit_dialog_content_control_number$$ = this.$showDialog$($confirmDepositDlg_confirm_deposit_dialog_content_control_number$$, "X\u00e1c nh\u1eadn l\u1ec7nh n\u1ea1p", $bitex$ui$Dialog$ButtonSet$createOkCancel$$());
         this.$doCalculateFees_$($paid_value_element_id$$, $fixed_fee_element_id$$2$$, $percent_fee_element_id$$2$$, $deposit_data$$1$$.Currency, $cancelWithdrawDlg$$1_cancel_reason_dialog_content$$1_total_fees_element_id$$1$$, $net_value_element_id$$1$$, !1, !1, !0, !1, !0, !0);
-        $e$$394_handler$$144$$.$listen$(new $goog$events$InputHandler$$($goog$dom$getElement$$($paid_value_element_id$$)), "input", $goog$bind$$(this.$doCalculateFees_$, this, $paid_value_element_id$$, $fixed_fee_element_id$$2$$, $percent_fee_element_id$$2$$, $deposit_data$$1$$.Currency, $cancelWithdrawDlg$$1_cancel_reason_dialog_content$$1_total_fees_element_id$$1$$, $net_value_element_id$$1$$, !1, !1, !0, !1, !0, !0));
-        $e$$394_handler$$144$$.$listen$(new $goog$events$InputHandler$$($goog$dom$getElement$$($percent_fee_element_id$$2$$)), "input", $goog$bind$$(this.$doCalculateFees_$, this, $paid_value_element_id$$, $fixed_fee_element_id$$2$$, $percent_fee_element_id$$2$$, $deposit_data$$1$$.Currency, $cancelWithdrawDlg$$1_cancel_reason_dialog_content$$1_total_fees_element_id$$1$$, $net_value_element_id$$1$$, !1, !1, !0, !1, !0, !0));
-        $e$$394_handler$$144$$.$listen$(new $goog$events$InputHandler$$($goog$dom$getElement$$($fixed_fee_element_id$$2$$)), "input", $goog$bind$$(this.$doCalculateFees_$, this, $paid_value_element_id$$, $fixed_fee_element_id$$2$$, $percent_fee_element_id$$2$$, $deposit_data$$1$$.Currency, $cancelWithdrawDlg$$1_cancel_reason_dialog_content$$1_total_fees_element_id$$1$$, $net_value_element_id$$1$$, !1, !1, !0, !1, !0, !0));
-        $e$$394_handler$$144$$.$listen$($confirmDepositDlg_confirm_deposit_dialog_content_control_number$$, $goog$ui$Dialog$EventType$SELECT$$, function($e$$397$$) {
-          if ("ok" == $e$$397$$.key) {
+        $e$$398_handler$$147$$.$listen$(new $goog$events$InputHandler$$($goog$dom$getElement$$($paid_value_element_id$$)), "input", $goog$bind$$(this.$doCalculateFees_$, this, $paid_value_element_id$$, $fixed_fee_element_id$$2$$, $percent_fee_element_id$$2$$, $deposit_data$$1$$.Currency, $cancelWithdrawDlg$$1_cancel_reason_dialog_content$$1_total_fees_element_id$$1$$, $net_value_element_id$$1$$, !1, !1, !0, !1, !0, !0));
+        $e$$398_handler$$147$$.$listen$(new $goog$events$InputHandler$$($goog$dom$getElement$$($percent_fee_element_id$$2$$)), "input", $goog$bind$$(this.$doCalculateFees_$, this, $paid_value_element_id$$, $fixed_fee_element_id$$2$$, $percent_fee_element_id$$2$$, $deposit_data$$1$$.Currency, $cancelWithdrawDlg$$1_cancel_reason_dialog_content$$1_total_fees_element_id$$1$$, $net_value_element_id$$1$$, !1, !1, !0, !1, !0, !0));
+        $e$$398_handler$$147$$.$listen$(new $goog$events$InputHandler$$($goog$dom$getElement$$($fixed_fee_element_id$$2$$)), "input", $goog$bind$$(this.$doCalculateFees_$, this, $paid_value_element_id$$, $fixed_fee_element_id$$2$$, $percent_fee_element_id$$2$$, $deposit_data$$1$$.Currency, $cancelWithdrawDlg$$1_cancel_reason_dialog_content$$1_total_fees_element_id$$1$$, $net_value_element_id$$1$$, !1, !1, !0, !1, !0, !0));
+        $e$$398_handler$$147$$.$listen$($confirmDepositDlg_confirm_deposit_dialog_content_control_number$$, $goog$ui$Dialog$EventType$SELECT$$, function($e$$401$$) {
+          if ("ok" == $e$$401$$.key) {
             var $pos$$37$$ = [0], $percent_fee_value$$2_raw_paid_value$$ = $goog$dom$forms$getValue$$($goog$dom$getElement$$($paid_value_element_id$$)), $paid_value$$2$$ = $valueFormatter$$5$$.parse($percent_fee_value$$2_raw_paid_value$$, $pos$$37$$);
             if ($pos$$37$$[0] != $percent_fee_value$$2_raw_paid_value$$.length || isNaN($paid_value$$2$$) || 0 >= $paid_value$$2$$) {
-              $e$$397$$.stopPropagation(), $e$$397$$.preventDefault(), $goog$dom$getElement$$($paid_value_element_id$$).focus();
+              $e$$401$$.stopPropagation(), $e$$401$$.preventDefault(), $goog$dom$getElement$$($paid_value_element_id$$).focus();
             } else {
               var $paid_value$$2$$ = 1E8 * $paid_value$$2$$, $fixed_fee$$5_percent_fee$$5$$ = $goog$dom$forms$getValue$$($goog$dom$getElement$$($percent_fee_element_id$$2$$)), $pos$$37$$ = [0], $percent_fee_value$$2_raw_paid_value$$ = $valueFormatter$$5$$.parse($fixed_fee$$5_percent_fee$$5$$, $pos$$37$$);
               isNaN($percent_fee_value$$2_raw_paid_value$$) && ($percent_fee_value$$2_raw_paid_value$$ = 0);
               if ($pos$$37$$[0] != $fixed_fee$$5_percent_fee$$5$$.length || isNaN($percent_fee_value$$2_raw_paid_value$$) || 0 > $percent_fee_value$$2_raw_paid_value$$) {
-                $e$$397$$.stopPropagation(), $e$$397$$.preventDefault(), $goog$dom$getElement$$($percent_fee_element_id$$2$$).focus();
+                $e$$401$$.stopPropagation(), $e$$401$$.preventDefault(), $goog$dom$getElement$$($percent_fee_element_id$$2$$).focus();
               } else {
                 var $fixed_fee$$5_percent_fee$$5$$ = $goog$dom$forms$getValue$$($goog$dom$getElement$$($fixed_fee_element_id$$2$$)), $pos$$37$$ = [0], $fixed_fee_value$$2$$ = $valueFormatter$$5$$.parse($fixed_fee$$5_percent_fee$$5$$, $pos$$37$$);
                 isNaN($fixed_fee_value$$2$$) && ($fixed_fee_value$$2$$ = 0);
-                $pos$$37$$[0] != $fixed_fee$$5_percent_fee$$5$$.length || isNaN($fixed_fee_value$$2$$) || 0 > $fixed_fee_value$$2$$ ? ($e$$397$$.stopPropagation(), $e$$397$$.preventDefault(), $goog$dom$getElement$$($fixed_fee_element_id$$2$$).focus()) : this.$conn_$.$processDeposit$($request_id$$3$$, $action$$6$$, void 0, $deposit_data$$1$$.DepositID, void 0, void 0, $paid_value$$2$$, $percent_fee_value$$2_raw_paid_value$$, 1E8 * $fixed_fee_value$$2$$);
+                $pos$$37$$[0] != $fixed_fee$$5_percent_fee$$5$$.length || isNaN($fixed_fee_value$$2$$) || 0 > $fixed_fee_value$$2$$ ? ($e$$401$$.stopPropagation(), $e$$401$$.preventDefault(), $goog$dom$getElement$$($fixed_fee_element_id$$2$$).focus()) : this.$conn_$.$processDeposit$($request_id$$3$$, $action$$6$$, void 0, $deposit_data$$1$$.DepositID, void 0, void 0, $paid_value$$2$$, $percent_fee_value$$2_raw_paid_value$$, 1E8 * $fixed_fee_value$$2$$);
               }
             }
           }
@@ -16902,38 +17020,38 @@ $JSCompiler_prototypeAlias$$.$onProcessDeposit_$ = function $$JSCompiler_prototy
     }
   }
 };
-$JSCompiler_prototypeAlias$$.$onInstantFiatDeposit_$ = function $$JSCompiler_prototypeAlias$$$$onInstantFiatDeposit_$$($e$$398_handler$$145$$) {
-  var $model$$63$$ = this.$model_$, $deposit_data$$2$$ = $e$$398_handler$$145$$.target.$getDepositData$(), $request_id$$4$$ = $e$$398_handler$$145$$.target.$request_id_$;
-  $e$$398_handler$$145$$ = this.$getHandler$();
-  var $dlg$$8_portfolio_currency$$2$$ = $deposit_data$$2$$.Currency, $net_value_portfolio_balance_model_key$$ = "Portfolio_Balance_" + $model$$63$$.get("Broker").BrokerID + "_" + $model$$63$$.get("UserID") + "_" + $dlg$$8_portfolio_currency$$2$$, $portfolio_position_model_key$$ = "Portfolio_Position_" + $model$$63$$.get("Broker").BrokerID + "_" + $model$$63$$.get("UserID") + "_" + $dlg$$8_portfolio_currency$$2$$, $formula$$1_gross_limit_credit_formula$$ = "(((" + $net_value_portfolio_balance_model_key$$ + 
-  " + " + $portfolio_position_model_key$$ + " ) * 3) + " + $portfolio_position_model_key$$ + ") ", $formula$$1_gross_limit_credit_formula$$ = "(" + $formula$$1_gross_limit_credit_formula$$ + " - ( " + $deposit_data$$2$$.FixedFee + " + " + ("(" + $formula$$1_gross_limit_credit_formula$$ + " - " + $deposit_data$$2$$.FixedFee + ") * (" + $deposit_data$$2$$.PercentFee / 100 + ") ") + " ) ) / 100000000", $variable_list$$1$$ = new $goog$structs$Set$$;
+$JSCompiler_prototypeAlias$$.$onInstantFiatDeposit_$ = function $$JSCompiler_prototypeAlias$$$$onInstantFiatDeposit_$$($e$$402_handler$$148$$) {
+  var $model$$66$$ = this.$model_$, $deposit_data$$2$$ = $e$$402_handler$$148$$.target.$getDepositData$(), $request_id$$4$$ = $e$$402_handler$$148$$.target.$request_id_$;
+  $e$$402_handler$$148$$ = this.$getHandler$();
+  var $dlg$$8_portfolio_currency$$2$$ = $deposit_data$$2$$.Currency, $net_value_portfolio_balance_model_key$$ = "Portfolio_Balance_" + $model$$66$$.get("Broker").BrokerID + "_" + $model$$66$$.get("UserID") + "_" + $dlg$$8_portfolio_currency$$2$$, $portfolio_position_model_key$$ = "Portfolio_Position_" + $model$$66$$.get("Broker").BrokerID + "_" + $model$$66$$.get("UserID") + "_" + $dlg$$8_portfolio_currency$$2$$, $formula$$1_gross_limit_credit_formula$$ = "(((" + $net_value_portfolio_balance_model_key$$ + 
+  " + " + $portfolio_position_model_key$$ + " ) * 3) + " + $portfolio_position_model_key$$ + ") ", $formula$$1_gross_limit_credit_formula$$ = "(" + $formula$$1_gross_limit_credit_formula$$ + " - " + ("( " + $deposit_data$$2$$.FixedFee + " + ( (" + $formula$$1_gross_limit_credit_formula$$ + " - " + $deposit_data$$2$$.FixedFee + ") * (" + $deposit_data$$2$$.PercentFee / 100 + ") ) )") + " ) / 100000000", $variable_list$$1$$ = new $goog$structs$Set$$;
   $variable_list$$1$$.add($net_value_portfolio_balance_model_key$$);
   $variable_list$$1$$.add($portfolio_position_model_key$$);
   $net_value_portfolio_balance_model_key$$ = ($deposit_data$$2$$.Value - parseInt(parseInt($deposit_data$$2$$.PercentFee / 100 * ($deposit_data$$2$$.Value - $deposit_data$$2$$.FixedFee), 10) + $deposit_data$$2$$.FixedFee, 10)) / 1E8;
   $dlg$$8_portfolio_currency$$2$$ = this.$showDialog$($bitex$templates$InstantFiatDepositDialogContent$$({$variables$:$variable_list$$1$$.$getValues$().join(","), $currency$:$dlg$$8_portfolio_currency$$2$$, pattern:this.$getCurrencyHumanFormat$($dlg$$8_portfolio_currency$$2$$), $formula$:$formula$$1_gross_limit_credit_formula$$, value:$net_value_portfolio_balance_model_key$$}), "Ti\u1ec1n \u0111\u1eb7t c\u1ecdc", (new $bitex$ui$Dialog$ButtonSet$$).$addButton$($goog$ui$Dialog$ButtonSet$DefaultButtons$YES$$, 
   !0).$addButton$($goog$ui$Dialog$ButtonSet$DefaultButtons$NO$$, !1, !0));
-  $JSCompiler_StaticMethods_updateDom$$($model$$63$$);
-  $e$$398_handler$$145$$.$listen$($dlg$$8_portfolio_currency$$2$$, $goog$ui$Dialog$EventType$SELECT$$, function($e$$399$$) {
-    "yes" == $e$$399$$.key && this.$conn_$.$processInstantDepositFiat$($deposit_data$$2$$.DepositID, $request_id$$4$$);
+  $JSCompiler_StaticMethods_updateDom$$($model$$66$$);
+  $e$$402_handler$$148$$.$listen$($dlg$$8_portfolio_currency$$2$$, $goog$ui$Dialog$EventType$SELECT$$, function($e$$403$$) {
+    "yes" == $e$$403$$.key && this.$conn_$.$processInstantDepositFiat$($deposit_data$$2$$.DepositID, $request_id$$4$$);
   }, this);
 };
 function $JSCompiler_StaticMethods_showDepositDialog$$($JSCompiler_StaticMethods_showDepositDialog$self$$, $currency$$45$$, $opt_amount$$1$$, $opt_formatted_amount$$, $MSG_CURRENCY_DEPOSIT_DIALOG_TITLE_opt_switch_view$$, $opt_instructions$$1$$) {
-  var $handler$$146$$ = $JSCompiler_StaticMethods_showDepositDialog$self$$.$getHandler$(), $user_verification_level$$1$$ = $JSCompiler_StaticMethods_showDepositDialog$self$$.$model_$.get("Profile").Verified;
+  var $handler$$149$$ = $JSCompiler_StaticMethods_showDepositDialog$self$$.$getHandler$(), $user_verification_level$$1$$ = $JSCompiler_StaticMethods_showDepositDialog$self$$.$model_$.get("Profile").Verified;
   !1 !== $MSG_CURRENCY_DEPOSIT_DIALOG_TITLE_opt_switch_view$$ && $JSCompiler_StaticMethods_showDepositDialog$self$$.$setView$("deposit");
   $MSG_CURRENCY_DEPOSIT_DIALOG_TITLE_opt_switch_view$$ = "N\u1ea1p " + $JSCompiler_StaticMethods_showDepositDialog$self$$.$getCurrencyDescription$($currency$$45$$);
   if ($JSCompiler_StaticMethods_showDepositDialog$self$$.$isCryptoCurrency$($currency$$45$$)) {
     var $confirmDialogContent$$1_method_element_id$$1$$ = $bitex$templates$ConfirmDepositCryptoCurrencyContentDialog$$({$currencydescription$:$JSCompiler_StaticMethods_showDepositDialog$self$$.$getCurrencyDescription$($currency$$45$$)}), $dlgConfirm$$1$$ = $JSCompiler_StaticMethods_showDepositDialog$self$$.$showDialog$($confirmDialogContent$$1_method_element_id$$1$$, $MSG_CURRENCY_DEPOSIT_DIALOG_TITLE_opt_switch_view$$, $bitex$ui$Dialog$ButtonSet$createYesNoCancel$$());
-    $handler$$146$$.$listen$($dlgConfirm$$1$$, $goog$ui$Dialog$EventType$SELECT$$, function($e$$400_request_id$$5$$) {
-      "yes" == $e$$400_request_id$$5$$.key && ($e$$400_request_id$$5$$.preventDefault(), $e$$400_request_id$$5$$.stopPropagation(), $e$$400_request_id$$5$$ = parseInt(1E7 * Math.random(), 10), this.$conn_$.$requestDeposit$($e$$400_request_id$$5$$, void 0, $opt_formatted_amount$$, void 0, $currency$$45$$, void 0, $opt_instructions$$1$$), $goog$soy$renderElement$$($goog$dom$getFirstElementChild$$($dlgConfirm$$1$$.$getContentElement$()), $bitex$templates$WaitingForDepositResponseDialogContent$$), $JSCompiler_StaticMethods_setButtonSet$$($dlgConfirm$$1$$, 
-      (new $bitex$ui$Dialog$ButtonSet$$).$addButton$($goog$ui$Dialog$ButtonSet$DefaultButtons$CANCEL$$, !1, !0)), $handler$$146$$.$listenOnce$(this.$conn_$, "error_message." + $e$$400_request_id$$5$$, function() {
+    $handler$$149$$.$listen$($dlgConfirm$$1$$, $goog$ui$Dialog$EventType$SELECT$$, function($e$$404_request_id$$5$$) {
+      "yes" == $e$$404_request_id$$5$$.key && ($e$$404_request_id$$5$$.preventDefault(), $e$$404_request_id$$5$$.stopPropagation(), $e$$404_request_id$$5$$ = parseInt(1E7 * Math.random(), 10), this.$conn_$.$requestDeposit$($e$$404_request_id$$5$$, void 0, $opt_formatted_amount$$, void 0, $currency$$45$$, void 0, $opt_instructions$$1$$), $goog$soy$renderElement$$($goog$dom$getFirstElementChild$$($dlgConfirm$$1$$.$getContentElement$()), $bitex$templates$WaitingForDepositResponseDialogContent$$), $JSCompiler_StaticMethods_setButtonSet$$($dlgConfirm$$1$$, 
+      (new $bitex$ui$Dialog$ButtonSet$$).$addButton$($goog$ui$Dialog$ButtonSet$DefaultButtons$CANCEL$$, !1, !0)), $handler$$149$$.$listenOnce$(this.$conn_$, "error_message." + $e$$404_request_id$$5$$, function() {
         $dlgConfirm$$1$$.$dispose$();
-      }), $handler$$146$$.$listenOnce$(this.$conn_$, "deposit_response." + $e$$400_request_id$$5$$, function($e$$402_msg$$130$$) {
-        $e$$402_msg$$130$$ = $e$$402_msg$$130$$.data;
-        var $enabled_instant_deposits$$ = 3 <= $user_verification_level$$1$$, $input_address$$1$$ = $e$$402_msg$$130$$.Data.InputAddress;
-        $goog$soy$renderElement$$($goog$dom$getFirstElementChild$$($dlgConfirm$$1$$.$getContentElement$()), $bitex$templates$DepositCryptoCurrencyContentDialog$$, {$deposit_message$:$e$$402_msg$$130$$, $hasInstantDepositsEnabled$:$enabled_instant_deposits$$, $amount$:$opt_amount$$1$$, $formattedAmount$:$opt_formatted_amount$$});
-        $handler$$146$$.$listen$(this.$conn_$, $bitex$api$BitEx$EventType$DEPOSIT_REFRESH$$, function($e$$403_refresh_msg$$1$$) {
-          $e$$403_refresh_msg$$1$$ = $e$$403_refresh_msg$$1$$.data;
-          $e$$403_refresh_msg$$1$$.Data.InputAddress === $input_address$$1$$ && null != $e$$403_refresh_msg$$1$$.Data.Confirmations && "0" == $e$$403_refresh_msg$$1$$.Data.Confirmations && $dlgConfirm$$1$$.$dispose$();
+      }), $handler$$149$$.$listenOnce$(this.$conn_$, "deposit_response." + $e$$404_request_id$$5$$, function($e$$406_msg$$130$$) {
+        $e$$406_msg$$130$$ = $e$$406_msg$$130$$.data;
+        var $enabled_instant_deposits$$ = 3 <= $user_verification_level$$1$$, $input_address$$1$$ = $e$$406_msg$$130$$.Data.InputAddress;
+        $goog$soy$renderElement$$($goog$dom$getFirstElementChild$$($dlgConfirm$$1$$.$getContentElement$()), $bitex$templates$DepositCryptoCurrencyContentDialog$$, {$deposit_message$:$e$$406_msg$$130$$, $hasInstantDepositsEnabled$:$enabled_instant_deposits$$, $amount$:$opt_amount$$1$$, $formattedAmount$:$opt_formatted_amount$$});
+        $handler$$149$$.$listen$(this.$conn_$, $bitex$api$BitEx$EventType$DEPOSIT_REFRESH$$, function($e$$407_refresh_msg$$1$$) {
+          $e$$407_refresh_msg$$1$$ = $e$$407_refresh_msg$$1$$.data;
+          $e$$407_refresh_msg$$1$$.Data.InputAddress === $input_address$$1$$ && null != $e$$407_refresh_msg$$1$$.Data.Confirmations && "0" == $e$$407_refresh_msg$$1$$.Data.Confirmations && $dlgConfirm$$1$$.$dispose$();
         });
       }, this));
     });
@@ -16964,32 +17082,32 @@ function $JSCompiler_StaticMethods_showDepositDialog$$($JSCompiler_StaticMethods
     $deposit_form_uniform$$.$decorate$($goog$dom$getFirstElementChild$$($dlg$$9$$.$getContentElement$()));
     $goog$array$forEach$$($deposit_methods$$1$$, function($deposit_method$$4$$) {
       var $method_id$$1$$ = $deposit_method$$4$$.method;
-      $handler$$146$$.$listen$(new $goog$events$InputHandler$$($goog$dom$getElement$$($method_id$$1$$ + "_" + $amount_element_id$$1$$)), "input", function() {
+      $handler$$149$$.$listen$(new $goog$events$InputHandler$$($goog$dom$getElement$$($method_id$$1$$ + "_" + $amount_element_id$$1$$)), "input", function() {
         this.$doCalculateFees_$($method_id$$1$$ + "_" + $amount_element_id$$1$$, $method_id$$1$$ + "_" + $fixed_fee_element_id$$3$$, $method_id$$1$$ + "_" + $percent_fee_element_id$$3$$, $currency$$45$$, $method_id$$1$$ + "_" + $total_fees_element_id$$2$$, $method_id$$1$$ + "_" + $net_value_element_id$$2$$, !1, !0, !1, !1, !0, !1);
       }, this);
       this.$doCalculateFees_$($method_id$$1$$ + "_" + $amount_element_id$$1$$, $method_id$$1$$ + "_" + $fixed_fee_element_id$$3$$, $method_id$$1$$ + "_" + $percent_fee_element_id$$3$$, $currency$$45$$, $method_id$$1$$ + "_" + $total_fees_element_id$$2$$, $method_id$$1$$ + "_" + $net_value_element_id$$2$$, !1, !0, !1, !1, !0, !1);
     }, $JSCompiler_StaticMethods_showDepositDialog$self$$);
-    $handler$$146$$.$listen$($dlg$$9$$, $goog$ui$Dialog$EventType$SELECT$$, function($e$$405_request_id$$6$$) {
-      if ("ok" == $e$$405_request_id$$6$$.key) {
-        if ($e$$405_request_id$$6$$.preventDefault(), $e$$405_request_id$$6$$.stopPropagation(), "prepare" != $goog$dom$getFirstElementChild$$($dlg$$9$$.$getContentElement$()).getAttribute("data-deposit-status")) {
+    $handler$$149$$.$listen$($dlg$$9$$, $goog$ui$Dialog$EventType$SELECT$$, function($e$$409_request_id$$6$$) {
+      if ("ok" == $e$$409_request_id$$6$$.key) {
+        if ($e$$409_request_id$$6$$.preventDefault(), $e$$409_request_id$$6$$.stopPropagation(), "prepare" != $goog$dom$getFirstElementChild$$($dlg$$9$$.$getContentElement$()).getAttribute("data-deposit-status")) {
           $dlg$$9$$.$dispose$();
         } else {
-          var $deposit_data$$3_error_list$$15$$ = $deposit_form_uniform$$.$validate$();
-          if (0 < $deposit_data$$3_error_list$$15$$.length) {
-            $goog$array$forEach$$($deposit_data$$3_error_list$$15$$, function($error_msg$$11$$) {
+          var $deposit_data$$3_error_list$$16$$ = $deposit_form_uniform$$.$validate$();
+          if (0 < $deposit_data$$3_error_list$$16$$.length) {
+            $goog$array$forEach$$($deposit_data$$3_error_list$$16$$, function($error_msg$$11$$) {
               this.$showNotification$("error", $error_msg$$11$$);
-            }, this), $e$$405_request_id$$6$$.stopPropagation(), $e$$405_request_id$$6$$.preventDefault();
+            }, this), $e$$409_request_id$$6$$.stopPropagation(), $e$$409_request_id$$6$$.preventDefault();
           } else {
-            var $deposit_data$$3_error_list$$15$$ = $JSCompiler_StaticMethods_getAsJSON$$($deposit_form_uniform$$), $amount$$12$$ = $deposit_data$$3_error_list$$15$$.Amount;
+            var $deposit_data$$3_error_list$$16$$ = $JSCompiler_StaticMethods_getAsJSON$$($deposit_form_uniform$$), $amount$$12$$ = $deposit_data$$3_error_list$$16$$.Amount;
             0 > $amount$$12$$ && ($amount$$12$$ = 0);
-            var $amount$$12$$ = 1E8 * $amount$$12$$, $deposit_method_id$$1$$ = $goog$string$toNumber$$($deposit_data$$3_error_list$$15$$.Method);
-            0 >= $deposit_method_id$$1$$ ? ($e$$405_request_id$$6$$.stopPropagation(), $e$$405_request_id$$6$$.preventDefault()) : ($e$$405_request_id$$6$$ = parseInt(1E7 * Math.random(), 10), this.$conn_$.$requestDeposit$($e$$405_request_id$$6$$, $deposit_method_id$$1$$, $amount$$12$$, void 0, $deposit_data$$3_error_list$$15$$.Currency), $goog$soy$renderElement$$($dlg$$9$$.$getContentElement$(), $bitex$templates$WaitingForDepositResponseDialogContent$$), $handler$$146$$.$listenOnce$(this.$conn_$, 
-            "deposit_response." + $e$$405_request_id$$6$$, function($e$$406$$) {
-              var $msg$$131$$ = $e$$406$$.data;
+            var $amount$$12$$ = 1E8 * $amount$$12$$, $deposit_method_id$$1$$ = $goog$string$toNumber$$($deposit_data$$3_error_list$$16$$.Method);
+            0 >= $deposit_method_id$$1$$ ? ($e$$409_request_id$$6$$.stopPropagation(), $e$$409_request_id$$6$$.preventDefault()) : ($e$$409_request_id$$6$$ = parseInt(1E7 * Math.random(), 10), this.$conn_$.$requestDeposit$($e$$409_request_id$$6$$, $deposit_method_id$$1$$, $amount$$12$$, void 0, $deposit_data$$3_error_list$$16$$.Currency), $goog$soy$renderElement$$($dlg$$9$$.$getContentElement$(), $bitex$templates$WaitingForDepositResponseDialogContent$$), $handler$$149$$.$listenOnce$(this.$conn_$, 
+            "deposit_response." + $e$$409_request_id$$6$$, function($e$$410$$) {
+              var $msg$$131$$ = $e$$410$$.data;
               $goog$soy$renderElement$$($dlg$$9$$.$getContentElement$(), $bitex$templates$DepositSlipContentDialog$$, {$deposit_id$:$msg$$131$$.DepositID, $rest_url$:this.$rest_url_$});
               $JSCompiler_StaticMethods_setButtonSet$$($dlg$$9$$, (new $bitex$ui$Dialog$ButtonSet$$).$addButton$($bitex$ui$Dialog$ButtonSet$DefaultButtons$PRINT$$).$addButton$($goog$ui$Dialog$ButtonSet$DefaultButtons$OK$$, !0, !0));
-              $handler$$146$$.$listen$($dlg$$9$$, $goog$ui$Dialog$EventType$SELECT$$, function($e$$407$$) {
-                "print" == $e$$407$$.key && window.open(this.$rest_url_$ + "/get_deposit?deposit_id=" + $msg$$131$$.DepositID);
+              $handler$$149$$.$listen$($dlg$$9$$, $goog$ui$Dialog$EventType$SELECT$$, function($e$$411$$) {
+                "print" == $e$$411$$.key && window.open(this.$rest_url_$ + "/get_deposit?deposit_id=" + $msg$$131$$.DepositID);
               });
             }));
           }
@@ -16998,36 +17116,37 @@ function $JSCompiler_StaticMethods_showDepositDialog$$($JSCompiler_StaticMethods
     }, $JSCompiler_StaticMethods_showDepositDialog$self$$);
   }
 }
-$JSCompiler_prototypeAlias$$.$onUserDepositRequest_$ = function $$JSCompiler_prototypeAlias$$$$onUserDepositRequest_$$($e$$408$$) {
-  $JSCompiler_StaticMethods_showDepositDialog$$(this, $e$$408$$.target.$getCurrency$());
+$JSCompiler_prototypeAlias$$.$onUserDepositRequest_$ = function $$JSCompiler_prototypeAlias$$$$onUserDepositRequest_$$($e$$412$$) {
+  $JSCompiler_StaticMethods_showDepositDialog$$(this, $e$$412$$.target.$getCurrency$());
 };
-$JSCompiler_prototypeAlias$$.$onUserForgotPassword_$ = function $$JSCompiler_prototypeAlias$$$$onUserForgotPassword_$$($e$$409$$) {
-  this.$conn_$.$forgotPassword$(this.$model_$.get("SelectedBrokerID"), $e$$409$$.target.$getEmail$());
+$JSCompiler_prototypeAlias$$.$onUserForgotPassword_$ = function $$JSCompiler_prototypeAlias$$$$onUserForgotPassword_$$($e$$413$$) {
+  this.$conn_$.$forgotPassword$(this.$model_$.get("SelectedBrokerID"), $e$$413$$.target.$getEmail$());
   this.$router_$.$setView$("set_new_password");
 };
-$JSCompiler_prototypeAlias$$.$onUserSetNewPassword_$ = function $$JSCompiler_prototypeAlias$$$$onUserSetNewPassword_$$($e$$410$$) {
-  this.$conn_$.$resetPassword$($e$$410$$.target.$getToken$(), $e$$410$$.target.$getPassword$());
+$JSCompiler_prototypeAlias$$.$onUserSetNewPassword_$ = function $$JSCompiler_prototypeAlias$$$$onUserSetNewPassword_$$($e$$414$$) {
+  this.$conn_$.$resetPassword$($e$$414$$.target.$getToken$(), $e$$414$$.target.$getPassword$());
 };
-$JSCompiler_prototypeAlias$$.$onUserEnableTwoFactor_$ = function $$JSCompiler_prototypeAlias$$$$onUserEnableTwoFactor_$$() {
-  var $code$$18$$ = $goog$dom$forms$getValue$$($goog$dom$getElement$$("id_second_step_verification")), $has_code$$ = !$goog$string$isEmptyOrWhitespace$$($code$$18$$), $secret$$3$$ = "";
-  $has_code$$ && ($secret$$3$$ = this.$model_$.get("TwoFactorSecret"));
+$JSCompiler_prototypeAlias$$.$onUserEnableTwoFactor_$ = function $$JSCompiler_prototypeAlias$$$$onUserEnableTwoFactor_$$($code$$18_e$$415$$) {
+  $code$$18_e$$415$$ = $code$$18_e$$415$$.target.$getCode$();
+  var $has_code$$ = !$goog$string$isEmptyOrWhitespace$$($code$$18_e$$415$$), $secret$$5$$ = "";
+  $has_code$$ && ($secret$$5$$ = this.$model_$.get("TwoFactorSecret"));
   var $req_id$$ = parseInt(1E6 * Math.random(), 10);
-  this.$conn_$.$enableTwoFactor$(!0, $secret$$3$$, $code$$18$$, void 0, $req_id$$);
-  this.$getHandler$().$listenOnce$(this.$conn_$, "two_factor_secret." + $req_id$$, function($e$$412_msg$$132$$) {
-    $e$$412_msg$$132$$ = $e$$412_msg$$132$$.data;
-    $has_code$$ && !$e$$412_msg$$132$$.TwoFactorEnabled && this.$showDialog$("M\u00e3 x\u00e1c th\u1ef1c sai. Xin h\u00e3y ch\u1eafc ch\u1eafn r\u1eb1ng b\u1ea1n \u0111ang s\u1eed d\u1ee5ng Google Authenticator v\u00e0 \u0111\u1ed3ng h\u1ed3 tr\u00ean thi\u1ebft b\u1ecb di \u0111\u1ed9ng c\u1ee7a b\u1ea1n \u0111\u01b0\u1ee3c \u0111\u1ed3ng b\u1ed9 v\u1edbi m\u00e1y ch\u1ee7 Google.");
+  this.$conn_$.$enableTwoFactor$(!0, $secret$$5$$, $code$$18_e$$415$$, void 0, $req_id$$);
+  this.$getHandler$().$listenOnce$(this.$conn_$, "two_factor_secret." + $req_id$$, function($e$$416_msg$$132$$) {
+    $e$$416_msg$$132$$ = $e$$416_msg$$132$$.data;
+    $has_code$$ && !$e$$416_msg$$132$$.TwoFactorEnabled && this.$showDialog$("M\u00e3 x\u00e1c th\u1ef1c sai. Xin h\u00e3y ch\u1eafc ch\u1eafn r\u1eb1ng b\u1ea1n \u0111ang s\u1eed d\u1ee5ng Google Authenticator v\u00e0 \u0111\u1ed3ng h\u1ed3 tr\u00ean thi\u1ebft b\u1ecb di \u0111\u1ed9ng c\u1ee7a b\u1ea1n \u0111\u01b0\u1ee3c \u0111\u1ed3ng b\u1ed9 v\u1edbi m\u00e1y ch\u1ee7 Google.");
   }, this);
 };
 $JSCompiler_prototypeAlias$$.$onUserDisableTwoFactor_$ = function $$JSCompiler_prototypeAlias$$$$onUserDisableTwoFactor_$$() {
   this.$conn_$.$enableTwoFactor$(!1);
 };
-$JSCompiler_prototypeAlias$$.$onBodyClick_$ = function $$JSCompiler_prototypeAlias$$$$onBodyClick_$$($e$$414$$) {
-  var $model$$64_param1$$1_view_name$$4$$ = $e$$414$$.target.getAttribute("data-switch-view");
-  null != $model$$64_param1$$1_view_name$$4$$ && ($e$$414$$.preventDefault(), $e$$414$$.stopPropagation(), this.$router_$.$setView$($model$$64_param1$$1_view_name$$4$$));
-  var $model$$64_param1$$1_view_name$$4$$ = this.$model_$, $action_element$$1_model_set_element_param2$$;
-  $action_element$$1_model_set_element_param2$$ = $goog$dom$classes$has$$($e$$414$$.target, "model-action-set") ? $e$$414$$.target : $goog$dom$getAncestorByClass$$($e$$414$$.target, "model-action-set");
-  null != $action_element$$1_model_set_element_param2$$ && $goog$isDefAndNotNull$$($action_element$$1_model_set_element_param2$$.getAttribute("data-key")) && $model$$64_param1$$1_view_name$$4$$.set($action_element$$1_model_set_element_param2$$.getAttribute("data-key"), $action_element$$1_model_set_element_param2$$.getAttribute("data-value"));
-  $action_element$$1_model_set_element_param2$$ = $goog$dom$getAncestor$$($e$$414$$.target, function($node$$30$$) {
+$JSCompiler_prototypeAlias$$.$onBodyClick_$ = function $$JSCompiler_prototypeAlias$$$$onBodyClick_$$($e$$418$$) {
+  var $model$$67_param1$$1_view_name$$4$$ = $e$$418$$.target.getAttribute("data-switch-view");
+  null != $model$$67_param1$$1_view_name$$4$$ && ($e$$418$$.preventDefault(), $e$$418$$.stopPropagation(), this.$router_$.$setView$($model$$67_param1$$1_view_name$$4$$));
+  var $model$$67_param1$$1_view_name$$4$$ = this.$model_$, $action_element$$1_model_set_element_param2$$;
+  $action_element$$1_model_set_element_param2$$ = $goog$dom$classes$has$$($e$$418$$.target, "model-action-set") ? $e$$418$$.target : $goog$dom$getAncestorByClass$$($e$$418$$.target, "model-action-set");
+  null != $action_element$$1_model_set_element_param2$$ && $goog$isDefAndNotNull$$($action_element$$1_model_set_element_param2$$.getAttribute("data-key")) && $model$$67_param1$$1_view_name$$4$$.set($action_element$$1_model_set_element_param2$$.getAttribute("data-key"), $action_element$$1_model_set_element_param2$$.getAttribute("data-value"));
+  $action_element$$1_model_set_element_param2$$ = $goog$dom$getAncestor$$($e$$418$$.target, function($node$$30$$) {
     var $JSCompiler_temp$$38$$;
     if ($JSCompiler_temp$$38$$ = $goog$isFunction$$($node$$30$$.getAttribute)) {
       $JSCompiler_temp$$38$$ = null != $node$$30$$.getAttribute("data-action");
@@ -17039,38 +17158,38 @@ $JSCompiler_prototypeAlias$$.$onBodyClick_$ = function $$JSCompiler_prototypeAli
   if (null != $action_element$$1_model_set_element_param2$$) {
     switch($action_element$$1_model_set_element_param2$$.getAttribute("data-action")) {
       case "deposit":
-        $model$$64_param1$$1_view_name$$4$$ = $action_element$$1_model_set_element_param2$$.getAttribute("data-currency");
-        $JSCompiler_StaticMethods_showDepositDialog$$(this, $model$$64_param1$$1_view_name$$4$$);
+        $model$$67_param1$$1_view_name$$4$$ = $action_element$$1_model_set_element_param2$$.getAttribute("data-currency");
+        $JSCompiler_StaticMethods_showDepositDialog$$(this, $model$$67_param1$$1_view_name$$4$$);
         break;
       case "withdraw":
-        $model$$64_param1$$1_view_name$$4$$ = $action_element$$1_model_set_element_param2$$.getAttribute("data-currency"), $action_element$$1_model_set_element_param2$$ = $action_element$$1_model_set_element_param2$$.getAttribute("data-pre-filled-data"), null != $action_element$$1_model_set_element_param2$$ && ($action_element$$1_model_set_element_param2$$ = $goog$json$parse$$($action_element$$1_model_set_element_param2$$)), $JSCompiler_StaticMethods_showWithdrawalDialog$$(this, $model$$64_param1$$1_view_name$$4$$, 
+        $model$$67_param1$$1_view_name$$4$$ = $action_element$$1_model_set_element_param2$$.getAttribute("data-currency"), $action_element$$1_model_set_element_param2$$ = $action_element$$1_model_set_element_param2$$.getAttribute("data-pre-filled-data"), null != $action_element$$1_model_set_element_param2$$ && ($action_element$$1_model_set_element_param2$$ = $goog$json$parse$$($action_element$$1_model_set_element_param2$$)), $JSCompiler_StaticMethods_showWithdrawalDialog$$(this, $model$$67_param1$$1_view_name$$4$$, 
         $action_element$$1_model_set_element_param2$$);
     }
-    $e$$414$$.preventDefault();
-    $e$$414$$.stopPropagation();
+    $e$$418$$.preventDefault();
+    $e$$418$$.stopPropagation();
   }
 };
-$JSCompiler_prototypeAlias$$.$onBodyChange_$ = function $$JSCompiler_prototypeAlias$$$$onBodyChange_$$($e$$415_elements$$10$$) {
-  if ($goog$dom$classes$has$$($e$$415_elements$$10$$.target, "withdraw-method-selector")) {
-    var $selected_method$$ = $goog$dom$forms$getValue$$($e$$415_elements$$10$$.target);
-    $e$$415_elements$$10$$ = $goog$dom$getElementsByClass$$("withdraw-method");
-    $goog$array$forEach$$($e$$415_elements$$10$$, function($element$$254_field_elements$$) {
-      var $method$$8$$ = $element$$254_field_elements$$.getAttribute("data-withdraw-method");
-      $goog$style$setElementShown$$($element$$254_field_elements$$, $method$$8$$ == $selected_method$$);
-      $element$$254_field_elements$$ = $goog$dom$getElementsByClass$$("withdraw-field", $element$$254_field_elements$$);
-      $goog$array$forEach$$($element$$254_field_elements$$, function($element$$255$$) {
-        $element$$255$$.disabled = $method$$8$$ != $selected_method$$;
+$JSCompiler_prototypeAlias$$.$onBodyChange_$ = function $$JSCompiler_prototypeAlias$$$$onBodyChange_$$($e$$419_elements$$10$$) {
+  if ($goog$dom$classes$has$$($e$$419_elements$$10$$.target, "withdraw-method-selector")) {
+    var $selected_method$$ = $goog$dom$forms$getValue$$($e$$419_elements$$10$$.target);
+    $e$$419_elements$$10$$ = $goog$dom$getElementsByClass$$("withdraw-method");
+    $goog$array$forEach$$($e$$419_elements$$10$$, function($element$$255_field_elements$$) {
+      var $method$$8$$ = $element$$255_field_elements$$.getAttribute("data-withdraw-method");
+      $goog$style$setElementShown$$($element$$255_field_elements$$, $method$$8$$ == $selected_method$$);
+      $element$$255_field_elements$$ = $goog$dom$getElementsByClass$$("withdraw-field", $element$$255_field_elements$$);
+      $goog$array$forEach$$($element$$255_field_elements$$, function($element$$256$$) {
+        $element$$256$$.disabled = $method$$8$$ != $selected_method$$;
       });
     }, this);
   }
 };
-$JSCompiler_prototypeAlias$$.$onUserLoginButtonClick_$ = function $$JSCompiler_prototypeAlias$$$$onUserLoginButtonClick_$$($e$$416$$) {
-  var $username$$13$$ = $e$$416$$.target.$getUsername$(), $password$$8$$ = $e$$416$$.target.$getPassword$();
-  this.$model_$.set("Password", $e$$416$$.target.$getPassword$());
+$JSCompiler_prototypeAlias$$.$onUserLoginButtonClick_$ = function $$JSCompiler_prototypeAlias$$$$onUserLoginButtonClick_$$($e$$420$$) {
+  var $username$$13$$ = $e$$420$$.target.$getUsername$(), $password$$8$$ = $e$$420$$.target.$getPassword$();
+  this.$model_$.set("Password", $e$$420$$.target.$getPassword$());
   this.$conn_$.login(this.$model_$.get("SelectedBrokerID"), $username$$13$$, $password$$8$$);
 };
-$JSCompiler_prototypeAlias$$.$onUserLoginOk_$ = function $$JSCompiler_prototypeAlias$$$$onUserLoginOk_$$($broker_currencies$$4_e$$417$$) {
-  var $msg$$133_value_fmt$$15$$ = $broker_currencies$$4_e$$417$$.data;
+$JSCompiler_prototypeAlias$$.$onUserLoginOk_$ = function $$JSCompiler_prototypeAlias$$$$onUserLoginOk_$$($broker_currencies$$4_e$$421$$) {
+  var $msg$$133_value_fmt$$15$$ = $broker_currencies$$4_e$$421$$.data;
   $goog$dom$classes$add$$(document.body, "bitex-logged");
   $goog$dom$classes$remove$$(document.body, "bitex-not-logged");
   this.$model_$.set("UserID", $msg$$133_value_fmt$$15$$.UserID);
@@ -17085,23 +17204,23 @@ $JSCompiler_prototypeAlias$$.$onUserLoginOk_$ = function $$JSCompiler_prototypeA
   this.$model_$.set("IsMSB", $msg$$133_value_fmt$$15$$.IsMSB);
   this.$model_$.set("HasLineOfCredit", $msg$$133_value_fmt$$15$$.HasLineOfCredit);
   this.$model_$.set("EmailLang", $msg$$133_value_fmt$$15$$.EmailLang);
-  $broker_currencies$$4_e$$417$$ = new $goog$structs$Set$$;
+  $broker_currencies$$4_e$$421$$ = new $goog$structs$Set$$;
   var $allowed_markets$$2_tags$$1_verification_data$$5$$ = {}, $user_brokers$$ = {}, $broker_info$$7_profile$$3$$;
-  null != $msg$$133_value_fmt$$15$$.Broker && ($broker_info$$7_profile$$3$$ = $JSCompiler_StaticMethods_adjustBrokerData_$$(this, $msg$$133_value_fmt$$15$$.Broker), $goog$object$extend$$($allowed_markets$$2_tags$$1_verification_data$$5$$, $broker_info$$7_profile$$3$$.AllowedMarkets), $broker_currencies$$4_e$$417$$.$addAll$($broker_info$$7_profile$$3$$.BrokerCurrencies), this.$model_$.set("Broker", $broker_info$$7_profile$$3$$), $user_brokers$$[$broker_info$$7_profile$$3$$.BrokerID] = $broker_info$$7_profile$$3$$, 
+  null != $msg$$133_value_fmt$$15$$.Broker && ($broker_info$$7_profile$$3$$ = $JSCompiler_StaticMethods_adjustBrokerData_$$(this, $msg$$133_value_fmt$$15$$.Broker), $goog$object$extend$$($allowed_markets$$2_tags$$1_verification_data$$5$$, $broker_info$$7_profile$$3$$.AllowedMarkets), $broker_currencies$$4_e$$421$$.$addAll$($broker_info$$7_profile$$3$$.BrokerCurrencies), this.$model_$.set("Broker", $broker_info$$7_profile$$3$$), $user_brokers$$[$broker_info$$7_profile$$3$$.BrokerID] = $broker_info$$7_profile$$3$$, 
   $msg$$133_value_fmt$$15$$.IsBroker || this.$model_$.set("UserBrokers", $user_brokers$$));
   $broker_info$$7_profile$$3$$ = $msg$$133_value_fmt$$15$$.Profile;
-  $msg$$133_value_fmt$$15$$.IsBroker ? ($goog$dom$classes$add$$(document.body, "bitex-broker"), $broker_info$$7_profile$$3$$ = $JSCompiler_StaticMethods_adjustBrokerData_$$(this, $broker_info$$7_profile$$3$$), $user_brokers$$[$broker_info$$7_profile$$3$$.BrokerID] = $broker_info$$7_profile$$3$$, this.$model_$.set("UserBrokers", $user_brokers$$), $goog$object$extend$$($allowed_markets$$2_tags$$1_verification_data$$5$$, $broker_info$$7_profile$$3$$.AllowedMarkets), $broker_currencies$$4_e$$417$$.$addAll$($broker_info$$7_profile$$3$$.BrokerCurrencies)) : 
+  $msg$$133_value_fmt$$15$$.IsBroker ? ($goog$dom$classes$add$$(document.body, "bitex-broker"), $broker_info$$7_profile$$3$$ = $JSCompiler_StaticMethods_adjustBrokerData_$$(this, $broker_info$$7_profile$$3$$), $user_brokers$$[$broker_info$$7_profile$$3$$.BrokerID] = $broker_info$$7_profile$$3$$, this.$model_$.set("UserBrokers", $user_brokers$$), $goog$object$extend$$($allowed_markets$$2_tags$$1_verification_data$$5$$, $broker_info$$7_profile$$3$$.AllowedMarkets), $broker_currencies$$4_e$$421$$.$addAll$($broker_info$$7_profile$$3$$.BrokerCurrencies)) : 
   ($goog$dom$classes$add$$(document.body, "bitex-non-broker"), 2 <= $broker_info$$7_profile$$3$$.Verified && $goog$style$showElement$$($goog$dom$getElement$$("verification_menu_id"), !1));
   this.$model_$.set("Profile", $broker_info$$7_profile$$3$$);
   this.$model_$.set("ShowMMP", this.$model_$.get("IsBroker") || this.$model_$.get("Profile").IsMarketMaker);
   null != $msg$$133_value_fmt$$15$$.Broker && this.$model_$.set("SelectedBrokerID", this.$model_$.get("Broker").BrokerID);
   this.$model_$.set("AllowedMarkets", $allowed_markets$$2_tags$$1_verification_data$$5$$);
-  this.$model_$.set("BrokerCurrencies", $broker_currencies$$4_e$$417$$.$getValues$());
+  this.$model_$.set("BrokerCurrencies", $broker_currencies$$4_e$$421$$.$getValues$());
   $allowed_markets$$2_tags$$1_verification_data$$5$$ = $broker_info$$7_profile$$3$$.VerificationData;
   if (1 <= $broker_info$$7_profile$$3$$.Verified) {
     try {
       null != $allowed_markets$$2_tags$$1_verification_data$$5$$ && ($allowed_markets$$2_tags$$1_verification_data$$5$$ = $goog$json$parse$$($allowed_markets$$2_tags$$1_verification_data$$5$$));
-    } catch ($e$$418$$) {
+    } catch ($e$$422$$) {
     }
   }
   this.$model_$.set("VerificationData", $allowed_markets$$2_tags$$1_verification_data$$5$$);
@@ -17150,7 +17269,7 @@ $JSCompiler_prototypeAlias$$.$onUserLoginOk_$ = function $$JSCompiler_prototypeA
   var $balances$$2$$ = {};
   $balances$$2$$[this.$model_$.get("SelectedBrokerID")] = {};
   $balances$$2$$[this.$model_$.get("SelectedBrokerID")][this.$model_$.get("UserID")] = {};
-  $goog$structs$forEach$$($broker_currencies$$4_e$$417$$, function($currency$$47$$) {
+  $goog$structs$forEach$$($broker_currencies$$4_e$$421$$, function($currency$$47$$) {
     $balances$$2$$[this.$model_$.get("SelectedBrokerID")][this.$model_$.get("UserID")][$currency$$47$$] = 0;
   }, this);
   this.$model_$.set("Position", $goog$object$unsafeClone$$($balances$$2$$), !0);
@@ -17164,29 +17283,29 @@ $JSCompiler_prototypeAlias$$.$onUserLoginOk_$ = function $$JSCompiler_prototypeA
   this.$model_$.set("FinishedInitialOpenOrdersRequest", !1);
   this.$conn_$.$requestOrderList$(this.$open_orders_request_id_$, 0, 100, ["has_leaves_qty eq 1"]);
 };
-$JSCompiler_prototypeAlias$$.$onUserLoginError_$ = function $$JSCompiler_prototypeAlias$$$$onUserLoginError_$$($e$$419_msg$$134$$) {
+$JSCompiler_prototypeAlias$$.$onUserLoginError_$ = function $$JSCompiler_prototypeAlias$$$$onUserLoginError_$$($e$$423_msg$$134$$) {
   $goog$dom$classes$add$$(document.body, "bitex-not-logged");
   $goog$dom$classes$remove$$(document.body, "bitex-logged");
   $goog$dom$classes$remove$$(document.body, "bitex-broker");
   $goog$dom$classes$remove$$(document.body, "bitex-non-broker");
-  $e$$419_msg$$134$$ = $e$$419_msg$$134$$.data;
+  $e$$423_msg$$134$$ = $e$$423_msg$$134$$.data;
   this.$model_$.set("UserID", "");
   this.$model_$.set("Username", "");
-  if ($e$$419_msg$$134$$.NeedSecondFactor) {
+  if ($e$$423_msg$$134$$.NeedSecondFactor) {
     var $dlg_$$1$$ = this.$showDialog$($bitex$templates$GoogleAuthenticationCodeDialogContent$$(), "X\u00e1c th\u1ef1c 2 l\u1edbp", $bitex$ui$Dialog$ButtonSet$createOkCancel$$()), $gauth_uniform$$1$$ = new $uniform$Uniform$$;
     $gauth_uniform$$1$$.$decorate$($goog$dom$getFirstElementChild$$($dlg_$$1$$.$getContentElement$()));
     $goog$dom$getElement$$("id_input_google_authenticator").focus();
-    this.$getHandler$().$listen$($dlg_$$1$$, $goog$ui$Dialog$EventType$SELECT$$, function($e$$420_second_factor$$1$$) {
-      if ("ok" == $e$$420_second_factor$$1$$.key) {
-        var $error_list$$16$$ = $gauth_uniform$$1$$.$validate$();
-        0 < $error_list$$16$$.length ? ($goog$array$forEach$$($error_list$$16$$, function($error_msg$$12$$) {
+    this.$getHandler$().$listen$($dlg_$$1$$, $goog$ui$Dialog$EventType$SELECT$$, function($e$$424_second_factor$$1$$) {
+      if ("ok" == $e$$424_second_factor$$1$$.key) {
+        var $error_list$$17$$ = $gauth_uniform$$1$$.$validate$();
+        0 < $error_list$$17$$.length ? ($goog$array$forEach$$($error_list$$17$$, function($error_msg$$12$$) {
           this.$showNotification$("error", $error_msg$$12$$);
-        }, this), $e$$420_second_factor$$1$$.stopPropagation(), $e$$420_second_factor$$1$$.preventDefault()) : ($e$$420_second_factor$$1$$ = $JSCompiler_StaticMethods_getAsJSON$$($gauth_uniform$$1$$).token, this.$conn_$.login(this.$model_$.get("SelectedBrokerID"), this.$loginView_$.$getUsername$(), this.$loginView_$.$getPassword$(), $e$$420_second_factor$$1$$), $dlg_$$1$$.$dispose$());
+        }, this), $e$$424_second_factor$$1$$.stopPropagation(), $e$$424_second_factor$$1$$.preventDefault()) : ($e$$424_second_factor$$1$$ = $JSCompiler_StaticMethods_getAsJSON$$($gauth_uniform$$1$$).token, this.$conn_$.login(this.$model_$.get("SelectedBrokerID"), this.$loginView_$.$getUsername$(), this.$loginView_$.$getPassword$(), $e$$424_second_factor$$1$$), $dlg_$$1$$.$dispose$());
       }
     });
   } else {
-    var $user_status_text$$ = $e$$419_msg$$134$$.UserStatusText;
-    switch($e$$419_msg$$134$$.UserStatusText) {
+    var $user_status_text$$ = $e$$423_msg$$134$$.UserStatusText;
+    switch($e$$423_msg$$134$$.UserStatusText) {
       case "MSG_LOGIN_ERROR_INVALID_PASSWORD":
         $user_status_text$$ = "Sai m\u1eadt kh\u1ea9u";
         break;
@@ -17205,18 +17324,18 @@ $JSCompiler_prototypeAlias$$.$onUserLoginError_$ = function $$JSCompiler_prototy
     this.$showDialog$($user_status_text$$);
   }
 };
-$JSCompiler_prototypeAlias$$.$onUserSignupButton_$ = function $$JSCompiler_prototypeAlias$$$$onUserSignupButton_$$($e$$421$$) {
-  this.$model_$.set("Password", $e$$421$$.target.$getPassword$());
-  this.$conn_$.$signUp$($e$$421$$.target.$getUsername$(), $e$$421$$.target.$getPassword$(), $e$$421$$.target.$getEmail$(), $e$$421$$.target.$getState$(), $goog$dom$forms$getValue$$($goog$dom$getElement$$("id_signup_country")), $goog$string$toNumber$$($goog$dom$forms$getValue$$($goog$dom$getElement$$("id_signup_broker"))));
+$JSCompiler_prototypeAlias$$.$onUserSignupButton_$ = function $$JSCompiler_prototypeAlias$$$$onUserSignupButton_$$($e$$425$$) {
+  this.$model_$.set("Password", $e$$425$$.target.$getPassword$());
+  this.$conn_$.$signUp$($e$$425$$.target.$getUsername$(), $e$$425$$.target.$getPassword$(), $e$$425$$.target.$getEmail$(), $e$$425$$.target.$getState$(), $goog$dom$forms$getValue$$($goog$dom$getElement$$("id_signup_country")), $goog$string$toNumber$$($goog$dom$forms$getValue$$($goog$dom$getElement$$("id_signup_broker"))));
 };
 $JSCompiler_prototypeAlias$$.$getModel$ = function $$JSCompiler_prototypeAlias$$$$getModel$$() {
   return this.$model_$;
 };
-$JSCompiler_prototypeAlias$$.$onBeforeSetView_$ = function $$JSCompiler_prototypeAlias$$$$onBeforeSetView_$$($classes$$10_e$$422_view$$4$$) {
-  var $view_id$$5$$ = $classes$$10_e$$422_view$$4$$.$view_id$;
-  $classes$$10_e$$422_view$$4$$ = $classes$$10_e$$422_view$$4$$.view;
+$JSCompiler_prototypeAlias$$.$onBeforeSetView_$ = function $$JSCompiler_prototypeAlias$$$$onBeforeSetView_$$($classes$$8_e$$426_view$$4$$) {
+  var $view_id$$5$$ = $classes$$8_e$$426_view$$4$$.$view_id$;
+  $classes$$8_e$$426_view$$4$$ = $classes$$8_e$$426_view$$4$$.view;
   "admin" == $view_id$$5$$ && this.$model_$.set("SelectedBrokerID", 8999999);
-  $classes$$10_e$$422_view$$4$$.$inDocument_$ || $classes$$10_e$$422_view$$4$$.$decorate$($goog$dom$getElement$$($view_id$$5$$));
+  $classes$$8_e$$426_view$$4$$.$inDocument_$ || $classes$$8_e$$426_view$$4$$.$decorate$($goog$dom$getElement$$($view_id$$5$$));
   if (!this.$conn_$.$logged_$) {
     switch($view_id$$5$$) {
       case "start":
@@ -17246,9 +17365,9 @@ $JSCompiler_prototypeAlias$$.$onBeforeSetView_$ = function $$JSCompiler_prototyp
         return this.$router_$.$setView$("start"), !1;
     }
   }
-  $classes$$10_e$$422_view$$4$$ = $goog$dom$classes$get$$(document.body);
+  $classes$$8_e$$426_view$$4$$ = $goog$dom$classes$get$$(document.body);
   var $classes_to_remove$$ = [];
-  $goog$array$forEach$$($classes$$10_e$$422_view$$4$$, function($cls$$3$$) {
+  $goog$array$forEach$$($classes$$8_e$$426_view$$4$$, function($cls$$3$$) {
     0 == $cls$$3$$.lastIndexOf("active-view-", 0) && $classes_to_remove$$.push($cls$$3$$);
   });
   $goog$array$forEach$$($classes_to_remove$$, function($cls$$4$$) {
@@ -17304,13 +17423,13 @@ $JSCompiler_prototypeAlias$$.$getCurrencyHumanFormat$ = function $$JSCompiler_pr
 $JSCompiler_prototypeAlias$$.$getCurrencyDescription$ = function $$JSCompiler_prototypeAlias$$$$getCurrencyDescription$$($currency_code$$19$$) {
   return this.$currency_info_$[$currency_code$$19$$].description;
 };
-$JSCompiler_prototypeAlias$$.$onSecurityList_$ = function $$JSCompiler_prototypeAlias$$$$onSecurityList_$$($e$$423_msg$$135$$) {
-  $e$$423_msg$$135$$ = $e$$423_msg$$135$$.data;
-  $goog$array$forEach$$($e$$423_msg$$135$$.Currencies, function($currency$$48$$) {
+$JSCompiler_prototypeAlias$$.$onSecurityList_$ = function $$JSCompiler_prototypeAlias$$$$onSecurityList_$$($e$$427_msg$$135$$) {
+  $e$$427_msg$$135$$ = $e$$427_msg$$135$$.data;
+  $goog$array$forEach$$($e$$427_msg$$135$$.Currencies, function($currency$$48$$) {
     this.$currency_info_$[$currency$$48$$.Code] = {code:$currency$$48$$.Code, format:$currency$$48$$.FormatJS, $human_format$:$currency$$48$$.HumanFormatJS, description:$currency$$48$$.Description, sign:$currency$$48$$.Sign, $pip$:$currency$$48$$.Pip, $is_crypto$:$currency$$48$$.IsCrypto, $number_of_decimals$:$currency$$48$$.NumberOfDecimals};
   }, this);
   var $symbols$$3$$ = [];
-  $goog$array$forEach$$($e$$423_msg$$135$$.Instruments, function($instrument$$4$$) {
+  $goog$array$forEach$$($e$$427_msg$$135$$.Instruments, function($instrument$$4$$) {
     var $market$$6$$ = $instrument$$4$$.Market, $symbol$$22$$ = $instrument$$4$$.Symbol, $currency$$49$$ = $instrument$$4$$.Currency, $crypto_currency$$1$$ = $symbol$$22$$.substr(0, 3);
     this.$all_markets_$[$symbol$$22$$] = {market:$market$$6$$, symbol:$symbol$$22$$, description:$instrument$$4$$.Description};
     $symbols$$3$$.push($market$$6$$ + ":" + $symbol$$22$$);
@@ -17333,7 +17452,7 @@ $JSCompiler_prototypeAlias$$.$onSecurityList_$ = function $$JSCompiler_prototype
     this.$model_$.set("formatted_" + $market$$6$$ + "_" + $symbol$$22$$ + "_BEST_ASK", this.$formatCurrency$(0, $currency$$49$$, !0), !0);
     this.$model_$.set("formatted_" + $market$$6$$ + "_" + $symbol$$22$$ + "_LAST_PX", this.$formatCurrency$(0, $currency$$49$$, !0), !0);
   }, this);
-  this.$model_$.set("SecurityList", $e$$423_msg$$135$$);
+  this.$model_$.set("SecurityList", $e$$427_msg$$135$$);
   $JSCompiler_StaticMethods_subscribeSecurityStatus$$(this.$conn_$, $symbols$$3$$);
 };
 function $JSCompiler_StaticMethods_adjustBrokerData_$$($JSCompiler_StaticMethods_adjustBrokerData_$self$$, $broker_info$$8$$) {
@@ -17382,8 +17501,8 @@ function $JSCompiler_StaticMethods_adjustBrokerData_$$($JSCompiler_StaticMethods
   }, $JSCompiler_StaticMethods_adjustBrokerData_$self$$);
   return $broker_info$$8$$;
 }
-$JSCompiler_prototypeAlias$$.$onBrokerListResponse_$ = function $$JSCompiler_prototypeAlias$$$$onBrokerListResponse_$$($e$$424$$) {
-  var $msg$$136$$ = $e$$424$$.data, $broker_list$$3$$ = [];
+$JSCompiler_prototypeAlias$$.$onBrokerListResponse_$ = function $$JSCompiler_prototypeAlias$$$$onBrokerListResponse_$$($e$$428$$) {
+  var $msg$$136$$ = $e$$428$$.data, $broker_list$$3$$ = [];
   $goog$array$forEach$$($msg$$136$$.BrokerListGrp, function($broker_array$$) {
     var $broker_info$$9$$ = {};
     $goog$array$forEach$$($msg$$136$$.Columns, function($column$$5$$, $index$$117$$) {
@@ -17427,10 +17546,10 @@ $JSCompiler_prototypeAlias$$.$onTestRequestTimer_$ = function $$JSCompiler_proto
   this.$getHandler$().$listenOnce$(this.$test_request_deadline_timer_$, $goog$Timer$TICK$$, function() {
   });
 };
-$JSCompiler_prototypeAlias$$.$onHearbeat_$ = function $$JSCompiler_prototypeAlias$$$$onHearbeat_$$($e$$429_msg$$137$$) {
-  $e$$429_msg$$137$$ = $e$$429_msg$$137$$.data;
+$JSCompiler_prototypeAlias$$.$onHearbeat_$ = function $$JSCompiler_prototypeAlias$$$$onHearbeat_$$($e$$433_msg$$137$$) {
+  $e$$433_msg$$137$$ = $e$$433_msg$$137$$.data;
   null != this.$test_request_deadline_timer_$ && (this.$test_request_deadline_timer_$.stop(), this.$test_request_deadline_timer_$ = null);
-  null != $e$$429_msg$$137$$.SendTime && this.$model_$.set("latency", new Date(Date.now()) - new Date($e$$429_msg$$137$$.SendTime));
+  null != $e$$433_msg$$137$$.SendTime && this.$model_$.set("latency", new Date(Date.now()) - new Date($e$$433_msg$$137$$.SendTime));
 };
 $JSCompiler_prototypeAlias$$.$onConnectionClose_$ = function $$JSCompiler_prototypeAlias$$$$onConnectionClose_$$() {
   $goog$dom$classes$add$$(document.body, "ws-not-connected", "bitex-not-logged");
@@ -17447,9 +17566,9 @@ $JSCompiler_prototypeAlias$$.$onConnectionError_$ = function $$JSCompiler_protot
   this.$showNotification$("error", "L\u1ed7i", "\u0111\u01b0\u1ee3c ph\u00e1t hi\u1ec7n v\u1edbi k\u1ebft n\u1ed1i.");
   this.$router_$.$setView$("start");
 };
-$JSCompiler_prototypeAlias$$.$onConnectionErrorMessage_$ = function $$JSCompiler_prototypeAlias$$$$onConnectionErrorMessage_$$($e$$432_msg$$138$$) {
-  $e$$432_msg$$138$$ = $e$$432_msg$$138$$.data;
-  this.$showNotification$("error", "Tin nh\u1eafn t\u1eeb m\u00e1y ch\u1ee7:", $e$$432_msg$$138$$.Description + " - " + $e$$432_msg$$138$$.Detail, this.$error_message_alert_timeout_$);
+$JSCompiler_prototypeAlias$$.$onConnectionErrorMessage_$ = function $$JSCompiler_prototypeAlias$$$$onConnectionErrorMessage_$$($e$$436_msg$$138$$) {
+  $e$$436_msg$$138$$ = $e$$436_msg$$138$$.data;
+  this.$showNotification$("error", "Tin nh\u1eafn t\u1eeb m\u00e1y ch\u1ee7:", $e$$436_msg$$138$$.Description + " - " + $e$$436_msg$$138$$.Detail, this.$error_message_alert_timeout_$);
 };
 $JSCompiler_prototypeAlias$$.$showDialog$ = function $$JSCompiler_prototypeAlias$$$$showDialog$$($content$$27$$, $opt_title$$5_title$$12$$, $buttonSet$$3_opt_button_set$$) {
   $opt_title$$5_title$$12$$ = $opt_title$$5_title$$12$$ || "L\u1ed7i";
@@ -17473,10 +17592,10 @@ $JSCompiler_prototypeAlias$$.$showNotification$ = function $$JSCompiler_prototyp
     var $notification$$ = new $bootstrap$Alert$$($type$$154$$, $alert_content_title$$13$$, !0);
     $notification$$.render($goog$dom$getElement$$("id_notifications"));
     if (0 < $display_time_opt_system$$) {
-      var $handler$$149$$ = this.$getHandler$();
+      var $handler$$152$$ = this.$getHandler$();
       $goog$Timer$callOnce$$(function() {
         var $anim$$3$$ = new $goog$fx$dom$FadeOutAndHide$$($notification$$.$getElement$(), 200);
-        $handler$$149$$.$listenOnce$($anim$$3$$, "end", function() {
+        $handler$$152$$.$listenOnce$($anim$$3$$, "end", function() {
           $notification$$.$dispose$();
           $anim$$3$$.$dispose$();
         });
@@ -17486,10 +17605,10 @@ $JSCompiler_prototypeAlias$$.$showNotification$ = function $$JSCompiler_prototyp
   }
 };
 function $JSCompiler_StaticMethods_registerAlgorithmInstance$$($JSCompiler_StaticMethods_registerAlgorithmInstance$self$$, $algo_instance_id$$3$$) {
-  var $handler$$150$$ = $JSCompiler_StaticMethods_registerAlgorithmInstance$self$$.$getHandler$();
+  var $handler$$153$$ = $JSCompiler_StaticMethods_registerAlgorithmInstance$self$$.$getHandler$();
   $JSCompiler_StaticMethods_registerAlgorithmInstance$self$$.$showNotification$("info", "\u0110ang kh\u1edfi \u0111\u1ed9ng thu\u1eadt to\u00e1n....");
-  $handler$$150$$.$listen$($JSCompiler_StaticMethods_registerAlgorithmInstance$self$$.$model_$, "model_set" + $algo_instance_id$$3$$ + "_params", $JSCompiler_StaticMethods_registerAlgorithmInstance$self$$.$onAlgoParams_$);
-  $handler$$150$$.$listen$($JSCompiler_StaticMethods_registerAlgorithmInstance$self$$.$model_$, "model_set" + $algo_instance_id$$3$$ + "_status", $JSCompiler_StaticMethods_registerAlgorithmInstance$self$$.$onAlgoStatusChange_$);
+  $handler$$153$$.$listen$($JSCompiler_StaticMethods_registerAlgorithmInstance$self$$.$model_$, "model_set" + $algo_instance_id$$3$$ + "_params", $JSCompiler_StaticMethods_registerAlgorithmInstance$self$$.$onAlgoParams_$);
+  $handler$$153$$.$listen$($JSCompiler_StaticMethods_registerAlgorithmInstance$self$$.$model_$, "model_set" + $algo_instance_id$$3$$ + "_status", $JSCompiler_StaticMethods_registerAlgorithmInstance$self$$.$onAlgoStatusChange_$);
   var $params$$16$$ = $JSCompiler_StaticMethods_registerAlgorithmInstance$self$$.$model_$.get($algo_instance_id$$3$$ + "_params"), $algo$$ = $JSCompiler_StaticMethods_registerAlgorithmInstance$self$$.$model_$.get($algo_instance_id$$3$$ + "_algo"), $symbol$$26$$ = $JSCompiler_StaticMethods_registerAlgorithmInstance$self$$.$model_$.get($algo_instance_id$$3$$ + "_symbol"), $tickers$$1$$ = $JSCompiler_StaticMethods_registerAlgorithmInstance$self$$.$model_$.get($algo_instance_id$$3$$ + "_tickers"), $algo_definition$$1$$ = 
   $JSCompiler_StaticMethods_registerAlgorithmInstance$self$$.$model_$.get($algo_instance_id$$3$$ + "_definition"), $deposited_balance_broker_dlg$$10_open_orders_index$$ = $JSCompiler_StaticMethods_registerAlgorithmInstance$self$$.$model_$.get("OpenOrdersIndex"), $open_orders$$1$$ = {};
   null != $deposited_balance_broker_dlg$$10_open_orders_index$$ && $goog$array$forEach$$($deposited_balance_broker_dlg$$10_open_orders_index$$, function($order_id$$2$$) {
@@ -17504,9 +17623,9 @@ function $JSCompiler_StaticMethods_registerAlgorithmInstance$$($JSCompiler_Stati
     $balance_broker$$[$currency$$52$$ + "_locked"] = $balance$$11$$;
   }, $JSCompiler_StaticMethods_registerAlgorithmInstance$self$$);
   var $algo_permissions$$ = $algo_definition$$1$$.permissions, $deposited_balance_broker_dlg$$10_open_orders_index$$ = $JSCompiler_StaticMethods_registerAlgorithmInstance$self$$.$showDialog$($bitex$templates$AlgoPermissionsDialogContent$$({$permissions$:$algo_permissions$$}), "U\u1ef7 quy\u1ec1n cho thu\u1eadt to\u00e1n", (new $bitex$ui$Dialog$ButtonSet$$).$addButton$($goog$ui$Dialog$ButtonSet$DefaultButtons$YES$$, !0).$addButton$($goog$ui$Dialog$ButtonSet$DefaultButtons$NO$$, !1, !0));
-  $handler$$150$$.$listen$($deposited_balance_broker_dlg$$10_open_orders_index$$, $goog$ui$Dialog$EventType$SELECT$$, function($algo_sandbox_blobURL_e$$435$$) {
-    if ("yes" == $algo_sandbox_blobURL_e$$435$$.key) {
-      $algo_sandbox_blobURL_e$$435$$ = ["var context = {\n", '  "algo_instance_id": "' + $algo_instance_id$$3$$ + '",\n', '  "wss_url": "' + this.$wss_url_$ + '",\n', '  "symbol": "' + $symbol$$26$$.$symbol$ + '",\n', '  "tickers": ' + $goog$json$serialize$$($tickers$$1$$) + ",\n", '  "open_orders": ' + $goog$json$serialize$$($open_orders$$1$$) + ",\n", '  "balance": ' + $goog$json$serialize$$($balance_broker$$) + ",\n", '  "algo_definition": ' + $goog$json$serialize$$($algo_definition$$1$$) + "\n", 
+  $handler$$153$$.$listen$($deposited_balance_broker_dlg$$10_open_orders_index$$, $goog$ui$Dialog$EventType$SELECT$$, function($algo_sandbox_blobURL_e$$439$$) {
+    if ("yes" == $algo_sandbox_blobURL_e$$439$$.key) {
+      $algo_sandbox_blobURL_e$$439$$ = ["var context = {\n", '  "algo_instance_id": "' + $algo_instance_id$$3$$ + '",\n', '  "wss_url": "' + this.$wss_url_$ + '",\n', '  "symbol": "' + $symbol$$26$$.$symbol$ + '",\n', '  "tickers": ' + $goog$json$serialize$$($tickers$$1$$) + ",\n", '  "open_orders": ' + $goog$json$serialize$$($open_orders$$1$$) + ",\n", '  "balance": ' + $goog$json$serialize$$($balance_broker$$) + ",\n", '  "algo_definition": ' + $goog$json$serialize$$($algo_definition$$1$$) + "\n", 
       "};\n", "\n", "\n", $algo$$, "\n", "\n", "var f,l=this;function m(a){return void 0!==a}\n", 'function p(a){var b=typeof a;if("object"==b)if(a){if(a instanceof Array)return"array";if(a instanceof Object)return b;var c=Object.prototype.toString.call(a);if("[object Window]"==c)return"object";if("[object Array]"==c||"number"==typeof a.length&&"undefined"!=typeof a.splice&&"undefined"!=typeof a.propertyIsEnumerable&&!a.propertyIsEnumerable("splice"))return"array";if("[object Function]"==c||"undefined"!=typeof a.call&&"undefined"!=typeof a.propertyIsEnumerable&&!a.propertyIsEnumerable("call"))return"function"}else return"null";\n', 
       'else if("function"==b&&"undefined"==typeof a.call)return"object";return b}function q(a){return"array"==p(a)}function r(a){var b=p(a);return"array"==b||"object"==b&&"number"==typeof a.length}function t(a){return"string"==typeof a}function u(a){return"function"==p(a)}function v(a){var b=typeof a;return"object"==b&&null!=a||"function"==b}var w="closure_uid_"+(1E9*Math.random()>>>0),aa=0;\n', 'function x(a){var b=p(a);if("object"==b||"array"==b){if(a.clone)return a.clone();var b="array"==b?[]:{},c;for(c in a)b[c]=x(a[c]);return b}return a}function ba(a,b,c){return a.call.apply(a.bind,arguments)}function ca(a,b,c){if(!a)throw Error();if(2<arguments.length){var d=Array.prototype.slice.call(arguments,2);return function(){var c=Array.prototype.slice.call(arguments);Array.prototype.unshift.apply(c,d);return a.apply(b,c)}}return function(){return a.apply(b,arguments)}}\n', 
       'function y(a,b,c){y=Function.prototype.bind&&-1!=Function.prototype.bind.toString().indexOf("native code")?ba:ca;return y.apply(null,arguments)}function z(a,b){var c=Array.prototype.slice.call(arguments,1);return function(){var b=c.slice();b.push.apply(b,arguments);return a.apply(this,b)}}var da=Date.now||function(){return+new Date},A=null;\n', 'function B(a,b){var c=a.split("."),d=l;c[0]in d||!d.execScript||d.execScript("var "+c[0]);for(var e;c.length&&(e=c.shift());)!c.length&&m(b)?d[e]=b:d=d[e]?d[e]:d[e]={}}function C(a,b){D.prototype[a]=b};var E=Array.prototype.indexOf?function(a,b,c){return Array.prototype.indexOf.call(a,b,c)}:function(a,b,c){c=null==c?0:0>c?Math.max(0,a.length+c):c;if(t(a))return t(b)&&1==b.length?a.indexOf(b,c):-1;for(;c<a.length;c++)if(c in a&&a[c]===b)return c;return-1},ea=Array.prototype.lastIndexOf?function(a,b,c){return Array.prototype.lastIndexOf.call(a,b,null==c?a.length-1:c)}:function(a,b,c){c=null==c?a.length-1:c;0>c&&(c=Math.max(0,a.length+c));if(t(a))return t(b)&&1==b.length?a.lastIndexOf(b,c):-1;for(;0<=\n', 
@@ -17537,50 +17656,50 @@ function $JSCompiler_StaticMethods_registerAlgorithmInstance$$($JSCompiler_Stati
       'B("goog.object.containsValue",ma);B("goog.object.findKey",X);B("goog.object.findValue",function(a,b,c){return(b=X(a,b,c))&&a[b]});B("goog.object.isEmpty",function(a){for(var b in a)return!1;return!0});B("goog.object.clear",function(a){for(var b in a)delete a[b]});B("goog.object.remove",Y);B("goog.object.add",function(a,b,c){if(null!==a&&b in a)throw Error("The object already contains the key "+b);a[b]=c});B("goog.object.get",function(a,b,c){return null!==a&&b in a?a[b]:c});\n', 'B("goog.object.set",function(a,b,c){a[b]=c});B("goog.object.setIfUndefined",function(a,b,c){return b in a?a[b]:a[b]=c});B("goog.object.clone",function(a){var b={},c;for(c in a)b[c]=a[c];return b});B("goog.object.unsafeClone",na);B("goog.object.transpose",function(a){var b={},c;for(c in a)b[a[c]]=c;return b});B("goog.object.create",qa);B("goog.object.createSet",ra);B("goog.object.createImmutableView",function(a){var b=a;Object.isFrozen&&!Object.isFrozen(a)&&(b=Object.create(a),Object.freeze(b));return b});\n', 
       'B("goog.object.isImmutableView",function(a){return!!Object.isFrozen&&Object.isFrozen(a)});B("Application",D);C("sendBuyLimitedOrder",D.prototype.M);C("sendSellLimitedOrder",D.prototype.N);C("cancelAllOrders",D.prototype.w);C("cancelOrder",D.prototype.A);C("getOrderBook",D.prototype.G);C("getTrades",D.prototype.I);C("getBalance",D.prototype.B);C("getParameters",D.prototype.H);C("getOpenOrders",D.prototype.F);C("getMarket",D.prototype.D);C("getInstanceID",D.prototype.C);C("showNotification",D.prototype.showNotification);\n', 
       'C("stop",D.prototype.stop);\n'];
-      $algo_sandbox_blobURL_e$$435$$ = window.URL.createObjectURL(new Blob($algo_sandbox_blobURL_e$$435$$));
+      $algo_sandbox_blobURL_e$$439$$ = window.URL.createObjectURL(new Blob($algo_sandbox_blobURL_e$$439$$));
       var $running_algorithms$$2$$ = this.$model_$.get("RunningAlgorithms");
       null != $running_algorithms$$2$$ || ($running_algorithms$$2$$ = {});
-      var $worker$$2$$ = new Worker($algo_sandbox_blobURL_e$$435$$);
-      $running_algorithms$$2$$[$algo_instance_id$$3$$] = {blobURL:$algo_sandbox_blobURL_e$$435$$, worker:$worker$$2$$};
+      var $worker$$2$$ = new Worker($algo_sandbox_blobURL_e$$439$$);
+      $running_algorithms$$2$$[$algo_instance_id$$3$$] = {blobURL:$algo_sandbox_blobURL_e$$439$$, worker:$worker$$2$$};
       this.$model_$.set("RunningAlgorithms", $running_algorithms$$2$$);
-      $handler$$150$$.$listen$($worker$$2$$, "message", function($e$$436$$) {
-        $e$$436$$ = $e$$436$$.$event_$;
-        if ("create" != $e$$436$$.data.rep && "start" != $e$$436$$.data.rep && "params" != $e$$436$$.data.rep && "error" != $e$$436$$.data.rep && "terminate" != $e$$436$$.data.rep && "stop" != $e$$436$$.data.rep && 0 > $goog$array$indexOf$$($algo_permissions$$, $e$$436$$.data.rep)) {
-          "2" == this.$model_$.get($e$$436$$.data.instance + "_status") && this.$model_$.set($e$$436$$.data.instance + "_status", "3"), this.$showNotification$("error", "Thu\u1eadt to\u00e1n \u0111ang c\u1ed1 g\u1eafng l\u00e0m m\u1ed9t h\u00e0nh \u0111\u1ed9ng kh\u00f4ng h\u1ee3p l\u1ec7.", $e$$436$$.data.rep), this.$model_$.set($e$$436$$.data.instance + "_status", "0"), $running_algorithms$$2$$ = this.$model_$.get("RunningAlgorithms"), $goog$object$remove$$($running_algorithms$$2$$, $e$$436$$.data.instance), 
+      $handler$$153$$.$listen$($worker$$2$$, "message", function($e$$440$$) {
+        $e$$440$$ = $e$$440$$.$event_$;
+        if ("create" != $e$$440$$.data.rep && "start" != $e$$440$$.data.rep && "params" != $e$$440$$.data.rep && "error" != $e$$440$$.data.rep && "terminate" != $e$$440$$.data.rep && "stop" != $e$$440$$.data.rep && 0 > $goog$array$indexOf$$($algo_permissions$$, $e$$440$$.data.rep)) {
+          "2" == this.$model_$.get($e$$440$$.data.instance + "_status") && this.$model_$.set($e$$440$$.data.instance + "_status", "3"), this.$showNotification$("error", "Thu\u1eadt to\u00e1n \u0111ang c\u1ed1 g\u1eafng l\u00e0m m\u1ed9t h\u00e0nh \u0111\u1ed9ng kh\u00f4ng h\u1ee3p l\u1ec7.", $e$$440$$.data.rep), this.$model_$.set($e$$440$$.data.instance + "_status", "0"), $running_algorithms$$2$$ = this.$model_$.get("RunningAlgorithms"), $goog$object$remove$$($running_algorithms$$2$$, $e$$440$$.data.instance), 
           this.$model_$.set("RunningAlgorithms", $running_algorithms$$2$$);
         } else {
-          switch($e$$436$$.data.rep) {
+          switch($e$$440$$.data.rep) {
             case "create":
-              this.$model_$.set($e$$436$$.data.instance + "_status", "1");
-              "received_security_status" == $e$$436$$.data.status && this.$model_$.set($e$$436$$.data.instance + "_status_received_security_status", "1");
-              "received_full_refresh" == $e$$436$$.data.status && this.$model_$.set($e$$436$$.data.instance + "_status_received_full_refresh", "1");
-              "ws_open" == $e$$436$$.data.status && this.$model_$.set($e$$436$$.data.instance + "_status_ws_open", "1");
-              this.$model_$.get($e$$436$$.data.instance + "_status_ws_open") && this.$model_$.get($e$$436$$.data.instance + "_status_received_full_refresh") && this.$model_$.get($e$$436$$.data.instance + "_status_received_security_status") && $worker$$2$$.postMessage({req:"start", params:this.$model_$.get($algo_instance_id$$3$$ + "_params")});
+              this.$model_$.set($e$$440$$.data.instance + "_status", "1");
+              "received_security_status" == $e$$440$$.data.status && this.$model_$.set($e$$440$$.data.instance + "_status_received_security_status", "1");
+              "received_full_refresh" == $e$$440$$.data.status && this.$model_$.set($e$$440$$.data.instance + "_status_received_full_refresh", "1");
+              "ws_open" == $e$$440$$.data.status && this.$model_$.set($e$$440$$.data.instance + "_status_ws_open", "1");
+              this.$model_$.get($e$$440$$.data.instance + "_status_ws_open") && this.$model_$.get($e$$440$$.data.instance + "_status_received_full_refresh") && this.$model_$.get($e$$440$$.data.instance + "_status_received_security_status") && $worker$$2$$.postMessage({req:"start", params:this.$model_$.get($algo_instance_id$$3$$ + "_params")});
               break;
             case "start":
-              this.$model_$.set($e$$436$$.data.instance + "_status", "2");
+              this.$model_$.set($e$$440$$.data.instance + "_status", "2");
               break;
             case "notification":
-              this.$showNotification$($e$$436$$.data.type, $e$$436$$.data.title, $e$$436$$.data.description);
+              this.$showNotification$($e$$440$$.data.type, $e$$440$$.data.title, $e$$440$$.data.description);
               break;
             case "error":
             ;
             case "terminate":
             ;
             case "stop":
-              "2" == this.$model_$.get($e$$436$$.data.instance + "_status") && this.$model_$.set($e$$436$$.data.instance + "_status", "3");
-              null != $e$$436$$.data.error && this.$showNotification$("error", "L\u1ed7i khi \u0111ang ch\u1ea1y thu\u1eadt to\u00e1n", $e$$436$$.data.error);
-              this.$model_$.set($e$$436$$.data.instance + "_status", "0");
+              "2" == this.$model_$.get($e$$440$$.data.instance + "_status") && this.$model_$.set($e$$440$$.data.instance + "_status", "3");
+              null != $e$$440$$.data.error && this.$showNotification$("error", "L\u1ed7i khi \u0111ang ch\u1ea1y thu\u1eadt to\u00e1n", $e$$440$$.data.error);
+              this.$model_$.set($e$$440$$.data.instance + "_status", "0");
               $running_algorithms$$2$$ = this.$model_$.get("RunningAlgorithms");
-              $goog$object$remove$$($running_algorithms$$2$$, $e$$436$$.data.instance);
+              $goog$object$remove$$($running_algorithms$$2$$, $e$$440$$.data.instance);
               this.$model_$.set("RunningAlgorithms", $running_algorithms$$2$$);
               break;
             case "new_order_limited":
-              var $order_symbol$$ = this.$model_$.get($e$$436$$.data.instance + "_symbol").$symbol$, $broker_id$$inline_2295$$ = this.$model_$.get("SelectedBrokerID");
-              $JSCompiler_StaticMethods_sendOrder_$$(this.$conn_$, $order_symbol$$, parseInt($e$$436$$.data.qty, 10), parseInt($e$$436$$.data.price, 10), $e$$436$$.data.side, $broker_id$$inline_2295$$, void 0, $e$$436$$.data.client_order_id);
+              var $order_symbol$$ = this.$model_$.get($e$$440$$.data.instance + "_symbol").$symbol$, $broker_id$$inline_2310$$ = this.$model_$.get("SelectedBrokerID");
+              $JSCompiler_StaticMethods_sendOrder_$$(this.$conn_$, $order_symbol$$, parseInt($e$$440$$.data.qty, 10), parseInt($e$$440$$.data.price, 10), $e$$440$$.data.side, $broker_id$$inline_2310$$, void 0, $e$$440$$.data.client_order_id);
               break;
             case "cancel_order":
-              this.$conn_$.$cancelOrder$($e$$436$$.data.client_order_id, $e$$436$$.data.order_id);
+              this.$conn_$.$cancelOrder$($e$$440$$.data.client_order_id, $e$$440$$.data.order_id);
           }
         }
       }, this);
@@ -17588,14 +17707,14 @@ function $JSCompiler_StaticMethods_registerAlgorithmInstance$$($JSCompiler_Stati
     }
   }, $JSCompiler_StaticMethods_registerAlgorithmInstance$self$$);
 }
-$JSCompiler_prototypeAlias$$.$onAlgoStatusChange_$ = function $$JSCompiler_prototypeAlias$$$$onAlgoStatusChange_$$($e$$437$$) {
-  var $algo_instance_id$$4$$ = $e$$437$$.key.substr(0, $e$$437$$.key.length - 7);
-  "3" == $e$$437$$.data && (this.$showNotification$("info", "\u0110ang d\u1eebng thu\u1eadt to\u00e1n...."), this.$model_$.get("RunningAlgorithms")[$algo_instance_id$$4$$].worker.postMessage({req:"stop"}));
+$JSCompiler_prototypeAlias$$.$onAlgoStatusChange_$ = function $$JSCompiler_prototypeAlias$$$$onAlgoStatusChange_$$($e$$441$$) {
+  var $algo_instance_id$$4$$ = $e$$441$$.key.substr(0, $e$$441$$.key.length - 7);
+  "3" == $e$$441$$.data && (this.$showNotification$("info", "\u0110ang d\u1eebng thu\u1eadt to\u00e1n...."), this.$model_$.get("RunningAlgorithms")[$algo_instance_id$$4$$].worker.postMessage({req:"stop"}));
 };
-$JSCompiler_prototypeAlias$$.$onAlgoParams_$ = function $$JSCompiler_prototypeAlias$$$$onAlgoParams_$$($e$$438_parameters$$) {
-  var $algo_instance_id$$5$$ = $e$$438_parameters$$.key.substr(0, $e$$438_parameters$$.key.length - 7);
-  $e$$438_parameters$$ = $e$$438_parameters$$.data;
-  this.$model_$.get("RunningAlgorithms")[$algo_instance_id$$5$$].worker.postMessage({req:"params", params:$e$$438_parameters$$});
+$JSCompiler_prototypeAlias$$.$onAlgoParams_$ = function $$JSCompiler_prototypeAlias$$$$onAlgoParams_$$($e$$442_parameters$$) {
+  var $algo_instance_id$$5$$ = $e$$442_parameters$$.key.substr(0, $e$$442_parameters$$.key.length - 7);
+  $e$$442_parameters$$ = $e$$442_parameters$$.data;
+  this.$model_$.get("RunningAlgorithms")[$algo_instance_id$$5$$].worker.postMessage({req:"params", params:$e$$442_parameters$$});
 };
 $JSCompiler_prototypeAlias$$.$sendAccessToken$ = function $$JSCompiler_prototypeAlias$$$$sendAccessToken$$($token$$15$$) {
   console.log($token$$15$$);
