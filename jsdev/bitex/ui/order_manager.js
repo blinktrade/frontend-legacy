@@ -171,11 +171,10 @@ bitex.ui.OrderManager = function(opt_mode, opt_openOrdersTitle, opt_filterOrder,
       'label': MSG_ORDER_MANAGER_ACTIVITY_TABLE_COLUMN_ACTIONS,
       'sortable': false,
       'formatter': function(id, row_set_obj){
-        var attributes = { 'dataClientOrderId': id } ;
+        var attributes = { dataClientOrderId: id, dataOrderId:null } ;
 
         if ( goog.isDefAndNotNull(row_set_obj) ) {
-          attributes['dataOrderId'] = row_set_obj["OrderID"];
-
+          attributes = { dataClientOrderId: id, dataOrderId:row_set_obj["OrderID"]} ;
           if (row_set_obj["LeavesQty"] == 0) {
             return "";
           }
@@ -249,12 +248,10 @@ bitex.ui.OrderManager = function(opt_mode, opt_openOrdersTitle, opt_filterOrder,
       'label': MSG_ORDER_MANAGER_ACTIVITY_TABLE_COLUMN_ACTIONS,
       'sortable': false,
       'formatter': function(id, row_set_obj){
-        var attributes = { 'dataClientOrderId': id } ;
-
+        var attributes = { dataClientOrderId: id, dataOrderId:null } ;
 
         if ( goog.isDefAndNotNull(row_set_obj) ) {
-          attributes['dataOrderId'] = row_set_obj["OrderID"];
-
+          attributes = { dataClientOrderId: id, dataOrderId:row_set_obj["OrderID"]} ;
           if (row_set_obj["LeavesQty"] == 0) {
             return "";
           }
