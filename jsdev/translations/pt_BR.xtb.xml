@@ -694,4 +694,25 @@
 	<translation id="4903232320773209592" key="MSG_KZGTGUN90GQK" source="bitex/ui/api_key_data_entry.soy.js" desc="Confirm Withdraw on the API Key Data Entry form permissions section">Confirmar retirada</translation>
 	<translation id="3280479186641995710" key="MSG_PREVENT_RELOAD" source="bitex/app/blinktrade.js" desc="Warning message to prevent page reload">Sua sessão será terminada</translation>
 	<translation id="5586279959063254038" key="MSG_SHOW_DEPOSIT_PRE_APPROVE_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="Pre approval deposit dialog">Pré aprovação de depósito</translation>
+	<translation id="8859593078701802367" key="MSG_I8NG8LNSDU19" source="bitex/ui/simple_order_entry.soy.js" desc="Advanced">Avançado</translation>
+	<translation id="2541254029212019141" key="MSG_N975LU6XTE3U" source="bitex/ui/simple_order_entry.soy.js" desc="for a total of"> para um total de:</translation>
+	<translation id="6629063857642096026" key="MSG_1O0UZD8Z0WYGZ" source="bitex/ui/simple_order_entry.soy.js" desc="Price per crypto currency label on simple order entry">Preço por <ph name="cryptocurrencydescription" />:</translation>
+	<translation id="3104817421579305182" key="MSG_B4TRZCZICV7Z" source="bitex/ui/simple_order_entry.soy.js" desc="Price per">Preço por</translation>
+	<translation id="7627592929678985939" key="MSG_6Y2ET19QT95Q" source="bitex/ui/simple_order_entry.soy.js" desc="I want to buy">Eu quero comprar:</translation>
+	<translation id="6683973603505709453" key="MSG_11VS5DJOK5YNA" source="bitex/ui/simple_order_entry.soy.js" desc="I want to sell">Eu quero vender:</translation>
+	<translation id="5541268651049249072" key="MSG_NFG52RNMOON9" source="bitex/ui/deposit_list.soy.js" desc="KYC">KYC</translation>
+	<translation id="5337187054792305284" key="MSG_V8FNXYNYN0GJ" source="bitex/ui/advanced_order_entry.soy.js" desc="Available label inside the advanced order entry">Disponível:</translation>
+	<translation id="4798741255767907904" key="MSG_1GPNQOH6NRNZ5" source="bitex/ui/advanced_order_entry.soy.js" desc="'Price per label' in Order Entry">Preço por:</translation>
+	<translation id="3408365334704496628" key="MSG_JTUCJM4CP8UI" source="bitex/ui/two_factor.soy.js" desc="Two Factor Authentication">Dois fatores de autenticação</translation>
+	<translation id="7713353218164778620" key="MSG_8SI2JVBG55QE" source="bitex/ui/two_factor.soy.js" desc="two factor line 1">Fizemos o sistema mais seguro protegendo a sua conta com uma camada extra de segurança. Como?</translation>
+	<translation id="7720388949015284796" key="MSG_BUQLO6USY2A" source="bitex/ui/two_factor.soy.js" desc="two factor line 2">O seu smart phone ou seu tablet se transformam em uma chave de acesso adicional para a sua conta, utilizando um aplicativo fácil de se usar.</translation>
+	<translation id="5923919257210990797" key="MSG_1GOVBYS9FIL5B" source="bitex/ui/two_factor.soy.js" desc="two factor line 3">Você somente precisará utilizar o segundo fator de autenticação quando nossos sistemas detectar operações de alto risco.</translation>
+	<translation id="7145249941653083861" key="MSG_JAXH4XUW7WV8" source="bitex/ui/two_factor.soy.js" desc="two factor line 4">Se você ainda não tiver o Google Authenticator ou Authy instalados e configurados, basta seguir os próximos passos abaixo</translation>
+	<translation id="9090558310961070927" key="MSG_16ULKTM62PVNQ" source="bitex/ui/two_factor.soy.js" desc="two factor step 1">Baixe e instale o "Authy" no seu smart phone.</translation>
+	<translation id="4502902583576602361" key="MSG_AZ99DWNWKUFR" source="bitex/ui/two_factor.soy.js" desc="two factor step 2">Vá até a App store e procure pelo aplicativo "Authy" ( preferêncial ) ou "Google Authenticator"</translation>
+	<translation id="1978475762364747659" key="MSG_1GTFF32HSHA0Y" source="bitex/ui/two_factor.soy.js" desc="two factor step 3">Abra o aplicativo e aperte 'Begin setup' e depois 'Scan a barcode'.</translation>
+	<translation id="7238091213801644502" key="MSG_HBRRGCDSH11Z" source="bitex/ui/two_factor.soy.js" desc="two factor step 4">Depois de finalizar a configuração, conecte o seu aparelho com a sua conta seguindo as instruções no quadro abaixo.</translation>
+	<translation id="5628381285821291099" key="MSG_1VIQLAPMXBM18" source="bitex/ui/two_factor.soy.js" desc="Key:">Chave: </translation>
+	<translation id="3754329268759281007" key="MSG_FFA8E6P0AL2K" source="bitex/ui/two_factor.soy.js" desc="Authentication Code">Código de autenticação</translation>
+	<translation id="2272194505568683313" key="MSG_NQC3LU0IHKZA" source="bitex/ui/two_factor.soy.js" desc="Skip">Pular</translation>
 </translationbundle>

@@ -692,4 +692,25 @@
 	<translation id="4903232320773209592" key="MSG_KZGTGUN90GQK" source="bitex/ui/api_key_data_entry.soy.js" desc="Confirm Withdraw on the API Key Data Entry form permissions section">确认提现请求</translation>
 	<translation id="3280479186641995710" key="MSG_PREVENT_RELOAD" source="bitex/app/blinktrade.js" desc="Warning message to prevent page reload">网络连接中断</translation>
 	<translation id="5586279959063254038" key="MSG_SHOW_DEPOSIT_PRE_APPROVE_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="Pre approval deposit dialog">充值预授权</translation>
+	<translation id="8859593078701802367" key="MSG_I8NG8LNSDU19" source="bitex/ui/simple_order_entry.soy.js" desc="Advanced">Advanced</translation>
+	<translation id="2541254029212019141" key="MSG_N975LU6XTE3U" source="bitex/ui/simple_order_entry.soy.js" desc="for a total of"> for a total of:</translation>
+	<translation id="6629063857642096026" key="MSG_1O0UZD8Z0WYGZ" source="bitex/ui/simple_order_entry.soy.js" desc="Price per crypto currency label on simple order entry">Price per <ph name="cryptocurrencydescription" />:</translation>
+	<translation id="3104817421579305182" key="MSG_B4TRZCZICV7Z" source="bitex/ui/simple_order_entry.soy.js" desc="Price per">Price per</translation>
+	<translation id="7627592929678985939" key="MSG_6Y2ET19QT95Q" source="bitex/ui/simple_order_entry.soy.js" desc="I want to buy">I want to buy:</translation>
+	<translation id="6683973603505709453" key="MSG_11VS5DJOK5YNA" source="bitex/ui/simple_order_entry.soy.js" desc="I want to sell">I want to sell:</translation>
+	<translation id="5541268651049249072" key="MSG_NFG52RNMOON9" source="bitex/ui/deposit_list.soy.js" desc="KYC">KYC</translation>
+	<translation id="5337187054792305284" key="MSG_V8FNXYNYN0GJ" source="bitex/ui/advanced_order_entry.soy.js" desc="Available label inside the advanced order entry">Available:</translation>
+	<translation id="4798741255767907904" key="MSG_1GPNQOH6NRNZ5" source="bitex/ui/advanced_order_entry.soy.js" desc="'Price per label' in Order Entry">Price per:</translation>
+	<translation id="3408365334704496628" key="MSG_JTUCJM4CP8UI" source="bitex/ui/two_factor.soy.js" desc="Two Factor Authentication">Two Factor Authentication</translation>
+	<translation id="7713353218164778620" key="MSG_8SI2JVBG55QE" source="bitex/ui/two_factor.soy.js" desc="two factor line 1">We have made your system more secure. By protecting your login details with an extra layer of security. How?</translation>
+	<translation id="7720388949015284796" key="MSG_BUQLO6USY2A" source="bitex/ui/two_factor.soy.js" desc="two factor line 2">Your phone or tablet becomes your key to access your account, with the easy-to-use app.</translation>
+	<translation id="5923919257210990797" key="MSG_1GOVBYS9FIL5B" source="bitex/ui/two_factor.soy.js" desc="two factor line 3">You will only be asked for additional authentication when our system detects a higher risk.</translation>
+	<translation id="7145249941653083861" key="MSG_JAXH4XUW7WV8" source="bitex/ui/two_factor.soy.js" desc="two factor line 4">If you do not have Google Authenticator installed and configured yet, follow these easy steps outlined below</translation>
+	<translation id="9090558310961070927" key="MSG_16ULKTM62PVNQ" source="bitex/ui/two_factor.soy.js" desc="two factor step 1">Download and install the Authy on your mobile device.</translation>
+	<translation id="4502902583576602361" key="MSG_AZ99DWNWKUFR" source="bitex/ui/two_factor.soy.js" desc="two factor step 2">Go to your app store and search for Authy or Google Authenticator</translation>
+	<translation id="1978475762364747659" key="MSG_1GTFF32HSHA0Y" source="bitex/ui/two_factor.soy.js" desc="two factor step 3">On your mobile device, Tap 'Begin setup', then 'Scan a barcode'.</translation>
+	<translation id="7238091213801644502" key="MSG_HBRRGCDSH11Z" source="bitex/ui/two_factor.soy.js" desc="two factor step 4">After finishing setup, link your device to your account by following the instructions in the yellow frame.</translation>
+	<translation id="5628381285821291099" key="MSG_1VIQLAPMXBM18" source="bitex/ui/two_factor.soy.js" desc="Key:">Key: </translation>
+	<translation id="3754329268759281007" key="MSG_FFA8E6P0AL2K" source="bitex/ui/two_factor.soy.js" desc="Authentication Code">Authentication Code</translation>
+	<translation id="2272194505568683313" key="MSG_NQC3LU0IHKZA" source="bitex/ui/two_factor.soy.js" desc="Skip">Skip</translation>
 </translationbundle>
