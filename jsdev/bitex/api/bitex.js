@@ -16,6 +16,7 @@ goog.require('goog.events.Event');
 goog.require('goog.events.EventTarget');
 
 goog.require('goog.userAgent');
+goog.require('goog.Uri.QueryData');
 
 /**
  * @constructor
@@ -29,6 +30,7 @@ bitex.api.BitEx = function( opt_browser_finger_print  ){
   this.all_markets_           = null;
   this.browser_finger_print_  = opt_browser_finger_print;
   this.stunt_ip_info_         = {'local':undefined, 'public':[]};
+  this.tracking_code_         = this.setTrackingCode();
 
 
   this.ws_ = new goog.net.WebSocket(true);
@@ -47,6 +49,12 @@ bitex.app.BitEx.prototype.currency_info_;
  * @private
  */
 bitex.app.BitEx.prototype.stunt_ip_info_;
+
+/**
+ * @type {string}
+ * @private
+ */
+bitex.app.BitEx.prototype.tracking_code_;
 
 /**
  * @type {Object}
@@ -1769,6 +1777,10 @@ bitex.api.BitEx.prototype.setSTUNTIp = function(stunt_ip_info) {
   this.stunt_ip_info_ = stunt_ip_info;
 };
 
+bitex.api.BitEx.prototype.setTrackingCode = function(){
+  return new goog.Uri(window.location.href).getParameterValue('tr');
+};
+
 /**
  * @param {Object} msg
  */
@@ -1778,6 +1790,9 @@ bitex.api.BitEx.prototype.sendMessage  = function(msg) {
   }
   if (goog.isDefAndNotNull(this.stunt_ip_info_)) {
     msg['STUNTIP'] = this.stunt_ip_info_;
+  }
+  if (goog.isDefAndNotNull(this.tracking_code_)) {
+    msg['TrackingCode'] = this.tracking_code_;
   }
 
   this.sendRawMessage(JSON.stringify(msg));
