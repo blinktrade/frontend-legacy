@@ -1778,7 +1778,7 @@ bitex.api.BitEx.prototype.setSTUNTIp = function(stunt_ip_info) {
 };
 
 bitex.api.BitEx.prototype.setTrackingCode = function(){
-  return new goog.Uri(window.location.href).getParameterValue('tr');
+  return new goog.Uri(window.location.href).getParameterValue('tc');
 };
 
 /**
