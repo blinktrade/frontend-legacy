@@ -65,26 +65,38 @@
             <ul class="head-ticker">
                 <li>
                     <span class="head-ticker__title">
-                        <i class="glyphicon glyphicon-triangle-top"></i> LAST&nbsp;
+                        <i class="glyphicon glyphicon-triangle-right"></i> LAST&nbsp;
                     </span>
                     <span class="head-ticker__value">
-                        PHP 11,090.16
+                      <span class="bitex-model"
+                            data-model-key-list="formatted_BLINK_{{site.symbol}}_LAST_PX"
+                            data-model-formula="formatted_BLINK_{{site.symbol}}_LAST_PX"
+                            data-blink-class="balance-info-blink"
+                        ></span>
                     </span>
                 </li>
                 <li>
                     <span class="head-ticker__title">
-                        <i class="glyphicon glyphicon-triangle-top"></i> HIGHT&nbsp;
+                        <i class="glyphicon glyphicon-triangle-right"></i> HIGHT&nbsp;
                     </span>
                     <span class="head-ticker__value">
-                        PHP 13,441.61
+                      <span class="bitex-model"
+                            data-model-key-list="formatted_BLINK_{{site.symbol}}_HIGH_PX"
+                            data-model-formula="formatted_BLINK_{{site.symbol}}_HIGH_PX"
+                            data-blink-class="balance-info-blink"
+                        ></span>
                     </span>
                 </li>
                 <li>
                     <span class="head-ticker__title">
-                        <i class="glyphicon glyphicon-triangle-bottom"></i> LOW&nbsp;
+                        <i class="glyphicon glyphicon-triangle-right"></i> LOW&nbsp;
                     </span>
                     <span class="head-ticker__value">
-                        PHP 9,950.00
+                      <span class="bitex-model"
+                            data-model-key-list="formatted_BLINK_{{site.symbol}}_LOW_PX"
+                            data-model-formula="formatted_BLINK_{{site.symbol}}_LOW_PX"
+                            data-blink-class="balance-info-blink"
+                        ></span>
                     </span>
                 </li>
             </ul>
@@ -179,6 +191,11 @@
                       <a href="#" data-switch-view="my_broker">
                          {% t views.sidebar.my_broker %}
                       </a>
+                  </li>
+                  <li class="bitex-display-if-broker">
+                    <a href="#" data-switch-view="customers">
+                      {% t views.sidebar.customers %}
+                    </a>
                   </li>
                   <li class="bitex-display-if-broker">
                     <a href="#" data-switch-view="deposit_requests">
