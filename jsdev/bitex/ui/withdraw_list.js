@@ -284,6 +284,10 @@ bitex.ui.WithdrawList = function( methodDescriptionObj, opt_broker_mode,  opt_sh
       'formatter': function(data, rowSet){
         var element = goog.dom.createDom( 'table' );
 
+        if(!goog.isDefAndNotNull(methodDescriptionObj[rowSet['Currency']])){
+          return;
+        }
+
         var method = methodDescriptionObj[rowSet['Currency']][ rowSet['Method'] ];
         goog.dom.appendChild(element,
             goog.dom.createDom('tr', goog.getCssName(bitex.ui.WithdrawList.CSS_CLASS, 'details-tr'),
