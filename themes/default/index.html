@@ -361,6 +361,51 @@ load_application:       True
         </div>
       </div>
 
+      <div id="admin_view" class="bitex-view">
+        <div class="section-title">
+          <h3 class="bitex-view-title">{% t views.admin.title %}</h3>
+        </div>
+        <div class="content bitex-view-content">
+          <div id="admin-tabs">
+            <ul class="nav nav-tabs">
+              <li class="active">
+                <a href="#TabCustomers" data-toggle="tab">{% t views.customers.title %}</a>
+              </li>
+              <li>
+                <a href="#TabDepositRequests" data-toggle="tab">{% t views.deposit_requests.title %}</a>
+              </li>
+              <li>
+                <a href="#TabWithdrawRequests" data-toggle="tab">{% t views.withdraw_requests.title %}</a>
+              </li>
+              <li>
+                <a href="#TabWithdrawMethods" data-toggle="tab">{% t views.withdraw_methods.title %}</a>
+              </li>
+            </ul>
+            <div class="tab-content">
+              <div class="tab-pane fade" id="TabCustomers">
+                <h2 class="bitex-view-title">{% t views.customers.title %}</h2>
+                <div id="admin_customers"></div>
+              </div>
+              <div class="tab-pane fade" id="TabDepositRequests">
+                <h2 class="bitex-view-title">{% t views.deposit_requests.title %}</h2>
+
+                <div id="admin_deposit_requests"></div>
+              </div>
+              <div class="tab-pane fade" id="TabWithdrawRequests">
+                <h2 class="bitex-view-title">{% t views.withdraw_requests.title %}</h2>
+
+                <div id="admin_withdraw_requests"></div>
+              </div>
+              <div class="tab-pane fade" id="TabWithdrawMethods">
+                <h2 class="bitex-view-title">{% t views.withdraw_methods.title %}</h2>
+
+                <div id="admin_withdraw_methods"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div id="customers" class="bitex-view">
         <div class="section-title">
           <h3 class="bitex-view-title">{% t views.customers.title %}</h3>
@@ -538,6 +583,8 @@ load_application:       True
                                                 bitex-view-trading
                                                 bitex-view-offerbook
                                                 bitex-view-history
+                                                bitex-view-admin_view
+                                                bitex-view-admin_customers
                                                 bitex-view-customers
                                                 bitex-view-account_overview
                                                 bitex-view-withdraw
@@ -570,6 +617,11 @@ load_application:       True
 
         <h6>{% t views.sidebar.menu %}</h6>
         <ul class="nav nav-list">
+          <li class="bitex-display-if-broker" id="menu-admin_view">
+            <a href="" data-switch-view="admin_view">
+              <i data-switch-view="admin" class="icon-user"></i> {% t views.sidebar.admin %}
+            </a>
+          </li>
           <li id="menu-profile">
             <a href="" data-switch-view="profile">
               <i data-switch-view="profile" class="icon-user"></i> {% t views.sidebar.my_profile %}</a>
@@ -618,12 +670,12 @@ load_application:       True
               <i data-switch-view="withdraw_requests" class="icon-minus"></i> {% t views.sidebar.withdraw_requests %}</a>
           </li>
 
-          <li id="menu-deposit">
+          <li id="menu-deposit" class="bitex-display-if-non-broker">
             <a href="" data-switch-view="deposit">
               <i data-switch-view="deposit" class="icon-plus"></i> {% t views.sidebar.deposit %}</a>
           </li>
 
-          <li id="menu-withdraw">
+          <li id="menu-withdraw" class="bitex-display-if-non-broker">
             <a href="" data-switch-view="withdraw">
               <i data-switch-view="withdraw" class="icon-minus"></i> {% t views.sidebar.withdraw %}</a>
           </li>

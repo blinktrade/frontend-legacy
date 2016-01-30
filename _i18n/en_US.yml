@@ -163,6 +163,9 @@ views:
     cumulative: Cumulative
     fees: Fees
 
+  admin:
+    title: Admin
+
   customers:
     title: My customers
 
@@ -175,6 +178,9 @@ views:
 
   withdraw_requests:
     title: Withdrawal requests
+
+  withdraw_methods:
+    title: Withdraw methods
 
   deposit:
     title: My Deposits
@@ -213,6 +219,7 @@ views:
     title: Orders history
 
   sidebar:
+    admin: Admin
     market: "Market:"
     menu: Menu
     my_profile: My Profile

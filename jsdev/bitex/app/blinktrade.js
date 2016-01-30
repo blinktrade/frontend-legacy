@@ -65,6 +65,7 @@ goog.require('bitex.primitives.Price');
 goog.require('goog.debug');
 
 goog.require('bitex.view.NullView');
+goog.require('bitex.view.AdminView');
 goog.require('bitex.view.SignupView');
 goog.require('bitex.view.LoginView');
 goog.require('bitex.view.StartView');
@@ -443,6 +444,7 @@ bitex.app.BlinkTrade.prototype.run = function(host_api) {
 
   // Populate all the views
   var startView           = new bitex.view.StartView(this);
+  var adminView           = new bitex.view.AdminView(this);
   var twoFactorView       = new bitex.view.TwoFactor(this);
   var faqView             = new bitex.view.NullView(this);
   var themesView          = new bitex.view.NullView(this);
@@ -476,6 +478,7 @@ bitex.app.BlinkTrade.prototype.run = function(host_api) {
   this.views_.addChild( toolBarView         );
   this.views_.addChild( sideBarView         );
   this.views_.addChild( startView           );
+  this.views_.addChild( adminView           );
   this.views_.addChild( twoFactorView       );
   this.views_.addChild( faqView             );
   this.views_.addChild( themesView          );
@@ -516,6 +519,7 @@ bitex.app.BlinkTrade.prototype.run = function(host_api) {
 
   this.router_.addView( '(account_overview)/(\\w+)/$'   , accountOverviewView );
   this.router_.addView( '(start)'                       , startView           );
+  this.router_.addView( '(admin_view)'                  , adminView           );
   this.router_.addView( '(twofactor)'                   , twoFactorView       );
   this.router_.addView( '(faq)'                         , faqView             );
   this.router_.addView( '(themes)'                      , themesView          );

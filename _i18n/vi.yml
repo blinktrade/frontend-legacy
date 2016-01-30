@@ -164,6 +164,9 @@ views:
     cumulative: Lũy kế
     fees: Phí
 
+  admin:
+    title: Admin
+
   customers:
     title: Khách hàng
 
@@ -176,6 +179,9 @@ views:
 
   withdraw_requests:
     title: Lệnh rút tiền của khách
+
+  withdraw_methods:
+    title: Withdraw methods
 
   deposit:
     title: Các lệnh gửi tiền
@@ -214,6 +220,7 @@ views:
     title: Lịch sử giao dịch
 
   sidebar:
+    admin: Admin
     market: "Thị trường:"
     menu: Menu
     my_profile: Hồ sơ

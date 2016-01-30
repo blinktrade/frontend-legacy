@@ -165,6 +165,9 @@ views:
     cumulative: 累计订单
     fees: 手续费
 
+  admin:
+    title: Admin
+
   customers:
     title: 我的客户
 
@@ -177,6 +180,9 @@ views:
 
   withdraw_requests:
     title: 提现申请
+
+  withdraw_methods:
+    title: Withdraw methods
 
   deposit:
     title: 我的充值
@@ -215,6 +221,7 @@ views:
     title: 订单历史
 
   sidebar:
+    admin: Admin
     market: "市场:"
     menu: 菜单
     my_profile: 我的个人资料

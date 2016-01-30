@@ -163,6 +163,9 @@ views:
     cumulative: A acumulat
     fees: Taxe
 
+  admin:
+    title: Admin
+
   customers:
     title: Clienții mei
 
@@ -175,6 +178,9 @@ views:
 
   withdraw_requests:
     title: Solicitări de retragere
+
+  withdraw_methods:
+    title: Withdraw methods
 
   deposit:
     title: Depunerile mele
@@ -213,6 +219,7 @@ views:
     title: Orders history
 
   sidebar:
+    admin: Admin
     market: "Moneda de schimb :"
     menu: Meniu
     my_profile: Profilul meu

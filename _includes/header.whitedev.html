@@ -145,6 +145,7 @@
                                             bitex-view-profile
                                             bitex-view-trading
                                             bitex-view-offerbook
+                                            bitex-view-admin_view
                                             bitex-view-customers
                                             bitex-view-account_overview
                                             bitex-view-withdraw
@@ -210,6 +211,11 @@
 
     <nav class="ls-menu" role="navigation">
         <ul role="menu">
+            <li id="menu-admin_view" class="bitex-display-if-broker">
+              <a href="" data-switch-view="admin_view" class="ls-ico-user" role="menuitem" style="outline: none;">
+                {% t views.sidebar.admin %}
+              </a>
+            </li>
             <li id="menu-profile">
               <a href="" data-switch-view="profile" class="ls-ico-user" role="menuitem" style="outline: none;">
                 {% t views.sidebar.my_profile %}
@@ -255,12 +261,12 @@
                 {% t views.sidebar.withdraw_requests %}
               </a>
             </li>
-            <li id="menu-deposit">
+            <li id="menu-deposit" class="bitex-display-if-non-broker">
               <a href="" data-switch-view="deposit" class="ls-ico-download" role="menuitem">
                 {% t views.sidebar.deposit %}
               </a>
             </li>
-            <li id="menu-withdraw">
+            <li id="menu-withdraw" class="bitex-display-if-non-broker">
               <a href="" data-switch-view="withdraw" class="ls-ico-upload" role="menuitem">
                 {% t views.sidebar.withdraw %}
               </a>

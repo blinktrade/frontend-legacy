@@ -382,6 +382,53 @@ load_application:       True
         </div>
       </div>
 
+      <!-- admin -->
+      <div id="admin_view" class="bitex-view">
+        <div class="container-fluid">
+          <h1 class="ls-title-intro">{% t views.admin.title %}</h1>
+        </div>
+        <div class="content bitex-view-content">
+          <div id="admin-tabs">
+            <ul class="ls-tabs-nav nav nav-tabs">
+              <li class="active">
+                <a href="#TabCustomers" data-toggle="tab">{% t views.customers.title %}</a>
+              </li>
+              <li>
+                <a href="#TabDepositRequests" data-toggle="tab">{% t views.deposit_requests.title %}</a>
+              </li>
+              <li>
+                <a href="#TabWithdrawRequests" data-toggle="tab">{% t views.withdraw_requests.title %}</a>
+              </li>
+              <li>
+                <a href="#TabWithdrawMethods" data-toggle="tab">{% t views.withdraw_methods.title %}</a>
+              </li>
+            </ul>
+            <div class="tab-content ls-tabs-container">
+              <div class="tab-pane fade ls-tab-content" id="TabCustomers">
+                <h2 class="bitex-view-title">{% t views.customers.title %}</h2>
+                <div id="admin_customers"></div>
+              </div>
+              <div class="tab-pane fade ls-tab-content" id="TabDepositRequests">
+                <h2 class="bitex-view-title">{% t views.deposit_requests.title %}</h2>
+
+                <div id="admin_deposit_requests"></div>
+              </div>
+              <div class="tab-pane fade ls-tab-content" id="TabWithdrawRequests">
+                <h2 class="bitex-view-title">{% t views.withdraw_requests.title %}</h2>
+
+                <div id="admin_withdraw_requests"></div>
+              </div>
+              <div class="tab-pane fade ls-tab-content" id="TabWithdrawMethods">
+                <h2 class="bitex-view-title">{% t views.withdraw_methods.title %}</h2>
+
+                <div id="admin_withdraw_methods"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /admin -->
+
       <div id="customers" class="bitex-view">
         <div class="container-fluid">
           <h1 class="ls-title-intro">{% t views.customers.title %}</h1>

@@ -511,6 +511,7 @@ load_application:       True
                                       bitex-view-trading
                                       bitex-view-history
                                       bitex-view-offerbook
+                                      bitex-view-admin_view
                                       bitex-view-customers
                                       bitex-view-account_overview
                                       bitex-view-withdraw
@@ -540,6 +541,11 @@ load_application:       True
 
                 <div class="sidebar-box__body">
                     <ul class="sidebar-box-nav nav">
+                        <li class="bitex-display-if-broker" id="menu-admin_view">
+                          <a href="" data-switch-view="admin_view">
+                            <i data-switch-view="admin" class="glyphicon glyphicon-user"></i> {% t views.sidebar.admin %}
+                          </a>
+                        </li>
                         <li role="presentation" id="menu-trading">
                             <a href="#" data-switch-view="trading">
                                 <i class="glyphicon glyphicon-random"></i> {% t views.sidebar.trading %}
@@ -555,12 +561,12 @@ load_application:       True
                                 <i class="fa fa-history"></i> {% t views.sidebar.history %}
                             </a>
                         </li>
-                        <li role="presentation" id="menu-deposit">
+                        <li role="presentation" id="menu-deposit" class="bitex-display-if-non-broker">
                             <a href="#" data-switch-view="deposit">
                                 <i class="fa fa-download"></i> {% t views.sidebar.deposit %}
                             </a>
                         </li>
-                        <li role="presentation" id="menu-withdraw">
+                        <li role="presentation" id="menu-withdraw" class="bitex-display-if-non-broker">
                             <a href="#" data-switch-view="withdraw">
                                 <i class="fa fa-upload"></i> {% t views.sidebar.withdraw %}
                             </a>
@@ -806,6 +812,52 @@ load_application:       True
               </div>
               <!-- /#ledger -->
 
+              <!-- admin -->
+              <div id="admin_view" class="bitex-view">
+                <header class="page__head section-title">
+                  <h3 class="page__title h2 bitex-view-title">{% t views.admin.title %}</h3>
+                </header>
+                <div class="page__body bitex-view-content">
+                  <div id="admin-tabs">
+                    <ul class="nav nav-tabs">
+                      <li class="active">
+                        <a href="#TabCustomers" data-toggle="tab">{% t views.customers.title %}</a>
+                      </li>
+                      <li>
+                        <a href="#TabDepositRequests" data-toggle="tab">{% t views.deposit_requests.title %}</a>
+                      </li>
+                      <li>
+                        <a href="#TabWithdrawRequests" data-toggle="tab">{% t views.withdraw_requests.title %}</a>
+                      </li>
+                      <li>
+                        <a href="#TabWithdrawMethods" data-toggle="tab">{% t views.withdraw_methods.title %}</a>
+                      </li>
+                    </ul>
+                    <div class="tab-content">
+                      <div class="tab-pane fade" id="TabCustomers">
+                        <h2 class="bitex-view-title">{% t views.customers.title %}</h2>
+                        <div id="admin_customers"></div>
+                      </div>
+                      <div class="tab-pane fade" id="TabDepositRequests">
+                        <h2 class="bitex-view-title">{% t views.deposit_requests.title %}</h2>
+
+                        <div id="admin_deposit_requests"></div>
+                      </div>
+                      <div class="tab-pane fade" id="TabWithdrawRequests">
+                        <h2 class="bitex-view-title">{% t views.withdraw_requests.title %}</h2>
+
+                        <div id="admin_withdraw_requests"></div>
+                      </div>
+                      <div class="tab-pane fade" id="TabWithdrawMethods">
+                        <h2 class="bitex-view-title">{% t views.withdraw_methods.title %}</h2>
+
+                        <div id="admin_withdraw_methods"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- /admin -->
 
               <!-- #customers -->
               <div id="customers" class="bitex-view">
@@ -1051,6 +1103,7 @@ load_application:       True
                              bitex-view-twofactor
                              bitex-view-trading
                              bitex-view-offerbook
+                             bitex-view-admin_view
                              bitex-view-customers
                              bitex-view-account_overview
                              bitex-view-withdraw

@@ -163,6 +163,9 @@ views:
     cumulative: Acumulado
     fees: Tasas
 
+  admin:
+    title: Admin
+
   customers:
     title: Mis clientes
 
@@ -175,6 +178,9 @@ views:
 
   withdraw_requests:
     title: Solicitudes de retiros
+
+  withdraw_methods:
+    title: Withdraw methods
 
   deposit:
     title: Depósitos
@@ -213,6 +219,7 @@ views:
     title: Historial de órdenes
 
   sidebar:
+    admin: Admin
     market: "Mercado:"
     menu: Menu
     my_profile: Mi perfil

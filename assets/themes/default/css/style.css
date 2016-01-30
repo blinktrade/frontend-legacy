@@ -55,6 +55,13 @@ body {
   padding-left: 0px;
 }
 
+.nav-tabs{
+  outline:none;
+}
+.nav-tabs>li>a{
+  font-size: 14px;
+}
+
 .footer {
   text-align: center;
   padding: 10px 0;
