@@ -581,72 +581,72 @@ function $goog$html$SafeHtml$createSafeHtmlTagSecurityPrivateDoNotAccessOrElse$$
       if (!$goog$html$SafeHtml$VALID_NAMES_IN_TAG_$$.test($name$$71$$)) {
         throw Error('Invalid attribute name "' + $name$$71$$ + '".');
       }
-      var $JSCompiler_inline_result$$2150_map$$inline_2186_url$$inline_2192_value$$86_value$$inline_2185_value$$inline_224$$ = $opt_attributes$$4$$[$name$$71$$];
-      if (null != $JSCompiler_inline_result$$2150_map$$inline_2186_url$$inline_2192_value$$86_value$$inline_2185_value$$inline_224$$) {
-        var $JSCompiler_inline_result$$56_name$$inline_223$$, $safeUrl$$inline_2617_style$$inline_2187_tagName$$inline_222$$ = $dirAttribute_tagName$$6$$;
+      var $JSCompiler_inline_result$$2151_map$$inline_2187_url$$inline_2193_value$$86_value$$inline_2186_value$$inline_224$$ = $opt_attributes$$4$$[$name$$71$$];
+      if (null != $JSCompiler_inline_result$$2151_map$$inline_2187_url$$inline_2193_value$$86_value$$inline_2186_value$$inline_224$$) {
+        var $JSCompiler_inline_result$$56_name$$inline_223$$, $safeUrl$$inline_2618_style$$inline_2188_tagName$$inline_222$$ = $dirAttribute_tagName$$6$$;
         $JSCompiler_inline_result$$56_name$$inline_223$$ = $name$$71$$;
-        if ($JSCompiler_inline_result$$2150_map$$inline_2186_url$$inline_2192_value$$86_value$$inline_2185_value$$inline_224$$ instanceof $goog$string$Const$$) {
-          $JSCompiler_inline_result$$2150_map$$inline_2186_url$$inline_2192_value$$86_value$$inline_2185_value$$inline_224$$ = $goog$string$Const$unwrap$$($JSCompiler_inline_result$$2150_map$$inline_2186_url$$inline_2192_value$$86_value$$inline_2185_value$$inline_224$$);
+        if ($JSCompiler_inline_result$$2151_map$$inline_2187_url$$inline_2193_value$$86_value$$inline_2186_value$$inline_224$$ instanceof $goog$string$Const$$) {
+          $JSCompiler_inline_result$$2151_map$$inline_2187_url$$inline_2193_value$$86_value$$inline_2186_value$$inline_224$$ = $goog$string$Const$unwrap$$($JSCompiler_inline_result$$2151_map$$inline_2187_url$$inline_2193_value$$86_value$$inline_2186_value$$inline_224$$);
         } else {
           if ("style" == $JSCompiler_inline_result$$56_name$$inline_223$$.toLowerCase()) {
-            if (!$goog$isObject$$($JSCompiler_inline_result$$2150_map$$inline_2186_url$$inline_2192_value$$86_value$$inline_2185_value$$inline_224$$)) {
-              throw Error('The "style" attribute requires goog.html.SafeStyle or map of style properties, ' + typeof $JSCompiler_inline_result$$2150_map$$inline_2186_url$$inline_2192_value$$86_value$$inline_2185_value$$inline_224$$ + " given: " + $JSCompiler_inline_result$$2150_map$$inline_2186_url$$inline_2192_value$$86_value$$inline_2185_value$$inline_224$$);
+            if (!$goog$isObject$$($JSCompiler_inline_result$$2151_map$$inline_2187_url$$inline_2193_value$$86_value$$inline_2186_value$$inline_224$$)) {
+              throw Error('The "style" attribute requires goog.html.SafeStyle or map of style properties, ' + typeof $JSCompiler_inline_result$$2151_map$$inline_2187_url$$inline_2193_value$$86_value$$inline_2186_value$$inline_224$$ + " given: " + $JSCompiler_inline_result$$2151_map$$inline_2187_url$$inline_2193_value$$86_value$$inline_2186_value$$inline_224$$);
             }
-            if (!($JSCompiler_inline_result$$2150_map$$inline_2186_url$$inline_2192_value$$86_value$$inline_2185_value$$inline_224$$ instanceof $goog$html$SafeStyle$$)) {
-              var $safeUrl$$inline_2617_style$$inline_2187_tagName$$inline_222$$ = "", $name$$inline_2188$$ = void 0;
-              for ($name$$inline_2188$$ in $JSCompiler_inline_result$$2150_map$$inline_2186_url$$inline_2192_value$$86_value$$inline_2185_value$$inline_224$$) {
-                if (!/^[-_a-zA-Z0-9]+$/.test($name$$inline_2188$$)) {
-                  throw Error("Name allows only [-_a-zA-Z0-9], got: " + $name$$inline_2188$$);
+            if (!($JSCompiler_inline_result$$2151_map$$inline_2187_url$$inline_2193_value$$86_value$$inline_2186_value$$inline_224$$ instanceof $goog$html$SafeStyle$$)) {
+              var $safeUrl$$inline_2618_style$$inline_2188_tagName$$inline_222$$ = "", $name$$inline_2189$$ = void 0;
+              for ($name$$inline_2189$$ in $JSCompiler_inline_result$$2151_map$$inline_2187_url$$inline_2193_value$$86_value$$inline_2186_value$$inline_224$$) {
+                if (!/^[-_a-zA-Z0-9]+$/.test($name$$inline_2189$$)) {
+                  throw Error("Name allows only [-_a-zA-Z0-9], got: " + $name$$inline_2189$$);
                 }
-                var $value$$inline_2189$$ = $JSCompiler_inline_result$$2150_map$$inline_2186_url$$inline_2192_value$$86_value$$inline_2185_value$$inline_224$$[$name$$inline_2188$$];
-                if (null != $value$$inline_2189$$) {
-                  if ($value$$inline_2189$$ instanceof $goog$string$Const$$) {
-                    $value$$inline_2189$$ = $goog$string$Const$unwrap$$($value$$inline_2189$$);
+                var $value$$inline_2190$$ = $JSCompiler_inline_result$$2151_map$$inline_2187_url$$inline_2193_value$$86_value$$inline_2186_value$$inline_224$$[$name$$inline_2189$$];
+                if (null != $value$$inline_2190$$) {
+                  if ($value$$inline_2190$$ instanceof $goog$string$Const$$) {
+                    $value$$inline_2190$$ = $goog$string$Const$unwrap$$($value$$inline_2190$$);
                   } else {
-                    if ($goog$html$SafeStyle$VALUE_RE_$$.test($value$$inline_2189$$)) {
-                      for (var $outsideSingle$$inline_2611$$ = !0, $outsideDouble$$inline_2612$$ = !0, $i$$inline_2613$$ = 0;$i$$inline_2613$$ < $value$$inline_2189$$.length;$i$$inline_2613$$++) {
-                        var $c$$inline_2614$$ = $value$$inline_2189$$.charAt($i$$inline_2613$$);
-                        "'" == $c$$inline_2614$$ && $outsideDouble$$inline_2612$$ ? $outsideSingle$$inline_2611$$ = !$outsideSingle$$inline_2611$$ : '"' == $c$$inline_2614$$ && $outsideSingle$$inline_2611$$ && ($outsideDouble$$inline_2612$$ = !$outsideDouble$$inline_2612$$);
+                    if ($goog$html$SafeStyle$VALUE_RE_$$.test($value$$inline_2190$$)) {
+                      for (var $outsideSingle$$inline_2612$$ = !0, $outsideDouble$$inline_2613$$ = !0, $i$$inline_2614$$ = 0;$i$$inline_2614$$ < $value$$inline_2190$$.length;$i$$inline_2614$$++) {
+                        var $c$$inline_2615$$ = $value$$inline_2190$$.charAt($i$$inline_2614$$);
+                        "'" == $c$$inline_2615$$ && $outsideDouble$$inline_2613$$ ? $outsideSingle$$inline_2612$$ = !$outsideSingle$$inline_2612$$ : '"' == $c$$inline_2615$$ && $outsideSingle$$inline_2612$$ && ($outsideDouble$$inline_2613$$ = !$outsideDouble$$inline_2613$$);
                       }
-                      $outsideSingle$$inline_2611$$ && $outsideDouble$$inline_2612$$ || ($value$$inline_2189$$ = "zClosurez");
+                      $outsideSingle$$inline_2612$$ && $outsideDouble$$inline_2613$$ || ($value$$inline_2190$$ = "zClosurez");
                     } else {
-                      $value$$inline_2189$$ = "zClosurez";
+                      $value$$inline_2190$$ = "zClosurez";
                     }
                   }
-                  $safeUrl$$inline_2617_style$$inline_2187_tagName$$inline_222$$ += $name$$inline_2188$$ + ":" + $value$$inline_2189$$ + ";";
+                  $safeUrl$$inline_2618_style$$inline_2188_tagName$$inline_222$$ += $name$$inline_2189$$ + ":" + $value$$inline_2190$$ + ";";
                 }
               }
-              $JSCompiler_inline_result$$2150_map$$inline_2186_url$$inline_2192_value$$86_value$$inline_2185_value$$inline_224$$ = $safeUrl$$inline_2617_style$$inline_2187_tagName$$inline_222$$ ? (new $goog$html$SafeStyle$$).$initSecurityPrivateDoNotAccessOrElse_$($safeUrl$$inline_2617_style$$inline_2187_tagName$$inline_222$$) : $goog$html$SafeStyle$EMPTY$$;
+              $JSCompiler_inline_result$$2151_map$$inline_2187_url$$inline_2193_value$$86_value$$inline_2186_value$$inline_224$$ = $safeUrl$$inline_2618_style$$inline_2188_tagName$$inline_222$$ ? (new $goog$html$SafeStyle$$).$initSecurityPrivateDoNotAccessOrElse_$($safeUrl$$inline_2618_style$$inline_2188_tagName$$inline_222$$) : $goog$html$SafeStyle$EMPTY$$;
             }
-            $JSCompiler_inline_result$$2150_map$$inline_2186_url$$inline_2192_value$$86_value$$inline_2185_value$$inline_224$$ = $JSCompiler_inline_result$$2150_map$$inline_2186_url$$inline_2192_value$$86_value$$inline_2185_value$$inline_224$$ instanceof $goog$html$SafeStyle$$ && $JSCompiler_inline_result$$2150_map$$inline_2186_url$$inline_2192_value$$86_value$$inline_2185_value$$inline_224$$.constructor === $goog$html$SafeStyle$$ && $JSCompiler_inline_result$$2150_map$$inline_2186_url$$inline_2192_value$$86_value$$inline_2185_value$$inline_224$$.$SAFE_STYLE_TYPE_MARKER_GOOG_HTML_SECURITY_PRIVATE_$ === 
-            $goog$html$SafeStyle$TYPE_MARKER_GOOG_HTML_SECURITY_PRIVATE_$$ ? $JSCompiler_inline_result$$2150_map$$inline_2186_url$$inline_2192_value$$86_value$$inline_2185_value$$inline_224$$.$privateDoNotAccessOrElseSafeStyleWrappedValue_$ : "type_error:SafeStyle";
+            $JSCompiler_inline_result$$2151_map$$inline_2187_url$$inline_2193_value$$86_value$$inline_2186_value$$inline_224$$ = $JSCompiler_inline_result$$2151_map$$inline_2187_url$$inline_2193_value$$86_value$$inline_2186_value$$inline_224$$ instanceof $goog$html$SafeStyle$$ && $JSCompiler_inline_result$$2151_map$$inline_2187_url$$inline_2193_value$$86_value$$inline_2186_value$$inline_224$$.constructor === $goog$html$SafeStyle$$ && $JSCompiler_inline_result$$2151_map$$inline_2187_url$$inline_2193_value$$86_value$$inline_2186_value$$inline_224$$.$SAFE_STYLE_TYPE_MARKER_GOOG_HTML_SECURITY_PRIVATE_$ === 
+            $goog$html$SafeStyle$TYPE_MARKER_GOOG_HTML_SECURITY_PRIVATE_$$ ? $JSCompiler_inline_result$$2151_map$$inline_2187_url$$inline_2193_value$$86_value$$inline_2186_value$$inline_224$$.$privateDoNotAccessOrElseSafeStyleWrappedValue_$ : "type_error:SafeStyle";
           } else {
             if (/^on/i.test($JSCompiler_inline_result$$56_name$$inline_223$$)) {
-              throw Error('Attribute "' + $JSCompiler_inline_result$$56_name$$inline_223$$ + '" requires goog.string.Const value, "' + $JSCompiler_inline_result$$2150_map$$inline_2186_url$$inline_2192_value$$86_value$$inline_2185_value$$inline_224$$ + '" given.');
+              throw Error('Attribute "' + $JSCompiler_inline_result$$56_name$$inline_223$$ + '" requires goog.string.Const value, "' + $JSCompiler_inline_result$$2151_map$$inline_2187_url$$inline_2193_value$$86_value$$inline_2186_value$$inline_224$$ + '" given.');
             }
             if ($JSCompiler_inline_result$$56_name$$inline_223$$.toLowerCase() in $goog$html$SafeHtml$URL_ATTRIBUTES_$$) {
-              if ($JSCompiler_inline_result$$2150_map$$inline_2186_url$$inline_2192_value$$86_value$$inline_2185_value$$inline_224$$ instanceof $goog$html$TrustedResourceUrl$$) {
-                $JSCompiler_inline_result$$2150_map$$inline_2186_url$$inline_2192_value$$86_value$$inline_2185_value$$inline_224$$ = $goog$html$TrustedResourceUrl$unwrap$$($JSCompiler_inline_result$$2150_map$$inline_2186_url$$inline_2192_value$$86_value$$inline_2185_value$$inline_224$$);
+              if ($JSCompiler_inline_result$$2151_map$$inline_2187_url$$inline_2193_value$$86_value$$inline_2186_value$$inline_224$$ instanceof $goog$html$TrustedResourceUrl$$) {
+                $JSCompiler_inline_result$$2151_map$$inline_2187_url$$inline_2193_value$$86_value$$inline_2186_value$$inline_224$$ = $goog$html$TrustedResourceUrl$unwrap$$($JSCompiler_inline_result$$2151_map$$inline_2187_url$$inline_2193_value$$86_value$$inline_2186_value$$inline_224$$);
               } else {
-                if ($JSCompiler_inline_result$$2150_map$$inline_2186_url$$inline_2192_value$$86_value$$inline_2185_value$$inline_224$$ instanceof $goog$html$SafeUrl$$) {
-                  $JSCompiler_inline_result$$2150_map$$inline_2186_url$$inline_2192_value$$86_value$$inline_2185_value$$inline_224$$ = $JSCompiler_inline_result$$2150_map$$inline_2186_url$$inline_2192_value$$86_value$$inline_2185_value$$inline_224$$ instanceof $goog$html$SafeUrl$$ && $JSCompiler_inline_result$$2150_map$$inline_2186_url$$inline_2192_value$$86_value$$inline_2185_value$$inline_224$$.constructor === $goog$html$SafeUrl$$ && $JSCompiler_inline_result$$2150_map$$inline_2186_url$$inline_2192_value$$86_value$$inline_2185_value$$inline_224$$.$SAFE_URL_TYPE_MARKER_GOOG_HTML_SECURITY_PRIVATE_$ === 
-                  $goog$html$SafeUrl$TYPE_MARKER_GOOG_HTML_SECURITY_PRIVATE_$$ ? $JSCompiler_inline_result$$2150_map$$inline_2186_url$$inline_2192_value$$86_value$$inline_2185_value$$inline_224$$.$privateDoNotAccessOrElseSafeHtmlWrappedValue_$ : "type_error:SafeUrl";
+                if ($JSCompiler_inline_result$$2151_map$$inline_2187_url$$inline_2193_value$$86_value$$inline_2186_value$$inline_224$$ instanceof $goog$html$SafeUrl$$) {
+                  $JSCompiler_inline_result$$2151_map$$inline_2187_url$$inline_2193_value$$86_value$$inline_2186_value$$inline_224$$ = $JSCompiler_inline_result$$2151_map$$inline_2187_url$$inline_2193_value$$86_value$$inline_2186_value$$inline_224$$ instanceof $goog$html$SafeUrl$$ && $JSCompiler_inline_result$$2151_map$$inline_2187_url$$inline_2193_value$$86_value$$inline_2186_value$$inline_224$$.constructor === $goog$html$SafeUrl$$ && $JSCompiler_inline_result$$2151_map$$inline_2187_url$$inline_2193_value$$86_value$$inline_2186_value$$inline_224$$.$SAFE_URL_TYPE_MARKER_GOOG_HTML_SECURITY_PRIVATE_$ === 
+                  $goog$html$SafeUrl$TYPE_MARKER_GOOG_HTML_SECURITY_PRIVATE_$$ ? $JSCompiler_inline_result$$2151_map$$inline_2187_url$$inline_2193_value$$86_value$$inline_2186_value$$inline_224$$.$privateDoNotAccessOrElseSafeHtmlWrappedValue_$ : "type_error:SafeUrl";
                 } else {
-                  if ($goog$isString$$($JSCompiler_inline_result$$2150_map$$inline_2186_url$$inline_2192_value$$86_value$$inline_2185_value$$inline_224$$)) {
-                    $JSCompiler_inline_result$$2150_map$$inline_2186_url$$inline_2192_value$$86_value$$inline_2185_value$$inline_224$$ instanceof $goog$html$SafeUrl$$ || ($JSCompiler_inline_result$$2150_map$$inline_2186_url$$inline_2192_value$$86_value$$inline_2185_value$$inline_224$$ = $JSCompiler_inline_result$$2150_map$$inline_2186_url$$inline_2192_value$$86_value$$inline_2185_value$$inline_224$$.$implementsGoogStringTypedString$ ? $JSCompiler_inline_result$$2150_map$$inline_2186_url$$inline_2192_value$$86_value$$inline_2185_value$$inline_224$$.$getTypedStringValue$() : 
-                    String($JSCompiler_inline_result$$2150_map$$inline_2186_url$$inline_2192_value$$86_value$$inline_2185_value$$inline_224$$), $goog$html$SAFE_URL_PATTERN_$$.test($JSCompiler_inline_result$$2150_map$$inline_2186_url$$inline_2192_value$$86_value$$inline_2185_value$$inline_224$$) || ($JSCompiler_inline_result$$2150_map$$inline_2186_url$$inline_2192_value$$86_value$$inline_2185_value$$inline_224$$ = "about:invalid#zClosurez"), $safeUrl$$inline_2617_style$$inline_2187_tagName$$inline_222$$ = 
-                    new $goog$html$SafeUrl$$, $safeUrl$$inline_2617_style$$inline_2187_tagName$$inline_222$$.$privateDoNotAccessOrElseSafeHtmlWrappedValue_$ = $JSCompiler_inline_result$$2150_map$$inline_2186_url$$inline_2192_value$$86_value$$inline_2185_value$$inline_224$$, $JSCompiler_inline_result$$2150_map$$inline_2186_url$$inline_2192_value$$86_value$$inline_2185_value$$inline_224$$ = $safeUrl$$inline_2617_style$$inline_2187_tagName$$inline_222$$), $JSCompiler_inline_result$$2150_map$$inline_2186_url$$inline_2192_value$$86_value$$inline_2185_value$$inline_224$$ = 
-                    $JSCompiler_inline_result$$2150_map$$inline_2186_url$$inline_2192_value$$86_value$$inline_2185_value$$inline_224$$.$getTypedStringValue$();
+                  if ($goog$isString$$($JSCompiler_inline_result$$2151_map$$inline_2187_url$$inline_2193_value$$86_value$$inline_2186_value$$inline_224$$)) {
+                    $JSCompiler_inline_result$$2151_map$$inline_2187_url$$inline_2193_value$$86_value$$inline_2186_value$$inline_224$$ instanceof $goog$html$SafeUrl$$ || ($JSCompiler_inline_result$$2151_map$$inline_2187_url$$inline_2193_value$$86_value$$inline_2186_value$$inline_224$$ = $JSCompiler_inline_result$$2151_map$$inline_2187_url$$inline_2193_value$$86_value$$inline_2186_value$$inline_224$$.$implementsGoogStringTypedString$ ? $JSCompiler_inline_result$$2151_map$$inline_2187_url$$inline_2193_value$$86_value$$inline_2186_value$$inline_224$$.$getTypedStringValue$() : 
+                    String($JSCompiler_inline_result$$2151_map$$inline_2187_url$$inline_2193_value$$86_value$$inline_2186_value$$inline_224$$), $goog$html$SAFE_URL_PATTERN_$$.test($JSCompiler_inline_result$$2151_map$$inline_2187_url$$inline_2193_value$$86_value$$inline_2186_value$$inline_224$$) || ($JSCompiler_inline_result$$2151_map$$inline_2187_url$$inline_2193_value$$86_value$$inline_2186_value$$inline_224$$ = "about:invalid#zClosurez"), $safeUrl$$inline_2618_style$$inline_2188_tagName$$inline_222$$ = 
+                    new $goog$html$SafeUrl$$, $safeUrl$$inline_2618_style$$inline_2188_tagName$$inline_222$$.$privateDoNotAccessOrElseSafeHtmlWrappedValue_$ = $JSCompiler_inline_result$$2151_map$$inline_2187_url$$inline_2193_value$$86_value$$inline_2186_value$$inline_224$$, $JSCompiler_inline_result$$2151_map$$inline_2187_url$$inline_2193_value$$86_value$$inline_2186_value$$inline_224$$ = $safeUrl$$inline_2618_style$$inline_2188_tagName$$inline_222$$), $JSCompiler_inline_result$$2151_map$$inline_2187_url$$inline_2193_value$$86_value$$inline_2186_value$$inline_224$$ = 
+                    $JSCompiler_inline_result$$2151_map$$inline_2187_url$$inline_2193_value$$86_value$$inline_2186_value$$inline_224$$.$getTypedStringValue$();
                   } else {
-                    throw Error('Attribute "' + $JSCompiler_inline_result$$56_name$$inline_223$$ + '" on tag "' + $safeUrl$$inline_2617_style$$inline_2187_tagName$$inline_222$$ + '" requires goog.html.SafeUrl, goog.string.Const, or string, value "' + $JSCompiler_inline_result$$2150_map$$inline_2186_url$$inline_2192_value$$86_value$$inline_2185_value$$inline_224$$ + '" given.');
+                    throw Error('Attribute "' + $JSCompiler_inline_result$$56_name$$inline_223$$ + '" on tag "' + $safeUrl$$inline_2618_style$$inline_2188_tagName$$inline_222$$ + '" requires goog.html.SafeUrl, goog.string.Const, or string, value "' + $JSCompiler_inline_result$$2151_map$$inline_2187_url$$inline_2193_value$$86_value$$inline_2186_value$$inline_224$$ + '" given.');
                   }
                 }
               }
             }
           }
         }
-        $JSCompiler_inline_result$$2150_map$$inline_2186_url$$inline_2192_value$$86_value$$inline_2185_value$$inline_224$$.$implementsGoogStringTypedString$ && ($JSCompiler_inline_result$$2150_map$$inline_2186_url$$inline_2192_value$$86_value$$inline_2185_value$$inline_224$$ = $JSCompiler_inline_result$$2150_map$$inline_2186_url$$inline_2192_value$$86_value$$inline_2185_value$$inline_224$$.$getTypedStringValue$());
-        $JSCompiler_inline_result$$56_name$$inline_223$$ = $JSCompiler_inline_result$$56_name$$inline_223$$ + '="' + $goog$string$htmlEscape$$(String($JSCompiler_inline_result$$2150_map$$inline_2186_url$$inline_2192_value$$86_value$$inline_2185_value$$inline_224$$)) + '"';
+        $JSCompiler_inline_result$$2151_map$$inline_2187_url$$inline_2193_value$$86_value$$inline_2186_value$$inline_224$$.$implementsGoogStringTypedString$ && ($JSCompiler_inline_result$$2151_map$$inline_2187_url$$inline_2193_value$$86_value$$inline_2186_value$$inline_224$$ = $JSCompiler_inline_result$$2151_map$$inline_2187_url$$inline_2193_value$$86_value$$inline_2186_value$$inline_224$$.$getTypedStringValue$());
+        $JSCompiler_inline_result$$56_name$$inline_223$$ = $JSCompiler_inline_result$$56_name$$inline_223$$ + '="' + $goog$string$htmlEscape$$(String($JSCompiler_inline_result$$2151_map$$inline_2187_url$$inline_2193_value$$86_value$$inline_2186_value$$inline_224$$)) + '"';
         $JSCompiler_temp_const$$55_result$$7$$ += " " + $JSCompiler_inline_result$$56_name$$inline_223$$;
       }
     }
@@ -1088,9 +1088,9 @@ $JSCompiler_prototypeAlias$$.createElement = function $$JSCompiler_prototypeAlia
 $JSCompiler_prototypeAlias$$.createTextNode = function $$JSCompiler_prototypeAlias$$$createTextNode$($content$$8$$) {
   return this.$document_$.createTextNode(String($content$$8$$));
 };
-function $JSCompiler_StaticMethods_getWindow$$($JSCompiler_StaticMethods_getWindow$self_doc$$inline_2194$$) {
-  $JSCompiler_StaticMethods_getWindow$self_doc$$inline_2194$$ = $JSCompiler_StaticMethods_getWindow$self_doc$$inline_2194$$.$document_$;
-  return $JSCompiler_StaticMethods_getWindow$self_doc$$inline_2194$$.parentWindow || $JSCompiler_StaticMethods_getWindow$self_doc$$inline_2194$$.defaultView;
+function $JSCompiler_StaticMethods_getWindow$$($JSCompiler_StaticMethods_getWindow$self_doc$$inline_2195$$) {
+  $JSCompiler_StaticMethods_getWindow$self_doc$$inline_2195$$ = $JSCompiler_StaticMethods_getWindow$self_doc$$inline_2195$$.$document_$;
+  return $JSCompiler_StaticMethods_getWindow$self_doc$$inline_2195$$.parentWindow || $JSCompiler_StaticMethods_getWindow$self_doc$$inline_2195$$.defaultView;
 }
 function $JSCompiler_StaticMethods_getDocumentScroll$$($JSCompiler_StaticMethods_getDocumentScroll$self_el$$inline_246$$) {
   var $doc$$inline_245_win$$inline_247$$ = $JSCompiler_StaticMethods_getDocumentScroll$self_el$$inline_246$$.$document_$;
@@ -1178,9 +1178,9 @@ $JSCompiler_prototypeAlias$$.$isFocusable$ = function $$JSCompiler_prototypeAlia
   return $JSCompiler_temp$$62_element$$21_rect$$inline_250$$;
 };
 // Input 32
-function $goog$soy$renderElement$$($element$$31$$, $template$$1_templateResult$$inline_2196$$, $opt_templateData$$) {
-  $template$$1_templateResult$$inline_2196$$ = $template$$1_templateResult$$inline_2196$$($opt_templateData$$ || $goog$soy$defaultTemplateData_$$, void 0, void 0);
-  $element$$31$$.innerHTML = $goog$isObject$$($template$$1_templateResult$$inline_2196$$) ? "zSoyz" : String($template$$1_templateResult$$inline_2196$$);
+function $goog$soy$renderElement$$($element$$31$$, $template$$1_templateResult$$inline_2197$$, $opt_templateData$$) {
+  $template$$1_templateResult$$inline_2197$$ = $template$$1_templateResult$$inline_2197$$($opt_templateData$$ || $goog$soy$defaultTemplateData_$$, void 0, void 0);
+  $element$$31$$.innerHTML = $goog$isObject$$($template$$1_templateResult$$inline_2197$$) ? "zSoyz" : String($template$$1_templateResult$$inline_2197$$);
 }
 function $goog$soy$renderAsElement$$($firstChild$$inline_256_template$$3_templateResult$$inline_252$$, $opt_templateData$$2$$, $opt_injectedData$$2$$, $JSCompiler_inline_result$$64_opt_domHelper$$1_wrapper$$inline_254$$) {
   a: {
@@ -1329,10 +1329,10 @@ function $goog$style$getBoundingClientRect_$$($doc$$33_el$$4$$) {
 function $goog$style$getPageOffset$$($box$$7_el$$7$$) {
   var $doc$$35_scrollCoord$$ = $goog$dom$getOwnerDocument$$($box$$7_el$$7$$), $pos$$2$$ = new $goog$math$Coordinate$$(0, 0), $doc$$inline_268$$;
   $doc$$inline_268$$ = $doc$$35_scrollCoord$$ ? $goog$dom$getOwnerDocument$$($doc$$35_scrollCoord$$) : document;
-  var $JSCompiler_temp$$2151_JSCompiler_temp$$2157$$;
-  ($JSCompiler_temp$$2151_JSCompiler_temp$$2157$$ = !$goog$userAgent$IE$$) || ($JSCompiler_temp$$2151_JSCompiler_temp$$2157$$ = 9 <= $goog$userAgent$DOCUMENT_MODE$$);
-  $JSCompiler_temp$$2151_JSCompiler_temp$$2157$$ || ($JSCompiler_temp$$2151_JSCompiler_temp$$2157$$ = "CSS1Compat" == $goog$dom$getDomHelper$$($doc$$inline_268$$).$document_$.compatMode);
-  if ($box$$7_el$$7$$ == ($JSCompiler_temp$$2151_JSCompiler_temp$$2157$$ ? $doc$$inline_268$$.documentElement : $doc$$inline_268$$.body)) {
+  var $JSCompiler_temp$$2152_JSCompiler_temp$$2158$$;
+  ($JSCompiler_temp$$2152_JSCompiler_temp$$2158$$ = !$goog$userAgent$IE$$) || ($JSCompiler_temp$$2152_JSCompiler_temp$$2158$$ = 9 <= $goog$userAgent$DOCUMENT_MODE$$);
+  $JSCompiler_temp$$2152_JSCompiler_temp$$2158$$ || ($JSCompiler_temp$$2152_JSCompiler_temp$$2158$$ = "CSS1Compat" == $goog$dom$getDomHelper$$($doc$$inline_268$$).$document_$.compatMode);
+  if ($box$$7_el$$7$$ == ($JSCompiler_temp$$2152_JSCompiler_temp$$2158$$ ? $doc$$inline_268$$.documentElement : $doc$$inline_268$$.body)) {
     return $pos$$2$$;
   }
   $box$$7_el$$7$$ = $goog$style$getBoundingClientRect_$$($box$$7_el$$7$$);
@@ -4046,37 +4046,37 @@ $i18n$phonenumbers$PhoneNumberUtil$$.prototype.format = function $$i18n$phonenum
       return $countryCallingCode$$2_rawInput$$;
     }
   }
-  var $countryCallingCode$$2_rawInput$$ = $number$$9$$.$getCountryCodeOrDefault$(), $JSCompiler_temp$$2168_nationalSignificantNumber$$1$$ = $JSCompiler_StaticMethods_getNationalSignificantNumber$$($number$$9$$);
+  var $countryCallingCode$$2_rawInput$$ = $number$$9$$.$getCountryCodeOrDefault$(), $JSCompiler_temp$$2169_nationalSignificantNumber$$1$$ = $JSCompiler_StaticMethods_getNationalSignificantNumber$$($number$$9$$);
   if (0 == $numberFormat$$) {
-    return $JSCompiler_StaticMethods_prefixNumberWithCountryCallingCode_$$($countryCallingCode$$2_rawInput$$, 0, $JSCompiler_temp$$2168_nationalSignificantNumber$$1$$, "");
+    return $JSCompiler_StaticMethods_prefixNumberWithCountryCallingCode_$$($countryCallingCode$$2_rawInput$$, 0, $JSCompiler_temp$$2169_nationalSignificantNumber$$1$$, "");
   }
   if (!($countryCallingCode$$2_rawInput$$ in $i18n$phonenumbers$metadata$countryCodeToRegionCodeMap$$)) {
-    return $JSCompiler_temp$$2168_nationalSignificantNumber$$1$$;
+    return $JSCompiler_temp$$2169_nationalSignificantNumber$$1$$;
   }
-  var $availableFormats$$inline_2219_formattingPattern$$inline_509_metadata$$3_numberFormatRule$$inline_2231$$ = $JSCompiler_StaticMethods_getMetadataForRegionOrCallingCode_$$(this, $countryCallingCode$$2_rawInput$$, $JSCompiler_StaticMethods_getRegionCodeForCountryCode$$($countryCallingCode$$2_rawInput$$)), $formattedExtension$$;
-  $formattedExtension$$ = null != $number$$9$$.$values_$[3] && 0 != $number$$9$$.getExtension().length ? 3 == $numberFormat$$ ? ";ext=" + $number$$9$$.getExtension() : null != $availableFormats$$inline_2219_formattingPattern$$inline_509_metadata$$3_numberFormatRule$$inline_2231$$.$values_$[13] ? $JSCompiler_StaticMethods_get$Value$$($availableFormats$$inline_2219_formattingPattern$$inline_509_metadata$$3_numberFormatRule$$inline_2231$$, 13) + $JSCompiler_StaticMethods_get$ValueOrDefault$$($number$$9$$, 
+  var $availableFormats$$inline_2220_formattingPattern$$inline_509_metadata$$3_numberFormatRule$$inline_2232$$ = $JSCompiler_StaticMethods_getMetadataForRegionOrCallingCode_$$(this, $countryCallingCode$$2_rawInput$$, $JSCompiler_StaticMethods_getRegionCodeForCountryCode$$($countryCallingCode$$2_rawInput$$)), $formattedExtension$$;
+  $formattedExtension$$ = null != $number$$9$$.$values_$[3] && 0 != $number$$9$$.getExtension().length ? 3 == $numberFormat$$ ? ";ext=" + $number$$9$$.getExtension() : null != $availableFormats$$inline_2220_formattingPattern$$inline_509_metadata$$3_numberFormatRule$$inline_2232$$.$values_$[13] ? $JSCompiler_StaticMethods_get$Value$$($availableFormats$$inline_2220_formattingPattern$$inline_509_metadata$$3_numberFormatRule$$inline_2232$$, 13) + $JSCompiler_StaticMethods_get$ValueOrDefault$$($number$$9$$, 
   3) : " ext. " + $JSCompiler_StaticMethods_get$ValueOrDefault$$($number$$9$$, 3) : "";
   a: {
-    for (var $availableFormats$$inline_2219_formattingPattern$$inline_509_metadata$$3_numberFormatRule$$inline_2231$$ = 0 == ($JSCompiler_StaticMethods_getValueForTag_$$($availableFormats$$inline_2219_formattingPattern$$inline_509_metadata$$3_numberFormatRule$$inline_2231$$, 20) || []).length || 2 == $numberFormat$$ ? $JSCompiler_StaticMethods_getValueForTag_$$($availableFormats$$inline_2219_formattingPattern$$inline_509_metadata$$3_numberFormatRule$$inline_2231$$, 19) || [] : $JSCompiler_StaticMethods_getValueForTag_$$($availableFormats$$inline_2219_formattingPattern$$inline_509_metadata$$3_numberFormatRule$$inline_2231$$, 
-    20) || [], $numFormat$$inline_2221_patternToMatch$$inline_2232$$, $formattingPattern$$inline_2228_l$$inline_2222_nationalPrefixFormattingRule$$inline_2236$$ = $availableFormats$$inline_2219_formattingPattern$$inline_509_metadata$$3_numberFormatRule$$inline_2231$$.length, $formattedNationalNumber$$inline_2234_i$$inline_2223$$ = 0;$formattedNationalNumber$$inline_2234_i$$inline_2223$$ < $formattingPattern$$inline_2228_l$$inline_2222_nationalPrefixFormattingRule$$inline_2236$$;++$formattedNationalNumber$$inline_2234_i$$inline_2223$$) {
-      $numFormat$$inline_2221_patternToMatch$$inline_2232$$ = $availableFormats$$inline_2219_formattingPattern$$inline_509_metadata$$3_numberFormatRule$$inline_2231$$[$formattedNationalNumber$$inline_2234_i$$inline_2223$$];
-      var $patternToMatch$$inline_2225_size$$inline_2224$$ = $JSCompiler_StaticMethods_count$Values$$($numFormat$$inline_2221_patternToMatch$$inline_2232$$, 3);
-      if (0 == $patternToMatch$$inline_2225_size$$inline_2224$$ || 0 == $JSCompiler_temp$$2168_nationalSignificantNumber$$1$$.search($JSCompiler_StaticMethods_get$Value$$($numFormat$$inline_2221_patternToMatch$$inline_2232$$, 3, $patternToMatch$$inline_2225_size$$inline_2224$$ - 1))) {
-        if ($patternToMatch$$inline_2225_size$$inline_2224$$ = new RegExp($JSCompiler_StaticMethods_get$Value$$($numFormat$$inline_2221_patternToMatch$$inline_2232$$, 1)), $i18n$phonenumbers$PhoneNumberUtil$matchesEntirely_$$($patternToMatch$$inline_2225_size$$inline_2224$$, $JSCompiler_temp$$2168_nationalSignificantNumber$$1$$)) {
-          $availableFormats$$inline_2219_formattingPattern$$inline_509_metadata$$3_numberFormatRule$$inline_2231$$ = $numFormat$$inline_2221_patternToMatch$$inline_2232$$;
+    for (var $availableFormats$$inline_2220_formattingPattern$$inline_509_metadata$$3_numberFormatRule$$inline_2232$$ = 0 == ($JSCompiler_StaticMethods_getValueForTag_$$($availableFormats$$inline_2220_formattingPattern$$inline_509_metadata$$3_numberFormatRule$$inline_2232$$, 20) || []).length || 2 == $numberFormat$$ ? $JSCompiler_StaticMethods_getValueForTag_$$($availableFormats$$inline_2220_formattingPattern$$inline_509_metadata$$3_numberFormatRule$$inline_2232$$, 19) || [] : $JSCompiler_StaticMethods_getValueForTag_$$($availableFormats$$inline_2220_formattingPattern$$inline_509_metadata$$3_numberFormatRule$$inline_2232$$, 
+    20) || [], $numFormat$$inline_2222_patternToMatch$$inline_2233$$, $formattingPattern$$inline_2229_l$$inline_2223_nationalPrefixFormattingRule$$inline_2237$$ = $availableFormats$$inline_2220_formattingPattern$$inline_509_metadata$$3_numberFormatRule$$inline_2232$$.length, $formattedNationalNumber$$inline_2235_i$$inline_2224$$ = 0;$formattedNationalNumber$$inline_2235_i$$inline_2224$$ < $formattingPattern$$inline_2229_l$$inline_2223_nationalPrefixFormattingRule$$inline_2237$$;++$formattedNationalNumber$$inline_2235_i$$inline_2224$$) {
+      $numFormat$$inline_2222_patternToMatch$$inline_2233$$ = $availableFormats$$inline_2220_formattingPattern$$inline_509_metadata$$3_numberFormatRule$$inline_2232$$[$formattedNationalNumber$$inline_2235_i$$inline_2224$$];
+      var $patternToMatch$$inline_2226_size$$inline_2225$$ = $JSCompiler_StaticMethods_count$Values$$($numFormat$$inline_2222_patternToMatch$$inline_2233$$, 3);
+      if (0 == $patternToMatch$$inline_2226_size$$inline_2225$$ || 0 == $JSCompiler_temp$$2169_nationalSignificantNumber$$1$$.search($JSCompiler_StaticMethods_get$Value$$($numFormat$$inline_2222_patternToMatch$$inline_2233$$, 3, $patternToMatch$$inline_2226_size$$inline_2225$$ - 1))) {
+        if ($patternToMatch$$inline_2226_size$$inline_2225$$ = new RegExp($JSCompiler_StaticMethods_get$Value$$($numFormat$$inline_2222_patternToMatch$$inline_2233$$, 1)), $i18n$phonenumbers$PhoneNumberUtil$matchesEntirely_$$($patternToMatch$$inline_2226_size$$inline_2225$$, $JSCompiler_temp$$2169_nationalSignificantNumber$$1$$)) {
+          $availableFormats$$inline_2220_formattingPattern$$inline_509_metadata$$3_numberFormatRule$$inline_2232$$ = $numFormat$$inline_2222_patternToMatch$$inline_2233$$;
           break a;
         }
       }
     }
-    $availableFormats$$inline_2219_formattingPattern$$inline_509_metadata$$3_numberFormatRule$$inline_2231$$ = null;
+    $availableFormats$$inline_2220_formattingPattern$$inline_509_metadata$$3_numberFormatRule$$inline_2232$$ = null;
   }
-  null != $availableFormats$$inline_2219_formattingPattern$$inline_509_metadata$$3_numberFormatRule$$inline_2231$$ && ($formattingPattern$$inline_2228_l$$inline_2222_nationalPrefixFormattingRule$$inline_2236$$ = $availableFormats$$inline_2219_formattingPattern$$inline_509_metadata$$3_numberFormatRule$$inline_2231$$, $availableFormats$$inline_2219_formattingPattern$$inline_509_metadata$$3_numberFormatRule$$inline_2231$$ = $JSCompiler_StaticMethods_get$ValueOrDefault$$($formattingPattern$$inline_2228_l$$inline_2222_nationalPrefixFormattingRule$$inline_2236$$, 
-  2), $numFormat$$inline_2221_patternToMatch$$inline_2232$$ = new RegExp($JSCompiler_StaticMethods_get$Value$$($formattingPattern$$inline_2228_l$$inline_2222_nationalPrefixFormattingRule$$inline_2236$$, 1)), $JSCompiler_StaticMethods_get$ValueOrDefault$$($formattingPattern$$inline_2228_l$$inline_2222_nationalPrefixFormattingRule$$inline_2236$$, 5), $formattedNationalNumber$$inline_2234_i$$inline_2223$$ = "", $formattingPattern$$inline_2228_l$$inline_2222_nationalPrefixFormattingRule$$inline_2236$$ = 
-  $JSCompiler_StaticMethods_get$ValueOrDefault$$($formattingPattern$$inline_2228_l$$inline_2222_nationalPrefixFormattingRule$$inline_2236$$, 4), $formattedNationalNumber$$inline_2234_i$$inline_2223$$ = 2 == $numberFormat$$ && null != $formattingPattern$$inline_2228_l$$inline_2222_nationalPrefixFormattingRule$$inline_2236$$ && 0 < $formattingPattern$$inline_2228_l$$inline_2222_nationalPrefixFormattingRule$$inline_2236$$.length ? $JSCompiler_temp$$2168_nationalSignificantNumber$$1$$.replace($numFormat$$inline_2221_patternToMatch$$inline_2232$$, 
-  $availableFormats$$inline_2219_formattingPattern$$inline_509_metadata$$3_numberFormatRule$$inline_2231$$.replace($i18n$phonenumbers$PhoneNumberUtil$FIRST_GROUP_PATTERN_$$, $formattingPattern$$inline_2228_l$$inline_2222_nationalPrefixFormattingRule$$inline_2236$$)) : $JSCompiler_temp$$2168_nationalSignificantNumber$$1$$.replace($numFormat$$inline_2221_patternToMatch$$inline_2232$$, $availableFormats$$inline_2219_formattingPattern$$inline_509_metadata$$3_numberFormatRule$$inline_2231$$), 3 == $numberFormat$$ && 
-  ($formattedNationalNumber$$inline_2234_i$$inline_2223$$ = $formattedNationalNumber$$inline_2234_i$$inline_2223$$.replace(RegExp("^[-x\u2010-\u2015\u2212\u30fc\uff0d-\uff0f \u00a0\u00ad\u200b\u2060\u3000()\uff08\uff09\uff3b\uff3d.\\[\\]/~\u2053\u223c\uff5e]+"), ""), $formattedNationalNumber$$inline_2234_i$$inline_2223$$ = $formattedNationalNumber$$inline_2234_i$$inline_2223$$.replace(RegExp("[-x\u2010-\u2015\u2212\u30fc\uff0d-\uff0f \u00a0\u00ad\u200b\u2060\u3000()\uff08\uff09\uff3b\uff3d.\\[\\]/~\u2053\u223c\uff5e]+", 
-  "g"), "-")), $JSCompiler_temp$$2168_nationalSignificantNumber$$1$$ = $formattedNationalNumber$$inline_2234_i$$inline_2223$$);
-  return $JSCompiler_StaticMethods_prefixNumberWithCountryCallingCode_$$($countryCallingCode$$2_rawInput$$, $numberFormat$$, $JSCompiler_temp$$2168_nationalSignificantNumber$$1$$, $formattedExtension$$);
+  null != $availableFormats$$inline_2220_formattingPattern$$inline_509_metadata$$3_numberFormatRule$$inline_2232$$ && ($formattingPattern$$inline_2229_l$$inline_2223_nationalPrefixFormattingRule$$inline_2237$$ = $availableFormats$$inline_2220_formattingPattern$$inline_509_metadata$$3_numberFormatRule$$inline_2232$$, $availableFormats$$inline_2220_formattingPattern$$inline_509_metadata$$3_numberFormatRule$$inline_2232$$ = $JSCompiler_StaticMethods_get$ValueOrDefault$$($formattingPattern$$inline_2229_l$$inline_2223_nationalPrefixFormattingRule$$inline_2237$$, 
+  2), $numFormat$$inline_2222_patternToMatch$$inline_2233$$ = new RegExp($JSCompiler_StaticMethods_get$Value$$($formattingPattern$$inline_2229_l$$inline_2223_nationalPrefixFormattingRule$$inline_2237$$, 1)), $JSCompiler_StaticMethods_get$ValueOrDefault$$($formattingPattern$$inline_2229_l$$inline_2223_nationalPrefixFormattingRule$$inline_2237$$, 5), $formattedNationalNumber$$inline_2235_i$$inline_2224$$ = "", $formattingPattern$$inline_2229_l$$inline_2223_nationalPrefixFormattingRule$$inline_2237$$ = 
+  $JSCompiler_StaticMethods_get$ValueOrDefault$$($formattingPattern$$inline_2229_l$$inline_2223_nationalPrefixFormattingRule$$inline_2237$$, 4), $formattedNationalNumber$$inline_2235_i$$inline_2224$$ = 2 == $numberFormat$$ && null != $formattingPattern$$inline_2229_l$$inline_2223_nationalPrefixFormattingRule$$inline_2237$$ && 0 < $formattingPattern$$inline_2229_l$$inline_2223_nationalPrefixFormattingRule$$inline_2237$$.length ? $JSCompiler_temp$$2169_nationalSignificantNumber$$1$$.replace($numFormat$$inline_2222_patternToMatch$$inline_2233$$, 
+  $availableFormats$$inline_2220_formattingPattern$$inline_509_metadata$$3_numberFormatRule$$inline_2232$$.replace($i18n$phonenumbers$PhoneNumberUtil$FIRST_GROUP_PATTERN_$$, $formattingPattern$$inline_2229_l$$inline_2223_nationalPrefixFormattingRule$$inline_2237$$)) : $JSCompiler_temp$$2169_nationalSignificantNumber$$1$$.replace($numFormat$$inline_2222_patternToMatch$$inline_2233$$, $availableFormats$$inline_2220_formattingPattern$$inline_509_metadata$$3_numberFormatRule$$inline_2232$$), 3 == $numberFormat$$ && 
+  ($formattedNationalNumber$$inline_2235_i$$inline_2224$$ = $formattedNationalNumber$$inline_2235_i$$inline_2224$$.replace(RegExp("^[-x\u2010-\u2015\u2212\u30fc\uff0d-\uff0f \u00a0\u00ad\u200b\u2060\u3000()\uff08\uff09\uff3b\uff3d.\\[\\]/~\u2053\u223c\uff5e]+"), ""), $formattedNationalNumber$$inline_2235_i$$inline_2224$$ = $formattedNationalNumber$$inline_2235_i$$inline_2224$$.replace(RegExp("[-x\u2010-\u2015\u2212\u30fc\uff0d-\uff0f \u00a0\u00ad\u200b\u2060\u3000()\uff08\uff09\uff3b\uff3d.\\[\\]/~\u2053\u223c\uff5e]+", 
+  "g"), "-")), $JSCompiler_temp$$2169_nationalSignificantNumber$$1$$ = $formattedNationalNumber$$inline_2235_i$$inline_2224$$);
+  return $JSCompiler_StaticMethods_prefixNumberWithCountryCallingCode_$$($countryCallingCode$$2_rawInput$$, $numberFormat$$, $JSCompiler_temp$$2169_nationalSignificantNumber$$1$$, $formattedExtension$$);
 };
 function $JSCompiler_StaticMethods_getMetadataForRegionOrCallingCode_$$($JSCompiler_StaticMethods_getMetadataForRegionOrCallingCode_$self$$, $countryCallingCode$$5$$, $regionCode$$6$$) {
   return "001" == $regionCode$$6$$ ? $JSCompiler_StaticMethods_getMetadataForRegion$$($JSCompiler_StaticMethods_getMetadataForRegionOrCallingCode_$self$$, "" + $countryCallingCode$$5$$) : $JSCompiler_StaticMethods_getMetadataForRegion$$($JSCompiler_StaticMethods_getMetadataForRegionOrCallingCode_$self$$, $regionCode$$6$$);
@@ -4123,53 +4123,53 @@ function $JSCompiler_StaticMethods_isNumberMatchingDesc_$$($nationalNumber$$7$$,
   return $i18n$phonenumbers$PhoneNumberUtil$matchesEntirely_$$($JSCompiler_StaticMethods_get$ValueOrDefault$$($numberDesc$$, 3), $nationalNumber$$7$$) && $i18n$phonenumbers$PhoneNumberUtil$matchesEntirely_$$($JSCompiler_StaticMethods_get$ValueOrDefault$$($numberDesc$$, 2), $nationalNumber$$7$$);
 }
 function $JSCompiler_StaticMethods_isValidNumber$$($JSCompiler_StaticMethods_isValidNumber$self$$, $number$$23$$) {
-  var $JSCompiler_inline_result$$101_JSCompiler_temp$$2169_JSCompiler_temp$$2170_countryCode$$inline_513_metadata$$inline_520_regionCode$$16_regions$$inline_514$$;
+  var $JSCompiler_inline_result$$101_JSCompiler_temp$$2170_JSCompiler_temp$$2171_countryCode$$inline_513_metadata$$inline_520_regionCode$$16_regions$$inline_514$$;
   if (null == $number$$23$$) {
-    $JSCompiler_inline_result$$101_JSCompiler_temp$$2169_JSCompiler_temp$$2170_countryCode$$inline_513_metadata$$inline_520_regionCode$$16_regions$$inline_514$$ = null;
+    $JSCompiler_inline_result$$101_JSCompiler_temp$$2170_JSCompiler_temp$$2171_countryCode$$inline_513_metadata$$inline_520_regionCode$$16_regions$$inline_514$$ = null;
   } else {
-    if ($JSCompiler_inline_result$$101_JSCompiler_temp$$2169_JSCompiler_temp$$2170_countryCode$$inline_513_metadata$$inline_520_regionCode$$16_regions$$inline_514$$ = $number$$23$$.$getCountryCodeOrDefault$(), $JSCompiler_inline_result$$101_JSCompiler_temp$$2169_JSCompiler_temp$$2170_countryCode$$inline_513_metadata$$inline_520_regionCode$$16_regions$$inline_514$$ = $i18n$phonenumbers$metadata$countryCodeToRegionCodeMap$$[$JSCompiler_inline_result$$101_JSCompiler_temp$$2169_JSCompiler_temp$$2170_countryCode$$inline_513_metadata$$inline_520_regionCode$$16_regions$$inline_514$$], 
-    null == $JSCompiler_inline_result$$101_JSCompiler_temp$$2169_JSCompiler_temp$$2170_countryCode$$inline_513_metadata$$inline_520_regionCode$$16_regions$$inline_514$$) {
-      $JSCompiler_inline_result$$101_JSCompiler_temp$$2169_JSCompiler_temp$$2170_countryCode$$inline_513_metadata$$inline_520_regionCode$$16_regions$$inline_514$$ = null;
+    if ($JSCompiler_inline_result$$101_JSCompiler_temp$$2170_JSCompiler_temp$$2171_countryCode$$inline_513_metadata$$inline_520_regionCode$$16_regions$$inline_514$$ = $number$$23$$.$getCountryCodeOrDefault$(), $JSCompiler_inline_result$$101_JSCompiler_temp$$2170_JSCompiler_temp$$2171_countryCode$$inline_513_metadata$$inline_520_regionCode$$16_regions$$inline_514$$ = $i18n$phonenumbers$metadata$countryCodeToRegionCodeMap$$[$JSCompiler_inline_result$$101_JSCompiler_temp$$2170_JSCompiler_temp$$2171_countryCode$$inline_513_metadata$$inline_520_regionCode$$16_regions$$inline_514$$], 
+    null == $JSCompiler_inline_result$$101_JSCompiler_temp$$2170_JSCompiler_temp$$2171_countryCode$$inline_513_metadata$$inline_520_regionCode$$16_regions$$inline_514$$) {
+      $JSCompiler_inline_result$$101_JSCompiler_temp$$2170_JSCompiler_temp$$2171_countryCode$$inline_513_metadata$$inline_520_regionCode$$16_regions$$inline_514$$ = null;
     } else {
-      if (1 == $JSCompiler_inline_result$$101_JSCompiler_temp$$2169_JSCompiler_temp$$2170_countryCode$$inline_513_metadata$$inline_520_regionCode$$16_regions$$inline_514$$.length) {
-        $JSCompiler_inline_result$$101_JSCompiler_temp$$2169_JSCompiler_temp$$2170_countryCode$$inline_513_metadata$$inline_520_regionCode$$16_regions$$inline_514$$ = $JSCompiler_inline_result$$101_JSCompiler_temp$$2169_JSCompiler_temp$$2170_countryCode$$inline_513_metadata$$inline_520_regionCode$$16_regions$$inline_514$$[0];
+      if (1 == $JSCompiler_inline_result$$101_JSCompiler_temp$$2170_JSCompiler_temp$$2171_countryCode$$inline_513_metadata$$inline_520_regionCode$$16_regions$$inline_514$$.length) {
+        $JSCompiler_inline_result$$101_JSCompiler_temp$$2170_JSCompiler_temp$$2171_countryCode$$inline_513_metadata$$inline_520_regionCode$$16_regions$$inline_514$$ = $JSCompiler_inline_result$$101_JSCompiler_temp$$2170_JSCompiler_temp$$2171_countryCode$$inline_513_metadata$$inline_520_regionCode$$16_regions$$inline_514$$[0];
       } else {
         b: {
-          for (var $countryCode$$inline_519_nationalNumber$$inline_2241_nationalSignificantNumber$$inline_521$$ = $JSCompiler_StaticMethods_getNationalSignificantNumber$$($number$$23$$), $JSCompiler_inline_result$$2173_regionCode$$inline_2242_regionCode$$inline_518$$, $JSCompiler_temp$$2171_JSCompiler_temp$$2172_metadata$$inline_2249_regionCodesLength$$inline_2243$$ = $JSCompiler_inline_result$$101_JSCompiler_temp$$2169_JSCompiler_temp$$2170_countryCode$$inline_513_metadata$$inline_520_regionCode$$16_regions$$inline_514$$.length, 
-          $i$$inline_2244$$ = 0;$i$$inline_2244$$ < $JSCompiler_temp$$2171_JSCompiler_temp$$2172_metadata$$inline_2249_regionCodesLength$$inline_2243$$;$i$$inline_2244$$++) {
-            $JSCompiler_inline_result$$2173_regionCode$$inline_2242_regionCode$$inline_518$$ = $JSCompiler_inline_result$$101_JSCompiler_temp$$2169_JSCompiler_temp$$2170_countryCode$$inline_513_metadata$$inline_520_regionCode$$16_regions$$inline_514$$[$i$$inline_2244$$];
-            var $metadata$$inline_2245$$ = $JSCompiler_StaticMethods_getMetadataForRegion$$($JSCompiler_StaticMethods_isValidNumber$self$$, $JSCompiler_inline_result$$2173_regionCode$$inline_2242_regionCode$$inline_518$$);
-            if (null != $metadata$$inline_2245$$.$values_$[23]) {
-              if (0 == $countryCode$$inline_519_nationalNumber$$inline_2241_nationalSignificantNumber$$inline_521$$.search($JSCompiler_StaticMethods_get$Value$$($metadata$$inline_2245$$, 23))) {
-                $JSCompiler_inline_result$$101_JSCompiler_temp$$2169_JSCompiler_temp$$2170_countryCode$$inline_513_metadata$$inline_520_regionCode$$16_regions$$inline_514$$ = $JSCompiler_inline_result$$2173_regionCode$$inline_2242_regionCode$$inline_518$$;
+          for (var $countryCode$$inline_519_nationalNumber$$inline_2242_nationalSignificantNumber$$inline_521$$ = $JSCompiler_StaticMethods_getNationalSignificantNumber$$($number$$23$$), $JSCompiler_inline_result$$2174_regionCode$$inline_2243_regionCode$$inline_518$$, $JSCompiler_temp$$2172_JSCompiler_temp$$2173_metadata$$inline_2250_regionCodesLength$$inline_2244$$ = $JSCompiler_inline_result$$101_JSCompiler_temp$$2170_JSCompiler_temp$$2171_countryCode$$inline_513_metadata$$inline_520_regionCode$$16_regions$$inline_514$$.length, 
+          $i$$inline_2245$$ = 0;$i$$inline_2245$$ < $JSCompiler_temp$$2172_JSCompiler_temp$$2173_metadata$$inline_2250_regionCodesLength$$inline_2244$$;$i$$inline_2245$$++) {
+            $JSCompiler_inline_result$$2174_regionCode$$inline_2243_regionCode$$inline_518$$ = $JSCompiler_inline_result$$101_JSCompiler_temp$$2170_JSCompiler_temp$$2171_countryCode$$inline_513_metadata$$inline_520_regionCode$$16_regions$$inline_514$$[$i$$inline_2245$$];
+            var $metadata$$inline_2246$$ = $JSCompiler_StaticMethods_getMetadataForRegion$$($JSCompiler_StaticMethods_isValidNumber$self$$, $JSCompiler_inline_result$$2174_regionCode$$inline_2243_regionCode$$inline_518$$);
+            if (null != $metadata$$inline_2246$$.$values_$[23]) {
+              if (0 == $countryCode$$inline_519_nationalNumber$$inline_2242_nationalSignificantNumber$$inline_521$$.search($JSCompiler_StaticMethods_get$Value$$($metadata$$inline_2246$$, 23))) {
+                $JSCompiler_inline_result$$101_JSCompiler_temp$$2170_JSCompiler_temp$$2171_countryCode$$inline_513_metadata$$inline_520_regionCode$$16_regions$$inline_514$$ = $JSCompiler_inline_result$$2174_regionCode$$inline_2243_regionCode$$inline_518$$;
                 break b;
               }
             } else {
-              if (-1 != $JSCompiler_StaticMethods_getNumberTypeHelper_$$($countryCode$$inline_519_nationalNumber$$inline_2241_nationalSignificantNumber$$inline_521$$, $metadata$$inline_2245$$)) {
-                $JSCompiler_inline_result$$101_JSCompiler_temp$$2169_JSCompiler_temp$$2170_countryCode$$inline_513_metadata$$inline_520_regionCode$$16_regions$$inline_514$$ = $JSCompiler_inline_result$$2173_regionCode$$inline_2242_regionCode$$inline_518$$;
+              if (-1 != $JSCompiler_StaticMethods_getNumberTypeHelper_$$($countryCode$$inline_519_nationalNumber$$inline_2242_nationalSignificantNumber$$inline_521$$, $metadata$$inline_2246$$)) {
+                $JSCompiler_inline_result$$101_JSCompiler_temp$$2170_JSCompiler_temp$$2171_countryCode$$inline_513_metadata$$inline_520_regionCode$$16_regions$$inline_514$$ = $JSCompiler_inline_result$$2174_regionCode$$inline_2243_regionCode$$inline_518$$;
                 break b;
               }
             }
           }
-          $JSCompiler_inline_result$$101_JSCompiler_temp$$2169_JSCompiler_temp$$2170_countryCode$$inline_513_metadata$$inline_520_regionCode$$16_regions$$inline_514$$ = null;
+          $JSCompiler_inline_result$$101_JSCompiler_temp$$2170_JSCompiler_temp$$2171_countryCode$$inline_513_metadata$$inline_520_regionCode$$16_regions$$inline_514$$ = null;
         }
       }
     }
   }
-  $JSCompiler_inline_result$$2173_regionCode$$inline_2242_regionCode$$inline_518$$ = $JSCompiler_inline_result$$101_JSCompiler_temp$$2169_JSCompiler_temp$$2170_countryCode$$inline_513_metadata$$inline_520_regionCode$$16_regions$$inline_514$$;
-  $countryCode$$inline_519_nationalNumber$$inline_2241_nationalSignificantNumber$$inline_521$$ = $number$$23$$.$getCountryCodeOrDefault$();
-  $JSCompiler_inline_result$$101_JSCompiler_temp$$2169_JSCompiler_temp$$2170_countryCode$$inline_513_metadata$$inline_520_regionCode$$16_regions$$inline_514$$ = $JSCompiler_StaticMethods_getMetadataForRegionOrCallingCode_$$($JSCompiler_StaticMethods_isValidNumber$self$$, $countryCode$$inline_519_nationalNumber$$inline_2241_nationalSignificantNumber$$inline_521$$, $JSCompiler_inline_result$$2173_regionCode$$inline_2242_regionCode$$inline_518$$);
-  if (!($JSCompiler_temp$$2171_JSCompiler_temp$$2172_metadata$$inline_2249_regionCodesLength$$inline_2243$$ = null == $JSCompiler_inline_result$$101_JSCompiler_temp$$2169_JSCompiler_temp$$2170_countryCode$$inline_513_metadata$$inline_520_regionCode$$16_regions$$inline_514$$) && ($JSCompiler_temp$$2171_JSCompiler_temp$$2172_metadata$$inline_2249_regionCodesLength$$inline_2243$$ = "001" != $JSCompiler_inline_result$$2173_regionCode$$inline_2242_regionCode$$inline_518$$)) {
-    $JSCompiler_temp$$2171_JSCompiler_temp$$2172_metadata$$inline_2249_regionCodesLength$$inline_2243$$ = $JSCompiler_StaticMethods_getMetadataForRegion$$($JSCompiler_StaticMethods_isValidNumber$self$$, $JSCompiler_inline_result$$2173_regionCode$$inline_2242_regionCode$$inline_518$$);
-    if (null == $JSCompiler_temp$$2171_JSCompiler_temp$$2172_metadata$$inline_2249_regionCodesLength$$inline_2243$$) {
-      throw "Invalid region code: " + $JSCompiler_inline_result$$2173_regionCode$$inline_2242_regionCode$$inline_518$$;
+  $JSCompiler_inline_result$$2174_regionCode$$inline_2243_regionCode$$inline_518$$ = $JSCompiler_inline_result$$101_JSCompiler_temp$$2170_JSCompiler_temp$$2171_countryCode$$inline_513_metadata$$inline_520_regionCode$$16_regions$$inline_514$$;
+  $countryCode$$inline_519_nationalNumber$$inline_2242_nationalSignificantNumber$$inline_521$$ = $number$$23$$.$getCountryCodeOrDefault$();
+  $JSCompiler_inline_result$$101_JSCompiler_temp$$2170_JSCompiler_temp$$2171_countryCode$$inline_513_metadata$$inline_520_regionCode$$16_regions$$inline_514$$ = $JSCompiler_StaticMethods_getMetadataForRegionOrCallingCode_$$($JSCompiler_StaticMethods_isValidNumber$self$$, $countryCode$$inline_519_nationalNumber$$inline_2242_nationalSignificantNumber$$inline_521$$, $JSCompiler_inline_result$$2174_regionCode$$inline_2243_regionCode$$inline_518$$);
+  if (!($JSCompiler_temp$$2172_JSCompiler_temp$$2173_metadata$$inline_2250_regionCodesLength$$inline_2244$$ = null == $JSCompiler_inline_result$$101_JSCompiler_temp$$2170_JSCompiler_temp$$2171_countryCode$$inline_513_metadata$$inline_520_regionCode$$16_regions$$inline_514$$) && ($JSCompiler_temp$$2172_JSCompiler_temp$$2173_metadata$$inline_2250_regionCodesLength$$inline_2244$$ = "001" != $JSCompiler_inline_result$$2174_regionCode$$inline_2243_regionCode$$inline_518$$)) {
+    $JSCompiler_temp$$2172_JSCompiler_temp$$2173_metadata$$inline_2250_regionCodesLength$$inline_2244$$ = $JSCompiler_StaticMethods_getMetadataForRegion$$($JSCompiler_StaticMethods_isValidNumber$self$$, $JSCompiler_inline_result$$2174_regionCode$$inline_2243_regionCode$$inline_518$$);
+    if (null == $JSCompiler_temp$$2172_JSCompiler_temp$$2173_metadata$$inline_2250_regionCodesLength$$inline_2244$$) {
+      throw "Invalid region code: " + $JSCompiler_inline_result$$2174_regionCode$$inline_2243_regionCode$$inline_518$$;
     }
-    $JSCompiler_inline_result$$2173_regionCode$$inline_2242_regionCode$$inline_518$$ = $JSCompiler_temp$$2171_JSCompiler_temp$$2172_metadata$$inline_2249_regionCodesLength$$inline_2243$$.$getCountryCodeOrDefault$();
-    $JSCompiler_temp$$2171_JSCompiler_temp$$2172_metadata$$inline_2249_regionCodesLength$$inline_2243$$ = $countryCode$$inline_519_nationalNumber$$inline_2241_nationalSignificantNumber$$inline_521$$ != $JSCompiler_inline_result$$2173_regionCode$$inline_2242_regionCode$$inline_518$$;
+    $JSCompiler_inline_result$$2174_regionCode$$inline_2243_regionCode$$inline_518$$ = $JSCompiler_temp$$2172_JSCompiler_temp$$2173_metadata$$inline_2250_regionCodesLength$$inline_2244$$.$getCountryCodeOrDefault$();
+    $JSCompiler_temp$$2172_JSCompiler_temp$$2173_metadata$$inline_2250_regionCodesLength$$inline_2244$$ = $countryCode$$inline_519_nationalNumber$$inline_2242_nationalSignificantNumber$$inline_521$$ != $JSCompiler_inline_result$$2174_regionCode$$inline_2243_regionCode$$inline_518$$;
   }
-  $JSCompiler_temp$$2171_JSCompiler_temp$$2172_metadata$$inline_2249_regionCodesLength$$inline_2243$$ ? $JSCompiler_inline_result$$101_JSCompiler_temp$$2169_JSCompiler_temp$$2170_countryCode$$inline_513_metadata$$inline_520_regionCode$$16_regions$$inline_514$$ = !1 : ($countryCode$$inline_519_nationalNumber$$inline_2241_nationalSignificantNumber$$inline_521$$ = $JSCompiler_StaticMethods_getNationalSignificantNumber$$($number$$23$$), $JSCompiler_inline_result$$101_JSCompiler_temp$$2169_JSCompiler_temp$$2170_countryCode$$inline_513_metadata$$inline_520_regionCode$$16_regions$$inline_514$$ = 
-  -1 != $JSCompiler_StaticMethods_getNumberTypeHelper_$$($countryCode$$inline_519_nationalNumber$$inline_2241_nationalSignificantNumber$$inline_521$$, $JSCompiler_inline_result$$101_JSCompiler_temp$$2169_JSCompiler_temp$$2170_countryCode$$inline_513_metadata$$inline_520_regionCode$$16_regions$$inline_514$$));
-  return $JSCompiler_inline_result$$101_JSCompiler_temp$$2169_JSCompiler_temp$$2170_countryCode$$inline_513_metadata$$inline_520_regionCode$$16_regions$$inline_514$$;
+  $JSCompiler_temp$$2172_JSCompiler_temp$$2173_metadata$$inline_2250_regionCodesLength$$inline_2244$$ ? $JSCompiler_inline_result$$101_JSCompiler_temp$$2170_JSCompiler_temp$$2171_countryCode$$inline_513_metadata$$inline_520_regionCode$$16_regions$$inline_514$$ = !1 : ($countryCode$$inline_519_nationalNumber$$inline_2242_nationalSignificantNumber$$inline_521$$ = $JSCompiler_StaticMethods_getNationalSignificantNumber$$($number$$23$$), $JSCompiler_inline_result$$101_JSCompiler_temp$$2170_JSCompiler_temp$$2171_countryCode$$inline_513_metadata$$inline_520_regionCode$$16_regions$$inline_514$$ = 
+  -1 != $JSCompiler_StaticMethods_getNumberTypeHelper_$$($countryCode$$inline_519_nationalNumber$$inline_2242_nationalSignificantNumber$$inline_521$$, $JSCompiler_inline_result$$101_JSCompiler_temp$$2170_JSCompiler_temp$$2171_countryCode$$inline_513_metadata$$inline_520_regionCode$$16_regions$$inline_514$$));
+  return $JSCompiler_inline_result$$101_JSCompiler_temp$$2170_JSCompiler_temp$$2171_countryCode$$inline_513_metadata$$inline_520_regionCode$$16_regions$$inline_514$$;
 }
 function $JSCompiler_StaticMethods_getRegionCodeForCountryCode$$($countryCallingCode$$12_regionCodes$$1$$) {
   $countryCallingCode$$12_regionCodes$$1$$ = $i18n$phonenumbers$metadata$countryCodeToRegionCodeMap$$[$countryCallingCode$$12_regionCodes$$1$$];
@@ -4179,58 +4179,58 @@ function $JSCompiler_StaticMethods_testNumberLengthAgainstPattern_$$($numberPatt
   return $i18n$phonenumbers$PhoneNumberUtil$matchesEntirely_$$($numberPattern$$, $number$$29$$) ? 0 : 0 == $number$$29$$.search($numberPattern$$) ? 3 : 2;
 }
 function $JSCompiler_StaticMethods_isPossibleNumberWithReason$$($JSCompiler_StaticMethods_isPossibleNumberWithReason$self$$, $number$$31$$) {
-  var $nationalNumber$$9$$ = $JSCompiler_StaticMethods_getNationalSignificantNumber$$($number$$31$$), $JSCompiler_StaticMethods_getGeneralDesc$self$$inline_2251_JSCompiler_inline_result$$2166_countryCode$$3_possibleNumberPattern$$1$$ = $number$$31$$.$getCountryCodeOrDefault$();
-  if (!($JSCompiler_StaticMethods_getGeneralDesc$self$$inline_2251_JSCompiler_inline_result$$2166_countryCode$$3_possibleNumberPattern$$1$$ in $i18n$phonenumbers$metadata$countryCodeToRegionCodeMap$$)) {
+  var $nationalNumber$$9$$ = $JSCompiler_StaticMethods_getNationalSignificantNumber$$($number$$31$$), $JSCompiler_StaticMethods_getGeneralDesc$self$$inline_2252_JSCompiler_inline_result$$2167_countryCode$$3_possibleNumberPattern$$1$$ = $number$$31$$.$getCountryCodeOrDefault$();
+  if (!($JSCompiler_StaticMethods_getGeneralDesc$self$$inline_2252_JSCompiler_inline_result$$2167_countryCode$$3_possibleNumberPattern$$1$$ in $i18n$phonenumbers$metadata$countryCodeToRegionCodeMap$$)) {
     return 1;
   }
-  $JSCompiler_StaticMethods_getGeneralDesc$self$$inline_2251_JSCompiler_inline_result$$2166_countryCode$$3_possibleNumberPattern$$1$$ = $JSCompiler_StaticMethods_getMetadataForRegionOrCallingCode_$$($JSCompiler_StaticMethods_isPossibleNumberWithReason$self$$, $JSCompiler_StaticMethods_getGeneralDesc$self$$inline_2251_JSCompiler_inline_result$$2166_countryCode$$3_possibleNumberPattern$$1$$, $JSCompiler_StaticMethods_getRegionCodeForCountryCode$$($JSCompiler_StaticMethods_getGeneralDesc$self$$inline_2251_JSCompiler_inline_result$$2166_countryCode$$3_possibleNumberPattern$$1$$));
-  $JSCompiler_StaticMethods_getGeneralDesc$self$$inline_2251_JSCompiler_inline_result$$2166_countryCode$$3_possibleNumberPattern$$1$$ = $JSCompiler_StaticMethods_get$Value$$($JSCompiler_StaticMethods_getGeneralDesc$self$$inline_2251_JSCompiler_inline_result$$2166_countryCode$$3_possibleNumberPattern$$1$$, 1);
-  $JSCompiler_StaticMethods_getGeneralDesc$self$$inline_2251_JSCompiler_inline_result$$2166_countryCode$$3_possibleNumberPattern$$1$$ = $JSCompiler_StaticMethods_get$ValueOrDefault$$($JSCompiler_StaticMethods_getGeneralDesc$self$$inline_2251_JSCompiler_inline_result$$2166_countryCode$$3_possibleNumberPattern$$1$$, 3);
-  return $JSCompiler_StaticMethods_testNumberLengthAgainstPattern_$$($JSCompiler_StaticMethods_getGeneralDesc$self$$inline_2251_JSCompiler_inline_result$$2166_countryCode$$3_possibleNumberPattern$$1$$, $nationalNumber$$9$$);
+  $JSCompiler_StaticMethods_getGeneralDesc$self$$inline_2252_JSCompiler_inline_result$$2167_countryCode$$3_possibleNumberPattern$$1$$ = $JSCompiler_StaticMethods_getMetadataForRegionOrCallingCode_$$($JSCompiler_StaticMethods_isPossibleNumberWithReason$self$$, $JSCompiler_StaticMethods_getGeneralDesc$self$$inline_2252_JSCompiler_inline_result$$2167_countryCode$$3_possibleNumberPattern$$1$$, $JSCompiler_StaticMethods_getRegionCodeForCountryCode$$($JSCompiler_StaticMethods_getGeneralDesc$self$$inline_2252_JSCompiler_inline_result$$2167_countryCode$$3_possibleNumberPattern$$1$$));
+  $JSCompiler_StaticMethods_getGeneralDesc$self$$inline_2252_JSCompiler_inline_result$$2167_countryCode$$3_possibleNumberPattern$$1$$ = $JSCompiler_StaticMethods_get$Value$$($JSCompiler_StaticMethods_getGeneralDesc$self$$inline_2252_JSCompiler_inline_result$$2167_countryCode$$3_possibleNumberPattern$$1$$, 1);
+  $JSCompiler_StaticMethods_getGeneralDesc$self$$inline_2252_JSCompiler_inline_result$$2167_countryCode$$3_possibleNumberPattern$$1$$ = $JSCompiler_StaticMethods_get$ValueOrDefault$$($JSCompiler_StaticMethods_getGeneralDesc$self$$inline_2252_JSCompiler_inline_result$$2167_countryCode$$3_possibleNumberPattern$$1$$, 3);
+  return $JSCompiler_StaticMethods_testNumberLengthAgainstPattern_$$($JSCompiler_StaticMethods_getGeneralDesc$self$$inline_2252_JSCompiler_inline_result$$2167_countryCode$$3_possibleNumberPattern$$1$$, $nationalNumber$$9$$);
 }
 function $JSCompiler_StaticMethods_maybeExtractCountryCode$$($fullNumber$$1_number$$34_potentialCountryCode$$inline_535$$, $defaultRegionMetadata_numberLength$$inline_536_potentialNationalNumberStr$$, $nationalNumber$$12_potentialCountryCode$$1$$, $fullNumberStr$$inline_534_keepRawInput$$, $phoneNumber$$1$$) {
   if (0 == $fullNumber$$1_number$$34_potentialCountryCode$$inline_535$$.length) {
     return 0;
   }
   $fullNumber$$1_number$$34_potentialCountryCode$$inline_535$$ = new $goog$string$StringBuffer$$($fullNumber$$1_number$$34_potentialCountryCode$$inline_535$$);
-  var $JSCompiler_inline_result$$2174_countryCodeSource_defaultCountryCode_i$$inline_537_numberStr$$inline_2255_possibleCountryIddPrefix_possibleIddPrefix$$inline_525$$;
-  null != $defaultRegionMetadata_numberLength$$inline_536_potentialNationalNumberStr$$ && ($JSCompiler_inline_result$$2174_countryCodeSource_defaultCountryCode_i$$inline_537_numberStr$$inline_2255_possibleCountryIddPrefix_possibleIddPrefix$$inline_525$$ = $JSCompiler_StaticMethods_get$Value$$($defaultRegionMetadata_numberLength$$inline_536_potentialNationalNumberStr$$, 11));
-  null == $JSCompiler_inline_result$$2174_countryCodeSource_defaultCountryCode_i$$inline_537_numberStr$$inline_2255_possibleCountryIddPrefix_possibleIddPrefix$$inline_525$$ && ($JSCompiler_inline_result$$2174_countryCodeSource_defaultCountryCode_i$$inline_537_numberStr$$inline_2255_possibleCountryIddPrefix_possibleIddPrefix$$inline_525$$ = "NonMatch");
-  var $defaultCountryCodeString_iddPattern$$inline_527_matchEnd$$inline_2256_numberStr$$inline_526_validNumberPattern$$ = $fullNumber$$1_number$$34_potentialCountryCode$$inline_535$$.toString();
-  if (0 == $defaultCountryCodeString_iddPattern$$inline_527_matchEnd$$inline_2256_numberStr$$inline_526_validNumberPattern$$.length) {
-    $JSCompiler_inline_result$$2174_countryCodeSource_defaultCountryCode_i$$inline_537_numberStr$$inline_2255_possibleCountryIddPrefix_possibleIddPrefix$$inline_525$$ = 20;
+  var $JSCompiler_inline_result$$2175_countryCodeSource_defaultCountryCode_i$$inline_537_numberStr$$inline_2256_possibleCountryIddPrefix_possibleIddPrefix$$inline_525$$;
+  null != $defaultRegionMetadata_numberLength$$inline_536_potentialNationalNumberStr$$ && ($JSCompiler_inline_result$$2175_countryCodeSource_defaultCountryCode_i$$inline_537_numberStr$$inline_2256_possibleCountryIddPrefix_possibleIddPrefix$$inline_525$$ = $JSCompiler_StaticMethods_get$Value$$($defaultRegionMetadata_numberLength$$inline_536_potentialNationalNumberStr$$, 11));
+  null == $JSCompiler_inline_result$$2175_countryCodeSource_defaultCountryCode_i$$inline_537_numberStr$$inline_2256_possibleCountryIddPrefix_possibleIddPrefix$$inline_525$$ && ($JSCompiler_inline_result$$2175_countryCodeSource_defaultCountryCode_i$$inline_537_numberStr$$inline_2256_possibleCountryIddPrefix_possibleIddPrefix$$inline_525$$ = "NonMatch");
+  var $defaultCountryCodeString_iddPattern$$inline_527_matchEnd$$inline_2257_numberStr$$inline_526_validNumberPattern$$ = $fullNumber$$1_number$$34_potentialCountryCode$$inline_535$$.toString();
+  if (0 == $defaultCountryCodeString_iddPattern$$inline_527_matchEnd$$inline_2257_numberStr$$inline_526_validNumberPattern$$.length) {
+    $JSCompiler_inline_result$$2175_countryCodeSource_defaultCountryCode_i$$inline_537_numberStr$$inline_2256_possibleCountryIddPrefix_possibleIddPrefix$$inline_525$$ = 20;
   } else {
-    if ($i18n$phonenumbers$PhoneNumberUtil$LEADING_PLUS_CHARS_PATTERN_$$.test($defaultCountryCodeString_iddPattern$$inline_527_matchEnd$$inline_2256_numberStr$$inline_526_validNumberPattern$$)) {
-      $defaultCountryCodeString_iddPattern$$inline_527_matchEnd$$inline_2256_numberStr$$inline_526_validNumberPattern$$ = $defaultCountryCodeString_iddPattern$$inline_527_matchEnd$$inline_2256_numberStr$$inline_526_validNumberPattern$$.replace($i18n$phonenumbers$PhoneNumberUtil$LEADING_PLUS_CHARS_PATTERN_$$, ""), $fullNumber$$1_number$$34_potentialCountryCode$$inline_535$$.clear(), $fullNumber$$1_number$$34_potentialCountryCode$$inline_535$$.append($i18n$phonenumbers$PhoneNumberUtil$normalize$$($defaultCountryCodeString_iddPattern$$inline_527_matchEnd$$inline_2256_numberStr$$inline_526_validNumberPattern$$)), 
-      $JSCompiler_inline_result$$2174_countryCodeSource_defaultCountryCode_i$$inline_537_numberStr$$inline_2255_possibleCountryIddPrefix_possibleIddPrefix$$inline_525$$ = 1;
+    if ($i18n$phonenumbers$PhoneNumberUtil$LEADING_PLUS_CHARS_PATTERN_$$.test($defaultCountryCodeString_iddPattern$$inline_527_matchEnd$$inline_2257_numberStr$$inline_526_validNumberPattern$$)) {
+      $defaultCountryCodeString_iddPattern$$inline_527_matchEnd$$inline_2257_numberStr$$inline_526_validNumberPattern$$ = $defaultCountryCodeString_iddPattern$$inline_527_matchEnd$$inline_2257_numberStr$$inline_526_validNumberPattern$$.replace($i18n$phonenumbers$PhoneNumberUtil$LEADING_PLUS_CHARS_PATTERN_$$, ""), $fullNumber$$1_number$$34_potentialCountryCode$$inline_535$$.clear(), $fullNumber$$1_number$$34_potentialCountryCode$$inline_535$$.append($i18n$phonenumbers$PhoneNumberUtil$normalize$$($defaultCountryCodeString_iddPattern$$inline_527_matchEnd$$inline_2257_numberStr$$inline_526_validNumberPattern$$)), 
+      $JSCompiler_inline_result$$2175_countryCodeSource_defaultCountryCode_i$$inline_537_numberStr$$inline_2256_possibleCountryIddPrefix_possibleIddPrefix$$inline_525$$ = 1;
     } else {
-      $defaultCountryCodeString_iddPattern$$inline_527_matchEnd$$inline_2256_numberStr$$inline_526_validNumberPattern$$ = new RegExp($JSCompiler_inline_result$$2174_countryCodeSource_defaultCountryCode_i$$inline_537_numberStr$$inline_2255_possibleCountryIddPrefix_possibleIddPrefix$$inline_525$$);
+      $defaultCountryCodeString_iddPattern$$inline_527_matchEnd$$inline_2257_numberStr$$inline_526_validNumberPattern$$ = new RegExp($JSCompiler_inline_result$$2175_countryCodeSource_defaultCountryCode_i$$inline_537_numberStr$$inline_2256_possibleCountryIddPrefix_possibleIddPrefix$$inline_525$$);
       $i18n$phonenumbers$PhoneNumberUtil$normalizeSB_$$($fullNumber$$1_number$$34_potentialCountryCode$$inline_535$$);
-      $JSCompiler_inline_result$$2174_countryCodeSource_defaultCountryCode_i$$inline_537_numberStr$$inline_2255_possibleCountryIddPrefix_possibleIddPrefix$$inline_525$$ = $fullNumber$$1_number$$34_potentialCountryCode$$inline_535$$.toString();
-      if (0 == $JSCompiler_inline_result$$2174_countryCodeSource_defaultCountryCode_i$$inline_537_numberStr$$inline_2255_possibleCountryIddPrefix_possibleIddPrefix$$inline_525$$.search($defaultCountryCodeString_iddPattern$$inline_527_matchEnd$$inline_2256_numberStr$$inline_526_validNumberPattern$$)) {
-        var $defaultCountryCodeString_iddPattern$$inline_527_matchEnd$$inline_2256_numberStr$$inline_526_validNumberPattern$$ = $JSCompiler_inline_result$$2174_countryCodeSource_defaultCountryCode_i$$inline_537_numberStr$$inline_2255_possibleCountryIddPrefix_possibleIddPrefix$$inline_525$$.match($defaultCountryCodeString_iddPattern$$inline_527_matchEnd$$inline_2256_numberStr$$inline_526_validNumberPattern$$)[0].length, $generalDesc_matchedGroups$$inline_2257_normalizedNumber$$2_possibleNumberPattern$$2$$ = 
-        $JSCompiler_inline_result$$2174_countryCodeSource_defaultCountryCode_i$$inline_537_numberStr$$inline_2255_possibleCountryIddPrefix_possibleIddPrefix$$inline_525$$.substring($defaultCountryCodeString_iddPattern$$inline_527_matchEnd$$inline_2256_numberStr$$inline_526_validNumberPattern$$).match($i18n$phonenumbers$PhoneNumberUtil$CAPTURING_DIGIT_PATTERN$$);
-        $generalDesc_matchedGroups$$inline_2257_normalizedNumber$$2_possibleNumberPattern$$2$$ && null != $generalDesc_matchedGroups$$inline_2257_normalizedNumber$$2_possibleNumberPattern$$2$$[1] && 0 < $generalDesc_matchedGroups$$inline_2257_normalizedNumber$$2_possibleNumberPattern$$2$$[1].length && "0" == $i18n$phonenumbers$PhoneNumberUtil$normalizeHelper_$$($generalDesc_matchedGroups$$inline_2257_normalizedNumber$$2_possibleNumberPattern$$2$$[1], $i18n$phonenumbers$PhoneNumberUtil$DIGIT_MAPPINGS$$) ? 
-        $JSCompiler_inline_result$$2174_countryCodeSource_defaultCountryCode_i$$inline_537_numberStr$$inline_2255_possibleCountryIddPrefix_possibleIddPrefix$$inline_525$$ = !1 : ($fullNumber$$1_number$$34_potentialCountryCode$$inline_535$$.clear(), $fullNumber$$1_number$$34_potentialCountryCode$$inline_535$$.append($JSCompiler_inline_result$$2174_countryCodeSource_defaultCountryCode_i$$inline_537_numberStr$$inline_2255_possibleCountryIddPrefix_possibleIddPrefix$$inline_525$$.substring($defaultCountryCodeString_iddPattern$$inline_527_matchEnd$$inline_2256_numberStr$$inline_526_validNumberPattern$$)), 
-        $JSCompiler_inline_result$$2174_countryCodeSource_defaultCountryCode_i$$inline_537_numberStr$$inline_2255_possibleCountryIddPrefix_possibleIddPrefix$$inline_525$$ = !0);
+      $JSCompiler_inline_result$$2175_countryCodeSource_defaultCountryCode_i$$inline_537_numberStr$$inline_2256_possibleCountryIddPrefix_possibleIddPrefix$$inline_525$$ = $fullNumber$$1_number$$34_potentialCountryCode$$inline_535$$.toString();
+      if (0 == $JSCompiler_inline_result$$2175_countryCodeSource_defaultCountryCode_i$$inline_537_numberStr$$inline_2256_possibleCountryIddPrefix_possibleIddPrefix$$inline_525$$.search($defaultCountryCodeString_iddPattern$$inline_527_matchEnd$$inline_2257_numberStr$$inline_526_validNumberPattern$$)) {
+        var $defaultCountryCodeString_iddPattern$$inline_527_matchEnd$$inline_2257_numberStr$$inline_526_validNumberPattern$$ = $JSCompiler_inline_result$$2175_countryCodeSource_defaultCountryCode_i$$inline_537_numberStr$$inline_2256_possibleCountryIddPrefix_possibleIddPrefix$$inline_525$$.match($defaultCountryCodeString_iddPattern$$inline_527_matchEnd$$inline_2257_numberStr$$inline_526_validNumberPattern$$)[0].length, $generalDesc_matchedGroups$$inline_2258_normalizedNumber$$2_possibleNumberPattern$$2$$ = 
+        $JSCompiler_inline_result$$2175_countryCodeSource_defaultCountryCode_i$$inline_537_numberStr$$inline_2256_possibleCountryIddPrefix_possibleIddPrefix$$inline_525$$.substring($defaultCountryCodeString_iddPattern$$inline_527_matchEnd$$inline_2257_numberStr$$inline_526_validNumberPattern$$).match($i18n$phonenumbers$PhoneNumberUtil$CAPTURING_DIGIT_PATTERN$$);
+        $generalDesc_matchedGroups$$inline_2258_normalizedNumber$$2_possibleNumberPattern$$2$$ && null != $generalDesc_matchedGroups$$inline_2258_normalizedNumber$$2_possibleNumberPattern$$2$$[1] && 0 < $generalDesc_matchedGroups$$inline_2258_normalizedNumber$$2_possibleNumberPattern$$2$$[1].length && "0" == $i18n$phonenumbers$PhoneNumberUtil$normalizeHelper_$$($generalDesc_matchedGroups$$inline_2258_normalizedNumber$$2_possibleNumberPattern$$2$$[1], $i18n$phonenumbers$PhoneNumberUtil$DIGIT_MAPPINGS$$) ? 
+        $JSCompiler_inline_result$$2175_countryCodeSource_defaultCountryCode_i$$inline_537_numberStr$$inline_2256_possibleCountryIddPrefix_possibleIddPrefix$$inline_525$$ = !1 : ($fullNumber$$1_number$$34_potentialCountryCode$$inline_535$$.clear(), $fullNumber$$1_number$$34_potentialCountryCode$$inline_535$$.append($JSCompiler_inline_result$$2175_countryCodeSource_defaultCountryCode_i$$inline_537_numberStr$$inline_2256_possibleCountryIddPrefix_possibleIddPrefix$$inline_525$$.substring($defaultCountryCodeString_iddPattern$$inline_527_matchEnd$$inline_2257_numberStr$$inline_526_validNumberPattern$$)), 
+        $JSCompiler_inline_result$$2175_countryCodeSource_defaultCountryCode_i$$inline_537_numberStr$$inline_2256_possibleCountryIddPrefix_possibleIddPrefix$$inline_525$$ = !0);
       } else {
-        $JSCompiler_inline_result$$2174_countryCodeSource_defaultCountryCode_i$$inline_537_numberStr$$inline_2255_possibleCountryIddPrefix_possibleIddPrefix$$inline_525$$ = !1;
+        $JSCompiler_inline_result$$2175_countryCodeSource_defaultCountryCode_i$$inline_537_numberStr$$inline_2256_possibleCountryIddPrefix_possibleIddPrefix$$inline_525$$ = !1;
       }
-      $JSCompiler_inline_result$$2174_countryCodeSource_defaultCountryCode_i$$inline_537_numberStr$$inline_2255_possibleCountryIddPrefix_possibleIddPrefix$$inline_525$$ = $JSCompiler_inline_result$$2174_countryCodeSource_defaultCountryCode_i$$inline_537_numberStr$$inline_2255_possibleCountryIddPrefix_possibleIddPrefix$$inline_525$$ ? 5 : 20;
+      $JSCompiler_inline_result$$2175_countryCodeSource_defaultCountryCode_i$$inline_537_numberStr$$inline_2256_possibleCountryIddPrefix_possibleIddPrefix$$inline_525$$ = $JSCompiler_inline_result$$2175_countryCodeSource_defaultCountryCode_i$$inline_537_numberStr$$inline_2256_possibleCountryIddPrefix_possibleIddPrefix$$inline_525$$ ? 5 : 20;
     }
   }
-  $fullNumberStr$$inline_534_keepRawInput$$ && $JSCompiler_StaticMethods_set$Value$$($phoneNumber$$1$$, 6, $JSCompiler_inline_result$$2174_countryCodeSource_defaultCountryCode_i$$inline_537_numberStr$$inline_2255_possibleCountryIddPrefix_possibleIddPrefix$$inline_525$$);
-  if (20 != $JSCompiler_inline_result$$2174_countryCodeSource_defaultCountryCode_i$$inline_537_numberStr$$inline_2255_possibleCountryIddPrefix_possibleIddPrefix$$inline_525$$) {
+  $fullNumberStr$$inline_534_keepRawInput$$ && $JSCompiler_StaticMethods_set$Value$$($phoneNumber$$1$$, 6, $JSCompiler_inline_result$$2175_countryCodeSource_defaultCountryCode_i$$inline_537_numberStr$$inline_2256_possibleCountryIddPrefix_possibleIddPrefix$$inline_525$$);
+  if (20 != $JSCompiler_inline_result$$2175_countryCodeSource_defaultCountryCode_i$$inline_537_numberStr$$inline_2256_possibleCountryIddPrefix_possibleIddPrefix$$inline_525$$) {
     if (2 >= $fullNumber$$1_number$$34_potentialCountryCode$$inline_535$$.$buffer_$.length) {
       throw "Phone number too short after IDD";
     }
     a: {
       $fullNumberStr$$inline_534_keepRawInput$$ = $fullNumber$$1_number$$34_potentialCountryCode$$inline_535$$.toString();
       if (0 != $fullNumberStr$$inline_534_keepRawInput$$.length && "0" != $fullNumberStr$$inline_534_keepRawInput$$.charAt(0)) {
-        for ($defaultRegionMetadata_numberLength$$inline_536_potentialNationalNumberStr$$ = $fullNumberStr$$inline_534_keepRawInput$$.length, $JSCompiler_inline_result$$2174_countryCodeSource_defaultCountryCode_i$$inline_537_numberStr$$inline_2255_possibleCountryIddPrefix_possibleIddPrefix$$inline_525$$ = 1;3 >= $JSCompiler_inline_result$$2174_countryCodeSource_defaultCountryCode_i$$inline_537_numberStr$$inline_2255_possibleCountryIddPrefix_possibleIddPrefix$$inline_525$$ && $JSCompiler_inline_result$$2174_countryCodeSource_defaultCountryCode_i$$inline_537_numberStr$$inline_2255_possibleCountryIddPrefix_possibleIddPrefix$$inline_525$$ <= 
-        $defaultRegionMetadata_numberLength$$inline_536_potentialNationalNumberStr$$;++$JSCompiler_inline_result$$2174_countryCodeSource_defaultCountryCode_i$$inline_537_numberStr$$inline_2255_possibleCountryIddPrefix_possibleIddPrefix$$inline_525$$) {
-          if ($fullNumber$$1_number$$34_potentialCountryCode$$inline_535$$ = parseInt($fullNumberStr$$inline_534_keepRawInput$$.substring(0, $JSCompiler_inline_result$$2174_countryCodeSource_defaultCountryCode_i$$inline_537_numberStr$$inline_2255_possibleCountryIddPrefix_possibleIddPrefix$$inline_525$$), 10), $fullNumber$$1_number$$34_potentialCountryCode$$inline_535$$ in $i18n$phonenumbers$metadata$countryCodeToRegionCodeMap$$) {
-            $nationalNumber$$12_potentialCountryCode$$1$$.append($fullNumberStr$$inline_534_keepRawInput$$.substring($JSCompiler_inline_result$$2174_countryCodeSource_defaultCountryCode_i$$inline_537_numberStr$$inline_2255_possibleCountryIddPrefix_possibleIddPrefix$$inline_525$$));
+        for ($defaultRegionMetadata_numberLength$$inline_536_potentialNationalNumberStr$$ = $fullNumberStr$$inline_534_keepRawInput$$.length, $JSCompiler_inline_result$$2175_countryCodeSource_defaultCountryCode_i$$inline_537_numberStr$$inline_2256_possibleCountryIddPrefix_possibleIddPrefix$$inline_525$$ = 1;3 >= $JSCompiler_inline_result$$2175_countryCodeSource_defaultCountryCode_i$$inline_537_numberStr$$inline_2256_possibleCountryIddPrefix_possibleIddPrefix$$inline_525$$ && $JSCompiler_inline_result$$2175_countryCodeSource_defaultCountryCode_i$$inline_537_numberStr$$inline_2256_possibleCountryIddPrefix_possibleIddPrefix$$inline_525$$ <= 
+        $defaultRegionMetadata_numberLength$$inline_536_potentialNationalNumberStr$$;++$JSCompiler_inline_result$$2175_countryCodeSource_defaultCountryCode_i$$inline_537_numberStr$$inline_2256_possibleCountryIddPrefix_possibleIddPrefix$$inline_525$$) {
+          if ($fullNumber$$1_number$$34_potentialCountryCode$$inline_535$$ = parseInt($fullNumberStr$$inline_534_keepRawInput$$.substring(0, $JSCompiler_inline_result$$2175_countryCodeSource_defaultCountryCode_i$$inline_537_numberStr$$inline_2256_possibleCountryIddPrefix_possibleIddPrefix$$inline_525$$), 10), $fullNumber$$1_number$$34_potentialCountryCode$$inline_535$$ in $i18n$phonenumbers$metadata$countryCodeToRegionCodeMap$$) {
+            $nationalNumber$$12_potentialCountryCode$$1$$.append($fullNumberStr$$inline_534_keepRawInput$$.substring($JSCompiler_inline_result$$2175_countryCodeSource_defaultCountryCode_i$$inline_537_numberStr$$inline_2256_possibleCountryIddPrefix_possibleIddPrefix$$inline_525$$));
             $nationalNumber$$12_potentialCountryCode$$1$$ = $fullNumber$$1_number$$34_potentialCountryCode$$inline_535$$;
             break a;
           }
@@ -4243,16 +4243,16 @@ function $JSCompiler_StaticMethods_maybeExtractCountryCode$$($fullNumber$$1_numb
     }
     throw "Invalid country calling code";
   }
-  if (null != $defaultRegionMetadata_numberLength$$inline_536_potentialNationalNumberStr$$ && ($JSCompiler_inline_result$$2174_countryCodeSource_defaultCountryCode_i$$inline_537_numberStr$$inline_2255_possibleCountryIddPrefix_possibleIddPrefix$$inline_525$$ = $defaultRegionMetadata_numberLength$$inline_536_potentialNationalNumberStr$$.$getCountryCodeOrDefault$(), $defaultCountryCodeString_iddPattern$$inline_527_matchEnd$$inline_2256_numberStr$$inline_526_validNumberPattern$$ = "" + $JSCompiler_inline_result$$2174_countryCodeSource_defaultCountryCode_i$$inline_537_numberStr$$inline_2255_possibleCountryIddPrefix_possibleIddPrefix$$inline_525$$, 
-  $generalDesc_matchedGroups$$inline_2257_normalizedNumber$$2_possibleNumberPattern$$2$$ = $fullNumber$$1_number$$34_potentialCountryCode$$inline_535$$.toString(), 0 == $generalDesc_matchedGroups$$inline_2257_normalizedNumber$$2_possibleNumberPattern$$2$$.lastIndexOf($defaultCountryCodeString_iddPattern$$inline_527_matchEnd$$inline_2256_numberStr$$inline_526_validNumberPattern$$, 0))) {
-    var $potentialNationalNumber$$ = new $goog$string$StringBuffer$$($generalDesc_matchedGroups$$inline_2257_normalizedNumber$$2_possibleNumberPattern$$2$$.substring($defaultCountryCodeString_iddPattern$$inline_527_matchEnd$$inline_2256_numberStr$$inline_526_validNumberPattern$$.length)), $generalDesc_matchedGroups$$inline_2257_normalizedNumber$$2_possibleNumberPattern$$2$$ = $JSCompiler_StaticMethods_get$Value$$($defaultRegionMetadata_numberLength$$inline_536_potentialNationalNumberStr$$, 1), $defaultCountryCodeString_iddPattern$$inline_527_matchEnd$$inline_2256_numberStr$$inline_526_validNumberPattern$$ = 
-    new RegExp($JSCompiler_StaticMethods_get$ValueOrDefault$$($generalDesc_matchedGroups$$inline_2257_normalizedNumber$$2_possibleNumberPattern$$2$$, 2));
+  if (null != $defaultRegionMetadata_numberLength$$inline_536_potentialNationalNumberStr$$ && ($JSCompiler_inline_result$$2175_countryCodeSource_defaultCountryCode_i$$inline_537_numberStr$$inline_2256_possibleCountryIddPrefix_possibleIddPrefix$$inline_525$$ = $defaultRegionMetadata_numberLength$$inline_536_potentialNationalNumberStr$$.$getCountryCodeOrDefault$(), $defaultCountryCodeString_iddPattern$$inline_527_matchEnd$$inline_2257_numberStr$$inline_526_validNumberPattern$$ = "" + $JSCompiler_inline_result$$2175_countryCodeSource_defaultCountryCode_i$$inline_537_numberStr$$inline_2256_possibleCountryIddPrefix_possibleIddPrefix$$inline_525$$, 
+  $generalDesc_matchedGroups$$inline_2258_normalizedNumber$$2_possibleNumberPattern$$2$$ = $fullNumber$$1_number$$34_potentialCountryCode$$inline_535$$.toString(), 0 == $generalDesc_matchedGroups$$inline_2258_normalizedNumber$$2_possibleNumberPattern$$2$$.lastIndexOf($defaultCountryCodeString_iddPattern$$inline_527_matchEnd$$inline_2257_numberStr$$inline_526_validNumberPattern$$, 0))) {
+    var $potentialNationalNumber$$ = new $goog$string$StringBuffer$$($generalDesc_matchedGroups$$inline_2258_normalizedNumber$$2_possibleNumberPattern$$2$$.substring($defaultCountryCodeString_iddPattern$$inline_527_matchEnd$$inline_2257_numberStr$$inline_526_validNumberPattern$$.length)), $generalDesc_matchedGroups$$inline_2258_normalizedNumber$$2_possibleNumberPattern$$2$$ = $JSCompiler_StaticMethods_get$Value$$($defaultRegionMetadata_numberLength$$inline_536_potentialNationalNumberStr$$, 1), $defaultCountryCodeString_iddPattern$$inline_527_matchEnd$$inline_2257_numberStr$$inline_526_validNumberPattern$$ = 
+    new RegExp($JSCompiler_StaticMethods_get$ValueOrDefault$$($generalDesc_matchedGroups$$inline_2258_normalizedNumber$$2_possibleNumberPattern$$2$$, 2));
     $JSCompiler_StaticMethods_maybeStripNationalPrefixAndCarrierCode$$($potentialNationalNumber$$, $defaultRegionMetadata_numberLength$$inline_536_potentialNationalNumberStr$$, null);
     $defaultRegionMetadata_numberLength$$inline_536_potentialNationalNumberStr$$ = $potentialNationalNumber$$.toString();
-    $generalDesc_matchedGroups$$inline_2257_normalizedNumber$$2_possibleNumberPattern$$2$$ = $JSCompiler_StaticMethods_get$ValueOrDefault$$($generalDesc_matchedGroups$$inline_2257_normalizedNumber$$2_possibleNumberPattern$$2$$, 3);
-    if (!$i18n$phonenumbers$PhoneNumberUtil$matchesEntirely_$$($defaultCountryCodeString_iddPattern$$inline_527_matchEnd$$inline_2256_numberStr$$inline_526_validNumberPattern$$, $fullNumber$$1_number$$34_potentialCountryCode$$inline_535$$.toString()) && $i18n$phonenumbers$PhoneNumberUtil$matchesEntirely_$$($defaultCountryCodeString_iddPattern$$inline_527_matchEnd$$inline_2256_numberStr$$inline_526_validNumberPattern$$, $defaultRegionMetadata_numberLength$$inline_536_potentialNationalNumberStr$$) || 
-    3 == $JSCompiler_StaticMethods_testNumberLengthAgainstPattern_$$($generalDesc_matchedGroups$$inline_2257_normalizedNumber$$2_possibleNumberPattern$$2$$, $fullNumber$$1_number$$34_potentialCountryCode$$inline_535$$.toString())) {
-      return $nationalNumber$$12_potentialCountryCode$$1$$.append($defaultRegionMetadata_numberLength$$inline_536_potentialNationalNumberStr$$), $fullNumberStr$$inline_534_keepRawInput$$ && $JSCompiler_StaticMethods_set$Value$$($phoneNumber$$1$$, 6, 10), $phoneNumber$$1$$.$setCountryCode$($JSCompiler_inline_result$$2174_countryCodeSource_defaultCountryCode_i$$inline_537_numberStr$$inline_2255_possibleCountryIddPrefix_possibleIddPrefix$$inline_525$$), $JSCompiler_inline_result$$2174_countryCodeSource_defaultCountryCode_i$$inline_537_numberStr$$inline_2255_possibleCountryIddPrefix_possibleIddPrefix$$inline_525$$
+    $generalDesc_matchedGroups$$inline_2258_normalizedNumber$$2_possibleNumberPattern$$2$$ = $JSCompiler_StaticMethods_get$ValueOrDefault$$($generalDesc_matchedGroups$$inline_2258_normalizedNumber$$2_possibleNumberPattern$$2$$, 3);
+    if (!$i18n$phonenumbers$PhoneNumberUtil$matchesEntirely_$$($defaultCountryCodeString_iddPattern$$inline_527_matchEnd$$inline_2257_numberStr$$inline_526_validNumberPattern$$, $fullNumber$$1_number$$34_potentialCountryCode$$inline_535$$.toString()) && $i18n$phonenumbers$PhoneNumberUtil$matchesEntirely_$$($defaultCountryCodeString_iddPattern$$inline_527_matchEnd$$inline_2257_numberStr$$inline_526_validNumberPattern$$, $defaultRegionMetadata_numberLength$$inline_536_potentialNationalNumberStr$$) || 
+    3 == $JSCompiler_StaticMethods_testNumberLengthAgainstPattern_$$($generalDesc_matchedGroups$$inline_2258_normalizedNumber$$2_possibleNumberPattern$$2$$, $fullNumber$$1_number$$34_potentialCountryCode$$inline_535$$.toString())) {
+      return $nationalNumber$$12_potentialCountryCode$$1$$.append($defaultRegionMetadata_numberLength$$inline_536_potentialNationalNumberStr$$), $fullNumberStr$$inline_534_keepRawInput$$ && $JSCompiler_StaticMethods_set$Value$$($phoneNumber$$1$$, 6, 10), $phoneNumber$$1$$.$setCountryCode$($JSCompiler_inline_result$$2175_countryCodeSource_defaultCountryCode_i$$inline_537_numberStr$$inline_2256_possibleCountryIddPrefix_possibleIddPrefix$$inline_525$$), $JSCompiler_inline_result$$2175_countryCodeSource_defaultCountryCode_i$$inline_537_numberStr$$inline_2256_possibleCountryIddPrefix_possibleIddPrefix$$inline_525$$
       ;
     }
   }
@@ -4298,22 +4298,22 @@ function $JSCompiler_StaticMethods_parseHelper_$$($JSCompiler_StaticMethods_pars
   }
   var $nationalNumber$$14_number$$inline_574_phoneNumberRegion$$1$$ = new $goog$string$StringBuffer$$, $indexOfPhoneContext$$inline_546_nationalNumberStr$$inline_550_numberToParse$$inline_554_phoneNumber$$3$$ = $extension_normalizedNationalNumber$$1_numberStr$$inline_561_numberToParse$$3$$.indexOf(";phone-context=");
   if (0 < $indexOfPhoneContext$$inline_546_nationalNumberStr$$inline_550_numberToParse$$inline_554_phoneNumber$$3$$) {
-    var $JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2621_indexOfIsdn$$inline_551_indexOfRfc3966Prefix$$inline_549_mStart$$inline_562_phoneContextStart$$inline_547_possibleNumberPattern$$inline_575_regionMetadata$$2$$ = $indexOfPhoneContext$$inline_546_nationalNumberStr$$inline_550_numberToParse$$inline_554_phoneNumber$$3$$ + 15;
-    if ("+" == $extension_normalizedNationalNumber$$1_numberStr$$inline_561_numberToParse$$3$$.charAt($JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2621_indexOfIsdn$$inline_551_indexOfRfc3966Prefix$$inline_549_mStart$$inline_562_phoneContextStart$$inline_547_possibleNumberPattern$$inline_575_regionMetadata$$2$$)) {
-      var $countryCode$$4_matchedGroups$$inline_563_phoneContextEnd$$inline_548$$ = $extension_normalizedNationalNumber$$1_numberStr$$inline_561_numberToParse$$3$$.indexOf(";", $JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2621_indexOfIsdn$$inline_551_indexOfRfc3966Prefix$$inline_549_mStart$$inline_562_phoneContextStart$$inline_547_possibleNumberPattern$$inline_575_regionMetadata$$2$$);
-      0 < $countryCode$$4_matchedGroups$$inline_563_phoneContextEnd$$inline_548$$ ? $nationalNumber$$14_number$$inline_574_phoneNumberRegion$$1$$.append($extension_normalizedNationalNumber$$1_numberStr$$inline_561_numberToParse$$3$$.substring($JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2621_indexOfIsdn$$inline_551_indexOfRfc3966Prefix$$inline_549_mStart$$inline_562_phoneContextStart$$inline_547_possibleNumberPattern$$inline_575_regionMetadata$$2$$, $countryCode$$4_matchedGroups$$inline_563_phoneContextEnd$$inline_548$$)) : 
-      $nationalNumber$$14_number$$inline_574_phoneNumberRegion$$1$$.append($extension_normalizedNationalNumber$$1_numberStr$$inline_561_numberToParse$$3$$.substring($JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2621_indexOfIsdn$$inline_551_indexOfRfc3966Prefix$$inline_549_mStart$$inline_562_phoneContextStart$$inline_547_possibleNumberPattern$$inline_575_regionMetadata$$2$$));
+    var $JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2622_indexOfIsdn$$inline_551_indexOfRfc3966Prefix$$inline_549_mStart$$inline_562_phoneContextStart$$inline_547_possibleNumberPattern$$inline_575_regionMetadata$$2$$ = $indexOfPhoneContext$$inline_546_nationalNumberStr$$inline_550_numberToParse$$inline_554_phoneNumber$$3$$ + 15;
+    if ("+" == $extension_normalizedNationalNumber$$1_numberStr$$inline_561_numberToParse$$3$$.charAt($JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2622_indexOfIsdn$$inline_551_indexOfRfc3966Prefix$$inline_549_mStart$$inline_562_phoneContextStart$$inline_547_possibleNumberPattern$$inline_575_regionMetadata$$2$$)) {
+      var $countryCode$$4_matchedGroups$$inline_563_phoneContextEnd$$inline_548$$ = $extension_normalizedNationalNumber$$1_numberStr$$inline_561_numberToParse$$3$$.indexOf(";", $JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2622_indexOfIsdn$$inline_551_indexOfRfc3966Prefix$$inline_549_mStart$$inline_562_phoneContextStart$$inline_547_possibleNumberPattern$$inline_575_regionMetadata$$2$$);
+      0 < $countryCode$$4_matchedGroups$$inline_563_phoneContextEnd$$inline_548$$ ? $nationalNumber$$14_number$$inline_574_phoneNumberRegion$$1$$.append($extension_normalizedNationalNumber$$1_numberStr$$inline_561_numberToParse$$3$$.substring($JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2622_indexOfIsdn$$inline_551_indexOfRfc3966Prefix$$inline_549_mStart$$inline_562_phoneContextStart$$inline_547_possibleNumberPattern$$inline_575_regionMetadata$$2$$, $countryCode$$4_matchedGroups$$inline_563_phoneContextEnd$$inline_548$$)) : 
+      $nationalNumber$$14_number$$inline_574_phoneNumberRegion$$1$$.append($extension_normalizedNationalNumber$$1_numberStr$$inline_561_numberToParse$$3$$.substring($JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2622_indexOfIsdn$$inline_551_indexOfRfc3966Prefix$$inline_549_mStart$$inline_562_phoneContextStart$$inline_547_possibleNumberPattern$$inline_575_regionMetadata$$2$$));
     }
-    $JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2621_indexOfIsdn$$inline_551_indexOfRfc3966Prefix$$inline_549_mStart$$inline_562_phoneContextStart$$inline_547_possibleNumberPattern$$inline_575_regionMetadata$$2$$ = $extension_normalizedNationalNumber$$1_numberStr$$inline_561_numberToParse$$3$$.indexOf("tel:");
-    $nationalNumber$$14_number$$inline_574_phoneNumberRegion$$1$$.append($extension_normalizedNationalNumber$$1_numberStr$$inline_561_numberToParse$$3$$.substring(0 <= $JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2621_indexOfIsdn$$inline_551_indexOfRfc3966Prefix$$inline_549_mStart$$inline_562_phoneContextStart$$inline_547_possibleNumberPattern$$inline_575_regionMetadata$$2$$ ? $JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2621_indexOfIsdn$$inline_551_indexOfRfc3966Prefix$$inline_549_mStart$$inline_562_phoneContextStart$$inline_547_possibleNumberPattern$$inline_575_regionMetadata$$2$$ + 
+    $JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2622_indexOfIsdn$$inline_551_indexOfRfc3966Prefix$$inline_549_mStart$$inline_562_phoneContextStart$$inline_547_possibleNumberPattern$$inline_575_regionMetadata$$2$$ = $extension_normalizedNationalNumber$$1_numberStr$$inline_561_numberToParse$$3$$.indexOf("tel:");
+    $nationalNumber$$14_number$$inline_574_phoneNumberRegion$$1$$.append($extension_normalizedNationalNumber$$1_numberStr$$inline_561_numberToParse$$3$$.substring(0 <= $JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2622_indexOfIsdn$$inline_551_indexOfRfc3966Prefix$$inline_549_mStart$$inline_562_phoneContextStart$$inline_547_possibleNumberPattern$$inline_575_regionMetadata$$2$$ ? $JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2622_indexOfIsdn$$inline_551_indexOfRfc3966Prefix$$inline_549_mStart$$inline_562_phoneContextStart$$inline_547_possibleNumberPattern$$inline_575_regionMetadata$$2$$ + 
     4 : 0, $indexOfPhoneContext$$inline_546_nationalNumberStr$$inline_550_numberToParse$$inline_554_phoneNumber$$3$$));
   } else {
     $nationalNumber$$14_number$$inline_574_phoneNumberRegion$$1$$.append($i18n$phonenumbers$PhoneNumberUtil$extractPossibleNumber$$($extension_normalizedNationalNumber$$1_numberStr$$inline_561_numberToParse$$3$$));
   }
   $indexOfPhoneContext$$inline_546_nationalNumberStr$$inline_550_numberToParse$$inline_554_phoneNumber$$3$$ = $nationalNumber$$14_number$$inline_574_phoneNumberRegion$$1$$.toString();
-  $JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2621_indexOfIsdn$$inline_551_indexOfRfc3966Prefix$$inline_549_mStart$$inline_562_phoneContextStart$$inline_547_possibleNumberPattern$$inline_575_regionMetadata$$2$$ = $indexOfPhoneContext$$inline_546_nationalNumberStr$$inline_550_numberToParse$$inline_554_phoneNumber$$3$$.indexOf(";isub=");
-  0 < $JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2621_indexOfIsdn$$inline_551_indexOfRfc3966Prefix$$inline_549_mStart$$inline_562_phoneContextStart$$inline_547_possibleNumberPattern$$inline_575_regionMetadata$$2$$ && ($nationalNumber$$14_number$$inline_574_phoneNumberRegion$$1$$.clear(), $nationalNumber$$14_number$$inline_574_phoneNumberRegion$$1$$.append($indexOfPhoneContext$$inline_546_nationalNumberStr$$inline_550_numberToParse$$inline_554_phoneNumber$$3$$.substring(0, 
-  $JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2621_indexOfIsdn$$inline_551_indexOfRfc3966Prefix$$inline_549_mStart$$inline_562_phoneContextStart$$inline_547_possibleNumberPattern$$inline_575_regionMetadata$$2$$)));
+  $JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2622_indexOfIsdn$$inline_551_indexOfRfc3966Prefix$$inline_549_mStart$$inline_562_phoneContextStart$$inline_547_possibleNumberPattern$$inline_575_regionMetadata$$2$$ = $indexOfPhoneContext$$inline_546_nationalNumberStr$$inline_550_numberToParse$$inline_554_phoneNumber$$3$$.indexOf(";isub=");
+  0 < $JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2622_indexOfIsdn$$inline_551_indexOfRfc3966Prefix$$inline_549_mStart$$inline_562_phoneContextStart$$inline_547_possibleNumberPattern$$inline_575_regionMetadata$$2$$ && ($nationalNumber$$14_number$$inline_574_phoneNumberRegion$$1$$.clear(), $nationalNumber$$14_number$$inline_574_phoneNumberRegion$$1$$.append($indexOfPhoneContext$$inline_546_nationalNumberStr$$inline_550_numberToParse$$inline_554_phoneNumber$$3$$.substring(0, 
+  $JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2622_indexOfIsdn$$inline_551_indexOfRfc3966Prefix$$inline_549_mStart$$inline_562_phoneContextStart$$inline_547_possibleNumberPattern$$inline_575_regionMetadata$$2$$)));
   if (!$i18n$phonenumbers$PhoneNumberUtil$isViablePhoneNumber$$($nationalNumber$$14_number$$inline_574_phoneNumberRegion$$1$$.toString())) {
     throw "The string supplied did not seem to be a phone number";
   }
@@ -4325,12 +4325,12 @@ function $JSCompiler_StaticMethods_parseHelper_$$($JSCompiler_StaticMethods_pars
   $keepRawInput$$1_normalizedNationalNumberStr$$ && $JSCompiler_StaticMethods_set$Value$$($indexOfPhoneContext$$inline_546_nationalNumberStr$$inline_550_numberToParse$$inline_554_phoneNumber$$3$$, 5, $extension_normalizedNationalNumber$$1_numberStr$$inline_561_numberToParse$$3$$);
   a: {
     $extension_normalizedNationalNumber$$1_numberStr$$inline_561_numberToParse$$3$$ = $nationalNumber$$14_number$$inline_574_phoneNumberRegion$$1$$.toString();
-    $JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2621_indexOfIsdn$$inline_551_indexOfRfc3966Prefix$$inline_549_mStart$$inline_562_phoneContextStart$$inline_547_possibleNumberPattern$$inline_575_regionMetadata$$2$$ = $extension_normalizedNationalNumber$$1_numberStr$$inline_561_numberToParse$$3$$.search($i18n$phonenumbers$PhoneNumberUtil$EXTN_PATTERN_$$);
-    if (0 <= $JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2621_indexOfIsdn$$inline_551_indexOfRfc3966Prefix$$inline_549_mStart$$inline_562_phoneContextStart$$inline_547_possibleNumberPattern$$inline_575_regionMetadata$$2$$ && $i18n$phonenumbers$PhoneNumberUtil$isViablePhoneNumber$$($extension_normalizedNationalNumber$$1_numberStr$$inline_561_numberToParse$$3$$.substring(0, $JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2621_indexOfIsdn$$inline_551_indexOfRfc3966Prefix$$inline_549_mStart$$inline_562_phoneContextStart$$inline_547_possibleNumberPattern$$inline_575_regionMetadata$$2$$))) {
+    $JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2622_indexOfIsdn$$inline_551_indexOfRfc3966Prefix$$inline_549_mStart$$inline_562_phoneContextStart$$inline_547_possibleNumberPattern$$inline_575_regionMetadata$$2$$ = $extension_normalizedNationalNumber$$1_numberStr$$inline_561_numberToParse$$3$$.search($i18n$phonenumbers$PhoneNumberUtil$EXTN_PATTERN_$$);
+    if (0 <= $JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2622_indexOfIsdn$$inline_551_indexOfRfc3966Prefix$$inline_549_mStart$$inline_562_phoneContextStart$$inline_547_possibleNumberPattern$$inline_575_regionMetadata$$2$$ && $i18n$phonenumbers$PhoneNumberUtil$isViablePhoneNumber$$($extension_normalizedNationalNumber$$1_numberStr$$inline_561_numberToParse$$3$$.substring(0, $JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2622_indexOfIsdn$$inline_551_indexOfRfc3966Prefix$$inline_549_mStart$$inline_562_phoneContextStart$$inline_547_possibleNumberPattern$$inline_575_regionMetadata$$2$$))) {
       for (var $countryCode$$4_matchedGroups$$inline_563_phoneContextEnd$$inline_548$$ = $extension_normalizedNationalNumber$$1_numberStr$$inline_561_numberToParse$$3$$.match($i18n$phonenumbers$PhoneNumberUtil$EXTN_PATTERN_$$), $matchedGroupsLength$$inline_564_nationalNumberStr$$ = $countryCode$$4_matchedGroups$$inline_563_phoneContextEnd$$inline_548$$.length, $i$$inline_565$$ = 1;$i$$inline_565$$ < $matchedGroupsLength$$inline_564_nationalNumberStr$$;++$i$$inline_565$$) {
         if (null != $countryCode$$4_matchedGroups$$inline_563_phoneContextEnd$$inline_548$$[$i$$inline_565$$] && 0 < $countryCode$$4_matchedGroups$$inline_563_phoneContextEnd$$inline_548$$[$i$$inline_565$$].length) {
           $nationalNumber$$14_number$$inline_574_phoneNumberRegion$$1$$.clear();
-          $nationalNumber$$14_number$$inline_574_phoneNumberRegion$$1$$.append($extension_normalizedNationalNumber$$1_numberStr$$inline_561_numberToParse$$3$$.substring(0, $JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2621_indexOfIsdn$$inline_551_indexOfRfc3966Prefix$$inline_549_mStart$$inline_562_phoneContextStart$$inline_547_possibleNumberPattern$$inline_575_regionMetadata$$2$$));
+          $nationalNumber$$14_number$$inline_574_phoneNumberRegion$$1$$.append($extension_normalizedNationalNumber$$1_numberStr$$inline_561_numberToParse$$3$$.substring(0, $JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2622_indexOfIsdn$$inline_551_indexOfRfc3966Prefix$$inline_549_mStart$$inline_562_phoneContextStart$$inline_547_possibleNumberPattern$$inline_575_regionMetadata$$2$$));
           $extension_normalizedNationalNumber$$1_numberStr$$inline_561_numberToParse$$3$$ = $countryCode$$4_matchedGroups$$inline_563_phoneContextEnd$$inline_548$$[$i$$inline_565$$];
           break a;
         }
@@ -4339,16 +4339,16 @@ function $JSCompiler_StaticMethods_parseHelper_$$($JSCompiler_StaticMethods_pars
     $extension_normalizedNationalNumber$$1_numberStr$$inline_561_numberToParse$$3$$ = "";
   }
   0 < $extension_normalizedNationalNumber$$1_numberStr$$inline_561_numberToParse$$3$$.length && $JSCompiler_StaticMethods_set$Value$$($indexOfPhoneContext$$inline_546_nationalNumberStr$$inline_550_numberToParse$$inline_554_phoneNumber$$3$$, 3, $extension_normalizedNationalNumber$$1_numberStr$$inline_561_numberToParse$$3$$);
-  $JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2621_indexOfIsdn$$inline_551_indexOfRfc3966Prefix$$inline_549_mStart$$inline_562_phoneContextStart$$inline_547_possibleNumberPattern$$inline_575_regionMetadata$$2$$ = $JSCompiler_StaticMethods_getMetadataForRegion$$($JSCompiler_StaticMethods_parseHelper_$self_carrierCode$$2_lengthOfNationalNumber_numberOfLeadingZeros$$inline_582$$, $defaultRegion$$3_potentialNationalNumber$$1$$);
+  $JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2622_indexOfIsdn$$inline_551_indexOfRfc3966Prefix$$inline_549_mStart$$inline_562_phoneContextStart$$inline_547_possibleNumberPattern$$inline_575_regionMetadata$$2$$ = $JSCompiler_StaticMethods_getMetadataForRegion$$($JSCompiler_StaticMethods_parseHelper_$self_carrierCode$$2_lengthOfNationalNumber_numberOfLeadingZeros$$inline_582$$, $defaultRegion$$3_potentialNationalNumber$$1$$);
   $extension_normalizedNationalNumber$$1_numberStr$$inline_561_numberToParse$$3$$ = new $goog$string$StringBuffer$$;
   $countryCode$$4_matchedGroups$$inline_563_phoneContextEnd$$inline_548$$ = 0;
   $matchedGroupsLength$$inline_564_nationalNumberStr$$ = $nationalNumber$$14_number$$inline_574_phoneNumberRegion$$1$$.toString();
   try {
-    $countryCode$$4_matchedGroups$$inline_563_phoneContextEnd$$inline_548$$ = $JSCompiler_StaticMethods_maybeExtractCountryCode$$($matchedGroupsLength$$inline_564_nationalNumberStr$$, $JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2621_indexOfIsdn$$inline_551_indexOfRfc3966Prefix$$inline_549_mStart$$inline_562_phoneContextStart$$inline_547_possibleNumberPattern$$inline_575_regionMetadata$$2$$, $extension_normalizedNationalNumber$$1_numberStr$$inline_561_numberToParse$$3$$, 
+    $countryCode$$4_matchedGroups$$inline_563_phoneContextEnd$$inline_548$$ = $JSCompiler_StaticMethods_maybeExtractCountryCode$$($matchedGroupsLength$$inline_564_nationalNumberStr$$, $JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2622_indexOfIsdn$$inline_551_indexOfRfc3966Prefix$$inline_549_mStart$$inline_562_phoneContextStart$$inline_547_possibleNumberPattern$$inline_575_regionMetadata$$2$$, $extension_normalizedNationalNumber$$1_numberStr$$inline_561_numberToParse$$3$$, 
     $keepRawInput$$1_normalizedNationalNumberStr$$, $indexOfPhoneContext$$inline_546_nationalNumberStr$$inline_550_numberToParse$$inline_554_phoneNumber$$3$$);
   } catch ($e$$47$$) {
     if ("Invalid country calling code" == $e$$47$$ && $i18n$phonenumbers$PhoneNumberUtil$LEADING_PLUS_CHARS_PATTERN_$$.test($matchedGroupsLength$$inline_564_nationalNumberStr$$)) {
-      if ($matchedGroupsLength$$inline_564_nationalNumberStr$$ = $matchedGroupsLength$$inline_564_nationalNumberStr$$.replace($i18n$phonenumbers$PhoneNumberUtil$LEADING_PLUS_CHARS_PATTERN_$$, ""), $countryCode$$4_matchedGroups$$inline_563_phoneContextEnd$$inline_548$$ = $JSCompiler_StaticMethods_maybeExtractCountryCode$$($matchedGroupsLength$$inline_564_nationalNumberStr$$, $JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2621_indexOfIsdn$$inline_551_indexOfRfc3966Prefix$$inline_549_mStart$$inline_562_phoneContextStart$$inline_547_possibleNumberPattern$$inline_575_regionMetadata$$2$$, 
+      if ($matchedGroupsLength$$inline_564_nationalNumberStr$$ = $matchedGroupsLength$$inline_564_nationalNumberStr$$.replace($i18n$phonenumbers$PhoneNumberUtil$LEADING_PLUS_CHARS_PATTERN_$$, ""), $countryCode$$4_matchedGroups$$inline_563_phoneContextEnd$$inline_548$$ = $JSCompiler_StaticMethods_maybeExtractCountryCode$$($matchedGroupsLength$$inline_564_nationalNumberStr$$, $JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2622_indexOfIsdn$$inline_551_indexOfRfc3966Prefix$$inline_549_mStart$$inline_562_phoneContextStart$$inline_547_possibleNumberPattern$$inline_575_regionMetadata$$2$$, 
       $extension_normalizedNationalNumber$$1_numberStr$$inline_561_numberToParse$$3$$, $keepRawInput$$1_normalizedNationalNumberStr$$, $indexOfPhoneContext$$inline_546_nationalNumberStr$$inline_550_numberToParse$$inline_554_phoneNumber$$3$$), 0 == $countryCode$$4_matchedGroups$$inline_563_phoneContextEnd$$inline_548$$) {
         throw $e$$47$$;
       }
@@ -4356,18 +4356,18 @@ function $JSCompiler_StaticMethods_parseHelper_$$($JSCompiler_StaticMethods_pars
       throw $e$$47$$;
     }
   }
-  0 != $countryCode$$4_matchedGroups$$inline_563_phoneContextEnd$$inline_548$$ ? ($nationalNumber$$14_number$$inline_574_phoneNumberRegion$$1$$ = $JSCompiler_StaticMethods_getRegionCodeForCountryCode$$($countryCode$$4_matchedGroups$$inline_563_phoneContextEnd$$inline_548$$), $nationalNumber$$14_number$$inline_574_phoneNumberRegion$$1$$ != $defaultRegion$$3_potentialNationalNumber$$1$$ && ($JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2621_indexOfIsdn$$inline_551_indexOfRfc3966Prefix$$inline_549_mStart$$inline_562_phoneContextStart$$inline_547_possibleNumberPattern$$inline_575_regionMetadata$$2$$ = 
+  0 != $countryCode$$4_matchedGroups$$inline_563_phoneContextEnd$$inline_548$$ ? ($nationalNumber$$14_number$$inline_574_phoneNumberRegion$$1$$ = $JSCompiler_StaticMethods_getRegionCodeForCountryCode$$($countryCode$$4_matchedGroups$$inline_563_phoneContextEnd$$inline_548$$), $nationalNumber$$14_number$$inline_574_phoneNumberRegion$$1$$ != $defaultRegion$$3_potentialNationalNumber$$1$$ && ($JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2622_indexOfIsdn$$inline_551_indexOfRfc3966Prefix$$inline_549_mStart$$inline_562_phoneContextStart$$inline_547_possibleNumberPattern$$inline_575_regionMetadata$$2$$ = 
   $JSCompiler_StaticMethods_getMetadataForRegionOrCallingCode_$$($JSCompiler_StaticMethods_parseHelper_$self_carrierCode$$2_lengthOfNationalNumber_numberOfLeadingZeros$$inline_582$$, $countryCode$$4_matchedGroups$$inline_563_phoneContextEnd$$inline_548$$, $nationalNumber$$14_number$$inline_574_phoneNumberRegion$$1$$))) : ($i18n$phonenumbers$PhoneNumberUtil$normalizeSB_$$($nationalNumber$$14_number$$inline_574_phoneNumberRegion$$1$$), $extension_normalizedNationalNumber$$1_numberStr$$inline_561_numberToParse$$3$$.append($nationalNumber$$14_number$$inline_574_phoneNumberRegion$$1$$.toString()), 
-  null != $defaultRegion$$3_potentialNationalNumber$$1$$ ? ($countryCode$$4_matchedGroups$$inline_563_phoneContextEnd$$inline_548$$ = $JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2621_indexOfIsdn$$inline_551_indexOfRfc3966Prefix$$inline_549_mStart$$inline_562_phoneContextStart$$inline_547_possibleNumberPattern$$inline_575_regionMetadata$$2$$.$getCountryCodeOrDefault$(), $indexOfPhoneContext$$inline_546_nationalNumberStr$$inline_550_numberToParse$$inline_554_phoneNumber$$3$$.$setCountryCode$($countryCode$$4_matchedGroups$$inline_563_phoneContextEnd$$inline_548$$)) : 
+  null != $defaultRegion$$3_potentialNationalNumber$$1$$ ? ($countryCode$$4_matchedGroups$$inline_563_phoneContextEnd$$inline_548$$ = $JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2622_indexOfIsdn$$inline_551_indexOfRfc3966Prefix$$inline_549_mStart$$inline_562_phoneContextStart$$inline_547_possibleNumberPattern$$inline_575_regionMetadata$$2$$.$getCountryCodeOrDefault$(), $indexOfPhoneContext$$inline_546_nationalNumberStr$$inline_550_numberToParse$$inline_554_phoneNumber$$3$$.$setCountryCode$($countryCode$$4_matchedGroups$$inline_563_phoneContextEnd$$inline_548$$)) : 
   $keepRawInput$$1_normalizedNationalNumberStr$$ && $JSCompiler_StaticMethods_clear$Field$$($indexOfPhoneContext$$inline_546_nationalNumberStr$$inline_550_numberToParse$$inline_554_phoneNumber$$3$$, 6));
   if (2 > $extension_normalizedNationalNumber$$1_numberStr$$inline_561_numberToParse$$3$$.$buffer_$.length) {
     throw "The string supplied is too short to be a phone number";
   }
-  null != $JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2621_indexOfIsdn$$inline_551_indexOfRfc3966Prefix$$inline_549_mStart$$inline_562_phoneContextStart$$inline_547_possibleNumberPattern$$inline_575_regionMetadata$$2$$ && ($JSCompiler_StaticMethods_parseHelper_$self_carrierCode$$2_lengthOfNationalNumber_numberOfLeadingZeros$$inline_582$$ = new $goog$string$StringBuffer$$, $defaultRegion$$3_potentialNationalNumber$$1$$ = new $goog$string$StringBuffer$$($extension_normalizedNationalNumber$$1_numberStr$$inline_561_numberToParse$$3$$.toString()), 
-  $JSCompiler_StaticMethods_maybeStripNationalPrefixAndCarrierCode$$($defaultRegion$$3_potentialNationalNumber$$1$$, $JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2621_indexOfIsdn$$inline_551_indexOfRfc3966Prefix$$inline_549_mStart$$inline_562_phoneContextStart$$inline_547_possibleNumberPattern$$inline_575_regionMetadata$$2$$, $JSCompiler_StaticMethods_parseHelper_$self_carrierCode$$2_lengthOfNationalNumber_numberOfLeadingZeros$$inline_582$$), $nationalNumber$$14_number$$inline_574_phoneNumberRegion$$1$$ = 
-  $defaultRegion$$3_potentialNationalNumber$$1$$.toString(), $JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2621_indexOfIsdn$$inline_551_indexOfRfc3966Prefix$$inline_549_mStart$$inline_562_phoneContextStart$$inline_547_possibleNumberPattern$$inline_575_regionMetadata$$2$$ = $JSCompiler_StaticMethods_get$Value$$($JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2621_indexOfIsdn$$inline_551_indexOfRfc3966Prefix$$inline_549_mStart$$inline_562_phoneContextStart$$inline_547_possibleNumberPattern$$inline_575_regionMetadata$$2$$, 
-  1), $JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2621_indexOfIsdn$$inline_551_indexOfRfc3966Prefix$$inline_549_mStart$$inline_562_phoneContextStart$$inline_547_possibleNumberPattern$$inline_575_regionMetadata$$2$$ = $JSCompiler_StaticMethods_get$ValueOrDefault$$($JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2621_indexOfIsdn$$inline_551_indexOfRfc3966Prefix$$inline_549_mStart$$inline_562_phoneContextStart$$inline_547_possibleNumberPattern$$inline_575_regionMetadata$$2$$, 
-  3), 2 != $JSCompiler_StaticMethods_testNumberLengthAgainstPattern_$$($JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2621_indexOfIsdn$$inline_551_indexOfRfc3966Prefix$$inline_549_mStart$$inline_562_phoneContextStart$$inline_547_possibleNumberPattern$$inline_575_regionMetadata$$2$$, $nationalNumber$$14_number$$inline_574_phoneNumberRegion$$1$$) && ($extension_normalizedNationalNumber$$1_numberStr$$inline_561_numberToParse$$3$$ = $defaultRegion$$3_potentialNationalNumber$$1$$, 
+  null != $JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2622_indexOfIsdn$$inline_551_indexOfRfc3966Prefix$$inline_549_mStart$$inline_562_phoneContextStart$$inline_547_possibleNumberPattern$$inline_575_regionMetadata$$2$$ && ($JSCompiler_StaticMethods_parseHelper_$self_carrierCode$$2_lengthOfNationalNumber_numberOfLeadingZeros$$inline_582$$ = new $goog$string$StringBuffer$$, $defaultRegion$$3_potentialNationalNumber$$1$$ = new $goog$string$StringBuffer$$($extension_normalizedNationalNumber$$1_numberStr$$inline_561_numberToParse$$3$$.toString()), 
+  $JSCompiler_StaticMethods_maybeStripNationalPrefixAndCarrierCode$$($defaultRegion$$3_potentialNationalNumber$$1$$, $JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2622_indexOfIsdn$$inline_551_indexOfRfc3966Prefix$$inline_549_mStart$$inline_562_phoneContextStart$$inline_547_possibleNumberPattern$$inline_575_regionMetadata$$2$$, $JSCompiler_StaticMethods_parseHelper_$self_carrierCode$$2_lengthOfNationalNumber_numberOfLeadingZeros$$inline_582$$), $nationalNumber$$14_number$$inline_574_phoneNumberRegion$$1$$ = 
+  $defaultRegion$$3_potentialNationalNumber$$1$$.toString(), $JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2622_indexOfIsdn$$inline_551_indexOfRfc3966Prefix$$inline_549_mStart$$inline_562_phoneContextStart$$inline_547_possibleNumberPattern$$inline_575_regionMetadata$$2$$ = $JSCompiler_StaticMethods_get$Value$$($JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2622_indexOfIsdn$$inline_551_indexOfRfc3966Prefix$$inline_549_mStart$$inline_562_phoneContextStart$$inline_547_possibleNumberPattern$$inline_575_regionMetadata$$2$$, 
+  1), $JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2622_indexOfIsdn$$inline_551_indexOfRfc3966Prefix$$inline_549_mStart$$inline_562_phoneContextStart$$inline_547_possibleNumberPattern$$inline_575_regionMetadata$$2$$ = $JSCompiler_StaticMethods_get$ValueOrDefault$$($JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2622_indexOfIsdn$$inline_551_indexOfRfc3966Prefix$$inline_549_mStart$$inline_562_phoneContextStart$$inline_547_possibleNumberPattern$$inline_575_regionMetadata$$2$$, 
+  3), 2 != $JSCompiler_StaticMethods_testNumberLengthAgainstPattern_$$($JSCompiler_StaticMethods_getPossibleNumberPatternOrDefault$self$$inline_2622_indexOfIsdn$$inline_551_indexOfRfc3966Prefix$$inline_549_mStart$$inline_562_phoneContextStart$$inline_547_possibleNumberPattern$$inline_575_regionMetadata$$2$$, $nationalNumber$$14_number$$inline_574_phoneNumberRegion$$1$$) && ($extension_normalizedNationalNumber$$1_numberStr$$inline_561_numberToParse$$3$$ = $defaultRegion$$3_potentialNationalNumber$$1$$, 
   $keepRawInput$$1_normalizedNationalNumberStr$$ && $JSCompiler_StaticMethods_set$Value$$($indexOfPhoneContext$$inline_546_nationalNumberStr$$inline_550_numberToParse$$inline_554_phoneNumber$$3$$, 7, $JSCompiler_StaticMethods_parseHelper_$self_carrierCode$$2_lengthOfNationalNumber_numberOfLeadingZeros$$inline_582$$.toString())));
   $keepRawInput$$1_normalizedNationalNumberStr$$ = $extension_normalizedNationalNumber$$1_numberStr$$inline_561_numberToParse$$3$$.toString();
   $JSCompiler_StaticMethods_parseHelper_$self_carrierCode$$2_lengthOfNationalNumber_numberOfLeadingZeros$$inline_582$$ = $keepRawInput$$1_normalizedNationalNumberStr$$.length;
@@ -4400,9 +4400,9 @@ var $goog$i18n$currency$CurrencyInfo$$ = {AED:[2, "dh", "\u062f.\u0625.", "DH"],
 "\u20ac"], GBP:[2, "\u00a3", "GB\u00a3"], HKD:[2, "$", "HK$"], HRK:[2, "kn", "kn"], HUF:[0, "Ft", "Ft"], IDR:[0, "Rp", "Rp"], ILS:[2, "\u20aa", "IL\u20aa"], INR:[2, "\u20b9", "Rs"], IRR:[0, "Rial", "IRR"], ISK:[0, "kr", "kr"], JMD:[2, "$", "JA$"], JPY:[0, "\u00a5", "JP\u00a5"], KRW:[0, "\u20a9", "KR\u20a9"], LKR:[2, "Rs", "SLRs"], LTL:[2, "Lt", "Lt"], MNT:[0, "\u20ae", "MN\u20ae"], MVR:[2, "Rf", "MVR"], MXN:[2, "$", "Mex$"], MYR:[2, "RM", "RM"], NOK:[50, "kr", "NOkr"], PAB:[2, "B/.", "B/."], PEN:[2, 
 "S/.", "S/."], PHP:[2, "\u20b1", "Php"], PKR:[0, "Rs", "PKRs."], PLN:[50, "z\u0142", "z\u0142"], RON:[2, "RON", "RON"], RSD:[0, "din", "RSD"], RUB:[50, "\u0440\u0443\u0431.", "\u0440\u0443\u0431."], SAR:[2, "Rial", "Rial"], SEK:[2, "kr", "kr"], SGD:[2, "$", "S$"], THB:[2, "\u0e3f", "THB"], TRY:[2, "TL", "YTL"], TWD:[2, "NT$", "NT$"], TZS:[0, "TSh", "TSh"], UAH:[2, "\u20b4", "UAH"], USD:[2, "$", "US$"], UYU:[2, "$", "$U"], VND:[0, "\u20ab", "VN\u20ab"], YER:[0, "Rial", "Rial"], ZAR:[2, "R", "ZAR"]};
 // Input 93
-function $goog$i18n$NumberFormat$$($JSCompiler_inline_result$$2175_pattern$$2_pattern$$inline_2265$$, $opt_currency_strParts$$inline_2266$$, $opt_currencyStyle_precision$$inline_2267$$) {
-  this.$intlCurrencyCode_$ = $opt_currency_strParts$$inline_2266$$ || $goog$i18n$NumberFormatSymbols$$.$DEF_CURRENCY_CODE$;
-  this.$currencyStyle_$ = $opt_currencyStyle_precision$$inline_2267$$ || $goog$i18n$NumberFormat$CurrencyStyle$LOCAL$$;
+function $goog$i18n$NumberFormat$$($JSCompiler_inline_result$$2176_pattern$$2_pattern$$inline_2266$$, $opt_currency_strParts$$inline_2267$$, $opt_currencyStyle_precision$$inline_2268$$) {
+  this.$intlCurrencyCode_$ = $opt_currency_strParts$$inline_2267$$ || $goog$i18n$NumberFormatSymbols$$.$DEF_CURRENCY_CODE$;
+  this.$currencyStyle_$ = $opt_currencyStyle_precision$$inline_2268$$ || $goog$i18n$NumberFormat$CurrencyStyle$LOCAL$$;
   this.$maximumIntegerDigits_$ = 40;
   this.$minimumIntegerDigits_$ = 1;
   this.$significantDigits_$ = 0;
@@ -4417,8 +4417,8 @@ function $goog$i18n$NumberFormat$$($JSCompiler_inline_result$$2175_pattern$$2_pa
   this.$useExponentialNotation_$ = this.$decimalSeparatorAlwaysShown_$ = !1;
   this.$compactStyle_$ = $goog$i18n$NumberFormat$CompactStyle$NONE$$;
   this.$baseFormattingNumber_$ = null;
-  if ("number" == typeof $JSCompiler_inline_result$$2175_pattern$$2_pattern$$inline_2265$$) {
-    switch($JSCompiler_inline_result$$2175_pattern$$2_pattern$$inline_2265$$) {
+  if ("number" == typeof $JSCompiler_inline_result$$2176_pattern$$2_pattern$$inline_2266$$) {
+    switch($JSCompiler_inline_result$$2176_pattern$$2_pattern$$inline_2266$$) {
       case 1:
         $JSCompiler_StaticMethods_applyPattern_$$(this, $goog$i18n$NumberFormatSymbols$$.$DECIMAL_PATTERN$);
         break;
@@ -4429,17 +4429,17 @@ function $goog$i18n$NumberFormat$$($JSCompiler_inline_result$$2175_pattern$$2_pa
         $JSCompiler_StaticMethods_applyPattern_$$(this, $goog$i18n$NumberFormatSymbols$$.$PERCENT_PATTERN$);
         break;
       case 4:
-        $JSCompiler_inline_result$$2175_pattern$$2_pattern$$inline_2265$$ = $goog$i18n$NumberFormatSymbols$$.$CURRENCY_PATTERN$;
-        $opt_currency_strParts$$inline_2266$$ = ["0"];
-        $opt_currencyStyle_precision$$inline_2267$$ = $goog$i18n$currency$CurrencyInfo$$[this.$intlCurrencyCode_$][0] & 7;
-        if (0 < $opt_currencyStyle_precision$$inline_2267$$) {
-          $opt_currency_strParts$$inline_2266$$.push(".");
-          for (var $i$$inline_2268$$ = 0;$i$$inline_2268$$ < $opt_currencyStyle_precision$$inline_2267$$;$i$$inline_2268$$++) {
-            $opt_currency_strParts$$inline_2266$$.push("0");
+        $JSCompiler_inline_result$$2176_pattern$$2_pattern$$inline_2266$$ = $goog$i18n$NumberFormatSymbols$$.$CURRENCY_PATTERN$;
+        $opt_currency_strParts$$inline_2267$$ = ["0"];
+        $opt_currencyStyle_precision$$inline_2268$$ = $goog$i18n$currency$CurrencyInfo$$[this.$intlCurrencyCode_$][0] & 7;
+        if (0 < $opt_currencyStyle_precision$$inline_2268$$) {
+          $opt_currency_strParts$$inline_2267$$.push(".");
+          for (var $i$$inline_2269$$ = 0;$i$$inline_2269$$ < $opt_currencyStyle_precision$$inline_2268$$;$i$$inline_2269$$++) {
+            $opt_currency_strParts$$inline_2267$$.push("0");
           }
         }
-        $JSCompiler_inline_result$$2175_pattern$$2_pattern$$inline_2265$$ = $JSCompiler_inline_result$$2175_pattern$$2_pattern$$inline_2265$$.replace(/0.00/g, $opt_currency_strParts$$inline_2266$$.join(""));
-        $JSCompiler_StaticMethods_applyPattern_$$(this, $JSCompiler_inline_result$$2175_pattern$$2_pattern$$inline_2265$$);
+        $JSCompiler_inline_result$$2176_pattern$$2_pattern$$inline_2266$$ = $JSCompiler_inline_result$$2176_pattern$$2_pattern$$inline_2266$$.replace(/0.00/g, $opt_currency_strParts$$inline_2267$$.join(""));
+        $JSCompiler_StaticMethods_applyPattern_$$(this, $JSCompiler_inline_result$$2176_pattern$$2_pattern$$inline_2266$$);
         break;
       case 5:
         $JSCompiler_StaticMethods_applyCompactStyle_$$(this, 1);
@@ -4451,7 +4451,7 @@ function $goog$i18n$NumberFormat$$($JSCompiler_inline_result$$2175_pattern$$2_pa
         throw Error("Unsupported pattern type.");;
     }
   } else {
-    $JSCompiler_StaticMethods_applyPattern_$$(this, $JSCompiler_inline_result$$2175_pattern$$2_pattern$$inline_2265$$);
+    $JSCompiler_StaticMethods_applyPattern_$$(this, $JSCompiler_inline_result$$2176_pattern$$2_pattern$$inline_2266$$);
   }
 }
 var $goog$i18n$NumberFormat$CurrencyStyle$LOCAL$$ = 0, $goog$i18n$NumberFormat$CompactStyle$NONE$$ = 0;
@@ -4631,10 +4631,10 @@ $goog$i18n$NumberFormat$$.prototype.format = function $$goog$i18n$NumberFormat$$
     return $goog$i18n$NumberFormatSymbols$$.$NAN$;
   }
   var $parts$$4$$ = [], $initialDivisor$$inline_623_unit$$;
-  var $formattingAttempt$$inline_626_formattingNumber$$inline_621_formattingRounded$$inline_627_isNegative$$ = null === this.$baseFormattingNumber_$ ? $number$$41_number$$inline_630$$ : this.$baseFormattingNumber_$, $exponent$$inline_632_num$$inline_2273_pluralityAttempt$$inline_624_pluralityNumber$$inline_622$$ = $number$$41_number$$inline_630$$;
-  this.$compactStyle_$ == $goog$i18n$NumberFormat$CompactStyle$NONE$$ ? $initialDivisor$$inline_623_unit$$ = $goog$i18n$NumberFormat$NULL_UNIT_$$ : ($formattingAttempt$$inline_626_formattingNumber$$inline_621_formattingRounded$$inline_627_isNegative$$ = Math.abs($formattingAttempt$$inline_626_formattingNumber$$inline_621_formattingRounded$$inline_627_isNegative$$), $exponent$$inline_632_num$$inline_2273_pluralityAttempt$$inline_624_pluralityNumber$$inline_622$$ = Math.abs($exponent$$inline_632_num$$inline_2273_pluralityAttempt$$inline_624_pluralityNumber$$inline_622$$), 
-  $initialDivisor$$inline_623_unit$$ = $JSCompiler_StaticMethods_getUnitFor_$$(this, 1 >= $formattingAttempt$$inline_626_formattingNumber$$inline_621_formattingRounded$$inline_627_isNegative$$ ? 0 : $JSCompiler_StaticMethods_intLog10_$$($formattingAttempt$$inline_626_formattingNumber$$inline_621_formattingRounded$$inline_627_isNegative$$)).$divisorBase$, $exponent$$inline_632_num$$inline_2273_pluralityAttempt$$inline_624_pluralityNumber$$inline_622$$ /= Math.pow(10, $initialDivisor$$inline_623_unit$$), 
-  $JSCompiler_StaticMethods_roundNumber_$$(this, $exponent$$inline_632_num$$inline_2273_pluralityAttempt$$inline_624_pluralityNumber$$inline_622$$), $formattingAttempt$$inline_626_formattingNumber$$inline_621_formattingRounded$$inline_627_isNegative$$ /= Math.pow(10, $initialDivisor$$inline_623_unit$$), $formattingAttempt$$inline_626_formattingNumber$$inline_621_formattingRounded$$inline_627_isNegative$$ = $JSCompiler_StaticMethods_roundNumber_$$(this, $formattingAttempt$$inline_626_formattingNumber$$inline_621_formattingRounded$$inline_627_isNegative$$), 
+  var $formattingAttempt$$inline_626_formattingNumber$$inline_621_formattingRounded$$inline_627_isNegative$$ = null === this.$baseFormattingNumber_$ ? $number$$41_number$$inline_630$$ : this.$baseFormattingNumber_$, $exponent$$inline_632_num$$inline_2274_pluralityAttempt$$inline_624_pluralityNumber$$inline_622$$ = $number$$41_number$$inline_630$$;
+  this.$compactStyle_$ == $goog$i18n$NumberFormat$CompactStyle$NONE$$ ? $initialDivisor$$inline_623_unit$$ = $goog$i18n$NumberFormat$NULL_UNIT_$$ : ($formattingAttempt$$inline_626_formattingNumber$$inline_621_formattingRounded$$inline_627_isNegative$$ = Math.abs($formattingAttempt$$inline_626_formattingNumber$$inline_621_formattingRounded$$inline_627_isNegative$$), $exponent$$inline_632_num$$inline_2274_pluralityAttempt$$inline_624_pluralityNumber$$inline_622$$ = Math.abs($exponent$$inline_632_num$$inline_2274_pluralityAttempt$$inline_624_pluralityNumber$$inline_622$$), 
+  $initialDivisor$$inline_623_unit$$ = $JSCompiler_StaticMethods_getUnitFor_$$(this, 1 >= $formattingAttempt$$inline_626_formattingNumber$$inline_621_formattingRounded$$inline_627_isNegative$$ ? 0 : $JSCompiler_StaticMethods_intLog10_$$($formattingAttempt$$inline_626_formattingNumber$$inline_621_formattingRounded$$inline_627_isNegative$$)).$divisorBase$, $exponent$$inline_632_num$$inline_2274_pluralityAttempt$$inline_624_pluralityNumber$$inline_622$$ /= Math.pow(10, $initialDivisor$$inline_623_unit$$), 
+  $JSCompiler_StaticMethods_roundNumber_$$(this, $exponent$$inline_632_num$$inline_2274_pluralityAttempt$$inline_624_pluralityNumber$$inline_622$$), $formattingAttempt$$inline_626_formattingNumber$$inline_621_formattingRounded$$inline_627_isNegative$$ /= Math.pow(10, $initialDivisor$$inline_623_unit$$), $formattingAttempt$$inline_626_formattingNumber$$inline_621_formattingRounded$$inline_627_isNegative$$ = $JSCompiler_StaticMethods_roundNumber_$$(this, $formattingAttempt$$inline_626_formattingNumber$$inline_621_formattingRounded$$inline_627_isNegative$$), 
   $initialDivisor$$inline_623_unit$$ = $JSCompiler_StaticMethods_getUnitFor_$$(this, $initialDivisor$$inline_623_unit$$ + $JSCompiler_StaticMethods_intLog10_$$($formattingAttempt$$inline_626_formattingNumber$$inline_621_formattingRounded$$inline_627_isNegative$$.$intValue$)));
   $number$$41_number$$inline_630$$ /= Math.pow(10, $initialDivisor$$inline_623_unit$$.$divisorBase$);
   $parts$$4$$.push($initialDivisor$$inline_623_unit$$.prefix);
@@ -4645,20 +4645,20 @@ $goog$i18n$NumberFormat$$.prototype.format = function $$goog$i18n$NumberFormat$$
       if (0 == $number$$41_number$$inline_630$$) {
         $JSCompiler_StaticMethods_subformatFixed_$$(this, $number$$41_number$$inline_630$$, this.$minimumIntegerDigits_$, $parts$$4$$), $JSCompiler_StaticMethods_addExponentPart_$$(this, 0, $parts$$4$$);
       } else {
-        $exponent$$inline_632_num$$inline_2273_pluralityAttempt$$inline_624_pluralityNumber$$inline_622$$ = Math.log($number$$41_number$$inline_630$$) / Math.log(10);
-        $exponent$$inline_632_num$$inline_2273_pluralityAttempt$$inline_624_pluralityNumber$$inline_622$$ = Math.floor($exponent$$inline_632_num$$inline_2273_pluralityAttempt$$inline_624_pluralityNumber$$inline_622$$ + 2E-15);
-        $number$$41_number$$inline_630$$ /= Math.pow(10, $exponent$$inline_632_num$$inline_2273_pluralityAttempt$$inline_624_pluralityNumber$$inline_622$$);
+        $exponent$$inline_632_num$$inline_2274_pluralityAttempt$$inline_624_pluralityNumber$$inline_622$$ = Math.log($number$$41_number$$inline_630$$) / Math.log(10);
+        $exponent$$inline_632_num$$inline_2274_pluralityAttempt$$inline_624_pluralityNumber$$inline_622$$ = Math.floor($exponent$$inline_632_num$$inline_2274_pluralityAttempt$$inline_624_pluralityNumber$$inline_622$$ + 2E-15);
+        $number$$41_number$$inline_630$$ /= Math.pow(10, $exponent$$inline_632_num$$inline_2274_pluralityAttempt$$inline_624_pluralityNumber$$inline_622$$);
         var $minIntDigits$$inline_633$$ = this.$minimumIntegerDigits_$;
         if (1 < this.$maximumIntegerDigits_$ && this.$maximumIntegerDigits_$ > this.$minimumIntegerDigits_$) {
-          for (;0 != $exponent$$inline_632_num$$inline_2273_pluralityAttempt$$inline_624_pluralityNumber$$inline_622$$ % this.$maximumIntegerDigits_$;) {
-            $number$$41_number$$inline_630$$ *= 10, $exponent$$inline_632_num$$inline_2273_pluralityAttempt$$inline_624_pluralityNumber$$inline_622$$--;
+          for (;0 != $exponent$$inline_632_num$$inline_2274_pluralityAttempt$$inline_624_pluralityNumber$$inline_622$$ % this.$maximumIntegerDigits_$;) {
+            $number$$41_number$$inline_630$$ *= 10, $exponent$$inline_632_num$$inline_2274_pluralityAttempt$$inline_624_pluralityNumber$$inline_622$$--;
           }
           $minIntDigits$$inline_633$$ = 1;
         } else {
-          1 > this.$minimumIntegerDigits_$ ? ($exponent$$inline_632_num$$inline_2273_pluralityAttempt$$inline_624_pluralityNumber$$inline_622$$++, $number$$41_number$$inline_630$$ /= 10) : ($exponent$$inline_632_num$$inline_2273_pluralityAttempt$$inline_624_pluralityNumber$$inline_622$$ -= this.$minimumIntegerDigits_$ - 1, $number$$41_number$$inline_630$$ *= Math.pow(10, this.$minimumIntegerDigits_$ - 1));
+          1 > this.$minimumIntegerDigits_$ ? ($exponent$$inline_632_num$$inline_2274_pluralityAttempt$$inline_624_pluralityNumber$$inline_622$$++, $number$$41_number$$inline_630$$ /= 10) : ($exponent$$inline_632_num$$inline_2274_pluralityAttempt$$inline_624_pluralityNumber$$inline_622$$ -= this.$minimumIntegerDigits_$ - 1, $number$$41_number$$inline_630$$ *= Math.pow(10, this.$minimumIntegerDigits_$ - 1));
         }
         $JSCompiler_StaticMethods_subformatFixed_$$(this, $number$$41_number$$inline_630$$, $minIntDigits$$inline_633$$, $parts$$4$$);
-        $JSCompiler_StaticMethods_addExponentPart_$$(this, $exponent$$inline_632_num$$inline_2273_pluralityAttempt$$inline_624_pluralityNumber$$inline_622$$, $parts$$4$$);
+        $JSCompiler_StaticMethods_addExponentPart_$$(this, $exponent$$inline_632_num$$inline_2274_pluralityAttempt$$inline_624_pluralityNumber$$inline_622$$, $parts$$4$$);
       }
     } else {
       $JSCompiler_StaticMethods_subformatFixed_$$(this, $number$$41_number$$inline_630$$, this.$minimumIntegerDigits_$, $parts$$4$$);
@@ -5118,25 +5118,25 @@ function $goog$structs$forEach$$($col$$6$$, $f$$48$$, $opt_obj$$44$$) {
     if ($goog$isArrayLike$$($col$$6$$) || $goog$isString$$($col$$6$$)) {
       $goog$array$forEach$$($col$$6$$, $f$$48$$, $opt_obj$$44$$);
     } else {
-      var $keys$$4_rv$$inline_2276$$;
+      var $keys$$4_rv$$inline_2277$$;
       if ("function" == typeof $col$$6$$.$getKeys$) {
-        $keys$$4_rv$$inline_2276$$ = $col$$6$$.$getKeys$();
+        $keys$$4_rv$$inline_2277$$ = $col$$6$$.$getKeys$();
       } else {
         if ("function" != typeof $col$$6$$.$getValues$) {
           if ($goog$isArrayLike$$($col$$6$$) || $goog$isString$$($col$$6$$)) {
-            $keys$$4_rv$$inline_2276$$ = [];
-            for (var $l$$inline_2277_values$$10$$ = $col$$6$$.length, $i$$inline_2278_l$$15$$ = 0;$i$$inline_2278_l$$15$$ < $l$$inline_2277_values$$10$$;$i$$inline_2278_l$$15$$++) {
-              $keys$$4_rv$$inline_2276$$.push($i$$inline_2278_l$$15$$);
+            $keys$$4_rv$$inline_2277$$ = [];
+            for (var $l$$inline_2278_values$$10$$ = $col$$6$$.length, $i$$inline_2279_l$$15$$ = 0;$i$$inline_2279_l$$15$$ < $l$$inline_2278_values$$10$$;$i$$inline_2279_l$$15$$++) {
+              $keys$$4_rv$$inline_2277$$.push($i$$inline_2279_l$$15$$);
             }
           } else {
-            $keys$$4_rv$$inline_2276$$ = $goog$object$getKeys$$($col$$6$$);
+            $keys$$4_rv$$inline_2277$$ = $goog$object$getKeys$$($col$$6$$);
           }
         } else {
-          $keys$$4_rv$$inline_2276$$ = void 0;
+          $keys$$4_rv$$inline_2277$$ = void 0;
         }
       }
-      for (var $l$$inline_2277_values$$10$$ = $goog$structs$getValues$$($col$$6$$), $i$$inline_2278_l$$15$$ = $l$$inline_2277_values$$10$$.length, $i$$136$$ = 0;$i$$136$$ < $i$$inline_2278_l$$15$$;$i$$136$$++) {
-        $f$$48$$.call($opt_obj$$44$$, $l$$inline_2277_values$$10$$[$i$$136$$], $keys$$4_rv$$inline_2276$$ && $keys$$4_rv$$inline_2276$$[$i$$136$$], $col$$6$$);
+      for (var $l$$inline_2278_values$$10$$ = $goog$structs$getValues$$($col$$6$$), $i$$inline_2279_l$$15$$ = $l$$inline_2278_values$$10$$.length, $i$$136$$ = 0;$i$$136$$ < $i$$inline_2279_l$$15$$;$i$$136$$++) {
+        $f$$48$$.call($opt_obj$$44$$, $l$$inline_2278_values$$10$$[$i$$136$$], $keys$$4_rv$$inline_2277$$ && $keys$$4_rv$$inline_2277$$[$i$$136$$], $col$$6$$);
       }
     }
   }
@@ -7608,8 +7608,8 @@ function $goog$uri$utils$split$$($uri$$12$$) {
     $goog$uri$utils$needsPhishingProtection_$$ = !1;
     var $location$$inline_931$$ = $goog$global$$.location;
     if ($location$$inline_931$$) {
-      var $domain$$inline_933_href$$inline_932_uri$$inline_2329$$ = $location$$inline_931$$.href;
-      if ($domain$$inline_933_href$$inline_932_uri$$inline_2329$$ && ($domain$$inline_933_href$$inline_932_uri$$inline_2329$$ = ($domain$$inline_933_href$$inline_932_uri$$inline_2329$$ = $goog$uri$utils$split$$($domain$$inline_933_href$$inline_932_uri$$inline_2329$$)[3] || null) ? decodeURI($domain$$inline_933_href$$inline_932_uri$$inline_2329$$) : $domain$$inline_933_href$$inline_932_uri$$inline_2329$$) && $domain$$inline_933_href$$inline_932_uri$$inline_2329$$ != $location$$inline_931$$.hostname) {
+      var $domain$$inline_933_href$$inline_932_uri$$inline_2330$$ = $location$$inline_931$$.href;
+      if ($domain$$inline_933_href$$inline_932_uri$$inline_2330$$ && ($domain$$inline_933_href$$inline_932_uri$$inline_2330$$ = ($domain$$inline_933_href$$inline_932_uri$$inline_2330$$ = $goog$uri$utils$split$$($domain$$inline_933_href$$inline_932_uri$$inline_2330$$)[3] || null) ? decodeURI($domain$$inline_933_href$$inline_932_uri$$inline_2330$$) : $domain$$inline_933_href$$inline_932_uri$$inline_2330$$) && $domain$$inline_933_href$$inline_932_uri$$inline_2330$$ != $location$$inline_931$$.hostname) {
         throw $goog$uri$utils$needsPhishingProtection_$$ = !0, Error();
       }
     }
@@ -7633,30 +7633,30 @@ function $goog$Uri$$($opt_uri$$, $opt_ignoreCase$$) {
   this.$port_$ = null;
   this.$fragment_$ = this.$path_$ = "";
   this.$ignoreCase_$ = this.$isReadOnly_$ = !1;
-  var $m_newDomain$$inline_2337_newFragment$$inline_2345_newFragment$$inline_2361_newPath$$inline_2341_newUserInfo$$inline_2333$$;
+  var $m_newDomain$$inline_2338_newFragment$$inline_2346_newFragment$$inline_2362_newPath$$inline_2342_newUserInfo$$inline_2334$$;
   if ($opt_uri$$ instanceof $goog$Uri$$) {
-    this.$ignoreCase_$ = $goog$isDef$$($opt_ignoreCase$$) ? $opt_ignoreCase$$ : $opt_uri$$.$ignoreCase_$, $JSCompiler_StaticMethods_setScheme$$(this, $opt_uri$$.$scheme_$), $m_newDomain$$inline_2337_newFragment$$inline_2345_newFragment$$inline_2361_newPath$$inline_2341_newUserInfo$$inline_2333$$ = $opt_uri$$.$userInfo_$, $JSCompiler_StaticMethods_enforceReadOnly$$(this), this.$userInfo_$ = $m_newDomain$$inline_2337_newFragment$$inline_2345_newFragment$$inline_2361_newPath$$inline_2341_newUserInfo$$inline_2333$$, 
-    $m_newDomain$$inline_2337_newFragment$$inline_2345_newFragment$$inline_2361_newPath$$inline_2341_newUserInfo$$inline_2333$$ = $opt_uri$$.$domain_$, $JSCompiler_StaticMethods_enforceReadOnly$$(this), this.$domain_$ = $m_newDomain$$inline_2337_newFragment$$inline_2345_newFragment$$inline_2361_newPath$$inline_2341_newUserInfo$$inline_2333$$, $JSCompiler_StaticMethods_setPort$$(this, $opt_uri$$.$port_$), $m_newDomain$$inline_2337_newFragment$$inline_2345_newFragment$$inline_2361_newPath$$inline_2341_newUserInfo$$inline_2333$$ = 
-    $opt_uri$$.$path_$, $JSCompiler_StaticMethods_enforceReadOnly$$(this), this.$path_$ = $m_newDomain$$inline_2337_newFragment$$inline_2345_newFragment$$inline_2361_newPath$$inline_2341_newUserInfo$$inline_2333$$, $JSCompiler_StaticMethods_setQueryData$$(this, $opt_uri$$.$queryData_$.clone()), $m_newDomain$$inline_2337_newFragment$$inline_2345_newFragment$$inline_2361_newPath$$inline_2341_newUserInfo$$inline_2333$$ = $opt_uri$$.$fragment_$, $JSCompiler_StaticMethods_enforceReadOnly$$(this), this.$fragment_$ = 
-    $m_newDomain$$inline_2337_newFragment$$inline_2345_newFragment$$inline_2361_newPath$$inline_2341_newUserInfo$$inline_2333$$;
+    this.$ignoreCase_$ = $goog$isDef$$($opt_ignoreCase$$) ? $opt_ignoreCase$$ : $opt_uri$$.$ignoreCase_$, $JSCompiler_StaticMethods_setScheme$$(this, $opt_uri$$.$scheme_$), $m_newDomain$$inline_2338_newFragment$$inline_2346_newFragment$$inline_2362_newPath$$inline_2342_newUserInfo$$inline_2334$$ = $opt_uri$$.$userInfo_$, $JSCompiler_StaticMethods_enforceReadOnly$$(this), this.$userInfo_$ = $m_newDomain$$inline_2338_newFragment$$inline_2346_newFragment$$inline_2362_newPath$$inline_2342_newUserInfo$$inline_2334$$, 
+    $m_newDomain$$inline_2338_newFragment$$inline_2346_newFragment$$inline_2362_newPath$$inline_2342_newUserInfo$$inline_2334$$ = $opt_uri$$.$domain_$, $JSCompiler_StaticMethods_enforceReadOnly$$(this), this.$domain_$ = $m_newDomain$$inline_2338_newFragment$$inline_2346_newFragment$$inline_2362_newPath$$inline_2342_newUserInfo$$inline_2334$$, $JSCompiler_StaticMethods_setPort$$(this, $opt_uri$$.$port_$), $m_newDomain$$inline_2338_newFragment$$inline_2346_newFragment$$inline_2362_newPath$$inline_2342_newUserInfo$$inline_2334$$ = 
+    $opt_uri$$.$path_$, $JSCompiler_StaticMethods_enforceReadOnly$$(this), this.$path_$ = $m_newDomain$$inline_2338_newFragment$$inline_2346_newFragment$$inline_2362_newPath$$inline_2342_newUserInfo$$inline_2334$$, $JSCompiler_StaticMethods_setQueryData$$(this, $opt_uri$$.$queryData_$.clone()), $m_newDomain$$inline_2338_newFragment$$inline_2346_newFragment$$inline_2362_newPath$$inline_2342_newUserInfo$$inline_2334$$ = $opt_uri$$.$fragment_$, $JSCompiler_StaticMethods_enforceReadOnly$$(this), this.$fragment_$ = 
+    $m_newDomain$$inline_2338_newFragment$$inline_2346_newFragment$$inline_2362_newPath$$inline_2342_newUserInfo$$inline_2334$$;
   } else {
-    if ($opt_uri$$ && ($m_newDomain$$inline_2337_newFragment$$inline_2345_newFragment$$inline_2361_newPath$$inline_2341_newUserInfo$$inline_2333$$ = $goog$uri$utils$split$$(String($opt_uri$$)))) {
+    if ($opt_uri$$ && ($m_newDomain$$inline_2338_newFragment$$inline_2346_newFragment$$inline_2362_newPath$$inline_2342_newUserInfo$$inline_2334$$ = $goog$uri$utils$split$$(String($opt_uri$$)))) {
       this.$ignoreCase_$ = !!$opt_ignoreCase$$;
-      $JSCompiler_StaticMethods_setScheme$$(this, $m_newDomain$$inline_2337_newFragment$$inline_2345_newFragment$$inline_2361_newPath$$inline_2341_newUserInfo$$inline_2333$$[1] || "", !0);
-      var $newDomain$$inline_2353_newPath$$inline_2357_newUserInfo$$inline_2349$$ = $m_newDomain$$inline_2337_newFragment$$inline_2345_newFragment$$inline_2361_newPath$$inline_2341_newUserInfo$$inline_2333$$[2] || "";
+      $JSCompiler_StaticMethods_setScheme$$(this, $m_newDomain$$inline_2338_newFragment$$inline_2346_newFragment$$inline_2362_newPath$$inline_2342_newUserInfo$$inline_2334$$[1] || "", !0);
+      var $newDomain$$inline_2354_newPath$$inline_2358_newUserInfo$$inline_2350$$ = $m_newDomain$$inline_2338_newFragment$$inline_2346_newFragment$$inline_2362_newPath$$inline_2342_newUserInfo$$inline_2334$$[2] || "";
       $JSCompiler_StaticMethods_enforceReadOnly$$(this);
-      this.$userInfo_$ = $goog$Uri$decodeOrEmpty_$$($newDomain$$inline_2353_newPath$$inline_2357_newUserInfo$$inline_2349$$);
-      $newDomain$$inline_2353_newPath$$inline_2357_newUserInfo$$inline_2349$$ = $m_newDomain$$inline_2337_newFragment$$inline_2345_newFragment$$inline_2361_newPath$$inline_2341_newUserInfo$$inline_2333$$[3] || "";
+      this.$userInfo_$ = $goog$Uri$decodeOrEmpty_$$($newDomain$$inline_2354_newPath$$inline_2358_newUserInfo$$inline_2350$$);
+      $newDomain$$inline_2354_newPath$$inline_2358_newUserInfo$$inline_2350$$ = $m_newDomain$$inline_2338_newFragment$$inline_2346_newFragment$$inline_2362_newPath$$inline_2342_newUserInfo$$inline_2334$$[3] || "";
       $JSCompiler_StaticMethods_enforceReadOnly$$(this);
-      this.$domain_$ = $goog$Uri$decodeOrEmpty_$$($newDomain$$inline_2353_newPath$$inline_2357_newUserInfo$$inline_2349$$, !0);
-      $JSCompiler_StaticMethods_setPort$$(this, $m_newDomain$$inline_2337_newFragment$$inline_2345_newFragment$$inline_2361_newPath$$inline_2341_newUserInfo$$inline_2333$$[4]);
-      $newDomain$$inline_2353_newPath$$inline_2357_newUserInfo$$inline_2349$$ = $m_newDomain$$inline_2337_newFragment$$inline_2345_newFragment$$inline_2361_newPath$$inline_2341_newUserInfo$$inline_2333$$[5] || "";
+      this.$domain_$ = $goog$Uri$decodeOrEmpty_$$($newDomain$$inline_2354_newPath$$inline_2358_newUserInfo$$inline_2350$$, !0);
+      $JSCompiler_StaticMethods_setPort$$(this, $m_newDomain$$inline_2338_newFragment$$inline_2346_newFragment$$inline_2362_newPath$$inline_2342_newUserInfo$$inline_2334$$[4]);
+      $newDomain$$inline_2354_newPath$$inline_2358_newUserInfo$$inline_2350$$ = $m_newDomain$$inline_2338_newFragment$$inline_2346_newFragment$$inline_2362_newPath$$inline_2342_newUserInfo$$inline_2334$$[5] || "";
       $JSCompiler_StaticMethods_enforceReadOnly$$(this);
-      this.$path_$ = $goog$Uri$decodeOrEmpty_$$($newDomain$$inline_2353_newPath$$inline_2357_newUserInfo$$inline_2349$$, !0);
-      $JSCompiler_StaticMethods_setQueryData$$(this, $m_newDomain$$inline_2337_newFragment$$inline_2345_newFragment$$inline_2361_newPath$$inline_2341_newUserInfo$$inline_2333$$[6] || "", !0);
-      $m_newDomain$$inline_2337_newFragment$$inline_2345_newFragment$$inline_2361_newPath$$inline_2341_newUserInfo$$inline_2333$$ = $m_newDomain$$inline_2337_newFragment$$inline_2345_newFragment$$inline_2361_newPath$$inline_2341_newUserInfo$$inline_2333$$[7] || "";
+      this.$path_$ = $goog$Uri$decodeOrEmpty_$$($newDomain$$inline_2354_newPath$$inline_2358_newUserInfo$$inline_2350$$, !0);
+      $JSCompiler_StaticMethods_setQueryData$$(this, $m_newDomain$$inline_2338_newFragment$$inline_2346_newFragment$$inline_2362_newPath$$inline_2342_newUserInfo$$inline_2334$$[6] || "", !0);
+      $m_newDomain$$inline_2338_newFragment$$inline_2346_newFragment$$inline_2362_newPath$$inline_2342_newUserInfo$$inline_2334$$ = $m_newDomain$$inline_2338_newFragment$$inline_2346_newFragment$$inline_2362_newPath$$inline_2342_newUserInfo$$inline_2334$$[7] || "";
       $JSCompiler_StaticMethods_enforceReadOnly$$(this);
-      this.$fragment_$ = $goog$Uri$decodeOrEmpty_$$($m_newDomain$$inline_2337_newFragment$$inline_2345_newFragment$$inline_2361_newPath$$inline_2341_newUserInfo$$inline_2333$$);
+      this.$fragment_$ = $goog$Uri$decodeOrEmpty_$$($m_newDomain$$inline_2338_newFragment$$inline_2346_newFragment$$inline_2362_newPath$$inline_2342_newUserInfo$$inline_2334$$);
     } else {
       this.$ignoreCase_$ = !!$opt_ignoreCase$$, this.$queryData_$ = new $goog$Uri$QueryData$$(null, 0, this.$ignoreCase_$);
     }
@@ -7680,50 +7680,50 @@ $goog$Uri$$.prototype.toString = function $$goog$Uri$$$$toString$() {
   ($domain$$1_fragment$$2_path$$14_port_query$$4_scheme$$1$$ = this.$fragment_$) && $out$$3$$.push("#", $goog$Uri$encodeSpecialChars_$$($domain$$1_fragment$$2_path$$14_port_query$$4_scheme$$1$$, $goog$Uri$reDisallowedInFragment_$$));
   return $out$$3$$.join("");
 };
-$goog$Uri$$.prototype.resolve = function $$goog$Uri$$$$resolve$($newFragment$$inline_2377_relativeUri$$) {
-  var $absoluteUri$$ = this.clone(), $overridden$$ = !!$newFragment$$inline_2377_relativeUri$$.$scheme_$;
-  $overridden$$ ? $JSCompiler_StaticMethods_setScheme$$($absoluteUri$$, $newFragment$$inline_2377_relativeUri$$.$scheme_$) : $overridden$$ = !!$newFragment$$inline_2377_relativeUri$$.$userInfo_$;
+$goog$Uri$$.prototype.resolve = function $$goog$Uri$$$$resolve$($newFragment$$inline_2378_relativeUri$$) {
+  var $absoluteUri$$ = this.clone(), $overridden$$ = !!$newFragment$$inline_2378_relativeUri$$.$scheme_$;
+  $overridden$$ ? $JSCompiler_StaticMethods_setScheme$$($absoluteUri$$, $newFragment$$inline_2378_relativeUri$$.$scheme_$) : $overridden$$ = !!$newFragment$$inline_2378_relativeUri$$.$userInfo_$;
   if ($overridden$$) {
-    var $leadingSlash$$inline_939_newDomain$$inline_2369_newPath$$inline_2373_newUserInfo$$inline_2365_path$$15$$ = $newFragment$$inline_2377_relativeUri$$.$userInfo_$;
+    var $leadingSlash$$inline_939_newDomain$$inline_2370_newPath$$inline_2374_newUserInfo$$inline_2366_path$$15$$ = $newFragment$$inline_2378_relativeUri$$.$userInfo_$;
     $JSCompiler_StaticMethods_enforceReadOnly$$($absoluteUri$$);
-    $absoluteUri$$.$userInfo_$ = $leadingSlash$$inline_939_newDomain$$inline_2369_newPath$$inline_2373_newUserInfo$$inline_2365_path$$15$$;
+    $absoluteUri$$.$userInfo_$ = $leadingSlash$$inline_939_newDomain$$inline_2370_newPath$$inline_2374_newUserInfo$$inline_2366_path$$15$$;
   } else {
-    $overridden$$ = !!$newFragment$$inline_2377_relativeUri$$.$domain_$;
+    $overridden$$ = !!$newFragment$$inline_2378_relativeUri$$.$domain_$;
   }
-  $overridden$$ ? ($leadingSlash$$inline_939_newDomain$$inline_2369_newPath$$inline_2373_newUserInfo$$inline_2365_path$$15$$ = $newFragment$$inline_2377_relativeUri$$.$domain_$, $JSCompiler_StaticMethods_enforceReadOnly$$($absoluteUri$$), $absoluteUri$$.$domain_$ = $leadingSlash$$inline_939_newDomain$$inline_2369_newPath$$inline_2373_newUserInfo$$inline_2365_path$$15$$) : $overridden$$ = null != $newFragment$$inline_2377_relativeUri$$.$port_$;
-  $leadingSlash$$inline_939_newDomain$$inline_2369_newPath$$inline_2373_newUserInfo$$inline_2365_path$$15$$ = $newFragment$$inline_2377_relativeUri$$.$path_$;
+  $overridden$$ ? ($leadingSlash$$inline_939_newDomain$$inline_2370_newPath$$inline_2374_newUserInfo$$inline_2366_path$$15$$ = $newFragment$$inline_2378_relativeUri$$.$domain_$, $JSCompiler_StaticMethods_enforceReadOnly$$($absoluteUri$$), $absoluteUri$$.$domain_$ = $leadingSlash$$inline_939_newDomain$$inline_2370_newPath$$inline_2374_newUserInfo$$inline_2366_path$$15$$) : $overridden$$ = null != $newFragment$$inline_2378_relativeUri$$.$port_$;
+  $leadingSlash$$inline_939_newDomain$$inline_2370_newPath$$inline_2374_newUserInfo$$inline_2366_path$$15$$ = $newFragment$$inline_2378_relativeUri$$.$path_$;
   if ($overridden$$) {
-    $JSCompiler_StaticMethods_setPort$$($absoluteUri$$, $newFragment$$inline_2377_relativeUri$$.$port_$);
+    $JSCompiler_StaticMethods_setPort$$($absoluteUri$$, $newFragment$$inline_2378_relativeUri$$.$port_$);
   } else {
-    if ($overridden$$ = !!$newFragment$$inline_2377_relativeUri$$.$path_$) {
-      if ("/" != $leadingSlash$$inline_939_newDomain$$inline_2369_newPath$$inline_2373_newUserInfo$$inline_2365_path$$15$$.charAt(0)) {
+    if ($overridden$$ = !!$newFragment$$inline_2378_relativeUri$$.$path_$) {
+      if ("/" != $leadingSlash$$inline_939_newDomain$$inline_2370_newPath$$inline_2374_newUserInfo$$inline_2366_path$$15$$.charAt(0)) {
         if (this.$domain_$ && !this.$path_$) {
-          $leadingSlash$$inline_939_newDomain$$inline_2369_newPath$$inline_2373_newUserInfo$$inline_2365_path$$15$$ = "/" + $leadingSlash$$inline_939_newDomain$$inline_2369_newPath$$inline_2373_newUserInfo$$inline_2365_path$$15$$;
+          $leadingSlash$$inline_939_newDomain$$inline_2370_newPath$$inline_2374_newUserInfo$$inline_2366_path$$15$$ = "/" + $leadingSlash$$inline_939_newDomain$$inline_2370_newPath$$inline_2374_newUserInfo$$inline_2366_path$$15$$;
         } else {
           var $lastSlashIndex_path$$inline_938_segments$$inline_940$$ = $absoluteUri$$.$path_$.lastIndexOf("/");
-          -1 != $lastSlashIndex_path$$inline_938_segments$$inline_940$$ && ($leadingSlash$$inline_939_newDomain$$inline_2369_newPath$$inline_2373_newUserInfo$$inline_2365_path$$15$$ = $absoluteUri$$.$path_$.substr(0, $lastSlashIndex_path$$inline_938_segments$$inline_940$$ + 1) + $leadingSlash$$inline_939_newDomain$$inline_2369_newPath$$inline_2373_newUserInfo$$inline_2365_path$$15$$);
+          -1 != $lastSlashIndex_path$$inline_938_segments$$inline_940$$ && ($leadingSlash$$inline_939_newDomain$$inline_2370_newPath$$inline_2374_newUserInfo$$inline_2366_path$$15$$ = $absoluteUri$$.$path_$.substr(0, $lastSlashIndex_path$$inline_938_segments$$inline_940$$ + 1) + $leadingSlash$$inline_939_newDomain$$inline_2370_newPath$$inline_2374_newUserInfo$$inline_2366_path$$15$$);
         }
       }
-      $lastSlashIndex_path$$inline_938_segments$$inline_940$$ = $leadingSlash$$inline_939_newDomain$$inline_2369_newPath$$inline_2373_newUserInfo$$inline_2365_path$$15$$;
+      $lastSlashIndex_path$$inline_938_segments$$inline_940$$ = $leadingSlash$$inline_939_newDomain$$inline_2370_newPath$$inline_2374_newUserInfo$$inline_2366_path$$15$$;
       if (".." == $lastSlashIndex_path$$inline_938_segments$$inline_940$$ || "." == $lastSlashIndex_path$$inline_938_segments$$inline_940$$) {
-        $leadingSlash$$inline_939_newDomain$$inline_2369_newPath$$inline_2373_newUserInfo$$inline_2365_path$$15$$ = "";
+        $leadingSlash$$inline_939_newDomain$$inline_2370_newPath$$inline_2374_newUserInfo$$inline_2366_path$$15$$ = "";
       } else {
         if (-1 != $lastSlashIndex_path$$inline_938_segments$$inline_940$$.indexOf("./") || -1 != $lastSlashIndex_path$$inline_938_segments$$inline_940$$.indexOf("/.")) {
-          for (var $leadingSlash$$inline_939_newDomain$$inline_2369_newPath$$inline_2373_newUserInfo$$inline_2365_path$$15$$ = 0 == $lastSlashIndex_path$$inline_938_segments$$inline_940$$.lastIndexOf("/", 0), $lastSlashIndex_path$$inline_938_segments$$inline_940$$ = $lastSlashIndex_path$$inline_938_segments$$inline_940$$.split("/"), $out$$inline_941$$ = [], $pos$$inline_942$$ = 0;$pos$$inline_942$$ < $lastSlashIndex_path$$inline_938_segments$$inline_940$$.length;) {
+          for (var $leadingSlash$$inline_939_newDomain$$inline_2370_newPath$$inline_2374_newUserInfo$$inline_2366_path$$15$$ = 0 == $lastSlashIndex_path$$inline_938_segments$$inline_940$$.lastIndexOf("/", 0), $lastSlashIndex_path$$inline_938_segments$$inline_940$$ = $lastSlashIndex_path$$inline_938_segments$$inline_940$$.split("/"), $out$$inline_941$$ = [], $pos$$inline_942$$ = 0;$pos$$inline_942$$ < $lastSlashIndex_path$$inline_938_segments$$inline_940$$.length;) {
             var $segment$$inline_943$$ = $lastSlashIndex_path$$inline_938_segments$$inline_940$$[$pos$$inline_942$$++];
-            "." == $segment$$inline_943$$ ? $leadingSlash$$inline_939_newDomain$$inline_2369_newPath$$inline_2373_newUserInfo$$inline_2365_path$$15$$ && $pos$$inline_942$$ == $lastSlashIndex_path$$inline_938_segments$$inline_940$$.length && $out$$inline_941$$.push("") : ".." == $segment$$inline_943$$ ? ((1 < $out$$inline_941$$.length || 1 == $out$$inline_941$$.length && "" != $out$$inline_941$$[0]) && $out$$inline_941$$.pop(), $leadingSlash$$inline_939_newDomain$$inline_2369_newPath$$inline_2373_newUserInfo$$inline_2365_path$$15$$ && 
-            $pos$$inline_942$$ == $lastSlashIndex_path$$inline_938_segments$$inline_940$$.length && $out$$inline_941$$.push("")) : ($out$$inline_941$$.push($segment$$inline_943$$), $leadingSlash$$inline_939_newDomain$$inline_2369_newPath$$inline_2373_newUserInfo$$inline_2365_path$$15$$ = !0);
+            "." == $segment$$inline_943$$ ? $leadingSlash$$inline_939_newDomain$$inline_2370_newPath$$inline_2374_newUserInfo$$inline_2366_path$$15$$ && $pos$$inline_942$$ == $lastSlashIndex_path$$inline_938_segments$$inline_940$$.length && $out$$inline_941$$.push("") : ".." == $segment$$inline_943$$ ? ((1 < $out$$inline_941$$.length || 1 == $out$$inline_941$$.length && "" != $out$$inline_941$$[0]) && $out$$inline_941$$.pop(), $leadingSlash$$inline_939_newDomain$$inline_2370_newPath$$inline_2374_newUserInfo$$inline_2366_path$$15$$ && 
+            $pos$$inline_942$$ == $lastSlashIndex_path$$inline_938_segments$$inline_940$$.length && $out$$inline_941$$.push("")) : ($out$$inline_941$$.push($segment$$inline_943$$), $leadingSlash$$inline_939_newDomain$$inline_2370_newPath$$inline_2374_newUserInfo$$inline_2366_path$$15$$ = !0);
           }
-          $leadingSlash$$inline_939_newDomain$$inline_2369_newPath$$inline_2373_newUserInfo$$inline_2365_path$$15$$ = $out$$inline_941$$.join("/");
+          $leadingSlash$$inline_939_newDomain$$inline_2370_newPath$$inline_2374_newUserInfo$$inline_2366_path$$15$$ = $out$$inline_941$$.join("/");
         } else {
-          $leadingSlash$$inline_939_newDomain$$inline_2369_newPath$$inline_2373_newUserInfo$$inline_2365_path$$15$$ = $lastSlashIndex_path$$inline_938_segments$$inline_940$$;
+          $leadingSlash$$inline_939_newDomain$$inline_2370_newPath$$inline_2374_newUserInfo$$inline_2366_path$$15$$ = $lastSlashIndex_path$$inline_938_segments$$inline_940$$;
         }
       }
     }
   }
-  $overridden$$ ? ($JSCompiler_StaticMethods_enforceReadOnly$$($absoluteUri$$), $absoluteUri$$.$path_$ = $leadingSlash$$inline_939_newDomain$$inline_2369_newPath$$inline_2373_newUserInfo$$inline_2365_path$$15$$) : $overridden$$ = "" !== $newFragment$$inline_2377_relativeUri$$.$queryData_$.toString();
-  $overridden$$ ? $JSCompiler_StaticMethods_setQueryData$$($absoluteUri$$, $goog$Uri$decodeOrEmpty_$$($newFragment$$inline_2377_relativeUri$$.$queryData_$.toString())) : $overridden$$ = !!$newFragment$$inline_2377_relativeUri$$.$fragment_$;
-  $overridden$$ && ($newFragment$$inline_2377_relativeUri$$ = $newFragment$$inline_2377_relativeUri$$.$fragment_$, $JSCompiler_StaticMethods_enforceReadOnly$$($absoluteUri$$), $absoluteUri$$.$fragment_$ = $newFragment$$inline_2377_relativeUri$$);
+  $overridden$$ ? ($JSCompiler_StaticMethods_enforceReadOnly$$($absoluteUri$$), $absoluteUri$$.$path_$ = $leadingSlash$$inline_939_newDomain$$inline_2370_newPath$$inline_2374_newUserInfo$$inline_2366_path$$15$$) : $overridden$$ = "" !== $newFragment$$inline_2378_relativeUri$$.$queryData_$.toString();
+  $overridden$$ ? $JSCompiler_StaticMethods_setQueryData$$($absoluteUri$$, $goog$Uri$decodeOrEmpty_$$($newFragment$$inline_2378_relativeUri$$.$queryData_$.toString())) : $overridden$$ = !!$newFragment$$inline_2378_relativeUri$$.$fragment_$;
+  $overridden$$ && ($newFragment$$inline_2378_relativeUri$$ = $newFragment$$inline_2378_relativeUri$$.$fragment_$, $JSCompiler_StaticMethods_enforceReadOnly$$($absoluteUri$$), $absoluteUri$$.$fragment_$ = $newFragment$$inline_2378_relativeUri$$);
   return $absoluteUri$$;
 };
 $goog$Uri$$.prototype.clone = function $$goog$Uri$$$$clone$() {
@@ -9364,35 +9364,35 @@ function $JSCompiler_StaticMethods_isRightToLeft_$$($JSCompiler_StaticMethods_is
   $goog$isDef$$($JSCompiler_StaticMethods_isRightToLeft_$self$$.$rightToLeft_$) || ($JSCompiler_StaticMethods_isRightToLeft_$self$$.$rightToLeft_$ = $goog$style$isRightToLeft$$($JSCompiler_StaticMethods_isRightToLeft_$self$$.target));
   return $JSCompiler_StaticMethods_isRightToLeft_$self$$.$rightToLeft_$;
 }
-$JSCompiler_prototypeAlias$$.$startDrag$ = function $$JSCompiler_prototypeAlias$$$$startDrag$$($JSCompiler_temp$$2178_e$$125_element$$inline_2395$$) {
-  var $doc$$inline_1062_isMouseDown_offsetLeftForReal$$inline_2396$$ = "mousedown" == $JSCompiler_temp$$2178_e$$125_element$$inline_2395$$.type;
-  if (!this.$enabled_$ || this.$dragging_$ || $doc$$inline_1062_isMouseDown_offsetLeftForReal$$inline_2396$$ && !$JSCompiler_StaticMethods_isMouseActionButton$$($JSCompiler_temp$$2178_e$$125_element$$inline_2395$$)) {
+$JSCompiler_prototypeAlias$$.$startDrag$ = function $$JSCompiler_prototypeAlias$$$$startDrag$$($JSCompiler_temp$$2179_e$$125_element$$inline_2396$$) {
+  var $doc$$inline_1062_isMouseDown_offsetLeftForReal$$inline_2397$$ = "mousedown" == $JSCompiler_temp$$2179_e$$125_element$$inline_2396$$.type;
+  if (!this.$enabled_$ || this.$dragging_$ || $doc$$inline_1062_isMouseDown_offsetLeftForReal$$inline_2397$$ && !$JSCompiler_StaticMethods_isMouseActionButton$$($JSCompiler_temp$$2179_e$$125_element$$inline_2396$$)) {
     this.dispatchEvent("earlycancel");
   } else {
     if (0 == this.$hysteresisDistanceSquared_$) {
-      if (this.dispatchEvent(new $goog$fx$DragEvent$$("start", this, $JSCompiler_temp$$2178_e$$125_element$$inline_2395$$.clientX, $JSCompiler_temp$$2178_e$$125_element$$inline_2395$$.clientY))) {
-        this.$dragging_$ = !0, this.$preventMouseDown_$ && $JSCompiler_temp$$2178_e$$125_element$$inline_2395$$.preventDefault();
+      if (this.dispatchEvent(new $goog$fx$DragEvent$$("start", this, $JSCompiler_temp$$2179_e$$125_element$$inline_2396$$.clientX, $JSCompiler_temp$$2179_e$$125_element$$inline_2396$$.clientY))) {
+        this.$dragging_$ = !0, this.$preventMouseDown_$ && $JSCompiler_temp$$2179_e$$125_element$$inline_2396$$.preventDefault();
       } else {
         return;
       }
     } else {
-      this.$preventMouseDown_$ && $JSCompiler_temp$$2178_e$$125_element$$inline_2395$$.preventDefault();
+      this.$preventMouseDown_$ && $JSCompiler_temp$$2179_e$$125_element$$inline_2396$$.preventDefault();
     }
-    var $doc$$inline_1062_isMouseDown_offsetLeftForReal$$inline_2396$$ = this.$document_$, $bestParent$$inline_2397_docEl$$inline_1063$$ = $doc$$inline_1062_isMouseDown_offsetLeftForReal$$inline_2396$$.documentElement, $borderWidths$$inline_2398_useCapture$$inline_1064$$ = !$goog$fx$Dragger$HAS_SET_CAPTURE_$$;
-    this.$eventHandler_$.$listen$($doc$$inline_1062_isMouseDown_offsetLeftForReal$$inline_2396$$, ["touchmove", "mousemove"], this.$handleMove_$, $borderWidths$$inline_2398_useCapture$$inline_1064$$);
-    this.$eventHandler_$.$listen$($doc$$inline_1062_isMouseDown_offsetLeftForReal$$inline_2396$$, ["touchend", "mouseup"], this.$endDrag$, $borderWidths$$inline_2398_useCapture$$inline_1064$$);
-    $goog$fx$Dragger$HAS_SET_CAPTURE_$$ ? ($bestParent$$inline_2397_docEl$$inline_1063$$.setCapture(!1), this.$eventHandler_$.$listen$($bestParent$$inline_2397_docEl$$inline_1063$$, "losecapture", this.$endDrag$)) : this.$eventHandler_$.$listen$($goog$dom$getWindow$$($doc$$inline_1062_isMouseDown_offsetLeftForReal$$inline_2396$$), "blur", this.$endDrag$);
-    $goog$userAgent$IE$$ && this.$ieDragStartCancellingOn_$ && this.$eventHandler_$.$listen$($doc$$inline_1062_isMouseDown_offsetLeftForReal$$inline_2396$$, "dragstart", $goog$events$Event$preventDefault$$);
-    this.$scrollTarget_$ && this.$eventHandler_$.$listen$(this.$scrollTarget_$, "scroll", this.$onScroll_$, $borderWidths$$inline_2398_useCapture$$inline_1064$$);
-    this.clientX = this.$startX$ = $JSCompiler_temp$$2178_e$$125_element$$inline_2395$$.clientX;
-    this.clientY = this.$startY$ = $JSCompiler_temp$$2178_e$$125_element$$inline_2395$$.clientY;
-    this.screenX = $JSCompiler_temp$$2178_e$$125_element$$inline_2395$$.screenX;
-    this.screenY = $JSCompiler_temp$$2178_e$$125_element$$inline_2395$$.screenY;
-    this.$useRightPositioningForRtl_$ ? ($JSCompiler_temp$$2178_e$$125_element$$inline_2395$$ = this.target, $doc$$inline_1062_isMouseDown_offsetLeftForReal$$inline_2396$$ = $JSCompiler_temp$$2178_e$$125_element$$inline_2395$$.offsetLeft, $bestParent$$inline_2397_docEl$$inline_1063$$ = $JSCompiler_temp$$2178_e$$125_element$$inline_2395$$.offsetParent, $bestParent$$inline_2397_docEl$$inline_1063$$ || "fixed" != $goog$style$getStyle_$$($JSCompiler_temp$$2178_e$$125_element$$inline_2395$$, "position") || 
-    ($bestParent$$inline_2397_docEl$$inline_1063$$ = $goog$dom$getOwnerDocument$$($JSCompiler_temp$$2178_e$$125_element$$inline_2395$$).documentElement), $bestParent$$inline_2397_docEl$$inline_1063$$ ? ($goog$userAgent$GECKO$$ ? ($borderWidths$$inline_2398_useCapture$$inline_1064$$ = $goog$style$getBorderBox$$($bestParent$$inline_2397_docEl$$inline_1063$$), $doc$$inline_1062_isMouseDown_offsetLeftForReal$$inline_2396$$ += $borderWidths$$inline_2398_useCapture$$inline_1064$$.left) : 8 <= $goog$userAgent$DOCUMENT_MODE$$ && 
-    !(9 <= $goog$userAgent$DOCUMENT_MODE$$) && ($borderWidths$$inline_2398_useCapture$$inline_1064$$ = $goog$style$getBorderBox$$($bestParent$$inline_2397_docEl$$inline_1063$$), $doc$$inline_1062_isMouseDown_offsetLeftForReal$$inline_2396$$ -= $borderWidths$$inline_2398_useCapture$$inline_1064$$.left), $JSCompiler_temp$$2178_e$$125_element$$inline_2395$$ = $goog$style$isRightToLeft$$($bestParent$$inline_2397_docEl$$inline_1063$$) ? $bestParent$$inline_2397_docEl$$inline_1063$$.clientWidth - ($doc$$inline_1062_isMouseDown_offsetLeftForReal$$inline_2396$$ + 
-    $JSCompiler_temp$$2178_e$$125_element$$inline_2395$$.offsetWidth) : $doc$$inline_1062_isMouseDown_offsetLeftForReal$$inline_2396$$) : $JSCompiler_temp$$2178_e$$125_element$$inline_2395$$ = $doc$$inline_1062_isMouseDown_offsetLeftForReal$$inline_2396$$) : $JSCompiler_temp$$2178_e$$125_element$$inline_2395$$ = this.target.offsetLeft;
-    this.deltaX = $JSCompiler_temp$$2178_e$$125_element$$inline_2395$$;
+    var $doc$$inline_1062_isMouseDown_offsetLeftForReal$$inline_2397$$ = this.$document_$, $bestParent$$inline_2398_docEl$$inline_1063$$ = $doc$$inline_1062_isMouseDown_offsetLeftForReal$$inline_2397$$.documentElement, $borderWidths$$inline_2399_useCapture$$inline_1064$$ = !$goog$fx$Dragger$HAS_SET_CAPTURE_$$;
+    this.$eventHandler_$.$listen$($doc$$inline_1062_isMouseDown_offsetLeftForReal$$inline_2397$$, ["touchmove", "mousemove"], this.$handleMove_$, $borderWidths$$inline_2399_useCapture$$inline_1064$$);
+    this.$eventHandler_$.$listen$($doc$$inline_1062_isMouseDown_offsetLeftForReal$$inline_2397$$, ["touchend", "mouseup"], this.$endDrag$, $borderWidths$$inline_2399_useCapture$$inline_1064$$);
+    $goog$fx$Dragger$HAS_SET_CAPTURE_$$ ? ($bestParent$$inline_2398_docEl$$inline_1063$$.setCapture(!1), this.$eventHandler_$.$listen$($bestParent$$inline_2398_docEl$$inline_1063$$, "losecapture", this.$endDrag$)) : this.$eventHandler_$.$listen$($goog$dom$getWindow$$($doc$$inline_1062_isMouseDown_offsetLeftForReal$$inline_2397$$), "blur", this.$endDrag$);
+    $goog$userAgent$IE$$ && this.$ieDragStartCancellingOn_$ && this.$eventHandler_$.$listen$($doc$$inline_1062_isMouseDown_offsetLeftForReal$$inline_2397$$, "dragstart", $goog$events$Event$preventDefault$$);
+    this.$scrollTarget_$ && this.$eventHandler_$.$listen$(this.$scrollTarget_$, "scroll", this.$onScroll_$, $borderWidths$$inline_2399_useCapture$$inline_1064$$);
+    this.clientX = this.$startX$ = $JSCompiler_temp$$2179_e$$125_element$$inline_2396$$.clientX;
+    this.clientY = this.$startY$ = $JSCompiler_temp$$2179_e$$125_element$$inline_2396$$.clientY;
+    this.screenX = $JSCompiler_temp$$2179_e$$125_element$$inline_2396$$.screenX;
+    this.screenY = $JSCompiler_temp$$2179_e$$125_element$$inline_2396$$.screenY;
+    this.$useRightPositioningForRtl_$ ? ($JSCompiler_temp$$2179_e$$125_element$$inline_2396$$ = this.target, $doc$$inline_1062_isMouseDown_offsetLeftForReal$$inline_2397$$ = $JSCompiler_temp$$2179_e$$125_element$$inline_2396$$.offsetLeft, $bestParent$$inline_2398_docEl$$inline_1063$$ = $JSCompiler_temp$$2179_e$$125_element$$inline_2396$$.offsetParent, $bestParent$$inline_2398_docEl$$inline_1063$$ || "fixed" != $goog$style$getStyle_$$($JSCompiler_temp$$2179_e$$125_element$$inline_2396$$, "position") || 
+    ($bestParent$$inline_2398_docEl$$inline_1063$$ = $goog$dom$getOwnerDocument$$($JSCompiler_temp$$2179_e$$125_element$$inline_2396$$).documentElement), $bestParent$$inline_2398_docEl$$inline_1063$$ ? ($goog$userAgent$GECKO$$ ? ($borderWidths$$inline_2399_useCapture$$inline_1064$$ = $goog$style$getBorderBox$$($bestParent$$inline_2398_docEl$$inline_1063$$), $doc$$inline_1062_isMouseDown_offsetLeftForReal$$inline_2397$$ += $borderWidths$$inline_2399_useCapture$$inline_1064$$.left) : 8 <= $goog$userAgent$DOCUMENT_MODE$$ && 
+    !(9 <= $goog$userAgent$DOCUMENT_MODE$$) && ($borderWidths$$inline_2399_useCapture$$inline_1064$$ = $goog$style$getBorderBox$$($bestParent$$inline_2398_docEl$$inline_1063$$), $doc$$inline_1062_isMouseDown_offsetLeftForReal$$inline_2397$$ -= $borderWidths$$inline_2399_useCapture$$inline_1064$$.left), $JSCompiler_temp$$2179_e$$125_element$$inline_2396$$ = $goog$style$isRightToLeft$$($bestParent$$inline_2398_docEl$$inline_1063$$) ? $bestParent$$inline_2398_docEl$$inline_1063$$.clientWidth - ($doc$$inline_1062_isMouseDown_offsetLeftForReal$$inline_2397$$ + 
+    $JSCompiler_temp$$2179_e$$125_element$$inline_2396$$.offsetWidth) : $doc$$inline_1062_isMouseDown_offsetLeftForReal$$inline_2397$$) : $JSCompiler_temp$$2179_e$$125_element$$inline_2396$$ = $doc$$inline_1062_isMouseDown_offsetLeftForReal$$inline_2397$$) : $JSCompiler_temp$$2179_e$$125_element$$inline_2396$$ = this.target.offsetLeft;
+    this.deltaX = $JSCompiler_temp$$2179_e$$125_element$$inline_2396$$;
     this.deltaY = this.target.offsetTop;
     this.$pageScroll$ = $JSCompiler_StaticMethods_getDocumentScroll$$($goog$dom$getDomHelper$$(this.$document_$));
   }
@@ -9512,25 +9512,25 @@ $JSCompiler_prototypeAlias$$.$startDrag$ = function $$JSCompiler_prototypeAlias$
     if (this.$dragItem_$ = $item$$20$$, 0 == this.dispatchEvent(new $goog$fx$DragDropEvent$$("dragstart", 0, this.$dragItem_$))) {
       this.$dragItem_$ = null;
     } else {
-      var $bottom$$inline_2627_el$$100_i$$inline_2408$$ = $item$$20$$.$currentDragElement_$;
-      this.$dragEl_$ = this.$createDragElement$($bottom$$inline_2627_el$$100_i$$inline_2408$$);
-      var $container$$inline_1087_container$$inline_1095_doc$$44_target$$inline_1081$$ = $goog$dom$getOwnerDocument$$($bottom$$inline_2627_el$$100_i$$inline_2408$$);
+      var $bottom$$inline_2628_el$$100_i$$inline_2409$$ = $item$$20$$.$currentDragElement_$;
+      this.$dragEl_$ = this.$createDragElement$($bottom$$inline_2628_el$$100_i$$inline_2409$$);
+      var $container$$inline_1087_container$$inline_1095_doc$$44_target$$inline_1081$$ = $goog$dom$getOwnerDocument$$($bottom$$inline_2628_el$$100_i$$inline_2409$$);
       $container$$inline_1087_container$$inline_1095_doc$$44_target$$inline_1081$$.body.appendChild(this.$dragEl_$);
-      var $el$$inline_1076_i$$inline_1082_i$$inline_1088_i$$inline_1096$$ = this.$dragEl_$, $j$$inline_1084_j$$inline_1089_pos$$inline_1091_pos$$inline_2401$$ = $goog$style$getPageOffset$$($bottom$$inline_2627_el$$100_i$$inline_2408$$), $left$$inline_2624_marginBox$$inline_2402_size$$inline_1092_target$$inline_1090_target$$inline_2405$$;
+      var $el$$inline_1076_i$$inline_1082_i$$inline_1088_i$$inline_1096$$ = this.$dragEl_$, $j$$inline_1084_j$$inline_1089_pos$$inline_1091_pos$$inline_2402$$ = $goog$style$getPageOffset$$($bottom$$inline_2628_el$$100_i$$inline_2409$$), $left$$inline_2625_marginBox$$inline_2403_size$$inline_1092_target$$inline_1090_target$$inline_2406$$;
       if ($goog$userAgent$IE$$) {
-        $left$$inline_2624_marginBox$$inline_2402_size$$inline_1092_target$$inline_1090_target$$inline_2405$$ = $goog$style$getIePixelDistance_$$($bottom$$inline_2627_el$$100_i$$inline_2408$$, "marginLeft");
-        var $item$$inline_2406_itm$$inline_1083_right$$inline_2625$$ = $goog$style$getIePixelDistance_$$($bottom$$inline_2627_el$$100_i$$inline_2408$$, "marginRight"), $draggableElements$$inline_2407_top$$inline_2626$$ = $goog$style$getIePixelDistance_$$($bottom$$inline_2627_el$$100_i$$inline_2408$$, "marginTop"), $bottom$$inline_2627_el$$100_i$$inline_2408$$ = $goog$style$getIePixelDistance_$$($bottom$$inline_2627_el$$100_i$$inline_2408$$, "marginBottom");
-        $left$$inline_2624_marginBox$$inline_2402_size$$inline_1092_target$$inline_1090_target$$inline_2405$$ = new $goog$math$Box$$($draggableElements$$inline_2407_top$$inline_2626$$, $item$$inline_2406_itm$$inline_1083_right$$inline_2625$$, $bottom$$inline_2627_el$$100_i$$inline_2408$$, $left$$inline_2624_marginBox$$inline_2402_size$$inline_1092_target$$inline_1090_target$$inline_2405$$);
+        $left$$inline_2625_marginBox$$inline_2403_size$$inline_1092_target$$inline_1090_target$$inline_2406$$ = $goog$style$getIePixelDistance_$$($bottom$$inline_2628_el$$100_i$$inline_2409$$, "marginLeft");
+        var $item$$inline_2407_itm$$inline_1083_right$$inline_2626$$ = $goog$style$getIePixelDistance_$$($bottom$$inline_2628_el$$100_i$$inline_2409$$, "marginRight"), $draggableElements$$inline_2408_top$$inline_2627$$ = $goog$style$getIePixelDistance_$$($bottom$$inline_2628_el$$100_i$$inline_2409$$, "marginTop"), $bottom$$inline_2628_el$$100_i$$inline_2409$$ = $goog$style$getIePixelDistance_$$($bottom$$inline_2628_el$$100_i$$inline_2409$$, "marginBottom");
+        $left$$inline_2625_marginBox$$inline_2403_size$$inline_1092_target$$inline_1090_target$$inline_2406$$ = new $goog$math$Box$$($draggableElements$$inline_2408_top$$inline_2627$$, $item$$inline_2407_itm$$inline_1083_right$$inline_2626$$, $bottom$$inline_2628_el$$100_i$$inline_2409$$, $left$$inline_2625_marginBox$$inline_2403_size$$inline_1092_target$$inline_1090_target$$inline_2406$$);
       } else {
-        $left$$inline_2624_marginBox$$inline_2402_size$$inline_1092_target$$inline_1090_target$$inline_2405$$ = $goog$style$getComputedStyle$$($bottom$$inline_2627_el$$100_i$$inline_2408$$, "marginLeft"), $item$$inline_2406_itm$$inline_1083_right$$inline_2625$$ = $goog$style$getComputedStyle$$($bottom$$inline_2627_el$$100_i$$inline_2408$$, "marginRight"), $draggableElements$$inline_2407_top$$inline_2626$$ = $goog$style$getComputedStyle$$($bottom$$inline_2627_el$$100_i$$inline_2408$$, "marginTop"), 
-        $bottom$$inline_2627_el$$100_i$$inline_2408$$ = $goog$style$getComputedStyle$$($bottom$$inline_2627_el$$100_i$$inline_2408$$, "marginBottom"), $left$$inline_2624_marginBox$$inline_2402_size$$inline_1092_target$$inline_1090_target$$inline_2405$$ = new $goog$math$Box$$(parseFloat($draggableElements$$inline_2407_top$$inline_2626$$), parseFloat($item$$inline_2406_itm$$inline_1083_right$$inline_2625$$), parseFloat($bottom$$inline_2627_el$$100_i$$inline_2408$$), parseFloat($left$$inline_2624_marginBox$$inline_2402_size$$inline_1092_target$$inline_1090_target$$inline_2405$$))
+        $left$$inline_2625_marginBox$$inline_2403_size$$inline_1092_target$$inline_1090_target$$inline_2406$$ = $goog$style$getComputedStyle$$($bottom$$inline_2628_el$$100_i$$inline_2409$$, "marginLeft"), $item$$inline_2407_itm$$inline_1083_right$$inline_2626$$ = $goog$style$getComputedStyle$$($bottom$$inline_2628_el$$100_i$$inline_2409$$, "marginRight"), $draggableElements$$inline_2408_top$$inline_2627$$ = $goog$style$getComputedStyle$$($bottom$$inline_2628_el$$100_i$$inline_2409$$, "marginTop"), 
+        $bottom$$inline_2628_el$$100_i$$inline_2409$$ = $goog$style$getComputedStyle$$($bottom$$inline_2628_el$$100_i$$inline_2409$$, "marginBottom"), $left$$inline_2625_marginBox$$inline_2403_size$$inline_1092_target$$inline_1090_target$$inline_2406$$ = new $goog$math$Box$$(parseFloat($draggableElements$$inline_2408_top$$inline_2627$$), parseFloat($item$$inline_2407_itm$$inline_1083_right$$inline_2626$$), parseFloat($bottom$$inline_2628_el$$100_i$$inline_2409$$), parseFloat($left$$inline_2625_marginBox$$inline_2403_size$$inline_1092_target$$inline_1090_target$$inline_2406$$))
         ;
       }
-      $j$$inline_1084_j$$inline_1089_pos$$inline_1091_pos$$inline_2401$$.x -= 2 * ($left$$inline_2624_marginBox$$inline_2402_size$$inline_1092_target$$inline_1090_target$$inline_2405$$.left || 0);
-      $j$$inline_1084_j$$inline_1089_pos$$inline_1091_pos$$inline_2401$$.y -= 2 * ($left$$inline_2624_marginBox$$inline_2402_size$$inline_1092_target$$inline_1090_target$$inline_2405$$.top || 0);
+      $j$$inline_1084_j$$inline_1089_pos$$inline_1091_pos$$inline_2402$$.x -= 2 * ($left$$inline_2625_marginBox$$inline_2403_size$$inline_1092_target$$inline_1090_target$$inline_2406$$.left || 0);
+      $j$$inline_1084_j$$inline_1089_pos$$inline_1091_pos$$inline_2402$$.y -= 2 * ($left$$inline_2625_marginBox$$inline_2403_size$$inline_1092_target$$inline_1090_target$$inline_2406$$.top || 0);
       $el$$inline_1076_i$$inline_1082_i$$inline_1088_i$$inline_1096$$.style.position = "absolute";
-      $el$$inline_1076_i$$inline_1082_i$$inline_1088_i$$inline_1096$$.style.left = $j$$inline_1084_j$$inline_1089_pos$$inline_1091_pos$$inline_2401$$.x + "px";
-      $el$$inline_1076_i$$inline_1082_i$$inline_1088_i$$inline_1096$$.style.top = $j$$inline_1084_j$$inline_1089_pos$$inline_1091_pos$$inline_2401$$.y + "px";
+      $el$$inline_1076_i$$inline_1082_i$$inline_1088_i$$inline_1096$$.style.left = $j$$inline_1084_j$$inline_1089_pos$$inline_1091_pos$$inline_2402$$.x + "px";
+      $el$$inline_1076_i$$inline_1082_i$$inline_1088_i$$inline_1096$$.style.top = $j$$inline_1084_j$$inline_1089_pos$$inline_1091_pos$$inline_2402$$.y + "px";
       this.$dragger_$ = new $goog$fx$Dragger$$($el$$inline_1076_i$$inline_1082_i$$inline_1088_i$$inline_1096$$);
       this.$dragger_$.$setScrollTarget$(this.$scrollTarget_$);
       $goog$events$listen$$(this.$dragger_$, "drag", this.$moveDrag_$, !1, this);
@@ -9538,27 +9538,27 @@ $JSCompiler_prototypeAlias$$.$startDrag$ = function $$JSCompiler_prototypeAlias$
       $goog$events$listen$$($container$$inline_1087_container$$inline_1095_doc$$44_target$$inline_1081$$.body, "selectstart", this.$suppressSelect_$);
       this.$targetList_$ = [];
       for ($el$$inline_1076_i$$inline_1082_i$$inline_1088_i$$inline_1096$$ = 0;$container$$inline_1087_container$$inline_1095_doc$$44_target$$inline_1081$$ = this.$targets_$[$el$$inline_1076_i$$inline_1082_i$$inline_1088_i$$inline_1096$$];$el$$inline_1076_i$$inline_1082_i$$inline_1088_i$$inline_1096$$++) {
-        for ($j$$inline_1084_j$$inline_1089_pos$$inline_1091_pos$$inline_2401$$ = 0;$item$$inline_2406_itm$$inline_1083_right$$inline_2625$$ = $container$$inline_1087_container$$inline_1095_doc$$44_target$$inline_1081$$.$items_$[$j$$inline_1084_j$$inline_1089_pos$$inline_1091_pos$$inline_2401$$];$j$$inline_1084_j$$inline_1089_pos$$inline_1091_pos$$inline_2401$$++) {
-          for ($left$$inline_2624_marginBox$$inline_2402_size$$inline_1092_target$$inline_1090_target$$inline_2405$$ = $container$$inline_1087_container$$inline_1095_doc$$44_target$$inline_1081$$, $draggableElements$$inline_2407_top$$inline_2626$$ = [$item$$inline_2406_itm$$inline_1083_right$$inline_2625$$.element], $bottom$$inline_2627_el$$100_i$$inline_2408$$ = 0;$bottom$$inline_2627_el$$100_i$$inline_2408$$ < $draggableElements$$inline_2407_top$$inline_2626$$.length;$bottom$$inline_2627_el$$100_i$$inline_2408$$++) {
-            var $draggableElement$$inline_2409$$ = $draggableElements$$inline_2407_top$$inline_2626$$[$bottom$$inline_2627_el$$100_i$$inline_2408$$], $box$$inline_2410_pos$$inline_2412$$, $element$$inline_2411_size$$inline_2413$$ = $draggableElement$$inline_2409$$;
-            $box$$inline_2410_pos$$inline_2412$$ = $goog$style$getPageOffset$$($element$$inline_2411_size$$inline_2413$$);
-            $element$$inline_2411_size$$inline_2413$$ = $goog$style$evaluateWithTemporaryDisplay_$$($element$$inline_2411_size$$inline_2413$$);
-            $box$$inline_2410_pos$$inline_2412$$ = new $goog$math$Box$$($box$$inline_2410_pos$$inline_2412$$.y, $box$$inline_2410_pos$$inline_2412$$.x + $element$$inline_2411_size$$inline_2413$$.width, $box$$inline_2410_pos$$inline_2412$$.y + $element$$inline_2411_size$$inline_2413$$.height, $box$$inline_2410_pos$$inline_2412$$.x);
-            this.$targetList_$.push(new $goog$fx$ActiveDropTarget_$$($box$$inline_2410_pos$$inline_2412$$, $left$$inline_2624_marginBox$$inline_2402_size$$inline_1092_target$$inline_1090_target$$inline_2405$$, $item$$inline_2406_itm$$inline_1083_right$$inline_2625$$, $draggableElement$$inline_2409$$));
-            $JSCompiler_StaticMethods_calculateTargetBox_$$(this, $box$$inline_2410_pos$$inline_2412$$);
+        for ($j$$inline_1084_j$$inline_1089_pos$$inline_1091_pos$$inline_2402$$ = 0;$item$$inline_2407_itm$$inline_1083_right$$inline_2626$$ = $container$$inline_1087_container$$inline_1095_doc$$44_target$$inline_1081$$.$items_$[$j$$inline_1084_j$$inline_1089_pos$$inline_1091_pos$$inline_2402$$];$j$$inline_1084_j$$inline_1089_pos$$inline_1091_pos$$inline_2402$$++) {
+          for ($left$$inline_2625_marginBox$$inline_2403_size$$inline_1092_target$$inline_1090_target$$inline_2406$$ = $container$$inline_1087_container$$inline_1095_doc$$44_target$$inline_1081$$, $draggableElements$$inline_2408_top$$inline_2627$$ = [$item$$inline_2407_itm$$inline_1083_right$$inline_2626$$.element], $bottom$$inline_2628_el$$100_i$$inline_2409$$ = 0;$bottom$$inline_2628_el$$100_i$$inline_2409$$ < $draggableElements$$inline_2408_top$$inline_2627$$.length;$bottom$$inline_2628_el$$100_i$$inline_2409$$++) {
+            var $draggableElement$$inline_2410$$ = $draggableElements$$inline_2408_top$$inline_2627$$[$bottom$$inline_2628_el$$100_i$$inline_2409$$], $box$$inline_2411_pos$$inline_2413$$, $element$$inline_2412_size$$inline_2414$$ = $draggableElement$$inline_2410$$;
+            $box$$inline_2411_pos$$inline_2413$$ = $goog$style$getPageOffset$$($element$$inline_2412_size$$inline_2414$$);
+            $element$$inline_2412_size$$inline_2414$$ = $goog$style$evaluateWithTemporaryDisplay_$$($element$$inline_2412_size$$inline_2414$$);
+            $box$$inline_2411_pos$$inline_2413$$ = new $goog$math$Box$$($box$$inline_2411_pos$$inline_2413$$.y, $box$$inline_2411_pos$$inline_2413$$.x + $element$$inline_2412_size$$inline_2414$$.width, $box$$inline_2411_pos$$inline_2413$$.y + $element$$inline_2412_size$$inline_2414$$.height, $box$$inline_2411_pos$$inline_2413$$.x);
+            this.$targetList_$.push(new $goog$fx$ActiveDropTarget_$$($box$$inline_2411_pos$$inline_2413$$, $left$$inline_2625_marginBox$$inline_2403_size$$inline_1092_target$$inline_1090_target$$inline_2406$$, $item$$inline_2407_itm$$inline_1083_right$$inline_2626$$, $draggableElement$$inline_2410$$));
+            $JSCompiler_StaticMethods_calculateTargetBox_$$(this, $box$$inline_2411_pos$$inline_2413$$);
           }
         }
       }
       this.$targetBox_$ || (this.$targetBox_$ = new $goog$math$Box$$(0, 0, 0, 0));
       for ($el$$inline_1076_i$$inline_1082_i$$inline_1088_i$$inline_1096$$ = 0;$container$$inline_1087_container$$inline_1095_doc$$44_target$$inline_1081$$ = this.$scrollableContainers_$[$el$$inline_1076_i$$inline_1082_i$$inline_1088_i$$inline_1096$$];$el$$inline_1076_i$$inline_1082_i$$inline_1088_i$$inline_1096$$++) {
         $container$$inline_1087_container$$inline_1095_doc$$44_target$$inline_1081$$.$containedTargets_$ = [], $container$$inline_1087_container$$inline_1095_doc$$44_target$$inline_1081$$.$savedScrollLeft_$ = $container$$inline_1087_container$$inline_1095_doc$$44_target$$inline_1081$$.$element_$.scrollLeft, $container$$inline_1087_container$$inline_1095_doc$$44_target$$inline_1081$$.$savedScrollTop_$ = $container$$inline_1087_container$$inline_1095_doc$$44_target$$inline_1081$$.$element_$.scrollTop, 
-        $j$$inline_1084_j$$inline_1089_pos$$inline_1091_pos$$inline_2401$$ = $goog$style$getPageOffset$$($container$$inline_1087_container$$inline_1095_doc$$44_target$$inline_1081$$.$element_$), $left$$inline_2624_marginBox$$inline_2402_size$$inline_1092_target$$inline_1090_target$$inline_2405$$ = $goog$style$evaluateWithTemporaryDisplay_$$($container$$inline_1087_container$$inline_1095_doc$$44_target$$inline_1081$$.$element_$), $container$$inline_1087_container$$inline_1095_doc$$44_target$$inline_1081$$.$box_$ = 
-        new $goog$math$Box$$($j$$inline_1084_j$$inline_1089_pos$$inline_1091_pos$$inline_2401$$.y, $j$$inline_1084_j$$inline_1089_pos$$inline_1091_pos$$inline_2401$$.x + $left$$inline_2624_marginBox$$inline_2402_size$$inline_1092_target$$inline_1090_target$$inline_2405$$.width, $j$$inline_1084_j$$inline_1089_pos$$inline_1091_pos$$inline_2401$$.y + $left$$inline_2624_marginBox$$inline_2402_size$$inline_1092_target$$inline_1090_target$$inline_2405$$.height, $j$$inline_1084_j$$inline_1089_pos$$inline_1091_pos$$inline_2401$$.x)
+        $j$$inline_1084_j$$inline_1089_pos$$inline_1091_pos$$inline_2402$$ = $goog$style$getPageOffset$$($container$$inline_1087_container$$inline_1095_doc$$44_target$$inline_1081$$.$element_$), $left$$inline_2625_marginBox$$inline_2403_size$$inline_1092_target$$inline_1090_target$$inline_2406$$ = $goog$style$evaluateWithTemporaryDisplay_$$($container$$inline_1087_container$$inline_1095_doc$$44_target$$inline_1081$$.$element_$), $container$$inline_1087_container$$inline_1095_doc$$44_target$$inline_1081$$.$box_$ = 
+        new $goog$math$Box$$($j$$inline_1084_j$$inline_1089_pos$$inline_1091_pos$$inline_2402$$.y, $j$$inline_1084_j$$inline_1089_pos$$inline_1091_pos$$inline_2402$$.x + $left$$inline_2625_marginBox$$inline_2403_size$$inline_1092_target$$inline_1090_target$$inline_2406$$.width, $j$$inline_1084_j$$inline_1089_pos$$inline_1091_pos$$inline_2402$$.y + $left$$inline_2625_marginBox$$inline_2403_size$$inline_1092_target$$inline_1090_target$$inline_2406$$.height, $j$$inline_1084_j$$inline_1089_pos$$inline_1091_pos$$inline_2402$$.x)
         ;
       }
-      for ($el$$inline_1076_i$$inline_1082_i$$inline_1088_i$$inline_1096$$ = 0;$left$$inline_2624_marginBox$$inline_2402_size$$inline_1092_target$$inline_1090_target$$inline_2405$$ = this.$targetList_$[$el$$inline_1076_i$$inline_1082_i$$inline_1088_i$$inline_1096$$];$el$$inline_1076_i$$inline_1082_i$$inline_1088_i$$inline_1096$$++) {
-        for ($j$$inline_1084_j$$inline_1089_pos$$inline_1091_pos$$inline_2401$$ = 0;$container$$inline_1087_container$$inline_1095_doc$$44_target$$inline_1081$$ = this.$scrollableContainers_$[$j$$inline_1084_j$$inline_1089_pos$$inline_1091_pos$$inline_2401$$];$j$$inline_1084_j$$inline_1089_pos$$inline_1091_pos$$inline_2401$$++) {
-          $goog$dom$contains$$($container$$inline_1087_container$$inline_1095_doc$$44_target$$inline_1081$$.$element_$, $left$$inline_2624_marginBox$$inline_2402_size$$inline_1092_target$$inline_1090_target$$inline_2405$$.$element_$) && ($container$$inline_1087_container$$inline_1095_doc$$44_target$$inline_1081$$.$containedTargets_$.push($left$$inline_2624_marginBox$$inline_2402_size$$inline_1092_target$$inline_1090_target$$inline_2405$$), $left$$inline_2624_marginBox$$inline_2402_size$$inline_1092_target$$inline_1090_target$$inline_2405$$.$scrollableContainer_$ = 
+      for ($el$$inline_1076_i$$inline_1082_i$$inline_1088_i$$inline_1096$$ = 0;$left$$inline_2625_marginBox$$inline_2403_size$$inline_1092_target$$inline_1090_target$$inline_2406$$ = this.$targetList_$[$el$$inline_1076_i$$inline_1082_i$$inline_1088_i$$inline_1096$$];$el$$inline_1076_i$$inline_1082_i$$inline_1088_i$$inline_1096$$++) {
+        for ($j$$inline_1084_j$$inline_1089_pos$$inline_1091_pos$$inline_2402$$ = 0;$container$$inline_1087_container$$inline_1095_doc$$44_target$$inline_1081$$ = this.$scrollableContainers_$[$j$$inline_1084_j$$inline_1089_pos$$inline_1091_pos$$inline_2402$$];$j$$inline_1084_j$$inline_1089_pos$$inline_1091_pos$$inline_2402$$++) {
+          $goog$dom$contains$$($container$$inline_1087_container$$inline_1095_doc$$44_target$$inline_1081$$.$element_$, $left$$inline_2625_marginBox$$inline_2403_size$$inline_1092_target$$inline_1090_target$$inline_2406$$.$element_$) && ($container$$inline_1087_container$$inline_1095_doc$$44_target$$inline_1081$$.$containedTargets_$.push($left$$inline_2625_marginBox$$inline_2403_size$$inline_1092_target$$inline_1090_target$$inline_2406$$), $left$$inline_2625_marginBox$$inline_2403_size$$inline_1092_target$$inline_1090_target$$inline_2406$$.$scrollableContainer_$ = 
           $container$$inline_1087_container$$inline_1095_doc$$44_target$$inline_1081$$);
         }
       }
@@ -9572,22 +9572,22 @@ $JSCompiler_prototypeAlias$$.$startDrag$ = function $$JSCompiler_prototypeAlias$
   }
 };
 $JSCompiler_prototypeAlias$$.$endDrag$ = function $$JSCompiler_prototypeAlias$$$$endDrag$$($clientY$$3_event$$10$$) {
-  var $activeTarget_doc$$45_i$$inline_2416$$ = $clientY$$3_event$$10$$.$dragCanceled$ ? null : this.$activeTarget_$;
-  if ($activeTarget_doc$$45_i$$inline_2416$$ && $activeTarget_doc$$45_i$$inline_2416$$.$target_$) {
-    var $clientX$$3_container$$inline_2417$$ = $clientY$$3_event$$10$$.clientX;
+  var $activeTarget_doc$$45_i$$inline_2417$$ = $clientY$$3_event$$10$$.$dragCanceled$ ? null : this.$activeTarget_$;
+  if ($activeTarget_doc$$45_i$$inline_2417$$ && $activeTarget_doc$$45_i$$inline_2417$$.$target_$) {
+    var $clientX$$3_container$$inline_2418$$ = $clientY$$3_event$$10$$.clientX;
     $clientY$$3_event$$10$$ = $clientY$$3_event$$10$$.clientY;
-    var $scroll$$2_y$$48$$ = $JSCompiler_StaticMethods_getDocumentScroll$$($goog$dom$getDomHelper$$(this.$dragEl_$)), $x$$78$$ = $clientX$$3_container$$inline_2417$$ + $scroll$$2_y$$48$$.x, $scroll$$2_y$$48$$ = $clientY$$3_event$$10$$ + $scroll$$2_y$$48$$.y, $subtarget$$;
-    this.$subtargetFunction_$ && ($subtarget$$ = this.$subtargetFunction_$($activeTarget_doc$$45_i$$inline_2416$$.$item_$, $activeTarget_doc$$45_i$$inline_2416$$.$box_$, $x$$78$$, $scroll$$2_y$$48$$));
-    this.dispatchEvent(new $goog$fx$DragDropEvent$$("drag", 0, this.$dragItem_$, 0, $activeTarget_doc$$45_i$$inline_2416$$.$item_$, 0, $clientX$$3_container$$inline_2417$$, $clientY$$3_event$$10$$));
-    $activeTarget_doc$$45_i$$inline_2416$$.$target_$.dispatchEvent(new $goog$fx$DragDropEvent$$("drop", 0, this.$dragItem_$, 0, $activeTarget_doc$$45_i$$inline_2416$$.$item_$, 0, $clientX$$3_container$$inline_2417$$, $clientY$$3_event$$10$$, 0, 0, $subtarget$$));
+    var $scroll$$2_y$$48$$ = $JSCompiler_StaticMethods_getDocumentScroll$$($goog$dom$getDomHelper$$(this.$dragEl_$)), $x$$78$$ = $clientX$$3_container$$inline_2418$$ + $scroll$$2_y$$48$$.x, $scroll$$2_y$$48$$ = $clientY$$3_event$$10$$ + $scroll$$2_y$$48$$.y, $subtarget$$;
+    this.$subtargetFunction_$ && ($subtarget$$ = this.$subtargetFunction_$($activeTarget_doc$$45_i$$inline_2417$$.$item_$, $activeTarget_doc$$45_i$$inline_2417$$.$box_$, $x$$78$$, $scroll$$2_y$$48$$));
+    this.dispatchEvent(new $goog$fx$DragDropEvent$$("drag", 0, this.$dragItem_$, 0, $activeTarget_doc$$45_i$$inline_2417$$.$item_$, 0, $clientX$$3_container$$inline_2418$$, $clientY$$3_event$$10$$));
+    $activeTarget_doc$$45_i$$inline_2417$$.$target_$.dispatchEvent(new $goog$fx$DragDropEvent$$("drop", 0, this.$dragItem_$, 0, $activeTarget_doc$$45_i$$inline_2417$$.$item_$, 0, $clientX$$3_container$$inline_2418$$, $clientY$$3_event$$10$$, 0, 0, $subtarget$$));
   }
   this.dispatchEvent(new $goog$fx$DragDropEvent$$("dragend", 0, this.$dragItem_$));
   $goog$events$unlisten$$(this.$dragger_$, "drag", this.$moveDrag_$, !1, this);
   $goog$events$unlisten$$(this.$dragger_$, "end", this.$endDrag$, !1, this);
-  $activeTarget_doc$$45_i$$inline_2416$$ = $goog$dom$getOwnerDocument$$(this.$dragItem_$.$currentDragElement_$);
-  $goog$events$unlisten$$($activeTarget_doc$$45_i$$inline_2416$$.body, "selectstart", this.$suppressSelect_$);
-  for ($activeTarget_doc$$45_i$$inline_2416$$ = 0;$clientX$$3_container$$inline_2417$$ = this.$scrollableContainers_$[$activeTarget_doc$$45_i$$inline_2416$$];$activeTarget_doc$$45_i$$inline_2416$$++) {
-    $goog$events$unlisten$$($clientX$$3_container$$inline_2417$$.$element_$, "scroll", this.$containerScrollHandler_$, !1, this), $clientX$$3_container$$inline_2417$$.$containedTargets_$ = [];
+  $activeTarget_doc$$45_i$$inline_2417$$ = $goog$dom$getOwnerDocument$$(this.$dragItem_$.$currentDragElement_$);
+  $goog$events$unlisten$$($activeTarget_doc$$45_i$$inline_2417$$.body, "selectstart", this.$suppressSelect_$);
+  for ($activeTarget_doc$$45_i$$inline_2417$$ = 0;$clientX$$3_container$$inline_2418$$ = this.$scrollableContainers_$[$activeTarget_doc$$45_i$$inline_2417$$];$activeTarget_doc$$45_i$$inline_2417$$++) {
+    $goog$events$unlisten$$($clientX$$3_container$$inline_2418$$.$element_$, "scroll", this.$containerScrollHandler_$, !1, this), $clientX$$3_container$$inline_2418$$.$containedTargets_$ = [];
   }
   this.$dragger_$.$dispose$();
   $goog$dom$removeNode$$(this.$dragEl_$);
@@ -9676,22 +9676,22 @@ $JSCompiler_prototypeAlias$$.$containerScrollHandler_$ = function $$JSCompiler_p
 };
 $JSCompiler_prototypeAlias$$.$createDragElement$ = function $$JSCompiler_prototypeAlias$$$$createDragElement$$($dragEl_sourceEl$$2$$) {
   a: {
-    for (var $clonedEl$$inline_2630$$ = $dragEl_sourceEl$$2$$.cloneNode(!0), $origTexts$$inline_2631$$ = $dragEl_sourceEl$$2$$.getElementsByTagName("TEXTAREA"), $dragTexts$$inline_2632$$ = $clonedEl$$inline_2630$$.getElementsByTagName("TEXTAREA"), $i$$inline_2633$$ = 0;$i$$inline_2633$$ < $origTexts$$inline_2631$$.length;$i$$inline_2633$$++) {
-      $dragTexts$$inline_2632$$[$i$$inline_2633$$].value = $origTexts$$inline_2631$$[$i$$inline_2633$$].value;
+    for (var $clonedEl$$inline_2631$$ = $dragEl_sourceEl$$2$$.cloneNode(!0), $origTexts$$inline_2632$$ = $dragEl_sourceEl$$2$$.getElementsByTagName("TEXTAREA"), $dragTexts$$inline_2633$$ = $clonedEl$$inline_2631$$.getElementsByTagName("TEXTAREA"), $i$$inline_2634$$ = 0;$i$$inline_2634$$ < $origTexts$$inline_2632$$.length;$i$$inline_2634$$++) {
+      $dragTexts$$inline_2633$$[$i$$inline_2634$$].value = $origTexts$$inline_2632$$[$i$$inline_2634$$].value;
     }
     switch($dragEl_sourceEl$$2$$.tagName) {
       case "TR":
-        $dragEl_sourceEl$$2$$ = $goog$dom$createDom$$("TABLE", null, $goog$dom$createDom$$("TBODY", null, $clonedEl$$inline_2630$$));
+        $dragEl_sourceEl$$2$$ = $goog$dom$createDom$$("TABLE", null, $goog$dom$createDom$$("TBODY", null, $clonedEl$$inline_2631$$));
         break a;
       case "TD":
       ;
       case "TH":
-        $dragEl_sourceEl$$2$$ = $goog$dom$createDom$$("TABLE", null, $goog$dom$createDom$$("TBODY", null, $goog$dom$createDom$$("TR", null, $clonedEl$$inline_2630$$)));
+        $dragEl_sourceEl$$2$$ = $goog$dom$createDom$$("TABLE", null, $goog$dom$createDom$$("TBODY", null, $goog$dom$createDom$$("TR", null, $clonedEl$$inline_2631$$)));
         break a;
       case "TEXTAREA":
-        $clonedEl$$inline_2630$$.value = $dragEl_sourceEl$$2$$.value;
+        $clonedEl$$inline_2631$$.value = $dragEl_sourceEl$$2$$.value;
       default:
-        $dragEl_sourceEl$$2$$ = $clonedEl$$inline_2630$$;
+        $dragEl_sourceEl$$2$$ = $clonedEl$$inline_2631$$;
     }
   }
   this.$dragClass_$ && $goog$dom$classlist$add$$($dragEl_sourceEl$$2$$, this.$dragClass_$);
@@ -10847,11 +10847,11 @@ function $JSCompiler_StaticMethods_setA11YDetectBackground$$($JSCompiler_StaticM
   if ($hide$$1$$) {
     $JSCompiler_StaticMethods_setBackgroundVisibility$self$$inline_1186$$.$hiddenElements_$ || ($JSCompiler_StaticMethods_setBackgroundVisibility$self$$inline_1186$$.$hiddenElements_$ = []);
     for (var $topLevelChildren$$inline_1188$$ = $JSCompiler_StaticMethods_setBackgroundVisibility$self$$inline_1186$$.$dom_$.$getChildren$($JSCompiler_StaticMethods_setBackgroundVisibility$self$$inline_1186$$.$dom_$.$document_$.body), $i$$inline_1189$$ = 0;$i$$inline_1189$$ < $topLevelChildren$$inline_1188$$.length;$i$$inline_1189$$++) {
-      var $child$$inline_1190$$ = $topLevelChildren$$inline_1188$$[$i$$inline_1189$$], $JSCompiler_temp$$2164_attr$$inline_2424$$;
-      if ($JSCompiler_temp$$2164_attr$$inline_2424$$ = $child$$inline_1190$$ != $JSCompiler_StaticMethods_setBackgroundVisibility$self$$inline_1186$$.$element_$) {
-        $JSCompiler_temp$$2164_attr$$inline_2424$$ = $child$$inline_1190$$.getAttribute("aria-hidden"), $JSCompiler_temp$$2164_attr$$inline_2424$$ = !(null == $JSCompiler_temp$$2164_attr$$inline_2424$$ || void 0 == $JSCompiler_temp$$2164_attr$$inline_2424$$ ? 0 : String($JSCompiler_temp$$2164_attr$$inline_2424$$));
+      var $child$$inline_1190$$ = $topLevelChildren$$inline_1188$$[$i$$inline_1189$$], $JSCompiler_temp$$2165_attr$$inline_2425$$;
+      if ($JSCompiler_temp$$2165_attr$$inline_2425$$ = $child$$inline_1190$$ != $JSCompiler_StaticMethods_setBackgroundVisibility$self$$inline_1186$$.$element_$) {
+        $JSCompiler_temp$$2165_attr$$inline_2425$$ = $child$$inline_1190$$.getAttribute("aria-hidden"), $JSCompiler_temp$$2165_attr$$inline_2425$$ = !(null == $JSCompiler_temp$$2165_attr$$inline_2425$$ || void 0 == $JSCompiler_temp$$2165_attr$$inline_2425$$ ? 0 : String($JSCompiler_temp$$2165_attr$$inline_2425$$));
       }
-      $JSCompiler_temp$$2164_attr$$inline_2424$$ && ($goog$a11y$aria$setState$$($child$$inline_1190$$, "hidden", !0), $JSCompiler_StaticMethods_setBackgroundVisibility$self$$inline_1186$$.$hiddenElements_$.push($child$$inline_1190$$));
+      $JSCompiler_temp$$2165_attr$$inline_2425$$ && ($goog$a11y$aria$setState$$($child$$inline_1190$$, "hidden", !0), $JSCompiler_StaticMethods_setBackgroundVisibility$self$$inline_1186$$.$hiddenElements_$.push($child$$inline_1190$$));
     }
   } else {
     if ($JSCompiler_StaticMethods_setBackgroundVisibility$self$$inline_1186$$.$hiddenElements_$) {
@@ -13524,22 +13524,22 @@ function $goog$history$Event$$($token$$8$$, $isNavigation$$) {
 }
 $goog$inherits$$($goog$history$Event$$, $goog$events$Event$$);
 // Input 228
-function $goog$History$$($iframeId_opt_invisible$$, $JSCompiler_temp$$45_fixedAttributes$$inline_1505_opt_blankPageUrl_url$$inline_1494_url$$inline_1496$$, $defaultAttributes$$inline_2494_opt_input$$, $opt_attributes$$inline_1502_opt_iframe$$) {
+function $goog$History$$($iframeId_opt_invisible$$, $JSCompiler_temp$$45_fixedAttributes$$inline_1505_opt_blankPageUrl_url$$inline_1494_url$$inline_1496$$, $defaultAttributes$$inline_2495_opt_input$$, $opt_attributes$$inline_1502_opt_iframe$$) {
   $goog$events$EventTarget$$.call(this);
   if ($iframeId_opt_invisible$$ && !$JSCompiler_temp$$45_fixedAttributes$$inline_1505_opt_blankPageUrl_url$$inline_1494_url$$inline_1496$$) {
     throw Error("Can't use invisible history without providing a blank page.");
   }
-  var $combinedAttributes$$inline_2495_input$$2_inputId$$;
-  if ($defaultAttributes$$inline_2494_opt_input$$) {
-    $combinedAttributes$$inline_2495_input$$2_inputId$$ = $defaultAttributes$$inline_2494_opt_input$$;
+  var $combinedAttributes$$inline_2496_input$$2_inputId$$;
+  if ($defaultAttributes$$inline_2495_opt_input$$) {
+    $combinedAttributes$$inline_2496_input$$2_inputId$$ = $defaultAttributes$$inline_2495_opt_input$$;
   } else {
-    $combinedAttributes$$inline_2495_input$$2_inputId$$ = "history_state" + $goog$History$historyCount_$$;
-    var $inputHtml_nameLower$$inline_2497$$ = $goog$html$SafeHtml$create$$("input", {type:"text", name:$combinedAttributes$$inline_2495_input$$2_inputId$$, id:$combinedAttributes$$inline_2495_input$$2_inputId$$, style:$goog$string$Const$create__googStringSecurityPrivate_$$("display:none")});
-    document.write($goog$html$SafeHtml$unwrap$$($inputHtml_nameLower$$inline_2497$$));
-    $combinedAttributes$$inline_2495_input$$2_inputId$$ = $goog$dom$getElement$$($combinedAttributes$$inline_2495_input$$2_inputId$$);
+    $combinedAttributes$$inline_2496_input$$2_inputId$$ = "history_state" + $goog$History$historyCount_$$;
+    var $inputHtml_nameLower$$inline_2498$$ = $goog$html$SafeHtml$create$$("input", {type:"text", name:$combinedAttributes$$inline_2496_input$$2_inputId$$, id:$combinedAttributes$$inline_2496_input$$2_inputId$$, style:$goog$string$Const$create__googStringSecurityPrivate_$$("display:none")});
+    document.write($goog$html$SafeHtml$unwrap$$($inputHtml_nameLower$$inline_2498$$));
+    $combinedAttributes$$inline_2496_input$$2_inputId$$ = $goog$dom$getElement$$($combinedAttributes$$inline_2496_input$$2_inputId$$);
   }
-  this.$hiddenInput_$ = $combinedAttributes$$inline_2495_input$$2_inputId$$;
-  this.$window_$ = $defaultAttributes$$inline_2494_opt_input$$ ? $goog$dom$getWindow$$($goog$dom$getOwnerDocument$$($defaultAttributes$$inline_2494_opt_input$$)) : window;
+  this.$hiddenInput_$ = $combinedAttributes$$inline_2496_input$$2_inputId$$;
+  this.$window_$ = $defaultAttributes$$inline_2495_opt_input$$ ? $goog$dom$getWindow$$($goog$dom$getOwnerDocument$$($defaultAttributes$$inline_2495_opt_input$$)) : window;
   this.$iframeSrc_$ = $goog$isString$$($JSCompiler_temp$$45_fixedAttributes$$inline_1505_opt_blankPageUrl_url$$inline_1494_url$$inline_1496$$) ? $goog$html$TrustedResourceUrl$createTrustedResourceUrlSecurityPrivateDoNotAccessOrElse$$($JSCompiler_temp$$45_fixedAttributes$$inline_1505_opt_blankPageUrl_url$$inline_1494_url$$inline_1496$$) : $JSCompiler_temp$$45_fixedAttributes$$inline_1505_opt_blankPageUrl_url$$inline_1494_url$$inline_1496$$;
   $goog$userAgent$IE$$ && !$JSCompiler_temp$$45_fixedAttributes$$inline_1505_opt_blankPageUrl_url$$inline_1494_url$$inline_1496$$ && ($JSCompiler_temp$$45_fixedAttributes$$inline_1505_opt_blankPageUrl_url$$inline_1494_url$$inline_1496$$ = "https" == window.location.protocol ? $goog$string$Const$create__googStringSecurityPrivate_$$("https:///") : $goog$string$Const$create__googStringSecurityPrivate_$$('javascript:""'), this.$iframeSrc_$ = $JSCompiler_temp$$45_fixedAttributes$$inline_1505_opt_blankPageUrl_url$$inline_1494_url$$inline_1496$$ = 
   $goog$html$TrustedResourceUrl$createTrustedResourceUrlSecurityPrivateDoNotAccessOrElse$$($goog$string$Const$unwrap$$($JSCompiler_temp$$45_fixedAttributes$$inline_1505_opt_blankPageUrl_url$$inline_1494_url$$inline_1496$$)));
@@ -13548,36 +13548,36 @@ function $goog$History$$($iframeId_opt_invisible$$, $JSCompiler_temp$$45_fixedAt
   this.$userVisible_$ = !$iframeId_opt_invisible$$;
   this.$eventHandler_$ = new $goog$events$EventHandler$$(this);
   if ($iframeId_opt_invisible$$ || $goog$History$LEGACY_IE$$) {
-    var $iframe$$5_iframeHtml_name$$inline_2496$$;
+    var $iframe$$5_iframeHtml_name$$inline_2497$$;
     if ($opt_attributes$$inline_1502_opt_iframe$$) {
-      $iframe$$5_iframeHtml_name$$inline_2496$$ = $opt_attributes$$inline_1502_opt_iframe$$;
+      $iframe$$5_iframeHtml_name$$inline_2497$$ = $opt_attributes$$inline_1502_opt_iframe$$;
     } else {
       $iframeId_opt_invisible$$ = "history_iframe" + $goog$History$historyCount_$$;
       $opt_attributes$$inline_1502_opt_iframe$$ = {id:$iframeId_opt_invisible$$, style:$goog$string$Const$create__googStringSecurityPrivate_$$("display:none"), $sandbox$:void 0};
       $JSCompiler_temp$$45_fixedAttributes$$inline_1505_opt_blankPageUrl_url$$inline_1494_url$$inline_1496$$ = {};
       $JSCompiler_temp$$45_fixedAttributes$$inline_1505_opt_blankPageUrl_url$$inline_1494_url$$inline_1496$$.src = this.$iframeSrc_$ || null;
       $JSCompiler_temp$$45_fixedAttributes$$inline_1505_opt_blankPageUrl_url$$inline_1494_url$$inline_1496$$.srcdoc = null;
-      $defaultAttributes$$inline_2494_opt_input$$ = {sandbox:""};
-      $combinedAttributes$$inline_2495_input$$2_inputId$$ = {};
-      for ($iframe$$5_iframeHtml_name$$inline_2496$$ in $JSCompiler_temp$$45_fixedAttributes$$inline_1505_opt_blankPageUrl_url$$inline_1494_url$$inline_1496$$) {
-        $combinedAttributes$$inline_2495_input$$2_inputId$$[$iframe$$5_iframeHtml_name$$inline_2496$$] = $JSCompiler_temp$$45_fixedAttributes$$inline_1505_opt_blankPageUrl_url$$inline_1494_url$$inline_1496$$[$iframe$$5_iframeHtml_name$$inline_2496$$];
+      $defaultAttributes$$inline_2495_opt_input$$ = {sandbox:""};
+      $combinedAttributes$$inline_2496_input$$2_inputId$$ = {};
+      for ($iframe$$5_iframeHtml_name$$inline_2497$$ in $JSCompiler_temp$$45_fixedAttributes$$inline_1505_opt_blankPageUrl_url$$inline_1494_url$$inline_1496$$) {
+        $combinedAttributes$$inline_2496_input$$2_inputId$$[$iframe$$5_iframeHtml_name$$inline_2497$$] = $JSCompiler_temp$$45_fixedAttributes$$inline_1505_opt_blankPageUrl_url$$inline_1494_url$$inline_1496$$[$iframe$$5_iframeHtml_name$$inline_2497$$];
       }
-      for ($iframe$$5_iframeHtml_name$$inline_2496$$ in $defaultAttributes$$inline_2494_opt_input$$) {
-        $combinedAttributes$$inline_2495_input$$2_inputId$$[$iframe$$5_iframeHtml_name$$inline_2496$$] = $defaultAttributes$$inline_2494_opt_input$$[$iframe$$5_iframeHtml_name$$inline_2496$$];
+      for ($iframe$$5_iframeHtml_name$$inline_2497$$ in $defaultAttributes$$inline_2495_opt_input$$) {
+        $combinedAttributes$$inline_2496_input$$2_inputId$$[$iframe$$5_iframeHtml_name$$inline_2497$$] = $defaultAttributes$$inline_2495_opt_input$$[$iframe$$5_iframeHtml_name$$inline_2497$$];
       }
-      for ($iframe$$5_iframeHtml_name$$inline_2496$$ in $opt_attributes$$inline_1502_opt_iframe$$) {
-        $inputHtml_nameLower$$inline_2497$$ = $iframe$$5_iframeHtml_name$$inline_2496$$.toLowerCase();
-        if ($inputHtml_nameLower$$inline_2497$$ in $JSCompiler_temp$$45_fixedAttributes$$inline_1505_opt_blankPageUrl_url$$inline_1494_url$$inline_1496$$) {
-          throw Error('Cannot override "' + $inputHtml_nameLower$$inline_2497$$ + '" attribute, got "' + $iframe$$5_iframeHtml_name$$inline_2496$$ + '" with value "' + $opt_attributes$$inline_1502_opt_iframe$$[$iframe$$5_iframeHtml_name$$inline_2496$$] + '"');
+      for ($iframe$$5_iframeHtml_name$$inline_2497$$ in $opt_attributes$$inline_1502_opt_iframe$$) {
+        $inputHtml_nameLower$$inline_2498$$ = $iframe$$5_iframeHtml_name$$inline_2497$$.toLowerCase();
+        if ($inputHtml_nameLower$$inline_2498$$ in $JSCompiler_temp$$45_fixedAttributes$$inline_1505_opt_blankPageUrl_url$$inline_1494_url$$inline_1496$$) {
+          throw Error('Cannot override "' + $inputHtml_nameLower$$inline_2498$$ + '" attribute, got "' + $iframe$$5_iframeHtml_name$$inline_2497$$ + '" with value "' + $opt_attributes$$inline_1502_opt_iframe$$[$iframe$$5_iframeHtml_name$$inline_2497$$] + '"');
         }
-        $inputHtml_nameLower$$inline_2497$$ in $defaultAttributes$$inline_2494_opt_input$$ && delete $combinedAttributes$$inline_2495_input$$2_inputId$$[$inputHtml_nameLower$$inline_2497$$];
-        $combinedAttributes$$inline_2495_input$$2_inputId$$[$iframe$$5_iframeHtml_name$$inline_2496$$] = $opt_attributes$$inline_1502_opt_iframe$$[$iframe$$5_iframeHtml_name$$inline_2496$$];
+        $inputHtml_nameLower$$inline_2498$$ in $defaultAttributes$$inline_2495_opt_input$$ && delete $combinedAttributes$$inline_2496_input$$2_inputId$$[$inputHtml_nameLower$$inline_2498$$];
+        $combinedAttributes$$inline_2496_input$$2_inputId$$[$iframe$$5_iframeHtml_name$$inline_2497$$] = $opt_attributes$$inline_1502_opt_iframe$$[$iframe$$5_iframeHtml_name$$inline_2497$$];
       }
-      $iframe$$5_iframeHtml_name$$inline_2496$$ = $goog$html$SafeHtml$createSafeHtmlTagSecurityPrivateDoNotAccessOrElse$$("iframe", $combinedAttributes$$inline_2495_input$$2_inputId$$, void 0);
-      document.write($goog$html$SafeHtml$unwrap$$($iframe$$5_iframeHtml_name$$inline_2496$$));
-      $iframe$$5_iframeHtml_name$$inline_2496$$ = $goog$dom$getElement$$($iframeId_opt_invisible$$);
+      $iframe$$5_iframeHtml_name$$inline_2497$$ = $goog$html$SafeHtml$createSafeHtmlTagSecurityPrivateDoNotAccessOrElse$$("iframe", $combinedAttributes$$inline_2496_input$$2_inputId$$, void 0);
+      document.write($goog$html$SafeHtml$unwrap$$($iframe$$5_iframeHtml_name$$inline_2497$$));
+      $iframe$$5_iframeHtml_name$$inline_2497$$ = $goog$dom$getElement$$($iframeId_opt_invisible$$);
     }
-    this.$iframe_$ = $iframe$$5_iframeHtml_name$$inline_2496$$;
+    this.$iframe_$ = $iframe$$5_iframeHtml_name$$inline_2497$$;
     this.$unsetIframe_$ = !0;
   }
   $goog$History$LEGACY_IE$$ && (this.$eventHandler_$.$listen$(this.$window_$, "load", this.$onDocumentLoaded$), this.$shouldEnable_$ = this.$documentLoaded$ = !1);
@@ -14343,8 +14343,8 @@ function $JSCompiler_StaticMethods_cleanUpTimeoutTimer_$$($JSCompiler_StaticMeth
 $JSCompiler_prototypeAlias$$.$isActive$ = function $$JSCompiler_prototypeAlias$$$$isActive$$() {
   return!!this.$xhr_$;
 };
-function $JSCompiler_StaticMethods_isSuccess$$($JSCompiler_StaticMethods_isSuccess$self_protocol$$inline_2512_scheme$$inline_2511$$) {
-  var $JSCompiler_temp$$181_status$$5$$ = $JSCompiler_StaticMethods_getStatus$$($JSCompiler_StaticMethods_isSuccess$self_protocol$$inline_2512_scheme$$inline_2511$$), $JSCompiler_inline_result$$174_JSCompiler_temp$$180$$;
+function $JSCompiler_StaticMethods_isSuccess$$($JSCompiler_StaticMethods_isSuccess$self_protocol$$inline_2513_scheme$$inline_2512$$) {
+  var $JSCompiler_temp$$181_status$$5$$ = $JSCompiler_StaticMethods_getStatus$$($JSCompiler_StaticMethods_isSuccess$self_protocol$$inline_2513_scheme$$inline_2512$$), $JSCompiler_inline_result$$174_JSCompiler_temp$$180$$;
   a: {
     switch($JSCompiler_temp$$181_status$$5$$) {
       case 200:
@@ -14368,8 +14368,8 @@ function $JSCompiler_StaticMethods_isSuccess$$($JSCompiler_StaticMethods_isSucce
   }
   if (!$JSCompiler_inline_result$$174_JSCompiler_temp$$180$$) {
     if ($JSCompiler_temp$$181_status$$5$$ = 0 === $JSCompiler_temp$$181_status$$5$$) {
-      $JSCompiler_StaticMethods_isSuccess$self_protocol$$inline_2512_scheme$$inline_2511$$ = $goog$uri$utils$split$$(String($JSCompiler_StaticMethods_isSuccess$self_protocol$$inline_2512_scheme$$inline_2511$$.$lastUri_$))[1] || null, !$JSCompiler_StaticMethods_isSuccess$self_protocol$$inline_2512_scheme$$inline_2511$$ && $goog$global$$.self && $goog$global$$.self.location && ($JSCompiler_StaticMethods_isSuccess$self_protocol$$inline_2512_scheme$$inline_2511$$ = $goog$global$$.self.location.protocol, 
-      $JSCompiler_StaticMethods_isSuccess$self_protocol$$inline_2512_scheme$$inline_2511$$ = $JSCompiler_StaticMethods_isSuccess$self_protocol$$inline_2512_scheme$$inline_2511$$.substr(0, $JSCompiler_StaticMethods_isSuccess$self_protocol$$inline_2512_scheme$$inline_2511$$.length - 1)), $JSCompiler_temp$$181_status$$5$$ = !$goog$net$XhrIo$HTTP_SCHEME_PATTERN$$.test($JSCompiler_StaticMethods_isSuccess$self_protocol$$inline_2512_scheme$$inline_2511$$ ? $JSCompiler_StaticMethods_isSuccess$self_protocol$$inline_2512_scheme$$inline_2511$$.toLowerCase() : 
+      $JSCompiler_StaticMethods_isSuccess$self_protocol$$inline_2513_scheme$$inline_2512$$ = $goog$uri$utils$split$$(String($JSCompiler_StaticMethods_isSuccess$self_protocol$$inline_2513_scheme$$inline_2512$$.$lastUri_$))[1] || null, !$JSCompiler_StaticMethods_isSuccess$self_protocol$$inline_2513_scheme$$inline_2512$$ && $goog$global$$.self && $goog$global$$.self.location && ($JSCompiler_StaticMethods_isSuccess$self_protocol$$inline_2513_scheme$$inline_2512$$ = $goog$global$$.self.location.protocol, 
+      $JSCompiler_StaticMethods_isSuccess$self_protocol$$inline_2513_scheme$$inline_2512$$ = $JSCompiler_StaticMethods_isSuccess$self_protocol$$inline_2513_scheme$$inline_2512$$.substr(0, $JSCompiler_StaticMethods_isSuccess$self_protocol$$inline_2513_scheme$$inline_2512$$.length - 1)), $JSCompiler_temp$$181_status$$5$$ = !$goog$net$XhrIo$HTTP_SCHEME_PATTERN$$.test($JSCompiler_StaticMethods_isSuccess$self_protocol$$inline_2513_scheme$$inline_2512$$ ? $JSCompiler_StaticMethods_isSuccess$self_protocol$$inline_2513_scheme$$inline_2512$$.toLowerCase() : 
       "");
     }
     $JSCompiler_inline_result$$174_JSCompiler_temp$$180$$ = $JSCompiler_temp$$181_status$$5$$;
@@ -14415,26 +14415,26 @@ function $JSCompiler_StaticMethods_createAndAddContentWrapperElement$$($JSCompil
 }
 $JSCompiler_prototypeAlias$$.$decorate$ = function $$JSCompiler_prototypeAlias$$$$decorate$$($containerElement$$1_tabBarEl$$1$$) {
   $containerElement$$1_tabBarEl$$1$$ = $goog$dom$classes$has$$($containerElement$$1_tabBarEl$$1$$, "nav") ? $containerElement$$1_tabBarEl$$1$$ : $goog$dom$getElementByClass$$("nav", $containerElement$$1_tabBarEl$$1$$);
-  var $element$$inline_2514_selectedTabIndex_selectedTabIndex$$inline_1586$$;
-  $element$$inline_2514_selectedTabIndex_selectedTabIndex$$inline_1586$$ = 0;
-  var $historyCtrl$$inline_1587$$ = $goog$dom$getElement$$("history_state"), $index$$inline_2515_selectedTab$$inline_1590_selectedTabId$$inline_1588$$;
+  var $element$$inline_2515_selectedTabIndex_selectedTabIndex$$inline_1586$$;
+  $element$$inline_2515_selectedTabIndex_selectedTabIndex$$inline_1586$$ = 0;
+  var $historyCtrl$$inline_1587$$ = $goog$dom$getElement$$("history_state"), $index$$inline_2516_selectedTab$$inline_1590_selectedTabId$$inline_1588$$;
   if (null == $historyCtrl$$inline_1587$$) {
-    this.$cookieName_$ && ($index$$inline_2515_selectedTab$$inline_1590_selectedTabId$$inline_1588$$ = $goog$net$cookies$$.get(this.$cookieName_$, "0"));
+    this.$cookieName_$ && ($index$$inline_2516_selectedTab$$inline_1590_selectedTabId$$inline_1588$$ = $goog$net$cookies$$.get(this.$cookieName_$, "0"));
   } else {
     if ($historyCtrl$$inline_1587$$.value) {
       var $historyValue$$inline_1589$$ = $historyCtrl$$inline_1587$$.value;
-      "{" == $historyValue$$inline_1589$$.charAt(0) ? this.$cookieName_$ && ($historyValue$$inline_1589$$ = $historyValue$$inline_1589$$.replace(/'/g, '"'), $index$$inline_2515_selectedTab$$inline_1590_selectedTabId$$inline_1588$$ = JSON.parse($historyValue$$inline_1589$$)[this.$cookieName_$]) : $index$$inline_2515_selectedTab$$inline_1590_selectedTabId$$inline_1588$$ = $historyCtrl$$inline_1587$$.value;
+      "{" == $historyValue$$inline_1589$$.charAt(0) ? this.$cookieName_$ && ($historyValue$$inline_1589$$ = $historyValue$$inline_1589$$.replace(/'/g, '"'), $index$$inline_2516_selectedTab$$inline_1590_selectedTabId$$inline_1588$$ = JSON.parse($historyValue$$inline_1589$$)[this.$cookieName_$]) : $index$$inline_2516_selectedTab$$inline_1590_selectedTabId$$inline_1588$$ = $historyCtrl$$inline_1587$$.value;
       this.$history_$ = new $goog$History$$(!1, void 0, $historyCtrl$$inline_1587$$);
     }
   }
-  void 0 !== $index$$inline_2515_selectedTab$$inline_1590_selectedTabId$$inline_1588$$ && (/^tab_/.test($index$$inline_2515_selectedTab$$inline_1590_selectedTabId$$inline_1588$$) ? ($index$$inline_2515_selectedTab$$inline_1590_selectedTabId$$inline_1588$$ = $JSCompiler_StaticMethods_getChild$$(this.$tabBar_$, $index$$inline_2515_selectedTab$$inline_1590_selectedTabId$$inline_1588$$)) && ($element$$inline_2514_selectedTabIndex_selectedTabIndex$$inline_1586$$ = $JSCompiler_StaticMethods_indexOfChild$$(this.$tabBar_$, 
-  $index$$inline_2515_selectedTab$$inline_1590_selectedTabId$$inline_1588$$)) : $element$$inline_2514_selectedTabIndex_selectedTabIndex$$inline_1586$$ = parseInt($index$$inline_2515_selectedTab$$inline_1590_selectedTabId$$inline_1588$$));
-  if (0 == $element$$inline_2514_selectedTabIndex_selectedTabIndex$$inline_1586$$) {
-    $element$$inline_2514_selectedTabIndex_selectedTabIndex$$inline_1586$$ = $containerElement$$1_tabBarEl$$1$$.getElementsByClassName("active")[0];
-    for ($index$$inline_2515_selectedTab$$inline_1590_selectedTabId$$inline_1588$$ = 0;$element$$inline_2514_selectedTabIndex_selectedTabIndex$$inline_1586$$;) {
-      $element$$inline_2514_selectedTabIndex_selectedTabIndex$$inline_1586$$ = $goog$isDef$$($element$$inline_2514_selectedTabIndex_selectedTabIndex$$inline_1586$$.previousElementSibling) ? $element$$inline_2514_selectedTabIndex_selectedTabIndex$$inline_1586$$.previousElementSibling : $goog$dom$getNextElementNode_$$($element$$inline_2514_selectedTabIndex_selectedTabIndex$$inline_1586$$.previousSibling, !1), $index$$inline_2515_selectedTab$$inline_1590_selectedTabId$$inline_1588$$++;
+  void 0 !== $index$$inline_2516_selectedTab$$inline_1590_selectedTabId$$inline_1588$$ && (/^tab_/.test($index$$inline_2516_selectedTab$$inline_1590_selectedTabId$$inline_1588$$) ? ($index$$inline_2516_selectedTab$$inline_1590_selectedTabId$$inline_1588$$ = $JSCompiler_StaticMethods_getChild$$(this.$tabBar_$, $index$$inline_2516_selectedTab$$inline_1590_selectedTabId$$inline_1588$$)) && ($element$$inline_2515_selectedTabIndex_selectedTabIndex$$inline_1586$$ = $JSCompiler_StaticMethods_indexOfChild$$(this.$tabBar_$, 
+  $index$$inline_2516_selectedTab$$inline_1590_selectedTabId$$inline_1588$$)) : $element$$inline_2515_selectedTabIndex_selectedTabIndex$$inline_1586$$ = parseInt($index$$inline_2516_selectedTab$$inline_1590_selectedTabId$$inline_1588$$));
+  if (0 == $element$$inline_2515_selectedTabIndex_selectedTabIndex$$inline_1586$$) {
+    $element$$inline_2515_selectedTabIndex_selectedTabIndex$$inline_1586$$ = $containerElement$$1_tabBarEl$$1$$.getElementsByClassName("active")[0];
+    for ($index$$inline_2516_selectedTab$$inline_1590_selectedTabId$$inline_1588$$ = 0;$element$$inline_2515_selectedTabIndex_selectedTabIndex$$inline_1586$$;) {
+      $element$$inline_2515_selectedTabIndex_selectedTabIndex$$inline_1586$$ = $goog$isDef$$($element$$inline_2515_selectedTabIndex_selectedTabIndex$$inline_1586$$.previousElementSibling) ? $element$$inline_2515_selectedTabIndex_selectedTabIndex$$inline_1586$$.previousElementSibling : $goog$dom$getNextElementNode_$$($element$$inline_2515_selectedTabIndex_selectedTabIndex$$inline_1586$$.previousSibling, !1), $index$$inline_2516_selectedTab$$inline_1590_selectedTabId$$inline_1588$$++;
     }
-    $element$$inline_2514_selectedTabIndex_selectedTabIndex$$inline_1586$$ = $index$$inline_2515_selectedTab$$inline_1590_selectedTabId$$inline_1588$$ - 1;
+    $element$$inline_2515_selectedTabIndex_selectedTabIndex$$inline_1586$$ = $index$$inline_2516_selectedTab$$inline_1590_selectedTabId$$inline_1588$$ - 1;
   }
   if (!this.$tabBar_$.$inDocument_$) {
     try {
@@ -14443,8 +14443,8 @@ $JSCompiler_prototypeAlias$$.$decorate$ = function $$JSCompiler_prototypeAlias$$
       console.error($e$$258$$);
     }
   }
-  $JSCompiler_StaticMethods_initialiseTabPanesFromTabs$$(this, $containerElement$$1_tabBarEl$$1$$, $goog$dom$getElementsByTagNameAndClass$$("li", void 0, $containerElement$$1_tabBarEl$$1$$), $element$$inline_2514_selectedTabIndex_selectedTabIndex$$inline_1586$$);
-  this.$tabBar_$.$setSelectedTabIndex$($element$$inline_2514_selectedTabIndex_selectedTabIndex$$inline_1586$$);
+  $JSCompiler_StaticMethods_initialiseTabPanesFromTabs$$(this, $containerElement$$1_tabBarEl$$1$$, $goog$dom$getElementsByTagNameAndClass$$("li", void 0, $containerElement$$1_tabBarEl$$1$$), $element$$inline_2515_selectedTabIndex_selectedTabIndex$$inline_1586$$);
+  this.$tabBar_$.$setSelectedTabIndex$($element$$inline_2515_selectedTabIndex_selectedTabIndex$$inline_1586$$);
   this.$listenToTabEvents_$();
 };
 $JSCompiler_prototypeAlias$$.render = function $$JSCompiler_prototypeAlias$$$render$($containerElement$$2$$) {
@@ -14506,32 +14506,32 @@ function $JSCompiler_StaticMethods_doSelectTab_$$($JSCompiler_StaticMethods_doSe
   $JSCompiler_StaticMethods_showTabContentPane_$$($JSCompiler_StaticMethods_doSelectTab_$self$$, $JSCompiler_StaticMethods_doSelectTab_$self$$.$visibleContentPane_$, !1);
   $fragment$$4_href$$7$$.$fragment_$ ? ($fragment$$4_href$$7$$ = $fragment$$4_href$$7$$.$fragment_$, $JSCompiler_StaticMethods_showTabContentPane_$$($JSCompiler_StaticMethods_doSelectTab_$self$$, $goog$dom$getElement$$($fragment$$4_href$$7$$), !0, $fragment$$4_href$$7$$)) : $goog$net$XhrIo$send$$($fragment$$4_href$$7$$, function($JSCompiler_StaticMethods_getResponseText$self$$inline_1599_event$$22_tabPaneId$$) {
     if ($JSCompiler_StaticMethods_isSuccess$$($JSCompiler_StaticMethods_getResponseText$self$$inline_1599_event$$22_tabPaneId$$.target)) {
-      var $JSCompiler_inline_result$$2156_contentPane$$4_html$$29_tempDiv$$inline_2519$$;
+      var $JSCompiler_inline_result$$2157_contentPane$$4_html$$29_tempDiv$$inline_2520$$;
       $JSCompiler_StaticMethods_getResponseText$self$$inline_1599_event$$22_tabPaneId$$ = $JSCompiler_StaticMethods_getResponseText$self$$inline_1599_event$$22_tabPaneId$$.target;
       try {
-        $JSCompiler_inline_result$$2156_contentPane$$4_html$$29_tempDiv$$inline_2519$$ = $JSCompiler_StaticMethods_getResponseText$self$$inline_1599_event$$22_tabPaneId$$.$xhr_$ ? $JSCompiler_StaticMethods_getResponseText$self$$inline_1599_event$$22_tabPaneId$$.$xhr_$.responseText : "";
+        $JSCompiler_inline_result$$2157_contentPane$$4_html$$29_tempDiv$$inline_2520$$ = $JSCompiler_StaticMethods_getResponseText$self$$inline_1599_event$$22_tabPaneId$$.$xhr_$ ? $JSCompiler_StaticMethods_getResponseText$self$$inline_1599_event$$22_tabPaneId$$.$xhr_$.responseText : "";
       } catch ($e$$inline_1600$$) {
-        $JSCompiler_inline_result$$2156_contentPane$$4_html$$29_tempDiv$$inline_2519$$ = "";
+        $JSCompiler_inline_result$$2157_contentPane$$4_html$$29_tempDiv$$inline_2520$$ = "";
       }
       $JSCompiler_StaticMethods_getResponseText$self$$inline_1599_event$$22_tabPaneId$$ = $tab$$10$$.$getId$() + "_content";
-      var $doc$$inline_2517_fragment$$inline_2637_refNode$$inline_1603$$ = $JSCompiler_StaticMethods_doSelectTab_$self$$.$dom_$.$document_$, $htmlString$$inline_2518$$ = $JSCompiler_inline_result$$2156_contentPane$$4_html$$29_tempDiv$$inline_2519$$;
-      $JSCompiler_inline_result$$2156_contentPane$$4_html$$29_tempDiv$$inline_2519$$ = $doc$$inline_2517_fragment$$inline_2637_refNode$$inline_1603$$.createElement("DIV");
-      $goog$userAgent$IE$$ ? ($JSCompiler_inline_result$$2156_contentPane$$4_html$$29_tempDiv$$inline_2519$$.innerHTML = "<br>" + $htmlString$$inline_2518$$, $JSCompiler_inline_result$$2156_contentPane$$4_html$$29_tempDiv$$inline_2519$$.removeChild($JSCompiler_inline_result$$2156_contentPane$$4_html$$29_tempDiv$$inline_2519$$.firstChild)) : $JSCompiler_inline_result$$2156_contentPane$$4_html$$29_tempDiv$$inline_2519$$.innerHTML = $htmlString$$inline_2518$$;
-      if (1 == $JSCompiler_inline_result$$2156_contentPane$$4_html$$29_tempDiv$$inline_2519$$.childNodes.length) {
-        $JSCompiler_inline_result$$2156_contentPane$$4_html$$29_tempDiv$$inline_2519$$ = $JSCompiler_inline_result$$2156_contentPane$$4_html$$29_tempDiv$$inline_2519$$.removeChild($JSCompiler_inline_result$$2156_contentPane$$4_html$$29_tempDiv$$inline_2519$$.firstChild);
+      var $doc$$inline_2518_fragment$$inline_2638_refNode$$inline_1603$$ = $JSCompiler_StaticMethods_doSelectTab_$self$$.$dom_$.$document_$, $htmlString$$inline_2519$$ = $JSCompiler_inline_result$$2157_contentPane$$4_html$$29_tempDiv$$inline_2520$$;
+      $JSCompiler_inline_result$$2157_contentPane$$4_html$$29_tempDiv$$inline_2520$$ = $doc$$inline_2518_fragment$$inline_2638_refNode$$inline_1603$$.createElement("DIV");
+      $goog$userAgent$IE$$ ? ($JSCompiler_inline_result$$2157_contentPane$$4_html$$29_tempDiv$$inline_2520$$.innerHTML = "<br>" + $htmlString$$inline_2519$$, $JSCompiler_inline_result$$2157_contentPane$$4_html$$29_tempDiv$$inline_2520$$.removeChild($JSCompiler_inline_result$$2157_contentPane$$4_html$$29_tempDiv$$inline_2520$$.firstChild)) : $JSCompiler_inline_result$$2157_contentPane$$4_html$$29_tempDiv$$inline_2520$$.innerHTML = $htmlString$$inline_2519$$;
+      if (1 == $JSCompiler_inline_result$$2157_contentPane$$4_html$$29_tempDiv$$inline_2520$$.childNodes.length) {
+        $JSCompiler_inline_result$$2157_contentPane$$4_html$$29_tempDiv$$inline_2520$$ = $JSCompiler_inline_result$$2157_contentPane$$4_html$$29_tempDiv$$inline_2520$$.removeChild($JSCompiler_inline_result$$2157_contentPane$$4_html$$29_tempDiv$$inline_2520$$.firstChild);
       } else {
-        for ($doc$$inline_2517_fragment$$inline_2637_refNode$$inline_1603$$ = $doc$$inline_2517_fragment$$inline_2637_refNode$$inline_1603$$.createDocumentFragment();$JSCompiler_inline_result$$2156_contentPane$$4_html$$29_tempDiv$$inline_2519$$.firstChild;) {
-          $doc$$inline_2517_fragment$$inline_2637_refNode$$inline_1603$$.appendChild($JSCompiler_inline_result$$2156_contentPane$$4_html$$29_tempDiv$$inline_2519$$.firstChild);
+        for ($doc$$inline_2518_fragment$$inline_2638_refNode$$inline_1603$$ = $doc$$inline_2518_fragment$$inline_2638_refNode$$inline_1603$$.createDocumentFragment();$JSCompiler_inline_result$$2157_contentPane$$4_html$$29_tempDiv$$inline_2520$$.firstChild;) {
+          $doc$$inline_2518_fragment$$inline_2638_refNode$$inline_1603$$.appendChild($JSCompiler_inline_result$$2157_contentPane$$4_html$$29_tempDiv$$inline_2520$$.firstChild);
         }
-        $JSCompiler_inline_result$$2156_contentPane$$4_html$$29_tempDiv$$inline_2519$$ = $doc$$inline_2517_fragment$$inline_2637_refNode$$inline_1603$$;
+        $JSCompiler_inline_result$$2157_contentPane$$4_html$$29_tempDiv$$inline_2520$$ = $doc$$inline_2518_fragment$$inline_2638_refNode$$inline_1603$$;
       }
-      $JSCompiler_inline_result$$2156_contentPane$$4_html$$29_tempDiv$$inline_2519$$ = $goog$dom$createDom$$("div", {id:$JSCompiler_StaticMethods_getResponseText$self$$inline_1599_event$$22_tabPaneId$$}, $JSCompiler_inline_result$$2156_contentPane$$4_html$$29_tempDiv$$inline_2519$$);
+      $JSCompiler_inline_result$$2157_contentPane$$4_html$$29_tempDiv$$inline_2520$$ = $goog$dom$createDom$$("div", {id:$JSCompiler_StaticMethods_getResponseText$self$$inline_1599_event$$22_tabPaneId$$}, $JSCompiler_inline_result$$2157_contentPane$$4_html$$29_tempDiv$$inline_2520$$);
       $a$$59$$.href = "#" + $JSCompiler_StaticMethods_getResponseText$self$$inline_1599_event$$22_tabPaneId$$;
-      $doc$$inline_2517_fragment$$inline_2637_refNode$$inline_1603$$ = $tabElement$$2$$.parentNode;
-      $doc$$inline_2517_fragment$$inline_2637_refNode$$inline_1603$$.parentNode && $doc$$inline_2517_fragment$$inline_2637_refNode$$inline_1603$$.parentNode.insertBefore($JSCompiler_inline_result$$2156_contentPane$$4_html$$29_tempDiv$$inline_2519$$, $doc$$inline_2517_fragment$$inline_2637_refNode$$inline_1603$$.nextSibling);
-      $JSCompiler_StaticMethods_showTabContentPane_$$($JSCompiler_StaticMethods_doSelectTab_$self$$, $JSCompiler_inline_result$$2156_contentPane$$4_html$$29_tempDiv$$inline_2519$$, !0, $JSCompiler_StaticMethods_getResponseText$self$$inline_1599_event$$22_tabPaneId$$);
-      $bootstrap3$Tabs$decorateContentPane$$($JSCompiler_inline_result$$2156_contentPane$$4_html$$29_tempDiv$$inline_2519$$, $JSCompiler_StaticMethods_doSelectTab_$self$$.$fade$);
-      $JSCompiler_StaticMethods_doSelectTab_$self$$.dispatchEvent(new $goog$events$Event$$("load", $JSCompiler_inline_result$$2156_contentPane$$4_html$$29_tempDiv$$inline_2519$$));
+      $doc$$inline_2518_fragment$$inline_2638_refNode$$inline_1603$$ = $tabElement$$2$$.parentNode;
+      $doc$$inline_2518_fragment$$inline_2638_refNode$$inline_1603$$.parentNode && $doc$$inline_2518_fragment$$inline_2638_refNode$$inline_1603$$.parentNode.insertBefore($JSCompiler_inline_result$$2157_contentPane$$4_html$$29_tempDiv$$inline_2520$$, $doc$$inline_2518_fragment$$inline_2638_refNode$$inline_1603$$.nextSibling);
+      $JSCompiler_StaticMethods_showTabContentPane_$$($JSCompiler_StaticMethods_doSelectTab_$self$$, $JSCompiler_inline_result$$2157_contentPane$$4_html$$29_tempDiv$$inline_2520$$, !0, $JSCompiler_StaticMethods_getResponseText$self$$inline_1599_event$$22_tabPaneId$$);
+      $bootstrap3$Tabs$decorateContentPane$$($JSCompiler_inline_result$$2157_contentPane$$4_html$$29_tempDiv$$inline_2520$$, $JSCompiler_StaticMethods_doSelectTab_$self$$.$fade$);
+      $JSCompiler_StaticMethods_doSelectTab_$self$$.dispatchEvent(new $goog$events$Event$$("load", $JSCompiler_inline_result$$2157_contentPane$$4_html$$29_tempDiv$$inline_2520$$));
     }
   });
 }
@@ -14595,23 +14595,24 @@ $JSCompiler_prototypeAlias$$.$recreateComponents_$ = function $$JSCompiler_proto
   $JSCompiler_StaticMethods_getWithdrawMethods$$(this);
 };
 $JSCompiler_prototypeAlias$$.$destroyComponents_$ = function $$JSCompiler_prototypeAlias$$$$destroyComponents_$$() {
-  var $handler$$inline_1626_handler$$inline_1630_handler$$inline_1634$$ = this.$getHandler$(), $model$$inline_1627_model$$inline_1631$$ = this.$app_$.$model_$;
-  null != this.$deposit_button_group_$ && this.$deposit_button_group_$.$dispose$();
-  null != this.$deposit_list_table_$ && ($handler$$inline_1626_handler$$inline_1630_handler$$inline_1634$$.$unlisten$(this.$deposit_list_table_$, "request_data", this.$onDepositListTableRequestData_$), $handler$$inline_1626_handler$$inline_1630_handler$$inline_1634$$.$unlisten$(this.$app_$.$conn_$, $bitex$api$BitEx$EventType$DEPOSIT_LIST_RESPONSE$$ + "." + this.$request_id_$, this.$onDepositListReponse_$), $handler$$inline_1626_handler$$inline_1630_handler$$inline_1634$$.$unlisten$(this.$app_$.$conn_$, 
-  $bitex$api$BitEx$EventType$DEPOSIT_REFRESH$$ + "." + $model$$inline_1627_model$$inline_1631$$.get("UserID"), this.$onDepositRefresh_$), $handler$$inline_1626_handler$$inline_1630_handler$$inline_1634$$.$unlisten$(this.$deposit_list_table_$.$getElement$(), "click", this.$onDepositListTableClick_$));
-  $goog$dom$removeChildren$$($goog$dom$getElement$$("admin_deposit_requests"));
-  this.$request_id_$ = this.$deposit_list_table_$ = null;
-  $handler$$inline_1626_handler$$inline_1630_handler$$inline_1634$$ = this.$getHandler$();
-  $model$$inline_1627_model$$inline_1631$$ = this.$app_$.$model_$;
-  null != this.$withdraw_list_table_$ && ($handler$$inline_1626_handler$$inline_1630_handler$$inline_1634$$.$unlisten$(this.$withdraw_list_table_$, "request_data", this.$onWithdrawListTableRequestData_$), $handler$$inline_1626_handler$$inline_1630_handler$$inline_1634$$.$unlisten$(this.$app_$.$conn_$, $bitex$api$BitEx$EventType$WITHDRAW_LIST_RESPONSE$$, this.$onWithdrawListReponse_$), $handler$$inline_1626_handler$$inline_1630_handler$$inline_1634$$.$unlisten$(this.$app_$.$conn_$, $bitex$api$BitEx$EventType$WITHDRAW_REFRESH$$ + 
-  "." + $model$$inline_1627_model$$inline_1631$$.get("UserID"), this.$onWithdrawRefresh_$), $handler$$inline_1626_handler$$inline_1630_handler$$inline_1634$$.$unlisten$(this.$withdraw_list_table_$.$getElement$(), "click", this.$onWithdrawListTableClick_$), $handler$$inline_1626_handler$$inline_1630_handler$$inline_1634$$.$unlisten$(this.$withdraw_list_table_$, "withdraw_kyc", this.$onUserKYC_$), $handler$$inline_1626_handler$$inline_1630_handler$$inline_1634$$.$unlisten$(this.$withdraw_list_table_$, 
-  "withdraw_cancel", this.$BrokerCancelWithdraw_$), $handler$$inline_1626_handler$$inline_1630_handler$$inline_1634$$.$unlisten$(this.$withdraw_list_table_$, "withdraw_user_cancel", this.$onUserCancelWithdraw_$), $handler$$inline_1626_handler$$inline_1630_handler$$inline_1634$$.$unlisten$(this.$withdraw_list_table_$, "withdraw_redo", this.$onUserRedoWithdraw_$), $handler$$inline_1626_handler$$inline_1630_handler$$inline_1634$$.$unlisten$(this.$withdraw_list_table_$, "withdraw_progress", this.$onUserSetWithdrawInProgress_$), 
-  $handler$$inline_1626_handler$$inline_1630_handler$$inline_1634$$.$unlisten$(this.$withdraw_list_table_$, "withdraw_complete", this.$onUserSetWithdrawComplete_$), $goog$dom$removeChildren$$($goog$dom$getElement$$("admin_withdraw_requests")));
-  this.$request_id_$ = this.$withdraw_list_table_$ = null;
-  $handler$$inline_1626_handler$$inline_1630_handler$$inline_1634$$ = this.$getHandler$();
-  null != this.$customers_table_$ && ($handler$$inline_1626_handler$$inline_1630_handler$$inline_1634$$.$unlisten$(this.$customers_table_$, "request_data", this.$onCustomerListTableRequestData_$), $handler$$inline_1626_handler$$inline_1630_handler$$inline_1634$$.$unlisten$(this.$app_$.$conn_$, $bitex$api$BitEx$EventType$CUSTOMER_LIST_RESPONSE$$ + "." + this.$request_id_$, this.$onCustomerListReponse_$));
+  var $handler$$inline_1626_handler$$inline_1629_handler$$inline_1633$$ = this.$getHandler$();
+  null != this.$customers_table_$ && ($handler$$inline_1626_handler$$inline_1629_handler$$inline_1633$$.$unlisten$(this.$customers_table_$, "request_data", this.$onCustomerListTableRequestData_$), $handler$$inline_1626_handler$$inline_1629_handler$$inline_1633$$.$unlisten$(this.$app_$.$conn_$, $bitex$api$BitEx$EventType$CUSTOMER_LIST_RESPONSE$$ + "." + this.$request_id_$, this.$onCustomerListReponse_$));
   $goog$dom$removeChildren$$($goog$dom$getElement$$("admin_customers"));
   this.$request_id_$ = this.$customers_table_$ = null;
+  var $handler$$inline_1626_handler$$inline_1629_handler$$inline_1633$$ = this.$getHandler$(), $model$$inline_1630_model$$inline_1634$$ = this.$app_$.$model_$;
+  null != this.$deposit_button_group_$ && this.$deposit_button_group_$.$dispose$();
+  null != this.$deposit_list_table_$ && ($handler$$inline_1626_handler$$inline_1629_handler$$inline_1633$$.$unlisten$(this.$deposit_list_table_$, "request_data", this.$onDepositListTableRequestData_$), $handler$$inline_1626_handler$$inline_1629_handler$$inline_1633$$.$unlisten$(this.$app_$.$conn_$, $bitex$api$BitEx$EventType$DEPOSIT_LIST_RESPONSE$$ + "." + this.$request_id_$, this.$onDepositListReponse_$), $handler$$inline_1626_handler$$inline_1629_handler$$inline_1633$$.$unlisten$(this.$app_$.$conn_$, 
+  $bitex$api$BitEx$EventType$DEPOSIT_REFRESH$$ + "." + $model$$inline_1630_model$$inline_1634$$.get("UserID"), this.$onDepositRefresh_$), $handler$$inline_1626_handler$$inline_1629_handler$$inline_1633$$.$unlisten$(this.$deposit_list_table_$.$getElement$(), "click", this.$onDepositListTableClick_$));
+  $goog$dom$removeChildren$$($goog$dom$getElement$$("admin_deposit_requests"));
+  this.$request_id_$ = this.$deposit_list_table_$ = null;
+  $handler$$inline_1626_handler$$inline_1629_handler$$inline_1633$$ = this.$getHandler$();
+  $model$$inline_1630_model$$inline_1634$$ = this.$app_$.$model_$;
+  null != this.$withdraw_list_table_$ && ($handler$$inline_1626_handler$$inline_1629_handler$$inline_1633$$.$unlisten$(this.$withdraw_list_table_$, "request_data", this.$onWithdrawListTableRequestData_$), $handler$$inline_1626_handler$$inline_1629_handler$$inline_1633$$.$unlisten$(this.$app_$.$conn_$, $bitex$api$BitEx$EventType$WITHDRAW_LIST_RESPONSE$$, this.$onWithdrawListReponse_$), $handler$$inline_1626_handler$$inline_1629_handler$$inline_1633$$.$unlisten$(this.$app_$.$conn_$, $bitex$api$BitEx$EventType$WITHDRAW_REFRESH$$ + 
+  "." + $model$$inline_1630_model$$inline_1634$$.get("UserID"), this.$onWithdrawRefresh_$), $handler$$inline_1626_handler$$inline_1629_handler$$inline_1633$$.$unlisten$(this.$withdraw_list_table_$.$getElement$(), "click", this.$onWithdrawListTableClick_$), $handler$$inline_1626_handler$$inline_1629_handler$$inline_1633$$.$unlisten$(this.$withdraw_list_table_$, "withdraw_kyc", this.$onUserKYC_$), $handler$$inline_1626_handler$$inline_1629_handler$$inline_1633$$.$unlisten$(this.$withdraw_list_table_$, 
+  "withdraw_cancel", this.$BrokerCancelWithdraw_$), $handler$$inline_1626_handler$$inline_1629_handler$$inline_1633$$.$unlisten$(this.$withdraw_list_table_$, "withdraw_user_cancel", this.$onUserCancelWithdraw_$), $handler$$inline_1626_handler$$inline_1629_handler$$inline_1633$$.$unlisten$(this.$withdraw_list_table_$, "withdraw_redo", this.$onUserRedoWithdraw_$), $handler$$inline_1626_handler$$inline_1629_handler$$inline_1633$$.$unlisten$(this.$withdraw_list_table_$, "withdraw_progress", this.$onUserSetWithdrawInProgress_$), 
+  $handler$$inline_1626_handler$$inline_1629_handler$$inline_1633$$.$unlisten$(this.$withdraw_list_table_$, "withdraw_complete", this.$onUserSetWithdrawComplete_$), $goog$dom$removeChildren$$($goog$dom$getElement$$("admin_withdraw_requests")));
+  this.$request_id_$ = this.$withdraw_list_table_$ = null;
+  $goog$dom$removeChildren$$($goog$dom$getElement$$("admin_withdraw_methods"));
 };
 function $JSCompiler_StaticMethods_getWithdrawRequests$$($JSCompiler_StaticMethods_getWithdrawRequests$self$$) {
   var $handler$$94$$ = $JSCompiler_StaticMethods_getWithdrawRequests$self$$.$getHandler$(), $model$$31$$ = $JSCompiler_StaticMethods_getWithdrawRequests$self$$.$app_$.$model_$;
@@ -14979,11 +14980,11 @@ $JSCompiler_prototypeAlias$$.$onApiKeyListResponse_$ = function $$JSCompiler_pro
 function $bitex$view$ProfileView$templates$ProfileViewChangePasswordPlaceHolder$$() {
   return'<div class="col-md-6"></div>';
 }
-function $bitex$view$ProfileView$templates$AccountOverviewUser$$($opt_data$$89_output$$inline_1667$$) {
+function $bitex$view$ProfileView$templates$AccountOverviewUser$$($opt_data$$89_output$$inline_1668$$) {
   var $output$$67$$;
-  $output$$67$$ = "" + ('<div class="ls-box ls-board-box"><header class="ls-info-header"><h2 class="ls-title-3 ls-ico-user">Details</h2></header><table class="ls-table ls-table-striped ls-bg-header account-overview-table"><tbody><tr><td><strong>ID</strong></td><td>' + $soy$$0$0escapeHtml$$($opt_data$$89_output$$inline_1667$$.$msg_customer_detail$.ID) + "</td></tr><tr><td><strong>Username</strong></td><td>" + $soy$$0$0escapeHtml$$($opt_data$$89_output$$inline_1667$$.$msg_customer_detail$.Username) + 
-  "</td></tr><tr><td><strong>Email</strong></td><td>" + $soy$$0$0escapeHtml$$($opt_data$$89_output$$inline_1667$$.$msg_customer_detail$.Email) + "</td></tr><tr><td><strong>State</strong></td><td>" + $soy$$0$0escapeHtml$$($opt_data$$89_output$$inline_1667$$.$msg_customer_detail$.State) + "</td></tr><tr><td><strong>Country</strong></td><td>" + $soy$$0$0escapeHtml$$($opt_data$$89_output$$inline_1667$$.$msg_customer_detail$.CountryCode) + '</td></tr><tr><td><strong>Is verified</strong></td><td class="account-overview-val account-overview-verified">');
-  switch($opt_data$$89_output$$inline_1667$$.$msg_customer_detail$.Verified) {
+  $output$$67$$ = "" + ('<div class="ls-box ls-board-box"><header class="ls-info-header"><h2 class="ls-title-3 ls-ico-user">Details</h2></header><table class="ls-table ls-table-striped ls-bg-header account-overview-table"><tbody><tr><td><strong>ID</strong></td><td>' + $soy$$0$0escapeHtml$$($opt_data$$89_output$$inline_1668$$.$msg_customer_detail$.ID) + "</td></tr><tr><td><strong>Username</strong></td><td>" + $soy$$0$0escapeHtml$$($opt_data$$89_output$$inline_1668$$.$msg_customer_detail$.Username) + 
+  "</td></tr><tr><td><strong>Email</strong></td><td>" + $soy$$0$0escapeHtml$$($opt_data$$89_output$$inline_1668$$.$msg_customer_detail$.Email) + "</td></tr><tr><td><strong>State</strong></td><td>" + $soy$$0$0escapeHtml$$($opt_data$$89_output$$inline_1668$$.$msg_customer_detail$.State) + "</td></tr><tr><td><strong>Country</strong></td><td>" + $soy$$0$0escapeHtml$$($opt_data$$89_output$$inline_1668$$.$msg_customer_detail$.CountryCode) + '</td></tr><tr><td><strong>Is verified</strong></td><td class="account-overview-val account-overview-verified">');
+  switch($opt_data$$89_output$$inline_1668$$.$msg_customer_detail$.Verified) {
     case 0:
       $output$$67$$ += '<b class="ls-tag-primary label label-important">No</b>';
       break;
@@ -15002,9 +15003,9 @@ function $bitex$view$ProfileView$templates$AccountOverviewUser$$($opt_data$$89_o
     case 5:
       $output$$67$$ += '<b class="ls-tag-primary label label-success">Yes - Level III</b>';
   }
-  $opt_data$$89_output$$inline_1667$$ = "" + ('<select id="id_select_new_email_language" data-profile-change="EmailLang" ><option value="en" ' + ("en" == $opt_data$$89_output$$inline_1667$$.$msg_customer_detail$.EmailLang ? "selected" : "") + '>English</option><option value="pt_BR" ' + ("pt_BR" == $opt_data$$89_output$$inline_1667$$.$msg_customer_detail$.EmailLang ? "selected" : "") + '>Brazilian Portuguese</option><option value="es" ' + ("es" == $opt_data$$89_output$$inline_1667$$.$msg_customer_detail$.EmailLang ? 
-  "selected" : "") + '>Spanish</option><option value="vi" ' + ("vi" == $opt_data$$89_output$$inline_1667$$.$msg_customer_detail$.EmailLang ? "selected" : "") + ">Vietnamese</option></select>");
-  return $output$$67$$ + ("</td></tr><tr><td><strong>Email preferred language</strong></td><td>" + $opt_data$$89_output$$inline_1667$$ + "</td></tr></tbody></table></div>");
+  $opt_data$$89_output$$inline_1668$$ = "" + ('<select id="id_select_new_email_language" data-profile-change="EmailLang" ><option value="en" ' + ("en" == $opt_data$$89_output$$inline_1668$$.$msg_customer_detail$.EmailLang ? "selected" : "") + '>English</option><option value="pt_BR" ' + ("pt_BR" == $opt_data$$89_output$$inline_1668$$.$msg_customer_detail$.EmailLang ? "selected" : "") + '>Brazilian Portuguese</option><option value="es" ' + ("es" == $opt_data$$89_output$$inline_1668$$.$msg_customer_detail$.EmailLang ? 
+  "selected" : "") + '>Spanish</option><option value="vi" ' + ("vi" == $opt_data$$89_output$$inline_1668$$.$msg_customer_detail$.EmailLang ? "selected" : "") + ">Vietnamese</option></select>");
+  return $output$$67$$ + ("</td></tr><tr><td><strong>Email preferred language</strong></td><td>" + $opt_data$$89_output$$inline_1668$$ + "</td></tr></tbody></table></div>");
 }
 ;
 // Input 249
@@ -15307,8 +15308,8 @@ $bitex$app$UrlRouter$$.prototype.$setView$ = function $$bitex$app$UrlRouter$$$$$
   }
 };
 $bitex$app$UrlRouter$$.prototype.init = function $$bitex$app$UrlRouter$$$$init$() {
-  var $JSCompiler_StaticMethods_setUseFragment$self$$inline_1702$$ = this.$history_$ = new $goog$history$Html5History$$;
-  1 != $JSCompiler_StaticMethods_setUseFragment$self$$inline_1702$$.$useFragment_$ && ($goog$events$listen$$($JSCompiler_StaticMethods_setUseFragment$self$$inline_1702$$.$window_$, "hashchange", $JSCompiler_StaticMethods_setUseFragment$self$$inline_1702$$.$onHistoryEvent_$, !1, $JSCompiler_StaticMethods_setUseFragment$self$$inline_1702$$), $JSCompiler_StaticMethods_setUseFragment$self$$inline_1702$$.$useFragment_$ = !0);
+  var $JSCompiler_StaticMethods_setUseFragment$self$$inline_1703$$ = this.$history_$ = new $goog$history$Html5History$$;
+  1 != $JSCompiler_StaticMethods_setUseFragment$self$$inline_1703$$.$useFragment_$ && ($goog$events$listen$$($JSCompiler_StaticMethods_setUseFragment$self$$inline_1703$$.$window_$, "hashchange", $JSCompiler_StaticMethods_setUseFragment$self$$inline_1703$$.$onHistoryEvent_$, !1, $JSCompiler_StaticMethods_setUseFragment$self$$inline_1703$$), $JSCompiler_StaticMethods_setUseFragment$self$$inline_1703$$.$useFragment_$ = !0);
   this.$history_$.addEventListener("navigate", this.$onNavigate_$, void 0, this);
   this.$history_$.$setEnabled$(!0);
 };
@@ -16112,23 +16113,23 @@ $JSCompiler_prototypeAlias$$.$onLineOfCreditPayback_$ = function $$JSCompiler_pr
   }, this);
   $JSCompiler_StaticMethods_updateDom$$(this.$app_$.$model_$);
 };
-$JSCompiler_prototypeAlias$$.$onLineOfCreditInfo_$ = function $$JSCompiler_prototypeAlias$$$$onLineOfCreditInfo_$$($JSCompiler_object_inline_data_2143_e$$334$$) {
-  $JSCompiler_object_inline_data_2143_e$$334$$ = line_of_credit = $JSCompiler_StaticMethods_formatLineOfCredit_$$(this, $JSCompiler_object_inline_data_2143_e$$334$$.target.$getLineOfCredit$());
-  var $output$$inline_1742$$;
-  $output$$inline_1742$$ = "" + ('<table class="table table-condensed table-bordered"><tr><td>Provider</td><td>' + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_2143_e$$334$$.ProviderFirstName) + " " + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_2143_e$$334$$.ProviderLastName) + "</td></tr><tr><td>Taker</td><td>" + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_2143_e$$334$$.TakerFirstName) + " " + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_2143_e$$334$$.TakerLastName) + 
-  "</td></tr><tr><td>Currency</td><td>" + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_2143_e$$334$$.Currency) + "</td></tr><tr><td>Daily interest rate</td><td>" + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_2143_e$$334$$.InterestRateHumanFormat) + "</td></tr><tr><td>Credit limit</td><td>" + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_2143_e$$334$$.CreditLimitHumanFormat) + "</td></tr><tr><td>Created</td><td>" + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_2143_e$$334$$.Created) + 
+$JSCompiler_prototypeAlias$$.$onLineOfCreditInfo_$ = function $$JSCompiler_prototypeAlias$$$$onLineOfCreditInfo_$$($JSCompiler_object_inline_data_2144_e$$334$$) {
+  $JSCompiler_object_inline_data_2144_e$$334$$ = line_of_credit = $JSCompiler_StaticMethods_formatLineOfCredit_$$(this, $JSCompiler_object_inline_data_2144_e$$334$$.target.$getLineOfCredit$());
+  var $output$$inline_1743$$;
+  $output$$inline_1743$$ = "" + ('<table class="table table-condensed table-bordered"><tr><td>Provider</td><td>' + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_2144_e$$334$$.ProviderFirstName) + " " + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_2144_e$$334$$.ProviderLastName) + "</td></tr><tr><td>Taker</td><td>" + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_2144_e$$334$$.TakerFirstName) + " " + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_2144_e$$334$$.TakerLastName) + 
+  "</td></tr><tr><td>Currency</td><td>" + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_2144_e$$334$$.Currency) + "</td></tr><tr><td>Daily interest rate</td><td>" + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_2144_e$$334$$.InterestRateHumanFormat) + "</td></tr><tr><td>Credit limit</td><td>" + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_2144_e$$334$$.CreditLimitHumanFormat) + "</td></tr><tr><td>Created</td><td>" + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_2144_e$$334$$.Created) + 
   " UTC</td></tr>");
-  for (var $cList38$$inline_1743$$ = $JSCompiler_object_inline_data_2143_e$$334$$.DeliveryCurrencies, $cListLen38$$inline_1744$$ = $cList38$$inline_1743$$.length, $cIndex38$$inline_1745$$ = 0;$cIndex38$$inline_1745$$ < $cListLen38$$inline_1744$$;$cIndex38$$inline_1745$$++) {
-    var $cData38$$inline_1746$$ = $cList38$$inline_1743$$[$cIndex38$$inline_1745$$], $MSG_UNNAMED_729$$inline_1747$$ = "Get and pay back in " + $soy$$0$0escapeHtml$$($cData38$$inline_1746$$);
-    $output$$inline_1742$$ += '<tr><td colspan="2"> ' + $MSG_UNNAMED_729$$inline_1747$$ + "</td></tr><tr><td>Ticker for get</td><td>" + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_2143_e$$334$$.ContractInfo[$cData38$$inline_1746$$].get_ticker.market) + ":" + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_2143_e$$334$$.ContractInfo[$cData38$$inline_1746$$].get_ticker.instrument) + ":" + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_2143_e$$334$$.ContractInfo[$cData38$$inline_1746$$].get_ticker.column) + 
-    ' <span class="bitex-model" data-model-formatter="currency" data-model-formatter-pattern="' + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_2143_e$$334$$.ContractInfo[$cData38$$inline_1746$$].get_ticker.currency_pattern) + '" data-model-formula="' + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_2143_e$$334$$.ContractInfo[$cData38$$inline_1746$$].get_ticker.market) + "_" + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_2143_e$$334$$.ContractInfo[$cData38$$inline_1746$$].get_ticker.instrument) + 
-    "_" + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_2143_e$$334$$.ContractInfo[$cData38$$inline_1746$$].get_ticker.column) + ' / 100000000" data-model-key-list="' + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_2143_e$$334$$.ContractInfo[$cData38$$inline_1746$$].get_ticker.market) + "_" + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_2143_e$$334$$.ContractInfo[$cData38$$inline_1746$$].get_ticker.instrument) + "_" + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_2143_e$$334$$.ContractInfo[$cData38$$inline_1746$$].get_ticker.column) + 
-    '"></span></td></tr><tr><td>Ticker for payback</td><td>' + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_2143_e$$334$$.ContractInfo[$cData38$$inline_1746$$].payback_ticker.market) + ":" + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_2143_e$$334$$.ContractInfo[$cData38$$inline_1746$$].payback_ticker.instrument) + ":" + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_2143_e$$334$$.ContractInfo[$cData38$$inline_1746$$].payback_ticker.column) + ' <span class="bitex-model" data-model-formatter="currency" data-model-formatter-pattern="' + 
-    $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_2143_e$$334$$.ContractInfo[$cData38$$inline_1746$$].payback_ticker.currency_pattern) + '" data-model-formula="' + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_2143_e$$334$$.ContractInfo[$cData38$$inline_1746$$].payback_ticker.market) + "_" + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_2143_e$$334$$.ContractInfo[$cData38$$inline_1746$$].payback_ticker.instrument) + "_" + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_2143_e$$334$$.ContractInfo[$cData38$$inline_1746$$].payback_ticker.column) + 
-    ' / 100000000" data-model-key-list="' + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_2143_e$$334$$.ContractInfo[$cData38$$inline_1746$$].payback_ticker.market) + "_" + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_2143_e$$334$$.ContractInfo[$cData38$$inline_1746$$].payback_ticker.instrument) + "_" + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_2143_e$$334$$.ContractInfo[$cData38$$inline_1746$$].payback_ticker.column) + '"></span></td></tr><tr><td>Min/Max size</td><td>' + 
-    $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_2143_e$$334$$.ContractInfo[$cData38$$inline_1746$$].get_ticker.min_size_human_format) + " / " + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_2143_e$$334$$.ContractInfo[$cData38$$inline_1746$$].get_ticker.max_size_human_format) + "</td></tr>";
+  for (var $cList38$$inline_1744$$ = $JSCompiler_object_inline_data_2144_e$$334$$.DeliveryCurrencies, $cListLen38$$inline_1745$$ = $cList38$$inline_1744$$.length, $cIndex38$$inline_1746$$ = 0;$cIndex38$$inline_1746$$ < $cListLen38$$inline_1745$$;$cIndex38$$inline_1746$$++) {
+    var $cData38$$inline_1747$$ = $cList38$$inline_1744$$[$cIndex38$$inline_1746$$], $MSG_UNNAMED_729$$inline_1748$$ = "Get and pay back in " + $soy$$0$0escapeHtml$$($cData38$$inline_1747$$);
+    $output$$inline_1743$$ += '<tr><td colspan="2"> ' + $MSG_UNNAMED_729$$inline_1748$$ + "</td></tr><tr><td>Ticker for get</td><td>" + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_2144_e$$334$$.ContractInfo[$cData38$$inline_1747$$].get_ticker.market) + ":" + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_2144_e$$334$$.ContractInfo[$cData38$$inline_1747$$].get_ticker.instrument) + ":" + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_2144_e$$334$$.ContractInfo[$cData38$$inline_1747$$].get_ticker.column) + 
+    ' <span class="bitex-model" data-model-formatter="currency" data-model-formatter-pattern="' + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_2144_e$$334$$.ContractInfo[$cData38$$inline_1747$$].get_ticker.currency_pattern) + '" data-model-formula="' + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_2144_e$$334$$.ContractInfo[$cData38$$inline_1747$$].get_ticker.market) + "_" + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_2144_e$$334$$.ContractInfo[$cData38$$inline_1747$$].get_ticker.instrument) + 
+    "_" + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_2144_e$$334$$.ContractInfo[$cData38$$inline_1747$$].get_ticker.column) + ' / 100000000" data-model-key-list="' + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_2144_e$$334$$.ContractInfo[$cData38$$inline_1747$$].get_ticker.market) + "_" + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_2144_e$$334$$.ContractInfo[$cData38$$inline_1747$$].get_ticker.instrument) + "_" + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_2144_e$$334$$.ContractInfo[$cData38$$inline_1747$$].get_ticker.column) + 
+    '"></span></td></tr><tr><td>Ticker for payback</td><td>' + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_2144_e$$334$$.ContractInfo[$cData38$$inline_1747$$].payback_ticker.market) + ":" + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_2144_e$$334$$.ContractInfo[$cData38$$inline_1747$$].payback_ticker.instrument) + ":" + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_2144_e$$334$$.ContractInfo[$cData38$$inline_1747$$].payback_ticker.column) + ' <span class="bitex-model" data-model-formatter="currency" data-model-formatter-pattern="' + 
+    $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_2144_e$$334$$.ContractInfo[$cData38$$inline_1747$$].payback_ticker.currency_pattern) + '" data-model-formula="' + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_2144_e$$334$$.ContractInfo[$cData38$$inline_1747$$].payback_ticker.market) + "_" + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_2144_e$$334$$.ContractInfo[$cData38$$inline_1747$$].payback_ticker.instrument) + "_" + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_2144_e$$334$$.ContractInfo[$cData38$$inline_1747$$].payback_ticker.column) + 
+    ' / 100000000" data-model-key-list="' + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_2144_e$$334$$.ContractInfo[$cData38$$inline_1747$$].payback_ticker.market) + "_" + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_2144_e$$334$$.ContractInfo[$cData38$$inline_1747$$].payback_ticker.instrument) + "_" + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_2144_e$$334$$.ContractInfo[$cData38$$inline_1747$$].payback_ticker.column) + '"></span></td></tr><tr><td>Min/Max size</td><td>' + 
+    $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_2144_e$$334$$.ContractInfo[$cData38$$inline_1747$$].get_ticker.min_size_human_format) + " / " + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_data_2144_e$$334$$.ContractInfo[$cData38$$inline_1747$$].get_ticker.max_size_human_format) + "</td></tr>";
   }
-  this.$app_$.$showDialog$($output$$inline_1742$$ + "</table>", line_of_credit.Description);
+  this.$app_$.$showDialog$($output$$inline_1743$$ + "</table>", line_of_credit.Description);
   $JSCompiler_StaticMethods_updateDom$$(this.$app_$.$model_$);
 };
 $JSCompiler_prototypeAlias$$.$currencyFormatter_$ = function $$JSCompiler_prototypeAlias$$$$currencyFormatter_$$($value$$323$$, $rowSet$$37$$) {
@@ -16961,12 +16962,12 @@ $JSCompiler_prototypeAlias$$.$destroyComponents_$ = function $$JSCompiler_protot
   null != this.$ranking_table_$ && ($handler$$126$$.$unlisten$(this.$ranking_table_$, "request_data", this.$onRankingTableRequestData_$), $handler$$126$$.$unlisten$(this.$app_$.$conn_$, "traders_rank", this.$onTradeRankResponse_$));
   this.$removeChildren$(!0);
 };
-$JSCompiler_prototypeAlias$$.$onRankingTableRequestData_$ = function $$JSCompiler_prototypeAlias$$$$onRankingTableRequestData_$$($e$$341_opt_filter$$inline_1952$$) {
-  var $JSCompiler_StaticMethods_requestTradersRank$self$$inline_1949$$ = this.$app_$.$conn_$, $msg$$inline_1956_opt_page$$inline_1950$$ = $e$$341_opt_filter$$inline_1952$$.options.Page, $opt_limit$$inline_1951$$ = $e$$341_opt_filter$$inline_1952$$.options.Limit;
-  $e$$341_opt_filter$$inline_1952$$ = $e$$341_opt_filter$$inline_1952$$.options.Filter;
-  $msg$$inline_1956_opt_page$$inline_1950$$ = {MsgType:"U36", TradersRankReqID:parseInt(1E7 * Math.random(), 10), Page:$msg$$inline_1956_opt_page$$inline_1950$$ || 0, PageSize:$opt_limit$$inline_1951$$ || 100};
-  null != $e$$341_opt_filter$$inline_1952$$ && 0 < $e$$341_opt_filter$$inline_1952$$.length && ($msg$$inline_1956_opt_page$$inline_1950$$.Filter = $e$$341_opt_filter$$inline_1952$$);
-  $JSCompiler_StaticMethods_sendMessage$$($JSCompiler_StaticMethods_requestTradersRank$self$$inline_1949$$, $msg$$inline_1956_opt_page$$inline_1950$$);
+$JSCompiler_prototypeAlias$$.$onRankingTableRequestData_$ = function $$JSCompiler_prototypeAlias$$$$onRankingTableRequestData_$$($e$$341_opt_filter$$inline_1953$$) {
+  var $JSCompiler_StaticMethods_requestTradersRank$self$$inline_1950$$ = this.$app_$.$conn_$, $msg$$inline_1957_opt_page$$inline_1951$$ = $e$$341_opt_filter$$inline_1953$$.options.Page, $opt_limit$$inline_1952$$ = $e$$341_opt_filter$$inline_1953$$.options.Limit;
+  $e$$341_opt_filter$$inline_1953$$ = $e$$341_opt_filter$$inline_1953$$.options.Filter;
+  $msg$$inline_1957_opt_page$$inline_1951$$ = {MsgType:"U36", TradersRankReqID:parseInt(1E7 * Math.random(), 10), Page:$msg$$inline_1957_opt_page$$inline_1951$$ || 0, PageSize:$opt_limit$$inline_1952$$ || 100};
+  null != $e$$341_opt_filter$$inline_1953$$ && 0 < $e$$341_opt_filter$$inline_1953$$.length && ($msg$$inline_1957_opt_page$$inline_1951$$.Filter = $e$$341_opt_filter$$inline_1953$$);
+  $JSCompiler_StaticMethods_sendMessage$$($JSCompiler_StaticMethods_requestTradersRank$self$$inline_1950$$, $msg$$inline_1957_opt_page$$inline_1951$$);
 };
 $JSCompiler_prototypeAlias$$.$onTradeRankResponse_$ = function $$JSCompiler_prototypeAlias$$$$onTradeRankResponse_$$($e$$342_msg$$109$$) {
   null != this.$ranking_table_$ && ($e$$342_msg$$109$$ = $e$$342_msg$$109$$.data, $JSCompiler_StaticMethods_setResultSet$$(this.$ranking_table_$, $e$$342_msg$$109$$.TradersRankGrp, $e$$342_msg$$109$$.Columns));
@@ -17607,18 +17608,18 @@ $bitex$view$VerificationView$$.prototype.$enterDocument$ = function $$bitex$view
 // Input 291
 function $bitex$ui$RemittancesBox$templates$RemittancesBox$$($opt_data$$107$$) {
   for (var $JSCompiler_temp$$187_JSCompiler_temp_const$$188_output$$82$$ = '<div id="' + $soy$$0$0escapeHtml$$($opt_data$$107$$.id) + '" class="remittance-box">', $remittance_data_recordList25$$ = $opt_data$$107$$.$remittance_data_table$, $remittance_data_recordListLen25$$ = $remittance_data_recordList25$$.length, $remittance_data_recordIndex25$$ = 0;$remittance_data_recordIndex25$$ < $remittance_data_recordListLen25$$;$remittance_data_recordIndex25$$++) {
-    var $JSCompiler_object_inline_remittance_data_record_2147_remittance_data_recordData25$$ = $remittance_data_recordList25$$[$remittance_data_recordIndex25$$];
-    if (1 == $JSCompiler_object_inline_remittance_data_record_2147_remittance_data_recordData25$$.length) {
-      $JSCompiler_temp$$187_JSCompiler_temp_const$$188_output$$82$$ += (0 != $remittance_data_recordIndex25$$ ? "</tbody></table>" : "") + '<table id="' + $soy$$0$0escapeHtml$$($opt_data$$107$$.id) + "_" + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_remittance_data_record_2147_remittance_data_recordData25$$[0]) + '" style="display:none" class="ls-table remittance-box-table"><thead><tr><td colspan="2"><strong>Exchange rates via BTC</strong></td></tr></thead><tbody class="remittance-box-content">'
+    var $JSCompiler_object_inline_remittance_data_record_2148_remittance_data_recordData25$$ = $remittance_data_recordList25$$[$remittance_data_recordIndex25$$];
+    if (1 == $JSCompiler_object_inline_remittance_data_record_2148_remittance_data_recordData25$$.length) {
+      $JSCompiler_temp$$187_JSCompiler_temp_const$$188_output$$82$$ += (0 != $remittance_data_recordIndex25$$ ? "</tbody></table>" : "") + '<table id="' + $soy$$0$0escapeHtml$$($opt_data$$107$$.id) + "_" + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_remittance_data_record_2148_remittance_data_recordData25$$[0]) + '" style="display:none" class="ls-table remittance-box-table"><thead><tr><td colspan="2"><strong>Exchange rates via BTC</strong></td></tr></thead><tbody class="remittance-box-content">'
       ;
     } else {
-      for (var $JSCompiler_object_inline_id_2146_output$$inline_1994$$ = $opt_data$$107$$.id, $JSCompiler_object_inline_id_2146_output$$inline_1994$$ = '<tr><td style=""><strong>' + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_remittance_data_record_2147_remittance_data_recordData25$$[0]) + '</strong></td><td style="">\x3c!-- ' + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_id_2146_output$$inline_1994$$) + " --\x3e", $field_dataList8$$inline_1995$$ = $JSCompiler_object_inline_remittance_data_record_2147_remittance_data_recordData25$$[3], 
-      $field_dataListLen8$$inline_1996$$ = $field_dataList8$$inline_1995$$.length, $field_dataIndex8$$inline_1997$$ = 0;$field_dataIndex8$$inline_1997$$ < $field_dataListLen8$$inline_1996$$;$field_dataIndex8$$inline_1997$$++) {
-        var $field_dataData8$$inline_1998$$ = $field_dataList8$$inline_1995$$[$field_dataIndex8$$inline_1997$$], $JSCompiler_object_inline_id_2146_output$$inline_1994$$ = $JSCompiler_object_inline_id_2146_output$$inline_1994$$ + ('<span class="bitex-model" data-model-key-list="' + $soy$$0$0escapeHtml$$($field_dataData8$$inline_1998$$[1]) + '" data-model-formula="' + $soy$$0$0escapeHtml$$($field_dataData8$$inline_1998$$[0]) + '" data-model-formatter="currency" data-model-formatter-pattern="' + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_remittance_data_record_2147_remittance_data_recordData25$$[2]) + 
-        '" data-blink-class="md-blink"></span>' + ($field_dataIndex8$$inline_1997$$ != $field_dataListLen8$$inline_1996$$ - 1 ? " / " : ""))
+      for (var $JSCompiler_object_inline_id_2147_output$$inline_1995$$ = $opt_data$$107$$.id, $JSCompiler_object_inline_id_2147_output$$inline_1995$$ = '<tr><td style=""><strong>' + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_remittance_data_record_2148_remittance_data_recordData25$$[0]) + '</strong></td><td style="">\x3c!-- ' + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_id_2147_output$$inline_1995$$) + " --\x3e", $field_dataList8$$inline_1996$$ = $JSCompiler_object_inline_remittance_data_record_2148_remittance_data_recordData25$$[3], 
+      $field_dataListLen8$$inline_1997$$ = $field_dataList8$$inline_1996$$.length, $field_dataIndex8$$inline_1998$$ = 0;$field_dataIndex8$$inline_1998$$ < $field_dataListLen8$$inline_1997$$;$field_dataIndex8$$inline_1998$$++) {
+        var $field_dataData8$$inline_1999$$ = $field_dataList8$$inline_1996$$[$field_dataIndex8$$inline_1998$$], $JSCompiler_object_inline_id_2147_output$$inline_1995$$ = $JSCompiler_object_inline_id_2147_output$$inline_1995$$ + ('<span class="bitex-model" data-model-key-list="' + $soy$$0$0escapeHtml$$($field_dataData8$$inline_1999$$[1]) + '" data-model-formula="' + $soy$$0$0escapeHtml$$($field_dataData8$$inline_1999$$[0]) + '" data-model-formatter="currency" data-model-formatter-pattern="' + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_remittance_data_record_2148_remittance_data_recordData25$$[2]) + 
+        '" data-blink-class="md-blink"></span>' + ($field_dataIndex8$$inline_1998$$ != $field_dataListLen8$$inline_1997$$ - 1 ? " / " : ""))
       }
-      $JSCompiler_object_inline_id_2146_output$$inline_1994$$ += "</td></tr>";
-      $JSCompiler_temp$$187_JSCompiler_temp_const$$188_output$$82$$ += $JSCompiler_object_inline_id_2146_output$$inline_1994$$;
+      $JSCompiler_object_inline_id_2147_output$$inline_1995$$ += "</td></tr>";
+      $JSCompiler_temp$$187_JSCompiler_temp_const$$188_output$$82$$ += $JSCompiler_object_inline_id_2147_output$$inline_1995$$;
     }
   }
   return $JSCompiler_temp$$187_JSCompiler_temp_const$$188_output$$82$$ + "</div>";
@@ -18422,8 +18423,8 @@ function $JSCompiler_StaticMethods_connectBitEx$$($JSCompiler_StaticMethods_conn
   try {
     $JSCompiler_StaticMethods_connectBitEx$self$$.$conn_$.open($JSCompiler_StaticMethods_connectBitEx$self$$.$wss_url_$);
   } catch ($e$$399$$) {
-    var $JSCompiler_object_inline_error_code_2149_output$$inline_2044$$ = "WebSocket: " + $e$$399$$, $JSCompiler_object_inline_error_code_2149_output$$inline_2044$$ = "" + ('<p class="lead">' + $soy$$0$0escapeHtml$$("Error connecting to the server. Your browser MUST SUPPORT WebSockets.") + '</p><dl class="dl-horizontal"><dt>Error code</dt><dd>' + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_error_code_2149_output$$inline_2044$$) + "</dd></dl>");
-    $JSCompiler_StaticMethods_connectBitEx$self$$.$showDialog$($JSCompiler_object_inline_error_code_2149_output$$inline_2044$$, void 0, $bitex$ui$Dialog$ButtonSet$createYesNoCancel$$());
+    var $JSCompiler_object_inline_error_code_2150_output$$inline_2045$$ = "WebSocket: " + $e$$399$$, $JSCompiler_object_inline_error_code_2150_output$$inline_2045$$ = "" + ('<p class="lead">' + $soy$$0$0escapeHtml$$("Error connecting to the server. Your browser MUST SUPPORT WebSockets.") + '</p><dl class="dl-horizontal"><dt>Error code</dt><dd>' + $soy$$0$0escapeHtml$$($JSCompiler_object_inline_error_code_2150_output$$inline_2045$$) + "</dd></dl>");
+    $JSCompiler_StaticMethods_connectBitEx$self$$.$showDialog$($JSCompiler_object_inline_error_code_2150_output$$inline_2045$$, void 0, $bitex$ui$Dialog$ButtonSet$createYesNoCancel$$());
   }
 }
 $JSCompiler_prototypeAlias$$.$setView$ = function $$JSCompiler_prototypeAlias$$$$setView$$($view_id$$4$$) {
@@ -18920,11 +18921,11 @@ $JSCompiler_prototypeAlias$$.$onUserCancelOrder_$ = function $$JSCompiler_protot
   null != $e$$435$$.target.$client_order_id_$ ? this.$showNotification$("info", "Cancelling order...", ":" + $e$$435$$.target.$client_order_id_$) : this.$showNotification$("info", "Cancelling order...", ":" + $e$$435$$.target.$order_id_$);
   this.$conn_$.$cancelOrder$($e$$435$$.target.$client_order_id_$, $e$$435$$.target.$order_id_$);
 };
-$JSCompiler_prototypeAlias$$.$onUserCancelReplaceOrder_$ = function $$JSCompiler_prototypeAlias$$$$onUserCancelReplaceOrder_$$($e$$436_opt_client_id$$inline_2579$$) {
-  this.$conn_$.$cancelOrder$($e$$436_opt_client_id$$inline_2579$$.target.$client_order_id_$, $e$$436_opt_client_id$$inline_2579$$.target.$order_id_$);
-  var $symbol$$inline_2574$$ = $e$$436_opt_client_id$$inline_2579$$.target.$getSymbol$(), $qty$$inline_2575$$ = $e$$436_opt_client_id$$inline_2579$$.target.$getAmount$(), $price$$inline_2576$$ = $e$$436_opt_client_id$$inline_2579$$.target.$getPrice$(), $side$$inline_2577$$ = $e$$436_opt_client_id$$inline_2579$$.target.$getSide$(), $broker_id$$inline_2578$$ = $e$$436_opt_client_id$$inline_2579$$.target.$getBrokerID$();
-  $e$$436_opt_client_id$$inline_2579$$ = $e$$436_opt_client_id$$inline_2579$$.target.$getClientID$();
-  $JSCompiler_StaticMethods_sendOrder_$$(this.$conn_$, $symbol$$inline_2574$$, $qty$$inline_2575$$, $price$$inline_2576$$, $side$$inline_2577$$, $broker_id$$inline_2578$$, $e$$436_opt_client_id$$inline_2579$$, void 0);
+$JSCompiler_prototypeAlias$$.$onUserCancelReplaceOrder_$ = function $$JSCompiler_prototypeAlias$$$$onUserCancelReplaceOrder_$$($e$$436_opt_client_id$$inline_2580$$) {
+  this.$conn_$.$cancelOrder$($e$$436_opt_client_id$$inline_2580$$.target.$client_order_id_$, $e$$436_opt_client_id$$inline_2580$$.target.$order_id_$);
+  var $symbol$$inline_2575$$ = $e$$436_opt_client_id$$inline_2580$$.target.$getSymbol$(), $qty$$inline_2576$$ = $e$$436_opt_client_id$$inline_2580$$.target.$getAmount$(), $price$$inline_2577$$ = $e$$436_opt_client_id$$inline_2580$$.target.$getPrice$(), $side$$inline_2578$$ = $e$$436_opt_client_id$$inline_2580$$.target.$getSide$(), $broker_id$$inline_2579$$ = $e$$436_opt_client_id$$inline_2580$$.target.$getBrokerID$();
+  $e$$436_opt_client_id$$inline_2580$$ = $e$$436_opt_client_id$$inline_2580$$.target.$getClientID$();
+  $JSCompiler_StaticMethods_sendOrder_$$(this.$conn_$, $symbol$$inline_2575$$, $qty$$inline_2576$$, $price$$inline_2577$$, $side$$inline_2578$$, $broker_id$$inline_2579$$, $e$$436_opt_client_id$$inline_2580$$, void 0);
 };
 $JSCompiler_prototypeAlias$$.$onShowReceipt_$ = function $$JSCompiler_prototypeAlias$$$$onShowReceipt_$$($MSG_SHOW_DEPOSIT_RECEIPT_DIALOG_TITLE_e$$437$$) {
   var $receiptData$$ = $MSG_SHOW_DEPOSIT_RECEIPT_DIALOG_TITLE_e$$437$$.target.$receipt_data_$, $depositDetailTemplateData$$ = [];
@@ -19766,8 +19767,8 @@ function $JSCompiler_StaticMethods_registerAlgorithmInstance$$($JSCompiler_Stati
               this.$model_$.set("RunningAlgorithms", $running_algorithms$$2$$);
               break;
             case "new_order_limited":
-              var $order_symbol$$ = this.$model_$.get($e$$486$$.data.instance + "_symbol").$symbol$, $broker_id$$inline_2605$$ = this.$model_$.get("SelectedBrokerID");
-              $JSCompiler_StaticMethods_sendOrder_$$(this.$conn_$, $order_symbol$$, parseInt($e$$486$$.data.qty, 10), parseInt($e$$486$$.data.price, 10), $e$$486$$.data.side, $broker_id$$inline_2605$$, void 0, $e$$486$$.data.client_order_id);
+              var $order_symbol$$ = this.$model_$.get($e$$486$$.data.instance + "_symbol").$symbol$, $broker_id$$inline_2606$$ = this.$model_$.get("SelectedBrokerID");
+              $JSCompiler_StaticMethods_sendOrder_$$(this.$conn_$, $order_symbol$$, parseInt($e$$486$$.data.qty, 10), parseInt($e$$486$$.data.price, 10), $e$$486$$.data.side, $broker_id$$inline_2606$$, void 0, $e$$486$$.data.client_order_id);
               break;
             case "cancel_order":
               this.$conn_$.$cancelOrder$($e$$486$$.data.client_order_id, $e$$486$$.data.order_id);

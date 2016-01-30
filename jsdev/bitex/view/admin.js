@@ -172,18 +172,17 @@ bitex.view.AdminView.prototype.enterDocument = function() {
 };
 
 bitex.view.AdminView.prototype.recreateComponents_ = function() {
-
   this.getCustomers();
   this.getDepositsRequests();
   this.getWithdrawRequests();
   this.getWithdrawMethods();
-
 };
 
 bitex.view.AdminView.prototype.destroyComponents_ = function() {
+  this.destroyCustomers();
   this.destroyDepositsRequests();
   this.destroyWithdrawRequests();
-  this.destroyCustomers();
+  this.destroyWithdrawMethods();
 };
 
 bitex.view.AdminView.prototype.destroyCustomers = function() {
@@ -807,6 +806,10 @@ bitex.view.AdminView.prototype.priceFormatter_ = function(value, rowSet) {
   return goog.dom.createDom('abbr',
                             {'title': currency_description },
                             this.getApplication().formatCurrency(value/1e8, priceCurrency) );
+};
+
+bitex.view.AdminView.prototype.destroyWithdrawMethods = function() {
+  goog.dom.removeChildren(goog.dom.getElement('admin_withdraw_methods'));
 };
 
 bitex.view.AdminView.prototype.getWithdrawMethods = function() {
