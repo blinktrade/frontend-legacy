@@ -242,7 +242,7 @@ bitex.view.SignupView.prototype.onBrokerList_ = function(e) {
     this.onChangeBroker_();
   }
 
-  this.getQueryString();
+  this.getQueryString_();
 
 };
 
@@ -411,7 +411,10 @@ bitex.view.SignupView.prototype.onSelectState_ = function( selected_country, sel
   this.onChangeBroker_();
 };
 
-bitex.view.SignupView.prototype.getQueryString = function(){
+/**
+ * @private
+ */
+bitex.view.SignupView.prototype.getQueryString_ = function(){
   var queryString = new goog.Uri(window.location.href);
   var username = queryString.getParameterValue('username');
   var email = queryString.getParameterValue('email');
