@@ -93,6 +93,9 @@ views:
     signin: Ingresar
     signup: Registrarse
     connect: Conectar
+    high: HIGH
+    last: LAST
+    low: LOW
 
   start:
     username: "Nombre de usuario:"

@@ -95,6 +95,9 @@ views:
     signin: 登陆
     signup: 注册
     connect: 连接
+    high: HIGH
+    last: LAST
+    low: LOW
 
   start:
     username: 用户名
