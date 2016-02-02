@@ -197,7 +197,6 @@ bitex.ui.Customers = function( opt_domHelper) {
     'showSearch': true,
     'searchPlaceholder': MSG_CUSTOMERS_TABLE_SEARCH_PLACEHOLDER,
     'wrapperHeight': 600,
-    'defaultFilter': ["1"],
     'buttonFilters': [
       { 'label': MSG_CUSTOMER_TABLE_COLUMN_VERIFIED_PENDING,    'value': 1 },
       { 'label': MSG_CUSTOMER_TABLE_COLUMN_VERIFIED_NO,         'value': 0 },

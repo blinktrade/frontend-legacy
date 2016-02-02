@@ -45,7 +45,7 @@ bitex.ui.DataGrid = function (options, opt_domHelper) {
   this.sort_column_ = "";
   this.sort_direction_ = "up";
   this.filter_ = null;
-  this.select_filter_ = options['defaultFilter'] || null;
+  this.select_filter_ = null;
 
   this.loading_data_ = goog.dom.createDom('div', ['progress', 'progress-striped', 'active' ],
                                           goog.dom.createDom('div', 'bar' ));
