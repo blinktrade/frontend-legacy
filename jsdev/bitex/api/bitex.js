@@ -30,7 +30,7 @@ bitex.api.BitEx = function( opt_browser_finger_print  ){
   this.all_markets_           = null;
   this.browser_finger_print_  = opt_browser_finger_print;
   this.stunt_ip_info_         = {'local':undefined, 'public':[]};
-  this.tracking_code_         = this.setTrackingCode();
+  this.tracking_code_         = new goog.Uri(window.location.href).getParameterValue('tc');
 
 
   this.ws_ = new goog.net.WebSocket(true);
@@ -1775,10 +1775,6 @@ bitex.api.BitEx.prototype.sendRawMessage  = function(msg) {
  */
 bitex.api.BitEx.prototype.setSTUNTIp = function(stunt_ip_info) {
   this.stunt_ip_info_ = stunt_ip_info;
-};
-
-bitex.api.BitEx.prototype.setTrackingCode = function(){
-  return new goog.Uri(window.location.href).getParameterValue('tc');
 };
 
 /**
