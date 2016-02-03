@@ -93,9 +93,9 @@ views:
     signin: Autentificare
     signup: Cont nou
     connect: Autentificare
-    high: HIGH
-    last: LAST
-    low: LOW
+    high: SUS
+    last: ULTIMUL
+    low: JOS
 
   start:
     username: "Nume utilizator:"
