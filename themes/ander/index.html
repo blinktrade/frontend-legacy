@@ -336,6 +336,7 @@ load_application:       True
         <div class="layout__item one-whole desk--three-tenths">
           <!-- .sidebar -->
           <div id="id_sidebar" class="sidebar bitex-view
+                                              bitex-view-admin_view
                                               bitex-view-profile
                                               bitex-view-twofactor
                                               bitex-view-trading
@@ -598,6 +599,52 @@ load_application:       True
           </div>
           <!-- /#ledger -->
 
+          <!-- admin -->
+          <div id="admin_view" class="bitex-view">
+            <header class="page__head section-title">
+              <h3 class="page__title h2 bitex-view-title">{% t views.admin.title %}</h3>
+            </header>
+            <div class="page__body bitex-view-content">
+              <div id="admin-tabs">
+                <ul class="nav nav-tabs">
+                  <li class="active">
+                    <a href="#TabCustomers" data-toggle="tab">{% t views.customers.title %}</a>
+                  </li>
+                  <li>
+                    <a href="#TabDepositRequests" data-toggle="tab">{% t views.deposit_requests.title %}</a>
+                  </li>
+                  <li>
+                    <a href="#TabWithdrawRequests" data-toggle="tab">{% t views.withdraw_requests.title %}</a>
+                  </li>
+                  <li>
+                    <a href="#TabWithdrawMethods" data-toggle="tab">{% t views.withdraw_methods.title %}</a>
+                  </li>
+                </ul>
+                <div class="tab-content">
+                  <div class="tab-pane fade" id="TabCustomers">
+                    <h2 class="bitex-view-title">{% t views.customers.title %}</h2>
+                    <div id="admin_customers"></div>
+                  </div>
+                  <div class="tab-pane fade" id="TabDepositRequests">
+                    <h2 class="bitex-view-title">{% t views.deposit_requests.title %}</h2>
+
+                    <div id="admin_deposit_requests"></div>
+                  </div>
+                  <div class="tab-pane fade" id="TabWithdrawRequests">
+                    <h2 class="bitex-view-title">{% t views.withdraw_requests.title %}</h2>
+
+                    <div id="admin_withdraw_requests"></div>
+                  </div>
+                  <div class="tab-pane fade" id="TabWithdrawMethods">
+                    <h2 class="bitex-view-title">{% t views.withdraw_methods.title %}</h2>
+
+                    <div id="admin_withdraw_methods"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- /admin -->
 
           <!-- #customers -->
           <div id="customers" class="bitex-view">

@@ -65,26 +65,38 @@
             <ul class="head-ticker">
                 <li>
                     <span class="head-ticker__title">
-                        <i class="glyphicon glyphicon-triangle-top"></i> LAST&nbsp;
+                        <i class="glyphicon glyphicon-triangle-right"></i> {% t views.toolbar.last %}&nbsp;
                     </span>
                     <span class="head-ticker__value">
-                        PHP 11,090.16
+                      <span class="bitex-model"
+                            data-model-key-list="formatted_BLINK_{{site.symbol}}_LAST_PX"
+                            data-model-formula="formatted_BLINK_{{site.symbol}}_LAST_PX"
+                            data-blink-class="balance-info-blink"
+                        ></span>
                     </span>
                 </li>
                 <li>
                     <span class="head-ticker__title">
-                        <i class="glyphicon glyphicon-triangle-top"></i> HIGHT&nbsp;
+                        <i class="glyphicon glyphicon-triangle-right"></i> {% t views.toolbar.high %}&nbsp;
                     </span>
                     <span class="head-ticker__value">
-                        PHP 13,441.61
+                      <span class="bitex-model"
+                            data-model-key-list="formatted_BLINK_{{site.symbol}}_HIGH_PX"
+                            data-model-formula="formatted_BLINK_{{site.symbol}}_HIGH_PX"
+                            data-blink-class="balance-info-blink"
+                        ></span>
                     </span>
                 </li>
                 <li>
                     <span class="head-ticker__title">
-                        <i class="glyphicon glyphicon-triangle-bottom"></i> LOW&nbsp;
+                        <i class="glyphicon glyphicon-triangle-right"></i> {% t views.toolbar.low %}&nbsp;
                     </span>
                     <span class="head-ticker__value">
-                        PHP 9,950.00
+                      <span class="bitex-model"
+                            data-model-key-list="formatted_BLINK_{{site.symbol}}_LOW_PX"
+                            data-model-formula="formatted_BLINK_{{site.symbol}}_LOW_PX"
+                            data-blink-class="balance-info-blink"
+                        ></span>
                     </span>
                 </li>
             </ul>
@@ -155,7 +167,7 @@
             </li>
             <li class="bitex-display-if-logged dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                <img class="thumb thumb-p" src="{{ site.url }}{{ site.baseurl }}/assets/themes/coinage/img/coinage-avatar.png" />
+                <img class="thumb thumb-p home-img" src="{{ site.url }}{{ site.baseurl }}/assets/themes/coinage/img/coinage-avatar.png" />
                 <span class="bitex-model bitex-view-title" data-model-key="DisplayName"></span>
                 <span class="caret"></span>
               </a>
@@ -165,7 +177,7 @@
                       <a href="#">
                         <div class="row" data-switch-view="profile">
                           <div class="col-xs-4">
-                            <img class="thumb thumb-g" data-switch-view="profile" src="{{ site.url }}{{ site.baseurl }}/assets/themes/coinage/img/coinage-avatar.png" />
+                            <img class="thumb thumb-g home-img" data-switch-view="profile" src="{{ site.url }}{{ site.baseurl }}/assets/themes/coinage/img/coinage-avatar.png" />
                           </div>
                           <div class="col-xs-8" data-switch-view="profile">
                             <strong class="bitex-model bitex-view-title" data-switch-view="profile" data-model-key="DisplayName"></strong>
@@ -179,6 +191,11 @@
                       <a href="#" data-switch-view="my_broker">
                          {% t views.sidebar.my_broker %}
                       </a>
+                  </li>
+                  <li class="bitex-display-if-broker">
+                    <a href="#" data-switch-view="customers">
+                      {% t views.sidebar.customers %}
+                    </a>
                   </li>
                   <li class="bitex-display-if-broker">
                     <a href="#" data-switch-view="deposit_requests">

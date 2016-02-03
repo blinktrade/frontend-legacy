@@ -250,7 +250,6 @@ bitex.ui.DataGrid.prototype.decorateInternal = function(element) {
             goog.dom.getFirstElementChild(filter_div)));
 
     if (goog.isDefAndNotNull(selected_filter_option_el)) {
-      this.select_filter_ = null;
       var data_value = null;
       if (selected_filter_option_el.tagName  === goog.dom.TagName.LI ) {
         data_value = selected_filter_option_el.getAttribute('data-value');
@@ -412,7 +411,6 @@ bitex.ui.DataGrid.prototype.enterDocument = function() {
  */
 bitex.ui.DataGrid.prototype.handleDataGridClick_ = function(e) {
   var element = e.target;
-  var is_filter_click = false;
   var data_value = null;
 
   if (element.tagName  === goog.dom.TagName.A ) {
@@ -428,10 +426,6 @@ bitex.ui.DataGrid.prototype.handleDataGridClick_ = function(e) {
 
   var filter_element = goog.dom.getAncestorByClass( element, 'filter');
   if (goog.isDefAndNotNull(filter_element)) {
-    is_filter_click = true;
-  }
-
-  if (is_filter_click) {
     // user is cleaning the filter
     if (data_value === 'all') {
       if (goog.isDefAndNotNull(this.select_filter_)){

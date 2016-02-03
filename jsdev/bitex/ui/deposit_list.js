@@ -432,9 +432,9 @@ bitex.ui.DepositList = function( crypto_currencies_def, opt_broker_mode, opt_sho
                     userVerification: userVerificationData
                   });
                 case '4':
-                  return btn_kyc;
+                  return btn_cancel;
                 case '8':
-                  return btn_kyc;
+                  return btn_progress;
               }
             } else {
               switch(rowSet['Status']) {
