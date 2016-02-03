@@ -94,9 +94,9 @@ views:
     signin: Đăng nhập
     signup: Đăng ký
     connect: Kết nối
-    high: HIGH
-    last: LAST
-    low: LOW
+    high: Cao
+    last: Cuối 
+    low: Thấp 
 
   start:
     username: "Tên đăng nhập:"

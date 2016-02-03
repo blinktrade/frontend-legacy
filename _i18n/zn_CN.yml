@@ -95,9 +95,9 @@ views:
     signin: 登陆
     signup: 注册
     connect: 连接
-    high: HIGH
-    last: LAST
-    low: LOW
+    high: 高 
+    last: 上次交易 
+    low: 低 
 
   start:
     username: 用户名
