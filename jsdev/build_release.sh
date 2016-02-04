@@ -43,6 +43,7 @@ SOY_TEMPLATES="
                ui/card_data_entry
                ui/withdraw_list
                ui/two_factor
+               ui/webcam_qr
                view/profile
                view/side_bar
                view/withdraw
@@ -87,6 +88,7 @@ python ./closure-library/closure/bin/build/closurebuilder.py  \
   --compiler_flags="--externs=./externs/socket.io.js" \
   --compiler_flags="--externs=./externs/w3c_rtc.js" \
   --compiler_flags="--externs=./externs/facebook_javascript_sdk.js" \
+  --compiler_flags="--externs=./externs/qrcode.js" \
   --compiler_flags="--translations_file=./translations/$LANG.xtb.xml" \
    > ../assets/js/bitex_app_blink_trade.compiled.$LANG.$THEME.js
 

@@ -133,7 +133,8 @@
                   <div class="form-group">
                     <label class="col-xs-2 control-label">{$field['label']}</label>
                     <div class="col-xs-10">
-                      <input class="withdraw-field form-control"
+                      <input id="{$id}_{$field['name']}"
+                             class="withdraw-field form-control"
                              data-uniform-validators="{if $field['required']}required;{/if}{$field['validator']}"
                              type="{$field['type']}"
                              name="{$field['name']}"
@@ -144,6 +145,21 @@
                   </div>
                 {/if}
               {/foreach}
+              {if $currency == 'BTC' }
+                <div class="form-group">
+                    <label class="col-xs-2 control-label" for="">
+                    </label>
+                    <div class="col-xs-10">
+                        <a id="{$id}_open_webcam" href="#">
+                            <i class="glyphicon glyphicon-qrcode"></i>
+                            <span> {msg desc="WebCam"} WebCam{/msg}</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div id="{$id}_webcam"></div>
+                </div>
+              {/if}
             </div>
           {/foreach}
         </div>
