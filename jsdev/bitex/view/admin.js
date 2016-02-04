@@ -550,6 +550,9 @@ bitex.view.AdminView.prototype.valuePriceFormatter_ = function(value, rowSet) {
   } else if (paid_value >0 && paid_value != value) {
     var formatted_paid_value =  this.getApplication().formatCurrency(paid_value/1e8, priceCurrency);
 
+    /**
+     * @desc value abbrev title when paid value differs from declared value
+     */
     var MSG_DEPOSIT_DIFFERENT_DECLARED_PAID_VALUE_ADMIN =
         goog.getMsg('declared / paid in {$currencydesc}' , { 'currencydesc' : currency_description});
 
