@@ -31,6 +31,8 @@ goog.require('bitex.ui.Customers');
 
 goog.require('bitex.ui.TwoFactor');
 
+goog.require('bitex.ui.WebCamQR');
+
 goog.require('goog.Uri');
 
 goog.require('goog.fx');
@@ -2073,6 +2075,16 @@ bitex.app.BlinkTrade.prototype.showWithdrawalDialog = function(currency, opt_pre
   withdrawal_uniform.decorate(withdrawal_form_el);
 
 
+  if (currency === 'BTC') {
+    var open_webcam_el = goog.dom.getElement(form_id + '_open_webcam');
+    var webcam_el = goog.dom.getElement(form_id + '_webcam');
+    handler.listen(open_webcam_el, goog.events.EventType.CLICK, function(e){
+      e.preventDefault();
+      this.webcam_ = new bitex.ui.WebCamQR(goog.dom.getElement(form_id + '_Wallet'));
+      this.webcam_.render(webcam_el);
+    });
+  }
+
   goog.array.forEach( user_verified_withdraw_methods, function(withdraw_method) {
     var method_id = withdraw_method['method'];
     var method_amount_el = goog.dom.getElement(form_id + '_method_' + method_id + '_amount');
@@ -2101,6 +2113,8 @@ bitex.app.BlinkTrade.prototype.showWithdrawalDialog = function(currency, opt_pre
   value_fmt.setMinimumFractionDigits(2);
 
   handler.listen(dlg, goog.ui.Dialog.EventType.SELECT, function(e) {
+    this.webcam_.destroy();
+
     if (e.key == 'ok') {
       var error_list = withdrawal_uniform.validate();
       if (error_list.length > 0) {

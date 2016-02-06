@@ -53,13 +53,6 @@ bitex.view.AdminView.prototype.getCurrency = function() {
 };
 
 /**
- * @return {number}
- */
-bitex.view.AdminView.prototype.getRequestId = function() {
-  return this.request_id_;
-};
-
-/**
  * @return {String}
  */
 bitex.view.AdminView.prototype.getDepositAction = function() {
@@ -150,7 +143,9 @@ bitex.view.AdminView.prototype.qr_data_verb_;
 bitex.view.AdminView = function(app, opt_domHelper) {
   bitex.view.View.call(this, app, opt_domHelper);
 
-  this.request_id_ = null;
+  this.request_id_customer_ = null;
+  this.request_id_deposits_ = null;
+  this.request_id_withdraw_ = null;
 };
 goog.inherits(bitex.view.AdminView, bitex.view.View);
 
@@ -195,28 +190,28 @@ bitex.view.AdminView.prototype.destroyCustomers = function() {
                      this.onCustomerListTableRequestData_);
 
     handler.unlisten(this.getApplication().getBitexConnection(),
-                     bitex.api.BitEx.EventType.CUSTOMER_LIST_RESPONSE + '.' + this.request_id_,
+                     bitex.api.BitEx.EventType.CUSTOMER_LIST_RESPONSE + '.' + this.request_id_customer_,
                      this.onCustomerListReponse_);
   }
 
   goog.dom.removeChildren(goog.dom.getElement('admin_customers'));
 
   this.customers_table_ = null;
-  this.request_id_ = null;
+  this.request_id_customer_ = null;
 };
 
 bitex.view.AdminView.prototype.getCustomers = function() {
   var handler = this.getHandler();
 
-  if (goog.isDefAndNotNull( this.customers_table_)) {
+  if (goog.isDefAndNotNull(this.customers_table_)) {
     this.customers_table_.reload();
     return;
   }
 
-  this.request_id_ = parseInt( 1e7 * Math.random() , 10 );
+  this.request_id_customer_ = parseInt(1e7 * Math.random(), 10);
 
 
-  this.customers_table_  = new bitex.ui.Customers();
+  this.customers_table_ = new bitex.ui.Customers();
 
 
   handler.listen(this.customers_table_,
@@ -224,7 +219,7 @@ bitex.view.AdminView.prototype.getCustomers = function() {
                  this.onCustomerListTableRequestData_);
 
   handler.listen(this.getApplication().getBitexConnection(),
-                 bitex.api.BitEx.EventType.CUSTOMER_LIST_RESPONSE + '.' + this.request_id_,
+                 bitex.api.BitEx.EventType.CUSTOMER_LIST_RESPONSE + '.' + this.request_id_customer_,
                  this.onCustomerListReponse_);
 
   handler.listen(this.customers_table_,
@@ -251,7 +246,7 @@ bitex.view.AdminView.prototype.destroyDepositsRequests = function() {
                      this.onDepositListTableRequestData_);
 
     handler.unlisten(this.getApplication().getBitexConnection(),
-                     bitex.api.BitEx.EventType.DEPOSIT_LIST_RESPONSE  + '.' + this.request_id_,
+                     bitex.api.BitEx.EventType.DEPOSIT_LIST_RESPONSE  + '.' + this.request_id_deposits_,
                      this.onDepositListReponse_);
 
 
@@ -266,7 +261,7 @@ bitex.view.AdminView.prototype.destroyDepositsRequests = function() {
 
   goog.dom.removeChildren(goog.dom.getElement('admin_deposit_requests'));
   this.deposit_list_table_ = null;
-  this.request_id_ = null;
+  this.request_id_deposits_ = null;
 
 }
 
@@ -275,7 +270,7 @@ bitex.view.AdminView.prototype.getDepositsRequests = function() {
   var model = this.getApplication().getModel();
   var profile = model.get('Profile');
 
-  this.request_id_ = parseInt(1e7 * Math.random(), 10);
+  this.request_id_deposits_ = parseInt(1e7 * Math.random(), 10);
 
   this.deposit_list_table_ = new bitex.ui.DepositList(profile['CryptoCurrencies'],
                                                       true,
@@ -287,7 +282,7 @@ bitex.view.AdminView.prototype.getDepositsRequests = function() {
                  this.onDepositListTableRequestData_);
 
   handler.listen(this.getApplication().getBitexConnection(),
-                 bitex.api.BitEx.EventType.DEPOSIT_LIST_RESPONSE + '.' + this.request_id_,
+                 bitex.api.BitEx.EventType.DEPOSIT_LIST_RESPONSE + '.' + this.request_id_deposits_,
                  this.onDepositListReponse_);
 
   handler.listen(this.getApplication().getBitexConnection(),
@@ -356,7 +351,7 @@ bitex.view.AdminView.prototype.destroyWithdrawRequests = function() {
   }
 
   this.withdraw_list_table_ = null;
-  this.request_id_ = null;
+  this.request_id_withdraw_ = null;
 };
 
 bitex.view.AdminView.prototype.getWithdrawRequests = function() {
@@ -364,7 +359,7 @@ bitex.view.AdminView.prototype.getWithdrawRequests = function() {
   var handler = this.getHandler();
   var model = this.getApplication().getModel();
 
-  this.request_id_ = parseInt(1e7 * Math.random() , 10);
+  this.request_id_withdraw_ = parseInt(1e7 * Math.random() , 10);
 
   var currency_method_description_obj = {};
   var broker = model.get('Broker');
@@ -389,7 +384,7 @@ bitex.view.AdminView.prototype.getWithdrawRequests = function() {
                  this.onWithdrawListTableRequestData_);
 
   handler.listen(this.getApplication().getBitexConnection(),
-                 bitex.api.BitEx.EventType.WITHDRAW_LIST_RESPONSE + '.' + this.request_id_,
+                 bitex.api.BitEx.EventType.WITHDRAW_LIST_RESPONSE + '.' + this.request_id_withdraw_,
                  this.onWithdrawListReponse_);
 
   handler.listen(this.getApplication().getBitexConnection(),
@@ -446,7 +441,7 @@ bitex.view.AdminView.prototype.onCustomerListTableRequestData_ = function(e) {
     goog.array.forEach(filter, function(f, idx_filter){
       var idx_status = goog.array.indexOf(status, parseInt(f, 10));
       if (idx_status >= 0) {
-        status = [parseInt(f) ] ;
+        status = [parseInt(f)];
         goog.array.removeAt(filter, idx_filter);
         return true;
       }
@@ -458,7 +453,7 @@ bitex.view.AdminView.prototype.onCustomerListTableRequestData_ = function(e) {
   }
 
   var conn = this.getApplication().getBitexConnection();
-  conn.requestCustomerList(this.request_id_, undefined, undefined, filter, page, limit, status);
+  conn.requestCustomerList(this.request_id_customer_, undefined, undefined, filter, page, limit, status);
 };
 
 /**
@@ -472,6 +467,17 @@ bitex.view.AdminView.prototype.onCustomerListReponse_ = function(e) {
 
   var msg = e.data;
   this.customers_table_.setResultSet(msg['CustomerListGrp'], msg['Columns']);
+};
+
+
+/**
+ * @param {goog.events.Event} e
+ * @private
+ */
+bitex.view.AdminView.prototype.onUserDetailsClick_ = function(e) {
+  var data = e.target.getSelectedCustomer();
+  this.getApplication().getModel().set('SelectedCustomer', data );
+  this.getApplication().setView('account_overview/' + data['Username'] + '/');
 };
 
 
@@ -544,6 +550,9 @@ bitex.view.AdminView.prototype.valuePriceFormatter_ = function(value, rowSet) {
   } else if (paid_value >0 && paid_value != value) {
     var formatted_paid_value =  this.getApplication().formatCurrency(paid_value/1e8, priceCurrency);
 
+    /**
+     * @desc value abbrev title when paid value differs from declared value
+     */
     var MSG_DEPOSIT_DIFFERENT_DECLARED_PAID_VALUE_ADMIN =
         goog.getMsg('declared / paid in {$currencydesc}' , { 'currencydesc' : currency_description});
 
@@ -580,7 +589,7 @@ bitex.view.AdminView.prototype.onDepositListTableRequestData_ = function(e) {
     }, this);
   }
 
-  conn.requestDepositList(this.request_id_,             // opt_requestId
+  conn.requestDepositList(this.request_id_deposits_,    // opt_requestId
                           page,                         // opt_page
                           limit,                        // opt_limit
                           status,                       // opt_status,
@@ -603,7 +612,6 @@ bitex.view.AdminView.prototype.onDepositRefresh_ = function(e) {
  * @param {goog.events.Event} e
  */
 bitex.view.AdminView.prototype.onDepositListReponse_ = function(e) {
-  console.log(this.deposit_list_table_);
   if (!goog.isDefAndNotNull(this.deposit_list_table_)) {
     return
   }
@@ -654,7 +662,7 @@ bitex.view.AdminView.prototype.onWithdrawListTableRequestData_ = function(e) {
     }, this);
   }
 
-  conn.requestWithdrawList(this.request_id_,
+  conn.requestWithdrawList(this.request_id_withdraw_,
                            page,
                            limit,
                            status,

@@ -112,7 +112,8 @@
             {foreach $field in $method['fields'] }
               {if $field['side'] == 'client'}
                 <label class="modal-form__label">{$field['label']}</label>
-                <input class="withdraw-field input input--full"
+                <input id="{$id}_{$field['name']}"
+                       class="withdraw-field input input--full"
                        data-uniform-validators="{if $field['required']}required;{/if}{$field['validator']}"
                        type="{$field['type']}"
                        name="{$field['name']}"
@@ -121,6 +122,16 @@
                        {if not isFirst($method)}disabled{/if} />
               {/if}
             {/foreach}
+            {if $currency == 'BTC' }
+                <label class="modal-form__label" for=""></label>
+                <div class="withdraw-field">
+                    <a id="{$id}_open_webcam" href="#">
+                        <i class="icon-qrcode"></i>
+                        <span> {msg desc="WebCam"} WebCam{/msg}</span>
+                    </a>
+                </div>
+                <div id="{$id}_webcam"></div>
+            {/if}
           </div>
         {/foreach}
       </div>
