@@ -7,6 +7,12 @@
 {template .OrderBook}
 <div class="box box--history box--push-bottom">
     <!-- .box__head -->
+    {if $title == 'ASK' }
+      <div class="btn-group pull-right" style="margin-top:3px;margin-right:3px;">
+        {call .ShowCumQty}{/call}
+        {call .ShowFees}{/call}
+      </div>
+    {/if}
     <header class="box__head">
         {$title}
     </header>
@@ -29,6 +35,22 @@
     </div>
     <!-- /.box__body -->
 </div>
+{/template}
+
+/**
+ */
+{template .ShowCumQty}
+  <div style="padding:2px" class="btn btn-mini btn-default btn-show-cum-qty">
+    {msg desc="Cumulative"}Cumulative{/msg}
+  </div>
+{/template}
+
+/**
+ */
+{template .ShowFees}
+  <div style="padding:2px" class="btn btn-mini btn-default btn-show-fees">
+    {msg desc="Fees"}Fees{/msg}
+  </div>
 {/template}
 
 /**
