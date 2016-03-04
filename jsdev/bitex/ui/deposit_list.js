@@ -51,6 +51,11 @@ var MSG_DEPOSIT_TABLE_COLUMN_CREATED = goog.getMsg('Date/Hour');
 var MSG_DEPOSIT_TABLE_COLUMN_ACTIONS = goog.getMsg('Actions');
 
 /**
+ * @desc Admin Column Despoit Method of the Deposit List
+ */
+var MSG_DEPOSIT_TABLE_COLUMN_DEPOSIT_METHOD = goog.getMsg('Method');
+
+/**
  * @desc Column Detail of the Deposit List
  */
 var MSG_DEPOSIT_TABLE_COLUMN_DETAIL = goog.getMsg('Details');
@@ -364,6 +369,11 @@ bitex.ui.DepositList = function( crypto_currencies_def, opt_broker_mode, opt_sho
 
   if (broker_mode ){
     grid_columns.push({
+      'property': 'DepositMethodName',
+      'label': MSG_DEPOSIT_TABLE_COLUMN_DEPOSIT_METHOD,
+      'sortable': false,
+      'classes': function() { return goog.getCssName(bitex.ui.DepositList.CSS_CLASS, 'deposit_method'); }
+    }, {
       'property' : 'DepositID',
       'label': MSG_DEPOSIT_TABLE_COLUMN_ACTIONS,
       'sortable': false,
