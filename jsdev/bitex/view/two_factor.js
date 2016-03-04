@@ -37,9 +37,6 @@ bitex.view.TwoFactor.prototype.enterDocument = function() {
 
 };
 
-bitex.view.TwoFactor.prototype.exitDocument = function() {
-};
-
 bitex.view.TwoFactor.prototype.recreateComponents_ = function() {
 
   var handler = this.getHandler();
@@ -65,6 +62,8 @@ bitex.view.TwoFactor.prototype.destroyComponents_ = function() {
   var model   = this.getApplication().getModel();
 
   handler.unlisten(model, bitex.model.Model.EventType.SET + 'TwoFactorSecret', this.onModelSetTwoFactorSecret_);
+
+  goog.dom.removeChildren(goog.dom.getElement('twofactor_content'));
 };
 
 /**
