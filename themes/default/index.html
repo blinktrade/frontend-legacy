@@ -274,36 +274,7 @@ load_application:       True
             <div class="section-title">
               <h3 class="bitex-view-title">{% t views.profile.two_factor_auth_section.title %}</h3>
             </div>
-
-            <div id="id_enable_two_factor_div" class="form-horizontal ">
-
-              <div class="control-group">
-                <label class="control-label">{% t views.profile.two_factor_auth_section.key %}</label>
-
-                <div class="controls">
-                  <span id='secret' class="bitex-model" data-model-key="TwoFactorSecret"></span>
-                </div>
-              </div>
-
-              <div class="control-group">
-                <div class="controls">
-                  <img id="id_secret_qr" style="width: 100%; margin-top: -30px" src="">
-                </div>
-              </div>
-
-              <div class="control-group">
-                <label class="control-label">{% t views.profile.two_factor_auth_section.authentication_code %}</label>
-
-                <div class="controls">
-                  <input id="id_second_step_verification"
-                         type="text"
-                         class="input-block-level" pattern="\d+"
-                         title="{% t views.profile.two_factor_auth_section.authentication_code_title %}"
-                         placeholder="{% t views.profile.two_factor_auth_section.authentication_code_placeholder %}" required>
-                </div>
-              </div>
-            </div>
-            <button id="id_btn_enable_two_factor" class="btn btn-primary">{% t views.profile.two_factor_auth_section.enable %}</button>
+            <a id="id_btn_enable_two_factor" data-switch-view="twofactor" class="btn btn-primary">{% t views.profile.two_factor_auth_section.enable %}</a>
             <button id="id_btn_disable_two_factor" class="btn btn-danger">{% t views.profile.two_factor_auth_section.disable %}</button>
           </div>
 

@@ -98,15 +98,12 @@ bitex.view.TwoFactor.prototype.onModelSetTwoFactorEnabled_ = function(e) {
   var secret = this.getApplication().getModel().get('TwoFactorSecret');
   var has_secret = goog.isDefAndNotNull(secret) && !goog.string.isEmpty(secret);
 
-  var divEl = goog.dom.getElement('id_enable_two_factor_div');
   var btnEnableEl = goog.dom.getElement('id_btn_enable_two_factor');
   var btnDisableEl = goog.dom.getElement('id_btn_disable_two_factor');
 
   goog.style.showElement(btnEnableEl, !enabled);
   goog.style.showElement(btnDisableEl, enabled);
-  goog.style.showElement(divEl, has_secret && !enabled);
   this.getApplication().router_.setView('offerbook');
-
 };
 
 /**
@@ -115,4 +112,3 @@ bitex.view.TwoFactor.prototype.onModelSetTwoFactorEnabled_ = function(e) {
 bitex.view.TwoFactor.prototype.getCode = function() {
   return goog.dom.forms.getValue(goog.dom.getElement('id_second_step_verification_view'));
 };
-
