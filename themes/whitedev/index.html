@@ -309,27 +309,6 @@ load_application:       True
                 </header>
 
                 <div class="content bitex-view-content">
-
-                    <div id="id_enable_two_factor_div" class="col-md-12" style="text-align: center;">
-
-                        <div class="">
-                            <img id="id_secret_qr" style="" src="">
-                        </div>
-                        <div class="">
-                            <label class="control-label">{% t views.profile.two_factor_auth_section.key %}</label>
-                            <span id='secret' class="bitex-model" data-model-key="TwoFactorSecret"></span>
-                        </div>
-                        <hr>
-                        <div class="ls-prefix-group">
-                            <label class="ls-label-text-prefix">{% t views.profile.two_factor_auth_section.authentication_code %}</label>
-
-                            <input id="id_second_step_verification"
-                                    type="text"
-                                    class="input-block-level" pattern="\d+"
-                                    title="{% t views.profile.two_factor_auth_section.authentication_code_title %}"
-                                    placeholder="{% t views.profile.two_factor_auth_section.authentication_code_placeholder %}" required>
-                        </div>
-                    </div>
                     <div class="col-md-12" style="text-align:center;margin-top:10px">
                         <button id="id_btn_enable_two_factor" class="ls-btn ls-btn-primary">{% t views.profile.two_factor_auth_section.enable %}</button>
                         <button id="id_btn_disable_two_factor" class="ls-btn ls-btn-danger">{% t views.profile.two_factor_auth_section.disable %}</button>

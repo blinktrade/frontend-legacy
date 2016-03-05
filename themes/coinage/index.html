@@ -671,28 +671,6 @@ load_application:       True
                       <h4 class="profile-two-factor__title">{% t views.profile.two_factor_auth_section.title %}</h4>
                       <!-- /.profile-two-factor__title -->
 
-                      <!-- .profile-two-factor__body -->
-                      <div class="profile-two-factor__body bitex-view-content">
-                          <!-- .profile-two-factor__form -->
-                          <ul id="id_enable_two_factor_div" class="profile-two-factor__form nav">
-                              <li>
-                                  <label class="profile-two-factor__label">{% t views.profile.two_factor_auth_section.key %}:</label>
-                                  <div id='secret' class="bitex-model" data-model-key="TwoFactorSecret"></div>
-
-                                  <img id="id_secret_qr" src="" />
-                              </li>
-
-                              <li>
-                                  <label class="profile-two-factor__label">{% t views.profile.two_factor_auth_section.authentication_code %}:</label>
-                                  <input id="id_second_step_verification" type="text" class="form-control"
-                                       pattern="\d+" title="{% t views.profile.two_factor_auth_section.authentication_code_title %}"
-                                       placeholder="{% t views.profile.two_factor_auth_section.authentication_code_placeholder %}" required />
-                              </li>
-                          </ul>
-                          <!-- /.profile-two-factor__form -->
-                      </div>
-                      <!-- /.profile-two-factor__body -->
-
                       <!-- .profile-two-factor__foot -->
                       <div class="profile-two-factor__foot">
                           <button id="id_btn_enable_two_factor" class="btn btn-success profile-two-factor__btn">{% t views.profile.two_factor_auth_section.enable %}</button>
