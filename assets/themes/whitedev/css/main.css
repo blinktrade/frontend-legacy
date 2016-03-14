@@ -375,7 +375,7 @@ ul.ls-footer-list li{
 }
 
 .ls-language nav ul a {
-    background: #222;
+    background: #eee;
     padding: 15px 20px!important;
     color:#888!important;
     text-align: center!important;
@@ -388,6 +388,13 @@ ul.ls-footer-list li{
     color: white!important;
     padding-left:25px!important;
 }
+
+.ls-user-account .ls-user-menu ul a{
+  background: #eee;
+  border-bottom: 1px solid #dedede;
+}
+
+
 footer{
     height:120px;
 }

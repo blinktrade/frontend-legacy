@@ -2113,7 +2113,9 @@ bitex.app.BlinkTrade.prototype.showWithdrawalDialog = function(currency, opt_pre
   value_fmt.setMinimumFractionDigits(2);
 
   handler.listen(dlg, goog.ui.Dialog.EventType.SELECT, function(e) {
-    this.webcam_.destroy();
+    if(goog.isDefAndNotNull(this.webcam_)) {
+      this.webcam_.destroy();
+    }
 
     if (e.key == 'ok') {
       var error_list = withdrawal_uniform.validate();
