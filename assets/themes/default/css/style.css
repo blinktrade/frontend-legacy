@@ -584,11 +584,11 @@ keyframes notification {
 
 
 .ledger-activity-credit {
-  background-color: lightcyan
+  border-left: 5px solid #d6e9c6;
 }
 
 .ledger-activity-debit {
-  background-color: lightpink;
+  border-left: 5px solid lightpink;
 }
 
 .account-summary-broker {
