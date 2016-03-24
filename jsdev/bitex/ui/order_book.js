@@ -604,6 +604,11 @@ bitex.ui.OrderBook.prototype.updateOrder = function( index, qty) {
 bitex.ui.OrderBook.prototype.insertOrder = function( index, id, price, qty, username, broker ) {
   var dom = this.getDomHelper();
 
+  /**
+   * @desc Title describing your onder on your username
+   */
+  var MSG_ORDER_BOOK_YOUR_ORDER = goog.getMsg('Your Order');
+
   var qty_formatter = new goog.i18n.NumberFormat( this.qtyCurrencyDef_.format, this.qtyCurrencyDef_.code );
   formatted_qty = qty_formatter.format(qty/1e8);
 
@@ -614,8 +619,11 @@ bitex.ui.OrderBook.prototype.insertOrder = function( index, id, price, qty, user
   formatted_price = price_formatter.format(price/1e8);
 
   var orderId = null;
+  var isMyOrder = false;
   if (username === this.username_ || broker === this.username_ ){
     orderId = id;
+    username = MSG_ORDER_BOOK_YOUR_ORDER;
+    isMyOrder = true;
   }
   var tmpWrapper = dom.createDom( goog.dom.TagName.TABLE, undefined,dom.createDom( goog.dom.TagName.TBODY ));
   tmpWrapper.innerHTML = bitex.ui.OrderBook.templates.OrderBookOrderRow({
@@ -631,7 +639,7 @@ bitex.ui.OrderBook.prototype.insertOrder = function( index, id, price, qty, user
 
   var row_elements = dom.getChildren(this.bodyEl_ );
   var cumulative_qty = qty;
-  if (username == this.username_ ) {
+  if (isMyOrder) {
     goog.dom.classes.add( rowEl, goog.getCssName(this.getBaseCssClass(), 'movable') );
   }
 
@@ -663,7 +671,7 @@ bitex.ui.OrderBook.prototype.insertOrder = function( index, id, price, qty, user
 
 
   dom.insertChildAt( this.bodyEl_, rowEl, index );
-  this.drag_drop_group_.addItem(rowEl, { allowDrag: (username === this.username_ || broker === this.username_) } );
+  this.drag_drop_group_.addItem(rowEl, { allowDrag: (isMyOrder || broker === this.username_) } );
 
 
   var blink_class  = 'md-blink';
