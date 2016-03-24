@@ -67,7 +67,7 @@ load_application:       True
                         <!-- .home-news-item -->
                         <div class="home-news-item">
                             <div class="home-news-item__icon">
-                                <img class="home-img" src="{{ site.baseurl }}/assets/themes/coinage/img/ico-tradewithus.png" alt="" />
+                                <img class="home-img" src="{{ site.url }}{{ site.baseurl }}/assets/themes/coinage/img/ico-tradewithus.png" alt="" />
                             </div>
 
                             {% assign about  = "views.landing.about" %}
@@ -102,7 +102,7 @@ load_application:       True
                         <!-- .home-news-item -->
                         <div class="home-news-item">
                             <div class="home-news-item__icon">
-                                <img class="home-img" src="{{ site.baseurl }}/assets/themes/coinage/img/ico-secure.png" alt="" />
+                                <img class="home-img" src="{{ site.url }}{{ site.baseurl }}/assets/themes/coinage/img/ico-secure.png" alt="" />
                             </div>
 
                             <h2 class="home-news-item__title h3">{% t title2 %}</h2>
@@ -122,7 +122,7 @@ load_application:       True
                         <!-- .home-news-item -->
                         <div class="home-news-item">
                             <div class="home-news-item__icon">
-                                <img class="home-img" src="{{ site.baseurl }}/assets/themes/coinage/img/ico-liquidity.png" alt="" />
+                                <img class="home-img" src="{{ site.url }}{{ site.baseurl }}/assets/themes/coinage/img/ico-liquidity.png" alt="" />
                             </div>
 
                             <h2 class="home-news-item__title h3">{% t title3 %}</h2>
@@ -159,7 +159,7 @@ load_application:       True
                     <!-- .order -->
                     <div class="order">
                         <!-- .order__cell -->
-                        <div class="order__cell">
+                        <div class="order__cell col-md-6 col-xs-12">
                             <!-- .orders -->
                             <div class="orders">
 
@@ -180,7 +180,7 @@ load_application:       True
                         <!-- /.order__cell -->
 
                         <!-- .order__cell -->
-                        <div class="order__cell">
+                        <div class="order__cell col-md-6 col-xs-12">
                             <!-- .orders -->
                             <div class="orders">
 
@@ -211,7 +211,7 @@ load_application:       True
         <!-- .home-contact -->
         <div class="home-contact">
             <div class="home-contact__icon">
-                <img class="home-img" src="{{ site.baseurl }}/assets/themes/coinage/img/ico-requestbeta.png" alt="" />
+                <img class="home-img" src="{{ site.url }}{{ site.baseurl }}/assets/themes/coinage/img/ico-requestbeta.png" alt="" />
             </div>
 
             {% assign signup_title  = signup | append: ".title" %}
