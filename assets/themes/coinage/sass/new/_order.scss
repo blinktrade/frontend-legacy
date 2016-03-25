@@ -187,6 +187,20 @@
     padding: 12px 10px;
     width: 100%;
     text-align: center;
+
+    .orders__head-buttons {
+      position: absolute;
+      padding-top: 3px;
+      padding-right: 6px;
+      top: 2px;
+      right: 4px;
+      button {
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+
 }
 
 .orders__title {
@@ -205,6 +219,8 @@
 .orders__title {
     margin: 0;
 }
+
+
 
 .orders-table {
     font-size: 13px;

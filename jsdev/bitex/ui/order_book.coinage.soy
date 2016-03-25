@@ -8,27 +8,23 @@
 <div class="orders">
     <!-- .orders__head -->
     <header class="orders__head">
-        <h4 class="orders__title">{$title}</h4>
+      <div class="row">
+        <h4 class="orders__title col-xs-6">{$title}</h4>
         {if $title == 'ASK' }
-        <div class="orders__head-buttons btn-group pull-right">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-            <i class="glyphicon glyphicon-cog"></i>
-          </a>
-          <ul class="dropdown-menu" role="menu">
-            <li>
-              <div class="btn-show-cum-qty">
-                {call .ShowCumQty}{/call}
-              </div>
-            </li>
-            <li>
-              <div class="btn-show-fees">
-                {call .ShowFees}{/call}
-              </div>
-            </li>
-          </ul>
+        <div class="orders__head-buttons btn-group">
+          <button
+            title='{msg desc="Cumulative Description"}Cumulative OrderBook{/msg}'
+            class="btn btn-default btn-show-cum-qty">
+            {call .ShowCumQty}{/call}
+          </button>
+          <button
+            title='{msg desc="Fees Description"}Fees OrderBook{/msg}'
+            class="btn btn-default btn-show-fees">
+            {call .ShowFees}{/call}
+          </button>
         </div>
         {/if}
-
+      </div>
     </header>
     <!-- /.orders__head -->
 
@@ -60,7 +56,7 @@
 /**
  */
 {template .ShowCumQty}
-<div>
+  <div>
     {msg desc="Cumulative"}Cumulative{/msg}
   </div>
 {/template}
