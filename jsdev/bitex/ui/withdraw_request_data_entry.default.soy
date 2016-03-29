@@ -138,6 +138,7 @@
                     <div class="controls">
                         <input id="{$id}_{$field['name']}"
                              class="withdraw-field"
+                             style="{if $field['name'] == 'Wallet'}width:80%;{/if}"
                              data-uniform-validators="{if $field['required']}required;{/if}{$field['validator']}"
                              type="{$field['type']}"
                              name="{$field['name']}"
