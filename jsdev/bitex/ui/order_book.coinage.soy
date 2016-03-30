@@ -1,6 +1,7 @@
 {namespace bitex.ui.OrderBook.templates}
 
 /**
+  * @param? side
   * @param title
   * @param columns
   */
@@ -9,8 +10,8 @@
     <!-- .orders__head -->
     <header class="orders__head">
       <div class="row">
-        <h4 class="orders__title col-xs-6">{$title}</h4>
-        {if $title == 'ASK' }
+        <h4 class="orders__title col-xs-6 {if $side == '0'} orders__title_center{/if}">{$title}</h4>
+        {if $side == '1' }
         <div class="orders__head-buttons btn-group">
           <button
             title='{msg desc="Cumulative Description"}Cumulative OrderBook{/msg}'

@@ -204,6 +204,7 @@ bitex.ui.OrderBook.prototype.createDom = function() {
   }
 
   var el = goog.soy.renderAsElement(bitex.ui.OrderBook.templates.OrderBook, {
+    side: this.side_,
     title: title,
     columns: columns
   });
