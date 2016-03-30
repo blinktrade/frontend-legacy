@@ -135,49 +135,51 @@
   */
 {template .BrokerConfirmDepositContent}
   <form class="form-horizontal broker-confirm-deposit">
-    <div class="control-group">
-      <label class="control-label">{msg desc="Control number label"}Control number{/msg}</label>
-      <div class="controls">
+    <div class="form-group">
+      <label class="col-xs-2 control-label">{msg desc="Control number label"}Control number{/msg}</label>
+      <div class="col-xs-6 col-sm-4">
         <label class="control-label" style="text-align: left;">{$controlNumber}</label>
       </div>
     </div>
-    <div class="control-group">
-      <label class="control-label">{msg desc="Amount label"}Amount paid{/msg}</label>
-      <div class="controls">
-        <div class="input-prepend">
-          <span class="add-on">{$currencySign}</span>
+    <div class="form-group">
+      <label class="col-xs-2 control-label">{msg desc="Amount label"}Amount paid{/msg}</label>
+      <div class="col-xs-6 col-sm-4">
+        <div class="input-group">
+          <span class="input-group-addon">{$currencySign}</span>
           <input id="{$id_value}" type="text" class="form-control" size="16" name="PaidValue" value="{$value}">
         </div>
       </div>
     </div>
-    <div class="control-group">
-      <label class="control-label">{msg desc="Fee percentage label"}Fees:{/msg}</label>
-      <div class="controls">
-        <div class="row-fluid">
-          <div class="span4">
-            <div class="input-append">
+    <div class="form-group">
+      <label class="col-xs-2 control-label">{msg desc="Fee percentage label"}Fees:{/msg}</label>
+      <div class="col-xs-10 col-sm-6">
+        <div class="row">
+          <div class="col-xs-6">
+            <div class="input-group">
               <input id="{$percentFeeID}" type="text" class="form-control" size="16" name="Fee" value="{$percentFee}">
-              <span class="add-on">%</span>
+              <span class="input-group-addon">%</span>
             </div>
           </div>
-
-          <div class="span4">
-            <div class="input-prepend">
-              <span class="add-on">{$currencySign}</span>
+          <div class="col-xs-6">
+            <div class="input-group">
+              <span class="input-group-addon">{$currencySign}</span>
               <input id="{$fixedFeeID}" type="text" class="form-control" size="16" name="Fee" value="{$fixedFee}">
             </div>
-          </div>
-
-          <div class="span4">
-            <label id="{$totalFeesID}" class="control-label broker-confirm-deposit-fee" style="text-align: left;"></label>
           </div>
         </div>
       </div>
     </div>
+    <div class="form-group">
+      <div class="col-xs-2 control-label"></div>
+      <div class="col-xs-6 col-sm-4">
+        <label id="{$totalFeesID}" class="control-label broker-confirm-deposit-fee" style="text-align: left;"></label>
+      </div>
+    </div>
+    </div>
 
-    <div class="control-group">
-      <label class="control-label">{msg desc="Net amount"}Net amount{/msg}</label>
-      <div class="controls">
+    <div class="form-group">
+      <label class="col-xs-2 control-label">{msg desc="Net amount"}Net amount{/msg}</label>
+      <div class="col-xs-6 col-sm-4">
         <label id="{$netValueID}" class="control-label broker-confirm-deposit-net-amount" style="text-align: left;"></label>
         <input id="{$netValueID}_value" type="hidden" value="">
       </div>
@@ -420,9 +422,9 @@
 <p>{msg desc="Cancel deposit dialog message"}Enter a reason for cancelling the deposit{/msg}</p>
 <form class="form-horizontal">
   <fieldset>
-    <div class="control-group">
-      <label class="control-label" for="{$reason_id}" >{msg desc="Cancel deposit reason label"}Reason:{/msg}</label>
-      <div class="controls">
+    <div class="form-group">
+      <label class="col-xs-2 control-label" for="{$reason_id}" >{msg desc="Cancel deposit reason label"}Reason:{/msg}</label>
+      <div class="col-xs-4">
         <select id="{$reason_id}">
           <option value="0" selected>{msg desc="reason for cancelling deposit"}Other{/msg}</option>
         </select>
@@ -430,7 +432,7 @@
     </div>
     <div class="control-group">
       <div class="controls">
-        <textarea id="{$custom_reason_id}" rows="2" style=""></textarea>
+        <textarea class="form-control" id="{$custom_reason_id}" rows="2" style=""></textarea>
       </div>
     </div>
   </fieldset>

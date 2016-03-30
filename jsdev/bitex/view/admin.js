@@ -21,6 +21,30 @@ goog.require('bootstrap3.Tabs');
 
 goog.require('bitex.templates');
 
+
+/**
+ * @param {*} app
+ * @param {goog.dom.DomHelper=} opt_domHelper
+ * @constructor
+ * @extends {bitex.view.View}
+ */
+bitex.view.AdminView = function(app, opt_domHelper) {
+  bitex.view.View.call(this, app, opt_domHelper);
+
+  this.request_id_customer_ = null;
+  this.request_id_deposits_ = null;
+  this.request_id_withdraw_ = null;
+};
+goog.inherits(bitex.view.AdminView, bitex.view.View);
+
+bitex.view.AdminView.prototype.enterView = function() {
+  goog.base(this, 'enterView');
+  this.recreateComponents_();
+
+  var tabs = new bootstrap3.Tabs();
+  tabs.decorate(goog.dom.getElement('admin-tabs'));
+};
+
 /**
  * @type {bitex.ui.Customers}
  */
@@ -133,29 +157,6 @@ bitex.view.AdminView.prototype.qr_data_;
  */
 bitex.view.AdminView.prototype.qr_data_verb_;
 
-
-/**
- * @param {*} app
- * @param {goog.dom.DomHelper=} opt_domHelper
- * @constructor
- * @extends {goog.ui.Component}
- */
-bitex.view.AdminView = function(app, opt_domHelper) {
-  bitex.view.View.call(this, app, opt_domHelper);
-
-  this.request_id_customer_ = null;
-  this.request_id_deposits_ = null;
-  this.request_id_withdraw_ = null;
-};
-goog.inherits(bitex.view.AdminView, bitex.view.View);
-
-bitex.view.AdminView.prototype.enterView = function() {
-  goog.base(this, 'enterView');
-  this.recreateComponents_();
-
-  var tabs = new bootstrap3.Tabs();
-  tabs.decorate(goog.dom.getElement('admin-tabs'));
-};
 
 bitex.view.AdminView.prototype.exitView = function() {
   goog.base(this, 'exitView');
