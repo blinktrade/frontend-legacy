@@ -119,7 +119,7 @@ bitex.ui.WithdrawList = function( methodDescriptionObj, opt_broker_mode,  opt_sh
     {
       'property': 'Created',
       'label': MSG_WITHDRAW_TABLE_COLUMN_CREATED,
-      'sortable': false,
+      'sortable': broker_mode,
       'formatter': function(s, rowSet) {
         return  bitex.util.convertServerUTCDateTimeStrToTimestamp(s.substr(0, 10), s.substr(11)).toLocaleString();
       },

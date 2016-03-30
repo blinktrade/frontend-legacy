@@ -681,6 +681,18 @@ bitex.ui.DataGrid.prototype.resultSetToElements = function(resultSet, columns) {
     result_set_col_index[index] = index_row_set;
   });
 
+  if (!goog.string.isEmptySafe(this.sort_column_)) {
+    var sortIndex = goog.array.findIndex(columns, function(col) {
+      return col == this.sort_column_;
+    }, this);
+
+    goog.array.sort(resultSet, function(a,b){
+      return this.sort_direction_ === 'DESC'
+          ? goog.date.Date.compare(new Date(a[sortIndex]), new Date(b[sortIndex]))
+          : goog.date.Date.compare(new Date(b[sortIndex]), new Date(a[sortIndex]));
+    }.bind(this));
+  }
+
   goog.array.forEach( resultSet, function(row_set) {
     var row_set_obj = {};
     goog.array.forEach( row_set, function(value, result_set_index) {
