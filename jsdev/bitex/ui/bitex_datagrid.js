@@ -304,19 +304,15 @@ bitex.ui.DataGrid.prototype.handleColumnClick_ = function(e){
 
     if (goog.dom.classes.has(element,'sorted')) {
       var sort_indicator_element = goog.dom.getElementByClass('datagrid-sort', element);
-      var classToRemove;
-      var classToAdd;
-      if (goog.dom.classes.has(sort_indicator_element, 'icon-chevron-up') ) {
-        classToRemove = 'icon-chevron-up';
-        classToAdd = 'icon-chevron-down';
+      if (this.sort_direction_  === 'DESC') {
+        sort_indicator_element = bitex.ui.DataGrid.templates.SortIconDown;
         this.sort_direction_ = 'ASC';
       } else {
-        classToRemove = 'icon-chevron-down';
-        classToAdd = 'icon-chevron-up';
+        sort_indicator_element = bitex.ui.DataGrid.templates.SortIconUp;
         this.sort_direction_ = 'DESC';
       }
 
-      goog.dom.classes.addRemove(sort_indicator_element, classToRemove, classToAdd  );
+      goog.soy.renderElement(goog.dom.getElement('id_sort_icon'), sort_indicator_element);
 
     } else {
       var other_sorted_column_elements = goog.dom.getElementsByClass('sorted', this.tr_columns_el_ );
@@ -328,9 +324,9 @@ bitex.ui.DataGrid.prototype.handleColumnClick_ = function(e){
         }
       }, this );
 
-      //<i class="icon-chevron-up datagrid-sort"></i>
-      sort_indicator_element = goog.dom.createDom('i', ['icon-chevron-up', 'datagrid-sort'] );
+      sort_indicator_element = goog.soy.renderAsElement(bitex.ui.DataGrid.templates.SortIconUp);
       goog.dom.appendChild(element, sort_indicator_element);
+
       this.sort_direction_ = 'DESC';
       goog.dom.classes.add(element, 'sorted');
     }
