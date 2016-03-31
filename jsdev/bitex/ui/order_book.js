@@ -623,9 +623,12 @@ bitex.ui.OrderBook.prototype.insertOrder = function( index, id, price, qty, user
   var isMyOrder = false;
   if (username === this.username_ || broker === this.username_ ){
     orderId = id;
+  }
+  if (username === this.username_){
     username = MSG_ORDER_BOOK_YOUR_ORDER;
     isMyOrder = true;
   }
+
   var tmpWrapper = dom.createDom( goog.dom.TagName.TABLE, undefined,dom.createDom( goog.dom.TagName.TBODY ));
   tmpWrapper.innerHTML = bitex.ui.OrderBook.templates.OrderBookOrderRow({
     username: username,
