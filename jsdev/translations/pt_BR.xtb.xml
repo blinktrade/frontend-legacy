@@ -50,7 +50,7 @@
 	<translation id="4083962123418202335" key="MSG_K0Y568XBO457" source="bitex/templates/templates.default.soy.js" desc="label in broker fees table">Taxa de trade</translation>
 	<translation id="7988407278596949144" key="MSG_1EUOC0S6XQP59" source="bitex/templates/templates.default.soy.js" desc="label in broker fees table">Taxa de trade - compra</translation>
 	<translation id="5319657868832870009" key="MSG_1EIWBJ89JWMNN" source="bitex/templates/templates.default.soy.js" desc="label in broker fees table">Taxa de trade - venda</translation>
-	<translation id="5166194079944134474" key="MSG_IHWC3OGEO0UD" source="bitex/templates/templates.default.soy.js" desc="Wallet section subtitle on Broker view">Carteiras</translation>
+	<translation id="5166194079944134474" key="MSG_IHWC3OGEO0UD" source="bitex/templates/templates.default.soy.js" desc="Wallet section subtitle on Broker view">Auditar Carteiras</translation>
 	<translation id="532585968376213265" key="MSG_EL9R0Y7HTKQO" source="bitex/templates/templates.default.soy.js" desc="Coin  column on Broker wallet table">Moeda</translation>
 	<translation id="2591562700335263517" key="MSG_TQ0QDGYRUFFU" source="bitex/ui/withdraw_method_editor.default.soy.js" desc="Method field header">Tipo</translation>
 	<translation id="5714718516006897600" key="MSG_1219FO7E8ULLB" source="bitex/templates/templates.default.soy.js" desc="address column type on Broker wallet table">Endereço</translation>
