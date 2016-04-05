@@ -96,6 +96,7 @@ views:
     high: SUS
     last: ULTIMUL
     low: JOS
+    volume: VOLUM
 
   start:
     username: "Nume utilizator:"
