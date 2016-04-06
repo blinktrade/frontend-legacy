@@ -2,14 +2,16 @@
 
 # 0.1.0
 
-Yeeeeah, we pushed [60 commits](https://github.com/cesardeazevedo/frontend/compare/d11a0bf...fee9099) ahead, great changes and it deserves a CHANGELOG.
+Yeeeeah, we pushed [70 commits](https://github.com/cesardeazevedo/frontend/compare/d11a0bf...abe37d3) ahead, great changes and it deserves a CHANGELOG.
 
-[Compare View](https://github.com/cesardeazevedo/frontend/compare/d11a0bf...fee9099)
+[Compare View](https://github.com/cesardeazevedo/frontend/compare/d11a0bf...abe37d3)
 
 # New features
 * Officially Release of the `Coinage Theme`
 ![screen shot 2016-03-30 at 08 24 20](https://cloud.githubusercontent.com/assets/5366959/14140689/ef6e17fc-f650-11e5-9617-048126542b2a.png)
-![screen shot 2016-03-30 at 08 25 45](https://cloud.githubusercontent.com/assets/5366959/14140708/0b9c5452-f651-11e5-874d-287c8cc1e3fc.png)
+![screen shot 2016-04-06 at 06 11 31](https://cloud.githubusercontent.com/assets/5366959/14311566/75bb75bc-fbbe-11e5-980b-fa52c6f1213e.png)
+
+
 
 * Webcam QRCode reader d1606535a
 ![screen shot 2016-02-04 at 20 53 31](https://cloud.githubusercontent.com/assets/5366959/14139790/8658fb06-f64b-11e5-90a7-5f4f7045d47f.png)
@@ -20,6 +22,8 @@ Yeeeeah, we pushed [60 commits](https://github.com/cesardeazevedo/frontend/compa
 * Replaced your `username` placed on your order by a generic text c9ed17a87d1
 * Removed the `background-color` of the datagrid on ledger and the order history c40ad5d7c
 * SignUp query string params 39468a082a
+* Volume ticker on title b110beb8
+* Shows LAST PX on HTML title 0382273739
 * [**Admin**] Made pending as default filter on my customers 5cbcb89f80a
 * [**Admin**] Add `DepositMethod` column on admin deposit requests f5a07f98d82fb3
 * [**Admin**] Add sortable datagrid on admin date/hour fields 7be37771cc
@@ -28,6 +32,7 @@ Yeeeeah, we pushed [60 commits](https://github.com/cesardeazevedo/frontend/compa
 
 ## Bug fixes
 * Fix `KYC` and cancel buttons on deposit list d11a0bf0aba8efa2
+* Hides verification menu when is pending 40d49ad3b778e
 
 # Coinage Theme
 
@@ -36,6 +41,9 @@ Yeeeeah, we pushed [60 commits](https://github.com/cesardeazevedo/frontend/compa
 ![screen shot 2016-03-30 at 08 00 16](https://cloud.githubusercontent.com/assets/5366959/14140111/7896968e-f64d-11e5-8412-45ce631a92a1.png)
 * Add cumulative and fees buttons on orderbook 0300040f2 0108e7657d
 ![screen shot 2016-02-06 at 17 44 25](https://cloud.githubusercontent.com/assets/5366959/14141378/013ae0f6-f655-11e5-96c5-deff4a813be2.png)
+* Add Twitter feed widget on sidebar
+![screen shot 2016-04-06 at 06 11 21](https://cloud.githubusercontent.com/assets/5366959/14311573/7deab36a-fbbe-11e5-908b-3f308620b732.png)
+
 
 * Removed `background-color` lines on ledger d5fcf02795 c40ad5d7c
 
