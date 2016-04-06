@@ -10,6 +10,11 @@ exchange_toolbar_logo: "foxbit_inverse"
 
 custom_css: "foxbit"
 
+twitter_widget_id: "717629137503043584"
+twitter_widget_name: "foxbitstatus"
+twitter_widget_theme: "light"
+twitter_widget_link_color: "#E8683E"
+
 default_country_code: "BR"
 blinktrade_broker_id: 4  # 4 is the id for the demo backend. Don't change that if you don't understand what you doing.
 

@@ -10,6 +10,12 @@ exchange_logo: "urdubit"
 
 custom_css: "darkgreen"
 
+
+twitter_widget_id: "717608571828060160"
+twitter_widget_name: "urdubit"
+twitter_widget_theme: "dark"
+twitter_widget_link_color: "#66A96D"
+
 default_country_code: "PK"
 blinktrade_broker_id: 4 # 9 is the id for the demo backend. Don't change that if you don't understand what you doing.
 

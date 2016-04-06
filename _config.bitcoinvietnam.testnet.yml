@@ -10,6 +10,11 @@ exchange_logo: "bitcoinvietnam"
 
 custom_css: 'lightgreen'
 
+twitter_widget_id: "717635114658873344"
+twitter_widget_name: "Bitcoin_Vietnam"
+twitter_widget_theme: "dark"
+twitter_widget_link_color: "#88DA65"
+
 default_country_code: "VN"
 blinktrade_broker_id: 3
 
@@ -58,6 +63,10 @@ plugins:     ./_plugins
 paginate:    5
 paginate_path: "post/page:num"
 permalink:     /post/:title/
+facebook: https://www.facebook.com/VBTC.vn
+twitter: https://twitter.com/bitcoin_vietnam
+youtube: https://www.youtube.com/user/BitcoinVietnam/videos
+
 sass:
   sass_dir: assets/themes/coinage/sass
   style: :compressed
