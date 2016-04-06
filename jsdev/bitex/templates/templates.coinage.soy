@@ -808,33 +808,33 @@
   * @param? hideNetValueID
   */
 {template .FeesFormControls}
-<div class="control-group">
-  <label class="control-label">{msg desc="Fee label"}Fees:{/msg}</label>
-  <div class="controls">
-    <div class="row-fluid">
-      <div class="span3">
-        <div class="input-append">
-          <input id="{$percentFeeID}" type="text" class="form-control" size="16"  style="width: 40px;" name="PercentFee" value="{$percentFee}">
-          <span class="add-on">%</span>
+<div class="form-group">
+  <label class="col-xs-2 control-label">{msg desc="Fee label"}Fees:{/msg}</label>
+  <div class="col-xs-10">
+    <div class="row">
+      <div class="col-xs-3">
+        <div class="input-group">
+          <input id="{$percentFeeID}" type="text" class="form-control" name="PercentFee" value="{$percentFee}">
+          <span class="input-group-addon">%</span>
         </div>
-        <span style="font-style: italic;">{msg desc="Fee percentage label"}Percent fee{/msg}</span>
+        <small style="font-style: italic;">{msg desc="Fee percentage label"}Percent fee{/msg}</small>
       </div>
 
-      <div class="span1" style="margin-top: 4px;margin-bottom: -4px;">
-          <span style="font-weight: bold;">+</span>
+      <div class="col-xs-1" style="margin-top: 10px">
+          <span class="glyphicon glyphicon-plus"></span>
       </div>
-      <div class="span3">
-        <div class="input-prepend">
-          <span class="add-on">{$currencySign}</span>
-          <input id="{$fixedFeeID}" type="text" class="form-control" size="16" style="width: 40px;" name="FixedFee" value="{$fixedFee}">
+      <div class="col-xs-3">
+        <div class="input-group">
+          <span class="input-group-addon">{$currencySign}</span>
+          <input id="{$fixedFeeID}" type="text" class="form-control" name="FixedFee" value="{$fixedFee}">
         </div>
-        <span style="font-style: italic;">{msg desc="Fee fixed label"}Fixed fee{/msg}</span>
+        <small style="font-style: italic;">{msg desc="Fee fixed label"}Fixed fee{/msg}</small>
       </div>
-      <div class="span1" style="margin-top: 4px;margin-bottom: -4px;">
-          <span style="font-weight: bold;">=</span>
+      <div class="col-xs-1" style="margin-top: 10px;">
+          <span class="glyphicon glyphicon-arrow-right"></span>
       </div>
-      <div class="span4">
-        <label id="{$totalFeesID}" class="control-label" style="text-align: left;"></label>
+      <div class="col-xs-4">
+        <label id="{$totalFeesID}" class="control-label"></label>
       </div>
     </div>
   </div>
@@ -867,9 +867,9 @@
     <input type="hidden" name="Currency" value="{$currency}">
     <input id="{$amountID}" type="hidden" name="Amount" value="{$amount}">
 
-    <div class="control-group">
-      <label class="control-label">{msg desc="requested amount"}Requested Amount{/msg}</label>
-      <div class="controls">
+    <div class="form-group">
+      <label class="col-xs-2 control-label">{msg desc="requested amount"}Requested Amount{/msg}</label>
+      <div class="col-xs-10">
         <label class="control-label" style="text-align: left;">{$formattedAmount}</label>
       </div>
     </div>

@@ -123,6 +123,11 @@ bitex.view.AdminView.prototype.withdraw_list_table_;
 bitex.view.AdminView.prototype.withdraw_action_;
 
 /**
+ * @type {bitex.ui.WithdrawMethods}
+ */
+bitex.view.AdminView.prototype.withdraw_methods;
+
+/**
  * @type {string}
  */
 bitex.view.AdminView.prototype.confirmation_token_;
@@ -818,6 +823,13 @@ bitex.view.AdminView.prototype.priceFormatter_ = function(value, rowSet) {
 };
 
 bitex.view.AdminView.prototype.destroyWithdrawMethods = function() {
+  var handler = this.getHandler();
+
+  handler.unlisten(this.withdraw_methods, bitex.ui.WithdrawMethods.EventType.CHANGE, this.onChangeWithdrawStructure_);
+  handler.unlisten(this.withdraw_methods, bitex.ui.WithdrawMethods.EventType.SAVE, this.onSaveWithdrawStructure_);
+  handler.unlisten(this.withdraw_methods, bitex.ui.WithdrawMethods.EventType.CANCEL, this.onCancelWithdrawStructure_);
+  handler.unlisten(this.withdraw_methods, bitex.ui.WithdrawMethods.EventType.VALIDATION_ERROR, this.onValidationErrorWithdrawStructure_);
+
   goog.dom.removeChildren(goog.dom.getElement('admin_withdraw_methods'));
 };
 
@@ -825,12 +837,12 @@ bitex.view.AdminView.prototype.getWithdrawMethods = function() {
   var model = this.getApplication().getModel();
   var handler = this.getHandler();
 
-  var withdraw_methods = new bitex.ui.WithdrawMethods(
+  this.withdraw_methods = new bitex.ui.WithdrawMethods(
     goog.bind(this.getApplication().formatCurrency, this.getApplication()),
     goog.bind(this.getApplication().getCurrencyDescription, this.getApplication()));
 
   var broker_currencies = [];
-  goog.array.forEach (model.get('Profile')['BrokerCurrencies'], function(currency) {
+  goog.array.forEach(model.get('Profile')['BrokerCurrencies'], function(currency) {
     var obj = {
       'code': currency,
       'description': this.getApplication().getCurrencyDescription(currency)
@@ -839,11 +851,75 @@ bitex.view.AdminView.prototype.getWithdrawMethods = function() {
   }, this);
 
   var withdraw_methods_model = goog.object.unsafeClone(model.get('Profile')['WithdrawStructure']);
-  withdraw_methods.setModel({
+  this.withdraw_methods.setModel({
     'withdraw_methods': withdraw_methods_model,
     'currencies': broker_currencies
   });
 
-  withdraw_methods.render(goog.dom.getElement('admin_withdraw_methods'));
-  withdraw_methods.enterDocument();
+  this.withdraw_methods.render(goog.dom.getElement('admin_withdraw_methods'));
+  this.withdraw_methods.enterDocument();
+
+  handler.listen(this.withdraw_methods, bitex.ui.WithdrawMethods.EventType.CHANGE, this.onChangeWithdrawStructure_);
+  handler.listen(this.withdraw_methods, bitex.ui.WithdrawMethods.EventType.SAVE, this.onSaveWithdrawStructure_);
+  handler.listen(this.withdraw_methods, bitex.ui.WithdrawMethods.EventType.CANCEL, this.onCancelWithdrawStructure_);
+  handler.listen(this.withdraw_methods, bitex.ui.WithdrawMethods.EventType.VALIDATION_ERROR, this.onValidationErrorWithdrawStructure_);
+};
+
+
+/**
+ * @param {goog.events.Event} e
+ * @private
+ */
+bitex.view.AdminView.prototype.onChangeWithdrawStructure_ = function(e) {
+  var withdraw_structure = e.target.getWithdrawStructure();
+};
+
+/**
+ * @param {goog.events.Event} e
+ * @private
+ */
+bitex.view.AdminView.prototype.onSaveWithdrawStructure_ = function(e) {
+  var withdraw_structure = e.target.getWithdrawStructure();
+
+  var withdraw_method_component = e.target;
+  withdraw_method_component.setSavingStatus(true);
+
+  var conn = this.getApplication().getBitexConnection();
+  var requestId = conn.updateUserProfile({ 'WithdrawStructure': withdraw_structure });
+  var handler = this.getHandler();
+  handler.listenOnce(conn, bitex.api.BitEx.EventType.UPDATE_PROFILE_RESPONSE + '.' + requestId, function(e){
+    withdraw_method_component.setDirty(false);
+    withdraw_method_component.setSavingStatus(false);
+  });
+};
+
+/**
+ * @param {goog.events.Event} e
+ * @private
+ */
+bitex.view.AdminView.prototype.onValidationErrorWithdrawStructure_ = function(e) {
+  var error = e.target.getLastError();
+  this.getApplication().showNotification('error', error);
+};
+
+
+/**
+ * @param {goog.events.Event} e
+ * @private
+ */
+bitex.view.AdminView.prototype.onCancelWithdrawStructure_ = function(e) {
+  var model = this.getApplication().getModel();
+  var broker_currencies = [];
+  goog.array.forEach(model.get('Profile')['BrokerCurrencies'], function(currency) {
+    var obj = {
+      'code': currency,
+      'description': this.getApplication().getCurrencyDescription(currency)
+    };
+    broker_currencies.push(obj);
+  }, this );
+
+  var withdraw_methods_model = goog.object.unsafeClone(model.get('Profile')['WithdrawStructure']);
+  e.target.setModel({ 'withdraw_methods':withdraw_methods_model, 'currencies':broker_currencies });
+  e.target.updateWindow();
+  e.target.setDirty(false);
 };

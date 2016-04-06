@@ -228,11 +228,7 @@ bitex.app.BlinkTrade = function(broker_id,
 
   this.model_.set('DefaultBrokerID', broker_id);
   this.model_.set('SelectedBrokerID', broker_id);
-
-  console.log('Default INIT', opt_default_symbol);
   this.model_.set('DefaultSymbol', opt_default_symbol);
-
-  console.log('MODEL', this.getModel());
 
   if (goog.isDefAndNotNull(opt_default_state)) {
     this.model_.set('DefaultState', opt_default_state);
@@ -3069,7 +3065,6 @@ bitex.app.BlinkTrade.prototype.doCalculateFees_ = function(amount_element_id,
  */
 bitex.app.BlinkTrade.prototype.onProcessDeposit_ = function(e){
   var model = this.getModel();
-  console.log('E', e.target.getDepositData);
   var deposit_data = e.target.getDepositData();
   var request_id = e.target.getRequestId();
   var action = e.target.getDepositAction();
@@ -4376,7 +4371,6 @@ bitex.app.BlinkTrade.prototype.getCurrencyNumberOfDecimals  =   function(currenc
 bitex.app.BlinkTrade.prototype.onSecurityList_ =   function(e) {
   var msg = e.data;
 
-  console.log('Security LIST');
   goog.array.forEach(msg['Currencies'], function( currency) {
     this.currency_info_[ currency['Code'] ] = {
       code: currency['Code'],
