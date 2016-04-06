@@ -2,9 +2,9 @@
 
 # 0.1.0
 
-Yeeeeah, we pushed [70 commits](https://github.com/cesardeazevedo/frontend/compare/d11a0bf...abe37d3) ahead, great changes and it deserves a CHANGELOG.
+Yeeeeah, we pushed [73 commits](https://github.com/cesardeazevedo/frontend/compare/d11a0bf...13f7d4a) ahead, great changes and it deserves a CHANGELOG.
 
-[Compare View](https://github.com/cesardeazevedo/frontend/compare/d11a0bf...abe37d3)
+[Compare View](https://github.com/cesardeazevedo/frontend/compare/d11a0bf...13f7d4a)
 
 # New features
 * Officially Release of the `Coinage Theme`
