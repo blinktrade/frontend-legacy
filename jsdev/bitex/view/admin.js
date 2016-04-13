@@ -43,7 +43,23 @@ bitex.view.AdminView.prototype.enterView = function() {
 
   var tabs = new bootstrap3.Tabs();
   tabs.decorate(goog.dom.getElement('admin-tabs'));
+
+  this.toggleSidebar_(false);
 };
+
+/**
+ * @const
+ * @type {string}
+ * @private
+ */
+bitex.view.AdminView.prototype.CLASS_CONTAINER_IN  = 'col-md-10';
+
+/**
+ * @const
+ * @type {string}
+ * @private
+ */
+bitex.view.AdminView.prototype.CLASS_CONTAINER_OUT = 'col-md-8';
 
 /**
  * @type {bitex.ui.Customers}
@@ -162,10 +178,11 @@ bitex.view.AdminView.prototype.qr_data_;
  */
 bitex.view.AdminView.prototype.qr_data_verb_;
 
-
 bitex.view.AdminView.prototype.exitView = function() {
   goog.base(this, 'exitView');
   this.destroyComponents_();
+
+  this.toggleSidebar_(true);
 };
 
 bitex.view.AdminView.prototype.enterDocument = function() {
@@ -184,6 +201,20 @@ bitex.view.AdminView.prototype.destroyComponents_ = function() {
   this.destroyDepositsRequests();
   this.destroyWithdrawRequests();
   this.destroyWithdrawMethods();
+};
+
+
+bitex.view.AdminView.prototype.toggleSidebar_ = function(enable) {
+  var sidebar = goog.dom.getElement('sidebar_remittances');
+  var content = goog.dom.getElement('sidebar_content');
+
+  var container_in  = enable ? this.CLASS_CONTAINER_IN  : this.CLASS_CONTAINER_OUT;
+  var container_out = enable ? this.CLASS_CONTAINER_OUT : this.CLASS_CONTAINER_IN;
+
+  if(goog.isDefAndNotNull(sidebar) && goog.isDefAndNotNull(content)) {
+    goog.dom.classes.swap(content, container_in, container_out);
+    goog.dom.classes.toggle(sidebar, 'bitex-hide-if-admin-view');
+  }
 };
 
 bitex.view.AdminView.prototype.destroyCustomers = function() {

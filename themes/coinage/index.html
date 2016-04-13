@@ -234,122 +234,11 @@ load_application:       True
   </div>
   <!-- /#start -->
 
-  <!-- #faq -->
-  <div id="faq" class="page container bitex-view">
-      <!-- .page__head -->
-      <header class="page__head">
-          <h1 class="page__title h2 bitex-view-title">
-              <i class="glyphicon glyphicon-question-sign"></i> {% t views.faq.title %}
-          </h1>
-      </header>
-      <!-- /.page__head -->
-
-      <!-- .page__body -->
-      <div class="page__body bitex-view-content">
-          <!-- .panel-group -->
-          <div class="panel-group accordion" id="accordion">
-              {% for post in site.categories['faq'] reversed %}
-              <div class="panel panel-default accordion-group">
-                <div class="panel-heading accordion-heading">
-                <h4 class="panel-title">
-                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#{{ post.title }} ">
-                        {{post.title}}
-                    </a>
-                  </h4>
-                </div>
-                <div id="{{ post.title }}" class="panel-collapse accordion-body collapse">
-                  <div class="panel-body">
-                       {{post.content}}
-                  </div>
-                </div>
-              </div>
-              {% endfor %}
-          </div>
-          <!-- /.panel-group -->
-
-          <a href="" class="bitex-support-link" target="_blank">
-              <i class="glyphicon glyphicon-envelope"></i> {% t views.faq.get_in_touch %}.
-          </a>
-      </div>
-      <!-- /.page__body -->
-  </div>
-  <!-- /#faq -->
-
-  <!-- #market -->
-  <div id="market" class="bitex-view">
-    <!-- .page -->
-    <div class="page container-fluid">
-      <!-- .page__head -->
-      <header class="page__head">
-          <h1 class="page__title h2 bitex-view-title">
-              <i class="glyphicon glyphicon-stats"></i> {% t views.market.title %}
-          </h1>
-      </header>
-      <!-- /.page__head -->
-
-      <!-- .page__body -->
-      <div class="page__body bitex-view-content">
-      </div>
-      <!-- /.page__body -->
-    </div>
-    <!-- /.page -->
-  </div>
-  <!-- /#market -->
-
-  <!-- /#themes -->
-  <div id="themes" class="page bitex-view">
-    <div class="row">
-        <!-- .col-md-6 -->
-        <div class="page__content page__padding col-md-10 col-md-offset-1">
-            <header class="page__head">
-                <h1 class="page__title bitex-view-title">{% t views.themes.title %}</h1>
-                <p>{% t views.themes.choose %}</p>
-            </header>
-            <div class="bitex-view-content page__body">
-                <div class="row" style="text-align:center">
-                    <a href="{{ site.url}}{{ site.baseurl}}/themes/coinage/">
-                        <div class="col-md-5 thumb-theme" style="margin:auto;float:none">
-                            <img src="{{ site.url}}{{ site.baseurl }}/assets/exchange_logos/thumb-themes/{{ site.exchange }}-coinage-thumb.jpg" alt="Coinage Theme">
-                            <h3>Coinage Theme</h3>
-                        </div>
-                    </a>
-                </div>
-                <hr>
-                <div class="row" style="text-align:center">
-                    <div class="col-xs-4">
-                        <a href="{{ site.url}}{{ site.baseurl}}/themes/default/">
-                            <div class="thumb-theme">
-                                <img src="{{ site.url}}{{ site.baseurl }}/assets/exchange_logos/thumb-themes/{{ site.exchange }}-default-thumb.jpg" alt="Default Theme">
-                                <h3 class="ls-title-4">Default Theme</h3>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-xs-4">
-                        <a href="{{ site.url}}{{ site.baseurl}}/themes/ander/">
-                            <div class="thumb-theme">
-                                <img src="{{ site.url}}{{ site.baseurl }}/assets/exchange_logos/thumb-themes/{{ site.exchange }}-ander-thumb.jpg" alt="Ander Theme">
-                                <h3 class="ls-title-4">Ander</h3>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-xs-4">
-                        <a href="{{ site.url}}{{ site.baseurl}}/themes/whitedev/">
-                            <div class="thumb-theme">
-                                <img src="{{ site.url}}{{ site.baseurl }}/assets/exchange_logos/thumb-themes/{{ site.exchange }}-whitedev-thumb.jpg" alt="Whitedev Theme">
-                                <h3 class="ls-title-4">Whitedev</h3>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-  </div>
-  <!-- #themes -->
 
   <!-- #signin -->
   <div id="signin" class="page bitex-view">
         <!-- .row -->
+        <br>
         <div class="row">
             <!-- .col-md-6 -->
             <div class="page__content page__padding col-md-4 col-md-offset-4">
@@ -466,6 +355,7 @@ load_application:       True
 
   <!-- #forgot_password -->
   <div id="forgot_password" class="page row bitex-view">
+        <br>
         <!-- .row -->
         <div class="row">
             <!-- .col-md-6 -->
@@ -630,7 +520,7 @@ load_application:       True
           <!-- /.col-md-2 -->
 
           <!-- .col-md-8 -->
-          <div class="col-md-8 page__sidebar_content">
+          <div id='sidebar_content' class="col-md-8 page__sidebar_content">
               <!-- .page-dashboard -->
               <div class="page-dashboard">
                 <!-- #offerbook -->
@@ -1106,7 +996,7 @@ load_application:       True
           <!-- /.col-md-8 -->
 
           <!-- .col-md-2 -->
-          <div style="padding-left:2px;padding-right:4px;" class="col-md-2 bitex-view
+          <div id='sidebar_remittances' style="padding-left:2px;padding-right:4px;" class="col-md-2 bitex-view
                               bitex-view-profile
                               bitex-view-twofactor
                               bitex-view-trading
@@ -1143,6 +1033,122 @@ load_application:       True
       <!-- /.row -->
     </div>
   </div>
+  <!-- #market -->
+  <div id="market" class="bitex-view" style="margin:18px;padding-bottom:42px;">
+    <!-- .page -->
+    <div class="page page__content page__padding container-fluid">
+      <!-- .page__head -->
+      <header class="page__head">
+          <h1 class="page__title h2 bitex-view-title">
+              <i class="glyphicon glyphicon-stats"></i> {% t views.market.title %}
+          </h1>
+      </header>
+      <!-- /.page__head -->
+
+      {% if site.trading_view %}
+        <iframe src="https://www.tradingview.com/chart/?symbol={{ site.trading_view }}" style="width: 100%;height: 600px;margin:10px 0 10px 0;border: 1px solid #ddd;"></iframe>
+      {% endif %}
+      <!-- .page__body -->
+      <div class="page__body bitex-view-content">
+      </div>
+      <!-- /.page__body -->
+    </div>
+    <!-- /.page -->
+  </div>
+  <!-- /#market -->
+  <!-- #faq -->
+  <div id="faq" class="container bitex-view" style="padding-bottom:42px">
+      <!-- .page__head -->
+      <header class="page__head">
+          <h1 class="page__title h2 bitex-view-title">
+              <i class="glyphicon glyphicon-question-sign"></i> {% t views.faq.title %}
+          </h1>
+      </header>
+      <!-- /.page__head -->
+
+      <!-- .page__body -->
+      <div class="page__body bitex-view-content">
+          <!-- .panel-group -->
+          <div class="panel-group accordion" id="accordion">
+              {% for post in site.categories['faq'] reversed %}
+              <div class="panel panel-default accordion-group">
+                <div class="panel-heading accordion-heading">
+                <h4 class="panel-title">
+                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#{{ post.title }} ">
+                        {{post.title}}
+                    </a>
+                  </h4>
+                </div>
+                <div id="{{ post.title }}" class="panel-collapse accordion-body collapse">
+                  <div class="panel-body">
+                       {{post.content}}
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+          </div>
+          <!-- /.panel-group -->
+
+          <a href="" class="bitex-support-link" target="_blank">
+              <i class="glyphicon glyphicon-envelope"></i> {% t views.faq.get_in_touch %}.
+          </a>
+      </div>
+      <!-- /.page__body -->
+  </div>
+  <!-- /#faq -->
+
+
+  <!-- /#themes -->
+  <div id="themes" class="bitex-view" style="padding-bottom:42px;">
+    <br>
+    <div class="row">
+        <!-- .col-md-6 -->
+        <div class="page__content page__padding col-md-10 col-md-offset-1">
+            <header class="page__head">
+                <h1 class="page__title bitex-view-title">{% t views.themes.title %}</h1>
+                <p>{% t views.themes.choose %}</p>
+            </header>
+            <div class="bitex-view-content page__body">
+                <div class="row" style="text-align:center">
+                    <a href="{{ site.url}}{{ site.baseurl}}/themes/coinage/">
+                        <div class="col-md-5 thumb-theme" style="margin:auto;float:none">
+                            <img src="{{ site.url}}{{ site.baseurl }}/assets/exchange_logos/thumb-themes/{{ site.exchange }}-coinage-thumb.jpg" alt="Coinage Theme">
+                            <h3>Coinage Theme</h3>
+                        </div>
+                    </a>
+                </div>
+                <hr>
+                <div class="row" style="text-align:center">
+                    <div class="col-xs-4">
+                        <a href="{{ site.url}}{{ site.baseurl}}/themes/default/">
+                            <div class="thumb-theme">
+                                <img src="{{ site.url}}{{ site.baseurl }}/assets/exchange_logos/thumb-themes/{{ site.exchange }}-default-thumb.jpg" alt="Default Theme">
+                                <h3 class="ls-title-4">Default Theme</h3>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xs-4">
+                        <a href="{{ site.url}}{{ site.baseurl}}/themes/ander/">
+                            <div class="thumb-theme">
+                                <img src="{{ site.url}}{{ site.baseurl }}/assets/exchange_logos/thumb-themes/{{ site.exchange }}-ander-thumb.jpg" alt="Ander Theme">
+                                <h3 class="ls-title-4">Ander</h3>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xs-4">
+                        <a href="{{ site.url}}{{ site.baseurl}}/themes/whitedev/">
+                            <div class="thumb-theme">
+                                <img src="{{ site.url}}{{ site.baseurl }}/assets/exchange_logos/thumb-themes/{{ site.exchange }}-whitedev-thumb.jpg" alt="Whitedev Theme">
+                                <h3 class="ls-title-4">Whitedev</h3>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  <!-- #themes -->
   <!-- /.bitex-display-if-logged -->
 </div>
 <!-- /.container-fluid -->
