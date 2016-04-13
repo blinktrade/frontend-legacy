@@ -22,7 +22,7 @@ blinktrade_backend_api: "api.testnet.blinktrade.com"
 google_analytics_id: "UA-57478613-1"
 zopim_key: "2ZQbAVSILzBFbO31Z6EletdDQaW7H9xj"
 
-
+trading_view: 'FOXBIT:BTCBRL'
 
 # Build settings
 markdown: kramdown
@@ -51,7 +51,7 @@ remittance_box: "{
 
 symbol: "BTCBRL"
 
-languages: ["en_US", "pt_BR", "es", "ro", "zn_CN", "vi"]
+languages: ["en_US"]
 
 video : 'true'
 navbar: 'navbar-default'
@@ -65,7 +65,6 @@ paginate:    5
 paginate_path: "post/page:num"
 permalink:     /post/:title/
 blog: http://www.foxbit.com.br/blog/
-chart: http://www.foxbit.com.br/grafico/
 facebook: https://www.facebook.com/foxbitcoin
 twitter: https://twitter.com/foxbitcoin
 gplus: https://plus.google.com/+FoxbitBrasil/posts

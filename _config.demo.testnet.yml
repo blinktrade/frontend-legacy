@@ -23,6 +23,7 @@ zopim_key: "2SSNIzvxy8fBypKoZJ0pI43tUoNCv8os"
 
 embedded_chat_id : 4296  # embedded-chat.com
 
+trading_view: 'FOXBIT:BTCBRL'
 
 # Build settings
 markdown: kramdown
