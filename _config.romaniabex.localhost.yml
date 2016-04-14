@@ -39,7 +39,7 @@ remittance_box: "{
 
 languages: ["ro", "pt_BR", "en_US", "es", "zn_CN", "vi"]
 
-exclude:     [ "jsdev", "LICENSE", "README.md", "config.rb", "deploy.sh", "build_javascript.sh", "node_modules", "gulpfile.js" ]
+exclude:     [ "jsdev", "LICENSE", "README.md", "config.rb", "deploy.sh", "build_javascript.sh", "node_modules", "gulpfile.js", "themes/ander" ]
 source:      .
 destination: ./_site
 plugins:     ./_plugins
