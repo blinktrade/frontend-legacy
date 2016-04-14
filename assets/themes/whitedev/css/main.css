@@ -615,6 +615,17 @@ label.control-label.withdraw-method-label {
     cursor:pointer;
 }
 
+.twofactor_logo {
+  max-width: 70px;
+  padding-left: 5px;
+}
+
+.twofactor_store {
+  max-width: 150px;
+  margin-top: 5px;
+  padding-left: 5px;
+}
+
 /* Bitex Classes */
 #id_button_connect_ws{
     position:absolute;
