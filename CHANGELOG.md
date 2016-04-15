@@ -29,6 +29,9 @@ Yeeeeah, we pushed [80 commits](https://github.com/cesardeazevedo/frontend/compa
 * [**Admin**] Add sortable datagrid on admin date/hour fields 7be37771cc
 * [**Admin**] New Admin View 1dc62aec0c3
 ![screen shot 2016-03-30 at 08 30 05](https://cloud.githubusercontent.com/assets/5366959/14140821/ad2e6f58-f651-11e5-9365-e9ecb2701638.png)
+* Deprecate Ander Theme 65265a9531d688c1877822e9f26bdfc3190abca8
+* Renamed default theme as simple 65265a9531d688c1877822e9f26bdfc3190abca8
+
 
 ## Bug fixes
 * Fix `KYC` and cancel buttons on deposit list d11a0bf0aba8efa2
