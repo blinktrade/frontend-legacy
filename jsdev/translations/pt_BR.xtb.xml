@@ -50,7 +50,7 @@
 	<translation id="4083962123418202335" key="MSG_K0Y568XBO457" source="bitex/templates/templates.default.soy.js" desc="label in broker fees table">Taxa de trade</translation>
 	<translation id="7988407278596949144" key="MSG_1EUOC0S6XQP59" source="bitex/templates/templates.default.soy.js" desc="label in broker fees table">Taxa de trade - compra</translation>
 	<translation id="5319657868832870009" key="MSG_1EIWBJ89JWMNN" source="bitex/templates/templates.default.soy.js" desc="label in broker fees table">Taxa de trade - venda</translation>
-	<translation id="5166194079944134474" key="MSG_IHWC3OGEO0UD" source="bitex/templates/templates.default.soy.js" desc="Wallet section subtitle on Broker view">Carteiras</translation>
+	<translation id="5166194079944134474" key="MSG_IHWC3OGEO0UD" source="bitex/templates/templates.default.soy.js" desc="Wallet section subtitle on Broker view">Auditar Carteiras</translation>
 	<translation id="532585968376213265" key="MSG_EL9R0Y7HTKQO" source="bitex/templates/templates.default.soy.js" desc="Coin  column on Broker wallet table">Moeda</translation>
 	<translation id="2591562700335263517" key="MSG_TQ0QDGYRUFFU" source="bitex/ui/withdraw_method_editor.default.soy.js" desc="Method field header">Tipo</translation>
 	<translation id="5714718516006897600" key="MSG_1219FO7E8ULLB" source="bitex/templates/templates.default.soy.js" desc="address column type on Broker wallet table">Endereço</translation>
@@ -328,7 +328,7 @@
 	<translation id="8294855159062792258" key="MSG_DEPOSIT_TABLE_COLUMN_DETAIL" source="bitex/ui/deposit_list.js" desc="Column Detail of the Deposit List">Detalhes</translation>
 	<translation id="8013742343858000155" key="MSG_DEPOSIT_TABLE_COLUMN_USERNAME" source="bitex/ui/deposit_list.js" desc="Column Username of the Deposit List">Username</translation>
 	<translation id="1921819421289808265" key="MSG_DEPOSIT_TABLE_COLUMN_STATUS_PENDING" source="bitex/ui/deposit_list.js" desc="Column Status of the Deposit List">Pendente</translation>
-	<translation id="4131402607831076559" key="MSG_DEPOSIT_TABLE_COLUMN_STATUS_UNCONFIRMED" source="bitex/ui/deposit_list.js" desc="Column Status of the Deposit List">Não confirmado</translation>
+	<translation id="4131402607831076559" key="MSG_DEPOSIT_TABLE_COLUMN_STATUS_UNCONFIRMED" source="bitex/ui/deposit_list.js" desc="Column Status of the Deposit List">Aguardando depósito</translation>
 	<translation id="3866187847955109907" key="MSG_DEPOSIT_TABLE_COLUMN_STATUS_PROGRESS" source="bitex/ui/deposit_list.js" desc="Column Status of the Deposit List">Em andamento...</translation>
 	<translation id="6526305363569690055" key="MSG_DEPOSIT_TABLE_COLUMN_STATUS_COMPLETED" source="bitex/ui/deposit_list.js" desc="Column Status of the Deposit List">Completado</translation>
 	<translation id="3938863879418577136" key="MSG_DEPOSIT_TABLE_COLUMN_STATUS_CANCELLED" source="bitex/ui/deposit_list.js" desc="Column Status of the Deposit List">Cancelado</translation>

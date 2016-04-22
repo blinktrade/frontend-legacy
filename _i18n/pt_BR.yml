@@ -97,6 +97,7 @@ views:
     high: ALTA 
     last: ÚLTIMO 
     low: BAIXA
+    volume: VOLUME
 
   start:
     username: "Nome de usuário:"

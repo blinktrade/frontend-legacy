@@ -97,6 +97,7 @@ views:
     high: Cao
     last: Cuối 
     low: Thấp 
+    volume: Khối lượng
 
   start:
     username: "Tên đăng nhập:"

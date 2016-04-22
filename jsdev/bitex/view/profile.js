@@ -56,6 +56,7 @@ bitex.view.ProfileView.prototype.enterView = function() {
   customer['CountryCode'] = model.get('Profile')['Country'];
   customer['Verified'] = model.get('Profile')['Verified'];
   customer['EmailLang'] = model.get('Profile')['EmailLang'];
+  customer['ConfirmationOrder'] = model.get('Profile')['ConfirmationOrder'] || true;
 
   var account_overview_header_el = goog.dom.getElement('account_overview_user_id');
   goog.soy.renderElement(account_overview_header_el,

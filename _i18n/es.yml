@@ -95,7 +95,8 @@ views:
     connect: Conectar
     high: ALTA
     last: ÚLTIMO
-    low: BAJA 
+    low: BAJA
+    volume: VOLUMEN
 
   start:
     username: "Nombre de usuario:"

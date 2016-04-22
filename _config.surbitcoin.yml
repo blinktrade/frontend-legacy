@@ -51,7 +51,7 @@ languages: ["es", "en_US", "pt_BR", "ro", "zn_CN", "vi"]
 navbar: 'navbar-default'
 phrases: [phrase1, phrase2, phrase3]
 
-exclude:     [ "jsdev", "LICENSE", "README.md", "config.rb", "deploy.sh", "build_javascript.sh", "node_modules", "gulpfile.js" ]
+exclude:     [ "jsdev", "LICENSE", "README.md", "config.rb", "deploy.sh", "build_javascript.sh", "node_modules", "gulpfile.js", "themes/ander" ]
 source:      .
 destination: ./_site
 plugins:     ./_plugins

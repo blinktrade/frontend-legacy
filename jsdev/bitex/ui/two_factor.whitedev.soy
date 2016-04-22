@@ -13,7 +13,7 @@
       {msg desc="two factor line 4"}If you do not have Google Authenticator installed and configured yet, follow these easy steps outlined below{/msg}
     </p>
     <hr>
-    <div class="twofactor_steps">
+    <div class="twofactor_steps ls-box">
       <div class="row-fluid"><h2>1</h2> <span>{msg desc="two factor step 1"}Download and install the Authy on your mobile device.{/msg}</span></div>
       <div class="row-fluid">
         <h2>2</h2>
@@ -41,7 +41,8 @@
       <div class="row-fluid"><h2>3</h2> <span>{msg desc="two factor step 3"}On your mobile device, Tap 'Begin setup', then 'Scan a barcode'.{/msg}</span></div>
       <div class="row-fluid"><h2>4</h2> <span>{msg desc="two factor step 4"}After finishing setup, link your device to your account by following the instructions in the yellow frame.{/msg}</span></div>
     </div>
-    <div id="{$id}_enable_two_factor" class="well span6" style="text-align:center">
+    <hr>
+    <div id="{$id}_enable_two_factor" class="ls-box">
       <div class="control-group">
         <div class="controls">
           <img id="id_secret_qr_view" src="">
@@ -59,8 +60,9 @@
           placeholder='{msg desc="Authentication Code"}Authentication Code{/msg}' required>
         </div>
       </div>
-      <button data-switch-view="offerbook" id="id_btn_enable_two_factor_cancel" class="btn btn-default">{msg desc="Skip"}Skip{/msg}</button>
-      <button id="id_btn_enable_two_factor_view" class="btn btn-primary">{msg desc="Enable"}Enable{/msg}</button>
+      <br>
+      <button data-switch-view="offerbook" id="id_btn_enable_two_factor_cancel" class="ls-btn ls-btn-default">{msg desc="Skip"}Skip{/msg}</button>
+      <button id="id_btn_enable_two_factor_view" class="ls-btn ls-btn-primary">{msg desc="Enable"}Enable{/msg}</button>
     </div>
   </div>
 {/template}

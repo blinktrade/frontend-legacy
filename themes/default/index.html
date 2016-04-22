@@ -28,6 +28,9 @@ load_application:       True
             <button id="id_landing_signin" class="btn btn-primary">{% t views.start.login %}</button>
           </div>
           <div class="clearfix" style="height: 20px"></div>
+          <p>
+            <a href="#" data-switch-view="forgot_password">{% t views.signin.forgot_your_password %}</a>
+          </p>
           <div class="row-fluid">
             <span class="text-center">
               <a href="" class="btn btn-success btn-large" data-switch-view="signup">{% t views.start.signup %}</a>
@@ -691,6 +694,9 @@ load_application:       True
         <h2 class="bitex-view-title">{% t views.market.title %}</h2>
       </div>
     </div>
+    {% if site.trading_view %}
+      <iframe src="https://www.tradingview.com/chart/?symbol={{ site.trading_view }}" style="width: 100%;height: 600px;margin:10px 0 10px 0;border: 1px solid #ddd;"></iframe>
+    {% endif %}
     <div class="bitex-view-content">
     </div>
   </div>
@@ -703,24 +709,16 @@ load_application:       True
     <hr>
     <div class="bitex-view-content">
         <div class="row" style="text-align:center">
-            <div class="span5" style="margin:auto;float:none">
+            <div class="span4">
                 <a href="{{ site.url}}{{ site.baseurl}}/themes/coinage/">
                     <img src="{{ site.url}}{{ site.baseurl }}/assets/exchange_logos/thumb-themes/{{ site.exchange }}-coinage-thumb.jpg" alt="Coinage Theme">
                     <h3>Coinage Theme</h3>
                 </a>
             </div>
-        </div>
-        <div class="row" style="text-align:center">
             <div class="span4">
                 <a href="{{ site.url}}{{ site.baseurl}}/themes/default/">
                     <img src="{{ site.url}}{{ site.baseurl }}/assets/exchange_logos/thumb-themes/{{ site.exchange }}-default-thumb.jpg" alt="Default Theme">
-                    <h3>Default Theme</h3>
-                </a>
-            </div>
-            <div class="span4">
-                <a href="{{ site.url}}{{ site.baseurl}}/themes/ander/">
-                    <img src="{{ site.url}}{{ site.baseurl }}/assets/exchange_logos/thumb-themes/{{ site.exchange }}-ander-thumb.jpg" alt="Ander Theme">
-                    <h3>Ander</h3>
+                    <h3>Simple Theme</h3>
                 </a>
             </div>
             <div class="span4">

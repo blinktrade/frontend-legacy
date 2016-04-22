@@ -1391,7 +1391,6 @@ bitex.api.BitEx.prototype.processInstantDepositFiat = function(deposit_id, opt_r
         'Action': 'CREDIT'
     };
 
-    console.log('Sending');
     this.sendMessage(msg);
     return requestId;
 };

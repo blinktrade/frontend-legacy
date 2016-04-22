@@ -187,28 +187,19 @@ load_application:       True
     <hr>
     <div class="bitex-view-content">
         <div class="row" style="text-align:center">
-            <a href="{{ site.url}}{{ site.baseurl}}/themes/coinage/">
-                <div class="col-md-5 thumb-theme" style="margin:auto;float:none">
-                    <img src="{{ site.url}}{{ site.baseurl }}/assets/exchange_logos/thumb-themes/{{ site.exchange }}-coinage-thumb.jpg" alt="Coinage Theme">
-                    <h3>Coinage Theme</h3>
-                </div>
-            </a>
-        </div>
-        <hr>
-        <div class="row" style="text-align:center">
+            <div class="col-md-4">
+              <a href="{{ site.url}}{{ site.baseurl}}/themes/coinage/">
+                  <div class="thumb-theme">
+                      <img src="{{ site.url}}{{ site.baseurl }}/assets/exchange_logos/thumb-themes/{{ site.exchange }}-coinage-thumb.jpg" alt="Coinage Theme">
+                      <h3>Coinage Theme</h3>
+                  </div>
+              </a>
+            </div>
             <div class="col-md-4">
                 <a href="{{ site.url}}{{ site.baseurl}}/themes/default/">
                     <div class="thumb-theme">
                         <img src="{{ site.url}}{{ site.baseurl }}/assets/exchange_logos/thumb-themes/{{ site.exchange }}-default-thumb.jpg" alt="Default Theme">
-                        <h3 class="ls-title-4">Default Theme</h3>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-4">
-                <a href="{{ site.url}}{{ site.baseurl}}/themes/ander/">
-                    <div class="thumb-theme">
-                        <img src="{{ site.url}}{{ site.baseurl }}/assets/exchange_logos/thumb-themes/{{ site.exchange }}-ander-thumb.jpg" alt="Ander Theme">
-                        <h3 class="ls-title-4">Ander</h3>
+                        <h3 class="ls-title-4">Simple Theme</h3>
                     </div>
                 </a>
             </div>
@@ -230,6 +221,9 @@ load_application:       True
         <h1>{% t views.market.title %}</h1>
       </div>
     </div>
+    {% if site.trading_view %}
+      <iframe src="https://www.tradingview.com/chart/?symbol={{ site.trading_view }}" style="width: 100%;height: 600px;margin:10px 0 10px 0;border: 1px solid #ddd;"></iframe>
+    {% endif %}
     <div class="bitex-view-content">
     </div>
   </div>
@@ -310,7 +304,7 @@ load_application:       True
 
                 <div class="content bitex-view-content">
                     <div class="col-md-12" style="text-align:center;margin-top:10px">
-                        <button id="id_btn_enable_two_factor" class="ls-btn ls-btn-primary">{% t views.profile.two_factor_auth_section.enable %}</button>
+                        <a data-switch-view="twofactor" id="id_btn_enable_two_factor" class="ls-btn ls-btn-primary">{% t views.profile.two_factor_auth_section.enable %}</a>
                         <button id="id_btn_disable_two_factor" class="ls-btn ls-btn-danger">{% t views.profile.two_factor_auth_section.disable %}</button>
                     </div>
                 </div>

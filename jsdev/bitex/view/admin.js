@@ -21,6 +21,46 @@ goog.require('bootstrap3.Tabs');
 
 goog.require('bitex.templates');
 
+
+/**
+ * @param {*} app
+ * @param {goog.dom.DomHelper=} opt_domHelper
+ * @constructor
+ * @extends {bitex.view.View}
+ */
+bitex.view.AdminView = function(app, opt_domHelper) {
+  bitex.view.View.call(this, app, opt_domHelper);
+
+  this.request_id_customer_ = null;
+  this.request_id_deposits_ = null;
+  this.request_id_withdraw_ = null;
+};
+goog.inherits(bitex.view.AdminView, bitex.view.View);
+
+bitex.view.AdminView.prototype.enterView = function() {
+  goog.base(this, 'enterView');
+  this.recreateComponents_();
+
+  var tabs = new bootstrap3.Tabs();
+  tabs.decorate(goog.dom.getElement('admin-tabs'));
+
+  this.toggleSidebar_(false);
+};
+
+/**
+ * @const
+ * @type {string}
+ * @private
+ */
+bitex.view.AdminView.prototype.CLASS_CONTAINER_IN  = 'col-md-10';
+
+/**
+ * @const
+ * @type {string}
+ * @private
+ */
+bitex.view.AdminView.prototype.CLASS_CONTAINER_OUT = 'col-md-8';
+
 /**
  * @type {bitex.ui.Customers}
  */
@@ -99,6 +139,11 @@ bitex.view.AdminView.prototype.withdraw_list_table_;
 bitex.view.AdminView.prototype.withdraw_action_;
 
 /**
+ * @type {bitex.ui.WithdrawMethods}
+ */
+bitex.view.AdminView.prototype.withdraw_methods;
+
+/**
  * @type {string}
  */
 bitex.view.AdminView.prototype.confirmation_token_;
@@ -133,33 +178,11 @@ bitex.view.AdminView.prototype.qr_data_;
  */
 bitex.view.AdminView.prototype.qr_data_verb_;
 
-
-/**
- * @param {*} app
- * @param {goog.dom.DomHelper=} opt_domHelper
- * @constructor
- * @extends {goog.ui.Component}
- */
-bitex.view.AdminView = function(app, opt_domHelper) {
-  bitex.view.View.call(this, app, opt_domHelper);
-
-  this.request_id_customer_ = null;
-  this.request_id_deposits_ = null;
-  this.request_id_withdraw_ = null;
-};
-goog.inherits(bitex.view.AdminView, bitex.view.View);
-
-bitex.view.AdminView.prototype.enterView = function() {
-  goog.base(this, 'enterView');
-  this.recreateComponents_();
-
-  var tabs = new bootstrap3.Tabs();
-  tabs.decorate(goog.dom.getElement('admin-tabs'));
-};
-
 bitex.view.AdminView.prototype.exitView = function() {
   goog.base(this, 'exitView');
   this.destroyComponents_();
+
+  this.toggleSidebar_(true);
 };
 
 bitex.view.AdminView.prototype.enterDocument = function() {
@@ -178,6 +201,20 @@ bitex.view.AdminView.prototype.destroyComponents_ = function() {
   this.destroyDepositsRequests();
   this.destroyWithdrawRequests();
   this.destroyWithdrawMethods();
+};
+
+
+bitex.view.AdminView.prototype.toggleSidebar_ = function(enable) {
+  var sidebar = goog.dom.getElement('sidebar_remittances');
+  var content = goog.dom.getElement('sidebar_content');
+
+  var container_in  = enable ? this.CLASS_CONTAINER_IN  : this.CLASS_CONTAINER_OUT;
+  var container_out = enable ? this.CLASS_CONTAINER_OUT : this.CLASS_CONTAINER_IN;
+
+  if(goog.isDefAndNotNull(sidebar) && goog.isDefAndNotNull(content)) {
+    goog.dom.classes.swap(content, container_in, container_out);
+    goog.dom.classes.toggle(sidebar, 'bitex-hide-if-admin-view');
+  }
 };
 
 bitex.view.AdminView.prototype.destroyCustomers = function() {
@@ -817,6 +854,13 @@ bitex.view.AdminView.prototype.priceFormatter_ = function(value, rowSet) {
 };
 
 bitex.view.AdminView.prototype.destroyWithdrawMethods = function() {
+  var handler = this.getHandler();
+
+  handler.unlisten(this.withdraw_methods, bitex.ui.WithdrawMethods.EventType.CHANGE, this.onChangeWithdrawStructure_);
+  handler.unlisten(this.withdraw_methods, bitex.ui.WithdrawMethods.EventType.SAVE, this.onSaveWithdrawStructure_);
+  handler.unlisten(this.withdraw_methods, bitex.ui.WithdrawMethods.EventType.CANCEL, this.onCancelWithdrawStructure_);
+  handler.unlisten(this.withdraw_methods, bitex.ui.WithdrawMethods.EventType.VALIDATION_ERROR, this.onValidationErrorWithdrawStructure_);
+
   goog.dom.removeChildren(goog.dom.getElement('admin_withdraw_methods'));
 };
 
@@ -824,12 +868,12 @@ bitex.view.AdminView.prototype.getWithdrawMethods = function() {
   var model = this.getApplication().getModel();
   var handler = this.getHandler();
 
-  var withdraw_methods = new bitex.ui.WithdrawMethods(
+  this.withdraw_methods = new bitex.ui.WithdrawMethods(
     goog.bind(this.getApplication().formatCurrency, this.getApplication()),
     goog.bind(this.getApplication().getCurrencyDescription, this.getApplication()));
 
   var broker_currencies = [];
-  goog.array.forEach (model.get('Profile')['BrokerCurrencies'], function(currency) {
+  goog.array.forEach(model.get('Profile')['BrokerCurrencies'], function(currency) {
     var obj = {
       'code': currency,
       'description': this.getApplication().getCurrencyDescription(currency)
@@ -838,11 +882,75 @@ bitex.view.AdminView.prototype.getWithdrawMethods = function() {
   }, this);
 
   var withdraw_methods_model = goog.object.unsafeClone(model.get('Profile')['WithdrawStructure']);
-  withdraw_methods.setModel({
+  this.withdraw_methods.setModel({
     'withdraw_methods': withdraw_methods_model,
     'currencies': broker_currencies
   });
 
-  withdraw_methods.render(goog.dom.getElement('admin_withdraw_methods'));
-  withdraw_methods.enterDocument();
+  this.withdraw_methods.render(goog.dom.getElement('admin_withdraw_methods'));
+  this.withdraw_methods.enterDocument();
+
+  handler.listen(this.withdraw_methods, bitex.ui.WithdrawMethods.EventType.CHANGE, this.onChangeWithdrawStructure_);
+  handler.listen(this.withdraw_methods, bitex.ui.WithdrawMethods.EventType.SAVE, this.onSaveWithdrawStructure_);
+  handler.listen(this.withdraw_methods, bitex.ui.WithdrawMethods.EventType.CANCEL, this.onCancelWithdrawStructure_);
+  handler.listen(this.withdraw_methods, bitex.ui.WithdrawMethods.EventType.VALIDATION_ERROR, this.onValidationErrorWithdrawStructure_);
+};
+
+
+/**
+ * @param {goog.events.Event} e
+ * @private
+ */
+bitex.view.AdminView.prototype.onChangeWithdrawStructure_ = function(e) {
+  var withdraw_structure = e.target.getWithdrawStructure();
+};
+
+/**
+ * @param {goog.events.Event} e
+ * @private
+ */
+bitex.view.AdminView.prototype.onSaveWithdrawStructure_ = function(e) {
+  var withdraw_structure = e.target.getWithdrawStructure();
+
+  var withdraw_method_component = e.target;
+  withdraw_method_component.setSavingStatus(true);
+
+  var conn = this.getApplication().getBitexConnection();
+  var requestId = conn.updateUserProfile({ 'WithdrawStructure': withdraw_structure });
+  var handler = this.getHandler();
+  handler.listenOnce(conn, bitex.api.BitEx.EventType.UPDATE_PROFILE_RESPONSE + '.' + requestId, function(e){
+    withdraw_method_component.setDirty(false);
+    withdraw_method_component.setSavingStatus(false);
+  });
+};
+
+/**
+ * @param {goog.events.Event} e
+ * @private
+ */
+bitex.view.AdminView.prototype.onValidationErrorWithdrawStructure_ = function(e) {
+  var error = e.target.getLastError();
+  this.getApplication().showNotification('error', error);
+};
+
+
+/**
+ * @param {goog.events.Event} e
+ * @private
+ */
+bitex.view.AdminView.prototype.onCancelWithdrawStructure_ = function(e) {
+  var model = this.getApplication().getModel();
+  var broker_currencies = [];
+  goog.array.forEach(model.get('Profile')['BrokerCurrencies'], function(currency) {
+    var obj = {
+      'code': currency,
+      'description': this.getApplication().getCurrencyDescription(currency)
+    };
+    broker_currencies.push(obj);
+  }, this );
+
+  var withdraw_methods_model = goog.object.unsafeClone(model.get('Profile')['WithdrawStructure']);
+  e.target.setModel({ 'withdraw_methods':withdraw_methods_model, 'currencies':broker_currencies });
+  e.target.updateWindow();
+  e.target.setDirty(false);
 };

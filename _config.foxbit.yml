@@ -10,6 +10,11 @@ exchange_toolbar_logo: "foxbit_inverse"
 
 custom_css: "foxbit"
 
+twitter_widget_id: "717629137503043584"
+twitter_widget_name: "foxbitstatus"
+twitter_widget_theme: "light"
+twitter_widget_link_color: "#E8683E"
+
 default_country_code: "BR"
 blinktrade_broker_id: 4  # 4 is the id for the demo backend. Don't change that if you don't understand what you doing.
 
@@ -17,7 +22,7 @@ blinktrade_backend_api: "api.blinktrade.com"
 google_analytics_id: "UA-57478613-1"
 zopim_key: "2ZQbAVSILzBFbO31Z6EletdDQaW7H9xj"
 
-
+trading_view: 'FOXBIT:BTCBRL'
 
 # Build settings
 markdown: kramdown
@@ -52,7 +57,7 @@ video : 'true'
 navbar: 'navbar-default'
 phrases: [phrase1, phrase2, phrase3]
 
-exclude:     [ "jsdev", "LICENSE", "README.md", "config.rb", "deploy.sh", "build_javascript.sh", "node_modules", "gulpfile.js" ]
+exclude:     [ "jsdev", "LICENSE", "README.md", "config.rb", "deploy.sh", "build_javascript.sh", "node_modules", "gulpfile.js", "themes/ander" ]
 source:      .
 destination: ./_site
 plugins:     ./_plugins
@@ -60,7 +65,6 @@ paginate:    5
 paginate_path: "post/page:num"
 permalink:     /post/:title/
 blog: http://www.foxbit.com.br/blog/
-chart: http://www.foxbit.com.br/grafico/
 facebook: https://www.facebook.com/foxbitcoin
 twitter: https://twitter.com/foxbitcoin
 gplus: https://plus.google.com/+FoxbitBrasil/posts
