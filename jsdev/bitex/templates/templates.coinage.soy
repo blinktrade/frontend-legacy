@@ -1282,10 +1282,10 @@
 {template .AccountOverviewHeaderWithDrawEmailData}
     {if $msg_customer_detail['NeedWithdrawEmail'] }
       <span class="label label-success">{msg desc="label on  overview header"}Enabled{/msg}</span> <a
-        href="#" class="btn btn-primary btn-mini" data-action="SET_WITHDRAW_EMAIL" data-row="{$msg_customer_detail['ID']}">{msg desc="label on  overview header"}Disable{/msg}</a>
+        href="#" class="btn btn-primary btn-xs" data-action="SET_WITHDRAW_EMAIL" data-row="{$msg_customer_detail['ID']}">{msg desc="label on  overview header"}Disable{/msg}</a>
     {else}
       <span class="label label-important">{msg desc="label on  overview header"}Disabled{/msg}</span> <a
-        href="#" class="btn btn-primary btn-mini" data-action="SET_WITHDRAW_EMAIL" data-row="{$msg_customer_detail['ID']}">{msg desc="label on  overview header"}Enabled{/msg}</a>
+        href="#" class="btn btn-primary btn-xs" data-action="SET_WITHDRAW_EMAIL" data-row="{$msg_customer_detail['ID']}">{msg desc="label on  overview header"}Enabled{/msg}</a>
     {/if}
 {/template}
 
