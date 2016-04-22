@@ -76,7 +76,6 @@ goog.require('bitex.view.SetNewPasswordView');
 goog.require('bitex.view.VerificationView');
 goog.require('bitex.view.DepositView');
 goog.require('bitex.view.OfferBookView');
-goog.require('bitex.view.P2PView');
 goog.require('bitex.view.HistoryView');
 goog.require('bitex.view.SideBarView');
 goog.require('bitex.view.WithdrawView');
@@ -458,7 +457,6 @@ bitex.app.BlinkTrade.prototype.run = function(host_api) {
   var depositRequestsView = new bitex.view.DepositView(this, true);
   var verificationView    = new bitex.view.VerificationView(this);
   var offerBookView       = new bitex.view.OfferBookView(this);
-  var p2pView             = new bitex.view.P2PView(this);
   var historyView         = new bitex.view.HistoryView(this);
   var withdrawView        = new bitex.view.WithdrawView(this, false);
   var withdrawRequestsView= new bitex.view.WithdrawView(this, true);
@@ -492,7 +490,6 @@ bitex.app.BlinkTrade.prototype.run = function(host_api) {
   this.views_.addChild( tradingView         );
   this.views_.addChild( algorithmTradingView);
   this.views_.addChild( offerBookView       );
-  this.views_.addChild( p2pView             );
   this.views_.addChild( historyView         );
   this.views_.addChild( depositView         );
   this.views_.addChild( depositRequestsView );
@@ -535,7 +532,6 @@ bitex.app.BlinkTrade.prototype.run = function(host_api) {
   this.router_.addView( '(algotrading)'                 , algorithmTradingView);
   this.router_.addView( '(trading)'                     , tradingView         );
   this.router_.addView( '(offerbook)'                   , offerBookView       );
-  this.router_.addView( '(p2p)'                         , p2pView             );
   this.router_.addView( '(history)'                     , historyView         );
   this.router_.addView( '(deposit_requests)'            , depositRequestsView );
   this.router_.addView( '(deposit)'                     , depositView         );

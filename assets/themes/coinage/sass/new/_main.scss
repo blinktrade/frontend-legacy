@@ -6,11 +6,18 @@
 }
 
 .background {
-  background: #eaeff2
+  background: #eaeff2;
 }
 
 .zopim{
     @media (max-width: $screen-sm-max){
-        display: none
+        display: none;
     }
+}
+
+.icon-eye-open:before {
+  font-family: FontAwesome;
+  font-style: normal;
+  font-size: 12px;
+  content: "\f15b";
 }
