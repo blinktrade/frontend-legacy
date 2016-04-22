@@ -28,23 +28,20 @@ bitex.view.TwoFactor.prototype.exitView = function() {
 
 bitex.view.TwoFactor.prototype.enterDocument = function() {
   goog.base(this, 'enterDocument');
-
-  var handler = this.getHandler();
-  var model   = this.getApplication().getModel();
-
-  handler.listen(model, bitex.model.Model.EventType.SET + 'TwoFactorSecret', this.onModelSetTwoFactorSecret_);
-  handler.listen(model, bitex.model.Model.EventType.SET + 'TwoFactorEnabled', this.onModelSetTwoFactorEnabled_);
-
 };
 
 bitex.view.TwoFactor.prototype.recreateComponents_ = function() {
 
   var handler = this.getHandler();
+  var model   = this.getApplication().getModel();
   var enabled = this.getApplication().getModel().get('TwoFactorEnabled');
 
   if (enabled) {
     this.getApplication().router_.setView('offerbook');
   } else {
+
+    handler.listen(model, bitex.model.Model.EventType.SET + 'TwoFactorSecret', this.onModelSetTwoFactorSecret_);
+    handler.listen(model, bitex.model.Model.EventType.SET + 'TwoFactorEnabled', this.onModelSetTwoFactorEnabled_);
 
     this.two_factor_component = new bitex.ui.TwoFactor();
     this.two_factor_component.render(goog.dom.getElement('twofactor_content'));
@@ -62,6 +59,7 @@ bitex.view.TwoFactor.prototype.destroyComponents_ = function() {
   var model   = this.getApplication().getModel();
 
   handler.unlisten(model, bitex.model.Model.EventType.SET + 'TwoFactorSecret', this.onModelSetTwoFactorSecret_);
+  handler.unlisten(model, bitex.model.Model.EventType.SET + 'TwoFactorEnabled', this.onModelSetTwoFactorEnabled_);
 
   goog.dom.removeChildren(goog.dom.getElement('twofactor_content'));
 };
