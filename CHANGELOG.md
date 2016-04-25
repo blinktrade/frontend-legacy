@@ -2,9 +2,9 @@
 
 # 0.1.2
 
-Yeeeeah, we pushed [87 commits](https://github.com/cesardeazevedo/frontend/compare/d11a0bf...9d77ee1) ahead, great changes and it deserves a CHANGELOG.
+Yeeeeah, we pushed [89 commits](https://github.com/cesardeazevedo/frontend/compare/d11a0bf...e039674) ahead, great changes and it deserves a CHANGELOG.
 
-[Compare View](https://github.com/cesardeazevedo/frontend/compare/d11a0bf...9d77ee1)
+[Compare View](https://github.com/cesardeazevedo/frontend/compare/d11a0bf...e039674)
 
 # New features
 * Officially Release of the `Coinage Theme`
@@ -36,6 +36,7 @@ Yeeeeah, we pushed [87 commits](https://github.com/cesardeazevedo/frontend/compa
 ## Bug fixes
 * Fix `KYC` and cancel buttons on deposit list d11a0bf0aba8efa2
 * Hides verification menu when is pending 40d49ad3b778e
+* Fix select and clear all API Permissions  e0396748bb
 
 # Coinage Theme
 
