@@ -2,9 +2,9 @@
 
 # 0.1.2
 
-Yeeeeah, we pushed [89 commits](https://github.com/cesardeazevedo/frontend/compare/d11a0bf...e039674) ahead, great changes and it deserves a CHANGELOG.
+Yeeeeah, we pushed [91 commits](https://github.com/cesardeazevedo/frontend/compare/d11a0bf...635ec14) ahead, great changes and it deserves a CHANGELOG.
 
-[Compare View](https://github.com/cesardeazevedo/frontend/compare/d11a0bf...e039674)
+[Compare View](https://github.com/cesardeazevedo/frontend/compare/d11a0bf...635ec14)
 
 # New features
 * Officially Release of the `Coinage Theme`
@@ -57,6 +57,7 @@ Yeeeeah, we pushed [89 commits](https://github.com/cesardeazevedo/frontend/compa
 * Fix footer padding c82f8abd793
 * Fix order cell on coinage homepage 2ecd76648b
 * Fix sidebar fee and bonux dropdown color a3d93b8df0ea
+* Fix nodes progress bar 635ec1471c
 
 ## Default Theme
 
