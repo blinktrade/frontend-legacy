@@ -2689,8 +2689,11 @@ bitex.app.BlinkTrade.prototype.onUserOrderEntry_ = function(e){
                                 e.target.getClientID());
   };
 
-  var ConfirmationOrder = this.getModel('Profile')['ConfirmationOrder'] || true;
-  if (ConfirmationOrder === true) {
+  var confirmationOrder = false;
+  if (goog.isDefAndNotNull(this.getModel().get('Profile')['ConfirmationOrder'])){
+    confirmationOrder = this.getModel().get('Profile')['ConfirmationOrder'];
+  }
+  if (confirmationOrder === true) {
     /**
      * @desc dialog shown when user send an order
      */
@@ -2802,6 +2805,7 @@ bitex.app.BlinkTrade.prototype.onUpdateProfileResponse_ = function(e) {
   var new_profile = msg['Profile'];
   var model = this.getModel();
   model.set('SelectedCustomer', new_profile);
+  model.set('Profile', new_profile);
 };
 
 
