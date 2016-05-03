@@ -1295,7 +1295,7 @@
 {template .AccountOverviewHeaderTwoFactors}
     {if $msg_customer_detail['TwoFactorEnabled'] }
       <span class="label label-success">{msg desc="label on  overview header"}Enabled{/msg}</span>
-      <a href="#" class="btn btn-primary btn-mini" data-action="SET_TWO_FACTOR" data-row="{$msg_customer_detail['ID']}">{msg desc="label on  overview header"}Disable{/msg}</a>
+      <a href="#" class="btn btn-primary btn-xs" data-action="SET_TWO_FACTOR" data-row="{$msg_customer_detail['ID']}">{msg desc="label on  overview header"}Disable{/msg}</a>
     {else}
       <span class="label label-important">{msg desc="label on  overview header"}Disabled{/msg}</span>
     {/if}
