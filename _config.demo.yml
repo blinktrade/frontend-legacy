@@ -1,5 +1,5 @@
 # Site settings
-url: "//localhost:4000"
+url: "//testnet.blinktrade.com"
 author: "BlinkTrade"
 baseurl: ""
 deploy_version: "HEAD"
