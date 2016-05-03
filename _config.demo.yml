@@ -1,8 +1,8 @@
 # Site settings
-url: "//testnet.blinktrade.com"
+url: "https://testnet.blinktrade.com"
 author: "BlinkTrade"
 baseurl: ""
-deploy_version: "HEAD"
+deploy_version: "b14784f"
 
 exchange: "demo"
 exchange_logo: "demo"
