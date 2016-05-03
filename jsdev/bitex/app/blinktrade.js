@@ -987,14 +987,30 @@ bitex.app.BlinkTrade.prototype.onBitexWithdrawConfirmationResponse_ = function(e
 bitex.app.BlinkTrade.prototype.onBitexWithdrawResponse_ = function(e) {
   var msg = e.data;
 
-  if (msg['Status'] == "0" &&  this.getModel().get('Profile')['NeedWithdrawEmail'] ) {
-      var dlg_content;
+
+
+  if (msg['Status'] == "0") {
+    var dlg_content;
+    var need_second_factor = true;
+    var second_factor_type = msg['SecondFactorType'];
+
+    if (second_factor_type == 'EMAIL') {
+      dlg_content = bitex.templates.WithdrawConfirmationDialogContent();
+    } else if (second_factor_type == 'OTP') {
+      dlg_content = bitex.templates.GoogleAuthenticationCodeDialogContent();
+    } else if (this.getModel().get('Profile')['NeedWithdrawEmail']) {
       if (this.getModel().get('TwoFactorEnabled')) {
         dlg_content = bitex.templates.GoogleAuthenticationCodeDialogContent();
+        second_factor_type = 'OTP';
       } else {
         dlg_content = bitex.templates.WithdrawConfirmationDialogContent();
+        second_factor_type = 'EMAIL';
       }
+    } else {
+      need_second_factor = false;
+    }
 
+    if (need_second_factor) {
       /**
        * @desc withdraw confirmation dialog title
        */
@@ -1023,18 +1039,22 @@ bitex.app.BlinkTrade.prototype.onBitexWithdrawResponse_ = function(e) {
           } else {
             var withdraw_confirmation_data = withdraw_confirmation_uniform.getAsJSON();
 
-            if (this.getModel().get('TwoFactorEnabled')) {
+            if (second_factor_type == "OTP") {
               var token = withdraw_confirmation_data['token'];
               var withdraw_id = msg['WithdrawID'];
               this.conn_.confirmWithdraw( undefined, withdraw_id, token);
-            } else {
+            } else if (second_factor_type == "EMAIL") {
               var confirmation_code = withdraw_confirmation_data['confirmation_code'];
               this.conn_.confirmWithdraw( confirmation_code );
             }
           }
         }
       }, this);
+    }
   }
+
+
+
 };
 
 /**
@@ -2689,8 +2709,11 @@ bitex.app.BlinkTrade.prototype.onUserOrderEntry_ = function(e){
                                 e.target.getClientID());
   };
 
-  var ConfirmationOrder = this.getModel('Profile')['ConfirmationOrder'] || true;
-  if (ConfirmationOrder === true) {
+  var confirmationOrder = false;
+  if (goog.isDefAndNotNull(this.getModel().get('Profile')['ConfirmationOrder'])){
+    confirmationOrder = this.getModel().get('Profile')['ConfirmationOrder'];
+  }
+  if (confirmationOrder === true) {
     /**
      * @desc dialog shown when user send an order
      */
@@ -2802,6 +2825,7 @@ bitex.app.BlinkTrade.prototype.onUpdateProfileResponse_ = function(e) {
   var new_profile = msg['Profile'];
   var model = this.getModel();
   model.set('SelectedCustomer', new_profile);
+  model.set('Profile', new_profile);
 };
 
 

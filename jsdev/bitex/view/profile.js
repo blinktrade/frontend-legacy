@@ -56,7 +56,11 @@ bitex.view.ProfileView.prototype.enterView = function() {
   customer['CountryCode'] = model.get('Profile')['Country'];
   customer['Verified'] = model.get('Profile')['Verified'];
   customer['EmailLang'] = model.get('Profile')['EmailLang'];
-  customer['ConfirmationOrder'] = model.get('Profile')['ConfirmationOrder'] || true;
+
+  customer['ConfirmationOrder'] =  false;
+  if (goog.isDefAndNotNull(model.get('Profile')['ConfirmationOrder'])){
+    customer['ConfirmationOrder'] = model.get('Profile')['ConfirmationOrder'];
+  }
 
   var account_overview_header_el = goog.dom.getElement('account_overview_user_id');
   goog.soy.renderElement(account_overview_header_el,
@@ -195,6 +199,12 @@ bitex.view.ProfileView.prototype.onElementChange_ = function(e){
     this.client_id_ = null;
 
     var new_value = goog.dom.forms.getValue(el);
+    var type = el.type;
+    switch (type.toLowerCase()) {
+      case goog.dom.InputType.CHECKBOX:
+      case goog.dom.InputType.RADIO:
+        new_value = new_value == 'on' ? true : false;
+    }
 
     this.update_profile_data_ = {};
     this.update_profile_data_[changed_attribute] = new_value;
