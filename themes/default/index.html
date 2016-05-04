@@ -695,7 +695,7 @@ load_application:       True
       </div>
     </div>
     {% if site.trading_view %}
-      <iframe src="https://www.tradingview.com/chart/?symbol={{ site.trading_view }}" style="width: 100%;height: 600px;margin:10px 0 10px 0;border: 1px solid #ddd;"></iframe>
+      <div id="market_trading_view" data-symbol="{{site.trading_view}}"></div>
     {% endif %}
     <div class="bitex-view-content">
     </div>
