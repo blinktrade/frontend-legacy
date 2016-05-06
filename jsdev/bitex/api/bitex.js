@@ -963,6 +963,25 @@ bitex.api.BitEx.prototype.cancelWithdraw = function( withdrawId, opt_requestId )
 };
 
 /**
+ * @param {number=} opt_requestId. Defaults to random generated number
+ * @param {string} comment Comment Message
+ * @param {string} withdrawId
+ */
+bitex.api.BitEx.prototype.commentWithdraw = function(opt_requestId, comment, withdrawId) {
+  var requestId = opt_requestId || parseInt(1e7 * Math.random(), 10);
+
+  var msg = {
+    "MsgType": "U78" ,
+    "WithdrawReqID": requestId,
+    "WithdrawID": withdrawId,
+    "Message": comment
+  }
+
+  this.sendMessage(msg);
+  return requestId;
+};
+
+/**
  * Request a withdraw list
  * @param {number=} opt_requestId. Defaults to random generated number
  * @param {number=} opt_page. Defaults to 0
