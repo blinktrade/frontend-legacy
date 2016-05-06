@@ -623,6 +623,7 @@ bitex.app.BlinkTrade.prototype.run = function(host_api) {
   handler.listen(this.views_, bitex.view.View.EventType.REQUEST_WITHDRAW, this.onUserWithdrawRequest_ );
   handler.listen(this.views_, bitex.view.View.EventType.CONFIRM_WITHDRAW, this.onUserConfirmWithdraw_ );
   handler.listen(this.views_, bitex.view.View.EventType.PROCESS_WITHDRAW, this.onBrokerProcessWithdraw_ );
+  handler.listen(this.views_, bitex.view.View.EventType.USER_COMMENT, this.onUserWithdrawComment_ );
 
   handler.listen(this.views_, bitex.view.View.EventType.DEPOSIT_REQUEST, this.onUserDepositRequest_ );
   handler.listen(this.views_, bitex.view.View.EventType.PROCESS_DEPOSIT, this.onProcessDeposit_ );
@@ -2574,7 +2575,39 @@ bitex.app.BlinkTrade.prototype.onBrokerProcessWithdraw_ = function(e){
   }
 };
 
+/**
+ * @param {goog.events.Event} e
+ * @private
+ */
+bitex.app.BlinkTrade.prototype.onUserWithdrawComment_ = function(e){
+  var model = this.getModel();
+  var handler = this.getHandler();
+  var withdraw_data = e.target.getWithdrawData();
+  var request_id = e.target.getRequestId();
+  var withdraw_id = withdraw_data["WithdrawID"];
+  var comments = withdraw_data["Data"]["Comments"] || [];
 
+  /**
+   * @desc Comment Withdraw dialog title
+   */
+  var MSG_WITHDRAW_COMMENT_DIALOG_TITLE = goog.getMsg('Comments withdraw');
+
+  var comment_dialog_content = bitex.view.WithdrawView.templates.WithdrawCommentDialogContent({
+    comments: comments
+  });
+
+  var commentWithdrawDlg = this.showDialog(comment_dialog_content,
+                                           MSG_WITHDRAW_COMMENT_DIALOG_TITLE,
+                                           bitex.ui.Dialog.ButtonSet.createOkCancel());
+
+  var comment_el = goog.dom.getElement('id_withdraw_comment');
+  handler.listen(commentWithdrawDlg, goog.ui.Dialog.EventType.SELECT, function(e) {
+    if (e.key == 'ok') {
+      var comment = goog.string.trim(goog.dom.forms.getValue(comment_el));
+      this.getBitexConnection().commentWithdraw(request_id, comment, withdraw_id);
+    }
+  }, this);
+};
 
 
 /**
