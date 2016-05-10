@@ -2,9 +2,9 @@
 
 # 0.1.2
 
-Yeeeeah, we pushed [91 commits](https://github.com/cesardeazevedo/frontend/compare/d11a0bf...635ec14) ahead, great changes and it deserves a CHANGELOG.
+Yeeeeah, we pushed [120 commits](https://github.com/cesardeazevedo/frontend/compare/d11a0bf...5cb3079) ahead, great changes and it deserves a CHANGELOG.
 
-[Compare View](https://github.com/cesardeazevedo/frontend/compare/d11a0bf...635ec14)
+[Compare View](https://github.com/cesardeazevedo/frontend/compare/d11a0bf...5cb3079)
 
 # New features
 * Officially Release of the `Coinage Theme`
@@ -24,6 +24,7 @@ Yeeeeah, we pushed [91 commits](https://github.com/cesardeazevedo/frontend/compa
 * SignUp query string params 39468a082a
 * Volume ticker on title b110beb8
 * Shows LAST PX on HTML title 0382273739
+* Add withdraw comments 5cb3079
 * [**Admin**] Made pending as default filter on my customers 5cbcb89f80a
 * [**Admin**] Add `DepositMethod` column on admin deposit requests f5a07f98d82fb3
 * [**Admin**] Add sortable datagrid on admin date/hour fields 7be37771cc

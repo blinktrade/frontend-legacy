@@ -13,6 +13,7 @@
  * @param button1
  * @param button2
  * @param? button3
+ * @param? button4
  * @param dataRow
  * @param? userVerification
  */
@@ -48,6 +49,11 @@
         {param dataRow: $dataRow /}
       {/call}
     {/if}
+    {if $button1 == 'comment'}
+      {call .btnComment }
+        {param dataRow: $dataRow /}
+      {/call}
+    {/if}
 
 
     {if $button2 == 'kyc'}
@@ -80,6 +86,11 @@
         {param dataRow: $dataRow /}
       {/call}
     {/if}
+    {if $button2 == 'comment'}
+      {call .btnComment }
+        {param dataRow: $dataRow /}
+      {/call}
+    {/if}
 
 
     {if $button3 == 'kyc'}
@@ -109,6 +120,48 @@
     {/if}
     {if $button3 == 'redo'}
       {call .btnRedo }
+        {param dataRow: $dataRow /}
+      {/call}
+    {/if}
+    {if $button3 == 'comment'}
+      {call .btnComment }
+        {param dataRow: $dataRow /}
+      {/call}
+    {/if}
+
+
+    {if $button4 == 'kyc'}
+      {call .btnKYC }
+        {param userVerification: $userVerification /}
+      {/call}
+    {/if}
+    {if $button4 == 'cancel'}
+      {call .btnCancel }
+        {param dataRow: $dataRow /}
+      {/call}
+    {/if}
+    {if $button4 == 'user_cancel'}
+      {call .btnUserCancel }
+        {param dataRow: $dataRow /}
+      {/call}
+    {/if}
+    {if $button4 == 'progress'}
+      {call .btnProgress }
+        {param dataRow: $dataRow /}
+      {/call}
+    {/if}
+    {if $button4 == 'complete'}
+      {call .btnComplete }
+        {param dataRow: $dataRow /}
+      {/call}
+    {/if}
+    {if $button4 == 'redo'}
+      {call .btnRedo }
+        {param dataRow: $dataRow /}
+      {/call}
+    {/if}
+    {if $button4 == 'comment'}
+      {call .btnComment }
         {param dataRow: $dataRow /}
       {/call}
     {/if}
@@ -162,6 +215,16 @@
   </button>
 {/template}
 
+/**
+ * @param dataRow
+ */
+{template .btnComment}
+  <button class="btn btn-mini btn-withdraw-comment" data-row="{$dataRow}">
+   {msg desc="Comments"}Comments{/msg}
+   <i class="icon-white icon-envelope"></i>
+  </button>
+{/template}
+
 
 /**
  * @param link
@@ -177,11 +240,11 @@
  * @param dataRow
  */
 {template .btnQR}
-  <button class="btn btn-mini btn-info btn-withdraw-list-qr" data-action="SHOW_QR"
+  <a class="btn btn-mini btn-info btn-withdraw-list-qr" data-action="SHOW_QR"
    data-row="{$dataRow}">
    {msg desc="qrcode"}qrcode{/msg}
    <i class="icon-white icon-qrcode"></i>
-  </button>
+  </a>
 {/template}
 
 /**

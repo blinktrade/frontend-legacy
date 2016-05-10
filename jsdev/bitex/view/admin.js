@@ -383,6 +383,9 @@ bitex.view.AdminView.prototype.destroyWithdrawRequests = function() {
                      bitex.ui.WithdrawList.EventType.COMPLETE,
                      this.onUserSetWithdrawComplete_);
 
+  handler.unlisten(this.withdraw_list_table_,
+                 bitex.ui.WithdrawList.EventType.COMMENT,
+                 this.onUserComment_);
 
     goog.dom.removeChildren(goog.dom.getElement('admin_withdraw_requests'));
   }
@@ -451,6 +454,10 @@ bitex.view.AdminView.prototype.getWithdrawRequests = function() {
   handler.listen(this.withdraw_list_table_,
                  bitex.ui.WithdrawList.EventType.COMPLETE,
                  this.onUserSetWithdrawComplete_);
+
+  handler.listen(this.withdraw_list_table_,
+                 bitex.ui.WithdrawList.EventType.COMMENT,
+                 this.onUserComment_);
 
 
   this.withdraw_list_table_.render(goog.dom.getElement('admin_withdraw_requests'));
@@ -780,6 +787,16 @@ bitex.view.AdminView.prototype.onUserSetWithdrawComplete_ = function(e) {
   this.withdraw_action_ = 'COMPLETE';
   this.data_ = this.withdraw_list_table_.getWithdrawData();
   this.dispatchEvent(bitex.view.View.EventType.PROCESS_WITHDRAW);
+};
+
+/**
+ * @param {goog.events.Event} e
+ * @private
+ */
+bitex.view.AdminView.prototype.onUserComment_ = function(e) {
+  this.withdraw_action_ = 'COMMENT';
+  this.data_ = this.withdraw_list_table_.getWithdrawData();
+  this.dispatchEvent(bitex.view.View.EventType.USER_COMMENT);
 };
 
 
