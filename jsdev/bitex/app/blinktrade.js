@@ -4039,16 +4039,58 @@ bitex.app.BlinkTrade.prototype.onUserLoginError_ = function(e) {
    */
   var MSG_TWO_STEPS_AUTHENTICATION_DIALOG_TITLE = goog.getMsg('2 steps authentication');
 
+  /**
+   * @desc google authentication dialog title
+   */
+  var MSG_OTP_TWO_STEPS_AUTHENTICATION_DIALOG_CONTENT = goog.getMsg('Enter the Google Authenticator/Authy code');
+
+
+  /**
+   * @desc Email confirmation dialog title when user is sigining up.
+   */
+  var MSG_SIGNUP_CONFIRM_EMAIL_DIALOG_TITLE = goog.getMsg('Confirm email');
+
+
+  /**
+   * @desc Label requesting user to enter the token sent to their email during login or signup
+   */
+  var MSG_EMAIL_TWO_STEPS_AUTHENTICATION_DIALOG_CONTENT = goog.getMsg('Enter the confirmation code that we sent you in an email.');
+
+  /**
+   * @desc Dialog title of the email second step authenticaiton.
+   */
+  var MSG_EMAIL_TWO_STEPS_AUTHENTICATION_DIALOG_TITLE = goog.getMsg('Second factor of authentication');
+
+
+
   if (msg['NeedSecondFactor']) {
-    var dlg_content = bitex.templates.GoogleAuthenticationCodeDialogContent();
+    var dlg_second_factor_id = goog.string.getRandomString();
+    var dlg_second_factor_title = MSG_TWO_STEPS_AUTHENTICATION_DIALOG_TITLE;
+    var dlg_second_factor_description = MSG_OTP_TWO_STEPS_AUTHENTICATION_DIALOG_CONTENT;
+
+
+    if (goog.object.contains(msg, 'SecondFactorType') && msg['SecondFactorType'] === 'EMAIL' ) {
+      dlg_second_factor_title = MSG_EMAIL_TWO_STEPS_AUTHENTICATION_DIALOG_TITLE;
+      dlg_second_factor_description = MSG_EMAIL_TWO_STEPS_AUTHENTICATION_DIALOG_CONTENT;
+    }
+
+    if (goog.object.contains(msg, 'UserStatusText') && msg['UserStatusText'] === 'MSG_SIGNUP_CONFIRM_EMAIL' ) {
+      dlg_second_factor_title = MSG_SIGNUP_CONFIRM_EMAIL_DIALOG_TITLE;
+      dlg_second_factor_description = MSG_EMAIL_TWO_STEPS_AUTHENTICATION_DIALOG_CONTENT;
+    }
+
+    var dlg_content = bitex.templates.SecondFactorTokenDialogContent({
+      id:dlg_second_factor_id,
+      description:dlg_second_factor_description
+    });
 
     var dlg_ = this.showDialog(dlg_content,
-                               MSG_TWO_STEPS_AUTHENTICATION_DIALOG_TITLE,
+                               dlg_second_factor_title,
                                bitex.ui.Dialog.ButtonSet.createOkCancel() );
     var gauth_uniform = new uniform.Uniform();
     gauth_uniform.decorate(goog.dom.getFirstElementChild(dlg_.getContentElement()));
 
-    var input_element = goog.dom.getElement('id_input_google_authenticator');
+    var input_element = goog.dom.getElement( dlg_second_factor_id + '_token' );
     if(goog.isDefAndNotNull(input_element)) {
       input_element.focus();
     }
