@@ -119,7 +119,7 @@ bitex.ui.WithdrawList = function( methodDescriptionObj, opt_broker_mode,  opt_sh
     {
       'property': 'Created',
       'label': MSG_WITHDRAW_TABLE_COLUMN_CREATED,
-      'sortable': false,
+      'sortable': broker_mode,
       'formatter': function(s, rowSet) {
         return  bitex.util.convertServerUTCDateTimeStrToTimestamp(s.substr(0, 10), s.substr(11)).toLocaleString();
       },
@@ -283,6 +283,10 @@ bitex.ui.WithdrawList = function( methodDescriptionObj, opt_broker_mode,  opt_sh
       'sortable': false,
       'formatter': function(data, rowSet){
         var element = goog.dom.createDom( 'table' );
+
+        if(!goog.isDefAndNotNull(methodDescriptionObj[rowSet['Currency']])){
+          return;
+        }
 
         var method = methodDescriptionObj[rowSet['Currency']][ rowSet['Method'] ];
         goog.dom.appendChild(element,
@@ -519,10 +523,26 @@ bitex.ui.WithdrawList = function( methodDescriptionObj, opt_broker_mode,  opt_sh
           }
         }
 
+        if (goog.isDefAndNotNull(data['Comments'])) {
+          /**
+          * @desc Withdraw comments in the  broker's withdraw list
+          */
+          var MSG_WITHDRAW_TABLE_DETAILS_COLUMN_COMMENTS  = goog.getMsg('Comments');
+
+          var comments = goog.dom.createDom('div', goog.getCssName(bitex.ui.WithdrawList.CSS_CLASS, 'messages'));
+          goog.object.forEach(data['Comments'], function(comment) {
+            goog.dom.appendChild(comments, goog.dom.createDom('p', goog.getCssName(bitex.ui.WithdrawList.CSS_CLASS, 'comment-message'), comment));
+          });
+
+          goog.dom.appendChild(element, goog.dom.createDom('tr', goog.getCssName(bitex.ui.WithdrawList.CSS_CLASS, 'details-tr'),
+                                                          goog.dom.createDom('td', goog.getCssName(bitex.ui.WithdrawList.CSS_CLASS, 'details-td-key'), MSG_WITHDRAW_TABLE_DETAILS_COLUMN_COMMENTS),
+                                                          goog.dom.createDom('td', goog.getCssName(bitex.ui.WithdrawList.CSS_CLASS, 'details-td-value'), comments)));
+        }
+
         if (!broker_mode) {
           data_row = goog.json.serialize(rowSet);
 
-          var btn_user_redo   = goog.soy.renderAsElement(bitex.ui.WithdrawList.templates.btnRedo,   { dataRow: data_row });
+          var btn_user_redo = goog.soy.renderAsElement(bitex.ui.WithdrawList.templates.btnRedo,  { dataRow: data_row });
 
           switch(rowSet['Status']){
             case '0':
@@ -602,7 +622,8 @@ bitex.ui.WithdrawList = function( methodDescriptionObj, opt_broker_mode,  opt_sh
           });
         }
 
-        var btn_cancel   = goog.soy.renderAsElement(bitex.ui.WithdrawList.templates.btnCancel,   { dataRow: data_row });
+        var btn_cancel  = goog.soy.renderAsElement(bitex.ui.WithdrawList.templates.btnCancel,  { dataRow: data_row });
+        var btn_comment = goog.soy.renderAsElement(bitex.ui.WithdrawList.templates.btnComment, { dataRow: data_row });
 
         if (goog.isDefAndNotNull(btn_kyc)) {
           var userVerificationData = goog.json.serialize(row_set_obj['UserVerificationData']);
@@ -611,6 +632,8 @@ bitex.ui.WithdrawList = function( methodDescriptionObj, opt_broker_mode,  opt_sh
               return goog.soy.renderAsElement(bitex.ui.WithdrawList.templates.btnGroup, {
                 button1: 'kyc',
                 button2: 'cancel',
+                button3: 'comment',
+                button4: 'comment',
                 dataRow: data_row,
                 userVerification: userVerificationData
               });
@@ -619,6 +642,7 @@ bitex.ui.WithdrawList = function( methodDescriptionObj, opt_broker_mode,  opt_sh
                 button1: 'kyc',
                 button2: 'cancel',
                 button3: 'progress',
+                button4: 'comment',
                 dataRow: data_row,
                 userVerification: userVerificationData
               });
@@ -627,11 +651,24 @@ bitex.ui.WithdrawList = function( methodDescriptionObj, opt_broker_mode,  opt_sh
                 button1: 'kyc',
                 button2: 'cancel',
                 button3: 'complete',
+                button4: 'comment',
                 dataRow: data_row,
                 userVerification: userVerificationData
               });
-            case '4': return btn_kyc;
-            case '8': return btn_kyc;
+            case '4':
+              return goog.soy.renderAsElement(bitex.ui.WithdrawList.templates.btnGroup, {
+                button1: 'kyc',
+                button2: 'comment',
+                dataRow: data_row,
+                userVerification: userVerificationData
+              });
+            case '8':
+              return goog.soy.renderAsElement(bitex.ui.WithdrawList.templates.btnGroup, {
+                button1: 'kyc',
+                button2: 'comment',
+                dataRow: data_row,
+                userVerification: userVerificationData
+              });
           }
         } else {
           switch(row_set_obj['Status']){
@@ -640,6 +677,7 @@ bitex.ui.WithdrawList = function( methodDescriptionObj, opt_broker_mode,  opt_sh
               return goog.soy.renderAsElement(bitex.ui.WithdrawList.templates.btnGroup, {
                 button1: 'cancel',
                 button2: 'progress',
+                button3: 'comment',
                 dataRow: data_row
               });
 
@@ -647,6 +685,7 @@ bitex.ui.WithdrawList = function( methodDescriptionObj, opt_broker_mode,  opt_sh
               return goog.soy.renderAsElement(bitex.ui.WithdrawList.templates.btnGroup, {
                 button1: 'cancel',
                 button2: 'complete',
+                button3: 'comment',
                 dataRow: data_row
               });
             case '4': return "";
@@ -706,7 +745,8 @@ bitex.ui.WithdrawList.EventType = {
   PROGRESS: 'withdraw_progress',
   COMPLETE: 'withdraw_complete',
   KYC: 'withdraw_kyc',
-  REDO: 'withdraw_redo'
+  REDO: 'withdraw_redo',
+  COMMENT: 'withdraw_comment'
 };
 
 /**
@@ -771,6 +811,8 @@ bitex.ui.WithdrawList.prototype.handleClick_ = function(e) {
     this.dispatchEvent(bitex.ui.WithdrawList.EventType.KYC);
   } else if (goog.dom.classes.has(e.target, 'btn-withdraw-redo' )) {
     this.dispatchEvent(bitex.ui.WithdrawList.EventType.REDO);
+  } else if (goog.dom.classes.has(e.target, 'btn-withdraw-comment' )) {
+    this.dispatchEvent(bitex.ui.WithdrawList.EventType.COMMENT);
   }
 
   this.selected_withdraw_ = null;

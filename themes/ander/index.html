@@ -319,7 +319,7 @@ load_application:       True
 
         <div class="alert alert-success | bitex-model" style="display: none" data-model-key="TwoFactorEnabled" data-model-action="hide_element">
           <button type="button" class="close pull-right" data-dismiss="alert">&times;</button>
-          <a href="" data-switch-view="profile"> {% t views.alerts.enable_two_factor %} </a>
+          <a href="" data-switch-view="twofactor"> {% t views.alerts.enable_two_factor %} </a>
         </div>
 
         <div class="alert alert-error | bitex-model" style="display: none" data-model-key="IsAccountBlocked" data-model-action="show_element">
@@ -336,6 +336,7 @@ load_application:       True
         <div class="layout__item one-whole desk--three-tenths">
           <!-- .sidebar -->
           <div id="id_sidebar" class="sidebar bitex-view
+                                              bitex-view-admin_view
                                               bitex-view-profile
                                               bitex-view-twofactor
                                               bitex-view-trading
@@ -475,28 +476,6 @@ load_application:       True
                   <h4 class="profile-two-factor__title">{% t views.profile.two_factor_auth_section.title %}</h4>
                   <!-- /.profile-two-factor__title -->
 
-                  <!-- .profile-two-factor__body -->
-                  <div class="profile-two-factor__body bitex-view-content">
-                      <!-- .profile-two-factor__form -->
-                      <ul id="id_enable_two_factor_div" class="profile-two-factor__form">
-                          <li>
-                              <label class="profile-two-factor__label">{% t views.profile.two_factor_auth_section.key %}:</label>
-                              <div id='secret' class="bitex-model" data-model-key="TwoFactorSecret"></div>
-
-                              <img id="id_secret_qr" src="" />
-                          </li>
-
-                          <li>
-                              <label class="profile-two-factor__label">{% t views.profile.two_factor_auth_section.authentication_code %}:</label>
-                              <input id="id_second_step_verification" type="text" class="input input--full"
-                                   pattern="\d+" title="{% t views.profile.two_factor_auth_section.authentication_code_title %}"
-                                   placeholder="{% t views.profile.two_factor_auth_section.authentication_code_placeholder %}" required />
-                          </li>
-                      </ul>
-                      <!-- /.profile-two-factor__form -->
-                  </div>
-                  <!-- /.profile-two-factor__body -->
-
                   <!-- .profile-two-factor__foot -->
                   <div class="profile-two-factor__foot">
                       <button id="id_btn_enable_two_factor" class="btn btn--primary profile-two-factor__btn">{% t views.profile.two_factor_auth_section.enable %}</button>
@@ -598,6 +577,52 @@ load_application:       True
           </div>
           <!-- /#ledger -->
 
+          <!-- admin -->
+          <div id="admin_view" class="bitex-view">
+            <header class="page__head section-title">
+              <h3 class="page__title h2 bitex-view-title">{% t views.admin.title %}</h3>
+            </header>
+            <div class="page__body bitex-view-content">
+              <div id="admin-tabs">
+                <ul class="nav nav-tabs">
+                  <li class="active">
+                    <a href="#TabCustomers" data-toggle="tab">{% t views.customers.title %}</a>
+                  </li>
+                  <li>
+                    <a href="#TabDepositRequests" data-toggle="tab">{% t views.deposit_requests.title %}</a>
+                  </li>
+                  <li>
+                    <a href="#TabWithdrawRequests" data-toggle="tab">{% t views.withdraw_requests.title %}</a>
+                  </li>
+                  <li>
+                    <a href="#TabWithdrawMethods" data-toggle="tab">{% t views.withdraw_methods.title %}</a>
+                  </li>
+                </ul>
+                <div class="tab-content">
+                  <div class="tab-pane fade" id="TabCustomers">
+                    <h2 class="bitex-view-title">{% t views.customers.title %}</h2>
+                    <div id="admin_customers"></div>
+                  </div>
+                  <div class="tab-pane fade" id="TabDepositRequests">
+                    <h2 class="bitex-view-title">{% t views.deposit_requests.title %}</h2>
+
+                    <div id="admin_deposit_requests"></div>
+                  </div>
+                  <div class="tab-pane fade" id="TabWithdrawRequests">
+                    <h2 class="bitex-view-title">{% t views.withdraw_requests.title %}</h2>
+
+                    <div id="admin_withdraw_requests"></div>
+                  </div>
+                  <div class="tab-pane fade" id="TabWithdrawMethods">
+                    <h2 class="bitex-view-title">{% t views.withdraw_methods.title %}</h2>
+
+                    <div id="admin_withdraw_methods"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- /admin -->
 
           <!-- #customers -->
           <div id="customers" class="bitex-view">

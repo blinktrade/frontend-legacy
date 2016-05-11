@@ -439,6 +439,7 @@
           {msg desc="Google Authenticator code dialog label"}Google Authenticator code:{/msg}
         </label>
         <input name="token"
+               id="id_input_google_authenticator"
                data-uniform-validators="required"
                data-uniform-label="{msg desc="Limit table field header"}Google authenticator code{/msg}"
                label="{msg desc="Google Authenticator code placeholder"}eg. 555555{/msg}"
@@ -449,6 +450,30 @@
     </fieldset>
   </form>
 {/template}
+
+/**
+  * @param id
+  * @param description
+  */
+{template .SecondFactorTokenDialogContent}
+  <form class="form-horizontal" data-deposit-status="prepare" data-uniform-control-holder-class="control-group">
+    <fieldset>
+      <div class="control-group">
+        <label>
+          {$description}
+        </label>
+        <input name="token"
+               id="{$id}_token"
+               data-uniform-validators="required"
+               label="{msg desc="Placeholder for the code field on the second factor token dialog"}eg. 5555555{/msg}"
+               class="input-large"
+               type="text"
+               size="10">
+      </div>
+    </fieldset>
+  </form>
+{/template}
+
 
 /**
   */
@@ -674,6 +699,85 @@
         for you to leave Bitcoins at the exchange in order to negotiate them quickly.
       {/msg}
     </div>
+  </div>
+{/template}
+
+/**
+  * @param balanceKey
+  * @param currencyDescription
+  * @param depositFormattedBalance
+  * @param lockedFormattedBalance
+  * @param availableFormattedBalance
+  */
+{template .InsufficientFundsContentDialog}
+  <div class="row-fluid">
+    <p>
+      {msg desc="Insufficient funds title"}You don't have enough funds for this operation.{/msg}
+    </p>
+    <!-- {$currencyDescription} -->
+    <table class="table table-bordered">
+
+      <tr>
+        <td>{msg desc="Your account label on Insufficient Balance message"}Your Account{/msg}</td>
+        <td>
+          <span class="bitex-model" data-model-key="formatted_balance_{$balanceKey}" data-blink-class="balance-info-blink">{if $depositFormattedBalance}{$depositFormattedBalance}{else}-{/if}</span>
+        </td>
+      </tr>
+
+      <tr>
+        <td>{msg desc="Your orders label on Insufficient Balance message"}Your Orders{/msg}</td>
+        <td>
+          <span class="bitex-model" data-model-key="locked_formatted_balance_{$balanceKey}" data-blink-class="balance-info-blink">{if $lockedFormattedBalance}{$lockedFormattedBalance}{else}-{/if}</span>
+        </td>
+      </tr>
+
+      <tr style="font-weight: bolder">
+        <td>{msg desc="Your orders label on Insufficient Balance message"}Total available{/msg}</td>
+        <td>
+          <span class="bitex-model" data-model-key="available_formatted_balance_{$balanceKey}" data-blink-class="balance-info-blink">{if $availableFormattedBalance}{$availableFormattedBalance}{else}-{/if}</span>
+        </td>
+      </tr>
+    </table>
+
+    {if $lockedFormattedBalance}
+      <p>
+        {msg desc="Insufficient funds instructions"}Please either deposit funds or cancel some of your other orders.{/msg}
+      </p>
+    {/if}
+
+  </div>
+{/template}
+
+/**
+  * @param amount
+  * @param total
+  * @param side
+  */
+{template .ConfirmOrderContentDialog}
+  <div class="row-fluid">
+    <p>
+      {msg desc="Confirmation order title"}Confirm your order{/msg}
+    </p>
+    <table class="table table-bordered">
+      <tr>
+        <td>
+          {if $side == '1'}
+            {msg desc="You are buying message"}You are buying{/msg}
+          {else}
+            {msg desc="You are selling message"}You are selling{/msg}
+          {/if}
+          </td>
+        <td>
+          <span class="bitex-model">{$amount}</span>
+        </td>
+      </tr>
+      <tr>
+        <td>{msg desc="For a total message"}For a total of{/msg}</td>
+        <td>
+          <span class="bitex-model">{$total}</span>
+        </td>
+      </tr>
+    </table>
   </div>
 {/template}
 

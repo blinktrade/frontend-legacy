@@ -1,11 +1,12 @@
 .order {
+    display: table;
     background: #fff;
     border-radius: 3px;
     border: 1px solid #eee;
     margin-bottom: 15px;
 
     @media (min-width: $screen-phone) {
-        display: table;
+        /* display: table; */
         width: 100%;
     }
 
@@ -14,9 +15,43 @@
             margin-bottom: 0;
         }
     }
+
+
+    .order__cell{
+      &:first-child{
+        .orders__head {
+          background-color: #e7fff8;
+        }
+      }
+      &:last-child{
+        .orders__head {
+          background-color: #fef4f7;
+
+          .dropdown-toggle{
+            color: #44515b;
+          }
+
+          .dropdown-menu {
+            min-width: 0px;
+            .btn-show-cum-qty, .btn-show-fees{
+              @extend a;
+              text-align: right;
+              border-radius: 0;
+            }
+            .active {
+              box-shadow: none;
+              padding-right: 10px!important;
+              @extend a:hover;
+            }
+          }
+        }
+      }
+    }
 }
 
 .order__cell {
+    padding: 0;
+    border-bottom: 1px solid #EEE;
     @media (max-width: $screen-tablet) {
         &:first-child {
             border-bottom: 1px solid #eee;
@@ -24,7 +59,7 @@
     }
 
     @media (min-width: $screen-tablet) {
-        display: table-cell;
+        /* display: table-cell; */
         width: 50%;
 
         &:first-child {
@@ -152,18 +187,31 @@
     padding: 12px 10px;
     width: 100%;
     text-align: center;
-}
 
-.orders__head_BID {
-  background-color: #e7fff8;
-}
-.orders__head_ASK {
-  background-color: #fef4f7;
+    .orders__head-buttons {
+      position: absolute;
+      padding-top: 3px;
+      padding-right: 6px;
+      top: 2px;
+      right: 4px;
+      button {
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+
 }
 
 .orders__title {
     display: table-cell;
     vertical-align: middle;
+    width: inherit;
+}
+
+.orders__title_center {
+  display: block;
+  float: none;
 }
 
 .orders__status {
@@ -176,6 +224,8 @@
 .orders__title {
     margin: 0;
 }
+
+
 
 .orders-table {
     font-size: 13px;

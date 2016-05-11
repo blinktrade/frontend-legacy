@@ -64,12 +64,10 @@ gulp.task('config', function(done){
     .pipe(prompt.prompt({
         type: 'input',
         name: 'baseurl',
-        message: BASEURL_MSG,
-        default: baseUrl
+        message: BASEURL_MSG
     }, function(res){
-        newBaseUrl = res.baseurl.charAt(0) === '/' ?
-                     res.baseurl : '/' + res.baseurl;
-
+        newBaseUrl = res.baseurl.charAt(0) === '/' || res.baseurl === ""
+                   ? res.baseurl : '/' + res.baseurl;
     }))
     .pipe(prompt.prompt({
         type: 'list',

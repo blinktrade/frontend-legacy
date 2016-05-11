@@ -5,7 +5,15 @@
   * @param columns
   */
 {template .OrderBook}
-  <div class="ls-txt-center"><h3>{$title}</h3></div>
+  <div class="ls-txt-center order-header">
+    {if $title == 'ASK' }
+      <div class="ls-group-btn pull-right" style="margin-top:-6px">
+        {call .ShowCumQty}{/call}
+        {call .ShowFees}{/call}
+      </div>
+    {/if}
+    <h3 style="margin:auto;width:10%">{$title}</h3>
+  </div>
   <table class="ls-table ls-table-striped ls-bg-header">
     <thead>
       <tr>
@@ -17,6 +25,22 @@
     <tbody>
     </tbody>
   </table>
+{/template}
+
+/**
+ */
+{template .ShowCumQty}
+  <div class="ls-btn ls-btn-sm ls-btn-default btn-show-cum-qty">
+    {msg desc="Cumulative"}Cumulative{/msg}
+  </div>
+{/template}
+
+/**
+ */
+{template .ShowFees}
+  <div class="ls-btn ls-btn-sm ls-btn-default btn-show-fees">
+    {msg desc="Fees"}Fees{/msg}
+  </div>
 {/template}
 
 /**

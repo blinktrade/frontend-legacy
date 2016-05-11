@@ -32,7 +32,17 @@
             <option value="validateAlpha" {if $data['validator'] == 'validateAlpha'}selected{/if} >Alpha</option>
             <option value="validateUsername" {if $data['validator'] == 'validateUsername'}selected{/if} >Username</option>
             <option value="validateAlphaNum" {if $data['validator'] == 'validateAlphaNum'}selected{/if} >Alpha Numeric</option>
+            <option value="validatePhrase" {if $data['validator'] == 'validatePhrase'}selected{/if} >Phrase</option>
+            <option value="validatePhoneNumber" {if $data['validator'] == 'validatePhoneNumber'}selected{/if} >Phone Number</option>
             <option value="validateAddress" {if $data['validator'] == 'validateAddress'}selected{/if}  >BTC Address</option>
+            <option value="validateCPFCNPJ" {if $data['validator'] == 'validateCPFCNPJ'}selected{/if} >CPF/CNPJ</option>
+        </select>
+    </td>
+
+    <td>
+        <select id="{$id}_field_required_{$idx}" class="withdraw-method-editor-field-required">
+            <option value="text" {if $data['required'] == 'Yes'}selected{/if}>{msg desc="Yes option on required select"}Yes{/msg}</option>
+            <option value="text" {if $data['required'] == 'No'}selected{/if}>{msg desc="No option on required select"}No{/msg}</option>
         </select>
     </td>
 
@@ -48,7 +58,7 @@
   */
 {template .WithdrawMethodEditor}
 
-  <div class="row-fluid">
+  <div class="row">
     <div class="col-xs-12" style="overflow-y:auto">
       <form id="{$id}" class="form-horizontal span6"  data-uniform-control-holder-class="control-group">
         <fieldset>
@@ -108,7 +118,46 @@
               </div>
             </div>
           </div>
+
           <hr>
+
+          <div class="control-group">
+            <label class="control-label">{msg desc="Method Costs label"}Costs{/msg}</label>
+            <div class="controls">
+              <div class="row">
+                <div class="col-xs-6">
+                  <div class="input-group">
+                    <input id="{$id}_percent_cost"
+                           type="text"
+                           class="form-control"
+                           autocomplete="off"
+                           maxlength="4"
+                           data-uniform-validators="required ; validateNumber; validateMin 0; validateMax 25"
+                           label="{msg desc="Percent cost placeholder"}Percent cost{/msg}"
+                           required
+                           value="{$model['percent_cost'] }">
+                    <span class="input-group-addon">%</span>
+                  </div>
+                </div>
+                <div class="col-xs-6">
+                  <div class="input-group">
+                    <span class="input-group-addon">{$model['currency']}</span>
+                    <input id="{$id}_fixed_cost"
+                           type="text"
+                           class="form-control"
+                           autocomplete="off"
+                           data-uniform-validators="required ; validateNumber; validateMin 0"
+                           label="{msg desc="Fixed cost placeholder"}Fixed cost{/msg}"
+                           required
+                           value="{ $model['fixed_cost'] }">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <hr>
+
           <div class="control-group" style="overflow: auto">
             <table id="{$id}_table" class="table table-condensed table-bordered table-hover" style="max-width:160%;width:160%;padding-bottom:10px;">
                 <thead>

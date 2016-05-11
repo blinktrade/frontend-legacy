@@ -51,7 +51,7 @@ load_application:       True
     </div>
   </div>
 
-  <div id="faq" class="container bitex-view min-height-view" style="margin-top:20px;">
+  <div id="faq" class="container bitex-view min-height-view" style="margin-top:20px;display:none">
     <div class="page-header">
       <h1 class="bitex-view-title">{% t views.faq.title %}</h1>
     </div>
@@ -83,7 +83,7 @@ load_application:       True
   </div>
 
   <!-- signup page-->
-  <div id="signup" class="container bitex-view min-height-view" style="margin-top:20px;">
+  <div id="signup" class="container bitex-view min-height-view" style="margin-top:20px;display:none">
     <div class="page-header ls-title-4">
       <h1 class="bitex-view-title">{% t views.signup.title %}</h1>
     </div>
@@ -148,7 +148,7 @@ load_application:       True
   </div>
 
   <!-- signin page-->
-  <div id="signin" class="container bitex-view" style="margin-top:20px;min-height:85%">
+  <div id="signin" class="container bitex-view" style="margin-top:20px;min-height:85%;display:none">
     <div class="page-header">
       <h1 class="bitex-view-title">{% t views.signin.title %}</h1>
     </div>
@@ -178,7 +178,7 @@ load_application:       True
 
 
 
-  <div id="themes" class="bitex-view container min-height-view" style="margin-top:20px;">
+  <div id="themes" class="bitex-view container min-height-view" style="margin-top:20px;display:none">
     <div class="page-header ls-title-4">
         <h1 class="bitex-view-title">{% t views.themes.title %}</h1>
     </div>
@@ -187,28 +187,19 @@ load_application:       True
     <hr>
     <div class="bitex-view-content">
         <div class="row" style="text-align:center">
-            <a href="{{ site.url}}{{ site.baseurl}}/themes/coinage/">
-                <div class="col-md-5 thumb-theme" style="margin:auto;float:none">
-                    <img src="{{ site.url}}{{ site.baseurl }}/assets/exchange_logos/thumb-themes/{{ site.exchange }}-coinage-thumb.jpg" alt="Coinage Theme">
-                    <h3>Coinage Theme</h3>
-                </div>
-            </a>
-        </div>
-        <hr>
-        <div class="row" style="text-align:center">
+            <div class="col-md-4">
+              <a href="{{ site.url}}{{ site.baseurl}}/themes/coinage/">
+                  <div class="thumb-theme">
+                      <img src="{{ site.url}}{{ site.baseurl }}/assets/exchange_logos/thumb-themes/{{ site.exchange }}-coinage-thumb.jpg" alt="Coinage Theme">
+                      <h3>Coinage Theme</h3>
+                  </div>
+              </a>
+            </div>
             <div class="col-md-4">
                 <a href="{{ site.url}}{{ site.baseurl}}/themes/default/">
                     <div class="thumb-theme">
                         <img src="{{ site.url}}{{ site.baseurl }}/assets/exchange_logos/thumb-themes/{{ site.exchange }}-default-thumb.jpg" alt="Default Theme">
-                        <h3 class="ls-title-4">Default Theme</h3>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-4">
-                <a href="{{ site.url}}{{ site.baseurl}}/themes/ander/">
-                    <div class="thumb-theme">
-                        <img src="{{ site.url}}{{ site.baseurl }}/assets/exchange_logos/thumb-themes/{{ site.exchange }}-ander-thumb.jpg" alt="Ander Theme">
-                        <h3 class="ls-title-4">Ander</h3>
+                        <h3 class="ls-title-4">Simple Theme</h3>
                     </div>
                 </a>
             </div>
@@ -224,12 +215,15 @@ load_application:       True
     </div>
   </div>
 
-  <div id="market" class="container-fluid bitex-view" style="margin-bottom:20px;">
+  <div id="market" class="container-fluid bitex-view" style="margin-bottom:20px;display:none">
     <div class="row-fluid">
       <div class="page-header ls-title-4">
         <h1>{% t views.market.title %}</h1>
       </div>
     </div>
+    {% if site.trading_view %}
+      <div id="market_trading_view" data-symbol="{{site.trading_view}}"></div>
+    {% endif %}
     <div class="bitex-view-content">
     </div>
   </div>
@@ -237,7 +231,7 @@ load_application:       True
 
 
 
-  <div id="forgot_password" class="container bitex-view min-height-view" style="margin-top:20px">
+  <div id="forgot_password" class="container bitex-view min-height-view" style="margin-top:20px;display:none">
     <div class="page-header">
       <h1 class="bitex-view-title">{% t views.forgot_password.title %}</h1>
     </div>
@@ -257,7 +251,7 @@ load_application:       True
   </div>
 
 
-  <div id="set_new_password" class="container bitex-view min-height-view" style="margin-top:20px;">
+  <div id="set_new_password" class="container bitex-view min-height-view" style="margin-top:20px;display:none">
     <div class="page-header">
       <h1 class="bitex-view-title">{% t views.set_new_password.title %}</h1>
     </div>
@@ -309,29 +303,8 @@ load_application:       True
                 </header>
 
                 <div class="content bitex-view-content">
-
-                    <div id="id_enable_two_factor_div" class="col-md-12" style="text-align: center;">
-
-                        <div class="">
-                            <img id="id_secret_qr" style="" src="">
-                        </div>
-                        <div class="">
-                            <label class="control-label">{% t views.profile.two_factor_auth_section.key %}</label>
-                            <span id='secret' class="bitex-model" data-model-key="TwoFactorSecret"></span>
-                        </div>
-                        <hr>
-                        <div class="ls-prefix-group">
-                            <label class="ls-label-text-prefix">{% t views.profile.two_factor_auth_section.authentication_code %}</label>
-
-                            <input id="id_second_step_verification"
-                                    type="text"
-                                    class="input-block-level" pattern="\d+"
-                                    title="{% t views.profile.two_factor_auth_section.authentication_code_title %}"
-                                    placeholder="{% t views.profile.two_factor_auth_section.authentication_code_placeholder %}" required>
-                        </div>
-                    </div>
                     <div class="col-md-12" style="text-align:center;margin-top:10px">
-                        <button id="id_btn_enable_two_factor" class="ls-btn ls-btn-primary">{% t views.profile.two_factor_auth_section.enable %}</button>
+                        <a data-switch-view="twofactor" id="id_btn_enable_two_factor" class="ls-btn ls-btn-primary">{% t views.profile.two_factor_auth_section.enable %}</a>
                         <button id="id_btn_disable_two_factor" class="ls-btn ls-btn-danger">{% t views.profile.two_factor_auth_section.disable %}</button>
                     </div>
                 </div>
@@ -368,19 +341,61 @@ load_application:       True
         <div class="bitex-view-content">
           <div id="offer_book_order_entry_content" class="row-fluid"></div>
           <div class="well">
-            <div class="col-md-12" style="padding-top:20px;padding-bottom:20px;">
-              <div class="btn-group pull-right">
-                <div class="ls-btn | btn-show-cum-qty">{% t views.offerbook.cumulative %}</div>
-                <div class="ls-btn | btn-show-fees ">{% t views.offerbook.fees %}</div>
-              </div>
-            </div>
-            <div class="row-fluid">
+            <div class="row-fluid" style="display:table;width:100%">
+              <hr>
               <div id="id_order_book_bid_content" class="col-md-6"></div>
               <div id="id_order_book_ask_content" class="col-md-6"></div>
             </div>
           </div>
         </div>
       </div>
+
+      <!-- admin -->
+      <div id="admin_view" class="bitex-view">
+        <div class="container-fluid">
+          <h1 class="ls-title-intro">{% t views.admin.title %}</h1>
+        </div>
+        <div class="content bitex-view-content">
+          <div id="admin-tabs">
+            <ul class="ls-tabs-nav nav nav-tabs">
+              <li class="active">
+                <a href="#TabCustomers" data-toggle="tab">{% t views.customers.title %}</a>
+              </li>
+              <li>
+                <a href="#TabDepositRequests" data-toggle="tab">{% t views.deposit_requests.title %}</a>
+              </li>
+              <li>
+                <a href="#TabWithdrawRequests" data-toggle="tab">{% t views.withdraw_requests.title %}</a>
+              </li>
+              <li>
+                <a href="#TabWithdrawMethods" data-toggle="tab">{% t views.withdraw_methods.title %}</a>
+              </li>
+            </ul>
+            <div class="tab-content ls-tabs-container">
+              <div class="tab-pane fade ls-tab-content" id="TabCustomers">
+                <h2 class="bitex-view-title">{% t views.customers.title %}</h2>
+                <div id="admin_customers"></div>
+              </div>
+              <div class="tab-pane fade ls-tab-content" id="TabDepositRequests">
+                <h2 class="bitex-view-title">{% t views.deposit_requests.title %}</h2>
+
+                <div id="admin_deposit_requests"></div>
+              </div>
+              <div class="tab-pane fade ls-tab-content" id="TabWithdrawRequests">
+                <h2 class="bitex-view-title">{% t views.withdraw_requests.title %}</h2>
+
+                <div id="admin_withdraw_requests"></div>
+              </div>
+              <div class="tab-pane fade ls-tab-content" id="TabWithdrawMethods">
+                <h2 class="bitex-view-title">{% t views.withdraw_methods.title %}</h2>
+
+                <div id="admin_withdraw_methods"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /admin -->
 
       <div id="customers" class="bitex-view">
         <div class="container-fluid">
@@ -471,8 +486,8 @@ load_application:       True
           <h3 class="ls-title-intro ls-ico-list">{% t views.api.title %}</h3>
         </div>
         <div class="content bitex-view-content">
-          <div id="id_api_button_group" class="row-fluid text-right" style="margin-bottom:20px">
-            <a id="id_btn_new_api_key" class="ls-btn ls-btn-primary"><i class="icon-plus "> {% t views.api.new_api_key %}</i></a>
+          <div id="id_api_button_group" class="row-fluid pull-right">
+            <a id="id_btn_new_api_key" class="ls-btn ls-btn-primary"><i class="icon-plus "></i> {% t views.api.new_api_key %}</a>
           </div>
         </div>
       </div>

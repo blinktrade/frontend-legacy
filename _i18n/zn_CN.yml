@@ -52,6 +52,11 @@ exchanges:
     description: Bitinvest - Bitcoin rápido, fácil e seguro - Comprar e Vender Bitcoin com as menores taxas do Brasil
     keywords: Bitinvest - Bitcoin rápido, fácil e seguro - Comprar e Vender Bitcoin com as menores taxas do Brasil
     lead: Bitcoin rápido, fácil e seguro - Comprar e Vender Bitcoin com as menores taxas do Brasil
+  unocoin:
+    title: Unocoin | India's Bitcoin Wallet
+    description: Unocoin is India's most popular bitcoin wallet. We make it super easy to securely buy, use and accept bitcoin, following KYC-AML guidelines.
+    keywords: bitcoin, buy bitcoin, sell bitcoin, buy bitcoin india, sell bitcoin india, bitcoin india, bitcoin inr, btc inr, bitcoin wallet india, store bitcoin india, buy bitcoin inr, sell bitcoin inr, send bitcoin, send bitcoin india, receive bitcoin, receive bitcoin india, bitcoin price, btc to inr, btc price in inr, bitcoin exchange
+    lead: Unocoin is india's most popular bitcoin wallet
 
 views:
   landing:
@@ -90,6 +95,10 @@ views:
     signin: 登陆
     signup: 注册
     connect: 连接
+    high: 高 
+    last: 上次交易 
+    low: 低 
+    volume: 交易量
 
   start:
     username: 用户名
@@ -160,6 +169,9 @@ views:
     cumulative: 累计订单
     fees: 手续费
 
+  admin:
+    title: Admin
+
   customers:
     title: 我的客户
 
@@ -172,6 +184,9 @@ views:
 
   withdraw_requests:
     title: 提现申请
+
+  withdraw_methods:
+    title: Withdraw methods
 
   deposit:
     title: 我的充值
@@ -210,6 +225,7 @@ views:
     title: 订单历史
 
   sidebar:
+    admin: Admin
     market: "市场:"
     menu: 菜单
     my_profile: 我的个人资料

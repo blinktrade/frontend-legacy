@@ -70,12 +70,15 @@
   }
 
   .order-manager-fill{
-    background: lighten($brand-success, 40%);
+    /* background: lighten($brand-success, 40%); */
     border-left: 6px solid $brand-success;
+  }
+  .order-manager-partial{
+    border-left: 6px solid lighten($brand-success, 40%);
   }
 
   .order-manager-cancel{
-    background: lighten($brand-danger, 37%);
+    /* background: lighten($brand-danger, 37%); */
     border-left: 6px solid $brand-danger;
   }
 }

@@ -38,10 +38,12 @@
 
   {% if page.load_application %}
   <!--link href="/assets/themes/default/css/Dialog.css" rel="stylesheet"-->
+  <link rel="stylesheet" href="{{ site.url }}{{ site.baseurl }}/assets/themes/ander/css/bootstrap.min.css">
   <link href="{{ site.url }}{{ site.baseurl }}/assets/themes/default/css/fuelux.css" rel="stylesheet">
   <link href="{{ site.url }}{{ site.baseurl }}/assets/themes/default/css/style-new.css?v={{ site.deploy_version }}" rel="stylesheet">
   <link href="{{ site.url }}{{ site.baseurl }}/assets/themes/ander/css/blinktrade.css?v={{ site.deploy_version }}" rel="stylesheet">
   <script data-cfasync="false" src="{{ site.url }}{{ site.baseurl }}/assets/js/bitex_app_blink_trade.compiled.{{site.lang}}.ander.js?v={{ site.deploy_version }}" type="text/javascript"></script>
+  <script src="{{ site.url }}{{ site.baseurl }}/assets/js/externs/qrcode.min.js"></script>
   {% endif %}
 </head>
 <body class="{% if page.body_classes %} {{ page.body_classes }} {% endif %}">
@@ -50,7 +52,7 @@
 <!-- .head -->
 <header id="id_toolbar" class="head">
   <!-- .wrapper -->
-  <div class="wrapper">
+  <div class="wrapper container">
     <!-- .layout -->
     <div class="layout layout--full">
       <div class="layout__item two-tenths portable--one-whole">
@@ -104,6 +106,11 @@
 
                   <!-- .head-dropdown -->
                   <ul class="head-dropdown">
+                    <li id="menu-admin_view" class="bitex-display-if-broker">
+                      <a href="#admin_view" title="Admin" data-switch-view="admin_view">
+                        {% t views.sidebar.admin %}
+                      </a>
+                    </li>
                     <li id="menu-profile">
                       <a href="#profile" title="Profile" data-switch-view="profile">
                         {% t views.sidebar.my_profile %}
@@ -129,12 +136,12 @@
                         {% t views.sidebar.withdraw_requests %}
                       </a>
                     </li>
-                    <li id="menu-deposit">
+                    <li id="menu-deposit" class="bitex-display-if-non-broker">
                       <a href="#deposit" title="Deposit" data-switch-view="deposit">
                         {% t views.sidebar.deposit %}
                       </a>
                     </li>
-                    <li id="menu-withdraw">
+                    <li id="menu-withdraw" class="bitex-display-if-non-broker">
                       <a href="#withdraw" title="Withdrawals" data-switch-view="withdraw">
                         {% t views.sidebar.withdraw %}
                       </a>

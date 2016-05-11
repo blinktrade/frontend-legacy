@@ -28,26 +28,20 @@ bitex.view.TwoFactor.prototype.exitView = function() {
 
 bitex.view.TwoFactor.prototype.enterDocument = function() {
   goog.base(this, 'enterDocument');
-
-  var handler = this.getHandler();
-  var model   = this.getApplication().getModel();
-
-  handler.listen(model, bitex.model.Model.EventType.SET + 'TwoFactorSecret', this.onModelSetTwoFactorSecret_);
-  handler.listen(model, bitex.model.Model.EventType.SET + 'TwoFactorEnabled', this.onModelSetTwoFactorEnabled_);
-
-};
-
-bitex.view.TwoFactor.prototype.exitDocument = function() {
 };
 
 bitex.view.TwoFactor.prototype.recreateComponents_ = function() {
 
   var handler = this.getHandler();
+  var model   = this.getApplication().getModel();
   var enabled = this.getApplication().getModel().get('TwoFactorEnabled');
 
   if (enabled) {
     this.getApplication().router_.setView('offerbook');
   } else {
+
+    handler.listen(model, bitex.model.Model.EventType.SET + 'TwoFactorSecret', this.onModelSetTwoFactorSecret_);
+    handler.listen(model, bitex.model.Model.EventType.SET + 'TwoFactorEnabled', this.onModelSetTwoFactorEnabled_);
 
     this.two_factor_component = new bitex.ui.TwoFactor();
     this.two_factor_component.render(goog.dom.getElement('twofactor_content'));
@@ -65,6 +59,9 @@ bitex.view.TwoFactor.prototype.destroyComponents_ = function() {
   var model   = this.getApplication().getModel();
 
   handler.unlisten(model, bitex.model.Model.EventType.SET + 'TwoFactorSecret', this.onModelSetTwoFactorSecret_);
+  handler.unlisten(model, bitex.model.Model.EventType.SET + 'TwoFactorEnabled', this.onModelSetTwoFactorEnabled_);
+
+  goog.dom.removeChildren(goog.dom.getElement('twofactor_content'));
 };
 
 /**
@@ -99,15 +96,12 @@ bitex.view.TwoFactor.prototype.onModelSetTwoFactorEnabled_ = function(e) {
   var secret = this.getApplication().getModel().get('TwoFactorSecret');
   var has_secret = goog.isDefAndNotNull(secret) && !goog.string.isEmpty(secret);
 
-  var divEl = goog.dom.getElement('id_enable_two_factor_div');
   var btnEnableEl = goog.dom.getElement('id_btn_enable_two_factor');
   var btnDisableEl = goog.dom.getElement('id_btn_disable_two_factor');
 
   goog.style.showElement(btnEnableEl, !enabled);
   goog.style.showElement(btnDisableEl, enabled);
-  goog.style.showElement(divEl, has_secret && !enabled);
   this.getApplication().router_.setView('offerbook');
-
 };
 
 /**
@@ -116,4 +110,3 @@ bitex.view.TwoFactor.prototype.onModelSetTwoFactorEnabled_ = function(e) {
 bitex.view.TwoFactor.prototype.getCode = function() {
   return goog.dom.forms.getValue(goog.dom.getElement('id_second_step_verification_view'));
 };
-

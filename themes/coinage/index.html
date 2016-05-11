@@ -67,7 +67,7 @@ load_application:       True
                         <!-- .home-news-item -->
                         <div class="home-news-item">
                             <div class="home-news-item__icon">
-                                <img class="home-img" src="{{ site.baseurl }}/assets/themes/coinage/img/ico-tradewithus.png" alt="" />
+                                <img class="home-img" src="{{ site.url }}{{ site.baseurl }}/assets/themes/coinage/img/ico-tradewithus.png" alt="" />
                             </div>
 
                             {% assign about  = "views.landing.about" %}
@@ -102,7 +102,7 @@ load_application:       True
                         <!-- .home-news-item -->
                         <div class="home-news-item">
                             <div class="home-news-item__icon">
-                                <img class="home-img" src="{{ site.baseurl }}/assets/themes/coinage/img/ico-secure.png" alt="" />
+                                <img class="home-img" src="{{ site.url }}{{ site.baseurl }}/assets/themes/coinage/img/ico-secure.png" alt="" />
                             </div>
 
                             <h2 class="home-news-item__title h3">{% t title2 %}</h2>
@@ -122,7 +122,7 @@ load_application:       True
                         <!-- .home-news-item -->
                         <div class="home-news-item">
                             <div class="home-news-item__icon">
-                                <img class="home-img" src="{{ site.baseurl }}/assets/themes/coinage/img/ico-liquidity.png" alt="" />
+                                <img class="home-img" src="{{ site.url }}{{ site.baseurl }}/assets/themes/coinage/img/ico-liquidity.png" alt="" />
                             </div>
 
                             <h2 class="home-news-item__title h3">{% t title3 %}</h2>
@@ -159,7 +159,7 @@ load_application:       True
                     <!-- .order -->
                     <div class="order">
                         <!-- .order__cell -->
-                        <div class="order__cell">
+                        <div class="order__cell col-md-6 col-xs-12">
                             <!-- .orders -->
                             <div class="orders">
 
@@ -180,7 +180,7 @@ load_application:       True
                         <!-- /.order__cell -->
 
                         <!-- .order__cell -->
-                        <div class="order__cell">
+                        <div class="order__cell col-md-6 col-xs-12">
                             <!-- .orders -->
                             <div class="orders">
 
@@ -211,7 +211,7 @@ load_application:       True
         <!-- .home-contact -->
         <div class="home-contact">
             <div class="home-contact__icon">
-                <img class="home-img" src="{{ site.baseurl }}/assets/themes/coinage/img/ico-requestbeta.png" alt="" />
+                <img class="home-img" src="{{ site.url }}{{ site.baseurl }}/assets/themes/coinage/img/ico-requestbeta.png" alt="" />
             </div>
 
             {% assign signup_title  = signup | append: ".title" %}
@@ -234,122 +234,11 @@ load_application:       True
   </div>
   <!-- /#start -->
 
-  <!-- #faq -->
-  <div id="faq" class="page container bitex-view">
-      <!-- .page__head -->
-      <header class="page__head">
-          <h1 class="page__title h2 bitex-view-title">
-              <i class="glyphicon glyphicon-question-sign"></i> {% t views.faq.title %}
-          </h1>
-      </header>
-      <!-- /.page__head -->
-
-      <!-- .page__body -->
-      <div class="page__body bitex-view-content">
-          <!-- .panel-group -->
-          <div class="panel-group accordion" id="accordion">
-              {% for post in site.categories['faq'] reversed %}
-              <div class="panel panel-default accordion-group">
-                <div class="panel-heading accordion-heading">
-                <h4 class="panel-title">
-                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#{{ post.title }} ">
-                        {{post.title}}
-                    </a>
-                  </h4>
-                </div>
-                <div id="{{ post.title }}" class="panel-collapse accordion-body collapse">
-                  <div class="panel-body">
-                       {{post.content}}
-                  </div>
-                </div>
-              </div>
-              {% endfor %}
-          </div>
-          <!-- /.panel-group -->
-
-          <a href="" class="bitex-support-link" target="_blank">
-              <i class="glyphicon glyphicon-envelope"></i> {% t views.faq.get_in_touch %}.
-          </a>
-      </div>
-      <!-- /.page__body -->
-  </div>
-  <!-- /#faq -->
-
-  <!-- #market -->
-  <div id="market" class="bitex-view">
-    <!-- .page -->
-    <div class="page container-fluid">
-      <!-- .page__head -->
-      <header class="page__head">
-          <h1 class="page__title h2 bitex-view-title">
-              <i class="glyphicon glyphicon-stats"></i> {% t views.market.title %}
-          </h1>
-      </header>
-      <!-- /.page__head -->
-
-      <!-- .page__body -->
-      <div class="page__body bitex-view-content">
-      </div>
-      <!-- /.page__body -->
-    </div>
-    <!-- /.page -->
-  </div>
-  <!-- /#market -->
-
-  <!-- /#themes -->
-  <div id="themes" class="page bitex-view">
-    <div class="row">
-        <!-- .col-md-6 -->
-        <div class="page__content page__padding col-md-10 col-md-offset-1">
-            <header class="page__head">
-                <h1 class="page__title bitex-view-title">{% t views.themes.title %}</h1>
-                <p>{% t views.themes.choose %}</p>
-            </header>
-            <div class="bitex-view-content page__body">
-                <div class="row" style="text-align:center">
-                    <a href="{{ site.url}}{{ site.baseurl}}/themes/coinage/">
-                        <div class="col-md-5 thumb-theme" style="margin:auto;float:none">
-                            <img src="{{ site.url}}{{ site.baseurl }}/assets/exchange_logos/thumb-themes/{{ site.exchange }}-coinage-thumb.jpg" alt="Coinage Theme">
-                            <h3>Coinage Theme</h3>
-                        </div>
-                    </a>
-                </div>
-                <hr>
-                <div class="row" style="text-align:center">
-                    <div class="col-xs-4">
-                        <a href="{{ site.url}}{{ site.baseurl}}/themes/default/">
-                            <div class="thumb-theme">
-                                <img src="{{ site.url}}{{ site.baseurl }}/assets/exchange_logos/thumb-themes/{{ site.exchange }}-default-thumb.jpg" alt="Default Theme">
-                                <h3 class="ls-title-4">Default Theme</h3>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-xs-4">
-                        <a href="{{ site.url}}{{ site.baseurl}}/themes/ander/">
-                            <div class="thumb-theme">
-                                <img src="{{ site.url}}{{ site.baseurl }}/assets/exchange_logos/thumb-themes/{{ site.exchange }}-ander-thumb.jpg" alt="Ander Theme">
-                                <h3 class="ls-title-4">Ander</h3>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-xs-4">
-                        <a href="{{ site.url}}{{ site.baseurl}}/themes/whitedev/">
-                            <div class="thumb-theme">
-                                <img src="{{ site.url}}{{ site.baseurl }}/assets/exchange_logos/thumb-themes/{{ site.exchange }}-whitedev-thumb.jpg" alt="Whitedev Theme">
-                                <h3 class="ls-title-4">Whitedev</h3>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-  </div>
-  <!-- #themes -->
 
   <!-- #signin -->
-  <div id="signin" class="page bitex-view">
+  <div id="signin" class="page bitex-view" style="display:none">
         <!-- .row -->
+        <br>
         <div class="row">
             <!-- .col-md-6 -->
             <div class="page__content page__padding col-md-4 col-md-offset-4">
@@ -392,7 +281,7 @@ load_application:       True
   <!-- /#signin -->
 
   <!-- #signup -->
-  <div id="signup" class="page row-fluid bitex-view">
+  <div id="signup" class="page row-fluid bitex-view" style="display:none">
         <!-- .row -->
         <div class="row">
             <!-- .col-md-6 -->
@@ -465,7 +354,8 @@ load_application:       True
   <!-- /#signup -->
 
   <!-- #forgot_password -->
-  <div id="forgot_password" class="page row bitex-view">
+  <div id="forgot_password" class="page row bitex-view" style="display:none">
+        <br>
         <!-- .row -->
         <div class="row">
             <!-- .col-md-6 -->
@@ -496,587 +386,763 @@ load_application:       True
         <!-- /.row -->
   </div>
   <!-- /#forgot_password -->
+  <!-- #set_new_password -->
+  <div id="set_new_password" class="page bitex-view" style="display:none">
+    <div class="row">
+      <div class="page__content page__padding col-md-6 col-md-offset-3">
+        <!-- .page__head -->
+        <header class="page__head">
+          <h1 class="page__title h2 bitex-view-title">{% t views.set_new_password.title %}</h1>
+        </header>
+        <!-- /.page__head -->
 
-  <!-- .page bitex-display-if-logged -->
-  <div class="page container bitex-display-if-logged">
+        <!-- .page__body -->
+        <div class="page__body bitex-view-content">
+          <form accept-charset="UTF-8" id="redefine_new_password_form" method="post">
 
-    <!-- .row -->
-    <div class="row page__content">
-        <!-- .col-md-2 -->
-        <div class="col-md-2 page__sidebar">
-          <!-- #id_sidebar -->
-          <div id="id_sidebar" class="bitex-view
-                                      bitex-view-profile
-                                      bitex-view-twofactor
-                                      bitex-view-trading
-                                      bitex-view-history
-                                      bitex-view-offerbook
-                                      bitex-view-customers
-                                      bitex-view-account_overview
-                                      bitex-view-withdraw
-                                      bitex-view-withdraw_requests
-                                      bitex-view-deposit
-                                      bitex-view-deposit_requests
-                                      bitex-view-ledger
-                                      bitex-view-settings
-                                      bitex-view-algotrading
-                                      bitex-view-api
-                                      bitex-view-my_broker
-                                      bitex-view-verification">
-
-            <!-- .sidebar-box -->
-            <div class="sidebar-box">
-                <h5 class="sidebar-box__title">{% t views.sidebar.market %}</h5>
-
-                <div class="sidebar-box__body">
-                    <select class="form-control" id="id_instrument_1"></select>
-                </div>
+            <div class="form-group">
+              <label for="id_set_new_password_token">{% t views.set_new_password.security_code %}</label>
+              <input id="id_set_new_password_token" class="form-control" name="Email" size="30" type="text" placeholder="">
+              <p class="help-block">{% t views.set_new_password.security_code_help %}</p>
             </div>
-            <!-- /.sidebar-box -->
 
-            <!-- .sidebar-box -->
-            <div class="sidebar-box">
-                <h5 class="sidebar-box__title">NAVEGATION</h5>
-
-                <div class="sidebar-box__body">
-                    <ul class="sidebar-box-nav nav">
-                        <li role="presentation" id="menu-trading">
-                            <a href="#" data-switch-view="trading">
-                                <i class="glyphicon glyphicon-random"></i> {% t views.sidebar.trading %}
-                            </a>
-                        </li>
-                        <li role="presentation" id="menu-offerbook">
-                            <a href="#" data-switch-view="offerbook">
-                                <i class="glyphicon glyphicon-book"></i> {% t views.sidebar.offerbook %}
-                            </a>
-                        </li>
-                        <li role="presentation" id="menu-history">
-                            <a href="#" data-switch-view="history">
-                                <i class="fa fa-history"></i> {% t views.sidebar.history %}
-                            </a>
-                        </li>
-                        <li role="presentation" id="menu-deposit">
-                            <a href="#" data-switch-view="deposit">
-                                <i class="fa fa-download"></i> {% t views.sidebar.deposit %}
-                            </a>
-                        </li>
-                        <li role="presentation" id="menu-withdraw">
-                            <a href="#" data-switch-view="withdraw">
-                                <i class="fa fa-upload"></i> {% t views.sidebar.withdraw %}
-                            </a>
-                        </li>
-                        <li role="presentation" id="menu-algotrading">
-                            <a href="#" data-switch-view="algotrading">
-                                <i class="glyphicon glyphicon-cog"></i> {% t views.sidebar.algotrading %}
-                            </a>
-                        </li>
-                        <li role="presentation" id="menu-ledger">
-                            <a href="#" data-switch-view="ledger">
-                                <i class="glyphicon glyphicon-th-list"></i> {% t views.sidebar.ledger %}
-                            </a>
-                        </li>
-                        <li role="presentation" id="menu-market">
-                            <a href="#" data-switch-view="market">
-                                <i class="glyphicon glyphicon-stats"></i> {% t views.toolbar.market %}
-                            </a>
-                        </li>
-                        <li id="verification_menu_id">
-                            <a href="verification" data-switch-view="verification">
-                                <i class="glyphicon glyphicon-check"></i> {% t views.sidebar.verification %}
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:location.reload()">
-                                <i class="glyphicon glyphicon-off"></i> {% t views.sidebar.logout %}
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+            <div class="form-group">
+              <label for="id_set_new_password_password">{% t views.set_new_password.new_password %}</label>
+              <input id="id_set_new_password_password" class="form-control" name="Password" size="30" type="password">
+              <p class="help-block">{% t views.set_new_password.new_password_help %}</p>
             </div>
-            <!-- /.sidebar-box -->
-          </div>
-          <!-- /#id_sidebar -->
+
+            <div class="form-group">
+              <label for="id_set_new_password_password2">{% t views.set_new_password.confirm_password %}</label>
+              <input id="id_set_new_password_password2" class="form-control" name="Password2" size="30" type="password">
+            </div>
+
+            <button id="id_btn_set_new_password"  class="btn btn-primary" name="commit" type="submit">
+              {% t views.set_new_password.set_new_password_button_label %}
+            </button>
+          </form>
         </div>
-        <!-- /.col-md-2 -->
+      </div>
+    </div>
+    <!-- /.page__body -->
+  </div>
+  <!-- /#set_new_password -->
+  <div class="page">
 
-        <!-- .col-md-8 -->
-        <div class="col-md-8 page__sidebar_content">
-            <!-- .page-dashboard -->
-            <div class="page-dashboard">
-              <!-- #offerbook -->
-              <div id="offerbook" class="bitex-view">
-                <!-- .page__head -->
-                <header class="page__head section-title">
-                    <h3 class="page__title bitex-view-title">
-                        <i class="glyphicon glyphicon-book"></i> {% t views.offerbook.title %}
-                    </h3>
-                </header>
-                <!-- /.page__head -->
+    <div class="alert-box bitex-display-if-logged">
+        <div class="alert alert-info | bitex-model" style="display: none" data-model-key="IsMissingVerification" data-model-action="show_element">
+            <div class="container">
+                <button type="button" class="close pull-right" data-dismiss="alert">&times;</button>
+                <a href="" class="alert-link" data-switch-view="verification"> {% t views.alerts.verification %} </a>
+            </div>
+        </div>
 
-                <!-- .page__body -->
-                <div class="page__body bitex-view-content">
-                  <!-- .order -->
-                  <div id="offer_book_order_entry_content" class="order"></div>
-                  <!-- /.order -->
+        <div class="alert alert-success | bitex-model" style="display: none" data-model-key="TwoFactorEnabled" data-model-action="hide_element">
+            <div class="container">
+                <button type="button" class="close pull-right" data-dismiss="alert">&times;</button>
+                <a href="" class="alert-link" data-switch-view="twofactor"> {% t views.alerts.enable_two_factor %} </a>
+            </div>
+        </div>
 
-                  <!-- .order -->
-                  <div class="order">
-                    <!-- .order__cell -->
-                    <div id="id_order_book_bid_content" class="order__cell"></div>
-                    <!-- /.order__cell -->
+        <div class="alert alert-danger | bitex-model" style="display: none" data-model-key="IsAccountBlocked" data-model-action="show_element">
+            <div class="container">
+                <button type="button" class="close pull-right" data-dismiss="alert">&times;</button>
+                <a href="" class="alert-link" data-switch-view="faq"> {% t views.alerts.frozen_account %} </a>
+            </div>
+        </div>
+    </div>
 
-                    <!-- .order__cell -->
-                    <div id="id_order_book_ask_content" class="order__cell"></div>
-                    <!-- /.order__cell -->
+    <!-- .page bitex-display-if-logged -->
+    <div class="container bitex-display-if-logged">
+
+      <!-- .row -->
+      <div class="row page__content">
+          <!-- .col-md-2 -->
+          <div class="col-md-2 page__sidebar">
+            <!-- #id_sidebar -->
+            <div id="id_sidebar" class="bitex-view
+                                        bitex-view-profile
+                                        bitex-view-twofactor
+                                        bitex-view-trading
+                                        bitex-view-history
+                                        bitex-view-offerbook
+                                        bitex-view-admin_view
+                                        bitex-view-customers
+                                        bitex-view-account_overview
+                                        bitex-view-withdraw
+                                        bitex-view-withdraw_requests
+                                        bitex-view-deposit
+                                        bitex-view-deposit_requests
+                                        bitex-view-ledger
+                                        bitex-view-settings
+                                        bitex-view-algotrading
+                                        bitex-view-api
+                                        bitex-view-my_broker
+                                        bitex-view-verification">
+
+              <!-- .sidebar-box -->
+              <div class="sidebar-box">
+                  <h5 class="sidebar-box__title">{% t views.sidebar.market %}</h5>
+
+                  <div class="sidebar-box__body">
+                      <select class="form-control" id="id_instrument_1"></select>
                   </div>
-                  <!-- /.order -->
-                </div>
-                <!-- /.page__body -->
               </div>
-              <!-- /#offerbook -->
+              <!-- /.sidebar-box -->
 
-              <!-- #profile -->
-              <div id="profile" class="bitex-view">
-                <!-- .page__head -->
-                <header class="page__head section-title">
-                    <h1 class="page__title h2 bitex-view-title">
-                        <i class="glyphicon glyphicon-user"></i> {% t views.profile.title %}
-                    </h1>
-                </header>
-                <!-- /.page__head -->
+              <!-- .sidebar-box -->
+              <div class="sidebar-box">
+                  <h5 class="sidebar-box__title">NAVEGATION</h5>
 
-                <!-- .page__body -->
-                <div class="page__body">
-                  <div id="profile_content" class="bitex-view-content">
-                    <div id="account_overview_user_id"></div>
-                    <div id="change_password_place_holder"></div>
+                  <div class="sidebar-box__body">
+                      <ul class="sidebar-box-nav nav">
+                          <li class="bitex-display-if-broker" id="menu-admin_view">
+                            <a href="" data-switch-view="admin_view">
+                              <i data-switch-view="admin" class="glyphicon glyphicon-user"></i> {% t views.sidebar.admin %}
+                            </a>
+                          </li>
+                          <li role="presentation" id="menu-profile">
+                              <a href="#" data-switch-view="profile">
+                                  <i class="glyphicon glyphicon-user"></i> {% t views.sidebar.my_profile %}
+                              </a>
+                          </li>
+                          <li role="presentation" id="menu-trading">
+                              <a href="#" data-switch-view="trading">
+                                  <i class="glyphicon glyphicon-random"></i> {% t views.sidebar.trading %}
+                              </a>
+                          </li>
+                          <li role="presentation" id="menu-offerbook">
+                              <a href="#" data-switch-view="offerbook">
+                                  <i class="glyphicon glyphicon-book"></i> {% t views.sidebar.offerbook %}
+                              </a>
+                          </li>
+                          <li role="presentation" id="menu-history">
+                              <a href="#" data-switch-view="history">
+                                  <i class="fa fa-history"></i> {% t views.sidebar.history %}
+                              </a>
+                          </li>
+                          <li role="presentation" id="menu-deposit" class="bitex-display-if-non-broker">
+                              <a href="#" data-switch-view="deposit">
+                                  <i class="fa fa-download"></i> {% t views.sidebar.deposit %}
+                              </a>
+                          </li>
+                          <li role="presentation" id="menu-withdraw" class="bitex-display-if-non-broker">
+                              <a href="#" data-switch-view="withdraw">
+                                  <i class="fa fa-upload"></i> {% t views.sidebar.withdraw %}
+                              </a>
+                          </li>
+                          <li role="presentation" id="menu-algotrading">
+                              <a href="#" data-switch-view="algotrading">
+                                  <i class="glyphicon glyphicon-cog"></i> {% t views.sidebar.algotrading %}
+                              </a>
+                          </li>
+                          <li role="presentation" id="menu-ledger">
+                              <a href="#" data-switch-view="ledger">
+                                  <i class="glyphicon glyphicon-th-list"></i> {% t views.sidebar.ledger %}
+                              </a>
+                          </li>
+                          <li role="presentation" id="menu-market">
+                              <a href="#" data-switch-view="market">
+                                  <i class="glyphicon glyphicon-stats"></i> {% t views.toolbar.market %}
+                              </a>
+                          </li>
+                          <li id="verification_menu_id">
+                              <a href="verification" data-switch-view="verification">
+                                  <i class="glyphicon glyphicon-check"></i> {% t views.sidebar.verification %}
+                              </a>
+                          </li>
+                          <li>
+                              <a href="javascript:location.reload()">
+                                  <i class="glyphicon glyphicon-off"></i> {% t views.sidebar.logout %}
+                              </a>
+                          </li>
+                      </ul>
                   </div>
+              </div>
+              <!-- /.sidebar-box -->
+            </div>
+            <!-- /#id_sidebar -->
+          </div>
+          <!-- /.col-md-2 -->
+
+          <!-- .col-md-8 -->
+          <div id='sidebar_content' class="col-md-8 page__sidebar_content">
+              <!-- .page-dashboard -->
+              <div class="page-dashboard">
+                <!-- #offerbook -->
+                <div id="offerbook" class="bitex-view">
+                  <!-- .page__head -->
+                  <header class="page__head section-title">
+                      <h3 class="page__title bitex-view-title">
+                          <i class="glyphicon glyphicon-book"></i> {% t views.offerbook.title %}
+                      </h3>
+                  </header>
+                  <!-- /.page__head -->
+
+                  <!-- .page__body -->
+                  <div class="page__body bitex-view-content">
+                    <!-- .order -->
+                    <div id="offer_book_order_entry_content" class="order"></div>
+                    <!-- /.order -->
+
+                    <!-- .order -->
+                    <div class="order">
+                      <!-- .order__cell -->
+                      <!-- <div class="btn btn-default btn-show-cum-qty"> -->
+                        <!-- {% t views.offerbook.cumulative %} -->
+                      <!-- </div> -->
+                      <!-- <div class="btn btn-default btn-show-fees"> -->
+                        <!-- {% t views.offerbook.fees %} -->
+                      <!-- </div> -->
+                      <div id="id_order_book_bid_content" class="order__cell col-md-6 col-xs-12"></div>
+                      <!-- /.order__cell -->
+
+                      <!-- .order__cell -->
+                      <div id="id_order_book_ask_content" class="order__cell col-md-6 col-xs-12"></div>
+                      <!-- /.order__cell -->
+                    </div>
+                    <!-- /.order -->
+                  </div>
+                  <!-- /.page__body -->
+                </div>
+                <!-- /#offerbook -->
+
+                <!-- #profile -->
+                <div id="profile" class="bitex-view">
+                  <!-- .page__head -->
+                  <header class="page__head section-title">
+                      <h1 class="page__title h2 bitex-view-title">
+                          <i class="glyphicon glyphicon-user"></i> {% t views.profile.title %}
+                      </h1>
+                  </header>
+                  <!-- /.page__head -->
+
+                  <!-- .page__body -->
+                  <div class="page__body">
+                    <div id="profile_content" class="bitex-view-content">
+                      <div id="account_overview_user_id"></div>
+                      <div id="change_password_place_holder"></div>
+                    </div>
 
 
-                  <!-- .profile-two-factor -->
-                  <div class="profile-two-factor col-xs-12 col-md-5 page__section_white page__padding">
-                      <!-- .profile-two-factor__title -->
-                      <h4 class="profile-two-factor__title">{% t views.profile.two_factor_auth_section.title %}</h4>
-                      <!-- /.profile-two-factor__title -->
+                    <!-- .profile-two-factor -->
+                    <div class="profile-two-factor col-xs-12 col-md-5 page__section_white page__padding">
+                        <!-- .profile-two-factor__title -->
+                        <h4 class="profile-two-factor__title">{% t views.profile.two_factor_auth_section.title %}</h4>
+                        <!-- /.profile-two-factor__title -->
 
-                      <!-- .profile-two-factor__body -->
-                      <div class="profile-two-factor__body bitex-view-content">
-                          <!-- .profile-two-factor__form -->
-                          <ul id="id_enable_two_factor_div" class="profile-two-factor__form nav">
+                        <!-- .profile-two-factor__foot -->
+                        <div class="profile-two-factor__foot">
+                            <a data-switch-view="twofactor" id="id_btn_enable_two_factor" class="btn btn-success profile-two-factor__btn">{% t views.profile.two_factor_auth_section.enable %}</a>
+                            <button id="id_btn_disable_two_factor" class="btn btn-danger profile-two-factor__btn">{% t views.profile.two_factor_auth_section.disable %}</button>
+                        </div>
+                        <!-- /.profile-two-factor__foot -->
+                    </div>
+                    <!-- /.profile-two-factor -->
+                  </div>
+                  <!-- /.page__body -->
+                </div>
+                <!-- /#profile -->
+
+                <!-- #api -->
+                <div id="api" class="bitex-view">
+                  <!-- .page__head -->
+                  <header class="page__head section-title">
+                      <div class="row" style="margin-right:0">
+                        <div class="col-xs-6">
+                          <h1 class="page__title h2 bitex-view-title">
+                              <i class="glyphicon glyphicon-dashboard"></i> {% t views.api.title %}
+                          </h1>
+                        </div>
+                        <div class="col-xs-6 pull-right">
+                          <ul id="id_api_button_group" class="page__nav">
                               <li>
-                                  <label class="profile-two-factor__label">{% t views.profile.two_factor_auth_section.key %}:</label>
-                                  <div id='secret' class="bitex-model" data-model-key="TwoFactorSecret"></div>
-
-                                  <img id="id_secret_qr" src="" />
-                              </li>
-
-                              <li>
-                                  <label class="profile-two-factor__label">{% t views.profile.two_factor_auth_section.authentication_code %}:</label>
-                                  <input id="id_second_step_verification" type="text" class="form-control"
-                                       pattern="\d+" title="{% t views.profile.two_factor_auth_section.authentication_code_title %}"
-                                       placeholder="{% t views.profile.two_factor_auth_section.authentication_code_placeholder %}" required />
+                                  <a id="id_btn_new_api_key" class="btn btn-success">
+                                      <i class="glyphicon glyphicon-plus"></i> {% t views.api.new_api_key %}
+                                  </a>
                               </li>
                           </ul>
-                          <!-- /.profile-two-factor__form -->
+                        </div>
                       </div>
-                      <!-- /.profile-two-factor__body -->
+                  </header>
+                  <!-- /.page__head -->
 
-                      <!-- .profile-two-factor__foot -->
-                      <div class="profile-two-factor__foot">
-                          <button id="id_btn_enable_two_factor" class="btn btn-success profile-two-factor__btn">{% t views.profile.two_factor_auth_section.enable %}</button>
-                          <button id="id_btn_disable_two_factor" class="btn btn-danger profile-two-factor__btn">{% t views.profile.two_factor_auth_section.disable %}</button>
-                      </div>
-                      <!-- /.profile-two-factor__foot -->
+                  <!-- .page__body -->
+                  <div class="page__body bitex-view-content">
                   </div>
-                  <!-- /.profile-two-factor -->
+                  <!-- /.page__body -->
                 </div>
-                <!-- /.page__body -->
-              </div>
-              <!-- /#profile -->
+                <!-- /#api -->
 
-              <!-- #api -->
-              <div id="api" class="bitex-view">
-                <!-- .page__head -->
-                <header class="page__head section-title">
-                    <div class="row">
-                      <div class="col-xs-6">
-                        <h1 class="page__title h2 bitex-view-title">
-                            <i class="glyphicon glyphicon-dashboard"></i> {% t views.api.title %}
-                        </h1>
-                      </div>
-                      <div class="col-xs-6 pull-right">
-                        <ul id="id_api_button_group" class="page__nav">
-                            <li>
-                                <a id="id_btn_new_api_key" class="btn btn-success">
-                                    <i class="glyphicon glyphicon-plus"></i> {% t views.api.new_api_key %}
-                                </a>
-                            </li>
-                        </ul>
-                      </div>
+                <!-- #my_broker -->
+                <div id="my_broker" class="bitex-view">
+                  <!-- .page__head -->
+                  <header class="page__head section-title">
+                    <h1 class="page__title h2 bitex-view-title"></h1>
+                  </header>
+                  <!-- /.page__head -->
+
+                  <!-- .page__body -->
+                  <div class="page__body bitex-view-content">
+                  </div>
+                  <!-- /.page__body -->
+                </div>
+                <!-- /#my_broker -->
+                <div id="twofactor" class="bitex-view">
+                  <div id="twofactor_content"></div>
+                </div>
+
+                <!-- #trading -->
+                <div id="trading" class="bitex-view">
+                  <!-- .page__head -->
+                  <header class="page__head section-title">
+                      <h3 class="page__title bitex-view-title">
+                          <i class="glyphicon glyphicon-random"></i> {% t views.trading.title %}
+                      </h3>
+                  </header>
+                  <!-- /.page__head -->
+
+                  <!-- .page__body -->
+                  <div class="page__body bitex-view-content">
+                    <div id="trading_order_entry_content" class="row-fluid"></div>
+                    <div id="id_trading_well"></div>
+                  </div>
+                  <!-- /.page__body -->
+                </div>
+                <!-- /#trading -->
+                <div id="history" class="bitex-view">
+                    <div class="section-title">
+                        <h3 class="bitex-view-title">{% t views.history.title %}</h3>
                     </div>
-                </header>
-                <!-- /.page__head -->
-
-                <!-- .page__body -->
-                <div class="page__body bitex-view-content">
-                </div>
-                <!-- /.page__body -->
-              </div>
-              <!-- /#api -->
-
-              <!-- #my_broker -->
-              <div id="my_broker" class="bitex-view">
-                <!-- .page__head -->
-                <header class="page__head section-title">
-                  <h1 class="page__title h2 bitex-view-title"></h1>
-                </header>
-                <!-- /.page__head -->
-
-                <!-- .page__body -->
-                <div class="page__body bitex-view-content">
-                </div>
-                <!-- /.page__body -->
-              </div>
-              <!-- /#my_broker -->
-              <div id="twofactor" class="bitex-view">
-                <div id="twofactor_content"></div>
-              </div>
-
-              <!-- #trading -->
-              <div id="trading" class="bitex-view">
-                <!-- .page__head -->
-                <header class="page__head section-title">
-                    <h3 class="page__title bitex-view-title">
-                        <i class="glyphicon glyphicon-random"></i> {% t views.trading.title %}
-                    </h3>
-                </header>
-                <!-- /.page__head -->
-
-                <!-- .page__body -->
-                <div class="page__body bitex-view-content">
-                  <div id="trading_order_entry_content" class="row-fluid"></div>
-                  <div id="id_trading_well"></div>
-                </div>
-                <!-- /.page__body -->
-              </div>
-              <!-- /#trading -->
-              <div id="history" class="bitex-view">
-                  <div class="section-title">
-                      <h3 class="bitex-view-title">{% t views.history.title %}</h3>
-                  </div>
-                  <div class="content bitex-view-content">
-                  </div>
-              </div>
-
-              <!-- #algotrading -->
-              <div id="algotrading" class="bitex-view">
-                <!-- .page__head -->
-                <header class="page__head section-title">
-                    <h1 class="page__title h2 bitex-view-title">
-                        <i class="glyphicon glyphicon-cog"></i> {% t views.algotrading.title %}
-                    </h1>
-                </header>
-                <!-- /.page__head -->
-
-                <!-- .page__body -->
-                <div class="page__body bitex-view-content">
-                </div>
-                <!-- /.page__body -->
-              </div>
-              <!-- /#algotrading -->
-
-
-              <!-- #ledger -->
-              <div id="ledger" class="bitex-view">
-                <!-- .page__head -->
-                <header class="page__head section-title">
-                    <h1 class="page__title h2 bitex-view-title">
-                        <i class="glyphicon glyphicon-th-list"></i> {% t views.ledger.title %}
-                    </h1>
-                </header>
-                <!-- /.page__head -->
-
-                <!-- .page__body -->
-                <div class="page__body bitex-view-content">
-                  <div id="id_ledger_balances_container"></div>
-
-                  <div id="id_ledger_list"></div>
-                </div>
-                <!-- /.page__body -->
-              </div>
-              <!-- /#ledger -->
-
-
-              <!-- #customers -->
-              <div id="customers" class="bitex-view">
-                <!-- .page__head -->
-                <header class="page__head section-title">
-                  <h1 class="page__title h2 bitex-view-title">{% t views.customers.title %}</h1>
-                </header>
-                <!-- /.page__head -->
-
-                <!-- .page__body -->
-                <div class="page__body bitex-view-content">
-                  <div id="id_customers_well"></div>
-                </div>
-                <!-- /.page__body -->
-              </div>
-              <!-- /#customers -->
-
-              <!-- #deposit_requests -->
-              <div id="deposit_requests" class="bitex-view">
-                <!-- .page__head -->
-                <header class="page__head section-title">
-                    <h1 class="page__title h2 bitex-view-title">
-                        <i class="glyphicon glyphicon-plus-sign"></i> {% t views.deposit_requests.title %}
-                    </h1>
-                </header>
-                <!-- /.page__head -->
-
-                <!-- .page__body -->
-                <div class="page__body bitex-view-content">
-                  <div id="id_deposit_request_list"></div>
-                </div>
-                <!-- /.page__body -->
-              </div>
-              <!-- /#deposit_requests -->
-
-
-              <!-- #withdraw_requests -->
-              <div id="withdraw_requests" class="bitex-view">
-                <!-- .page__head -->
-                <header class="page__head section-title">
-                    <h1 class="page__title h2 bitex-view-title">
-                        <i class="glyphicon glyphicon-minus-sign"></i> {% t views.withdraw_requests.title %}
-                    </h1>
-                </header>
-                <!-- /.page__head -->
-
-                <!-- .page__body -->
-                <div class="page__body bitex-view-content">
-                  <div id="id_withdraw_request_list"></div>
-                </div>
-                <!-- /.page__body -->
-              </div>
-              <!-- /#withdraw_requests -->
-
-
-              <!-- #deposit -->
-              <div id="deposit" class="bitex-view">
-                <!-- .page__head -->
-                <header class="page__head section-title page__head-float">
-                    <h1 class="page__title h2 bitex-view-title page__title-float">
-                        <i class="glyphicon glyphicon-plus"></i> {% t views.deposit.title %}
-                    </h1>
-                    <div id="id_deposit_button_group" class="row-fluid text-right" style="" ></div>
-                </header>
-                <!-- /.page__head -->
-
-                <!-- .page__body -->
-                <div class="page__body bitex-view-content">
-                  <div id="id_deposit_balances_container"></div>
-
-                  <div id="id_deposit_list"></div>
-                </div>
-                <!-- /.page__body -->
-              </div>
-              <!-- /#deposit -->
-
-              <!-- #withdraw -->
-              <div id="withdraw" class="bitex-view">
-                <!-- .page__head -->
-                <header class="page__head section-title page__head-float">
-                    <h1 class="page__title h2 bitex-view-title page__title-float">
-                        <i class="glyphicon glyphicon-minus"></i> {% t views.withdraw.title %}
-                    </h1>
-                    <div id="id_withdraw_button_group" class="row-fluid text-right" style="" ></div>
-                </header>
-                <!-- /.page__head -->
-
-                <!-- .page__body -->
-                <div class="page__body bitex-view-content">
-                  <div id="id_user_balances_well"></div>
-
-                  <div id="id_withdraw_list"></div>
-                </div>
-                <!-- /.page__body -->
-              </div>
-              <!-- /#withdraw -->
-
-              <!-- #account_overview -->
-              <div id="account_overview" class="bitex-view">
-                <!-- .page__head -->
-                <header class="page__head section-title">
-                  <h1 class="page__title h2 bitex-view-title">{% t views.account_overview.title %}</h1>
-                </header>
-                <!-- /.page__head -->
-
-                <!-- .page__body -->
-                <div class="page__body bitex-view-content">
-                  <div class="row-fluid">
-                    <div class="span6">
-                      <div id="account_overview_header_id"></div>
+                    <div class="content bitex-view-content">
                     </div>
-                    <div class="span6">
-                      <div id="account_overview_balances_id"></div>
-                      <div id="account_overview_fees_id">
+                </div>
 
-                        <div id="account_overview_fees_balances_id"></div>
+                <!-- #algotrading -->
+                <div id="algotrading" class="bitex-view">
+                  <!-- .page__head -->
+                  <header class="page__head section-title">
+                      <h1 class="page__title h2 bitex-view-title">
+                          <i class="glyphicon glyphicon-cog"></i> {% t views.algotrading.title %}
+                      </h1>
+                  </header>
+                  <!-- /.page__head -->
 
-                        <button id="id_btn_user_fees" class="btn btn-primary">{% t views.account_overview.set_user_fees_button_label %}</button>
+                  <!-- .page__body -->
+                  <div class="page__body bitex-view-content">
+                  </div>
+                  <!-- /.page__body -->
+                </div>
+                <!-- /#algotrading -->
 
+
+                <!-- #ledger -->
+                <div id="ledger" class="bitex-view">
+                  <!-- .page__head -->
+                  <header class="page__head section-title">
+                      <h1 class="page__title h2 bitex-view-title">
+                          <i class="glyphicon glyphicon-th-list"></i> {% t views.ledger.title %}
+                      </h1>
+                  </header>
+                  <!-- /.page__head -->
+
+                  <!-- .page__body -->
+                  <div class="page__body bitex-view-content">
+                    <div id="id_ledger_balances_container"></div>
+
+                    <div id="id_ledger_list"></div>
+                  </div>
+                  <!-- /.page__body -->
+                </div>
+                <!-- /#ledger -->
+
+                <!-- admin -->
+                <div id="admin_view" class="bitex-view">
+                  <header class="page__head section-title">
+                    <h3 class="page__title h2 bitex-view-title">{% t views.admin.title %}</h3>
+                  </header>
+                  <div class="page__body bitex-view-content">
+                    <div id="admin-tabs">
+                      <ul class="nav nav-tabs">
+                        <li class="active">
+                          <a href="#TabCustomers" data-toggle="tab">{% t views.customers.title %}</a>
+                        </li>
+                        <li>
+                          <a href="#TabDepositRequests" data-toggle="tab">{% t views.deposit_requests.title %}</a>
+                        </li>
+                        <li>
+                          <a href="#TabWithdrawRequests" data-toggle="tab">{% t views.withdraw_requests.title %}</a>
+                        </li>
+                        <li>
+                          <a href="#TabWithdrawMethods" data-toggle="tab">{% t views.withdraw_methods.title %}</a>
+                        </li>
+                      </ul>
+                      <div class="tab-content">
+                        <div class="tab-pane fade" id="TabCustomers">
+                          <h2 class="bitex-view-title">{% t views.customers.title %}</h2>
+                          <div id="admin_customers"></div>
+                        </div>
+                        <div class="tab-pane fade" id="TabDepositRequests">
+                          <h2 class="bitex-view-title">{% t views.deposit_requests.title %}</h2>
+
+                          <div id="admin_deposit_requests"></div>
+                        </div>
+                        <div class="tab-pane fade" id="TabWithdrawRequests">
+                          <h2 class="bitex-view-title">{% t views.withdraw_requests.title %}</h2>
+
+                          <div id="admin_withdraw_requests"></div>
+                        </div>
+                        <div class="tab-pane fade" id="TabWithdrawMethods">
+                          <h2 class="bitex-view-title">{% t views.withdraw_methods.title %}</h2>
+
+                          <div id="admin_withdraw_methods"></div>
+                        </div>
                       </div>
                     </div>
                   </div>
-                  <div class="bitex-account-overview-view-content"></div>
                 </div>
-                <!-- /.page__body -->
-              </div>
-              <!-- /#account_overview -->
+                <!-- /admin -->
 
-              <!-- #set_new_password -->
-              <div id="set_new_password" class="bitex-view">
-                <!-- .page__head -->
-                <header class="page__head section-title">
-                  <h1 class="page__title h2 bitex-view-title">{% t views.set_new_password.title %}</h1>
-                </header>
-                <!-- /.page__head -->
+                <!-- #customers -->
+                <div id="customers" class="bitex-view">
+                  <!-- .page__head -->
+                  <header class="page__head section-title">
+                    <h1 class="page__title h2 bitex-view-title">{% t views.customers.title %}</h1>
+                  </header>
+                  <!-- /.page__head -->
 
-                <!-- .page__body -->
-                <div class="page__body bitex-view-content">
-                  <form accept-charset="UTF-8" class="form-horizontal" id="redefine_new_password_form" method="post">
-
-                    <div class="control-group">
-                      <label class="control-label">{% t views.set_new_password.security_code %}</label>
-                      <div class="controls">
-                        <input id="id_set_new_password_token" name="Email" size="30" type="text" placeholder="">
-                        <p class="help-block">{% t views.set_new_password.security_code_help %}</p>
-                      </div>
-
-                    </div>
-
-                    <div class="control-group">
-                      <label class="control-label">{% t views.set_new_password.new_password %}</label>
-                      <div class="controls">
-                        <input id="id_set_new_password_password" name="Password" size="30" type="password">
-                        <p class="help-block">{% t views.set_new_password.new_password_help %}</p>
-                      </div>
-                    </div>
-
-                    <div class="control-group">
-                      <label class="control-label">{% t views.set_new_password.confirm_password %}</label>
-                      <div class="controls">
-                        <input id="id_set_new_password_password2" name="Password2" size="30" type="password">
-                      </div>
-                    </div>
-
-                    <div class="actions">
-                      <input id="id_btn_set_new_password"  class="btn btn-primary" name="commit" type="submit" value="{% t views.set_new_password.set_new_password_button_label %}">
-                    </div>
-                  </form>
+                  <!-- .page__body -->
+                  <div class="page__body bitex-view-content">
+                    <div id="id_customers_well"></div>
+                  </div>
+                  <!-- /.page__body -->
                 </div>
-                <!-- /.page__body -->
-              </div>
-              <!-- /#set_new_password -->
+                <!-- /#customers -->
 
-              <!-- #settings -->
-              <div id="settings" class="bitex-view">
-                <!-- .page__head -->
-                <header class="page__head section-title">
-                  <h1 class="page__title h2 bitex-view-title">{% t views.settings.title %}</h1>
-                </header>
-                <!-- /.page__head -->
+                <!-- #deposit_requests -->
+                <div id="deposit_requests" class="bitex-view">
+                  <!-- .page__head -->
+                  <header class="page__head section-title">
+                      <h1 class="page__title h2 bitex-view-title">
+                          <i class="glyphicon glyphicon-plus-sign"></i> {% t views.deposit_requests.title %}
+                      </h1>
+                  </header>
+                  <!-- /.page__head -->
 
-                <!-- .page__body -->
-                <div class="page__body bitex-view-content">
+                  <!-- .page__body -->
+                  <div class="page__body bitex-view-content">
+                    <div id="id_deposit_request_list"></div>
+                  </div>
+                  <!-- /.page__body -->
                 </div>
-                <!-- /.page__body -->
-              </div>
-              <!-- /#settings -->
+                <!-- /#deposit_requests -->
 
-              <!-- #verification -->
-              <div id="verification" class="bitex-view">
-                <!-- .page__head -->
-                <header class="page__head section-title">
-                    <h1 class="page__title h2 bitex-view-title">
-                        <i class="glyphicon glyphicon-check"></i> {% t views.verification.title %}
-                    </h1>
-                </header>
-                <!-- /.page__head -->
 
-                <!-- .page__body -->
-                <div class="page__body bitex-view-content">
-                  <iframe id="JotFormIFrame"
-                          onload="window.parent.scrollTo(0,0)"
-                          allowtransparency="true"
-                          src=""
-                          frameborder="0"
-                          style="width:100%; height:1550px; border:none;"
-                          scrolling="no"></iframe>
-                  <script type="text/javascript">
-                    window.handleIFrameMessage = function(e) {
-                      var args = e.data.split(":");
-                      var iframe = document.getElementById("JotFormIFrame");
-                      if (!iframe)
-                        return;
-                      switch (args[0]) {
-                        case "scrollIntoView":
-                          iframe.scrollIntoView();
-                          break;
-                        case "setHeight":
-                          if (args[1] > 0 ) {
-                            iframe.style.height = ( parseInt(args[1], 10) + 200 ) + "px";
-                          }
-                          break;
+                <!-- #withdraw_requests -->
+                <div id="withdraw_requests" class="bitex-view">
+                  <!-- .page__head -->
+                  <header class="page__head section-title">
+                      <h1 class="page__title h2 bitex-view-title">
+                          <i class="glyphicon glyphicon-minus-sign"></i> {% t views.withdraw_requests.title %}
+                      </h1>
+                  </header>
+                  <!-- /.page__head -->
+
+                  <!-- .page__body -->
+                  <div class="page__body bitex-view-content">
+                    <div id="id_withdraw_request_list"></div>
+                  </div>
+                  <!-- /.page__body -->
+                </div>
+                <!-- /#withdraw_requests -->
+
+
+                <!-- #deposit -->
+                <div id="deposit" class="bitex-view">
+                  <!-- .page__head -->
+                  <header class="page__head section-title page__head-float">
+                      <h1 class="page__title h2 bitex-view-title page__title-float">
+                          <i class="glyphicon glyphicon-plus"></i> {% t views.deposit.title %}
+                      </h1>
+                      <div id="id_deposit_button_group" class="row-fluid text-right" style="" ></div>
+                  </header>
+                  <!-- /.page__head -->
+
+                  <!-- .page__body -->
+                  <div class="page__body bitex-view-content">
+                    <div id="id_deposit_balances_container"></div>
+
+                    <div id="id_deposit_list"></div>
+                  </div>
+                  <!-- /.page__body -->
+                </div>
+                <!-- /#deposit -->
+
+                <!-- #withdraw -->
+                <div id="withdraw" class="bitex-view">
+                  <!-- .page__head -->
+                  <header class="page__head section-title page__head-float">
+                      <h1 class="page__title h2 bitex-view-title page__title-float">
+                          <i class="glyphicon glyphicon-minus"></i> {% t views.withdraw.title %}
+                      </h1>
+                      <div id="id_withdraw_button_group" class="row-fluid text-right" style="" ></div>
+                  </header>
+                  <!-- /.page__head -->
+
+                  <!-- .page__body -->
+                  <div class="page__body bitex-view-content">
+                    <div id="id_user_balances_well"></div>
+
+                    <div id="id_withdraw_list"></div>
+                  </div>
+                  <!-- /.page__body -->
+                </div>
+                <!-- /#withdraw -->
+
+                <!-- #account_overview -->
+                <div id="account_overview" class="bitex-view">
+                  <!-- .page__head -->
+                  <header class="page__head section-title">
+                    <h1 class="page__title h2 bitex-view-title">{% t views.account_overview.title %}</h1>
+                  </header>
+                  <!-- /.page__head -->
+
+                  <!-- .page__body -->
+                  <div class="page__body bitex-view-content">
+                    <div class="row-fluid">
+                      <div class="span6">
+                        <div id="account_overview_header_id"></div>
+                      </div>
+                      <div class="span6">
+                        <div id="account_overview_balances_id"></div>
+                        <div id="account_overview_fees_id">
+
+                          <div id="account_overview_verify_data_id"></div>
+                          <div id="account_overview_fees_balances_id"></div>
+
+                          <button id="id_btn_user_fees" class="btn btn-primary">{% t views.account_overview.set_user_fees_button_label %}</button>
+
+                        </div>
+                      </div>
+                    </div>
+                    <div class="bitex-account-overview-view-content"></div>
+                  </div>
+                  <!-- /.page__body -->
+                </div>
+                <!-- /#account_overview -->
+
+
+                <!-- #settings -->
+                <div id="settings" class="bitex-view">
+                  <!-- .page__head -->
+                  <header class="page__head section-title">
+                    <h1 class="page__title h2 bitex-view-title">{% t views.settings.title %}</h1>
+                  </header>
+                  <!-- /.page__head -->
+
+                  <!-- .page__body -->
+                  <div class="page__body bitex-view-content">
+                  </div>
+                  <!-- /.page__body -->
+                </div>
+                <!-- /#settings -->
+
+                <!-- #verification -->
+                <div id="verification" class="bitex-view">
+                  <!-- .page__head -->
+                  <header class="page__head section-title">
+                      <h1 class="page__title h2 bitex-view-title">
+                          <i class="glyphicon glyphicon-check"></i> {% t views.verification.title %}
+                      </h1>
+                  </header>
+                  <!-- /.page__head -->
+
+                  <!-- .page__body -->
+                  <div class="page__body bitex-view-content">
+                    <iframe id="JotFormIFrame"
+                            onload="window.parent.scrollTo(0,0)"
+                            allowtransparency="true"
+                            src=""
+                            frameborder="0"
+                            style="width:100%; height:1550px; border:none;"
+                            scrolling="no"></iframe>
+                    <script type="text/javascript">
+                      window.handleIFrameMessage = function(e) {
+                        var args = e.data.split(":");
+                        var iframe = document.getElementById("JotFormIFrame");
+                        if (!iframe)
+                          return;
+                        switch (args[0]) {
+                          case "scrollIntoView":
+                            iframe.scrollIntoView();
+                            break;
+                          case "setHeight":
+                            if (args[1] > 0 ) {
+                              iframe.style.height = ( parseInt(args[1], 10) + 200 ) + "px";
+                            }
+                            break;
+                        }
+                      };
+                      if (window.addEventListener) {
+                        window.addEventListener("message", handleIFrameMessage, false);
+                      } else if (window.attachEvent) {
+                        window.attachEvent("onmessage", handleIFrameMessage);
                       }
-                    };
-                    if (window.addEventListener) {
-                      window.addEventListener("message", handleIFrameMessage, false);
-                    } else if (window.attachEvent) {
-                      window.attachEvent("onmessage", handleIFrameMessage);
-                    }
-                  </script>
+                    </script>
+                  </div>
+                  <!-- /.page__body -->
                 </div>
-                <!-- /.page__body -->
+                <!-- /#verification -->
               </div>
-              <!-- /#verification -->
-            </div>
-            <!-- /.page-dashboard -->
-        </div>
-        <!-- /.col-md-8 -->
+              <!-- /.page-dashboard -->
+          </div>
+          <!-- /.col-md-8 -->
 
-        <!-- .col-md-2 -->
-        <div class="col-md-2 bitex-view
-                             bitex-view-profile
-                             bitex-view-twofactor
-                             bitex-view-trading
-                             bitex-view-offerbook
-                             bitex-view-customers
-                             bitex-view-account_overview
-                             bitex-view-withdraw
-                             bitex-view-withdraw_requests
-                             bitex-view-deposit
-                             bitex-view-deposit_requests
-                             bitex-view-ledger
-                             bitex-view-settings
-                             bitex-view-algotrading
-                             bitex-view-api
-                             bitex-view-my_broker
-                             bitex-view-verification">
-            <!-- .sidebar-box -->
-            <div class="sidebar-box">
-                <h5 class="sidebar-box__title">INTERNATIONAL RATES</h5>
+          <!-- .col-md-2 -->
+          <div id='sidebar_remittances' style="padding-left:2px;padding-right:4px;" class="col-md-2 bitex-view
+                              bitex-view-profile
+                              bitex-view-twofactor
+                              bitex-view-trading
+                              bitex-view-offerbook
+                              bitex-view-admin_view
+                              bitex-view-customers
+                              bitex-view-account_overview
+                              bitex-view-withdraw
+                              bitex-view-withdraw_requests
+                              bitex-view-deposit
+                              bitex-view-deposit_requests
+                              bitex-view-ledger
+                              bitex-view-settings
+                              bitex-view-algotrading
+                              bitex-view-api
+                              bitex-view-my_broker
+                              bitex-view-verification">
+              <!-- .sidebar-box -->
+              <div class="sidebar-box">
+                  <h5 class="sidebar-box__title">INTERNATIONAL RATES</h5>
 
-                <div class="sidebar-box__body">
-                    <div id="id_remittance_box"></div>
+                  <div class="sidebar-box__body">
+                      <div id="id_remittance_box"></div>
+                      {% if site.twitter_widget_id %}
+                      <a class="twitter-timeline" href="https://twitter.com/{{ site.twitter_widget_name }}" data-theme="{{ site.twitter_widget_theme }}" data-link-color="{{ site.twitter_widget_link_color }}" data-widget-id="{{ site.twitter_widget_id }}">Tweets by @{{ site.twitter_widget_name }}</a>
+                      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                      {% endif %}
+                  </div>
+              </div>
+              <!-- /.sidebar-box -->
+          </div>
+          <!-- /.col-md-2 -->
+      </div>
+      <!-- /.row -->
+    </div>
+  </div>
+  <!-- #market -->
+  <div id="market" class="bitex-view" style="margin:18px;padding-bottom:42px;display:none">
+    <!-- .page -->
+    <div class="page page__content page__padding container-fluid">
+      <!-- .page__head -->
+      <header class="page__head">
+          <h1 class="page__title h2 bitex-view-title">
+              <i class="glyphicon glyphicon-stats"></i> {% t views.market.title %}
+          </h1>
+      </header>
+      <!-- /.page__head -->
+
+      {% if site.trading_view %}
+        <div id="market_trading_view" data-symbol="{{site.trading_view}}"></div>
+      {% endif %}
+      <!-- .page__body -->
+      <div class="page__body bitex-view-content">
+      </div>
+      <!-- /.page__body -->
+    </div>
+    <!-- /.page -->
+  </div>
+  <!-- /#market -->
+  <!-- #faq -->
+  <div id="faq" class="container bitex-view" style="padding-bottom:42px;display:none">
+      <!-- .page__head -->
+      <header class="page__head">
+          <h1 class="page__title h2 bitex-view-title">
+              <i class="glyphicon glyphicon-question-sign"></i> {% t views.faq.title %}
+          </h1>
+      </header>
+      <!-- /.page__head -->
+
+      <!-- .page__body -->
+      <div class="page__body bitex-view-content">
+          <!-- .panel-group -->
+          <div class="panel-group accordion" id="accordion">
+              {% for post in site.categories['faq'] reversed %}
+              <div class="panel panel-default accordion-group">
+                <div class="panel-heading accordion-heading">
+                <h4 class="panel-title">
+                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#{{ post.title }} ">
+                        {{post.title}}
+                    </a>
+                  </h4>
+                </div>
+                <div id="{{ post.title }}" class="panel-collapse accordion-body collapse">
+                  <div class="panel-body">
+                       {{post.content}}
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+          </div>
+          <!-- /.panel-group -->
+
+          <a href="" class="bitex-support-link" target="_blank">
+              <i class="glyphicon glyphicon-envelope"></i> {% t views.faq.get_in_touch %}.
+          </a>
+      </div>
+      <!-- /.page__body -->
+  </div>
+  <!-- /#faq -->
+
+
+  <!-- /#themes -->
+  <div id="themes" class="bitex-view" style="padding-bottom:42px;display:none">
+    <br>
+    <div class="row">
+        <!-- .col-md-6 -->
+        <div class="page__content page__padding col-md-10 col-md-offset-1">
+            <header class="page__head">
+                <h1 class="page__title bitex-view-title">{% t views.themes.title %}</h1>
+                <p>{% t views.themes.choose %}</p>
+            </header>
+            <div class="bitex-view-content page__body">
+                <div class="row" style="text-align:center">
+                    <div class="col-xs-4">
+                      <a href="{{ site.url}}{{ site.baseurl}}/themes/coinage/">
+                          <div class="thumb-theme" style="margin:auto;float:none">
+                              <img src="{{ site.url}}{{ site.baseurl }}/assets/exchange_logos/thumb-themes/{{ site.exchange }}-coinage-thumb.jpg" alt="Coinage Theme">
+                              <h3>Coinage Theme</h3>
+                          </div>
+                      </a>
+                    </div>
+                    <div class="col-xs-4">
+                        <a href="{{ site.url}}{{ site.baseurl}}/themes/default/">
+                            <div class="thumb-theme">
+                                <img src="{{ site.url}}{{ site.baseurl }}/assets/exchange_logos/thumb-themes/{{ site.exchange }}-default-thumb.jpg" alt="Default Theme">
+                                <h3 class="ls-title-4">Simple Theme</h3>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xs-4">
+                        <a href="{{ site.url}}{{ site.baseurl}}/themes/whitedev/">
+                            <div class="thumb-theme">
+                                <img src="{{ site.url}}{{ site.baseurl }}/assets/exchange_logos/thumb-themes/{{ site.exchange }}-whitedev-thumb.jpg" alt="Whitedev Theme">
+                                <h3 class="ls-title-4">Whitedev</h3>
+                            </div>
+                        </a>
+                    </div>
                 </div>
             </div>
-            <!-- /.sidebar-box -->
         </div>
-        <!-- /.col-md-2 -->
     </div>
-    <!-- /.row -->
   </div>
+  <!-- #themes -->
   <!-- /.bitex-display-if-logged -->
 </div>
 <!-- /.container-fluid -->

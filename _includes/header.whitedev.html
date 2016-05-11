@@ -47,6 +47,7 @@
   <link href="{{ site.url }}{{ site.baseurl }}/assets/themes/whitedev/css/main.{{site.exchange}}.css" rel="stylesheet">
 
   <script data-cfasync="false" src="{{ site.url }}{{ site.baseurl }}/assets/js/bitex_app_blink_trade.compiled.{{site.lang}}.whitedev.js?v={{ site.deploy_version }}" type="text/javascript"></script>
+  <script src="{{ site.url }}{{ site.baseurl }}/assets/js/externs/qrcode.min.js"></script>
 </head>
 <body class="{% if page.body_classes %} {{ page.body_classes }} {% endif %}">
 
@@ -145,6 +146,8 @@
                                             bitex-view-profile
                                             bitex-view-trading
                                             bitex-view-offerbook
+                                            bitex-view-twofactor
+                                            bitex-view-admin_view
                                             bitex-view-customers
                                             bitex-view-account_overview
                                             bitex-view-withdraw
@@ -210,6 +213,11 @@
 
     <nav class="ls-menu" role="navigation">
         <ul role="menu">
+            <li id="menu-admin_view" class="bitex-display-if-broker">
+              <a href="" data-switch-view="admin_view" class="ls-ico-user" role="menuitem" style="outline: none;">
+                {% t views.sidebar.admin %}
+              </a>
+            </li>
             <li id="menu-profile">
               <a href="" data-switch-view="profile" class="ls-ico-user" role="menuitem" style="outline: none;">
                 {% t views.sidebar.my_profile %}
@@ -240,27 +248,12 @@
                 {% t views.sidebar.ledger %}
               </a>
             </li>
-            <li id="menu-customers" class="bitex-display-if-broker">
-              <a href="" data-switch-view="customers" class="ls-ico-user" role="menuitem">
-                {% t views.sidebar.customers %}
-              </a>
-            </li>
-            <li id="menu-deposit_requests" class="bitex-display-if-broker">
-              <a href="" data-switch-view="deposit_requests" class="ls-ico-download" role="menuitem">
-                {% t views.sidebar.deposit_requests %}
-              </a>
-            </li>
-            <li id="menu-withdraw_requests" class="bitex-display-if-broker">
-              <a href="" data-switch-view="withdraw_requests" class="ls-ico-upload" role="menuitem">
-                {% t views.sidebar.withdraw_requests %}
-              </a>
-            </li>
-            <li id="menu-deposit">
+            <li id="menu-deposit" class="bitex-display-if-non-broker">
               <a href="" data-switch-view="deposit" class="ls-ico-download" role="menuitem">
                 {% t views.sidebar.deposit %}
               </a>
             </li>
-            <li id="menu-withdraw">
+            <li id="menu-withdraw" class="bitex-display-if-non-broker">
               <a href="" data-switch-view="withdraw" class="ls-ico-upload" role="menuitem">
                 {% t views.sidebar.withdraw %}
               </a>
@@ -300,7 +293,7 @@
                             <button type="button" class="close" data-dismiss="alert">&times;</button>
                         </td>
                         <td>
-                            <a href="" data-switch-view="profile"> {% t views.alerts.enable_two_factor %} </a>
+                            <a href="" data-switch-view="twofactor"> {% t views.alerts.enable_two_factor %} </a>
                         </td>
                     </tr>
                 </table>

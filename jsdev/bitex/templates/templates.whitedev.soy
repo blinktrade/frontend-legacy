@@ -455,6 +455,7 @@
           {msg desc="Google Authenticator code dialog label"}Google Authenticator code:{/msg}
         </label>
         <input name="token"
+               id="id_input_google_authenticator"
                data-uniform-validators="required"
                data-uniform-label="{msg desc="Limit table field header"}Google authenticator code{/msg}"
                label="{msg desc="Google Authenticator code placeholder"}eg. 555555{/msg}"
@@ -465,6 +466,30 @@
     </fieldset>
   </form>
 {/template}
+
+/**
+  * @param id
+  * @param description
+  */
+{template .SecondFactorTokenDialogContent}
+  <form class="form-horizontal" data-deposit-status="prepare" data-uniform-control-holder-class="control-group">
+    <fieldset>
+      <div class="control-group">
+        <label>
+          {$description}
+        </label>
+        <input name="token"
+               id="{$id}_token"
+               data-uniform-validators="required"
+               label="{msg desc="Placeholder for the code field on the second factor token dialog"}eg. 5555555{/msg}"
+               class="input-large"
+               type="text"
+               size="10">
+      </div>
+    </fieldset>
+  </form>
+{/template}
+
 
 /**
   */
@@ -733,6 +758,39 @@
       </p>
     {/if}
 
+  </div>
+{/template}
+
+/**
+  * @param amount
+  * @param total
+  * @param side
+  */
+{template .ConfirmOrderContentDialog}
+  <div class="row-fluid">
+    <p>
+      {msg desc="Confirmation order title"}Confirm your order{/msg}
+    </p>
+    <table class="ls-table ls-table-striped ls-bg-header">
+      <tr>
+        <td>
+          {if $side == '1'}
+            {msg desc="You are buying message"}You are buying{/msg}
+          {else}
+            {msg desc="You are selling message"}You are selling{/msg}
+          {/if}
+          </td>
+        <td>
+          <span class="bitex-model">{$amount}</span>
+        </td>
+      </tr>
+      <tr>
+        <td>{msg desc="For a total message"}For a total of{/msg}</td>
+        <td>
+          <span class="bitex-model">{$total}</span>
+        </td>
+      </tr>
+    </table>
   </div>
 {/template}
 

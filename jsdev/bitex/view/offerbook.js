@@ -122,22 +122,6 @@ bitex.view.OfferBookView.prototype.decorateInternal = function(element) {
   this.sell_order_entry_ = new bitex.ui.AdvancedOrderEntry( {side: 2, type:2} );
   this.locked_balance_display_ = new bitex.ui.LockedBalanceDisplay();
 
-  var cum_qty_el = goog.dom.getElementByClass('btn-show-cum-qty', element);
-  if (goog.isDefAndNotNull(cum_qty_el)) {
-    this.cum_qty_btn_ = new goog.ui.ToggleButton(undefined, bootstrap.ButtonRenderer.getInstance());
-    this.cum_qty_btn_.setSupportedState(goog.ui.Component.State.CHECKED, true);
-    this.cum_qty_btn_.decorate(cum_qty_el);
-  }
-
-  var fee_btn_el = goog.dom.getElementByClass('btn-show-fees', element);
-  if (goog.isDefAndNotNull(fee_btn_el)) {
-    this.fee_btn_ = new goog.ui.ToggleButton(undefined, bootstrap.ButtonRenderer.getInstance());
-    this.fee_btn_.setSupportedState(goog.ui.Component.State.CHECKED, true);
-    this.fee_btn_.decorate(fee_btn_el);
-  }
-
-
-
   this.getContentElement = function() {
     return goog.dom.getElement('offer_book_order_entry_content');
   };
@@ -226,6 +210,28 @@ bitex.view.OfferBookView.prototype.recreateOrderBookComponents_ = function( sele
   this.order_book_bid_.setFee(fee_buy * -1);
   this.order_book_offer_.setFee(fee_sell);
 
+  var cum_qty_el = goog.dom.getElementByClass('btn-show-cum-qty', this.getElement());
+  if (goog.isDefAndNotNull(cum_qty_el)) {
+    this.cum_qty_btn_ = new goog.ui.ToggleButton(undefined, bootstrap.ButtonRenderer.getInstance());
+    this.cum_qty_btn_.setSupportedState(goog.ui.Component.State.CHECKED, true);
+    this.cum_qty_btn_.decorate(cum_qty_el);
+  }
+
+  var fee_btn_el = goog.dom.getElementByClass('btn-show-fees', this.getElement());
+  if (goog.isDefAndNotNull(fee_btn_el)) {
+    this.fee_btn_ = new goog.ui.ToggleButton(undefined, bootstrap.ButtonRenderer.getInstance());
+    this.fee_btn_.setSupportedState(goog.ui.Component.State.CHECKED, true);
+    this.fee_btn_.decorate(fee_btn_el);
+  }
+
+  if (goog.isDefAndNotNull(this.cum_qty_btn_)) {
+    handler.listen(this.cum_qty_btn_, goog.ui.Component.EventType.ACTION, this.onCumQtyClick_);
+  }
+
+  if (goog.isDefAndNotNull(this.fee_btn_)) {
+    handler.listen(this.fee_btn_, goog.ui.Component.EventType.ACTION, this.onFeesClick_);
+  }
+
   handler.listen(this.order_book_bid_ ,bitex.ui.OrderBook.EventType.CANCEL, this.onCancelOrder_ );
   handler.listen(this.order_book_bid_ ,bitex.ui.OrderBook.EventType.CANCEL_REPLACE, goog.bind(this.onCancelReplaceOrder_, this, '1'));
   handler.listen(this.order_book_offer_ ,bitex.ui.OrderBook.EventType.CANCEL, this.onCancelOrder_ );
@@ -265,14 +271,6 @@ bitex.view.OfferBookView.prototype.enterDocument = function() {
   var model = this.getApplication().getModel();
   handler.listen(model, bitex.model.Model.EventType.SET + 'SelectedSymbol',   this.onSelectedSymbol_);
   handler.listen(model, bitex.model.Model.EventType.SET + 'SelectedBrokerID', this.onSelectedBrokerID_);
-
-  if (goog.isDefAndNotNull(this.cum_qty_btn_)) {
-    handler.listen(this.cum_qty_btn_, goog.ui.Component.EventType.ACTION, this.onCumQtyClick_);
-  }
-
-  if (goog.isDefAndNotNull(this.fee_btn_)) {
-    handler.listen(this.fee_btn_, goog.ui.Component.EventType.ACTION, this.onFeesClick_);
-  }
 };
 
 bitex.view.OfferBookView.prototype.onFeesClick_ = function(e) {

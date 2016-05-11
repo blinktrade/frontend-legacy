@@ -84,6 +84,13 @@
             {/call}
          </td>
       </tr>
+      <tr>
+        <td><strong>{msg desc="Confirmation Order"}Confirmation Order{/msg}</strong></td>
+        <td>
+          <input type='checkbox' data-profile-change='ConfirmationOrder'
+          {if $msg_customer_detail['ConfirmationOrder'] == true}checked="true"{/if} />
+        </td>
+      </tr>
 
     </tbody>
   </table>

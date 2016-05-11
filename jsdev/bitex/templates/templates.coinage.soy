@@ -135,49 +135,51 @@
   */
 {template .BrokerConfirmDepositContent}
   <form class="form-horizontal broker-confirm-deposit">
-    <div class="control-group">
-      <label class="control-label">{msg desc="Control number label"}Control number{/msg}</label>
-      <div class="controls">
+    <div class="form-group">
+      <label class="col-xs-2 control-label">{msg desc="Control number label"}Control number{/msg}</label>
+      <div class="col-xs-6 col-sm-4">
         <label class="control-label" style="text-align: left;">{$controlNumber}</label>
       </div>
     </div>
-    <div class="control-group">
-      <label class="control-label">{msg desc="Amount label"}Amount paid{/msg}</label>
-      <div class="controls">
-        <div class="input-prepend">
-          <span class="add-on">{$currencySign}</span>
+    <div class="form-group">
+      <label class="col-xs-2 control-label">{msg desc="Amount label"}Amount paid{/msg}</label>
+      <div class="col-xs-6 col-sm-4">
+        <div class="input-group">
+          <span class="input-group-addon">{$currencySign}</span>
           <input id="{$id_value}" type="text" class="form-control" size="16" name="PaidValue" value="{$value}">
         </div>
       </div>
     </div>
-    <div class="control-group">
-      <label class="control-label">{msg desc="Fee percentage label"}Fees:{/msg}</label>
-      <div class="controls">
-        <div class="row-fluid">
-          <div class="span4">
-            <div class="input-append">
+    <div class="form-group">
+      <label class="col-xs-2 control-label">{msg desc="Fee percentage label"}Fees:{/msg}</label>
+      <div class="col-xs-10 col-sm-6">
+        <div class="row">
+          <div class="col-xs-6">
+            <div class="input-group">
               <input id="{$percentFeeID}" type="text" class="form-control" size="16" name="Fee" value="{$percentFee}">
-              <span class="add-on">%</span>
+              <span class="input-group-addon">%</span>
             </div>
           </div>
-
-          <div class="span4">
-            <div class="input-prepend">
-              <span class="add-on">{$currencySign}</span>
+          <div class="col-xs-6">
+            <div class="input-group">
+              <span class="input-group-addon">{$currencySign}</span>
               <input id="{$fixedFeeID}" type="text" class="form-control" size="16" name="Fee" value="{$fixedFee}">
             </div>
-          </div>
-
-          <div class="span4">
-            <label id="{$totalFeesID}" class="control-label broker-confirm-deposit-fee" style="text-align: left;"></label>
           </div>
         </div>
       </div>
     </div>
+    <div class="form-group">
+      <div class="col-xs-2 control-label"></div>
+      <div class="col-xs-6 col-sm-4">
+        <label id="{$totalFeesID}" class="control-label broker-confirm-deposit-fee" style="text-align: left;"></label>
+      </div>
+    </div>
+    </div>
 
-    <div class="control-group">
-      <label class="control-label">{msg desc="Net amount"}Net amount{/msg}</label>
-      <div class="controls">
+    <div class="form-group">
+      <label class="col-xs-2 control-label">{msg desc="Net amount"}Net amount{/msg}</label>
+      <div class="col-xs-6 col-sm-4">
         <label id="{$netValueID}" class="control-label broker-confirm-deposit-net-amount" style="text-align: left;"></label>
         <input id="{$netValueID}_value" type="hidden" value="">
       </div>
@@ -420,9 +422,9 @@
 <p>{msg desc="Cancel deposit dialog message"}Enter a reason for cancelling the deposit{/msg}</p>
 <form class="form-horizontal">
   <fieldset>
-    <div class="control-group">
-      <label class="control-label" for="{$reason_id}" >{msg desc="Cancel deposit reason label"}Reason:{/msg}</label>
-      <div class="controls">
+    <div class="form-group">
+      <label class="col-xs-2 control-label" for="{$reason_id}" >{msg desc="Cancel deposit reason label"}Reason:{/msg}</label>
+      <div class="col-xs-4">
         <select id="{$reason_id}">
           <option value="0" selected>{msg desc="reason for cancelling deposit"}Other{/msg}</option>
         </select>
@@ -430,7 +432,7 @@
     </div>
     <div class="control-group">
       <div class="controls">
-        <textarea id="{$custom_reason_id}" rows="2" style=""></textarea>
+        <textarea class="form-control" id="{$custom_reason_id}" rows="2" style=""></textarea>
       </div>
     </div>
   </fieldset>
@@ -449,6 +451,7 @@
           {msg desc="Google Authenticator code dialog label"}Google Authenticator code:{/msg}
         </label>
         <input name="token"
+               id="id_input_google_authenticator"
                data-uniform-validators="required"
                data-uniform-label="{msg desc="Limit table field header"}Google authenticator code{/msg}"
                label="{msg desc="Google Authenticator code placeholder"}eg. 555555{/msg}"
@@ -459,6 +462,30 @@
     </fieldset>
   </form>
 {/template}
+
+/**
+  * @param id
+  * @param description
+  */
+{template .SecondFactorTokenDialogContent}
+  <form class="form-horizontal" data-deposit-status="prepare" data-uniform-control-holder-class="control-group">
+    <fieldset>
+      <div class="control-group">
+        <label>
+          {$description}
+        </label>
+        <input name="token"
+               id="{$id}_token"
+               data-uniform-validators="required"
+               label="{msg desc="Placeholder for the code field on the second factor token dialog"}eg. 5555555{/msg}"
+               class="input-large"
+               type="text"
+               size="10">
+      </div>
+    </fieldset>
+  </form>
+{/template}
+
 
 /**
   */
@@ -749,6 +776,39 @@
 {/template}
 
 /**
+  * @param amount
+  * @param total
+  * @param side
+  */
+{template .ConfirmOrderContentDialog}
+  <div class="row-fluid">
+    <p>
+      {msg desc="Confirmation order title"}Confirm your order{/msg}
+    </p>
+    <table class="table table-bordered">
+      <tr>
+        <td>
+          {if $side == '1'}
+            {msg desc="You are buying message"}You are buying{/msg}
+          {else}
+            {msg desc="You are selling message"}You are selling{/msg}
+          {/if}
+          </td>
+        <td>
+          <span class="bitex-model">{$amount}</span>
+        </td>
+      </tr>
+      <tr>
+        <td>{msg desc="For a total message"}For a total of{/msg}</td>
+        <td>
+          <span class="bitex-model">{$total}</span>
+        </td>
+      </tr>
+    </table>
+  </div>
+{/template}
+
+/**
   * @param rest_url
   * @param deposit_id
   */
@@ -772,33 +832,33 @@
   * @param? hideNetValueID
   */
 {template .FeesFormControls}
-<div class="control-group">
-  <label class="control-label">{msg desc="Fee label"}Fees:{/msg}</label>
-  <div class="controls">
-    <div class="row-fluid">
-      <div class="span3">
-        <div class="input-append">
-          <input id="{$percentFeeID}" type="text" class="form-control" size="16"  style="width: 40px;" name="PercentFee" value="{$percentFee}">
-          <span class="add-on">%</span>
+<div class="form-group">
+  <label class="col-xs-2 control-label">{msg desc="Fee label"}Fees:{/msg}</label>
+  <div class="col-xs-10">
+    <div class="row">
+      <div class="col-xs-3" style="padding:0">
+        <div class="input-group">
+          <input id="{$percentFeeID}" type="text" class="form-control" name="PercentFee" value="{$percentFee}">
+          <span class="input-group-addon">%</span>
         </div>
-        <span style="font-style: italic;">{msg desc="Fee percentage label"}Percent fee{/msg}</span>
+        <small style="font-style: italic;">{msg desc="Fee percentage label"}Percent fee{/msg}</small>
       </div>
 
-      <div class="span1" style="margin-top: 4px;margin-bottom: -4px;">
-          <span style="font-weight: bold;">+</span>
+      <div class="col-xs-1" style="margin-top: 10px">
+          <span class="glyphicon glyphicon-plus"></span>
       </div>
-      <div class="span3">
-        <div class="input-prepend">
-          <span class="add-on">{$currencySign}</span>
-          <input id="{$fixedFeeID}" type="text" class="form-control" size="16" style="width: 40px;" name="FixedFee" value="{$fixedFee}">
+      <div class="col-xs-3" style="padding:0">
+        <div class="input-group">
+          <span class="input-group-addon">{$currencySign}</span>
+          <input id="{$fixedFeeID}" type="text" class="form-control" name="FixedFee" value="{$fixedFee}">
         </div>
-        <span style="font-style: italic;">{msg desc="Fee fixed label"}Fixed fee{/msg}</span>
+        <small style="font-style: italic;">{msg desc="Fee fixed label"}Fixed fee{/msg}</small>
       </div>
-      <div class="span1" style="margin-top: 4px;margin-bottom: -4px;">
-          <span style="font-weight: bold;">=</span>
+      <div class="col-xs-1" style="margin-top: 10px;">
+          <span class="glyphicon glyphicon-arrow-right"></span>
       </div>
-      <div class="span4">
-        <label id="{$totalFeesID}" class="control-label" style="text-align: left;"></label>
+      <div class="col-xs-4">
+        <label id="{$totalFeesID}" class="control-label"></label>
       </div>
     </div>
   </div>
@@ -831,9 +891,9 @@
     <input type="hidden" name="Currency" value="{$currency}">
     <input id="{$amountID}" type="hidden" name="Amount" value="{$amount}">
 
-    <div class="control-group">
-      <label class="control-label">{msg desc="requested amount"}Requested Amount{/msg}</label>
-      <div class="controls">
+    <div class="form-group">
+      <label class="col-xs-2 control-label">{msg desc="requested amount"}Requested Amount{/msg}</label>
+      <div class="col-xs-10">
         <label class="control-label" style="text-align: left;">{$formattedAmount}</label>
       </div>
     </div>
@@ -1246,10 +1306,10 @@
 {template .AccountOverviewHeaderWithDrawEmailData}
     {if $msg_customer_detail['NeedWithdrawEmail'] }
       <span class="label label-success">{msg desc="label on  overview header"}Enabled{/msg}</span> <a
-        href="#" class="btn btn-primary btn-mini" data-action="SET_WITHDRAW_EMAIL" data-row="{$msg_customer_detail['ID']}">{msg desc="label on  overview header"}Disable{/msg}</a>
+        href="#" class="btn btn-primary btn-xs" data-action="SET_WITHDRAW_EMAIL" data-row="{$msg_customer_detail['ID']}">{msg desc="label on  overview header"}Disable{/msg}</a>
     {else}
       <span class="label label-important">{msg desc="label on  overview header"}Disabled{/msg}</span> <a
-        href="#" class="btn btn-primary btn-mini" data-action="SET_WITHDRAW_EMAIL" data-row="{$msg_customer_detail['ID']}">{msg desc="label on  overview header"}Enabled{/msg}</a>
+        href="#" class="btn btn-primary btn-xs" data-action="SET_WITHDRAW_EMAIL" data-row="{$msg_customer_detail['ID']}">{msg desc="label on  overview header"}Enabled{/msg}</a>
     {/if}
 {/template}
 
@@ -1259,7 +1319,7 @@
 {template .AccountOverviewHeaderTwoFactors}
     {if $msg_customer_detail['TwoFactorEnabled'] }
       <span class="label label-success">{msg desc="label on  overview header"}Enabled{/msg}</span>
-      <a href="#" class="btn btn-primary btn-mini" data-action="SET_TWO_FACTOR" data-row="{$msg_customer_detail['ID']}">{msg desc="label on  overview header"}Disable{/msg}</a>
+      <a href="#" class="btn btn-primary btn-xs" data-action="SET_TWO_FACTOR" data-row="{$msg_customer_detail['ID']}">{msg desc="label on  overview header"}Disable{/msg}</a>
     {else}
       <span class="label label-important">{msg desc="label on  overview header"}Disabled{/msg}</span>
     {/if}

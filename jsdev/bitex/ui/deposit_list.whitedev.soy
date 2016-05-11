@@ -57,10 +57,10 @@
  * @param dataRow
  */
 {template .btnShowQRCode}
-  <button class="btn btn-mini btn-info btn-deposit-view-qr" data-action="SHOW_QR" data-row="{$dataRow}">
+  <a class="btn btn-mini btn-info btn-deposit-view-qr" data-action="SHOW_QR" data-row="{$dataRow}">
     {msg desc="qr"}qr{/msg}
     <i class="icon-white icon-qrcode"></i>
-  </button>
+  </a>
 {/template}
 
 /**
@@ -87,10 +87,17 @@
 /**
  * @param button1
  * @param button2
+ * @param? button3
  * @param dataRow
+ * @param? userVerification
  */
 {template .btnGroup}
   <div class="btn-group">
+    {if $button1 == 'kyc'}
+      {call .btnBrokerKYC}
+        {param userVerification: $userVerification /}
+      {/call}
+    {/if}
     {if $button1 == 'cancel'}
       {call .btnBrokerDespositCancel}
         {param dataRow: $dataRow /}
@@ -104,6 +111,12 @@
     {if $button1 == 'complete'}
       {call .btnBrokerDespositComplete}
         {param dataRow: $dataRow /}
+      {/call}
+    {/if}
+
+    {if $button2 == 'kyc'}
+      {call .btnBrokerKYC}
+        {param userVerification: $userVerification /}
       {/call}
     {/if}
     {if $button2 == 'cancel'}
@@ -121,6 +134,27 @@
         {param dataRow: $dataRow /}
       {/call}
     {/if}
+
+    {if $button3 == 'kyc'}
+      {call .btnBrokerKYC}
+        {param userVerification: $userVerification /}
+      {/call}
+    {/if}
+    {if $button3 == 'cancel'}
+      {call .btnBrokerDespositCancel}
+        {param dataRow: $dataRow /}
+      {/call}
+    {/if}
+    {if $button3 == 'progress'}
+      {call .btnBrokerDespositProgress}
+        {param dataRow: $dataRow /}
+      {/call}
+    {/if}
+    {if $button3 == 'complete'}
+      {call .btnBrokerDespositComplete}
+        {param dataRow: $dataRow /}
+      {/call}
+    {/if}
   </div>
 {/template}
 
@@ -132,6 +166,15 @@
     data-action="CANCEL" data-row="{$dataRow}">
     {msg desc="cancel"}cancel{/msg}
     <i class="icon-white icon-remove"></i>
+  </button>
+{/template}
+
+/**
+ * @param userVerification
+ */
+{template .btnBrokerKYC }
+  <button class="btn btn-xs btn-warning btn-deposit-kyc" data-action="KYC" data-row="{$userVerification}">
+   {msg desc="KYC"}KYC{/msg}
   </button>
 {/template}
 

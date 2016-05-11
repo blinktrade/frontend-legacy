@@ -5,7 +5,15 @@
   * @param columns
   */
 {template .OrderBook}
-  <div class="text-center"><h4>{$title}</h4></div>
+  <div class="text-center">
+    {if $title == 'ASK' }
+      <div class="btn-group pull-right">
+        {call .ShowCumQty}{/call}
+        {call .ShowFees}{/call}
+      </div>
+    {/if}
+    <h4 style="margin:auto;width:10%">{$title}</h4>
+  </div>
   <table class="table">
     <thead>
       <tr>
@@ -17,6 +25,22 @@
     <tbody>
     </tbody>
   </table>
+{/template}
+
+/**
+ */
+{template .ShowCumQty}
+  <div class="btn btn-mini btn-default btn-show-cum-qty">
+    {msg desc="Cumulative"}Cumulative{/msg}
+  </div>
+{/template}
+
+/**
+ */
+{template .ShowFees}
+  <div class="btn btn-mini btn-default btn-show-fees">
+    {msg desc="Fees"}Fees{/msg}
+  </div>
 {/template}
 
 /**

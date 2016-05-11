@@ -207,7 +207,7 @@
   <translation id="3313161934739086289" key="MSG_WITHDRAW_REASON_INVALID_BANK_ACCOUNT" source="bitex/ui/withdraw_list.js" desc="reason for cancelling withdraw">Cuenta bancaria inválida</translation>
   <translation id="2694345077605914393" key="MSG_WITHDRAW_REASON_OVER_LIMIT" source="bitex/ui/withdraw_list.js" desc="reason for cancelling withdraw">La cantidad excede el límite de retiro diario</translation>
   <translation id="5319402296472139285" key="MSG_WITHDRAW_REASON_UNCONFIRMED_DEPOSITS" source="bitex/ui/withdraw_list.js" desc="reason for cancelling withdraw">El usuario tiene depósitos aún no confirmados</translation>
-  <translation id="44556838978162870" key="MSG_WITHDRAW_BROKER_RECEIPT_COLUMN" source="bitex/ui/withdraw_list.js" desc="reason for cancelling withdraw">comprovante</translation>
+  <translation id="44556838978162870" key="MSG_WITHDRAW_BROKER_RECEIPT_COLUMN" source="bitex/ui/withdraw_list.js" desc="reason for cancelling withdraw">comprobante</translation>
   <translation id="2109463597478790237" key="MSG_WITHDRAW_BROKER_RECEIPT_BUTTON_LABEL" source="bitex/ui/withdraw_list.js" desc="reason for cancelling withdraw">visualizar</translation>
   <translation id="2060497430613510544" key="MSG_WITHDRAW_TABLE_DETAILS_COLUMN_TRANSACTION_ID" source="bitex/ui/withdraw_list.js" desc="Withdraw qr button label in the  broker's withdraw list">ID de la transacción</translation>
   <translation id="6566808226824153897" key="MSG_WITHDRAW_TABLE_WALLET_KEY" source="bitex/ui/withdraw_list.js" desc="Withdraw qr button label in the  broker's withdraw list">Cartera</translation>
@@ -466,7 +466,7 @@
   <translation id="3830167277314814271" key="MSG_DEPOSIT_CANCEL_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="Cancel Deposit dialog title">Cancelar depósito</translation>
   <translation id="7496906925365343434" key="MSG_DLG_TITLE_GET_DEPOSIT_PAID_VALUE" source="bitex/app/blinktrade.js" desc="Dialog title to get deposit paid value">Confirmar depósito</translation>
   <translation id="5545270625797886732" key="MSG_CURRENCY_DEPOSIT_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="Crypto Currency Withdraw accordion title"><ph name="currency" /> depósito</translation>
-  <translation id="2835185174766852870" key="MSG_ERROR_SETTING_TWO_FACTOR" source="bitex/app/blinktrade.js" desc="Error message when user missed the google authentication code">Código de confirmación erroneo. Por favor, asegúrese de que está utilizando Google Authenticator y que la hora de su celular esta correctamente sincronizada con el servidor de Google.</translation>
+  <translation id="2835185174766852870" key="MSG_ERROR_SETTING_TWO_FACTOR" source="bitex/app/blinktrade.js" desc="Error message when user missed the google authentication code">Código de confirmación erroneo. Por favor, asegúrese de que está utilizando Google Authenticator o Authy y que la hora de su celular esta correctamente sincronizada con el servidor de Google.</translation>
   <translation id="519289737641591893" key="MSG_TWO_STEPS_AUTHENTICATION_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="google authentication dialog title">Doble factor de autenticación</translation>
   <translation id="4916739059107319469" key="MSG_LOGIN_ERROR_INVALID_PASSWORD" source="bitex/app/blinktrade.js" desc="Invalid Password error">Contraseña no válida</translation>
   <translation id="2129910954277323031" key="MSG_LOGIN_ERROR_INVALID_USERNAME_OR_PASSWORD" source="bitex/app/blinktrade.js" desc="Invalid Password error">Nombre de usuario o contraseña no válido</translation>
@@ -584,7 +584,7 @@
 	<translation id="3861593375277819251" key="MSG_WITHDRAW_FIELD_EMAIL" source="bitex/app/blinktrade.js" desc="Withdraw field on the withdrawal dialog">Correo electrónico</translation>
 	<translation id="692832065730079517" key="MSG_WITHDRAW_FIELD_ACCT_TYPE" source="bitex/app/blinktrade.js" desc="Withdraw field on the withdrawal dialog">Tipo de cuenta</translation>
 	<translation id="8449988747453020863" key="MSG_WITHDRAW_FIELD_WALLET" source="bitex/app/blinktrade.js" desc="Withdraw field on the withdrawal dialog">Cartera</translation>
-	<translation id="5463654649482678315" key="MSG_WITHDRAW_FIELD_LINK" source="bitex/app/blinktrade.js" desc="Withdraw field on the withdrawal dialog">Comprovante</translation>
+	<translation id="5463654649482678315" key="MSG_WITHDRAW_FIELD_LINK" source="bitex/app/blinktrade.js" desc="Withdraw field on the withdrawal dialog">Comprobante</translation>
 	<translation id="7233428290426397527" key="MSG_WITHDRAW_FIELD_TRANSACTION_ID" source="bitex/app/blinktrade.js" desc="Withdraw field on the withdrawal dialog">ID de la transacción</translation>
 	<translation id="3755444255097815322" key="MSG_WITHDRAW_FIELD_KYC" source="bitex/app/blinktrade.js" desc="Withdraw field on the withdrawal dialog">KYC</translation>
 	<translation id="4860965689056550924" key="MSG_ERROR_VALIDATE_INVALID_COUNTRY_CODE" source="uniform/validators.js" desc="Error validate phone number">El campo <ph name="c" /> debe contener un numero valido. [Codigo de pais invalido]</translation>
@@ -705,7 +705,7 @@
 	<translation id="7713353218164778620" key="MSG_8SI2JVBG55QE" source="bitex/ui/two_factor.soy.js" desc="two factor line 1">Hemos hecho tu sistema más seguro, protegiendo tus datos de ingreso con una capa extra de seguridad. ¿Cómo?</translation>
 	<translation id="7720388949015284796" key="MSG_BUQLO6USY2A" source="bitex/ui/two_factor.soy.js" desc="two factor line 2">Su teléfono o la tableta se convierte en la clave para acceder a su cuenta, con la aplicación fácil de usar.</translation>
 	<translation id="5923919257210990797" key="MSG_1GOVBYS9FIL5B" source="bitex/ui/two_factor.soy.js" desc="two factor line 3">Sólo se le pedirá autenticación adicional cuando nuestro sistema detecte un riesgo alto.</translation>
-	<translation id="7145249941653083861" key="MSG_JAXH4XUW7WV8" source="bitex/ui/two_factor.soy.js" desc="two factor line 4">Si tu no tienes la aplicación Google Authenticator instalado y configurado, sigue estos sencillos pasos descritos a continuación:</translation>
+	<translation id="7145249941653083861" key="MSG_JAXH4XUW7WV8" source="bitex/ui/two_factor.soy.js" desc="two factor line 4">Si tu no tienes la aplicación Google Authenticator o Authy instalado y configurado, sigue estos sencillos pasos descritos a continuación:</translation>
 	<translation id="9090558310961070927" key="MSG_16ULKTM62PVNQ" source="bitex/ui/two_factor.soy.js" desc="two factor step 1">Descarga la aplicación "Authy" en tu dispositivo móvil.</translation>
 	<translation id="4502902583576602361" key="MSG_AZ99DWNWKUFR" source="bitex/ui/two_factor.soy.js" desc="two factor step 2">Anda al "App Store" y busca "Authy" o "Google Authenticator".</translation>
 	<translation id="1978475762364747659" key="MSG_1GTFF32HSHA0Y" source="bitex/ui/two_factor.soy.js" desc="two factor step 3">En tu dispositivo móvil, selecciona "Begin setup", luego "Scan a barcode"</translation>
@@ -713,4 +713,30 @@
 	<translation id="5628381285821291099" key="MSG_1VIQLAPMXBM18" source="bitex/ui/two_factor.soy.js" desc="Key:">Llave: </translation>
 	<translation id="3754329268759281007" key="MSG_FFA8E6P0AL2K" source="bitex/ui/two_factor.soy.js" desc="Authentication Code">Código de autentificacion</translation>
 	<translation id="2272194505568683313" key="MSG_NQC3LU0IHKZA" source="bitex/ui/two_factor.soy.js" desc="Skip">Saltar</translation>
+
+	<translation id="3607006618342631581" key="MSG_1M65MSQFRL7RC" source="bitex/templates/templates.soy.js" desc="Placeholder for the code field on the second factor token dialog">ej. 5555555</translation>
+	<translation id="4020798718013161948" key="MSG_3T4DO6KZC6ES" source="bitex/templates/templates.soy.js" desc="Confirmation order title">Confirmar orden</translation>
+	<translation id="920057787683193158" key="MSG_10710XE461ASW" source="bitex/templates/templates.soy.js" desc="For a total message">Para un total de</translation>
+	<translation id="4954782597993228767" key="MSG_13K6OFE9TFY97" source="bitex/templates/templates.soy.js" desc="You are buying message">Usted está comprando</translation>
+	<translation id="6562957049272450433" key="MSG_Q3BT49NA5RBX" source="bitex/templates/templates.soy.js" desc="You are selling message">Usted está vendiendo</translation>
+	<translation id="8199555767632915609" key="MSG_1MJU7HN7ASE39" source="bitex/ui/order_book.soy.js" desc="Cumulative">Acumulado</translation>
+	<translation id="1077659435608153850" key="MSG_ORDER_BOOK_YOUR_ORDER" source="bitex/ui/order_book.js" desc="Title describing your onder on your username">Mi orden</translation>
+	<translation id="8664162649895791589" key="MSG_1ED3XQ1DQN43J" source="bitex/ui/withdraw_list.soy.js" desc="Comments">Comentarios</translation>
+	<translation id="1985425480645509834" key="MSG_WITHDRAW_TABLE_DETAILS_COLUMN_COMMENTS" source="bitex/ui/withdraw_list.js" desc="Withdraw comments in the  broker's withdraw list">Comentários</translation>
+	<translation id="7523700119787998274" key="MSG_DEPOSIT_TABLE_COLUMN_DEPOSIT_METHOD" source="bitex/ui/deposit_list.js" desc="Admin Column Despoit Method of the Deposit List">Método</translation>
+	<translation id="1190422559290098353" key="MSG_DEPOSIT_DIFFERENT_DECLARED_PAID_VALUE_ADMIN" source="bitex/view/admin.js" desc="value abbrev title when paid value differs from declared value">declarado / pagado en <ph name="currencydesc" /></translation>
+	<translation id="8821281128479611372" key="MSG_17I1ZC87XO25I" source="bitex/view/profile.soy.js" desc="Confirmation Order">Confirmación para crear nuevas órdenes?</translation>
+	<translation id="8807671222875322660" key="MSG_YO4Z7BHC72H7" source="bitex/view/withdraw.soy.js" desc="Add Comment">Añadir comentario</translation>
+	<translation id="8523701982573095108" key="MSG_LEDGER_DEPOSIT_FEE_REFERRAL_DESCRIPTION" source="bitex/ui/ledger_activity.js" desc="Ledger deposit fee description">Tasa de depósito (referencia)</translation>
+	<translation id="8486390033380269573" key="MSG_LEDGER_WITHDRAW_FEE_REVERSAL_DESCRIPTION" source="bitex/ui/ledger_activity.js" desc="Ledger withdraw fee reversal description">Tasa de retiro (devolución)</translation>
+	<translation id="6883221689197694950" key="MSG_LEDGER_WITHDRAW_FEE_REFERRAL_DESCRIPTION" source="bitex/ui/ledger_activity.js" desc="Ledger withdraw fee reversal description">Tasa de retiro (referencia)</translation>
+	<translation id="2879813941189210118" key="MSG_LEDGER_TRADE_FEE_REFUND_DESCRIPTION" source="bitex/ui/ledger_activity.js" desc="Ledger trade fee description">Tasa de compra/venta (devolución)</translation>
+	<translation id="5021525295760061560" key="MSG_LEDGER_TRADE_FEE_REFERRAL_DESCRIPTION" source="bitex/ui/ledger_activity.js" desc="Ledger trade fee referral description">Tasa de compra/venta (referencia)</translation>
+	<translation id="9190605290244645507" key="MSG_1KTYC6SODXRNM" source="bitex/ui/withdraw_request_data_entry.soy.js" desc="WebCam"> Webcam</translation>
+	<translation id="6118679938563206468" key="MSG_WITHDRAW_COMMENT_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="Comment Withdraw dialog title">Comentarios</translation>
+	<translation id="7830854557363540006" key="MSG_CONFIRMATION_ORDER" source="bitex/app/blinktrade.js" desc="dialog shown when user send an order">Confirman orden</translation>
+	<translation id="7411267063362268106" key="MSG_OTP_TWO_STEPS_AUTHENTICATION_DIALOG_CONTENT" source="bitex/app/blinktrade.js" desc="google authentication dialog title">Ingrese el código Google Authenticator o Authy.</translation>
+	<translation id="1935581699451050943" key="MSG_SIGNUP_CONFIRM_EMAIL_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="Email confirmation dialog title when user is sigining up.">Confirmar e-mail</translation>
+	<translation id="7073868655624239047" key="MSG_EMAIL_TWO_STEPS_AUTHENTICATION_DIALOG_CONTENT" source="bitex/app/blinktrade.js" desc="Label requesting user to enter the token sent to their email during login or signup">Ingrese el código confirmación enviado a su correo electrónico.</translation>
+	<translation id="7046888733179350567" key="MSG_EMAIL_TWO_STEPS_AUTHENTICATION_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="Dialog title of the email second step authenticaiton.">Segunda etapa de autenticación.</translation>
 </translationbundle>

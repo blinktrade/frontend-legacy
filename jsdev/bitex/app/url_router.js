@@ -132,6 +132,10 @@ bitex.app.UrlRouter.prototype.setView = function(view_name) {
     }
   });
 
+  if(!goog.isDefAndNotNull(urlMapping)){
+    return;
+  }
+
   if ( view_name[0] === '/' && !goog.isDefAndNotNull(urlMapping)) {
     this.setView( view_name.substr(1) );
     return;
@@ -199,17 +203,20 @@ bitex.app.UrlRouter.prototype.onNavigate_ = function(e){
       }
     });
 
-    var actual_view_name = goog.string.remove(view_name, this.base_url_ );
-    var view_data = new RegExp(urlMapping.re,"g").exec(actual_view_name);
-    var view_url = view_data[0];
-    var view_id = view_data[1];
-    var view_args = view_data.splice(2);
+    if(goog.isDefAndNotNull(urlMapping)) {
 
-    var res = this.dispatchEvent(
+      var actual_view_name = goog.string.remove(view_name, this.base_url_ );
+      var view_data = new RegExp(urlMapping.re,"g").exec(actual_view_name);
+      var view_url = view_data[0];
+      var view_id = view_data[1];
+      var view_args = view_data.splice(2);
+
+      var res = this.dispatchEvent(
         new bitex.app.UrlRouterEvent( bitex.app.UrlRouter.EventType.SET_VIEW, view_id, urlMapping.view, view_args,view_url ));
 
-    if (res) {
-      this.setViewInternal(view_name);
+        if (res) {
+          this.setViewInternal(view_name);
+        }
     }
   }
 };

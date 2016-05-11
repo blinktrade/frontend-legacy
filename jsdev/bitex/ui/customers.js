@@ -198,13 +198,13 @@ bitex.ui.Customers = function( opt_domHelper) {
     'searchPlaceholder': MSG_CUSTOMERS_TABLE_SEARCH_PLACEHOLDER,
     'wrapperHeight': 600,
     'buttonFilters': [
-      { 'label': MSG_CUSTOMERS_LIST_BUTTON_FILTER_ALL,          'value': 'all'},
-      { 'label': MSG_CUSTOMER_TABLE_COLUMN_VERIFIED_NO,         'value': 0 },
       { 'label': MSG_CUSTOMER_TABLE_COLUMN_VERIFIED_PENDING,    'value': 1 },
+      { 'label': MSG_CUSTOMER_TABLE_COLUMN_VERIFIED_NO,         'value': 0 },
       { 'label': MSG_CUSTOMER_TABLE_COLUMN_VERIFIED_PROGRESS,   'value': 2 },
       { 'label': MSG_CUSTOMER_TABLE_COLUMN_VERIFIED_YES_LI,     'value': 3 },
       { 'label': MSG_CUSTOMER_TABLE_COLUMN_VERIFIED_YES_LII,    'value': 4 },
-      { 'label': MSG_CUSTOMER_TABLE_COLUMN_VERIFIED_YES_LIII,   'value': 5 }
+      { 'label': MSG_CUSTOMER_TABLE_COLUMN_VERIFIED_YES_LIII,   'value': 5 },
+      { 'label': MSG_CUSTOMERS_LIST_BUTTON_FILTER_ALL,          'value': 'all'}
     ]
   };
   bitex.ui.DataGrid.call(this,  options , opt_domHelper);
