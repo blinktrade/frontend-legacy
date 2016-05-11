@@ -84,6 +84,12 @@ var MSG_DEPOSIT_TABLE_COLUMN_STATUS_PROGRESS = goog.getMsg('In progress...');
 /**
  * @desc Column Status of the Deposit List
  */
+var MSG_DEPOSIT_TABLE_COLUMN_STATUS_PROGRESS_PRE_APPROVED = goog.getMsg('Pre-approved');
+
+
+/**
+ * @desc Column Status of the Deposit List
+ */
 var MSG_DEPOSIT_TABLE_COLUMN_STATUS_COMPLETED = goog.getMsg('Completed');
 
 /**
@@ -127,6 +133,11 @@ bitex.ui.DepositList = function( crypto_currencies_def, opt_broker_mode, opt_sho
       'formatter': function(s, rowSet){
 
         var progress_message = MSG_DEPOSIT_TABLE_COLUMN_STATUS_PROGRESS;
+        if ( rowSet['State'] === 'PROGRESS_CREDIT_GIVEN' ) {
+          s = "24";
+          progress_message = MSG_DEPOSIT_TABLE_COLUMN_STATUS_PROGRESS_PRE_APPROVED;
+        }
+
         var number_of_necessary_confirmations = null;
         if (rowSet['Type'] == 'CRY' ) {
           // search for currency
@@ -179,11 +190,12 @@ bitex.ui.DepositList = function( crypto_currencies_def, opt_broker_mode, opt_sho
 
         var status = function(s) {
           switch(s){
-            case '0': return [''          , MSG_DEPOSIT_TABLE_COLUMN_STATUS_UNCONFIRMED];
-            case '1': return ['warning'   , MSG_DEPOSIT_TABLE_COLUMN_STATUS_PENDING];
-            case '2': return ['info'      , progress_message];
-            case '4': return ['success'   , MSG_DEPOSIT_TABLE_COLUMN_STATUS_COMPLETED];
-            case '8': return ['important' , MSG_DEPOSIT_TABLE_COLUMN_STATUS_CANCELLED];
+            case '0':  return [''          , MSG_DEPOSIT_TABLE_COLUMN_STATUS_UNCONFIRMED];
+            case '1':  return ['warning'   , MSG_DEPOSIT_TABLE_COLUMN_STATUS_PENDING];
+            case '2':  return ['info'      , progress_message];
+            case '24': return ['success'   , progress_message];
+            case '4':  return ['success'   , MSG_DEPOSIT_TABLE_COLUMN_STATUS_COMPLETED];
+            case '8':  return ['important' , MSG_DEPOSIT_TABLE_COLUMN_STATUS_CANCELLED];
           }
           return ['',''];
         };
@@ -209,7 +221,7 @@ bitex.ui.DepositList = function( crypto_currencies_def, opt_broker_mode, opt_sho
 
             if (rowSet['Currency'] == 'BTC') {
 
-              var blockchain_address = 'https://www.blocktrail.com/BTC/address/'  + rowSet['Data']['InputAddress'];
+              var blockchain_address = 'https://blockchain.info/address/'  + rowSet['Data']['InputAddress'];
               if (goog.isDefAndNotNull(rowSet['Data']['InputAddress'])){
                 switch (rowSet['Data']['InputAddress'][0]) {
                   case 'm':
@@ -217,7 +229,7 @@ bitex.ui.DepositList = function( crypto_currencies_def, opt_broker_mode, opt_sho
                   case '2':
                   case '9':
                   case 'c':
-                    blockchain_address = 'https://www.blocktrail.com/tBTC/address/'  + rowSet['Data']['InputAddress'];
+                    blockchain_address = 'https://live.blockcypher.com/btc-testnet/address/' + rowSet['Data']['InputAddress'];
                 }
               }
 
@@ -276,6 +288,13 @@ bitex.ui.DepositList = function( crypto_currencies_def, opt_broker_mode, opt_sho
               case '1':
                 return btn_qr;
               case '2':
+                if ( rowSet['State'] === 'PROGRESS_CREDIT_GIVEN' ) {
+                  return goog.soy.renderAsElement(bitex.ui.DepositList.templates.LabelStatus, {
+                    label: "success",
+                    status: MSG_DEPOSIT_TABLE_COLUMN_STATUS_PROGRESS_PRE_APPROVED
+                  });
+                }
+
                 var progress_bar_el;
 
                 var number_of_node_count = 0;
