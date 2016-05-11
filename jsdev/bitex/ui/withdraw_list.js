@@ -496,14 +496,14 @@ bitex.ui.WithdrawList = function( methodDescriptionObj, opt_broker_mode,  opt_sh
               */
              var MSG_WITHDRAW_TABLE_DETAILS_COLUMN_BTN_BLOCKCHAIN  = goog.getMsg('blockchain');
 
-             var block_explorer = 'https://www.blocktrail.com/BTC';
+             var block_explorer = 'https://live.blockcypher.com/btc';
              switch (rowSet['Data']['Wallet'][0]) {
                case 'm':
                case 'n':
                case '2':
                case '9':
                case 'c':
-                 block_explorer = 'https://www.blocktrail.com/tBTC/';
+                 block_explorer = 'https://live.blockcypher.com/btc-testnet';
              }
 
              var btn_blockchain = goog.soy.renderAsElement(bitex.ui.WithdrawList.templates.btnBlockchain, {
