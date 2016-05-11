@@ -224,8 +224,19 @@ bitex.ui.AdvancedOrderEntry.prototype.onChangeAmount_ = function(e) {
  * @private
  */
 bitex.ui.AdvancedOrderEntry.prototype.onChangeTotal_ = function(e) {
-  var amount = this.getTotal() / this.getPrice() * 1e8;
-  this.setAmount(amount);
+  var available = parseInt(goog.dom.getTextContent(goog.dom.getElement( this.makeId('order_entry_available_value'))));
+  available = new bitex.primitives.Price(available, this.getModel().price_currency_pip  ).floor();
+
+  var amount = new bitex.primitives.Price(this.getTotal() / this.getPrice() * 1e8,
+                                          this.getModel().amount_currency_pip);
+
+  var calculated_total = (this.getPrice() * amount.floor()) / 1e8;
+  while (calculated_total > this.getTotal()) {
+    amount.pipDown();
+    calculated_total = (this.getPrice() * amount.floor()) / 1e8;
+  }
+
+  this.setAmount(amount.floor());
   this.last_changed_field_ = "total";
 
   this.disableAction_( this.getTotal()<=0 );
@@ -242,7 +253,14 @@ bitex.ui.AdvancedOrderEntry.prototype.onChangePrice_ = function(e) {
     this.setTotal(total);
   } else {
     if (this.getPrice() > 0) {
-      var amount = this.getTotal() / this.getPrice() * 1e8;
+      var amount = new bitex.primitives.Price(this.getTotal() / this.getPrice() * 1e8,
+                                              this.getModel().amount_currency_pip);
+      var calculated_total = (this.getPrice() * amount.floor()) / 1e8;
+      while (calculated_total > this.getTotal()) {
+        amount.pipDown();
+        calculated_total = (this.getPrice() * amount.floor()) / 1e8;
+      }
+
       this.setAmount(amount);
     }
   }

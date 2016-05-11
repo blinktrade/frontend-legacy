@@ -7,6 +7,13 @@ deploy_version: "HEAD"
 exchange: "bitcoinvietnam"
 exchange_logo: "bitcoinvietnam"
 
+custom_css: 'lightgreen'
+
+twitter_widget_id: "717635114658873344"
+twitter_widget_name: "Bitcoin_Vietnam"
+twitter_widget_theme: "dark"
+twitter_widget_link_color: "#88DA65"
+
 default_country_code: "VN"
 blinktrade_broker_id: 3  
 
@@ -39,13 +46,23 @@ remittance_box: "{
             ['USD -> BTC -> PKR',  'PKR', 'BLINK_BTCPKR_BEST_BID /  BITFINEX_BTCUSD_BEST_ASK', 'BLINK_BTCPKR_BEST_ASK /  BITFINEX_BTCUSD_BEST_BID' ] ]
     }"
 
+video : 'true'
+navbar: 'navbar-inverse'
+phrases: [phrase1, phrase2, phrase3]
 
 languages: ["vi", "en_US", "es", "pt_BR", "ro", "zn_CN"]
 
-exclude:     [ "jsdev", "LICENSE", "README.md", "config.rb", "deploy.sh", "build_javascript.sh" ]
+exclude:     [ "jsdev", "LICENSE", "README.md", "config.rb", "deploy.sh", "build_javascript.sh", "node_modules", "gulpfile.js", "themes/ander" ]
 source:      .
 destination: ./_site
 plugins:     ./_plugins
 paginate:    5
 paginate_path: "post/page:num"
 permalink:     /post/:title/
+facebook: https://www.facebook.com/VBTC.vn
+twitter: https://twitter.com/bitcoin_vietnam
+youtube: https://www.youtube.com/user/BitcoinVietnam/videos
+
+sass:
+  sass_dir: assets/themes/coinage/sass
+  style: :compressed

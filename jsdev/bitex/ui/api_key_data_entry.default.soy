@@ -17,9 +17,17 @@
       </div>
 
       <div class="api-key-data-entry-form-block control-group">
-        <div class="pull-right"><label class="no-selection">{msg desc="Permissions clear all button on the API Key Data Entry form"}Clear all{/msg}</label></div>
+        <div class="pull-right">
+          <a href="#" id="{$id}_clear_all">
+            <label class="no-selection">{msg desc="Permissions clear all button on the API Key Data Entry form"}Clear all{/msg}</label>
+          </a>
+        </div>
         <div class="pull-right api-key-data-entry-form-pipe">|</div>
-        <div class="pull-right"><label class="no-selection">{msg desc="Permissions select all button on the API Key Data Entry form"}Select all{/msg}</label></div>
+        <div class="pull-right">
+          <a href="#" id="{$id}_select_all">
+            <label class="no-selection">{msg desc="Permissions select all button on the API Key Data Entry form"}Select all{/msg}</label>
+          </a>
+        </div>
 
         <h3>{msg desc="Permissions title on the API Key Data Entry form"}Permissions{/msg}</h3>
 
@@ -142,6 +150,13 @@
                 </td>
               </tr>
             {/foreach}
+              <tr>
+                <td colspan="2" class="no-selection">
+                  <label class="checkbox">
+                    <input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="U24">{msg desc="Confirm Withdraw on the API Key Data Entry form permissions section"}Confirm Withdrawal{/msg}</input>
+                  </label>
+                </td>
+              </tr>
 
           </tbody>
         </table>

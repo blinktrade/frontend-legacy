@@ -1,0 +1,203 @@
+{namespace bitex.ui.DepositList.templates}
+
+/**
+  * @param count
+  * @param confidence
+  */
+{template .NodesProgressBar}
+  <div class="progress progress-success progress-striped active" style="margin: 0px;position: relative;">
+    <div class="bar" role="progressbar" aria-valuenow="{$confidence}" aria-valuemin="0" aria-valuemax="100" style="width:{$confidence}%"></div>
+    <div style="position:absolute;width:100%;font-size:13px;color:black;height:100%;text-align:center;font-weight:300;">
+      {msg desc="Number of nodes inside the progress bar in the deposit list grid"}{$count} nodes{/msg}
+    </div>
+  </div>
+{/template}
+
+/**
+  * @param label
+  * @param status
+  */
+{template .LabelStatus}
+  <span class="label label-{$label}">{$status}</span>
+{/template}
+
+/**
+ * @param address
+ * @param blockchainAddress
+ */
+{template .InputAddress}
+  <div>
+    <div style="max-width: 120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">
+      <a href="{$blockchainAddress}" target="_blank">{$address}</a>
+    </div>
+  </div>
+{/template}
+
+/**
+ * @param dataRow
+ */
+{template .btnShowReceipt}
+  <button class="btn btn-mini btn-success btn-deposit-show-receipt" data-row="{$dataRow}" data-action="SHOW_RECEIPT">
+    {msg desc="view"}View{/msg}
+    <i class="icon-white icon-file"></i>
+  </button>
+{/template}
+
+/**
+ * @param url
+ */
+{template .btnDepositDetails}
+  <a class="btn btn-mini btn-info btn-deposit-view" target="_blank" href="{$url}">
+    {msg desc="view"}view{/msg}
+    <i class="icon-white icon-eye-open"></i>
+  </a>
+{/template}
+
+/**
+ * @param dataRow
+ */
+{template .btnShowQRCode}
+  <a class="btn btn-mini btn-info btn-deposit-view-qr" data-action="SHOW_QR" data-row="{$dataRow}">
+    {msg desc="qr"}qr{/msg}
+    <i class="icon-white icon-qrcode"></i>
+  </a>
+{/template}
+
+/**
+ * @param dataRow
+ */
+{template .btnInstantFiatDeposit}
+  <button class="btn btn-mini btn-success btn-deposit-instantaneus"
+    data-action="INSTANTANEOUS" data-row="{$dataRow}">
+    {msg desc="Pre Approve"}pre-approve{/msg}
+    <i class="icon-white icon-fire"></i>
+  </button>
+{/template}
+
+/**
+ * @param dataRow
+ */
+{template .btnUpload}
+  <button class="btn btn-mini btn-success btn-deposit-upload" data-action="UPLOAD" data-row="{$dataRow}">
+    {msg desc="send receipt"}send receipt{/msg}
+    <i class="icon-white icon-file"></i>
+  </button>
+{/template}
+
+/**
+ * @param button1
+ * @param button2
+ * @param? button3
+ * @param dataRow
+ * @param? userVerification
+ */
+{template .btnGroup}
+  <div class="btn-group">
+    {if $button1 == 'kyc'}
+      {call .btnBrokerKYC}
+        {param userVerification: $userVerification /}
+      {/call}
+    {/if}
+    {if $button1 == 'cancel'}
+      {call .btnBrokerDespositCancel}
+        {param dataRow: $dataRow /}
+      {/call}
+    {/if}
+    {if $button1 == 'progress'}
+      {call .btnBrokerDespositProgress}
+        {param dataRow: $dataRow /}
+      {/call}
+    {/if}
+    {if $button1 == 'complete'}
+      {call .btnBrokerDespositComplete}
+        {param dataRow: $dataRow /}
+      {/call}
+    {/if}
+
+    {if $button2 == 'kyc'}
+      {call .btnBrokerKYC}
+        {param userVerification: $userVerification /}
+      {/call}
+    {/if}
+    {if $button2 == 'cancel'}
+      {call .btnBrokerDespositCancel}
+        {param dataRow: $dataRow /}
+      {/call}
+    {/if}
+    {if $button2 == 'progress'}
+      {call .btnBrokerDespositProgress}
+        {param dataRow: $dataRow /}
+      {/call}
+    {/if}
+    {if $button2 == 'complete'}
+      {call .btnBrokerDespositComplete}
+        {param dataRow: $dataRow /}
+      {/call}
+    {/if}
+
+    {if $button3 == 'kyc'}
+      {call .btnBrokerKYC}
+        {param userVerification: $userVerification /}
+      {/call}
+    {/if}
+    {if $button3 == 'cancel'}
+      {call .btnBrokerDespositCancel}
+        {param dataRow: $dataRow /}
+      {/call}
+    {/if}
+    {if $button3 == 'progress'}
+      {call .btnBrokerDespositProgress}
+        {param dataRow: $dataRow /}
+      {/call}
+    {/if}
+    {if $button3 == 'complete'}
+      {call .btnBrokerDespositComplete}
+        {param dataRow: $dataRow /}
+      {/call}
+    {/if}
+  </div>
+{/template}
+
+/**
+ * @param dataRow
+ */
+{template .btnBrokerDespositCancel}
+  <button class="btn btn-mini btn-danger btn-deposit-cancel"
+    data-action="CANCEL" data-row="{$dataRow}">
+    {msg desc="cancel"}cancel{/msg}
+    <i class="icon-white icon-remove"></i>
+  </button>
+{/template}
+
+/**
+ * @param userVerification
+ */
+{template .btnBrokerKYC }
+  <button class="btn btn-xs btn-warning btn-deposit-kyc" data-action="KYC" data-row="{$userVerification}">
+   {msg desc="KYC"}KYC{/msg}
+  </button>
+{/template}
+
+
+/**
+ * @param dataRow
+ */
+{template .btnBrokerDespositProgress}
+  <button class="btn btn-mini btn-deposit-progress"
+    data-action="PROGRESS" data-row="{$dataRow}">
+    {msg desc="Set in progress"}Set in progress{/msg}
+    <i class="icon-white icon-refresh"></i>
+  </button>
+{/template}
+
+
+/**
+ * @param dataRow
+ */
+{template .btnBrokerDespositComplete}
+  <button class="btn btn-mini btn-success btn-deposit-complete"
+    data-action="COMPLETE" data-row="{$dataRow}">
+    {msg desc="Set as complete"}Set as complete{/msg}
+    <i class="icon-white icon-ok"></i>
+  </button>
+{/template}

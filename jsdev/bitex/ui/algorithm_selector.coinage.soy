@@ -4,36 +4,42 @@
  * @param id
  */
 {template .AlgorithmSelector}
-<form id="{$id}_form" class="algo-selector form-horizontal well" >
-  <div class="control-group">
-    <label class="control-label" for="{$id}_filename">{msg desc="Algorithm input label"}Algorithm{/msg}</label>
-    <div class="controls">
-      <div class="input-append" data-original-title="" title="">
-        <input id="{$id}_filename" type="text" class="input-xxlarge" disabled="disabled" />
-
-        <button id="{$id}_btn_clear" type="button" class="btn btn-default" style="display:none;">
-          <span class="glyphicon glyphicon-remove"></span> {msg desc="Clear button on algo selector"}Clear{/msg}
-        </button>
-
-        <div id="{$id}_btn_browse_container" class="btn btn-default" style=" position: relative;  overflow: hidden;  margin: 0px;">
-              <span class="glyphicon glyphicon-folder-open"></span>
-              <span id="{$id}_btn_browse" style="margin-left:2px">{msg desc="Browse button on algo selector"}Browse{/msg}</span>
-              <input id="{$id}_file" type="file" accept=".algo" style=" position: absolute;
-                                                                                   top: 0;
-                                                                                   right: 0;
-                                                                                   margin: 0;
-                                                                                   padding: 0;
-                                                                                   font-size: 20px;
-                                                                                   cursor: pointer;
-                                                                                   opacity: 0;
-                                                                                   filter: alpha(opacity=0);" />
+<form id="{$id}_form" class="algo-selector page__section_white page__padding">
+    <!-- .algo -->
+    <div class="algo">
+        <!-- .algo__head -->
+        <div class="algo__head">
+            <label class="algo__label" for="{$id}_filename">{msg desc="Algorithm input label"}Algorithm{/msg}</label>
         </div>
-      </div>
-      <a href="https://github.com/blinktrade/algorithm-trading/" target="_blank">
-        {msg desc="Help message that appears bellow the algorithm trading input box on the algorithm trading view"}Understand how the algorithm trading works{/msg}
-      </a>
-    </div>
-  </div>
-</form>
+        <!-- /.algo__head -->
 
+        <!-- .algo__body -->
+        <div class="algo__body">
+            <input id="{$id}_filename" type="text" class="algo__input form-control" disabled="disabled" />
+
+            <button id="{$id}_btn_clear" type="button" class="algo__btn btn btn-danger" style="display:none;">
+                <i class="glyphicon glyphicon-remove"></i> {msg desc="Clear button on algo selector"}Clear{/msg}
+            </button>
+
+            <div id="{$id}_btn_browse_container" class="algo__btn algo__btn-file btn btn-success" style="">
+                <i class="glyphicon glyphicon-folder-open"></i>
+                &nbsp;
+                <span id="{$id}_btn_browse">{msg desc="Browse button on algo selector"}Browse{/msg}</span>
+
+                <input id="{$id}_file" type="file" accept=".algo" style="" />
+            </div>
+        </div>
+        <!-- /.algo__body -->
+
+        <!-- .algo__foot -->
+        <div class="algo__foot">
+            <a href="https://github.com/blinktrade/algorithm-trading/" target="_blank">
+                {msg desc="Help message that appears bellow the algorithm trading input box on the algorithm trading view"}Understand how the algorithm trading works{/msg}
+            </a>
+        </div>
+        <!-- /.algo__foot -->
+    </div>
+    <!-- /.algo -->
+</form>
 {/template}
+

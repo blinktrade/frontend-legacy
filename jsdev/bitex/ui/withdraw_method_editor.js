@@ -227,6 +227,7 @@ bitex.ui.WithdrawMethodEditor.prototype.getWithdrawMethodJSON = function() {
   var row_number = 0;
   while ( goog.isDefAndNotNull(field_row) ) {
     var field_record = {
+      'required'   : goog.dom.forms.getValue( goog.dom.getElementByClass('withdraw-method-editor-field-required', field_row)  ),
       'side'       : goog.dom.forms.getValue( goog.dom.getElementByClass('withdraw-method-editor-field-side', field_row)  ),
       'name'       : goog.dom.forms.getValue( goog.dom.getElementByClass('withdraw-method-editor-field-name', field_row) ),
       'label'      : goog.dom.forms.getValue( goog.dom.getElementByClass('withdraw-method-editor-field-label', field_row) ),
@@ -272,7 +273,7 @@ bitex.ui.WithdrawMethodEditor.prototype.onAddField_ = function(e) {
   wrapper.innerHTML = bitex.ui.withdraw_method_editor.templates.WithdrawMethodFieldLineEditor({
     id: this.makeId('form'),
     idx: '',
-    data: { 'side': 'client', 'name':'', 'validator':'', 'label':'', 'placeholder':'', 'type':'', 'value':'' }
+    data: { 'side': 'client', 'name':'', 'validator':'', 'label':'', 'placeholder':'', 'type':'', 'value':'', 'required':false }
   });
   goog.dom.appendChild( table_tbody_el, wrapper.firstChild );
 };

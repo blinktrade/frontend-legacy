@@ -97,6 +97,8 @@ bitex.ui.APIKeyDataEntry.prototype.enterDocument = function() {
   this.uniform_.decorate( goog.dom.getElement( this.makeId('api_key_form') ) );
   handler.listen(goog.dom.getElement(this.makeId('api_key_cancel_btn')), goog.events.EventType.CLICK , this.onCancel_);
   handler.listen(goog.dom.getElement(this.makeId('api_key_create_btn')), goog.events.EventType.CLICK , this.onSubmit_);
+  handler.listen(goog.dom.getElement(this.makeId('api_key_select_all')), goog.events.EventType.CLICK , this.onSelectAll_);
+  handler.listen(goog.dom.getElement(this.makeId('api_key_clear_all')),  goog.events.EventType.CLICK , this.onClearAll_);
 
   handler.listen(goog.dom.getElement(this.makeId('api_key_permissions_table')), goog.events.EventType.CLICK ,
       this.onPermissionsTableClick_);
@@ -168,6 +170,35 @@ bitex.ui.APIKeyDataEntry.prototype.onPermissionsTableClick_ = function(e) {
   e.stopPropagation();
 };
 
+/**
+ * @param {goog.events.Event} e
+ * @private
+ */
+bitex.ui.APIKeyDataEntry.prototype.onSelectAll_ = function(e) {
+  e.preventDefault();
+
+  var permission_checkbox_el_list =
+      goog.dom.getElementsByClass('api-key-data-entry-form-permissions-check', this.getElement());
+
+  goog.array.forEach(permission_checkbox_el_list, function(permission_checkbox_el){
+    permission_checkbox_el.checked = true
+  });
+};
+
+/**
+ * @param {goog.events.Event} e
+ * @private
+ */
+bitex.ui.APIKeyDataEntry.prototype.onClearAll_ = function(e) {
+  e.preventDefault();
+
+  var permission_checkbox_el_list =
+      goog.dom.getElementsByClass('api-key-data-entry-form-permissions-check', this.getElement());
+
+  goog.array.forEach(permission_checkbox_el_list, function(permission_checkbox_el){
+    permission_checkbox_el.checked = false
+  });
+};
 
 /**
  * @param {goog.events.Event} e

@@ -68,7 +68,14 @@ bitex.ui.Dialog.prototype.createDom = function() {
 
 bitex.ui.Dialog.prototype.onShow = function(){
   goog.base(this, 'onShow');
-  this.getElement().style.display = 'block';
+  var modal = this.getElement();
+
+  modal.style.display = 'block';
+  if(!goog.dom.classlist.contains(modal, 'in')) {
+    setTimeout(function() {
+      goog.dom.classlist.add(modal, 'in');
+    }, 10);
+  }
 };
 
 /**
