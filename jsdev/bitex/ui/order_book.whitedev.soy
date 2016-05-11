@@ -1,12 +1,13 @@
 {namespace bitex.ui.OrderBook.templates}
 
 /**
+  * @param? side
   * @param title
   * @param columns
   */
 {template .OrderBook}
   <div class="ls-txt-center order-header">
-    {if $title == 'ASK' }
+    {if $side == '1' }
       <div class="ls-group-btn pull-right" style="margin-top:-6px">
         {call .ShowCumQty}{/call}
         {call .ShowFees}{/call}
