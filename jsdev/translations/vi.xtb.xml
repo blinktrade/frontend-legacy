@@ -692,50 +692,54 @@
 	<translation id="4903232320773209592" key="MSG_KZGTGUN90GQK" source="bitex/ui/api_key_data_entry.soy.js" desc="Confirm Withdraw on the API Key Data Entry form permissions section">Xác nhận rút tiền</translation>
 	<translation id="3280479186641995710" key="MSG_PREVENT_RELOAD" source="bitex/app/blinktrade.js" desc="Warning message to prevent page reload">Bạn sẽ bị ngắt kết nối tới sàn</translation>
 	<translation id="5586279959063254038" key="MSG_SHOW_DEPOSIT_PRE_APPROVE_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="Pre approval deposit dialog">Tiền đặt cọc</translation>
-	<translation id="8859593078701802367" key="MSG_I8NG8LNSDU19" source="bitex/ui/simple_order_entry.soy.js" desc="Advanced">Advanced</translation>
-	<translation id="2541254029212019141" key="MSG_N975LU6XTE3U" source="bitex/ui/simple_order_entry.soy.js" desc="for a total of"> for a total of:</translation>
-	<translation id="6629063857642096026" key="MSG_1O0UZD8Z0WYGZ" source="bitex/ui/simple_order_entry.soy.js" desc="Price per crypto currency label on simple order entry">Price per <ph name="cryptocurrencydescription" />:</translation>
-	<translation id="3104817421579305182" key="MSG_B4TRZCZICV7Z" source="bitex/ui/simple_order_entry.soy.js" desc="Price per">Price per</translation>
-	<translation id="7627592929678985939" key="MSG_6Y2ET19QT95Q" source="bitex/ui/simple_order_entry.soy.js" desc="I want to buy">I want to buy:</translation>
-	<translation id="6683973603505709453" key="MSG_11VS5DJOK5YNA" source="bitex/ui/simple_order_entry.soy.js" desc="I want to sell">I want to sell:</translation>
-	<translation id="5541268651049249072" key="MSG_NFG52RNMOON9" source="bitex/ui/deposit_list.soy.js" desc="KYC">KYC</translation>
-	<translation id="5337187054792305284" key="MSG_V8FNXYNYN0GJ" source="bitex/ui/advanced_order_entry.soy.js" desc="Available label inside the advanced order entry">Available:</translation>
-	<translation id="4798741255767907904" key="MSG_1GPNQOH6NRNZ5" source="bitex/ui/advanced_order_entry.soy.js" desc="'Price per label' in Order Entry">Price per:</translation>
-	<translation id="3408365334704496628" key="MSG_JTUCJM4CP8UI" source="bitex/ui/two_factor.soy.js" desc="Two Factor Authentication">Two Factor Authentication</translation>
-	<translation id="7713353218164778620" key="MSG_8SI2JVBG55QE" source="bitex/ui/two_factor.soy.js" desc="two factor line 1">We have made your system more secure. By protecting your login details with an extra layer of security. How?</translation>
-	<translation id="7720388949015284796" key="MSG_BUQLO6USY2A" source="bitex/ui/two_factor.soy.js" desc="two factor line 2">Your phone or tablet becomes your key to access your account, with the easy-to-use app.</translation>
-	<translation id="5923919257210990797" key="MSG_1GOVBYS9FIL5B" source="bitex/ui/two_factor.soy.js" desc="two factor line 3">You will only be asked for additional authentication when our system detects a higher risk.</translation>
-	<translation id="7145249941653083861" key="MSG_JAXH4XUW7WV8" source="bitex/ui/two_factor.soy.js" desc="two factor line 4">If you do not have Google Authenticator installed and configured yet, follow these easy steps outlined below</translation>
-	<translation id="9090558310961070927" key="MSG_16ULKTM62PVNQ" source="bitex/ui/two_factor.soy.js" desc="two factor step 1">Download and install the Authy on your mobile device.</translation>
-	<translation id="4502902583576602361" key="MSG_AZ99DWNWKUFR" source="bitex/ui/two_factor.soy.js" desc="two factor step 2">Go to your app store and search for Authy or Google Authenticator</translation>
-	<translation id="1978475762364747659" key="MSG_1GTFF32HSHA0Y" source="bitex/ui/two_factor.soy.js" desc="two factor step 3">On your mobile device, Tap 'Begin setup', then 'Scan a barcode'.</translation>
-	<translation id="7238091213801644502" key="MSG_HBRRGCDSH11Z" source="bitex/ui/two_factor.soy.js" desc="two factor step 4">After finishing setup, link your device to your account by following the instructions in the yellow frame.</translation>
-	<translation id="5628381285821291099" key="MSG_1VIQLAPMXBM18" source="bitex/ui/two_factor.soy.js" desc="Key:">Key: </translation>
-	<translation id="3754329268759281007" key="MSG_FFA8E6P0AL2K" source="bitex/ui/two_factor.soy.js" desc="Authentication Code">Authentication Code</translation>
-	<translation id="2272194505568683313" key="MSG_NQC3LU0IHKZA" source="bitex/ui/two_factor.soy.js" desc="Skip">Skip</translation>
+	<translation id="8859593078701802367" key="MSG_I8NG8LNSDU19" source="bitex/ui/simple_order_entry.soy.js" desc="Advanced">Nâng cao</translation>
+	<translation id="2541254029212019141" key="MSG_N975LU6XTE3U" source="bitex/ui/simple_order_entry.soy.js" desc="for a total of"> cho tổng số:</translation>
+	<translation id="6629063857642096026" key="MSG_1O0UZD8Z0WYGZ" source="bitex/ui/simple_order_entry.soy.js" desc="Price per crypto currency label on simple order entry">Giá mỗi <ph name="cryptocurrencydescription" />:</translation>
+	<translation id="3104817421579305182" key="MSG_B4TRZCZICV7Z" source="bitex/ui/simple_order_entry.soy.js" desc="Price per">Giá mỗi</translation>
+	<translation id="7627592929678985939" key="MSG_6Y2ET19QT95Q" source="bitex/ui/simple_order_entry.soy.js" desc="I want to buy">Tôi muốn mua:</translation>
+	<translation id="6683973603505709453" key="MSG_11VS5DJOK5YNA" source="bitex/ui/simple_order_entry.soy.js" desc="I want to sell">Tôi muốn bán:</translation>
+	<translation id="5541268651049249072" key="MSG_NFG52RNMOON9" source="bitex/ui/deposit_list.soy.js" desc="KYC">Xác minh khách hàng</translation>
+	<translation id="5337187054792305284" key="MSG_V8FNXYNYN0GJ" source="bitex/ui/advanced_order_entry.soy.js" desc="Available label inside the advanced order entry">Hiện có:</translation>
+	<translation id="4798741255767907904" key="MSG_1GPNQOH6NRNZ5" source="bitex/ui/advanced_order_entry.soy.js" desc="'Price per label' in Order Entry">Giá mỗi:</translation>
+	<translation id="3408365334704496628" key="MSG_JTUCJM4CP8UI" source="bitex/ui/two_factor.soy.js" desc="Two Factor Authentication">Xác minh 2 lớp</translation>
+	<translation id="7713353218164778620" key="MSG_8SI2JVBG55QE" source="bitex/ui/two_factor.soy.js" desc="two factor line 1">Chúng tôi đã giúp hệ thống trở nên an toàn hơn bằng bảo mật 2 bước.</translation>
+	<translation id="7720388949015284796" key="MSG_BUQLO6USY2A" source="bitex/ui/two_factor.soy.js" desc="two factor line 2">Điện thoại di động hay tablet của bạn sẽ trở thành chìa khóa để bạn đăng nhập bằng một ứng dụng đơn giản.</translation>
+	<translation id="5923919257210990797" key="MSG_1GOVBYS9FIL5B" source="bitex/ui/two_factor.soy.js" desc="two factor line 3">Bạn chỉ bị hỏi thêm về việc xác minh khi hệ thống nhận thấy rủi ro cao hơn bình thường.</translation>
+	<translation id="7145249941653083861" key="MSG_JAXH4XUW7WV8" source="bitex/ui/two_factor.soy.js" desc="two factor line 4">Nếu bạn chưa cài ứng dụng Google Authenticator, xin hãy làm theo hướng dẫn sau</translation>
+	<translation id="9090558310961070927" key="MSG_16ULKTM62PVNQ" source="bitex/ui/two_factor.soy.js" desc="two factor step 1">Tải và cài đặt ứng dụng Authy trên điện thoại của bạn.</translation>
+	<translation id="4502902583576602361" key="MSG_AZ99DWNWKUFR" source="bitex/ui/two_factor.soy.js" desc="two factor step 2">Vào cửa hàng ứng dụng và tải về Authy hoặc Google Authenticator.</translation>
+	<translation id="1978475762364747659" key="MSG_1GTFF32HSHA0Y" source="bitex/ui/two_factor.soy.js" desc="two factor step 3">Trên thiết bị di động, nhấn 'Bắt đầu cài đặt' và chọn 'Scan mã vạch'.</translation>
+	<translation id="7238091213801644502" key="MSG_HBRRGCDSH11Z" source="bitex/ui/two_factor.soy.js" desc="two factor step 4">Sau quá trình cài đặt, kết nối thiết bị của bạn tới tài khoản bằng cách thực hiện theo hướng dẫn trong khung màu vàng.</translation>
+	<translation id="5628381285821291099" key="MSG_1VIQLAPMXBM18" source="bitex/ui/two_factor.soy.js" desc="Key:">Khóa: </translation>
+	<translation id="3754329268759281007" key="MSG_FFA8E6P0AL2K" source="bitex/ui/two_factor.soy.js" desc="Authentication Code">Mã xác minh</translation>
+	<translation id="2272194505568683313" key="MSG_NQC3LU0IHKZA" source="bitex/ui/two_factor.soy.js" desc="Skip">Từ chối</translation>
 	<translation id="3607006618342631581" key="MSG_1M65MSQFRL7RC" source="bitex/templates/templates.soy.js" desc="Placeholder for the code field on the second factor token dialog">Ví dụ: 1234567</translation>
-	<translation id="4020798718013161948" key="MSG_3T4DO6KZC6ES" source="bitex/templates/templates.soy.js" desc="Confirmation order title">Confirm your order</translation>
-	<translation id="920057787683193158" key="MSG_10710XE461ASW" source="bitex/templates/templates.soy.js" desc="For a total message">For a total of</translation>
-	<translation id="4954782597993228767" key="MSG_13K6OFE9TFY97" source="bitex/templates/templates.soy.js" desc="You are buying message">You are buying</translation>
-	<translation id="6562957049272450433" key="MSG_Q3BT49NA5RBX" source="bitex/templates/templates.soy.js" desc="You are selling message">You are selling</translation>
-	<translation id="8199555767632915609" key="MSG_1MJU7HN7ASE39" source="bitex/ui/order_book.soy.js" desc="Cumulative">Cumulative</translation>
-	<translation id="1077659435608153850" key="MSG_ORDER_BOOK_YOUR_ORDER" source="bitex/ui/order_book.js" desc="Title describing your onder on your username">My order</translation>
-	<translation id="8664162649895791589" key="MSG_1ED3XQ1DQN43J" source="bitex/ui/withdraw_list.soy.js" desc="Comments">Comments</translation>
-	<translation id="1985425480645509834" key="MSG_WITHDRAW_TABLE_DETAILS_COLUMN_COMMENTS" source="bitex/ui/withdraw_list.js" desc="Withdraw comments in the  broker's withdraw list">Comments</translation>
-	<translation id="7523700119787998274" key="MSG_DEPOSIT_TABLE_COLUMN_DEPOSIT_METHOD" source="bitex/ui/deposit_list.js" desc="Admin Column Despoit Method of the Deposit List">Method</translation>
+	<translation id="4020798718013161948" key="MSG_3T4DO6KZC6ES" source="bitex/templates/templates.soy.js" desc="Confirmation order title">Xác nhận đơn hàng</translation>
+	<translation id="920057787683193158" key="MSG_10710XE461ASW" source="bitex/templates/templates.soy.js" desc="For a total message">Cho tổng số là</translation>
+	<translation id="4954782597993228767" key="MSG_13K6OFE9TFY97" source="bitex/templates/templates.soy.js" desc="You are buying message">Bạn đang mua</translation>
+	<translation id="6562957049272450433" key="MSG_Q3BT49NA5RBX" source="bitex/templates/templates.soy.js" desc="You are selling message">Bạn đang bán</translation>
+	<translation id="8199555767632915609" key="MSG_1MJU7HN7ASE39" source="bitex/ui/order_book.soy.js" desc="Cumulative">Tổng</translation>
+	<translation id="1077659435608153850" key="MSG_ORDER_BOOK_YOUR_ORDER" source="bitex/ui/order_book.js" desc="Title describing your onder on your username">Đơn hàng của tôi</translation>
+	<translation id="8664162649895791589" key="MSG_1ED3XQ1DQN43J" source="bitex/ui/withdraw_list.soy.js" desc="Comments">Ghi chú</translation>
+	<translation id="1985425480645509834" key="MSG_WITHDRAW_TABLE_DETAILS_COLUMN_COMMENTS" source="bitex/ui/withdraw_list.js" desc="Withdraw comments in the  broker's withdraw list">Ghi chú</translation>
+	<translation id="7523700119787998274" key="MSG_DEPOSIT_TABLE_COLUMN_DEPOSIT_METHOD" source="bitex/ui/deposit_list.js" desc="Admin Column Despoit Method of the Deposit List">Phương thức</translation>
 	<translation id="1190422559290098353" key="MSG_DEPOSIT_DIFFERENT_DECLARED_PAID_VALUE_ADMIN" source="bitex/view/admin.js" desc="value abbrev title when paid value differs from declared value">tuyên bố / đã trả bằng <ph name="currencydesc" /></translation>
-	<translation id="8821281128479611372" key="MSG_17I1ZC87XO25I" source="bitex/view/profile.soy.js" desc="Confirmation Order">Should confirm new orders?</translation>
-	<translation id="8807671222875322660" key="MSG_YO4Z7BHC72H7" source="bitex/view/withdraw.soy.js" desc="Add Comment">Add Comment:</translation>
-	<translation id="8523701982573095108" key="MSG_LEDGER_DEPOSIT_FEE_REFERRAL_DESCRIPTION" source="bitex/ui/ledger_activity.js" desc="Ledger deposit fee description">Deposit fee referral</translation>
-	<translation id="8486390033380269573" key="MSG_LEDGER_WITHDRAW_FEE_REVERSAL_DESCRIPTION" source="bitex/ui/ledger_activity.js" desc="Ledger withdraw fee reversal description">Revert withdrawal fee</translation>
-	<translation id="6883221689197694950" key="MSG_LEDGER_WITHDRAW_FEE_REFERRAL_DESCRIPTION" source="bitex/ui/ledger_activity.js" desc="Ledger withdraw fee reversal description">Withdrawal fee referral</translation>
-	<translation id="2879813941189210118" key="MSG_LEDGER_TRADE_FEE_REFUND_DESCRIPTION" source="bitex/ui/ledger_activity.js" desc="Ledger trade fee description">Trade fee refund</translation>
-	<translation id="5021525295760061560" key="MSG_LEDGER_TRADE_FEE_REFERRAL_DESCRIPTION" source="bitex/ui/ledger_activity.js" desc="Ledger trade fee referral description">Trade fee referral</translation>
+	<translation id="8821281128479611372" key="MSG_17I1ZC87XO25I" source="bitex/view/profile.soy.js" desc="Confirmation Order">Có xác minh đơn hàng mới không?</translation>
+	<translation id="8807671222875322660" key="MSG_YO4Z7BHC72H7" source="bitex/view/withdraw.soy.js" desc="Add Comment">Thêm ghi chú:</translation>
+	<translation id="8523701982573095108" key="MSG_LEDGER_DEPOSIT_FEE_REFERRAL_DESCRIPTION" source="bitex/ui/ledger_activity.js" desc="Ledger deposit fee description">Nạp phí giới thiệu</translation>
+	<translation id="8486390033380269573" key="MSG_LEDGER_WITHDRAW_FEE_REVERSAL_DESCRIPTION" source="bitex/ui/ledger_activity.js" desc="Ledger withdraw fee reversal description">Bồi hoàn phí rút</translation>
+	<translation id="6883221689197694950" key="MSG_LEDGER_WITHDRAW_FEE_REFERRAL_DESCRIPTION" source="bitex/ui/ledger_activity.js" desc="Ledger withdraw fee reversal description">Rút phí giới thiệu</translation>
+	<translation id="2879813941189210118" key="MSG_LEDGER_TRADE_FEE_REFUND_DESCRIPTION" source="bitex/ui/ledger_activity.js" desc="Ledger trade fee description">Hoàn trả phí giao dịch</translation>
+	<translation id="5021525295760061560" key="MSG_LEDGER_TRADE_FEE_REFERRAL_DESCRIPTION" source="bitex/ui/ledger_activity.js" desc="Ledger trade fee referral description">Giao dịch phí giới thiệu</translation>
 	<translation id="9190605290244645507" key="MSG_1KTYC6SODXRNM" source="bitex/ui/withdraw_request_data_entry.soy.js" desc="WebCam"> WebCam</translation>
-	<translation id="6118679938563206468" key="MSG_WITHDRAW_COMMENT_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="Comment Withdraw dialog title">Comments withdraw</translation>
-	<translation id="7830854557363540006" key="MSG_CONFIRMATION_ORDER" source="bitex/app/blinktrade.js" desc="dialog shown when user send an order">Confirm Your Order</translation>
-	<translation id="7411267063362268106" key="MSG_OTP_TWO_STEPS_AUTHENTICATION_DIALOG_CONTENT" source="bitex/app/blinktrade.js" desc="google authentication dialog title">Enter the Google Authenticator/Authy code</translation>
-	<translation id="1935581699451050943" key="MSG_SIGNUP_CONFIRM_EMAIL_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="Email confirmation dialog title when user is sigining up.">Confirm email</translation>
-	<translation id="7073868655624239047" key="MSG_EMAIL_TWO_STEPS_AUTHENTICATION_DIALOG_CONTENT" source="bitex/app/blinktrade.js" desc="Label requesting user to enter the token sent to their email during login or signup">Enter the confirmation code that we sent you in an email.</translation>
-	<translation id="7046888733179350567" key="MSG_EMAIL_TWO_STEPS_AUTHENTICATION_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="Dialog title of the email second step authenticaiton.">Second factor of authentication</translation>
+	<translation id="6118679938563206468" key="MSG_WITHDRAW_COMMENT_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="Comment Withdraw dialog title">Ghi chú rút tiền</translation>
+	<translation id="7830854557363540006" key="MSG_CONFIRMATION_ORDER" source="bitex/app/blinktrade.js" desc="dialog shown when user send an order">Xác nhận đơn hàng</translation>
+	<translation id="7411267063362268106" key="MSG_OTP_TWO_STEPS_AUTHENTICATION_DIALOG_CONTENT" source="bitex/app/blinktrade.js" desc="google authentication dialog title">Điền mã Google Authenticator/Authy</translation>
+	<translation id="1935581699451050943" key="MSG_SIGNUP_CONFIRM_EMAIL_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="Email confirmation dialog title when user is sigining up.">Xác nhận email</translation>
+	<translation id="7073868655624239047" key="MSG_EMAIL_TWO_STEPS_AUTHENTICATION_DIALOG_CONTENT" source="bitex/app/blinktrade.js" desc="Label requesting user to enter the token sent to their email during login or signup">Điền mã xác nhận mà chúng tôi đã gửi vào email bạn.</translation>
+	<translation id="7046888733179350567" key="MSG_EMAIL_TWO_STEPS_AUTHENTICATION_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="Dialog title of the email second step authenticaiton.">Lớp xác thực thứ hai</translation>
+    <translation id="1974812630721973725" key="MSG_DEPOSIT_TABLE_COLUMN_STATUS_PROGRESS_PRE_APPROVED" source="bitex/ui/deposit_list.js" desc="Column Status of the Deposit List">Ứng trước</translation>
+	<translation id="4504696124216206804" key="MSG_OD1KZ5V8PPS4" source="bitex/ui/order_book.soy.js" desc="Cumulative Description">Lũy kế</translation>
+	<translation id="3959508634664793128" key="MSG_1B5DK9Q6C5M21" source="bitex/ui/order_book.soy.js" desc="Fees Description">Các phí</translation>
+	<translation id="1302177307047941591" key="MSG_FE0MKOG5ZADX" source="bitex/view/profile.soy.js" desc="Confirmation Order">Có xác minh đơn hàng mới không?</translation>
 </translationbundle>

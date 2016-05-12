@@ -713,7 +713,6 @@
 	<translation id="5628381285821291099" key="MSG_1VIQLAPMXBM18" source="bitex/ui/two_factor.soy.js" desc="Key:">Llave: </translation>
 	<translation id="3754329268759281007" key="MSG_FFA8E6P0AL2K" source="bitex/ui/two_factor.soy.js" desc="Authentication Code">Código de autentificacion</translation>
 	<translation id="2272194505568683313" key="MSG_NQC3LU0IHKZA" source="bitex/ui/two_factor.soy.js" desc="Skip">Saltar</translation>
-
 	<translation id="3607006618342631581" key="MSG_1M65MSQFRL7RC" source="bitex/templates/templates.soy.js" desc="Placeholder for the code field on the second factor token dialog">ej. 5555555</translation>
 	<translation id="4020798718013161948" key="MSG_3T4DO6KZC6ES" source="bitex/templates/templates.soy.js" desc="Confirmation order title">Confirmar orden</translation>
 	<translation id="920057787683193158" key="MSG_10710XE461ASW" source="bitex/templates/templates.soy.js" desc="For a total message">Para un total de</translation>
@@ -739,4 +738,8 @@
 	<translation id="1935581699451050943" key="MSG_SIGNUP_CONFIRM_EMAIL_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="Email confirmation dialog title when user is sigining up.">Confirmar e-mail</translation>
 	<translation id="7073868655624239047" key="MSG_EMAIL_TWO_STEPS_AUTHENTICATION_DIALOG_CONTENT" source="bitex/app/blinktrade.js" desc="Label requesting user to enter the token sent to their email during login or signup">Ingrese el código confirmación enviado a su correo electrónico.</translation>
 	<translation id="7046888733179350567" key="MSG_EMAIL_TWO_STEPS_AUTHENTICATION_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="Dialog title of the email second step authenticaiton.">Segunda etapa de autenticación.</translation>
+    <translation id="1974812630721973725" key="MSG_DEPOSIT_TABLE_COLUMN_STATUS_PROGRESS_PRE_APPROVED" source="bitex/ui/deposit_list.js" desc="Column Status of the Deposit List">pre-aprobado</translation>
+	<translation id="4504696124216206804" key="MSG_OD1KZ5V8PPS4" source="bitex/ui/order_book.soy.js" desc="Cumulative Description">Acumulado</translation>
+	<translation id="3959508634664793128" key="MSG_1B5DK9Q6C5M21" source="bitex/ui/order_book.soy.js" desc="Fees Description">Tasas</translation>
+	<translation id="1302177307047941591" key="MSG_FE0MKOG5ZADX" source="bitex/view/profile.soy.js" desc="Confirmation Order">Confirmación para crear nuevas órdenes?</translation>
 </translationbundle>
