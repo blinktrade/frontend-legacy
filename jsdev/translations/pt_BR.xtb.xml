@@ -740,4 +740,8 @@
 	<translation id="1935581699451050943" key="MSG_SIGNUP_CONFIRM_EMAIL_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="Email confirmation dialog title when user is sigining up.">Confirmar email</translation>
 	<translation id="7073868655624239047" key="MSG_EMAIL_TWO_STEPS_AUTHENTICATION_DIALOG_CONTENT" source="bitex/app/blinktrade.js" desc="Label requesting user to enter the token sent to their email during login or signup">Digite o código de confirmação que enviamos para o seu email.</translation>
 	<translation id="7046888733179350567" key="MSG_EMAIL_TWO_STEPS_AUTHENTICATION_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="Dialog title of the email second step authenticaiton.">Segundo passo de autenticação.</translation>
+	<translation id="1974812630721973725" key="MSG_DEPOSIT_TABLE_COLUMN_STATUS_PROGRESS_PRE_APPROVED" source="bitex/ui/deposit_list.js" desc="Column Status of the Deposit List">Pré-aprovado</translation>
+	<translation id="4504696124216206804" key="MSG_OD1KZ5V8PPS4" source="bitex/ui/order_book.soy.js" desc="Cumulative Description">Acumulado</translation>
+	<translation id="3959508634664793128" key="MSG_1B5DK9Q6C5M21" source="bitex/ui/order_book.soy.js" desc="Fees Description">Taxas</translation>
+	<translation id="1302177307047941591" key="MSG_FE0MKOG5ZADX" source="bitex/view/profile.soy.js" desc="Confirmation Order">Solicitar confirmação para novas ordens?</translation>
 </translationbundle>

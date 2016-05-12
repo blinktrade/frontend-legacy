@@ -1,12 +1,13 @@
 {namespace bitex.ui.OrderBook.templates}
 
 /**
+  * @param? side
   * @param title
   * @param columns
   */
 {template .OrderBook}
   <div class="text-center">
-    {if $title == 'ASK' }
+    {if $side == '1' }
       <div class="btn-group pull-right">
         {call .ShowCumQty}{/call}
         {call .ShowFees}{/call}

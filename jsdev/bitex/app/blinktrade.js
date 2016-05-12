@@ -241,6 +241,7 @@ bitex.app.BlinkTrade = function(broker_id,
   this.test_request_delay_          = opt_test_request_timer_in_ms || 40000;
   this.currency_info_               = {};
   this.all_markets_                 = {};
+  this.current_login_request_       = {};
   this.test_request_timer_          = new goog.Timer(this.test_request_delay_);
   this.test_request_timer_.start();
 };
@@ -367,6 +368,14 @@ bitex.app.BlinkTrade.prototype.error_message_alert_timeout_;
  * @type {Object}
  */
 bitex.app.BlinkTrade.prototype.ip_addresses_;
+
+
+/**
+ * @type {Object}
+ */
+bitex.app.BlinkTrade.prototype.current_login_request_;
+
+
 
 /**
  * @return {goog.events.EventHandler}
@@ -3841,9 +3850,14 @@ bitex.app.BlinkTrade.prototype.onUserLoginButtonClick_ = function(e){
   var password = e.target.getPassword();
   this.model_.set('Password',         e.target.getPassword() );
 
-  this.conn_.login(this.getModel().get('SelectedBrokerID'),
-                   username,
-                   password);
+  var requestId = this.conn_.login(this.getModel().get('SelectedBrokerID'),
+                                   username,
+                                   password);
+
+  this.current_login_request_[requestId] = [ 'login',
+                                             this.getModel().get('SelectedBrokerID'),
+                                             username,
+                                             password ];
 };
 
 
@@ -4063,18 +4077,19 @@ bitex.app.BlinkTrade.prototype.onUserLoginError_ = function(e) {
 
 
 
+
   if (msg['NeedSecondFactor']) {
     var dlg_second_factor_id = goog.string.getRandomString();
     var dlg_second_factor_title = MSG_TWO_STEPS_AUTHENTICATION_DIALOG_TITLE;
     var dlg_second_factor_description = MSG_OTP_TWO_STEPS_AUTHENTICATION_DIALOG_CONTENT;
 
 
-    if (goog.object.contains(msg, 'SecondFactorType') && msg['SecondFactorType'] === 'EMAIL' ) {
+    if (goog.object.containsKey(msg, 'SecondFactorType') && msg['SecondFactorType'] === 'EMAIL' ) {
       dlg_second_factor_title = MSG_EMAIL_TWO_STEPS_AUTHENTICATION_DIALOG_TITLE;
       dlg_second_factor_description = MSG_EMAIL_TWO_STEPS_AUTHENTICATION_DIALOG_CONTENT;
     }
 
-    if (goog.object.contains(msg, 'UserStatusText') && msg['UserStatusText'] === 'MSG_SIGNUP_CONFIRM_EMAIL' ) {
+    if (goog.object.containsKey(msg, 'UserStatusText') && msg['UserStatusText'] === 'MSG_SIGNUP_CONFIRM_EMAIL' ) {
       dlg_second_factor_title = MSG_SIGNUP_CONFIRM_EMAIL_DIALOG_TITLE;
       dlg_second_factor_description = MSG_EMAIL_TWO_STEPS_AUTHENTICATION_DIALOG_CONTENT;
     }
@@ -4108,11 +4123,33 @@ bitex.app.BlinkTrade.prototype.onUserLoginError_ = function(e) {
           e.preventDefault();
         } else {
           var second_factor = gauth_uniform.getAsJSON()['token'];
-          this.conn_.login( this.getModel().get('SelectedBrokerID'),
-                            this.loginView_.getUsername(),
-                            this.loginView_.getPassword(),
-                            second_factor );
 
+          var current_request =  this.current_login_request_[msg['UserReqID']];
+          var broker_id;
+          var username;
+          var password;
+
+          if (goog.isDefAndNotNull(current_request)) {
+            request_method = current_request[0]
+            switch (request_method) {
+              case 'login':
+                broker_id = current_request[1];
+                username = current_request[2];
+                password = current_request[3];
+                break;
+              case 'signUp':
+                broker_id = current_request[6];
+                username = current_request[1];
+                password = current_request[2];
+                break;
+            }
+          } else {
+            broker_id = this.getModel().get('SelectedBrokerID');
+            username = this.loginView_.getUsername();
+            password = this.loginView_.getPassword();
+          };
+          var requestId = this.conn_.login( broker_id, username, password, second_factor );
+          this.current_login_request_[requestId] = [ 'login', broker_id, username, password ]
           dlg_.dispose();
         }
       }
@@ -4176,12 +4213,23 @@ bitex.app.BlinkTrade.prototype.onUserSignupButton_ = function(e) {
 
   this.model_.set('Password',         e.target.getPassword() );
 
-  this.conn_.signUp( e.target.getUsername(),
-                     e.target.getPassword(),
-                     e.target.getEmail(),
-                     e.target.getState(),
-                     e.target.getCountry(),
-                     e.target.getBroker());
+  var requestId = this.conn_.signUp( e.target.getUsername(),
+                                     e.target.getPassword(),
+                                     e.target.getEmail(),
+                                     e.target.getState(),
+                                     e.target.getCountry(),
+                                     e.target.getBroker());
+
+
+  this.current_login_request_[requestId] = [ 'signUp',
+                                             e.target.getUsername(),
+                                             e.target.getPassword(),
+                                             e.target.getEmail(),
+                                             e.target.getState(),
+                                             e.target.getCountry(),
+                                             e.target.getBroker()
+                                           ];
+
 };
 
 /**
@@ -4695,7 +4743,12 @@ bitex.app.BlinkTrade.prototype.onConnectionOpen_ = function(e){
   if (goog.isDefAndNotNull(username) && goog.isDefAndNotNull(password)) {
     if (!goog.string.isEmpty(username) && !goog.string.isEmpty(password) ) {
       if (password.length >= 8 ) {
-        this.conn_.login(broker_id,username, password);
+        var requestId = this.conn_.login(broker_id,username, password);
+        this.current_login_request_[requestId] = [ 'login',
+                                                   broker_id,
+                                                   username,
+                                                   password ];
+
       }
     }
   }

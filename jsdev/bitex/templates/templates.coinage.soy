@@ -374,9 +374,9 @@
                   {if $crypto_currencies['CurrencyCode'] == 'BTC' }
                     {switch $wallets['address'][0]}
                       {case 'm','n','2','9','c'}
-                        <a href="https://www.blocktrail.com/tBTC/address/{$wallets['address']}/" target="_blank">{$wallets['address'] }</a>
+                        <a href="https://live.blockcypher.com/btc-testnet/address/{$wallets['address']}/" target="_blank">{$wallets['address'] }</a>
                       {default}
-                        <a href="https://www.blocktrail.com/BTC/address/{$wallets['address']}/" target="_blank">{$wallets['address'] }</a>
+                        <a href="https://blockchain.info/address/{$wallets['address']}/" target="_blank">{$wallets['address'] }</a>
                     {/switch}
                   {else}
                     {$wallets['address'] }
