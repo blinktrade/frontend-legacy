@@ -297,7 +297,7 @@ load_application:       True
 
                 <!-- .page__body -->
                 <div class="page__body bitex-view-content">
-                    <form accept-charset="UTF-8" id="new_user" method="post">
+                    <form action="" accept-charset="UTF-8" id="new_user" method="post">
                         <div class="form-group">
                           <label for="id_signup_username">{% t views.signup.username %}:</label>
                           <input id="id_signup_username" class="form-control" name="Username" size="30" type="text" placeholder="">
@@ -342,8 +342,8 @@ load_application:       True
                             </label>
                         </div>
 
-                        <button id="id_btn_signup" class="btn btn-primary btn-block">{% t views.signup.signup_button_label %}</button>
                     </form>
+                    <button id="id_btn_signup" class="btn btn-primary btn-block">{% t views.signup.signup_button_label %}</button>
                 </div>
                 <!-- /.page__body -->
             </div>
