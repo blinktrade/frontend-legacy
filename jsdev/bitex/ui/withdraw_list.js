@@ -318,7 +318,7 @@ bitex.ui.WithdrawList = function( methodDescriptionObj, opt_broker_mode,  opt_sh
         var MSG_WITHDRAW_TABLE_DETAILS_COLUMN_TRANSACTION_ID  = goog.getMsg('Transaction ID');
 
         goog.object.forEach(data, function(value, key) {
-          if (key != 'Link' && key != 'Currency'  && key != 'Fees' && key != 'TransactionID') {
+          if (key != 'Link' && key != 'Currency'  && key != 'Fees' && key != 'TransactionID' && key != 'Comments') {
             if (goog.isDefAndNotNull(value) && !goog.string.isEmpty(value) )  {
               if (key == 'Wallet') {
                 /**
@@ -638,7 +638,6 @@ bitex.ui.WithdrawList = function( methodDescriptionObj, opt_broker_mode,  opt_sh
                 button1: 'kyc',
                 button2: 'cancel',
                 button3: 'comment',
-                button4: 'comment',
                 dataRow: data_row,
                 userVerification: userVerificationData
               });
