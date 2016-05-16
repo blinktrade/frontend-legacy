@@ -31,7 +31,7 @@ bitex.ui.DataGrid = function (options, opt_domHelper) {
     rowIDFn: options['rowIDFn'] || goog.nullFunction,
     rowClassFn: options['rowClassFn'] || goog.nullFunction,
     currentPage: options['currentPage'] || 0,
-    limit: options['limit'] || 100,
+    limit: options['limit'] || 20,
     blinkDelay: options['blinkDelay'] || 700,
     wrapperHeight: options['wrapperHeight'],
     showSearch: options['showSearch'],
