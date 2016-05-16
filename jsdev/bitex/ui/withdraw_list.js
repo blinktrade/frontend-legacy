@@ -318,7 +318,7 @@ bitex.ui.WithdrawList = function( methodDescriptionObj, opt_broker_mode,  opt_sh
         var MSG_WITHDRAW_TABLE_DETAILS_COLUMN_TRANSACTION_ID  = goog.getMsg('Transaction ID');
 
         goog.object.forEach(data, function(value, key) {
-          if (key != 'Link' && key != 'Currency'  && key != 'Fees' && key != 'TransactionID') {
+          if (key != 'Link' && key != 'Currency'  && key != 'Fees' && key != 'TransactionID' && key != 'Comments') {
             if (goog.isDefAndNotNull(value) && !goog.string.isEmpty(value) )  {
               if (key == 'Wallet') {
                 /**
@@ -385,6 +385,8 @@ bitex.ui.WithdrawList = function( methodDescriptionObj, opt_broker_mode,  opt_sh
                 /**  @desc Withdraw column label in the  broker's withdraw list detail table */
                 var MSG_WITHDRAW_TABLE_DETAILS_COLUMN_ACCT_HOLDER_ID_PHONE_NUMBER = goog.getMsg('Account holder phone #');
 
+                /**  @desc Withdraw column label in the  broker's withdraw list detail table */
+                var MSG_WITHDRAW_TABLE_DETAILS_COLUMN_INTENDED_PURPOSE = goog.getMsg('Purpose');
 
                 var key_description = key;
 
@@ -441,6 +443,9 @@ bitex.ui.WithdrawList = function( methodDescriptionObj, opt_broker_mode,  opt_sh
                     break;
                   case 'Email':
                     key_description = MSG_WITHDRAW_TABLE_DETAILS_COLUMN_EMAIL;
+                    break;
+                  case 'IntendedPurpose':
+                    key_description = MSG_WITHDRAW_TABLE_DETAILS_COLUMN_INTENDED_PURPOSE;
                     break;
                 }
 
@@ -633,7 +638,6 @@ bitex.ui.WithdrawList = function( methodDescriptionObj, opt_broker_mode,  opt_sh
                 button1: 'kyc',
                 button2: 'cancel',
                 button3: 'comment',
-                button4: 'comment',
                 dataRow: data_row,
                 userVerification: userVerificationData
               });

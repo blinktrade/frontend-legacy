@@ -178,6 +178,10 @@ var MSG_WITHDRAW_FIELD_SENDER_KYC = goog.getMsg('Sender KYC');
 /**  @desc Withdraw field on the withdrawal dialog */
 var MSG_WITHDRAW_FIELD_ACCT_HOLDER_ID_PHONE_NUMBER = goog.getMsg('Account holder phone #');
 
+/**  @desc Withdraw field on the withdrawal dialog */
+var MSG_WITHDRAW_FIELD_INTENDED_PURPOSE = goog.getMsg('Purpose');
+
+
 /**
  * @param {number=} broker_id
  * @param {Array.<Array.<string> > remittance_box
@@ -1977,6 +1981,18 @@ bitex.app.BlinkTrade.prototype.showWithdrawalDialog = function(currency, opt_pre
                                            "placeholder":""});
       }
 
+      if (!goog.array.contains(withdrawal_method['fields'], "IntendedPurpose" )) {
+        withdrawal_method['fields'].push({"side":"client",
+                                           "name": "IntendedPurpose",
+                                           "validator":"",
+                                           "type":"text",
+                                           "value":"",
+                                           "label": MSG_WITHDRAW_FIELD_INTENDED_PURPOSE,
+                                           "placeholder":""});
+      }
+
+
+
     }
 
     goog.array.forEach(withdrawal_method['fields'], function(field) {
@@ -2028,6 +2044,9 @@ bitex.app.BlinkTrade.prototype.showWithdrawalDialog = function(currency, opt_pre
           break;
         case 'Email':
           field["label"] = MSG_WITHDRAW_FIELD_EMAIL;
+          break;
+        case 'IntendedPurpose':
+          field["label"] = MSG_WITHDRAW_FIELD_INTENDED_PURPOSE;
           break;
       }
     }, this);
