@@ -742,4 +742,7 @@
 	<translation id="4504696124216206804" key="MSG_OD1KZ5V8PPS4" source="bitex/ui/order_book.soy.js" desc="Cumulative Description">Lũy kế</translation>
 	<translation id="3959508634664793128" key="MSG_1B5DK9Q6C5M21" source="bitex/ui/order_book.soy.js" desc="Fees Description">Các phí</translation>
 	<translation id="1302177307047941591" key="MSG_FE0MKOG5ZADX" source="bitex/view/profile.soy.js" desc="Confirmation Order">Có xác minh đơn hàng mới không?</translation>
+	<translation id="4782414494775229112" key="MSG_WITHDRAW_TABLE_DETAILS_COLUMN_INTENDED_PURPOSE" source="bitex/ui/withdraw_list.js" desc="Withdraw column label in the  broker's withdraw list detail table">Purpose</translation>
+	<translation id="5533635418939780421" key="MSG_WITHDRAW_FIELD_INTENDED_PURPOSE" source="bitex/app/blinktrade.js" desc="Withdraw field on the withdrawal dialog">Purpose</translation>
+
 </translationbundle>

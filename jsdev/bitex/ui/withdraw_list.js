@@ -385,6 +385,8 @@ bitex.ui.WithdrawList = function( methodDescriptionObj, opt_broker_mode,  opt_sh
                 /**  @desc Withdraw column label in the  broker's withdraw list detail table */
                 var MSG_WITHDRAW_TABLE_DETAILS_COLUMN_ACCT_HOLDER_ID_PHONE_NUMBER = goog.getMsg('Account holder phone #');
 
+                /**  @desc Withdraw column label in the  broker's withdraw list detail table */
+                var MSG_WITHDRAW_TABLE_DETAILS_COLUMN_INTENDED_PURPOSE = goog.getMsg('Purpose');
 
                 var key_description = key;
 
@@ -441,6 +443,9 @@ bitex.ui.WithdrawList = function( methodDescriptionObj, opt_broker_mode,  opt_sh
                     break;
                   case 'Email':
                     key_description = MSG_WITHDRAW_TABLE_DETAILS_COLUMN_EMAIL;
+                    break;
+                  case 'IntendedPurpose':
+                    key_description = MSG_WITHDRAW_TABLE_DETAILS_COLUMN_INTENDED_PURPOSE;
                     break;
                 }
 
