@@ -30,7 +30,7 @@ bitex.ui.ListView = function (options, opt_domHelper) {
     rowClassFn: options['rowClassFn'] || goog.nullFunction,
     rowFormatterFn: options['rowFormatterFn'] || goog.nullFunction,
     currentPage: options['currentPage'] || 0,
-    limit: options['limit'] || 100,
+    limit: options['limit'] || 20,
     blinkDelay: options['blinkDelay'] || 700,
     showSearch: options['showSearch'] || false,
     searchPlaceholder: options['searchPlaceholder'] || false
