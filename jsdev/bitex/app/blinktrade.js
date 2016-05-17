@@ -4101,11 +4101,12 @@ bitex.app.BlinkTrade.prototype.onUserLoginError_ = function(e) {
     var dlg_second_factor_id = goog.string.getRandomString();
     var dlg_second_factor_title = MSG_TWO_STEPS_AUTHENTICATION_DIALOG_TITLE;
     var dlg_second_factor_description = MSG_OTP_TWO_STEPS_AUTHENTICATION_DIALOG_CONTENT;
-
+    var dlg_ask_for_trust_device = false;
 
     if (goog.object.containsKey(msg, 'SecondFactorType') && msg['SecondFactorType'] === 'EMAIL' ) {
       dlg_second_factor_title = MSG_EMAIL_TWO_STEPS_AUTHENTICATION_DIALOG_TITLE;
       dlg_second_factor_description = MSG_EMAIL_TWO_STEPS_AUTHENTICATION_DIALOG_CONTENT;
+      dlg_ask_for_trust_device = true;
     }
 
     if (goog.object.containsKey(msg, 'UserStatusText') && msg['UserStatusText'] === 'MSG_SIGNUP_CONFIRM_EMAIL' ) {
@@ -4115,7 +4116,8 @@ bitex.app.BlinkTrade.prototype.onUserLoginError_ = function(e) {
 
     var dlg_content = bitex.templates.SecondFactorTokenDialogContent({
       id:dlg_second_factor_id,
-      description:dlg_second_factor_description
+      description:dlg_second_factor_description,
+      askForTrust:dlg_ask_for_trust_device
     });
 
     var dlg_ = this.showDialog(dlg_content,
@@ -4141,7 +4143,15 @@ bitex.app.BlinkTrade.prototype.onUserLoginError_ = function(e) {
           e.stopPropagation();
           e.preventDefault();
         } else {
-          var second_factor = gauth_uniform.getAsJSON()['token'];
+          var json_form_data = gauth_uniform.getAsJSON();
+          var second_factor = json_form_data['token'];
+          var trust_device = json_form_data['TrustedDevice'];
+
+          if (trust_device == 'checked' || trust_device == 'on') {
+            trust_device = true;
+          } else {
+            trust_device = false;
+          }
 
           var current_request =  this.current_login_request_[msg['UserReqID']];
           var broker_id;
@@ -4167,7 +4177,7 @@ bitex.app.BlinkTrade.prototype.onUserLoginError_ = function(e) {
             username = this.loginView_.getUsername();
             password = this.loginView_.getPassword();
           };
-          var requestId = this.conn_.login( broker_id, username, password, second_factor );
+          var requestId = this.conn_.login( broker_id, username, password, second_factor, trust_device );
           this.current_login_request_[requestId] = [ 'login', broker_id, username, password ]
           dlg_.dispose();
         }

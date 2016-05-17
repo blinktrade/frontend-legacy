@@ -470,6 +470,7 @@
 /**
   * @param id
   * @param description
+  * @param askForTrust
   */
 {template .SecondFactorTokenDialogContent}
   <form class="form-horizontal" data-deposit-status="prepare" data-uniform-control-holder-class="control-group">
@@ -486,6 +487,13 @@
                type="text"
                size="10">
       </div>
+      {if $askForTrust}
+      <div class="control-group">
+        <label class="checkbox">
+          <input type="checkbox" name="TrustedDevice">{msg desc="Label on the two factor authenticatior"}Trust this device for 30 days{/msg}
+        </label>
+      </div>
+      {/if}
     </fieldset>
   </form>
 {/template}
