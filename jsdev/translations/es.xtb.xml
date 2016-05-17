@@ -744,4 +744,5 @@
 	<translation id="1302177307047941591" key="MSG_FE0MKOG5ZADX" source="bitex/view/profile.soy.js" desc="Confirmation Order">Confirmación para crear nuevas órdenes?</translation>
 	<translation id="4782414494775229112" key="MSG_WITHDRAW_TABLE_DETAILS_COLUMN_INTENDED_PURPOSE" source="bitex/ui/withdraw_list.js" desc="Withdraw column label in the  broker's withdraw list detail table">Propósito</translation>
 	<translation id="5533635418939780421" key="MSG_WITHDRAW_FIELD_INTENDED_PURPOSE" source="bitex/app/blinktrade.js" desc="Withdraw field on the withdrawal dialog">Propósito</translation>
+    <translation id="1730055005975793342" key="MSG_13OQ7TH6HKJ76" source="bitex/templates/templates.soy.js" desc="Label on the two factor authenticatior">Confie en este computadora por 30 dias</translation>
 </translationbundle>
