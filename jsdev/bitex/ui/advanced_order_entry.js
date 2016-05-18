@@ -261,7 +261,7 @@ bitex.ui.AdvancedOrderEntry.prototype.onChangePrice_ = function(e) {
         calculated_total = (this.getPrice() * amount.floor()) / 1e8;
       }
 
-      this.setAmount(amount);
+      this.setAmount(amount.floor());
     }
   }
 
