@@ -8,15 +8,19 @@
   * @param? formattedAmountSelling
   */
 {template .LockedBalanceDisplay }
-  <div style="display:none;" class="row-fluid locked-balance-display">
-     <div class="span6 text-left locked-balance-display-buying">
+  <div style="display:none;" class="row locked-balance-display">
+     <h5 class="col-md-6 col-xs-12">
+        <span style="font-weight:300">
         {msg desc="Shown above the order book bids"}You are buying a total of {/msg}
+        </span>
         <span id="{$id}_buy_account" class="bitex-model" data-model-key="formatted_locked_balance_{$accountBuy}" data-blink-class="balance-info-blink">{if $formattedAmountBuying}{$formattedAmountBuying}{/if}</span>
-     </div>
-     <div class="span6 text-right locked-balance-display-selling">
+     </h5>
+     <h5 class="col-md-6 col-xs-12">
+        <span style="font-weight:300">
         {msg desc="Shown above the order book asks"}You are selling a total of {/msg}
+        </span>
         <span id="{$id}_sell_account"  class="bitex-model" data-model-key="formatted_locked_balance_{$accountSell}" data-blink-class="balance-info-blink">{if $formattedAmountSelling}{$formattedAmountSelling}{/if}</span>
-     </div>
+     </h5>
   </div>
 {/template}
 

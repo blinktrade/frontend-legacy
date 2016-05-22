@@ -8,7 +8,7 @@
  * @param status
  */
 {template .AlgorithmRunner}
-<form id="{$id}_form" class="algo-runner form-horizontal well" data-uniform-control-holder-class="control-group" >
+<form id="{$id}_form" class="algo-runner form-horizontal page__padding page__section_white" data-uniform-control-holder-class="control-group" >
 
   <legend>{$algorithmDefinition['description']}</legend>
 
@@ -25,7 +25,7 @@
     <div class="control-group">
       <label class="control-label">{$field['label']}</label>
       <div class="controls">
-        <input class="algo-runner-field"
+        <input class="algo-runner-field form-control"
                 {if $field['validator']} data-uniform-validators="{$field['validator']}" {/if}
                 {if $field['filter']} data-uniform-filters="{$field['filter']}" {/if}
                 type="{$field['type']}"
@@ -36,9 +36,10 @@
     </div>
   {/foreach}
 
+  <br>
   <div class="control-group" style="">
     <div class="controls">
-      <button id="{$id}_btn_update_params" class="btn btn-primary" {if $status=='1' or $status=='3' }disabled{/if}></button>
+      <button id="{$id}_btn_update_params" class="btn btn-success" {if $status=='1' or $status=='3' }disabled{/if}></button>
       <button id="{$id}_btn_stop" class="btn btn-danger" style="{if $status=='0' or $status=='1' }display:none;{/if}"  {if $status=='3' }disabled{/if}></button>
     </div>
   </div>

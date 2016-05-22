@@ -7,15 +7,21 @@
 {template .DepositWithdrawButtonGroup}
   <div id="{$id}" class="deposit-withdraw-button-group" >
     {foreach $button in $buttons}
-      <button class="btn btn-default btn-mini text-center" 
+      <button class="btn btn-primary btn-md text-center" 
               data-currency="{$button['currency']}" 
               data-action="{$button['mode']}">
               {if $button['mode'] == 'deposit'} 
-                <h2 class="icon-download-alt"> {$button['currencySign']}</h2><br>
+                <strong>{$button['currencySign']}</strong>
+                {sp}
                 {msg desc="Button caption label on deposit button in the deposit view"}Deposit {$button['currencyDescription']}{/msg}
+                {sp}
+                <span class="fa fa-download"></span>
               {else}
-                <h2 class="icon-upload-alt"> {$button['currencySign']}</h2><br>
+                <strong>{$button['currencySign']}</strong>
+                {sp}
                 {msg desc="Button caption label on withdraw button in the withdraw view"}Withdraw {$button['currencyDescription']}{/msg}
+                {sp}
+                <span class="fa fa-upload"></span>
               {/if}
       </button>&nbsp;
     {/foreach}

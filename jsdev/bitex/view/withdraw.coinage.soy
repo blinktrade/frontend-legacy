@@ -1,0 +1,58 @@
+{namespace bitex.view.WithdrawView.templates}
+
+
+/**
+  * @param reason_id
+  * @param custom_reason_id
+  */
+{template .CancelWithdrawDialogContent}
+<p>{msg desc="Cancel withdraw dialog message"}Enter a reason for cancelling the user withdraw{/msg}</p>
+<form class="form-horizontal">
+  <fieldset>
+    <div class="control-group">
+      <label class="control-label" for="{$reason_id}" >{msg desc="Cancel withdraw reason label"}Reason:{/msg}</label>
+      <div class="controls">
+        <select id="{$reason_id}">
+          <option value="0">{msg desc="reason for cancelling withdraw"}Other{/msg}</option>
+          <option value="-1" selected>{msg desc="reason for cancelling withdraw"}Insufficient funds{/msg}</option>
+          <option value="-2">{msg desc="reason for cancelling withdraw"}Account not verified{/msg}</option>
+          <option value="-3">{msg desc="reason for cancelling withdraw"}Suspicion of fraud{/msg}</option>
+          <option value="-4">{msg desc="reason for cancelling withdraw"}Withdrawing to a different account than yours{/msg}</option>
+          <option value="-5">{msg desc="reason for cancelling withdraw"}Invalid wallet{/msg}</option>
+          <option value="-6">{msg desc="reason for cancelling withdraw"}Invalid bank account{/msg}</option>
+          <option value="-7">{msg desc="reason for cancelling withdraw"}Amount exceeded your daily withdraw limit{/msg}</option>
+          <option value="-8">{msg desc="reason for cancelling withdraw"}User has deposits that are not yet confirmed{/msg}</option>
+        </select>
+      </div>
+    </div>
+    <div class="control-group">
+      <div class="controls">
+        <textarea id="{$custom_reason_id}" rows="2" style="display:none;"></textarea>
+      </div>
+    </div>
+  </fieldset>
+</form>
+
+{/template}
+
+/**
+  * @param comments
+  */
+{template .WithdrawCommentDialogContent}
+<form class="modal-form form-horizontal">
+  {foreach $comment in $comments}
+    <p>{$comment}</p>
+  {/foreach}
+  <div class="form-group">
+    <label class="col-xs-4">{msg desc="Add Comment"}Add Comment:{/msg}</label>
+    <div class="col-xs-12">
+      <textarea class="withdraw-field form-control"
+        id="id_withdraw_comment"
+        rows="4"
+        name="withdraw-comment"
+        type="text">
+      </textarea>
+    </div>
+  </div>
+</form>
+{/template}

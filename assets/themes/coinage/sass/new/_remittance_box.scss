@@ -1,0 +1,10 @@
+#id_remittance_box{
+  padding-top: 10px;
+}
+
+.remittance-currency-row{
+  margin-bottom: 5px;
+  > strong {
+    color: $brand-primary;
+  }
+}

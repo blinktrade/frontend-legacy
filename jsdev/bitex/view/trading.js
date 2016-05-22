@@ -170,7 +170,7 @@ bitex.view.TradingView.prototype.recreateComponents_ = function( selected_symbol
 
   this.bid_order_entry_ = new bitex.ui.SimpleOrderEntry();
   this.bid_order_entry_.setModel( {
-    username: model.get('Username'),
+    username: model.get('UserID'),
     symbol: selected_symbol.symbol,
     crypto_currency_symbol: this.getApplication().getCurrencySign( selected_symbol.symbol.substr(0,3) ) ,
     crypto_currency_description: this.getApplication().getCurrencyDescription(selected_symbol.symbol.substr(0,3)),
@@ -192,7 +192,7 @@ bitex.view.TradingView.prototype.recreateComponents_ = function( selected_symbol
 
   this.ask_order_entry_ = new bitex.ui.SimpleOrderEntry();
   this.ask_order_entry_.setModel({
-    username: model.get('Username'),
+    username: model.get('UserID'),
     symbol: selected_symbol.symbol,
     crypto_currency_symbol: this.getApplication().getCurrencySign( selected_symbol.symbol.substr(0,3) ) ,
     crypto_currency_description: this.getApplication().getCurrencyDescription(selected_symbol.symbol.substr(0,3)),
@@ -202,10 +202,10 @@ bitex.view.TradingView.prototype.recreateComponents_ = function( selected_symbol
     type:'2',
     client_id: model.get('UserID'),
     broker_id: model.get('BrokerID'),
-    currency_code: selected_symbol.symbol.substr(3),
+    currency_code: selected_symbol.symbol.substr(3,3),
     currency_format:this.getApplication().getCurrencyHumanFormat(selected_symbol.symbol.substr(3)),
-    crypto_currency_code: selected_symbol.symbol.substr(0,3),
-    crypto_currency_format:this.getApplication().getCurrencyHumanFormat(selected_symbol.symbol.substr(0,3)),
+    crypto_currency_code: selected_symbol.symbol.substr(3,3),
+    crypto_currency_format:this.getApplication().getCurrencyHumanFormat(selected_symbol.symbol.substr(3,3)),
     fee: model.get('Broker')['TakerTransactionFeeBuy'],
     formatted_fee: model.get('Broker')['FormattedTakerTransactionFeeSell']
   });
@@ -235,8 +235,8 @@ bitex.view.TradingView.prototype.recreateComponents_ = function( selected_symbol
   this.addChild(this.order_manager_table_, true);
 
 
-  this.order_manager_table_.setColumnFormatter('Side', this.orderFormatter_, this);
-  this.order_manager_table_.setColumnFormatter('OrdStatus', this.simpleStatusFormatter_, this);
+  this.order_manager_table_.setColumnFormatter('Side', this.orderFormatter_ , this);
+  this.order_manager_table_.setColumnFormatter('OrdStatus', bitex.util.simpleOrderStatusFormatter, this);
   this.order_manager_table_.setColumnFormatter('AvgPx', this.avgPriceFormatter_, this);
   this.order_manager_table_.setColumnFormatter('Volume', this.priceFormatter_, this);
   handler.listen(this.order_manager_table_.getElement(), goog.events.EventType.CLICK, this.onCancelOrder_ );
@@ -270,146 +270,6 @@ bitex.view.TradingView.prototype.enterDocument = function() {
   }, this);
 };
 
-/**
- * @param {*} value
- * @param {Object} rowSet
- */
-bitex.view.TradingView.prototype.orderFormatter_ = function(value, rowSet) {
-  var priceCurrency = this.getApplication().getPriceCurrencyFromSymbol(rowSet['Symbol']);
-  var qtyCurrency = this.getApplication().getQtyCurrencyFromSymbol(rowSet['Symbol']);
-
-  var orderQty = this.getApplication().formatCurrency( rowSet['OrderQty']/1e8, qtyCurrency, true);
-  var cumQty = this.getApplication().formatCurrency( rowSet['CumQty']/1e8, qtyCurrency, true);
-
-  /** @desc Order Status message on Simple Order Manager */
-  var MSG_ORDER_MANAGER_DESC_BUYING = goog.getMsg('Buying {$buyqty}', {buyqty: orderQty } );
-
-
-  /** @desc Order Status message on Simple Order Manager */
-  var MSG_ORDER_MANAGER_DESC_SELLING = goog.getMsg('Selling {$sellqty}', {sellqty: orderQty } );
-
-  /** @desc Order Status message on Simple Order Manager */
-  var MSG_ORDER_MANAGER_DESC_PARTIAL_BOUGHT = goog.getMsg('Bought {$cumboughtqty} of {$boughtqty}', {cumboughtqty:cumQty, boughtqty: orderQty } );
-
-  /** @desc Order Status message on Simple Order Manager */
-  var MSG_ORDER_MANAGER_DESC_PARTIAL_SOLD = goog.getMsg('Sold {$cumsoldqty} of {$soldqty}', { cumsoldqty:cumQty, soldqty: orderQty } );
-
-  /** @desc Order Status message on Simple Order Manager */
-  var MSG_ORDER_MANAGER_DESC_BOUGHT = goog.getMsg('Bought {$boughtcumqty}', { boughtcumqty:cumQty } );
-
-  /** @desc Order Status message on Simple Order Manager */
-  var MSG_ORDER_MANAGER_DESC_SOLD = goog.getMsg('Sold {$souldcumqty}', { souldcumqty:cumQty } );
-
-  /** @desc Order Status message on Simple Order Manager */
-  var MSG_ORDER_MANAGER_DESC_BUYING_CANCELLED = goog.getMsg('Cancelled order to buy {$cancelledbuyorderqty}', { cancelledbuyorderqty:orderQty } );
-
-  /** @desc Order Status message on Simple Order Manager */
-  var MSG_ORDER_MANAGER_DESC_SELLING_CANCELLED = goog.getMsg('Cancelled order to sell {$cancelledsellorderqty}', { cancelledsellorderqty:orderQty } );
-
-
-  switch (rowSet['OrdStatus']) {
-    case '-': // Pending ...
-    case '0': // New
-      if (rowSet['Side'] == '1') { // buying
-        return MSG_ORDER_MANAGER_DESC_BUYING;
-      } else {
-        return MSG_ORDER_MANAGER_DESC_SELLING;
-      }
-    case '1': // Partial fill
-      if (rowSet['Side'] == '1') { // buying
-        return MSG_ORDER_MANAGER_DESC_PARTIAL_BOUGHT;
-      } else { // selling
-        return MSG_ORDER_MANAGER_DESC_PARTIAL_SOLD;
-      }
-    case '2': // filled
-      if (rowSet['Side'] == '1') { // buying
-        return MSG_ORDER_MANAGER_DESC_BOUGHT;
-      } else { // selling
-        return MSG_ORDER_MANAGER_DESC_SOLD;
-      }
-    case '4': // Cancelled
-      if (rowSet['CumQty'] == 0 ) {
-        if (rowSet['Side'] == '1') { // buying
-          return MSG_ORDER_MANAGER_DESC_BUYING_CANCELLED;
-        } else {
-          return MSG_ORDER_MANAGER_DESC_SELLING_CANCELLED;
-        }
-      } else if (rowSet['CumQty'] > 0 && rowSet['CumQty'] < orderQty ) {
-        if (rowSet['Side'] == '1') { // buying
-          return MSG_ORDER_MANAGER_DESC_PARTIAL_BOUGHT;
-        } else { // selling
-          return MSG_ORDER_MANAGER_DESC_PARTIAL_SOLD;
-        }
-      } else {
-        if (rowSet['Side'] == '1') { // buying
-          return MSG_ORDER_MANAGER_DESC_BOUGHT;
-        } else { // selling
-          return MSG_ORDER_MANAGER_DESC_SOLD;
-        }
-      }
-    case '8': // Rejected 
-      return rowSet['OrdRejReason'];
-  }
-
-};
-
-/**
- * @param {*} value
- * @param {Object} rowSet
- */
-bitex.view.TradingView.prototype.simpleStatusFormatter_ = function(value, rowSet) {
-  /** @desc Order Status message on Simple Order Manager */
-  var MSG_ORDER_MANAGER_SIMPLE_STATUS_SENDING = goog.getMsg('Sending...');
-
-  /** @desc Order Status message on Simple Order Manager */
-  var MSG_ORDER_MANAGER_SIMPLE_STATUS_WAITING_BUYERS = goog.getMsg('Waiting buyers');
-
-  /** @desc Order Status message on Simple Order Manager */
-  var MSG_ORDER_MANAGER_SIMPLE_STATUS_WAITING_SELLERS = goog.getMsg('Waiting sellers');
-
-  /** @desc Order Status message on Simple Order Manager */
-  var MSG_ORDER_MANAGER_SIMPLE_STATUS_PARTIAL_BOUGHT = goog.getMsg('Partially bought');
-
-  /** @desc Order Status message on Simple Order Manager */
-  var MSG_ORDER_MANAGER_SIMPLE_STATUS_PARTIAL_SOLD = goog.getMsg('Partially sold');
-
-  /** @desc Order Status message on Simple Order Manager */
-  var MSG_ORDER_MANAGER_SIMPLE_STATUS_COMPLETE = goog.getMsg('Done');
-
-  /** @desc Order Status message on Simple Order Manager */
-  var MSG_ORDER_MANAGER_SIMPLE_STATUS_CANCELLED = goog.getMsg('Cancelled');
-
-  /** @desc Order Status message on Simple Order Manager */
-  var MSG_ORDER_MANAGER_SIMPLE_STATUS_REJECTED = goog.getMsg('Rejected');
-
-  switch (value) {
-    case '-': // Pending ...
-      return MSG_ORDER_MANAGER_SIMPLE_STATUS_SENDING;
-    case '0': // New
-      if (rowSet['Side'] == '1') { // buying
-        return MSG_ORDER_MANAGER_SIMPLE_STATUS_WAITING_SELLERS;
-      } else { // selling
-        return MSG_ORDER_MANAGER_SIMPLE_STATUS_WAITING_BUYERS;
-      }
-    case '1': // Partial fill
-      if (rowSet['Side'] == '1') { // buying
-        return MSG_ORDER_MANAGER_SIMPLE_STATUS_PARTIAL_BOUGHT;
-      } else { // selling
-        return MSG_ORDER_MANAGER_SIMPLE_STATUS_PARTIAL_SOLD;
-      }
-    case '2': // filled
-      return MSG_ORDER_MANAGER_SIMPLE_STATUS_COMPLETE;
-    case '4': // Cancelled
-      if (rowSet['CumQty'] == 0 ) {
-        return MSG_ORDER_MANAGER_SIMPLE_STATUS_CANCELLED;
-      } else {
-        return MSG_ORDER_MANAGER_SIMPLE_STATUS_COMPLETE;
-      }
-    case '8': // Rejected 
-      return MSG_ORDER_MANAGER_SIMPLE_STATUS_REJECTED;
-  }
-};
-
 
 /**
  * @param {*} value
@@ -422,6 +282,17 @@ bitex.view.TradingView.prototype.avgPriceFormatter_ = function(value, rowSet) {
   } else {
     return this.getApplication().formatCurrency(rowSet['Price']/1e8, priceCurrency, true);
   }
+};
+
+
+/**
+ * @param {*} value
+ * @param {Object} rowSet
+ */
+bitex.view.TradingView.prototype.orderFormatter_ = function(value, rowSet) {
+  var qtyCurrency = this.getApplication().getQtyCurrencyFromSymbol(rowSet['Symbol']);
+  var formatter = this.getApplication().getCurrencyFormatter(qtyCurrency, true);
+  return bitex.util.simpleOrderSideFormatter(value, rowSet, formatter);
 };
 
 
@@ -600,7 +471,7 @@ bitex.view.TradingView.prototype.onOBNewOrder_ = function(e){
   var index     = msg['MDEntryPositionNo'] - 1;
   var price     = msg['MDEntryPx'];
   var qty       = msg['MDEntrySize'];
-  var username  = msg['Username'];
+  var username  = msg['UserID'];
   var broker    = msg['Broker'];
   var orderId   = msg['OrderID'];
   var side      = msg['MDEntryType'];

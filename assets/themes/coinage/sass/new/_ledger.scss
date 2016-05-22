@@ -1,0 +1,17 @@
+.ledger-activity-credit{
+    border-left: 6px solid $brand-success;
+    /* background: lighten($brand-success, 40%); */
+    .ledger-activity-amount, .ledger-activity-balance {
+      color: $brand-success;
+      font-weight: 600;
+    }
+}
+
+.ledger-activity-debit{
+    border-left: 6px solid $brand-danger;
+    /* background: lighten($brand-danger, 37%); */
+    .ledger-activity-amount, .ledger-activity-balance {
+      color: $brand-danger;
+      font-weight: 600;
+    }
+}

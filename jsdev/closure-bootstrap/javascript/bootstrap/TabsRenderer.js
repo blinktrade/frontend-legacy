@@ -18,7 +18,7 @@ goog.addSingletonGetter(bootstrap.TabsRenderer);
  * @const
  * @type {string}
  */
-bootstrap.TabsRenderer.CSS_CLASS = 'nav nav-tabs';
+bootstrap.TabsRenderer.CSS_CLASS = 'nav';
 
 goog.ui.registry.setDecoratorByClassName(bootstrap.TabsRenderer.CSS_CLASS,
     function() {

@@ -6,6 +6,7 @@ goog.require('bitex.util');
 
 goog.require('goog.dom.forms');
 goog.require('goog.style');
+goog.require('goog.Uri.QueryData');
 goog.require('bitex.model.Model');
 goog.require('bitex.templates');
 
@@ -42,6 +43,7 @@ bitex.view.SignupView.prototype.enterDocument = function(){
 
   var countries = bitex.util.getCountries();
 
+
   goog.object.forEach( countries, function(country_info, country_code ) {
     var country = country_info;
 
@@ -76,16 +78,21 @@ bitex.view.SignupView.prototype.enterDocument = function(){
     this.onSelectState_(model.get('DefaultState'));
   }
 
-
   handler.listen(button_signup, goog.ui.Component.EventType.ACTION, this.onSignupButtonClick_);
 };
 
 bitex.view.SignupView.prototype.getUsername = function() {
   return goog.dom.forms.getValue( goog.dom.getElement("id_signup_username") );
 };
+bitex.view.SignupView.prototype.setUsername = function(value) {
+  return goog.dom.forms.setValue(goog.dom.getElement("id_signup_username"), value);
+}
 
 bitex.view.SignupView.prototype.getEmail = function() {
   return goog.dom.forms.getValue( goog.dom.getElement("id_signup_email") );
+};
+bitex.view.SignupView.prototype.setEmail = function(value) {
+  goog.dom.forms.setValue(goog.dom.getElement("id_signup_email"), value);
 };
 
 bitex.view.SignupView.prototype.getPassword = function() {
@@ -95,9 +102,15 @@ bitex.view.SignupView.prototype.getPassword = function() {
 bitex.view.SignupView.prototype.getState = function() {
   return goog.dom.forms.getValue( goog.dom.getElement("id_signup_state") );
 };
+bitex.view.SignupView.prototype.setState = function(value) {
+  return goog.dom.forms.setValue(goog.dom.getElement("id_signup_state"), value);
+};
 
 bitex.view.SignupView.prototype.getCountry = function() {
-  return goog.dom.forms.getValue( goog.dom.getElement("id_signup_country") );
+  return goog.dom.forms.getValue(goog.dom.getElement("id_signup_country"));
+};
+bitex.view.SignupView.prototype.setCountry = function(value) {
+  return goog.dom.forms.setValue(goog.dom.getElement("id_signup_country"), value);
 };
 
 bitex.view.SignupView.prototype.getBroker = function() {
@@ -228,6 +241,8 @@ bitex.view.SignupView.prototype.onBrokerList_ = function(e) {
   } else {
     this.onChangeBroker_();
   }
+
+  this.getQueryString_();
 
 };
 
@@ -394,4 +409,30 @@ bitex.view.SignupView.prototype.onSelectState_ = function( selected_country, sel
     goog.dom.forms.setValue( goog.dom.getElement('id_signup_broker'), '' + last_available_broker );
   }
   this.onChangeBroker_();
+};
+
+/**
+ * @private
+ */
+bitex.view.SignupView.prototype.getQueryString_ = function(){
+  var queryString = new goog.Uri(window.location.href);
+  var username = queryString.getParameterValue('username');
+  var email = queryString.getParameterValue('email');
+  var country = queryString.getParameterValue('country');
+  var state = queryString.getParameterValue('state');
+
+  if(goog.isDefAndNotNull(username)) {
+    this.setUsername(username);
+  }
+  if(goog.isDefAndNotNull(email)) {
+    this.setEmail(email);
+  }
+  if(goog.isDefAndNotNull(country)) {
+    this.setCountry(country);
+    this.onSelectCountry_(country);
+  }
+  if(goog.isDefAndNotNull(state)) {
+    this.setState(state);
+    this.onSelectState_(state);
+  }
 };

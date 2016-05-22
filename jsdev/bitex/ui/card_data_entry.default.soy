@@ -1,0 +1,75 @@
+{namespace bitex.ui.CardDataEntry.templates}
+
+/**
+  * @param id
+  * @param? methods
+  */
+{template .CardDataEntry}
+  <form  id="{$id}_form" class="api-key-data-entry-form">
+    <fieldset>
+      <h2>{msg desc="API Key Data Entry form legend"}Create Card{/msg}</h2>
+
+      <div class="api-key-data-entry-form-block control-group">
+        <label>Card Label
+          <input id="{$id}_label" type="text" class="input-block-level">
+        </label>
+      </div>
+
+      <div class="api-key-data-entry-form-block">
+        <div class="control-group">
+            <h3>Your Card</h3>
+            <label for="">Metodo de pagamento</label>
+            <select id="{$id}_method" name="Method" class="withdraw-method-selector">
+                {foreach $method in $methods }
+                <option value="{$method['method']}"
+                data-net-value="{$id}_method_{$method['method']}_net_value"
+                data-percent-fee="{$id}_method_{$method['method']}_percent_fee"
+                data-fixed-fee="{$id}_method_{$method['method']}_fixed_fee">{$method['description']}</option>
+                {/foreach}
+            </select>
+
+        </div>
+
+        <div class="card-methods">
+          {foreach $method in $methods}
+              <div class="withdraw-method" data-withdraw-method="{$method['method']}" style="{if length($methods) > 1}display:none;{/if}">
+
+              {foreach $field in $method['fields'] }
+                {if $field['side'] == 'client'}
+                <div class="control-group">
+                    <label class="control-label">{$field['label']}</label>
+                    <div class="controls">
+                        <input class="withdraw-field"
+                        data-uniform-validators="{if $field['required']}required;{/if}{$field['validator']}"
+                        type="{$field['type']}"
+                        name="{$field['name']}"
+                        label="{$field['placeholder']}"
+                        value="{$field['value']}"
+                        {if not isFirst($method)}disabled{/if} />
+                    </div>
+                </div>
+                {/if}
+              {/foreach}
+            </div>
+          {/foreach}
+        </div>
+      </div>
+      <div class="api-key-data-entry-form-block">
+        <div class="control-group">
+            <label class="control-label" for="">Card ID</label>
+            <div class="controls">
+                <input id="{$id}_id" type="text" class='{$id}_card_id input-block-level'>
+            </div>
+        </div>
+      </div>
+
+
+      <div class="text-center">
+        <button id="{$id}_cancel_btn" class="btn">Cancel</button>
+        <button id="{$id}_create_btn" type="submit" class="btn btn-primary">Create</button>
+      </div>
+
+    </fieldset>
+  </form>
+
+{/template}

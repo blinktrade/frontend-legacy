@@ -46,11 +46,46 @@ exchanges:
     description: Compre e venda bitcoins na China
     keywords: Compra e venda de bitcoins na China, bolsa de bitcoins na China, venda bitcoins na China, compre bitcoins na China
     lead: Compre e venda bitcoins na China
+  bitinvest:
+    title: Bitinvest - Bitcoin rápido, fácil e seguro - Comprar e Vender Bitcoin com as menores taxas do Brasil
+    description: Bitinvest - Bitcoin rápido, fácil e seguro - Comprar e Vender Bitcoin com as menores taxas do Brasil
+    keywords: Bitinvest - Bitcoin rápido, fácil e seguro - Comprar e Vender Bitcoin com as menores taxas do Brasil
+    lead: Bitcoin rápido, fácil e seguro - Comprar e Vender Bitcoin com as menores taxas do Brasil
+  unocoin:
+    title: Unocoin | India's Bitcoin Wallet
+    description: Unocoin is India's most popular bitcoin wallet. We make it super easy to securely buy, use and accept bitcoin, following KYC-AML guidelines.
+    keywords: bitcoin, buy bitcoin, sell bitcoin, buy bitcoin india, sell bitcoin india, bitcoin india, bitcoin inr, btc inr, bitcoin wallet india, store bitcoin india, buy bitcoin inr, sell bitcoin inr, send bitcoin, send bitcoin india, receive bitcoin, receive bitcoin india, bitcoin price, btc to inr, btc price in inr, bitcoin exchange
+    lead: Unocoin is india's most popular bitcoin wallet
 
 views:
+  landing:
+    about:
+      learn: Mais
+      phrase1:
+        title: Proin quis egestas eros
+        description: Nunc non est ut neque lobortis mattis. Donec ultricies tortor at mi lobortis cursus. Vestibulum felis tellus, ultrices nec odio vitae, facilisis gravida sapien. Etiam efficitur quam at nunc consequat, sed ullamcorper ante convallis. Etiam ultrices, eros a egestas faucibus, nisi lectus ultrices arcu, eu viverra risus justo a est. Fusce laoreet sapien non mattis auctor. Proin odio felis, convallis eu velit quis, condimentum lobortis nibh.
+      phrase2:
+        title: Pellentesque vestibulum lectus
+        description: Integer placerat urna lectus, in luctus odio vehicula vel. Praesent eu sagittis massa. Vivamus ut urna interdum, porttitor ex sed, congue risus. Vestibulum sit amet mattis leo. Curabitur tempor convallis ornare. In dignissim est at pellentesque consequat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In a dui quis metus eleifend maximus.
+      phrase3:
+        title: Maecenas vel magna
+        description: Donec ac tincidunt enim, quis porttitor massa. Sed vulputate ex at quam venenatis, non facilisis justo vestibulum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi diam nisl, congue vehicula maximus eget, tempor nec ipsum. Vestibulum feugiat consequat lacus et congue. Phasellus eu felis vel dui cursus pharetra quis non lectus. Curabitur porta ultrices magna sit amet ultrices. Nam cursus lorem mollis arcu dignissim congue. Praesent vitae venenatis lorem, sit amet efficitur ipsum.
+      phrase4:
+        title: Sed vulputate ex at quam venenatis
+        description: Sed tincidunt libero id ex fermentum, quis interdum dolor sollicitudin. Nunc sit amet tempor nisi. Sed ac justo libero. Sed rhoncus leo in massa tincidunt aliquam. Curabitur eu iaculis purus. Nam eu dui tempor, faucibus dolor et, sodales nisi. Mauris scelerisque velit et magna imperdiet ultrices. Mauris ut libero bibendum, volutpat nulla ac, congue eros. Duis rhoncus facilisis lacinia
+    orderbook:
+      title: Livro de ofertas 
+    signup:
+      title: CRIE A SUA CONTA AGORA
+      description: Registre-se e descubra o como é fácil negociar conosco. 
   footer:
-    latency: Latency
-    version: Version
+    about: Sobre
+    company: Empresa
+    platform: Plataforma
+    blog: Blog
+    chart: Gráfico
+    latency: Latência
+    version: Versão
 
   toolbar:
     faq: Ajuda
@@ -59,6 +94,10 @@ views:
     signin: Login
     signup: Registrar
     connect: Conectar
+    high: ALTA 
+    last: ÚLTIMO 
+    low: BAIXA
+    volume: VOLUME
 
   start:
     username: "Nome de usuário:"
@@ -129,6 +168,9 @@ views:
     cumulative: Acumulado
     fees: Taxas
 
+  admin:
+    title: Admin
+
   customers:
     title: Meus clientes
 
@@ -141,6 +183,9 @@ views:
 
   withdraw_requests:
     title: Pedidos de saques
+
+  withdraw_methods:
+    title: Withdraw methods
 
   deposit:
     title: Depósitos
@@ -175,7 +220,11 @@ views:
   line_of_credit:
     title: Linha de crédito
 
+  history:
+    title: Histórico de ordens
+
   sidebar:
+    admin: Admin
     market: "Mercado:"
     menu: Menu
     my_profile: Meu perfil
@@ -194,3 +243,8 @@ views:
     api: API
     logout: Sair
     algotrading: Algo Trading
+    history: Histórico de ordens
+    card:  Blink Card
+  themes:
+    title: Temas
+    choose: Escolha um tema

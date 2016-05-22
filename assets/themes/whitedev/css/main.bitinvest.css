@@ -1,0 +1,95 @@
+/* 
+ * pallete
+ * Bluelight : #28A6DE
+ * Blue      : #3E82E1
+ * Red       : #CD1931
+ */
+
+.ls-menu{
+    background:none;
+}
+
+.ls-user-account .ls-user-menu ul a {
+    border-bottom: 1px solid #ddd!important;
+}
+
+.ls-user-account .ls-user-menu-header, .ls-language nav ul a{
+    background:#eee!important;
+}
+
+.modal > .modal-footer > .btn-primary,
+.ls-theme-orange .ls-btn-primary, .active, .active:hover{
+    background-color: #28A6DE;
+    border-color: #28A6DE!important;
+    color:white!important;
+}
+
+.modal > .modal-footer > .btn-primary,
+.ls-theme-orange .ls-btn-primary:hover, .ls-btn-primary:focus{
+    background-color: #28A6DE!important;
+    border-color: #28A6DE!important;
+}
+.ls-btn, .modal > .modal-footer > .btn{
+    border: 2px solid #28A6DE!important;
+}
+.ls-theme-orange [class*="ls-go"],
+.ls-theme-orange .ls-dropdown ul a:focus, .ls-theme-orange .ls-dropdown ul a:hover{
+    background:#28A6DE!important;
+}
+
+.ls-input-text,
+.ls-theme-orange .ls-topbar .ls-alerts-list [class^="ls-ico"],
+.ls-theme-orange .ls-info-header [class*="ls-title"],
+.youraccount strong, .b,
+.ls-txt a,
+ul.start-links a,
+input[type],
+textarea{
+    color: #28A6DE!important;
+}
+
+.ls-theme-orange .ls-table.ls-bg-header thead{
+    background-color:#28A6DE;
+}
+
+@media (max-width: 768px){
+    .ls-theme-orange .ls-topbar{
+        background: #3E82E1 url(../images/brand-bitinvest-p.png) center center no-repeat !important;
+        background-size:30px;
+    }
+}
+.ls-btn-danger:hover, .ls-btn-danger:focus, .ls-btn-danger.ls-active{
+}
+
+.ls-theme-orange .ls-brand-name{
+    background:#3E82E1!important;
+    background-color:#3E82E1!important;
+}
+.ls-btn-danger, .ls-theme-orange .ls-table tbody a:not([class*="ls-btn"]){
+    /* color:#CD1931!important; */
+}
+.ls-btn-danger:hover{
+    color:white!important;
+}
+
+.ls-topbar .ls-ico-menu:before, .ls-topbar .ls-show-notifications:before{
+    color:white!important;
+}
+.fuelux a{
+    color: #28A6DE!important;
+}
+.fuelux .btn{
+    border: 2px solid #28A6DE!important;
+}
+.fuelux .btn-info, .fuelux .dropdown-menu > li > a:hover{
+    color: white!important;
+    background: #28A6DE!important;
+}
+
+.md-blink,
+.md-blink > td,
+.order-manager-blink td,
+.balance-info-blink td,
+.order-book-blink td {
+  background: rgba(40, 166, 222, 0.25)!important;
+}

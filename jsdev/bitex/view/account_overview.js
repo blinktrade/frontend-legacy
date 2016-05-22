@@ -259,15 +259,21 @@ bitex.view.AccountOverview.prototype.getContentElement = function() {
 };
 
 /**
- * @param {string} raw_verification_data
+ * @param {string|Array.<Object.<*>>} raw_verification_data
  * @private
  */
-bitex.view.AccountOverview.prototype.formatVerificationData_ = function(raw_verification_data) {
-  var formatted_data = raw_verification_data;
+bitex.view.AccountOverview.prototype.formatVerificationData_ = function(verification_data) {
+  if (goog.isString(verification_data)) {
+    try {
+      verification_data = goog.json.parse(verification_data);
+    } catch(e){}
+  }
+
+  var formatted_data = "";
   try {
-    var verification_data = goog.json.parse(raw_verification_data);
     formatted_data = bitex.util.verificationData2HTML(verification_data);
   } catch(e){}
+
   return formatted_data;
 };
 
