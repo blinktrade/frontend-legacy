@@ -770,9 +770,10 @@ bitex.api.BitEx.prototype.close = function(){
  * @param {string} username
  * @param {string} password
  * @param {string=} opt_second_factor
+ * @param {boolean=} opt_trust_device
  * @param {number=} opt_request_id
  */
-bitex.api.BitEx.prototype.login = function(brokerID, username, password, opt_second_factor, opt_request_id ){
+bitex.api.BitEx.prototype.login = function(brokerID, username, password, opt_second_factor, opt_trust_device, opt_request_id ){
   var reqId = opt_request_id || parseInt(Math.random() * 1000000, 10);
 
   var userAgent = goog.userAgent.getUserAgentString();
@@ -794,6 +795,10 @@ bitex.api.BitEx.prototype.login = function(brokerID, username, password, opt_sec
   if (goog.isDefAndNotNull(opt_second_factor)) {
     msg['SecondFactor'] = opt_second_factor;
   }
+  if (goog.isDefAndNotNull(opt_trust_device)){
+    msg['TrustedDevice'] = opt_trust_device;
+  }
+
   this.sendMessage(msg);
 
   return reqId;

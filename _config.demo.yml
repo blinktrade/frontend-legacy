@@ -2,7 +2,7 @@
 url: "https://testnet.blinktrade.com"
 author: "BlinkTrade"
 baseurl: ""
-deploy_version: "b14784f"
+deploy_version: "e986965"
 
 exchange: "demo"
 exchange_logo: "demo"
@@ -51,7 +51,7 @@ remittance_box: "{
 
 symbol: "BTCUSD"
 
-languages: ["en_US"]
+languages: ["en_US", "es", "pt_BR", "ro", "zn_CN", "vi"]
 
 navbar: 'navbar-inverse'
 phrases: [phrase1, phrase2, phrase3]

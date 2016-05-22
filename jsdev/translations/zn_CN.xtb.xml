@@ -740,4 +740,5 @@
 	<translation id="7046888733179350567" key="MSG_EMAIL_TWO_STEPS_AUTHENTICATION_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="Dialog title of the email second step authenticaiton.">Second factor of authentication</translation>
 	<translation id="4782414494775229112" key="MSG_WITHDRAW_TABLE_DETAILS_COLUMN_INTENDED_PURPOSE" source="bitex/ui/withdraw_list.js" desc="Withdraw column label in the  broker's withdraw list detail table">Purpose</translation>
 	<translation id="5533635418939780421" key="MSG_WITHDRAW_FIELD_INTENDED_PURPOSE" source="bitex/app/blinktrade.js" desc="Withdraw field on the withdrawal dialog">Purpose</translation>
+	<translation id="1730055005975793342" key="MSG_13OQ7TH6HKJ76" source="bitex/templates/templates.soy.js" desc="Label on the two factor authenticatior">信任这台设备30天</translation>
 </translationbundle>
