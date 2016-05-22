@@ -16,6 +16,7 @@ goog.require('goog.events.Event');
 goog.require('goog.events.EventTarget');
 
 goog.require('goog.userAgent');
+goog.require('goog.Uri.QueryData');
 
 /**
  * @constructor
@@ -29,6 +30,7 @@ bitex.api.BitEx = function( opt_browser_finger_print  ){
   this.all_markets_           = null;
   this.browser_finger_print_  = opt_browser_finger_print;
   this.stunt_ip_info_         = {'local':undefined, 'public':[]};
+  this.tracking_code_         = new goog.Uri(window.location.href).getParameterValue('tc');
 
 
   this.ws_ = new goog.net.WebSocket(true);
@@ -47,6 +49,12 @@ bitex.api.BitEx.prototype.currency_info_;
  * @private
  */
 bitex.api.BitEx.prototype.stunt_ip_info_;
+
+/**
+ * @type {string}
+ * @private
+ */
+bitex.app.BitEx.prototype.tracking_code_;
 
 /**
  * @type {Object}
@@ -762,9 +770,10 @@ bitex.api.BitEx.prototype.close = function(){
  * @param {string} username
  * @param {string} password
  * @param {string=} opt_second_factor
+ * @param {boolean=} opt_trust_device
  * @param {number=} opt_request_id
  */
-bitex.api.BitEx.prototype.login = function(brokerID, username, password, opt_second_factor, opt_request_id ){
+bitex.api.BitEx.prototype.login = function(brokerID, username, password, opt_second_factor, opt_trust_device, opt_request_id ){
   var reqId = opt_request_id || parseInt(Math.random() * 1000000, 10);
 
   var userAgent = goog.userAgent.getUserAgentString();
@@ -786,7 +795,13 @@ bitex.api.BitEx.prototype.login = function(brokerID, username, password, opt_sec
   if (goog.isDefAndNotNull(opt_second_factor)) {
     msg['SecondFactor'] = opt_second_factor;
   }
+  if (goog.isDefAndNotNull(opt_trust_device)){
+    msg['TrustedDevice'] = opt_trust_device;
+  }
+
   this.sendMessage(msg);
+
+  return reqId;
 };
 
 
@@ -820,6 +835,9 @@ bitex.api.BitEx.prototype.enableTwoFactor = function(enable, opt_secret, opt_cod
   }
 
   this.sendMessage(msg);
+
+  return reqId;
+
 };
 
 
@@ -837,6 +855,8 @@ bitex.api.BitEx.prototype.forgotPassword = function(brokerID, email, opt_request
     'Email': email
   };
   this.sendMessage(msg);
+
+  return reqId;
 };
 
 /**
@@ -855,6 +875,8 @@ bitex.api.BitEx.prototype.requestBalances = function(opt_clientID, opt_request_i
   }
 
   this.sendMessage(msg);
+
+  return reqId;
 };
 
 /**
@@ -873,6 +895,8 @@ bitex.api.BitEx.prototype.requestPositions = function(opt_clientID, opt_request_
   }
 
   this.sendMessage(msg);
+
+  return reqId;
 };
 
 
@@ -955,19 +979,38 @@ bitex.api.BitEx.prototype.cancelWithdraw = function( withdrawId, opt_requestId )
 };
 
 /**
+ * @param {number=} opt_requestId. Defaults to random generated number
+ * @param {string} comment Comment Message
+ * @param {string} withdrawId
+ */
+bitex.api.BitEx.prototype.commentWithdraw = function(opt_requestId, comment, withdrawId) {
+  var requestId = opt_requestId || parseInt(1e7 * Math.random(), 10);
+
+  var msg = {
+    "MsgType": "U78" ,
+    "WithdrawReqID": requestId,
+    "WithdrawID": withdrawId,
+    "Message": comment
+  }
+
+  this.sendMessage(msg);
+  return requestId;
+};
+
+/**
  * Request a withdraw list
  * @param {number=} opt_requestId. Defaults to random generated number
  * @param {number=} opt_page. Defaults to 0
  * @param {number=} opt_limit. Defaults to 100
- * @param {Array.<string>=} opt_status. Defaults to ['1', '2'] ( all operations )
+ * @param {Array.<string>=} opt_status. Defaults to ['1'], pending operations
  * @param {number=} opt_clientID
  * @param {Array.<string>=} opt_filter
  */
 bitex.api.BitEx.prototype.requestWithdrawList = function(opt_requestId, opt_page, opt_limit, opt_status, opt_clientID, opt_filter){
   var requestId = opt_requestId || parseInt( 1e7 * Math.random() , 10 );
   var page = opt_page || 0;
-  var limit = opt_limit || 100;
-  var status = opt_status || ['1', '2'];
+  var limit = opt_limit || 20;
+  var status = opt_status || ['1'];
 
   var msg = {
     'MsgType': 'U26',
@@ -1018,14 +1061,14 @@ bitex.api.BitEx.prototype.updateUserProfile = function(fields, opt_userId, opt_r
  * @param {number=} opt_requestId. Defaults to random generated number
  * @param {number=} opt_page. Defaults to 0
  * @param {number=} opt_limit. Defaults to 100
- * @param {Array.<string>=} opt_status. Defaults to ['1', '2'] ( all operations )
+ * @param {Array.<string>=} opt_status. Defaults to ['1'] ( pending operations )
  * @param {number=} opt_clientID
  * @param {Array.<string>=} opt_filter
  */
 bitex.api.BitEx.prototype.requestDepositList = function(opt_requestId, opt_page, opt_limit, opt_status, opt_clientID, opt_filter){
   var requestId = opt_requestId || parseInt( 1e7 * Math.random() , 10 );
   var page = opt_page || 0;
-  var limit = opt_limit || 100;
+  var limit = opt_limit || 20;
   var status = opt_status || ['1', '2'];
 
   var msg = {
@@ -1062,7 +1105,7 @@ bitex.api.BitEx.prototype.requestDepositList = function(opt_requestId, opt_page,
 bitex.api.BitEx.prototype.requestTradeHistory = function(opt_requestId, opt_page, opt_limit, opt_clientID, opt_filter, opt_since){
   var requestId = opt_requestId || parseInt( 1e7 * Math.random() , 10 );
   var page = opt_page || 0;
-  var limit = opt_limit || 100;
+  var limit = opt_limit || 20;
 
   var msg = {
     'MsgType': 'U32',
@@ -1099,7 +1142,7 @@ bitex.api.BitEx.prototype.requestTradeHistory = function(opt_requestId, opt_page
 bitex.api.BitEx.prototype.requestTradersRank = function(opt_requestId, opt_page, opt_limit, opt_clientID, opt_filter){
   var requestId = opt_requestId || parseInt( 1e7 * Math.random() , 10 );
   var page = opt_page || 0;
-  var limit = opt_limit || 100;
+  var limit = opt_limit || 20;
 
   var msg = {
     'MsgType': 'U36',
@@ -1135,7 +1178,7 @@ bitex.api.BitEx.prototype.requestTradersRank = function(opt_requestId, opt_page,
 bitex.api.BitEx.prototype.requestLedgerList = function(opt_requestId, opt_page, opt_limit, opt_brokerID, opt_clientID,opt_currency, opt_filter){
   var requestId = opt_requestId || parseInt( 1e7 * Math.random() , 10 );
   var page = opt_page || 0;
-  var limit = opt_limit || 100;
+  var limit = opt_limit || 20;
 
   var msg = {
     'MsgType': 'U34',
@@ -1212,7 +1255,7 @@ bitex.api.BitEx.prototype.requestBrokerList = function(opt_requestId, opt_countr
 bitex.api.BitEx.prototype.requestCustomerList = function(opt_requestId, opt_filter_country, opt_filter_state, opt_filter_username_or_email, opt_page, opt_limit, opt_status, opt_sort_column, opt_sort_direction){
   var requestId = opt_requestId || parseInt( 1e7 * Math.random() , 10 );
   var page = opt_page || 0;
-  var limit = opt_limit || 100;
+  var limit = opt_limit || 20;
   var status = opt_status || [0,1,2,3,4,5];
 
   var msg = {
@@ -1383,7 +1426,6 @@ bitex.api.BitEx.prototype.processInstantDepositFiat = function(deposit_id, opt_r
         'Action': 'CREDIT'
     };
 
-    console.log('Sending');
     this.sendMessage(msg);
     return requestId;
 };
@@ -1403,6 +1445,8 @@ bitex.api.BitEx.prototype.resetPassword = function(token, new_password, opt_requ
     'NewPassword': new_password
   };
   this.sendMessage(msg);
+
+  return requestId;
 };
 
 
@@ -1431,6 +1475,8 @@ bitex.api.BitEx.prototype.changePassword = function(brokerID, username, password
   }
 
   this.sendMessage(msg);
+
+  return requestId;
 };
 
 /**
@@ -1517,6 +1563,8 @@ bitex.api.BitEx.prototype.requestSecurityList = function(opt_market, opt_request
     'SecurityRequestResult': 0
   };
   this.sendMessage(msg);
+
+  return requestId;
 };
 
 
@@ -1527,9 +1575,10 @@ bitex.api.BitEx.prototype.requestSecurityList = function(opt_market, opt_request
  * @param {string} state
  * @param {string} country_code
  * @param {number} broker
+ * @param {string=} opt_token.
  * @param {number=} opt_requestId. Defaults to random generated number
  */
-bitex.api.BitEx.prototype.signUp = function(username, password, email, state, country_code, broker, opt_requestId) {
+bitex.api.BitEx.prototype.signUp = function(username, password, email, state, country_code, broker, opt_token, opt_requestId) {
   var requestId = opt_requestId || parseInt( 1e7 * Math.random() , 10 );
 
   var userAgent = goog.userAgent.getUserAgentString();
@@ -1550,7 +1599,13 @@ bitex.api.BitEx.prototype.signUp = function(username, password, email, state, co
     'UserAgentTimezoneOffset': userAgentTimezoneOffset,
     'UserAgentPlatform': goog.global.navigator.platform
   };
+  if (goog.isDefAndNotNull(opt_token)) {
+    msg['Token'] = opt_token;
+  }
+
   this.sendMessage(msg);
+
+  return requestId;
 };
 
 /**
@@ -1563,7 +1618,7 @@ bitex.api.BitEx.prototype.signUp = function(username, password, email, state, co
 bitex.api.BitEx.prototype.requestOrderList = function(opt_requestId, opt_page, opt_limit, opt_filter){
   var requestId = opt_requestId || parseInt( 1e7 * Math.random() , 10 );
   var page = opt_page || 0;
-  var limit = opt_limit || 100;
+  var limit = opt_limit || 20;
 
   var msg = {
     'MsgType': 'U4',
@@ -1616,6 +1671,8 @@ bitex.api.BitEx.prototype.requestDeposit = function( opt_requestId, opt_depositO
   }
 
   this.sendMessage(msg);
+
+  return requestId;
 };
 
 /**
@@ -1779,6 +1836,9 @@ bitex.api.BitEx.prototype.sendMessage  = function(msg) {
   if (goog.isDefAndNotNull(this.stunt_ip_info_)) {
     msg['STUNTIP'] = this.stunt_ip_info_;
   }
+  if (goog.isDefAndNotNull(this.tracking_code_)) {
+    msg['TrackingCode'] = this.tracking_code_;
+  }
 
   this.sendRawMessage(JSON.stringify(msg));
 };
@@ -1854,7 +1914,7 @@ bitex.api.BitEx.prototype.testRequest = function(opt_requestId){
 bitex.api.BitEx.prototype.requestAPIKeyList = function(opt_page, opt_limit, opt_requestId){
   var requestId = opt_requestId || parseInt( 1e7 * Math.random() , 10 );
   var page = opt_page || 0;
-  var limit = opt_limit || 100;
+  var limit = opt_limit || 20;
 
   var msg = {
     'MsgType': 'U50',
@@ -1928,7 +1988,7 @@ bitex.api.BitEx.prototype.revokeAPIKey = function(api_key, opt_requestId){
 bitex.api.BitEx.prototype.requestLineOfCreditList = function(opt_page, opt_limit, opt_requestId){
   var requestId = opt_requestId || parseInt( 1e7 * Math.random() , 10 );
   var page = opt_page || 0;
-  var limit = opt_limit || 100;
+  var limit = opt_limit || 20;
 
   var msg = {
     'MsgType': 'U60',
@@ -2066,7 +2126,7 @@ bitex.api.BitEx.prototype.cardDisable = function(cardId, opt_requestId){
 bitex.api.BitEx.prototype.requestLCardList = function(opt_page, opt_limit, opt_requestId){
   var requestId = opt_requestId || parseInt( 1e7 * Math.random() , 10 );
   var page = opt_page || 0;
-  var limit = opt_limit || 100;
+  var limit = opt_limit || 20;
 
   var msg = {
     'MsgType': 'U72',

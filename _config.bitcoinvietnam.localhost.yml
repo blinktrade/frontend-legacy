@@ -9,6 +9,11 @@ exchange_logo: "bitcoinvietnam"
 
 custom_css: 'lightgreen'
 
+twitter_widget_id: "717635114658873344"
+twitter_widget_name: "Bitcoin_Vietnam"
+twitter_widget_theme: "dark"
+twitter_widget_link_color: "#88DA65"
+
 default_country_code: "VN"
 blinktrade_broker_id: 3  
 
@@ -47,7 +52,7 @@ phrases: [phrase1, phrase2, phrase3]
 
 languages: ["vi", "en_US", "es", "pt_BR", "ro", "zn_CN"]
 
-exclude:     [ "jsdev", "LICENSE", "README.md", "config.rb", "deploy.sh", "build_javascript.sh", "node_modules", "gulpfile.js" ]
+exclude:     [ "jsdev", "LICENSE", "README.md", "config.rb", "deploy.sh", "build_javascript.sh", "node_modules", "gulpfile.js", "themes/ander" ]
 source:      .
 destination: ./_site
 plugins:     ./_plugins

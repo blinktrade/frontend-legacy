@@ -5,10 +5,11 @@
   * @param confidence
   */
 {template .NodesProgressBar}
-  <div class="progress progress-success progress-striped active" style="margin: 0px;position: relative;">
-    <div class="bar" role="progressbar" aria-valuenow="{$confidence}" aria-valuemin="0" aria-valuemax="100" style="width:{$confidence}%"></div>
-    <div style="position:absolute;width:100%;font-size:13px;color:black;height:100%;text-align:center;font-weight:300;">
-      {msg desc="Number of nodes inside the progress bar in the deposit list grid"}{$count} nodes{/msg}
+  <div class="progress">
+    <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="{$confidence}" aria-valuemin="0" aria-valuemax="100" style="width:{$confidence}%">
+      <span>
+        {msg desc="Number of nodes inside the progress bar in the deposit list grid"}{$count} nodes{/msg}
+      </span>
     </div>
   </div>
 {/template}
@@ -92,7 +93,7 @@
  * @param? userVerification
  */
 {template .btnGroup}
-  <div class="btn-group">
+  <div class="btn-group-vertical">
     {if $button1 == 'kyc'}
       {call .btnBrokerKYC}
         {param userVerification: $userVerification /}

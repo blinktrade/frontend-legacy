@@ -55,6 +55,13 @@ body {
   padding-left: 0px;
 }
 
+.nav-tabs{
+  outline:none;
+}
+.nav-tabs>li>a{
+  font-size: 14px;
+}
+
 .footer {
   text-align: center;
   padding: 10px 0;
@@ -170,30 +177,6 @@ body {
   margin-bottom: 15px;
   padding: 7px 9px;
 }
-
-
-/* Execution report status */
-.order-manager-pending {
-  background-color: #00ffff;
-}
-
-.order-manager-new {
-}
-
-.order-manager-partial {
-  background-color: #e0ffff;
-}
-
-.order-manager-fill,
-.order-manager-fill-cancel {
-  background-color: #03DDDD;
-}
-
-.order-manager-cancel,
-.order-manager-rejected {
-  background-color: #f08080;
-}
-
 
 input.parsley-success, textarea.parsley-success {
   color: #468847 !important;
@@ -577,11 +560,11 @@ keyframes notification {
 
 
 .ledger-activity-credit {
-  background-color: lightcyan
+  border-left: 5px solid #d6e9c6;
 }
 
 .ledger-activity-debit {
-  background-color: lightpink;
+  border-left: 5px solid lightpink;
 }
 
 .account-summary-broker {

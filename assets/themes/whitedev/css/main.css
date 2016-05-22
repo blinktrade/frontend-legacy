@@ -304,10 +304,22 @@ body{
     padding: 25px 20px!important;
     border-top: 1px solid #F7F7F7;
 }
-.active, .active:hover {
-    background-color: #E8683E;
-    border-color: #B07200;
-    color:white;
+
+.ls-tabs-nav:not(.in-dropdown) li{
+  background-color: transparent!important;
+}
+.ls-tabs-nav:not(.in-dropdown) li a{
+  color: #555!important;
+}
+.ls-tabs-nav:not(.in-dropdown) li.active {
+    background-color: #E8683E!important;
+}
+.ls-tabs-nav:not(.in-dropdown) li.active a{
+    color: white!important;
+}
+.ls-tabs-container .ls-tab-content.active{
+  display: table;
+  width: 100%;
 }
 
 .menu-active {
@@ -363,7 +375,7 @@ ul.ls-footer-list li{
 }
 
 .ls-language nav ul a {
-    background: #222;
+    background: #eee;
     padding: 15px 20px!important;
     color:#888!important;
     text-align: center!important;
@@ -376,6 +388,13 @@ ul.ls-footer-list li{
     color: white!important;
     padding-left:25px!important;
 }
+
+.ls-user-account .ls-user-menu ul a{
+  background: #eee;
+  border-bottom: 1px solid #dedede;
+}
+
+
 footer{
     height:120px;
 }
@@ -594,6 +613,17 @@ label.control-label.withdraw-method-label {
 .flaticon-download164,
 .flaticon-upload119{
     cursor:pointer;
+}
+
+.twofactor_logo {
+  max-width: 70px;
+  padding-left: 5px;
+}
+
+.twofactor_store {
+  max-width: 150px;
+  margin-top: 5px;
+  padding-left: 5px;
 }
 
 /* Bitex Classes */

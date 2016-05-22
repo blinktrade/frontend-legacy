@@ -33,3 +33,23 @@
 </form>
 
 {/template}
+
+/**
+  * @param comments
+  */
+{template .WithdrawCommentDialogContent}
+<form class="modal-form form-horizontal">
+  {foreach $comment in $comments}
+    <p>{$comment}</p>
+  {/foreach}
+  <div class="form-group">
+    <label class="col-xs-4">{msg desc="Add Comment"}Add Comment:{/msg}</label>
+    <div class="col-xs-12">
+      <input class="withdraw-field form-control"
+        id="id_withdraw_comment"
+        name="withdraw-comment"
+        type="text" />
+    </div>
+  </div>
+</form>
+{/template}

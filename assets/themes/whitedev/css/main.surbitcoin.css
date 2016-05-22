@@ -17,8 +17,10 @@
 }
 
 .modal > .modal-footer > .btn-primary,
-.ls-theme-orange .ls-btn-primary, .active, .active:hover{
-    background-color: #281DB8;
+.ls-theme-orange .ls-btn-primary, 
+.ls-tabs-nav:not(.in-dropdown) li.active
+{
+    background-color: #281DB8!important;
     border-color: #281DB8!important;
     color:white!important;
 }

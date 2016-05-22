@@ -34,7 +34,7 @@
   * @param msg_customer_detail
   */
 {template .AccountOverviewUser}
-  <table class="table table-striped table-condensed account-overview-table" style="width: 350px">
+<table class="table table-striped table-condensed account-overview-table">
     <tbody>
       <tr>
         <td><strong>{msg desc="label on overview header"}ID{/msg}</strong></td>
@@ -84,7 +84,13 @@
             {/call}
          </td>
       </tr>
-
+      <tr>
+        <td><strong>{msg desc="Confirmation Order"}Should confirm new orders?{/msg}</strong></td>
+        <td>
+          <input type='checkbox' data-profile-change='ConfirmationOrder'
+          {if $msg_customer_detail['ConfirmationOrder'] == true}checked="true"{/if} />
+        </td>
+      </tr>
     </tbody>
   </table>
 {/template}

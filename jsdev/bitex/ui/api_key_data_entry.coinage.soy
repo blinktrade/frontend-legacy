@@ -16,9 +16,17 @@
 
         <h3>{msg desc="Permissions title on the API Key Data Entry form"}Permissions{/msg}</h3>
         <div class="api-key-data-entry-form-block page__section_white page__padding">
-          <div class="pull-right"><label class="no-selection">{msg desc="Permissions clear all button on the API Key Data Entry form"}Clear all{/msg}</label></div>
+          <div class="pull-right">
+            <a href="#" id="{$id}_clear_all">
+              <label class="no-selection">{msg desc="Permissions clear all button on the API Key Data Entry form"}Clear all{/msg}</label>
+            </a>
+          </div>
           <div class="pull-right api-key-data-entry-form-pipe">|</div>
-          <div class="pull-right"><label class="no-selection">{msg desc="Permissions select all button on the API Key Data Entry form"}Select all{/msg}</label></div>
+          <div class="pull-right">
+            <a href="#" id="{$id}_select_all">
+              <label class="no-selection">{msg desc="Permissions select all button on the API Key Data Entry form"}Select all{/msg}</label>
+            </a>
+          </div>
 
           <div id="{$id}_permissions_table">
               <h4>{msg desc="Your Account on the API Key Data Entry form permissions section"}Your Account{/msg}</h4>

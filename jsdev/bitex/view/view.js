@@ -51,6 +51,7 @@ bitex.view.View.EventType = {
   CONFIRM_WITHDRAW: 'confirm_withdraw',
   PROCESS_WITHDRAW: 'process_withdraw',
   USER_CANCEL_WITHDRAW: 'cancel_withdraw',
+  USER_COMMENT: 'comment_withdraw',
 
   DEPOSIT_REQUEST: 'request_deposit',
   PROCESS_DEPOSIT: 'process_deposit',

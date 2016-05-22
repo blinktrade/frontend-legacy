@@ -1,15 +1,31 @@
 {namespace bitex.ui.OrderBook.templates}
 
 /**
+  * @param? side
   * @param title
   * @param columns
   */
 {template .OrderBook}
 <div class="orders">
     <!-- .orders__head -->
-    <header class="orders__head orders__head_{$title}">
-        <h4 class="orders__title">{$title}</h4>
-
+    <header class="orders__head">
+      <div class="row">
+        <h4 class="orders__title col-xs-6 {if $side == '0'} orders__title_center{/if}">{$title}</h4>
+        {if $side == '1' }
+        <div class="orders__head-buttons btn-group">
+          <button
+            title='{msg desc="Cumulative Description"}Cumulative OrderBook{/msg}'
+            class="btn btn-default btn-show-cum-qty">
+            {call .ShowCumQty}{/call}
+          </button>
+          <button
+            title='{msg desc="Fees Description"}Fees OrderBook{/msg}'
+            class="btn btn-default btn-show-fees">
+            {call .ShowFees}{/call}
+          </button>
+        </div>
+        {/if}
+      </div>
     </header>
     <!-- /.orders__head -->
 
@@ -22,7 +38,7 @@
                 <thead>
                     <tr>
                         {foreach $column in $columns}
-                          <th>{$column}</th>
+                        <th>{$column}</th>
                         {/foreach}
                     </tr>
                 </thead>
@@ -36,6 +52,22 @@
     </div>
     <!-- /.orders__body -->
 </div>
+{/template}
+
+/**
+ */
+{template .ShowCumQty}
+  <div>
+    {msg desc="Cumulative"}Cumulative{/msg}
+  </div>
+{/template}
+
+/**
+ */
+{template .ShowFees}
+  <div>
+    {msg desc="Fees"}Fees{/msg}
+  </div>
 {/template}
 
 /**

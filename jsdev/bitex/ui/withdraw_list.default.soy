@@ -13,6 +13,7 @@
  * @param button1
  * @param button2
  * @param? button3
+ * @param? button4
  * @param dataRow
  * @param? userVerification
  */
@@ -48,6 +49,11 @@
         {param dataRow: $dataRow /}
       {/call}
     {/if}
+    {if $button1 == 'comment'}
+      {call .btnComment }
+        {param dataRow: $dataRow /}
+      {/call}
+    {/if}
 
 
     {if $button2 == 'kyc'}
@@ -77,6 +83,11 @@
     {/if}
     {if $button2 == 'redo'}
       {call .btnRedo }
+        {param dataRow: $dataRow /}
+      {/call}
+    {/if}
+    {if $button2 == 'comment'}
+      {call .btnComment }
         {param dataRow: $dataRow /}
       {/call}
     {/if}
@@ -112,6 +123,49 @@
         {param dataRow: $dataRow /}
       {/call}
     {/if}
+    {if $button3 == 'comment'}
+      {call .btnComment }
+        {param dataRow: $dataRow /}
+      {/call}
+    {/if}
+
+
+    {if $button4 == 'kyc'}
+      {call .btnKYC }
+        {param userVerification: $userVerification /}
+      {/call}
+    {/if}
+    {if $button4 == 'cancel'}
+      {call .btnCancel }
+        {param dataRow: $dataRow /}
+      {/call}
+    {/if}
+    {if $button4 == 'user_cancel'}
+      {call .btnUserCancel }
+        {param dataRow: $dataRow /}
+      {/call}
+    {/if}
+    {if $button4 == 'progress'}
+      {call .btnProgress }
+        {param dataRow: $dataRow /}
+      {/call}
+    {/if}
+    {if $button4 == 'complete'}
+      {call .btnComplete }
+        {param dataRow: $dataRow /}
+      {/call}
+    {/if}
+    {if $button4 == 'redo'}
+      {call .btnRedo }
+        {param dataRow: $dataRow /}
+      {/call}
+    {/if}
+    {if $button4 == 'comment'}
+      {call .btnComment }
+        {param dataRow: $dataRow /}
+      {/call}
+    {/if}
+
   </div>
 {/template}
 
@@ -159,6 +213,16 @@
 {template .btnKYC}
   <button class="btn btn-mini btn-warning btn-withdraw-kyc" data-row="{$userVerification}">
    {msg desc="KYC"}KYC{/msg}
+  </button>
+{/template}
+
+/**
+ * @param dataRow
+ */
+{template .btnComment}
+  <button class="btn btn-mini btn-warning btn-withdraw-comment" data-row="{$dataRow}">
+   {msg desc="Comments"}Comments{/msg}
+   <i class="icon-white icon-envelope"></i>
   </button>
 {/template}
 

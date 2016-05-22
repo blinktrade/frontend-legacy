@@ -253,8 +253,15 @@ bitex.ui.AdvancedOrderEntry.prototype.onChangePrice_ = function(e) {
     this.setTotal(total);
   } else {
     if (this.getPrice() > 0) {
-      var amount = this.getTotal() / this.getPrice() * 1e8;
-      this.setAmount(amount);
+      var amount = new bitex.primitives.Price(this.getTotal() / this.getPrice() * 1e8,
+                                              this.getModel().amount_currency_pip);
+      var calculated_total = (this.getPrice() * amount.floor()) / 1e8;
+      while (calculated_total > this.getTotal()) {
+        amount.pipDown();
+        calculated_total = (this.getPrice() * amount.floor()) / 1e8;
+      }
+
+      this.setAmount(amount.floor());
     }
   }
 

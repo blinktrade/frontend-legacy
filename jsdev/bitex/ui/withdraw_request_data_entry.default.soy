@@ -136,7 +136,9 @@
                   <div class="control-group">
                     <label class="control-label">{$field['label']}</label>
                     <div class="controls">
-                      <input class="withdraw-field"
+                        <input id="{$id}_{$field['name']}"
+                             class="withdraw-field"
+                             style="{if $field['name'] == 'Wallet'}width:80%;{/if}"
                              data-uniform-validators="{if $field['required']}required;{/if}{$field['validator']}"
                              type="{$field['type']}"
                              name="{$field['name']}"
@@ -147,6 +149,21 @@
                   </div>
                 {/if}
               {/foreach}
+              {if $currency == 'BTC' }
+                <div class="control-group">
+                    <label class="control-label" for="">
+                    </label>
+                    <div class="controls">
+                        <a id="{$id}_open_webcam" href="#">
+                            <i class="icon-qrcode"></i>
+                            <span> {msg desc="WebCam"} WebCam{/msg}</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div id="{$id}_webcam"></div>
+                </div>
+              {/if}
             </div>
           {/foreach}
         </div>

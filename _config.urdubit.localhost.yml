@@ -7,6 +7,13 @@ deploy_version: "HEAD"
 exchange: "urdubit"
 exchange_logo: "urdubit"
 
+custom_css: "darkgreen"
+
+twitter_widget_id: "717608571828060160"
+twitter_widget_name: "urdubit"
+twitter_widget_theme: "dark"
+twitter_widget_link_color: "#01411C"
+
 default_country_code: "PK"
 blinktrade_broker_id: 8 # 9 is the id for the demo backend. Don't change that if you don't understand what you doing.
 
@@ -40,9 +47,11 @@ remittance_box: "{
 symbol: "BTCPKR"
 
 languages: ["en_US", "es", "pt_BR", "ro", "zn_CN", "vi"]
+
+navbar: 'navbar-inverse'
 phrases: [phrase1, phrase2, phrase3]
 
-exclude:     [ "jsdev", "LICENSE", "README.md", "config.rb", "deploy.sh", "build_javascript.sh", "node_modules", "gulpfile.js" ]
+exclude:     [ "jsdev", "LICENSE", "README.md", "config.rb", "deploy.sh", "build_javascript.sh", "node_modules", "gulpfile.js", "themes/ander" ]
 source:      .
 destination: ./_site
 plugins:     ./_plugins
