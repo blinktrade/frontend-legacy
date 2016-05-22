@@ -1,0 +1,204 @@
+{namespace bitex.ui.WithdrawList.templates}
+
+/**
+  * @param label
+  * @param status
+  * @param? reason
+  */
+{template .labelStatus}
+  <span title="{$reason}" class="label label-{$label}">{$status}</span>
+{/template}
+
+/**
+ * @param button1
+ * @param button2
+ * @param? button3
+ * @param dataRow
+ * @param? userVerification
+ */
+{template .btnGroup}
+  <div class="btn-group">
+    {if $button1 == 'kyc'}
+      {call .btnKYC }
+        {param userVerification: $userVerification /}
+      {/call}
+    {/if}
+    {if $button1 == 'cancel'}
+      {call .btnCancel }
+        {param dataRow: $dataRow /}
+      {/call}
+    {/if}
+    {if $button1 == 'user_cancel'}
+      {call .btnUserCancel }
+        {param dataRow: $dataRow /}
+      {/call}
+    {/if}
+    {if $button1 == 'progress'}
+      {call .btnProgress }
+        {param dataRow: $dataRow /}
+      {/call}
+    {/if}
+    {if $button1 == 'complete'}
+      {call .btnComplete }
+        {param dataRow: $dataRow /}
+      {/call}
+    {/if}
+    {if $button1 == 'redo'}
+      {call .btnRedo }
+        {param dataRow: $dataRow /}
+      {/call}
+    {/if}
+
+
+    {if $button2 == 'kyc'}
+      {call .btnKYC }
+        {param userVerification: $userVerification /}
+      {/call}
+    {/if}
+    {if $button2 == 'cancel'}
+      {call .btnCancel }
+        {param dataRow: $dataRow /}
+      {/call}
+    {/if}
+    {if $button2 == 'user_cancel'}
+      {call .btnUserCancel }
+        {param dataRow: $dataRow /}
+      {/call}
+    {/if}
+    {if $button2 == 'progress'}
+      {call .btnProgress }
+        {param dataRow: $dataRow /}
+      {/call}
+    {/if}
+    {if $button2 == 'complete'}
+      {call .btnComplete }
+        {param dataRow: $dataRow /}
+      {/call}
+    {/if}
+    {if $button2 == 'redo'}
+      {call .btnRedo }
+        {param dataRow: $dataRow /}
+      {/call}
+    {/if}
+
+
+    {if $button3 == 'kyc'}
+      {call .btnKYC }
+        {param userVerification: $userVerification /}
+      {/call}
+    {/if}
+    {if $button3 == 'cancel'}
+      {call .btnCancel }
+        {param dataRow: $dataRow /}
+      {/call}
+    {/if}
+    {if $button3 == 'user_cancel'}
+      {call .btnUserCancel }
+        {param dataRow: $dataRow /}
+      {/call}
+    {/if}
+    {if $button3 == 'progress'}
+      {call .btnProgress }
+        {param dataRow: $dataRow /}
+      {/call}
+    {/if}
+    {if $button3 == 'complete'}
+      {call .btnComplete }
+        {param dataRow: $dataRow /}
+      {/call}
+    {/if}
+    {if $button3 == 'redo'}
+      {call .btnRedo }
+        {param dataRow: $dataRow /}
+      {/call}
+    {/if}
+  </div>
+{/template}
+
+/**
+ * @param dataRow
+ */
+{template .btnCancel}
+  <button class="btn btn-mini btn-danger btn-withdraw-cancel" data-row="{$dataRow}" >
+   {msg desc="Cancel"}Cancel{/msg}
+   <i class="icon-white icon-remove"></i>
+  </button>
+{/template}
+
+/**
+ * @param dataRow
+ */
+{template .btnUserCancel}
+  <button class="btn btn-mini btn-danger btn-withdraw-user-cancel" data-row="{$dataRow}" >
+   {msg desc="Cancel"}Cancel{/msg}
+   <i class="icon-white icon-remove"></i>
+  </button>
+{/template}
+
+/**
+ * @param dataRow
+ */
+{template .btnProgress}
+  <button class="btn btn-mini btn-primary btn-withdraw-progress" data-row="{$dataRow}" >
+   {msg desc="Withdraw progress button label in the  broker's withdraw list"}Set in progress{/msg}
+  </button>
+{/template}
+
+/**
+ * @param dataRow
+ */
+{template .btnComplete}
+  <button class="btn btn-mini btn-success btn-withdraw-complete" data-row="{$dataRow}" >
+   {msg desc="Withdraw progress button label in the  broker's withdraw list"}Set as complete{/msg}
+  </button>
+{/template}
+
+/**
+ * @param userVerification
+ */
+{template .btnKYC}
+  <button class="btn btn-mini btn-warning btn-withdraw-kyc" data-row="{$userVerification}">
+   {msg desc="KYC"}KYC{/msg}
+  </button>
+{/template}
+
+/**
+ * @param link
+ */
+{template .btnBlockchain}
+  <a class="btn btn-mini btn-info btn-btc-blockchain" href="{$link}" target="_blank">
+   {msg desc="blockchain"}blockchain{/msg}
+   <i class="icon-white icon-share-alt"></i>
+  </a>
+{/template}
+
+/**
+ * @param dataRow
+ */
+{template .btnQR}
+  <button class="btn btn-mini btn-info btn-withdraw-list-qr" data-action="SHOW_QR"
+   data-row="{$dataRow}">
+   {msg desc="qrcode"}qrcode{/msg}
+   <i class="icon-white icon-qrcode"></i>
+  </button>
+{/template}
+
+/**
+ * @param dataRow
+ */
+{template .btnRedo}
+  <button class="btn btn-mini btn-withdraw-redo" data-row="{$dataRow}">
+   {msg desc="Redo"}Redo{/msg}
+   <i class="icon-white icon-refresh"></i>
+  </button>
+{/template}
+
+/**
+ * @param link
+ */
+{template .btnBrokerReceipt}
+  <a class="btn btn-mini btn-primary btn-btc-blockchain" href="{$link}" target="_blank" >
+   {msg desc="view"}view{/msg}
+   <i class="icon-white icon-eye-open"></i>
+  </a>
+{/template}

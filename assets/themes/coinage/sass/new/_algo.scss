@@ -1,0 +1,61 @@
+.algo__label {
+    display: block;
+}
+
+.algo__body {
+    @include clearfix();
+
+    margin-bottom: 10px;
+
+    @media (min-width: $screen-desktop) {
+        width: 400px;
+    }
+}
+
+.algo__input {
+    border-radius: 4px 4px 0 0;
+    height: 33px;
+
+    @media (min-width: $screen-tablet) {
+        border-radius: 4px 0 0 4px;
+        float: left;
+        width: 70%;
+    }
+}
+
+.algo__btn {
+    border-radius: 0 0 4px 4px;
+    display: block;
+    width: 100%;
+
+    @media (min-width: $screen-tablet) {
+        border-radius: 0 4px 4px 0;
+        width: 30%;
+    }
+}
+
+.algo__btn-file {
+    position: relative;
+    overflow: hidden;
+    margin: 0px;
+
+    > input[type="file"] {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 0;
+        padding: 0;
+        font-size: 20px;
+        cursor: pointer;
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
+}
+
+.algo-selector {
+  margin-bottom: 20px;
+}
+
+.algo-runner {
+  margin-bottom: 20px;
+}

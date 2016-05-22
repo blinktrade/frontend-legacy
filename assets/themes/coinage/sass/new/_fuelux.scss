@@ -1,0 +1,84 @@
+.fuelux {
+  border-radius: 3px;
+  overflow: hidden;
+  padding-bottom: 2px;
+  border-top: 1px solid #ddd;
+
+  .table {
+    margin-bottom: -2px;
+    thead  {
+      background-color: #F1F6F9;
+      th {
+        border-bottom-width: 1px;
+      }
+    }
+    tbody {
+      background-color: #fff;
+    }
+
+    td {
+      border:none;
+      border-bottom: 1px solid #ddd;
+      vertical-align: middle;
+      .btn {
+        text-transform: uppercase;
+        .glyphicon{
+          margin-left: 5px;
+        }
+      }
+    }
+  }
+  .datagrid-header-title {
+    padding: 6px;
+
+    strong {
+      color: #292f33;
+      font-size: 15px;
+      font-weight: 600;
+    }
+  }
+
+  .table-bordered {
+    border: none;
+  }
+
+  .datagrid-stretch-wrapper {
+    height: 360px;
+    border-top: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    overflow: auto;
+  }
+
+  .datagrid-footer-left {
+    margin-top: 8px;
+  }
+
+  .grid-pager {
+    button {
+      margin-left: 5px;
+    }
+  }
+
+  .dropdown-menu {
+    top: auto;
+    left: auto;
+  }
+
+  .order-manager-new{
+    border-left: 6px solid #eee;
+  }
+
+  .order-manager-fill{
+    /* background: lighten($brand-success, 40%); */
+    border-left: 6px solid $brand-success;
+  }
+  .order-manager-partial{
+    border-left: 6px solid lighten($brand-success, 40%);
+  }
+
+  .order-manager-cancel{
+    /* background: lighten($brand-danger, 37%); */
+    border-left: 6px solid $brand-danger;
+  }
+}

@@ -160,15 +160,12 @@ bitex.ui.Customers = function( opt_domHelper) {
       'label': MSG_CUSTOMER_TABLE_COLUMN_ACTION,
       'sortable': true,
       'formatter': function(id, row_set_obj){
-        /**
-         * @desc Label for deposit button inside the customer table in broker view.
-         */
-        var MSG_CUSTOMER_TABLE_ACTION_DETAILS = goog.getMsg('details');
 
-        var data_row = goog.json.serialize( row_set_obj );
+        var data_row = goog.json.serialize(row_set_obj);
 
-        var classes = "btn btn-mini btn-primary btn-deposit";
-        return goog.dom.createDom( 'button', { 'class':classes, 'data-row': data_row}, MSG_CUSTOMER_TABLE_ACTION_DETAILS );
+        return goog.soy.renderAsElement(bitex.templates.CustomerDetailButton, {
+          dataRow: data_row
+        });
       },
       'classes': function() { return goog.getCssName(bitex.ui.Customers.CSS_CLASS, 'last-login'); }
     }
@@ -201,13 +198,13 @@ bitex.ui.Customers = function( opt_domHelper) {
     'searchPlaceholder': MSG_CUSTOMERS_TABLE_SEARCH_PLACEHOLDER,
     'wrapperHeight': 600,
     'buttonFilters': [
-      { 'label': MSG_CUSTOMERS_LIST_BUTTON_FILTER_ALL,          'value': 'all'},
-      { 'label': MSG_CUSTOMER_TABLE_COLUMN_VERIFIED_NO,         'value': 0 },
       { 'label': MSG_CUSTOMER_TABLE_COLUMN_VERIFIED_PENDING,    'value': 1 },
+      { 'label': MSG_CUSTOMER_TABLE_COLUMN_VERIFIED_NO,         'value': 0 },
       { 'label': MSG_CUSTOMER_TABLE_COLUMN_VERIFIED_PROGRESS,   'value': 2 },
       { 'label': MSG_CUSTOMER_TABLE_COLUMN_VERIFIED_YES_LI,     'value': 3 },
       { 'label': MSG_CUSTOMER_TABLE_COLUMN_VERIFIED_YES_LII,    'value': 4 },
-      { 'label': MSG_CUSTOMER_TABLE_COLUMN_VERIFIED_YES_LIII,   'value': 5 }
+      { 'label': MSG_CUSTOMER_TABLE_COLUMN_VERIFIED_YES_LIII,   'value': 5 },
+      { 'label': MSG_CUSTOMERS_LIST_BUTTON_FILTER_ALL,          'value': 'all'}
     ]
   };
   bitex.ui.DataGrid.call(this,  options , opt_domHelper);

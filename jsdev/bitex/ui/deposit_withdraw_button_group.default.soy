@@ -10,12 +10,18 @@
       <button class="btn btn-default btn-mini text-center" 
               data-currency="{$button['currency']}" 
               data-action="{$button['mode']}">
-              {if $button['mode'] == 'deposit'} 
-                <h2 class="icon-download-alt"> {$button['currencySign']}</h2><br>
-                {msg desc="Button caption label on deposit button in the deposit view"}Deposit {$button['currencyDescription']}{/msg}
+              {if $button['mode'] == 'deposit'}
+                <h4>
+                    {$button['currencySign']} 
+                    {msg desc="Button caption label on deposit button in the deposit view"} Deposit {$button['currencyDescription']} {/msg}
+                    <i class="icon-download-alt"></i>
+                </h4>
               {else}
-                <h2 class="icon-upload-alt"> {$button['currencySign']}</h2><br>
-                {msg desc="Button caption label on withdraw button in the withdraw view"}Withdraw {$button['currencyDescription']}{/msg}
+                <h4>
+                    {$button['currencySign']} 
+                    {msg desc="Button caption label on withdraw button in the withdraw view"} Withdraw {$button['currencyDescription']} {/msg}
+                    <i class="icon-upload-alt"></i>
+                </h4>
               {/if}
       </button>&nbsp;
     {/foreach}

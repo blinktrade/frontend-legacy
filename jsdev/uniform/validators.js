@@ -30,7 +30,7 @@ uniform.Validators = function() {
   this.metaMap_.set('validatePhrase'     ,this.validatePhrase_);
   this.metaMap_.set('validatePhoneNumber',this.validatePhoneNumber_);
   this.metaMap_.set('validateUsername'   ,this.validateUsername_);
-
+  this.metaMap_.set('validateCPFCNPJ'    ,this.validateCPFCNPJ_);
 };
 goog.addSingletonGetter(uniform.Validators);
 
@@ -297,6 +297,28 @@ uniform.Validators.prototype.validateInteger_ = function(el, condition, params, 
     throw MSG_ERROR_VALIDATE_INTEGER;
   }
 };
+
+/**
+ * Number is only valid integer
+ * @param {Element} el
+ * @param {string} condition
+ * @param {string} params
+ * @param {string} caption
+ */
+uniform.Validators.prototype.validateCPFCNPJ_ = function(el, condition, params, caption){
+  if (condition && !eval(condition)) {
+    return;
+  }
+
+  var elValue = goog.dom.forms.getValue(el);
+  if (!goog.string.isNumeric(elValue)) {
+    /** @desc Error validate integer*/
+    var MSG_ERROR_VALIDATE_CPF_CNPJ =
+        goog.getMsg('{$c} needs to be a valid CPF or CNPJ', {c:caption});
+    throw MSG_ERROR_VALIDATE_CPF_CNPJ;
+  }
+};
+
 
 /**
  * Letters only

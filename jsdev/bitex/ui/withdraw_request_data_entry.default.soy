@@ -1,0 +1,173 @@
+{namespace bitex.ui.WithdrawRequestDataEntry.templates}
+
+/**
+  * @param id
+  * @param currency
+  * @param currencySign
+  * @param methods
+  * @param verificationLevel
+  * @param netAmountLabel
+  */
+{template .WithdrawRequestDataEntry}
+  <form id="{$id}_form" class="form-horizontal" data-deposit-status="prepare" data-uniform-control-holder-class="control-group">
+    <fieldset>
+      <input id="{$id}_currency" type="hidden" name="Currency" value="{$currency}">
+
+      <div class="error"></div>
+
+      <div class="alert alert-warning text-left bitex-model"
+           data-model-action="show_element"
+           data-model-key-list="HasAnyPosition"
+           data-model-formula="HasAnyPosition"
+           style="display:none;">
+      {msg desc="Warning message when the user has unconfirmed deposits."}
+        You can't withdraw funds from the exchange while you have unconfirmed deposits.
+      {/msg}
+      </div>
+
+      {if length($methods) == 0 }
+        {if $verificationLevel <= 2}
+          <div class="alert alert-warning text-left">
+            {msg desc="Error message when the user is not yet verified."}
+              Due to anti-money laundry international laws and government regulations,
+              deposits/withdrawals in the local currency are only available to verified customers.<br/>
+              We are very sorry for the inconvenience.
+            {/msg}
+          </div>
+          {if $verificationLevel == 0}
+            <a href="" data-switch-view="verification">{msg desc="get verified message"} Verify your account {/msg}</a>
+          {/if}
+        {else}
+          <div class="alert alert-danger text-center">
+            {msg desc="Error message when the brokers doesn't have deposit methods"}We are not accepting deposits at this moment. We sorry for the inconvenience.{/msg}
+          </div>
+        {/if}
+     {else}
+        {if length($methods) == 1}
+          {foreach $method in $methods }
+            <input id="{$id}_method"
+                   type="hidden"
+                   name="Method"
+                   value="{$method['method']}"
+                   data-net-value="{$id}_method_{$method['method']}_net_value"
+                   data-percent-fee="{$id}_method_{$method['method']}_percent_fee"
+                   data-fixed-fee="{$id}_method_{$method['method']}_fixed_fee">
+          {/foreach}
+        {else}
+          <div class="control-group">
+            <label class="control-label">{msg desc="method"}Method{/msg}</label>
+            <div class="controls">
+              <select id="{$id}_method" name="Method" class="withdraw-method-selector">
+                {foreach $method in $methods }
+                 <option value="{$method['method']}"
+                      data-net-value="{$id}_method_{$method['method']}_net_value"
+                      data-percent-fee="{$id}_method_{$method['method']}_percent_fee"
+                      data-fixed-fee="{$id}_method_{$method['method']}_fixed_fee">{$method['description']}</option>
+                {/foreach}
+              </select>
+            </div>
+          </div>
+        {/if}
+
+        <div class="withdraw-methods">
+          {foreach $method in $methods }
+            <div class="withdraw-method"
+                 data-withdraw-method="{$method['method']}"
+                 style="{if length($methods) > 1}display:none;{/if}">
+
+              <div class="control-group">
+                <label class="control-label">{msg desc="amount"}Amount{/msg}</label>
+                <div class="controls">
+                  <div class="input-prepend">
+                    <span class="add-on">{$currencySign}</span>
+                    <input id="{$id}_method_{$method['method']}_amount"
+                        data-uniform-validators="required; validateNumber {if $method['limits'][$verificationLevel]['enabled']} {if $method['limits'][$verificationLevel]['min']}; validateMin {$method['limits'][$verificationLevel]['formatted_min_value'] }{/if}{if $method['limits'][$verificationLevel]['max']}; validateMax {$method['limits'][$verificationLevel]['formatted_max_value'] } {/if} {/if}"
+                        data-uniform-type="number"
+                        data-uniform-filters="positive_number"
+                        value=""
+                        type="text"
+                        class="withdraw-field input-small"
+                        size="16"
+                        name="Amount" {if not isFirst($method)}disabled{/if}>
+                  </div>
+                  {if $method['limits'][$verificationLevel]['enabled']}
+                    <div>
+                      <em>
+                        <small>
+                          {if $method['limits'][$verificationLevel]['max']}
+                            {msg desc="amount help block"} Maximum: {$method['limits'][$verificationLevel]['formatted_max'] }{/msg}
+                            <br>
+                          {/if}
+                          {if $method['limits'][$verificationLevel]['min']}
+                            {msg desc="amount help block"} Minimum: {$method['limits'][$verificationLevel]['formatted_min'] } per transaction.  {/msg}
+                          {/if}
+                        </small>
+                      </em>
+                    </div>
+                  {/if}
+                </div>
+              </div>
+
+
+              <div class="control-group" style="margin-bottom: 5px;">
+                <div class="controls">
+                  <label>{$method['disclaimer']}</label>
+                  <input id="{$id}_method_{$method['method']}_percent_fee" type="hidden" value="{$method['percent_fee']}">
+                  <input id="{$id}_method_{$method['method']}_fixed_fee" type="hidden" value="{$method['fixed_fee']}">
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label">{msg desc="Fee percentage label"}Fees:{/msg}</label>
+                <div class="controls">
+                  <label id="{$id}_method_{$method['method']}_fees" class="control-label" style="text-align: left;"></label>
+                </div>
+              </div>
+
+              <div class="control-group">
+                <label class="control-label net-amount">{$netAmountLabel}:</label>
+                <div class="controls">
+                  <label id="{$id}_method_{$method['method']}_net_value" class="control-label net-amount" style="text-align: left;"></label>
+                  <input id="{$id}_method_{$method['method']}_net_value_value" type="hidden" value="">
+                </div>
+              </div>
+
+              {foreach $field in $method['fields'] }
+                {if $field['side'] == 'client'}
+                  <div class="control-group">
+                    <label class="control-label">{$field['label']}</label>
+                    <div class="controls">
+                        <input id="{$id}_{$field['name']}"
+                             class="withdraw-field"
+                             style="{if $field['name'] == 'Wallet'}width:80%;{/if}"
+                             data-uniform-validators="{if $field['required']}required;{/if}{$field['validator']}"
+                             type="{$field['type']}"
+                             name="{$field['name']}"
+                             label="{$field['placeholder']}"
+                             value="{$field['value']}"
+                             {if not isFirst($method)}disabled{/if} />
+                    </div>
+                  </div>
+                {/if}
+              {/foreach}
+              {if $currency == 'BTC' }
+                <div class="control-group">
+                    <label class="control-label" for="">
+                    </label>
+                    <div class="controls">
+                        <a id="{$id}_open_webcam" href="#">
+                            <i class="icon-qrcode"></i>
+                            <span> {msg desc="WebCam"} WebCam{/msg}</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div id="{$id}_webcam"></div>
+                </div>
+              {/if}
+            </div>
+          {/foreach}
+        </div>
+      {/if}
+    </fieldset>
+  </form>
+{/template}

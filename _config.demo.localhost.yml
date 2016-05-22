@@ -1,0 +1,71 @@
+# Site settings
+url: "//localhost"
+author: "BlinkTrade"
+baseurl: ""
+deploy_version: "HEAD"
+
+exchange: "demo"
+exchange_logo: "demo"
+
+custom_css: "coinage"
+
+twitter_widget_id: "717629137503043584"
+twitter_widget_name: "foxbitstatus"
+twitter_widget_theme: "dark"
+twitter_widget_link_color: "#E8683E"
+
+default_country_code: "US"
+blinktrade_broker_id: 5  # 5 is the id for the demo backend. Don't change that if you don't understand what you doing.
+
+blinktrade_backend_api: "localhost"
+google_analytics_id: "UA-53856711-1"
+zopim_key: "2SSNIzvxy8fBypKoZJ0pI43tUoNCv8os"
+
+embedded_chat_id : 4296  # embedded-chat.com
+
+trading_view: 'FOXBIT:BTCBRL'
+
+# Build settings
+markdown: kramdown
+
+remittance_box: "{
+    'BRL':[ ['BitFinexUSD',        'USD', 'BITFINEX_BTCUSD_BEST_BID / 100000000', 'BITFINEX_BTCUSD_BEST_ASK / 100000000'  ],
+            ['USD -> BTC -> BRL',  'BRL', 'BLINK_BTCBRL_BEST_BID /  BITFINEX_BTCUSD_BEST_ASK', 'BLINK_BTCBRL_BEST_ASK /  BITFINEX_BTCUSD_BEST_BID'  ],
+            ['BRL -> BTC -> VEF',  'VEF', 'BLINK_BTCVEF_BEST_BID /  BLINK_BTCBRL_BEST_ASK',    'BLINK_BTCVEF_BEST_ASK /  BLINK_BTCBRL_BEST_BID' ],
+            ['BRL -> BTC -> CLP',  'CLP', 'BLINK_BTCCLP_BEST_BID /  BLINK_BTCBRL_BEST_ASK', 'BLINK_BTCCLP_BEST_ASK /  BLINK_BTCBRL_BEST_BID'  ] ],
+    'USD':[ ['BitFinexUSD',        'USD', 'BITFINEX_BTCUSD_BEST_BID / 100000000', 'BITFINEX_BTCUSD_BEST_ASK / 100000000'  ],
+            ['BitStampUSD',        'USD', 'BITSTAMP_BTCUSD_BEST_BID / 100000000', 'BITSTAMP_BTCUSD_BEST_ASK / 100000000'  ] ],
+    'VEF':[ ['BitFinexUSD',        'USD', 'BITFINEX_BTCUSD_BEST_BID / 100000000', 'BITFINEX_BTCUSD_BEST_ASK / 100000000'  ],
+            ['USD -> BTC -> VEF',  'VEF', 'BLINK_BTCVEF_BEST_BID /  BITFINEX_BTCUSD_BEST_ASK', 'BLINK_BTCVEF_BEST_ASK /  BITFINEX_BTCUSD_BEST_BID' ] ,
+            ['BRL -> BTC -> VEF',  'VEF', 'BLINK_BTCVEF_BEST_BID /  BLINK_BTCBRL_BEST_ASK',    'BLINK_BTCVEF_BEST_ASK /  BLINK_BTCBRL_BEST_BID' ],
+            ['VEF -> BTC -> CLP',  'CLP', 'BLINK_BTCCLP_BEST_BID /  BLINK_BTCVEF_BEST_ASK',    'BLINK_BTCCLP_BEST_ASK /  BLINK_BTCVEF_BEST_BID' ] ],
+    'CLP':[ ['BitFinexUSD',        'USD', 'BITFINEX_BTCUSD_BEST_BID / 100000000', 'BITFINEX_BTCUSD_BEST_ASK / 100000000'  ],
+            ['USD -> BTC -> CLP',  'CLP', 'BLINK_BTCCLP_BEST_BID /  BITFINEX_BTCUSD_BEST_ASK', 'BLINK_BTCCLP_BEST_ASK /  BITFINEX_BTCUSD_BEST_BID' ] ,
+            ['BRL -> BTC -> CLP',  'CLP', 'BLINK_BTCCLP_BEST_BID /  BLINK_BTCBRL_BEST_ASK',    'BLINK_BTCCLP_BEST_ASK /  BLINK_BTCBRL_BEST_BID' ] ,
+            ['VEF -> BTC -> CLP',  'CLP', 'BLINK_BTCCLP_BEST_BID /  BLINK_BTCVEF_BEST_ASK',    'BLINK_BTCCLP_BEST_ASK /  BLINK_BTCVEF_BEST_BID' ] ],
+    'PKR':[ ['BitFinexUSD',        'USD', 'BITFINEX_BTCUSD_BEST_BID / 100000000', 'BITFINEX_BTCUSD_BEST_ASK / 100000000'  ],
+            ['USD -> BTC -> PKR',  'PKR', 'BLINK_BTCPKR_BEST_BID /  BITFINEX_BTCUSD_BEST_ASK', 'BLINK_BTCPKR_BEST_ASK /  BITFINEX_BTCPKR_BEST_BID' ] ]
+    }"
+
+symbol: "BTCUSD"
+
+phrases: [phrase1, phrase2, phrase3]
+languages: ["en_US", "es", "pt_BR", "ro", "zn_CN", "vi"]
+
+exclude:     [ "jsdev", "LICENSE", "README.md", "config.rb", "deploy.sh", "build_javascript.sh", "node_modules", "gulpfile.js", "themes/ander" ]
+source:      .
+destination: ./_site
+plugins:     ./_plugins
+paginate:    5
+paginate_path: "post/page:num"
+permalink:     /post/:title/
+blog: http://www.foxbit.com.br/blog/
+chart: http://www.foxbit.com.br/grafico/
+facebook: https://www.facebook.com/foxbitcoin
+twitter: https://twitter.com/foxbitcoin
+gplus: https://plus.google.com/+FoxbitBrasil/posts
+youtube: https://www.youtube.com/playlist?list=PL6c8tfdY-CX_VTwU1B9XbzWtIQjY__vrW
+
+sass:
+  sass_dir: assets/themes/coinage/sass
+  style: :compressed

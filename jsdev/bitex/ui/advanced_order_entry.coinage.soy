@@ -14,7 +14,7 @@
   * @param price_currency_code
   */
 {template .AdvancedOrderEntry}
-<form id="{$id}" class="order__cell order-entry" data-uniform-control-holder-class="uniform-control-holder">
+<form id="{$id}" style="{if $side==1}border-right: 1px solid rgba(41,47,51,0.1);{/if}" class="col-md-6 col-xs-12" data-uniform-control-holder-class="uniform-control-holder">
     <input id="{$id}_symbol" type="hidden" name="symbol" value="{$symbol}">
     <input id="{$id}_side" type="hidden" name="side" value="{$side}">
     <input id="{$id}_type" type="hidden" name="type" value="{$type}">
@@ -25,7 +25,7 @@
     <div class="order-form">
         <!-- .order-form__head -->
         <header class="order-form__head">
-            <h4 class="order-form__title">
+          <h4 class="order-form__title order-form__{if $side==1}buy{else}sell{/if}">
                 <i class="glyphicon glyphicon-shopping-cart"></i> {if $side == 1}{msg desc="Buy button in Order Entry"}Buy{/msg}{else}{msg desc="Sell button in Order Entry"}Sell{/msg}{/if} BTC
             </h4>
 
@@ -93,12 +93,7 @@
                 </div>
             </div>
             <!-- /.form-group -->
-        </div>
-        <!-- /.order-form__mid -->
-
-        <!-- .order-form__bot -->
-        <footer class="order-form__bot">
-            <div class="order-form__total uniform-control-holder" style="padding-right: 10px; width: 60%;">
+            <div class="form-group uniform-control-holder">
                 <label for="{$id}_total" class="order-form__label order-entry-label">{msg desc="Total label in Order Entry"}Total:{/msg}</label>
                 <div class="input-group">
                     <input id="{$id}_total"
@@ -115,34 +110,35 @@
                 </div>
             </div>
 
-            <div class="order-form__action" style="padding-left: 10px; width: 40%;">
-                <input id="{$id}_client_id"
-                       name="client_id"
-                       type="text"
-                       value="{if $client_id}{$client_id}{/if}"
-                       class="form-control"
-                       label="{msg desc="Client ID label in Order Entry"}Client ID{/msg}"
-                       data-uniform-label="{msg desc="Advanced Order Entry Label"}Client ID{/msg}"
-                       {if $is_broker}
-                         data-uniform-validators="required"
-                       {else}
-                         style="display:none"
-                         disabled
-                       {/if}
-                />
+        </div>
+        <footer class="form-group uniform-control-holder">
+              <input id="{$id}_client_id"
+                      name="client_id"
+                      type="text"
+                      value="{if $client_id}{$client_id}{/if}"
+                      class="form-control"
+                      label="{msg desc="Client ID label in Order Entry"}Client ID{/msg}"
+                      data-uniform-label="{msg desc="Advanced Order Entry Label"}Client ID{/msg}"
+                      {if $is_broker}
+                        data-uniform-validators="required"
+                      {else}
+                        style="display:none"
+                        disabled
+                      {/if}
+              />
 
-                <button id="{$id}_action" type="submit" class="btn btn-lg {if $side == 1}btn-success{else}btn-danger{/if} btn-execution" style="display: block; width: 100%;">
-                  {if $side == 1}
-                    {msg desc="Buy button in Order Entry"}BUY{/msg}
-                  {else}
-                    {msg desc="Sell button in Order Entry"}SELL{/msg}
-                  {/if}
-                </button>
-            </div>
-        </footer>
+              <button id="{$id}_action" type="submit" class="btn btn-lg {if $side == 1}btn-success{else}btn-danger{/if} btn-execution" style="display: block; width: 100%;">
+                {if $side == 1}
+                  {msg desc="Buy button in Order Entry"}BUY{/msg}
+                {else}
+                  {msg desc="Sell button in Order Entry"}SELL{/msg}
+                {/if}
+              </button>
+          </div>
         <!-- /.order-form__bot -->
     </div>
     <!-- /.order-form -->
 </form>
 {/template}
+
 
