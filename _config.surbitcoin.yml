@@ -1,7 +1,5 @@
 # Site settings
-url: "//localhost:4000"   # activate this to test on your localhost
-# url: "https://surbitcoin.com"
-#url: "https://surbitcoin.github.io"
+url: "https://surbitcoin.com"
 author: "BlinkTrade"
 baseurl: ""
 deploy_version: "HEAD"
@@ -13,11 +11,9 @@ exchange_toolbar_logo: "surbitcoin_inverse"
 custom_css: "lightred"
 
 default_country_code: "VE"
-blinktrade_broker_id: 4 # 9 is the id for the demo backend. Don't change that if you don't understand what you doing.
+blinktrade_broker_id: 1
 
-# blinktrade_backend_api: "api.blinktrade.com"
-blinktrade_backend_api: "api.testnet.blinktrade.com"
-#blinktrade_backend_api: "localhost"
+blinktrade_backend_api: "api.blinktrade.com"
 google_analytics_id: "UA-56611120-1"
 zopim_key: "2YMGhOCdrfa6wpaXqhPAMYewR4gUC2Ee"
 
@@ -32,10 +28,7 @@ remittance_box: "{
             ['BRL -> BTC -> CLP',  'CLP', 'BLINK_BTCCLP_BEST_BID /  BLINK_BTCBRL_BEST_ASK', 'BLINK_BTCCLP_BEST_ASK /  BLINK_BTCBRL_BEST_BID'  ] ],
     'USD':[ ['BitFinexUSD',        'USD', 'BITFINEX_BTCUSD_BEST_BID / 100000000', 'BITFINEX_BTCUSD_BEST_ASK / 100000000'  ],
             ['BitStampUSD',        'USD', 'BITSTAMP_BTCUSD_BEST_BID / 100000000', 'BITSTAMP_BTCUSD_BEST_ASK / 100000000'  ] ],
-    'VEF':[ ['BitFinexUSD',        'USD', 'BITFINEX_BTCUSD_BEST_BID / 100000000', 'BITFINEX_BTCUSD_BEST_ASK / 100000000'  ],
-            ['USD -> BTC -> VEF',  'VEF', 'BLINK_BTCVEF_BEST_BID /  BITFINEX_BTCUSD_BEST_ASK', 'BLINK_BTCVEF_BEST_ASK /  BITFINEX_BTCUSD_BEST_BID' ] ,
-            ['BRL -> BTC -> VEF',  'VEF', 'BLINK_BTCVEF_BEST_BID /  BLINK_BTCBRL_BEST_ASK',    'BLINK_BTCVEF_BEST_ASK /  BLINK_BTCBRL_BEST_BID' ],
-            ['VEF -> BTC -> CLP',  'CLP', 'BLINK_BTCCLP_BEST_BID /  BLINK_BTCVEF_BEST_ASK',    'BLINK_BTCCLP_BEST_ASK /  BLINK_BTCVEF_BEST_BID' ] ],
+    'VEF':[ ['SurBitcoin',         'VEF', 'BLINK_BTCVEF_BEST_BID / 100000000', 'BLINK_BTCVEF_BEST_ASK / 100000000'  ]  ],
     'CLP':[ ['BitFinexUSD',        'USD', 'BITFINEX_BTCUSD_BEST_BID / 100000000', 'BITFINEX_BTCUSD_BEST_ASK / 100000000'  ],
             ['USD -> BTC -> CLP',  'CLP', 'BLINK_BTCCLP_BEST_BID /  BITFINEX_BTCUSD_BEST_ASK', 'BLINK_BTCCLP_BEST_ASK /  BITFINEX_BTCUSD_BEST_BID' ] ,
             ['BRL -> BTC -> CLP',  'CLP', 'BLINK_BTCCLP_BEST_BID /  BLINK_BTCBRL_BEST_ASK',    'BLINK_BTCCLP_BEST_ASK /  BLINK_BTCBRL_BEST_BID' ] ,
