@@ -5,11 +5,11 @@
   * @param title
   */
 {template .Dialog}
-<div id="{$id}" class="modal in" role="dialog">
-  <div class="modal-dialog">
+<div id="{$id}" class="modal fade" role="dialog" tabindex="-1">
+  <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <a class="close" href="javascript:;">×</a>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" >{$title}</h4>
       </div>
       <div class="modal-body"></div>

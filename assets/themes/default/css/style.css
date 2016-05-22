@@ -36,11 +36,30 @@ body {
 .section-title {
 }
 
+.title-float {
+  float: left;
+}
+
+.content-padding {
+  padding-top: 10px;
+}
+
 /* Give a quick and non-cross-browser friendly divider */
 .sidebar {
   margin-left: 0;
   padding-left: 19px;
   border-left: 1px solid #eee;
+}
+
+.sidebar .nav-list {
+  padding-left: 0px;
+}
+
+.nav-tabs{
+  outline:none;
+}
+.nav-tabs>li>a{
+  font-size: 14px;
 }
 
 .footer {
@@ -159,30 +178,6 @@ body {
   padding: 7px 9px;
 }
 
-
-/* Execution report status */
-.order-manager-pending {
-  background-color: #00ffff;
-}
-
-.order-manager-new {
-}
-
-.order-manager-partial {
-  background-color: #e0ffff;
-}
-
-.order-manager-fill,
-.order-manager-fill-cancel {
-  background-color: #03DDDD;
-}
-
-.order-manager-cancel,
-.order-manager-rejected {
-  background-color: #f08080;
-}
-
-
 input.parsley-success, textarea.parsley-success {
   color: #468847 !important;
   background-color: #DFF0D8 !important;
@@ -217,6 +212,7 @@ ul.parsley-error-list li {
 
 .last-trades-row td {
   line-height: 2px;
+  white-space: nowrap;
 }
 
 .order-book-drag td {
@@ -229,6 +225,7 @@ ul.parsley-error-list li {
 }
 .order-book-row td {
   line-height: 2px;
+  white-space: nowrap;
 }
 .order-book-qty,
 .order-book-price {
@@ -563,11 +560,11 @@ keyframes notification {
 
 
 .ledger-activity-credit {
-  background-color: lightcyan
+  border-left: 5px solid #d6e9c6;
 }
 
 .ledger-activity-debit {
-  background-color: lightpink;
+  border-left: 5px solid lightpink;
 }
 
 .account-summary-broker {
@@ -616,5 +613,26 @@ keyframes notification {
 .net-amount {
   font-weight: bold;
   color: #b94a48;
+}
+
+
+.twofactor_steps h2 {
+  display: inline-block;
+  vertical-align: sub;
+}
+
+.twofactor_steps span {
+  margin-left: 10px;
+}
+
+.twofactor_logo{
+  max-width: 70px;
+  padding-left: 5px;
+}
+
+.twofactor_store{
+  max-width: 150px;
+  margin-top: 5px;
+  padding-left: 5px;
 }
 

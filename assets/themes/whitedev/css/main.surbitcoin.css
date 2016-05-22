@@ -8,13 +8,19 @@
 .ls-menu{
     background:none;
 }
+
+.ls-user-account .ls-user-menu ul a {
+    border-bottom: 1px solid #ddd!important;
+}
 .ls-user-account .ls-user-menu-header, .ls-language nav ul a{
     background:#eee!important;
 }
 
 .modal > .modal-footer > .btn-primary,
-.ls-theme-orange .ls-btn-primary, .active, .active:hover{
-    background-color: #281DB8;
+.ls-theme-orange .ls-btn-primary, 
+.ls-tabs-nav:not(.in-dropdown) li.active
+{
+    background-color: #281DB8!important;
     border-color: #281DB8!important;
     color:white!important;
 }
@@ -61,10 +67,20 @@ textarea{
     background-color:#CD1931!important;
 }
 .ls-btn-danger, .ls-theme-orange .ls-table tbody a:not([class*="ls-btn"]){
-    color:#CD1931!important;
+    /* color:#CD1931!important; */
 }
 .ls-btn-danger:hover, .ls-topbar .ls-ico-menu:before, .ls-topbar .ls-show-notifications:before{
     color:white!important;
+}
+.fuelux a{
+    color: #CD1931!important;
+}
+.fuelux .btn{
+    border: 2px solid #CD1931!important;
+}
+.fuelux .btn-info, .fuelux .dropdown-menu > li > a:hover{
+    color: white!important;
+    background: #CD1931!important;
 }
 
 .md-blink,

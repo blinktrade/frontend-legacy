@@ -188,12 +188,21 @@ bitex.view.AlgorithmTradingView.prototype.onAlgoSelectorSelected_ = function(e) 
   var algoRunner = new bitex.ui.AlgorithmRunner();
   var model = this.getApplication().getModel();
 
+  var algorithmDefinition = e.target.getAlgoDefinition();
+  var tickers = [model.get('SelectedSymbol').symbol];
+
+  if (goog.isDefAndNotNull(algorithmDefinition['tickers']) && goog.isArrayLike(algorithmDefinition['tickers'])) {
+    tickers = algorithmDefinition['tickers'];
+    tickers.push(model.get('SelectedSymbol').symbol);
+  }
+
   var instance_id = bitex.util.generateGUID();
   algoRunner.setModel({
     instanceID: instance_id,
     algorithmDefinition: e.target.getAlgoDefinition(),
     algo: e.target.getAlgo(),
     symbol: model.get('SelectedSymbol'),
+    tickers: tickers,
     status: '0'
   });
   this.algo_runner_container_.addChild(algoRunner, true);
@@ -242,6 +251,7 @@ bitex.view.AlgorithmTradingView.prototype.onAlgoParams_ = function(e) {
     model.set( algo_instance_id + '_params', runner_object.getModel().params );
     model.set( algo_instance_id + '_algo', runner_object.getModel().algo );
     model.set( algo_instance_id + '_symbol', runner_object.getModel().symbol );
+    model.set( algo_instance_id + '_tickers', runner_object.getModel().tickers );
     model.set( algo_instance_id + '_definition', runner_object.getModel().algorithmDefinition );
 
     handler.listen( model,  bitex.model.Model.EventType.SET + algo_instance_id + '_status',

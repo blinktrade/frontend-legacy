@@ -163,7 +163,7 @@ bitex.view.APIView.prototype.recreateComponents_ = function() {
                  this.onApiListRequestData_);
 
   handler.listen(this.getApplication().getBitexConnection(),
-               bitex.api.BitEx.EventType.API_KEY_LIST_RESPONSE, this.onTradeRankResponse_);
+               bitex.api.BitEx.EventType.API_KEY_LIST_RESPONSE, this.onApiKeyListResponse_);
 
   this.addChild(this.api_list_, true);
 
@@ -180,7 +180,7 @@ bitex.view.APIView.prototype.destroyComponents_ = function( ) {
                        this.onApiListRequestData_);
 
       handler.unlisten(this.getApplication().getBitexConnection(),
-                       bitex.api.BitEx.EventType.API_KEY_LIST_RESPONSE, this.onTradeRankResponse_);
+                       bitex.api.BitEx.EventType.API_KEY_LIST_RESPONSE, this.onApiKeyResponse_);
     }
 
     this.removeChildren(true);
@@ -197,7 +197,7 @@ bitex.view.APIView.prototype.onApiListRequestData_ = function(e) {
 /**
  * @param {goog.events.Event} e
  */
-bitex.view.APIView.prototype.onTradeRankResponse_ = function(e) {
+bitex.view.APIView.prototype.onApiKeyListResponse_ = function(e) {
   if (!goog.isDefAndNotNull(this.api_list_) ) {
     return
   }

@@ -22,6 +22,7 @@ SOY_TEMPLATES="
                ui/bitex_datagrid
                ui/bitex_listview
                ui/order_book
+               ui/order_manager
                ui/simple_chart
                ui/withdraw_methods
                ui/withdraw_method_editor
@@ -35,9 +36,17 @@ SOY_TEMPLATES="
                ui/remittance_box
                ui/api_key_data_entry
                ui/dialog
+               ui/withdraw_request_data_entry
+               ui/deposit_list
+               ui/line_of_credit_table
                view/line_of_credit
+               ui/card_data_entry
+               ui/withdraw_list
+               ui/two_factor
+               ui/webcam_qr
                view/profile
                view/side_bar
+               view/withdraw
 "
 
 for template in $SOY_TEMPLATES ; do 
@@ -79,6 +88,7 @@ python ./closure-library/closure/bin/build/closurebuilder.py  \
   --compiler_flags="--externs=./externs/socket.io.js" \
   --compiler_flags="--externs=./externs/w3c_rtc.js" \
   --compiler_flags="--externs=./externs/facebook_javascript_sdk.js" \
+  --compiler_flags="--externs=./externs/qrcode.js" \
   --compiler_flags="--translations_file=./translations/$LANG.xtb.xml" \
    > ../assets/js/bitex_app_blink_trade.compiled.$LANG.$THEME.js
 

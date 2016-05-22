@@ -105,6 +105,11 @@ bitex.ui.LedgerActivity = function(button_filters, pseudoNameFunction, opt_broke
         var MSG_LEDGER_DEPOSIT_FEE_DESCRIPTION = goog.getMsg('Fee on deposit');
 
         /**
+         * @desc Ledger deposit fee description
+         */
+        var MSG_LEDGER_DEPOSIT_FEE_REFERRAL_DESCRIPTION = goog.getMsg('Deposit fee referral');
+
+        /**
          * @desc Ledger withdraw fee description
          */
         var MSG_LEDGER_WITHDRAW_FEE_DESCRIPTION = goog.getMsg('Fee on withdraw');
@@ -113,6 +118,17 @@ bitex.ui.LedgerActivity = function(button_filters, pseudoNameFunction, opt_broke
          * @desc Ledger withdraw fee discount description
          */
         var MSG_LEDGER_WITHDRAW_FEE_DISCOUNT_DESCRIPTION = goog.getMsg('Discount on the withdrawal fee');
+
+        /**
+         * @desc Ledger withdraw fee reversal description
+         */
+        var MSG_LEDGER_WITHDRAW_FEE_REVERSAL_DESCRIPTION = goog.getMsg('Revert withdrawal fee');
+
+
+        /**
+         * @desc Ledger withdraw fee reversal description
+         */
+        var MSG_LEDGER_WITHDRAW_FEE_REFERRAL_DESCRIPTION = goog.getMsg('Withdrawal fee referral');
 
         /**
          * @desc Ledger trade  description
@@ -134,6 +150,17 @@ bitex.ui.LedgerActivity = function(button_filters, pseudoNameFunction, opt_broke
          */
         var MSG_LEDGER_TRADE_BONUS_DESCRIPTION = goog.getMsg('Bonus');
 
+        /**
+         * @desc Ledger trade fee description
+         */
+        var MSG_LEDGER_TRADE_FEE_REFUND_DESCRIPTION = goog.getMsg('Trade fee refund');
+
+        /**
+         * @desc Ledger trade fee referral description
+         */
+        var MSG_LEDGER_TRADE_FEE_REFERRAL_DESCRIPTION = goog.getMsg('Trade fee referral');
+
+
         switch(s) {
           case 'B':
             return MSG_LEDGER_TRADE_BONUS_DESCRIPTION;
@@ -141,18 +168,30 @@ bitex.ui.LedgerActivity = function(button_filters, pseudoNameFunction, opt_broke
             return MSG_LEDGER_DEPOSIT_DESCRIPTION;
           case 'DF':
             return MSG_LEDGER_DEPOSIT_FEE_DESCRIPTION;
+          case 'DFC':
+            return MSG_LEDGER_DEPOSIT_FEE_REFERRAL_DESCRIPTION;
           case 'W':
             return MSG_LEDGER_WITHDRAW_DESCRIPTION;
           case 'WF':
             return MSG_LEDGER_WITHDRAW_FEE_DESCRIPTION;
+          case 'WFC':
+            return MSG_LEDGER_WITHDRAW_FEE_REFERRAL_DESCRIPTION;
           case 'WFR':
             return MSG_LEDGER_WITHDRAW_FEE_DISCOUNT_DESCRIPTION;
+          case 'WFRV':
+            return MSG_LEDGER_WITHDRAW_FEE_REVERSAL_DESCRIPTION;
           case 'T':
             return MSG_LEDGER_TRADE_DESCRIPTION;
           case 'TF':
             return MSG_LEDGER_TRADE_FEE_DESCRIPTION;
+          case 'TFC':
+            return MSG_LEDGER_TRADE_FEE_REFERRAL_DESCRIPTION;
+          case 'TFR':
+            return MSG_LEDGER_TRADE_FEE_REFUND_DESCRIPTION;
           case 'P':
             return MSG_LEDGER_MMP_DESCRIPTION;
+          default:
+            return s;
         }
       },
       'classes': function() { return goog.getCssName(bitex.ui.LedgerActivity.CSS_CLASS, 'description'); }
@@ -165,17 +204,10 @@ bitex.ui.LedgerActivity = function(button_filters, pseudoNameFunction, opt_broke
           return rowSet['PayeeName'];
         } else {
           switch(rowSet['Description']) {
-            case 'B':
-            case 'DF':
-            case 'D':
-            case 'W':
-            case 'WF':
-            case 'WFR':
-            case 'TF':
-            case 'P':
-              return '';
-            default:
+            case 'T':
               return pseudoNameFunction(s);
+            default:
+              return '';
           }
         }
       },

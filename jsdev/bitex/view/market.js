@@ -1,6 +1,7 @@
 goog.provide('bitex.view.MarketView');
 goog.require('bitex.view.View');
 goog.require('bitex.ui.TradeHistory');
+goog.require('bitex.ui.MarketTradingView');
 goog.require('bitex.ui.MarketViewTable');
 goog.require('bitex.ui.MarketViewTable.EventType');
 goog.require('bitex.util');
@@ -40,6 +41,11 @@ bitex.view.MarketView.prototype.market_data_subscription_symbol_;
 bitex.view.MarketView.prototype.last_trades_table_;
 
 /**
+ * @type {bitex.ui.MarketTradingView}
+ */
+bitex.view.MarketView.prototype.market_trading_view_;
+
+/**
  * @type {bitex.ui.MarketViewTable}
  */
 bitex.view.MarketView.prototype.market_view_table_;
@@ -74,6 +80,12 @@ bitex.view.MarketView.prototype.recreateComponents_ = function() {
   var handler = this.getHandler();
   var model = this.getApplication().getModel();
   var conn = this.getApplication().getBitexConnection() ;
+
+  var trading_view_el = goog.dom.getElement('market_trading_view');
+  if (goog.isDefAndNotNull(trading_view_el) && !goog.isDefAndNotNull(this.market_trading_view_)) {
+    this.market_trading_view_ = new bitex.ui.MarketTradingView(trading_view_el.getAttribute('data-symbol'));
+    this.market_trading_view_.render(trading_view_el);
+  }
 
   this.destroyComponents_();
 
