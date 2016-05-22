@@ -214,6 +214,47 @@
   </form>
 {/template}
 
+/**
+  * @param variables
+  * @param pattern
+  * @param formula
+  * @param value
+  */
+{template .InstantFiatDepositDialogContent}
+  <div class="row-fluid" data-deposit-status="confirm">
+      <p>{msg desc="Instant deposit fiat description 1"}Net value:{/msg}{sp}
+        <span class="bitex-model"
+              data-model-key-list="{$variables}"
+              data-model-formula="min( {$formula},  {$value} )"
+              data-model-formatter="currency"
+              data-model-formatter-pattern="{$pattern}"
+              data-blink-class="balance-info-blink"></span>
+      </p>
+
+      <p>{msg desc="Instant deposit fiat description 2"}Pre approval limit:{/msg}
+            <span class="bitex-model"
+                    data-model-key-list="{$variables}"
+                    data-model-formula="{$formula}"
+                    data-model-formatter="currency"
+                    data-model-formatter-pattern="{$pattern}"
+                    data-blink-class="balance-info-blink">
+            </span>{sp}{msg desc="Instant deposit fiat description 3"}(3x the approx. value of your account.){/msg}
+      </p>
+
+      <p>{msg desc="Instant deposit fiat description 4"}Pre approval fee: 0% (Promotional){/msg}</p>
+
+      <div class="well">
+          <p>
+              {msg desc="Instant deposit fiat message"}
+                  You won't be able to withdrawal funds until your DEPOSIT IS CONFIRMED by the exchange.
+                  In case of a fake deposit receipt or any fraud attempt, an administrative fee
+                  of 30% of the deposit amount will be applied and your account will be TERMINATED.
+              {/msg}
+          </p>
+      </div>
+  </div>
+{/template}
+
 
 /**
   * @param show_title
@@ -342,9 +383,9 @@
                   {if $crypto_currencies['CurrencyCode'] == 'BTC' }
                     {switch $wallets['address'][0]}
                       {case 'm','n','2','9','c'}
-                        <a href="https://www.blocktrail.com/tBTC/address/{$wallets['address']}/" target="_blank">{$wallets['address'] }</a>
+                        <a href="https://live.blockcypher.com/btc-testnet/address/{$wallets['address']}/" target="_blank">{$wallets['address'] }</a>
                       {default}
-                        <a href="https://www.blocktrail.com/BTC/address/{$wallets['address']}/" target="_blank">{$wallets['address'] }</a>
+                        <a href="https://blockchain.info/address/{$wallets['address']}/" target="_blank">{$wallets['address'] }</a>
                     {/switch}
                   {else}
                     {$wallets['address'] }
@@ -402,39 +443,6 @@
 {/template}
 
 
-/**
-  * @param reason_id
-  * @param custom_reason_id
-  */
-{template .CancelWithdrawDialogContent}
-<p>{msg desc="Cancel withdraw dialog message"}Enter a reason for cancelling the user withdraw{/msg}</p>
-<form class="form-horizontal">
-  <fieldset>
-    <div class="control-group">
-      <label class="control-label" for="{$reason_id}" >{msg desc="Cancel withdraw reason label"}Reason:{/msg}</label>
-      <div class="controls">
-        <select id="{$reason_id}">
-          <option value="0">{msg desc="reason for cancelling withdraw"}Other{/msg}</option>
-          <option value="-1" selected>{msg desc="reason for cancelling withdraw"}Insufficient funds{/msg}</option>
-          <option value="-2">{msg desc="reason for cancelling withdraw"}Account not verified{/msg}</option>
-          <option value="-3">{msg desc="reason for cancelling withdraw"}Suspicion of fraud{/msg}</option>
-          <option value="-4">{msg desc="reason for cancelling withdraw"}Withdrawing to a different account than yours{/msg}</option>
-          <option value="-5">{msg desc="reason for cancelling withdraw"}Invalid wallet{/msg}</option>
-          <option value="-6">{msg desc="reason for cancelling withdraw"}Invalid bank account{/msg}</option>
-          <option value="-7">{msg desc="reason for cancelling withdraw"}Amount exceeded your daily withdraw limit{/msg}</option>
-          <option value="-8">{msg desc="reason for cancelling withdraw"}User has deposits that are not yet confirmed{/msg}</option>
-        </select>
-      </div>
-    </div>
-    <div class="control-group">
-      <div class="controls">
-        <textarea id="{$custom_reason_id}" rows="2" style="display:none;"></textarea>
-      </div>
-    </div>
-  </fieldset>
-</form>
-
-{/template}
 
 /**
   */
@@ -443,9 +451,10 @@
     <fieldset>
       <div class="control-group">
         <label>
-          {msg desc="Google Authenticator code dialog label"}Google Authenticator code:{/msg}
+              {msg desc="Google Authenticator code dialog label"}Google Authenticator code:{/msg}
         </label>
         <input name="token"
+               id="id_input_google_authenticator"
                data-uniform-validators="required"
                data-uniform-label="{msg desc="Limit table field header"}Google authenticator code{/msg}"
                label="{msg desc="Google Authenticator code placeholder"}eg. 555555{/msg}"
@@ -456,6 +465,39 @@
     </fieldset>
   </form>
 {/template}
+
+
+/**
+  * @param id
+  * @param description
+  * @param askForTrust
+  */
+{template .SecondFactorTokenDialogContent}
+  <form class="form-horizontal" data-deposit-status="prepare" data-uniform-control-holder-class="control-group">
+    <fieldset>
+      <div class="control-group">
+        <label>
+          {$description}
+        </label>
+        <input name="token"
+               id="{$id}_token"
+               data-uniform-validators="required"
+               label="{msg desc="Placeholder for the code field on the second factor token dialog"}eg. 5555555{/msg}"
+               class="input-large"
+               type="text"
+               size="10">
+      </div>
+      {if $askForTrust}
+      <div class="control-group">
+        <label class="checkbox">
+          <input type="checkbox" name="TrustedDevice">{msg desc="Label on the two factor authenticatior"}Trust this device for 30 days{/msg}
+        </label>
+      </div>
+      {/if}
+    </fieldset>
+  </form>
+{/template}
+
 
 /**
   */
@@ -729,6 +771,39 @@
       </p>
     {/if}
 
+  </div>
+{/template}
+
+/**
+  * @param amount
+  * @param total
+  * @param side
+  */
+{template .ConfirmOrderContentDialog}
+  <div class="row-fluid">
+    <p>
+      {msg desc="Confirmation order title"}Confirm your order{/msg}
+    </p>
+    <table class="table table-bordered">
+      <tr>
+        <td>
+          {if $side == '1'}
+            {msg desc="You are buying message"}You are buying{/msg}
+          {else}
+            {msg desc="You are selling message"}You are selling{/msg}
+          {/if}
+          </td>
+        <td>
+          <span class="bitex-model">{$amount}</span>
+        </td>
+      </tr>
+      <tr>
+        <td>{msg desc="For a total message"}For a total of{/msg}</td>
+        <td>
+          <span class="bitex-model">{$total}</span>
+        </td>
+      </tr>
+    </table>
   </div>
 {/template}
 
@@ -1344,6 +1419,16 @@
 
     </tbody>
   </table>
+{/template}
+
+
+/**
+ * @param dataRow
+ */
+{template .CustomerDetailButton}
+  <button class="btn btn-mini btn-primary btn-deposit" data-row="{$dataRow}">
+    {msg desc="details"}details{/msg}
+  </button>
 {/template}
 
 /**

@@ -4,6 +4,7 @@ goog.provide('bitex.ui.LineOfCreditTable.EventType');
 goog.require('goog.dom');
 goog.require('goog.object');
 goog.require('bitex.ui.DataGrid');
+goog.require('bitex.ui.LineOfCreditTable.templates');
 goog.require('goog.ui.registry');
 
 goog.require('goog.dom.TagName');
@@ -48,32 +49,6 @@ var MSG_LINE_OF_CREDIT_TABLE_COLUMN_DESCRIPTION = goog.getMsg('Description');
  * @desc Column  Actions of the Line Of Credit Table
  */
 var MSG_LINE_OF_CREDIT_TABLE_COLUMN_ACTIONS = goog.getMsg('Actions');
-
-/**
- * @desc  Enable action button on the Line Of Credit Table
- */
-var MSG_LINE_OF_CREDIT_ACTION_ENABLE_BUTTON_LABEL = goog.getMsg('Enable');
-
-/**
- * @desc Disable action button on the Line Of Credit Table
- */
-var MSG_LINE_OF_CREDIT_ACTION_DISABLE_BUTTON_LABEL = goog.getMsg('Disable');
-
-/**
- * @desc Get action button on the Line Of Credit Table
- */
-var MSG_LINE_OF_CREDIT_ACTION_GET_BUTTON_LABEL = goog.getMsg('Get');
-
-/**
- * @desc Get action button on the Line Of Credit Table
- */
-var MSG_LINE_OF_CREDIT_ACTION_PAYBACK_BUTTON_LABEL = goog.getMsg('Pay back');
-
-/**
- * @desc Info action button on the Line Of Credit Table
- */
-var MSG_LINE_OF_CREDIT_ACTION_INFO_BUTTON_LABEL = goog.getMsg('info');
-
 
 
 /**
@@ -127,64 +102,31 @@ bitex.ui.LineOfCreditTable = function(accountID, opt_domHelper) {
           is_taker = true;
         }
 
+        var data_row = goog.json.serialize(rowSet);
+
         if (rowSet['IsActive'] && is_provider) {
-          return goog.dom.createDom('div', 'btn-group',[
-            goog.dom.createDom('a', {
-              'class': 'btn btn-mini btn-info btn-line-of-credit-action btn-line-of-credit-info',
-              'href': '#',
-              'data-action': 'INFO',
-              'data-row': goog.json.serialize( rowSet )
-            }, MSG_LINE_OF_CREDIT_ACTION_INFO_BUTTON_LABEL, ' ', goog.dom.createDom('i', ['icon-white', 'icon-search'])),
-            goog.dom.createDom('a', {
-              'class': 'btn btn-mini btn-danger btn-line-of-credit-action btn-line-of-credit-disable',
-              'href': '#',
-              'data-action': 'DISABLE',
-              'data-row': goog.json.serialize( rowSet )
-            }, MSG_LINE_OF_CREDIT_ACTION_DISABLE_BUTTON_LABEL, ' ', goog.dom.createDom('i', ['icon-white', 'icon-remove']))
-          ] );
+          return goog.soy.renderAsElement(bitex.ui.LineOfCreditTable.templates.btnGroup, {
+            button1: 'info',
+            button2: 'disable',
+            dataRow: data_row
+          });
         } else if (!rowSet['IsActive'] && is_provider) {
-          return goog.dom.createDom('div', 'btn-group',[
-            goog.dom.createDom('a', {
-              'class': 'btn btn-mini btn-info btn-line-of-credit-action btn-line-of-credit-info',
-              'href': '#',
-              'data-action': 'INFO',
-              'data-row': goog.json.serialize( rowSet )
-            }, MSG_LINE_OF_CREDIT_ACTION_INFO_BUTTON_LABEL, ' ', goog.dom.createDom('i', ['icon-white', 'icon-search'])),
-            goog.dom.createDom('a', {
-              'class': 'btn btn-mini btn-success btn-line-of-credit-action btn-line-of-credit-enable',
-              'href': '#',
-              'data-action': 'ENABLE',
-              'data-row': goog.json.serialize( rowSet )
-            }, MSG_LINE_OF_CREDIT_ACTION_ENABLE_BUTTON_LABEL, ' ', goog.dom.createDom('i', ['icon-white', 'icon-check']))
-          ]);
+          return goog.soy.renderAsElement(bitex.ui.LineOfCreditTable.templates.btnGroup, {
+            button1: 'info',
+            button2: 'enable',
+            dataRow: data_row
+          });
         } else if (rowSet['IsActive'] && is_taker) {
-          return goog.dom.createDom('div', 'btn-group',[
-            goog.dom.createDom('a', {
-              'class': 'btn btn-mini btn-info btn-line-of-credit-action btn-line-of-credit-info',
-              'href': '#',
-              'data-action': 'INFO',
-              'data-row': goog.json.serialize( rowSet )
-            }, MSG_LINE_OF_CREDIT_ACTION_INFO_BUTTON_LABEL, ' ', goog.dom.createDom('i', ['icon-white', 'icon-search'])),
-            goog.dom.createDom('a', {
-              'class': 'btn btn-mini btn-success btn-line-of-credit-action btn-line-of-credit-get',
-              'href': '#',
-              'data-action': 'GET',
-              'data-row': goog.json.serialize( rowSet )
-            }, MSG_LINE_OF_CREDIT_ACTION_GET_BUTTON_LABEL, ' ', goog.dom.createDom('i', ['icon-white', 'icon-upload-alt'])),
-            goog.dom.createDom('a', {
-              'class': 'btn btn-mini btn-primary btn-line-of-credit-action btn-line-of-credit-payback',
-              'href': '#',
-              'data-action': 'PAYBACK',
-              'data-row': goog.json.serialize( rowSet )
-            }, MSG_LINE_OF_CREDIT_ACTION_PAYBACK_BUTTON_LABEL, ' ', goog.dom.createDom('i', ['icon-white', 'icon-download-alt']))
-          ] ) ;
+          return goog.soy.renderAsElement(bitex.ui.LineOfCreditTable.templates.btnGroup, {
+            button1: 'info',
+            button2: 'get',
+            button3: 'payback',
+            dataRow: data_row
+          });
         } else {
-          return goog.dom.createDom('a', {
-            'class': 'btn btn-mini btn-info btn-line-of-credit-action btn-line-of-credit-info',
-            'href': '#',
-            'data-action': 'INFO',
-            'data-row': goog.json.serialize( rowSet )
-          }, MSG_LINE_OF_CREDIT_ACTION_INFO_BUTTON_LABEL, ' ', goog.dom.createDom('i', ['icon-white', 'icon-search']));
+          return goog.soy.renderAsElement(bitex.ui.LineOfCreditTable.templates.btnInfo, {
+            dataRow: data_row
+          });
         }
       },
       'classes': function() { return goog.getCssName(bitex.ui.LineOfCreditTable.CSS_CLASS, 'date-time'); }

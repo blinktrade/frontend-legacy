@@ -67,5 +67,7 @@ target/
 .DS_Store
 Thumbs.db
 _site/
+node_modules/
+.publish/
 .idea/
 .c9/

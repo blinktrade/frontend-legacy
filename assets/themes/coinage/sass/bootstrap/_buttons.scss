@@ -80,6 +80,23 @@
   @include button-variant($btn-danger-color, $btn-danger-bg, $btn-danger-border);
 }
 
+.btn-outline {
+  @include button-variant($btn-outline-color, $btn-outline-bg, $btn-outline-border);
+}
+
+.btn-outline-primary {
+  @include button-variant($btn-outline-primary-color, $btn-outline-bg, $btn-outline-primary-border);
+}
+
+.btn-outline-white {
+  @include button-variant($btn-outline-white-color, $btn-outline-bg, $btn-outline-white-border);
+  &:hover  {
+    color: $btn-primary-border!important;
+    background-color: $btn-outline-bg!important;
+    border-color: $btn-outline-primary-border!important;
+  }
+}
+
 
 // Link buttons
 // -------------------------
@@ -126,7 +143,7 @@
 
 .btn-lg {
   // line-height: ensure even-numbered height of button next to large input
-  @include button-size($padding-large-vertical, $padding-large-horizontal, $font-size-large, $line-height-large, $border-radius-large);
+  @include button-size($padding-large-vertical, $padding-large-horizontal, $font-size-large, $line-height-large, $border-radius-small);
 }
 .btn-sm {
   // line-height: ensure proper height of button next to small input

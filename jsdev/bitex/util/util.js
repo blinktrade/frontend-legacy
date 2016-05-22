@@ -650,9 +650,10 @@ bitex.util.PriceAmountCalculatorVerb = {
  * @param {.Array<.Array<Object>>} order_depth
  * @param {string} username
  * @param {number} fee
+ * @param {number} side
  * @return {Array.<number>=}
  */
-bitex.util.calculatePriceAmountAndFee = function(user_input, verb, order_depth, username, fee) {
+bitex.util.calculatePriceAmountAndFee = function(user_input, verb, order_depth, username, fee, side) {
   var amount = 0;
   var price = 0;
   var vwap = 0;
@@ -670,8 +671,7 @@ bitex.util.calculatePriceAmountAndFee = function(user_input, verb, order_depth, 
   };
 
   var total = user_input;
-  fee =  total * fee / 10000;
-  var work_total = total - fee;
+  var work_total = total;
 
   for ( var order_idx in order_depth) {
     order = order_depth[order_idx];
@@ -686,7 +686,7 @@ bitex.util.calculatePriceAmountAndFee = function(user_input, verb, order_depth, 
         amount += (work_total / order[OrderDepthIndex.PRICE] ) * 1e8;
         price = order[OrderDepthIndex.PRICE];
         work_total = 0;
-        vwap =  (total - fee) / amount;
+        vwap =  total / amount;
         break;
       } else if (order_volume < work_total) {
         amount += order[OrderDepthIndex.SIZE];
@@ -696,8 +696,8 @@ bitex.util.calculatePriceAmountAndFee = function(user_input, verb, order_depth, 
       if (order[OrderDepthIndex.SIZE] >= work_total) {
         price = order[OrderDepthIndex.PRICE];
         total_volume += (order[OrderDepthIndex.PRICE] * work_total /1e8 );
-        vwap = total_volume / (total - fee);
-        amount = vwap * (total - fee);
+        vwap = total_volume / total;
+        amount = vwap * total;
         work_total = 0;
         break;
       } else if (order[OrderDepthIndex.SIZE] < work_total) {
@@ -707,8 +707,22 @@ bitex.util.calculatePriceAmountAndFee = function(user_input, verb, order_depth, 
     }
   }
 
+  if(side == 1) {
+    if (verb == bitex.util.PriceAmountCalculatorVerb.SPEND) {
+      fee = amount * fee / 10000;
+    } else {
+      fee = total  * fee / 10000;
+    }
+  } else {
+    if (verb == bitex.util.PriceAmountCalculatorVerb.SPEND) {
+      fee = (amount * vwap) * fee / 10000;
+    } else {
+      fee = (((total/1e8) * vwap) * fee / 10000) * 1e8;
+    }
+  }
+
   if (work_total === 0 && amount > 0) {
-    return [ price, parseInt(amount,10),  parseInt(fee, 10),  vwap  ];
+    return [ price, parseInt(amount,10),  parseInt(fee, 10),  vwap ];
   }
   return undefined;
 };
@@ -780,4 +794,142 @@ bitex.util.base58Decode = function(string) {
 };
 
 
+
+/**
+ * @param {*} value
+ * @param {Object} rowSet
+ * @param {*} formatter
+ */
+bitex.util.simpleOrderSideFormatter = function(value, rowSet, formatter) {
+  var orderQty = formatter.format(rowSet['OrderQty']/1e8);
+  var cumQty =  formatter.format(rowSet['CumQty']/1e8);
+
+  /** @desc Order Status message on Simple Order Manager */
+  var MSG_ORDER_MANAGER_DESC_BUYING = goog.getMsg('Buying {$buyqty}', {buyqty: orderQty } );
+
+
+  /** @desc Order Status message on Simple Order Manager */
+  var MSG_ORDER_MANAGER_DESC_SELLING = goog.getMsg('Selling {$sellqty}', {sellqty: orderQty } );
+
+  /** @desc Order Status message on Simple Order Manager */
+  var MSG_ORDER_MANAGER_DESC_PARTIAL_BOUGHT = goog.getMsg('Bought {$cumboughtqty} of {$boughtqty}', {cumboughtqty:cumQty, boughtqty: orderQty } );
+
+  /** @desc Order Status message on Simple Order Manager */
+  var MSG_ORDER_MANAGER_DESC_PARTIAL_SOLD = goog.getMsg('Sold {$cumsoldqty} of {$soldqty}', { cumsoldqty:cumQty, soldqty: orderQty } );
+
+  /** @desc Order Status message on Simple Order Manager */
+  var MSG_ORDER_MANAGER_DESC_BOUGHT = goog.getMsg('Bought {$boughtcumqty}', { boughtcumqty:cumQty } );
+
+  /** @desc Order Status message on Simple Order Manager */
+  var MSG_ORDER_MANAGER_DESC_SOLD = goog.getMsg('Sold {$souldcumqty}', { souldcumqty:cumQty } );
+
+  /** @desc Order Status message on Simple Order Manager */
+  var MSG_ORDER_MANAGER_DESC_BUYING_CANCELLED = goog.getMsg('Cancelled order to buy {$cancelledbuyorderqty}', { cancelledbuyorderqty:orderQty } );
+
+  /** @desc Order Status message on Simple Order Manager */
+  var MSG_ORDER_MANAGER_DESC_SELLING_CANCELLED = goog.getMsg('Cancelled order to sell {$cancelledsellorderqty}', { cancelledsellorderqty:orderQty } );
+
+
+  switch (rowSet['OrdStatus']) {
+    case '-': // Pending ...
+    case '0': // New
+      if (rowSet['Side'] == '1') { // buying
+        return MSG_ORDER_MANAGER_DESC_BUYING;
+      } else {
+        return MSG_ORDER_MANAGER_DESC_SELLING;
+      }
+    case '1': // Partial fill
+      if (rowSet['Side'] == '1') { // buying
+        return MSG_ORDER_MANAGER_DESC_PARTIAL_BOUGHT;
+      } else { // selling
+        return MSG_ORDER_MANAGER_DESC_PARTIAL_SOLD;
+      }
+    case '2': // filled
+      if (rowSet['Side'] == '1') { // buying
+        return MSG_ORDER_MANAGER_DESC_BOUGHT;
+      } else { // selling
+        return MSG_ORDER_MANAGER_DESC_SOLD;
+      }
+    case '4': // Cancelled
+      if (rowSet['CumQty'] == 0 ) {
+        if (rowSet['Side'] == '1') { // buying
+          return MSG_ORDER_MANAGER_DESC_BUYING_CANCELLED;
+        } else {
+          return MSG_ORDER_MANAGER_DESC_SELLING_CANCELLED;
+        }
+      } else if (rowSet['CumQty'] > 0 && rowSet['CumQty'] < orderQty ) {
+        if (rowSet['Side'] == '1') { // buying
+          return MSG_ORDER_MANAGER_DESC_PARTIAL_BOUGHT;
+        } else { // selling
+          return MSG_ORDER_MANAGER_DESC_PARTIAL_SOLD;
+        }
+      } else {
+        if (rowSet['Side'] == '1') { // buying
+          return MSG_ORDER_MANAGER_DESC_BOUGHT;
+        } else { // selling
+          return MSG_ORDER_MANAGER_DESC_SOLD;
+        }
+      }
+    case '8': // Rejected
+      return rowSet['OrdRejReason'];
+  }
+
+};
+
+/**
+ * @param {*} value
+ * @param {Object} rowSet
+ */
+bitex.util.simpleOrderStatusFormatter = function(value, rowSet) {
+  /** @desc Order Status message on Simple Order Manager */
+  var MSG_ORDER_MANAGER_SIMPLE_STATUS_SENDING = goog.getMsg('Sending...');
+
+  /** @desc Order Status message on Simple Order Manager */
+  var MSG_ORDER_MANAGER_SIMPLE_STATUS_WAITING_BUYERS = goog.getMsg('Waiting buyers');
+
+  /** @desc Order Status message on Simple Order Manager */
+  var MSG_ORDER_MANAGER_SIMPLE_STATUS_WAITING_SELLERS = goog.getMsg('Waiting sellers');
+
+  /** @desc Order Status message on Simple Order Manager */
+  var MSG_ORDER_MANAGER_SIMPLE_STATUS_PARTIAL_BOUGHT = goog.getMsg('Partially bought');
+
+  /** @desc Order Status message on Simple Order Manager */
+  var MSG_ORDER_MANAGER_SIMPLE_STATUS_PARTIAL_SOLD = goog.getMsg('Partially sold');
+
+  /** @desc Order Status message on Simple Order Manager */
+  var MSG_ORDER_MANAGER_SIMPLE_STATUS_COMPLETE = goog.getMsg('Done');
+
+  /** @desc Order Status message on Simple Order Manager */
+  var MSG_ORDER_MANAGER_SIMPLE_STATUS_CANCELLED = goog.getMsg('Cancelled');
+
+  /** @desc Order Status message on Simple Order Manager */
+  var MSG_ORDER_MANAGER_SIMPLE_STATUS_REJECTED = goog.getMsg('Rejected');
+
+  switch (value) {
+    case '-': // Pending ...
+      return MSG_ORDER_MANAGER_SIMPLE_STATUS_SENDING;
+    case '0': // New
+      if (rowSet['Side'] == '1') { // buying
+        return MSG_ORDER_MANAGER_SIMPLE_STATUS_WAITING_SELLERS;
+      } else { // selling
+        return MSG_ORDER_MANAGER_SIMPLE_STATUS_WAITING_BUYERS;
+      }
+    case '1': // Partial fill
+      if (rowSet['Side'] == '1') { // buying
+        return MSG_ORDER_MANAGER_SIMPLE_STATUS_PARTIAL_BOUGHT;
+      } else { // selling
+        return MSG_ORDER_MANAGER_SIMPLE_STATUS_PARTIAL_SOLD;
+      }
+    case '2': // filled
+      return MSG_ORDER_MANAGER_SIMPLE_STATUS_COMPLETE;
+    case '4': // Cancelled
+      if (rowSet['CumQty'] == 0 ) {
+        return MSG_ORDER_MANAGER_SIMPLE_STATUS_CANCELLED;
+      } else {
+        return MSG_ORDER_MANAGER_SIMPLE_STATUS_COMPLETE;
+      }
+    case '8': // Rejected
+      return MSG_ORDER_MANAGER_SIMPLE_STATUS_REJECTED;
+  }
+};
 
