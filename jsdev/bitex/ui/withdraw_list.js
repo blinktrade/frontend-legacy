@@ -501,7 +501,7 @@ bitex.ui.WithdrawList = function( methodDescriptionObj, opt_broker_mode,  opt_sh
               */
              var MSG_WITHDRAW_TABLE_DETAILS_COLUMN_BTN_BLOCKCHAIN  = goog.getMsg('blockchain');
 
-             var block_explorer = 'https://live.blockcypher.com/btc';
+             var block_explorer = 'https://blockchain.info';
              switch (rowSet['Data']['Wallet'][0]) {
                case 'm':
                case 'n':
@@ -676,7 +676,12 @@ bitex.ui.WithdrawList = function( methodDescriptionObj, opt_broker_mode,  opt_sh
           }
         } else {
           switch(row_set_obj['Status']){
-            case '0': return btn_cancel;
+            case '0':
+              return goog.soy.renderAsElement(bitex.ui.WithdrawList.templates.btnGroup, {
+                button1: 'cancel',
+                button2: 'comment',
+                dataRow: data_row
+              });
             case '1':
               return goog.soy.renderAsElement(bitex.ui.WithdrawList.templates.btnGroup, {
                 button1: 'cancel',
@@ -684,7 +689,6 @@ bitex.ui.WithdrawList = function( methodDescriptionObj, opt_broker_mode,  opt_sh
                 button3: 'comment',
                 dataRow: data_row
               });
-
             case '2':
               return goog.soy.renderAsElement(bitex.ui.WithdrawList.templates.btnGroup, {
                 button1: 'cancel',
@@ -692,10 +696,9 @@ bitex.ui.WithdrawList = function( methodDescriptionObj, opt_broker_mode,  opt_sh
                 button3: 'comment',
                 dataRow: data_row
               });
-            case '4': return "";
-            case '8': return "";
+            case '4': return btn_comment;
+            case '8': return btn_comment;
           }
-
         }
       }
     });
