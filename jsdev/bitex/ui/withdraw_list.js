@@ -680,7 +680,7 @@ bitex.ui.WithdrawList = function( methodDescriptionObj, opt_broker_mode,  opt_sh
               return goog.soy.renderAsElement(bitex.ui.WithdrawList.templates.btnGroup, {
                 button1: 'cancel',
                 button2: 'comment',
-                dataRow: data_row,
+                dataRow: data_row
               });
             case '1':
               return goog.soy.renderAsElement(bitex.ui.WithdrawList.templates.btnGroup, {
