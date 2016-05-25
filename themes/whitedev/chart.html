@@ -23,73 +23,83 @@ layout: null
         var currency = symbol.substr(3);
 
         var now = new Date();
-        var one_week_ago = now.getTime()/1000  - (60 * 60 * 24 * 7);
+        var twenty_fours_ago = now.getTime()/1000  - (60 * 60 * 24 * 1);
 
-        var url = '//{{ site.blinktrade_backend_api }}/api/v1/' + currency + '/trades?crypto_currency=' + crypto_currency + '&since=' + one_week_ago;
+        var limit = 500;
+        var url = '//api.blinktrade.com/api/v1/' + currency + '/trades?limit=' + limit  + '&crypto_currency=' + crypto_currency + '&since=' + twenty_fours_ago;
+
+        var prices = [],volume = [];
+
+        function onFetchTrades(data) {
+          $.each(data, function( index, value ) {
+            var date = value.date*1000;
+            prices.push([date, value.price]);
+            volume.push([date, value.amount]);
+          });
+
+          if (data.length == limit) {
+            var since = data[limit-1].tid;
+            var url = '//api.blinktrade.com/api/v1/' + currency + '/trades?limit=' + limit  + '&crypto_currency=' + crypto_currency + '&since=' + since;
+
+            $.ajax({url: url,
+                   type: 'GET',
+                   dataType: 'jsonp',
+                   error: function() { alert('Failed!'); },
+                   success: onFetchTrades });
+
+            return;
+          }
+
+          $('#container').highcharts('StockChart', {
+           rangeSelector : {
+             selected : 1,
+             inputEnabled: true
+           },
+           yAxis: [{
+             labels: {
+               align: 'right',
+               x: -3
+             },
+             title: {
+               text: 'Price'
+             },
+             height: '60%',
+             lineWidth: 2
+           }, {
+             labels: {
+               align: 'right',
+               x: -3
+             },
+             title: {
+               text: 'Volume'
+             },
+             top: '65%',
+             height: '35%',
+             offset: 0,
+             lineWidth: 2
+           }],
+           series : [{
+             name : symbol,
+             data : prices,
+             tooltip: {
+               valueDecimals: 2
+             }
+           },
+             {
+               name : 'Volume',
+               type: 'column',
+               data : volume,
+               yAxis: 1
+             }
+           ]
+          });
+        }
+
         $.ajax({url: url,
                type: 'GET',
                dataType: 'jsonp',
                error: function() { alert('Failed!'); },
-               success: function(data) {
-
-                 var prices = [],
-                     volume = [];
-
-                 $.each(data, function( index, value ) {
-                   var date = value.date*1000;
-                   prices.unshift([date, value.price]);
-                   volume.unshift([date, value.amount]);
-                 });
-
-                 $('#container').highcharts('StockChart', {
-
-                   rangeSelector : {
-                     selected : 1,
-                     inputEnabled: true
-                   },
-
-                   yAxis: [{
-                     labels: {
-                       align: 'right',
-                       x: -3
-                     },
-                     title: {
-                       text: 'Price'
-                     },
-                     height: '60%',
-                     lineWidth: 2
-                   }, {
-                     labels: {
-                       align: 'right',
-                       x: -3
-                     },
-                     title: {
-                       text: 'Volume'
-                     },
-                     top: '65%',
-                     height: '35%',
-                     offset: 0,
-                     lineWidth: 2
-                   }],
-
-                   series : [{
-                     name : symbol,
-                     data : prices,
-                     tooltip: {
-                       valueDecimals: 2
-                     }
-                   },
-                     {
-                       name : 'Volume',
-                       type: 'column',
-                       data : volume,
-                       yAxis: 1
-                     }
-                   ]
-                 });
-
-               }
-             });
+               success: onFetchTrades });
     });
 
     //]]>

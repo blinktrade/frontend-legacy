@@ -193,7 +193,7 @@ bitex.ui.DepositList = function( crypto_currencies_def, opt_broker_mode, opt_sho
             case '0':  return [''          , MSG_DEPOSIT_TABLE_COLUMN_STATUS_UNCONFIRMED];
             case '1':  return ['warning'   , MSG_DEPOSIT_TABLE_COLUMN_STATUS_PENDING];
             case '2':  return ['info'      , progress_message];
-            case '24': return ['success'   , progress_message];
+            case '24': return ['info'      , progress_message];
             case '4':  return ['success'   , MSG_DEPOSIT_TABLE_COLUMN_STATUS_COMPLETED];
             case '8':  return ['important' , MSG_DEPOSIT_TABLE_COLUMN_STATUS_CANCELLED];
           }
@@ -461,9 +461,19 @@ bitex.ui.DepositList = function( crypto_currencies_def, opt_broker_mode, opt_sho
                     userVerification: userVerificationData
                   });
                 case '4':
-                  return btn_cancel;
+                  return goog.soy.renderAsElement(bitex.ui.DepositList.templates.btnGroup, {
+                    button1: 'kyc',
+                    button2: 'cancel',
+                    dataRow: data_row,
+                    userVerification: userVerificationData
+                  });
                 case '8':
-                  return btn_progress;
+                  return goog.soy.renderAsElement(bitex.ui.DepositList.templates.btnGroup, {
+                    button1: 'kyc',
+                    button2: 'progress',
+                    dataRow: data_row,
+                    userVerification: userVerificationData
+                  });
               }
             } else {
               switch(rowSet['Status']) {
