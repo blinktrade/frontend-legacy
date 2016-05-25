@@ -637,6 +637,7 @@ bitex.view.AdminView.prototype.onDepositListTableRequestData_ = function(e) {
                           page,                         // opt_page
                           limit,                        // opt_limit
                           status,                       // opt_status,
+                          undefined,                    // opt_clientID
                           filter);                      // opt_filter
 };
 
@@ -710,6 +711,7 @@ bitex.view.AdminView.prototype.onWithdrawListTableRequestData_ = function(e) {
                            page,
                            limit,
                            status,
+                           undefined,
                            filter);
 };
 

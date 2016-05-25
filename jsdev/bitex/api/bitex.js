@@ -54,7 +54,7 @@ bitex.api.BitEx.prototype.stunt_ip_info_;
  * @type {string}
  * @private
  */
-bitex.app.BitEx.prototype.tracking_code_;
+bitex.api.BitEx.prototype.tracking_code_;
 
 /**
  * @type {Object}
