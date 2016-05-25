@@ -364,6 +364,9 @@ bitex.view.WithdrawView.prototype.recreateComponents_ = function() {
                  bitex.ui.WithdrawList.EventType.COMPLETE,
                  this.onUserSetWithdrawComplete_ );
 
+  handler.listen(this.withdraw_list_table_,
+                 bitex.ui.WithdrawList.EventType.COMMENT,
+                 this.onUserComment_);
 
   this.addChild(this.withdraw_list_table_, true);
 
@@ -502,6 +505,16 @@ bitex.view.WithdrawView.prototype.onUserSetWithdrawComplete_ = function(e) {
   this.withdraw_action_ = 'COMPLETE';
   this.data_ = this.withdraw_list_table_.getWithdrawData();
   this.dispatchEvent(bitex.view.View.EventType.PROCESS_WITHDRAW);
+};
+
+/**
+ * @param {goog.events.Event} e
+ * @private
+ */
+bitex.view.WithdrawView.prototype.onUserComment_ = function(e) {
+  this.withdraw_action_ = 'COMMENT';
+  this.data_ = this.withdraw_list_table_.getWithdrawData();
+  this.dispatchEvent(bitex.view.View.EventType.USER_COMMENT);
 };
 
 
