@@ -909,6 +909,18 @@ bitex.view.AccountOverview.prototype.onUpdateSelectedCustomer_ = function(e) {
     goog.dom.appendChild(new_data_parent_el, new_data_el);
   }
 
+  if (previous_data['EmailTwoFactorEnabled']  !== new_data['EmailTwoFactorEnabled']) {
+    new_data_el = soy.renderAsElement( bitex.templates.AccountOverviewHeaderEmailTwoFactors,
+        { msg_customer_detail: {'EmailTwoFactorEnabled' : new_data['EmailTwoFactorEnabled'] } } );
+
+    new_data_parent_el = goog.dom.getElementByClass('account-overview-two-factors-email',
+                                                    goog.dom.getElement('account_overview_header_id') );
+
+    goog.dom.removeChildren(new_data_parent_el);
+    goog.dom.appendChild(new_data_parent_el, new_data_el);
+  }
+
+
   if (previous_data['NeedWithdrawEmail']  !== new_data['NeedWithdrawEmail']) {
 
     new_data_el = soy.renderAsElement( bitex.templates.AccountOverviewHeaderWithDrawEmailData,
@@ -942,6 +954,16 @@ bitex.view.AccountOverview.prototype.onAccountOverviewHeaderClick_ = function(e)
       case 'SET_TWO_FACTOR':
         this.client_id_ =  goog.string.toNumber(selectedCustomer['ID']);
         this.update_profile_data_ = { 'TwoFactorEnabled': false };
+        this.dispatchEvent(bitex.view.View.EventType.UPDATE_PROFILE);
+        break;
+      case 'ENABLE_EMAIL_TWO_FACTOR':
+        this.client_id_ =  goog.string.toNumber(selectedCustomer['ID']);
+        this.update_profile_data_ = { 'EmailTwoFactorEnabled': true };
+        this.dispatchEvent(bitex.view.View.EventType.UPDATE_PROFILE);
+        break;
+      case 'DISABLE_EMAIL_TWO_FACTOR':
+        this.client_id_ =  goog.string.toNumber(selectedCustomer['ID']);
+        this.update_profile_data_ = { 'EmailTwoFactorEnabled': false };
         this.dispatchEvent(bitex.view.View.EventType.UPDATE_PROFILE);
         break;
 
