@@ -1356,6 +1356,19 @@
     {/if}
 {/template}
 
+/**
+  * @param msg_customer_detail
+  */
+{template .AccountOverviewHeaderEmailTwoFactors}
+    {if $msg_customer_detail['EmailTwoFactorEnabled'] }
+      <span class="label label-success">{msg desc="label on  overview header"}Enabled{/msg}</span>
+      <a href="#" class="btn btn-primary btn-mini" data-action="DISABLE_EMAIL_TWO_FACTOR" data-row="{$msg_customer_detail['ID']}">{msg desc="label on overview header"}Disable{/msg}</a>
+    {else}
+      <span class="label label-important">{msg desc="label on  overview header"}Disabled{/msg}</span>
+      <a href="#" class="btn btn-primary btn-mini" data-action="ENABLE_EMAIL_TWO_FACTOR" data-row="{$msg_customer_detail['ID']}">{msg desc="label on overview header"}Enable{/msg}</a>
+    {/if}
+{/template}
+
 
 /**
   * @param msg_customer_detail
@@ -1400,6 +1413,14 @@
          <td><strong>{msg desc="label on  overview header"}Has two step authentication{/msg}</strong></td>
          <td class="account-overview-val account-overview-two-factors" >
           {call .AccountOverviewHeaderTwoFactors}
+            {param msg_customer_detail: $msg_customer_detail /}
+          {/call}
+         </td>
+      </tr>
+      <tr>
+         <td><strong>{msg desc="label on overview header"}Has two step authentication on email{/msg}</strong></td>
+         <td class="account-overview-val account-overview-two-factors-email" >
+          {call .AccountOverviewHeaderEmailTwoFactors}
             {param msg_customer_detail: $msg_customer_detail /}
           {/call}
          </td>
