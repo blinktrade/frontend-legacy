@@ -944,6 +944,16 @@ bitex.view.AccountOverview.prototype.onAccountOverviewHeaderClick_ = function(e)
         this.update_profile_data_ = { 'TwoFactorEnabled': false };
         this.dispatchEvent(bitex.view.View.EventType.UPDATE_PROFILE);
         break;
+      case 'ENABLE_EMAIL_TWO_FACTOR':
+        this.client_id_ =  goog.string.toNumber(selectedCustomer['ID']);
+        this.update_profile_data_ = { 'EmailTwoFactorEnabled': true };
+        this.dispatchEvent(bitex.view.View.EventType.UPDATE_PROFILE);
+        break;
+      case 'DISABLE_EMAIL_TWO_FACTOR':
+        this.client_id_ =  goog.string.toNumber(selectedCustomer['ID']);
+        this.update_profile_data_ = { 'EmailTwoFactorEnabled': false };
+        this.dispatchEvent(bitex.view.View.EventType.UPDATE_PROFILE);
+        break;
 
       case 'SET_WITHDRAW_EMAIL':
         this.client_id_ =  selectedCustomer['ID'];
