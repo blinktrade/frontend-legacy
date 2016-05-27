@@ -909,6 +909,18 @@ bitex.view.AccountOverview.prototype.onUpdateSelectedCustomer_ = function(e) {
     goog.dom.appendChild(new_data_parent_el, new_data_el);
   }
 
+  if (previous_data['EmailTwoFactorEnabled']  !== new_data['EmailTwoFactorEnabled']) {
+    new_data_el = soy.renderAsElement( bitex.templates.AccountOverviewHeaderEmailTwoFactors,
+        { msg_customer_detail: {'EmailTwoFactorEnabled' : new_data['EmailTwoFactorEnabled'] } } );
+
+    new_data_parent_el = goog.dom.getElementByClass('account-overview-two-factors-email',
+                                                    goog.dom.getElement('account_overview_header_id') );
+
+    goog.dom.removeChildren(new_data_parent_el);
+    goog.dom.appendChild(new_data_parent_el, new_data_el);
+  }
+
+
   if (previous_data['NeedWithdrawEmail']  !== new_data['NeedWithdrawEmail']) {
 
     new_data_el = soy.renderAsElement( bitex.templates.AccountOverviewHeaderWithDrawEmailData,
