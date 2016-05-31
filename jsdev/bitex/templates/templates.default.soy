@@ -498,6 +498,38 @@
   </form>
 {/template}
 
+/**
+  * @param id
+  */
+{template .BrokerChangeEmailDialogContent}
+  <form class="form-horizontal" data-deposit-status="prepare" data-uniform-control-holder-class="control-group">
+    <fieldset>
+      <div class="alert alert-warning">
+        <strong>{msg desc="Warning"}Warning{/msg}</strong>
+        {msg desc="Warning change email description"} - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque id augue nisi. Nunc in fermentum justo.{/msg}
+      </div>
+      <div class="control-group">
+        <label>{msg desc="change email label"}New Email{/msg}</label>
+        <input
+          id="{$id}_new_email"
+          type="text"
+          data-uniform-validators="validateEmail;required"
+          size="10">
+      </div>
+      <div class="control-group">
+        <label class="checkbox"  for="{$id}_check_warning_1">
+          <input type="checkbox" id="{$id}_check_warning_1">{msg desc="First label warning on broker change email"}Warning 1{/msg}
+        </label>
+        <label class="checkbox"  for="{$id}_check_warning_2">
+          <input type="checkbox" id="{$id}_check_warning_2">{msg desc="Second label warning on broker change email"}Warning 2{/msg}
+        </label>
+        <label class="checkbox"  for="{$id}_check_warning_3">
+          <input type="checkbox" id="{$id}_check_warning_3">{msg desc="Third label warning on broker change email"}Warning 3{/msg}
+        </label>
+      </div>
+    </fieldset>
+  </form>
+{/template}
 
 /**
   */
@@ -1386,7 +1418,10 @@
       </tr>
       <tr>
          <td><strong>{msg desc="label on  overview header"}Email{/msg}</strong></td>
-         <td>{$msg_customer_detail['Email']}</td>
+         <td>
+           <span id="account-overview-email">{$msg_customer_detail['Email']}</span>
+           &nbsp;<button data-action="CHANGE_EMAIL" class="btn btn-warning btn-mini">Change</button>
+         </td>
       </tr>
       <tr>
          <td><strong>{msg desc="label on  overview header"}State{/msg}</strong></td>
