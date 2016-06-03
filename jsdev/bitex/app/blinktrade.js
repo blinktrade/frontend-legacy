@@ -2846,6 +2846,7 @@ bitex.app.BlinkTrade.prototype.onUserOrderEntry_ = function(e){
 
     var confirmOrderDialogContent = bitex.templates.ConfirmOrderContentDialog({
       amount: this.formatCurrency(e.target.getAmount() / 1e8, this.getQtyCurrencyFromSymbol(e.target.getSymbol()),   true),
+      price:  this.formatCurrency(e.target.getPrice() / 1e8,  this.getPriceCurrencyFromSymbol(e.target.getSymbol()), true),
       total:  this.formatCurrency(e.target.getTotal() / 1e8,  this.getPriceCurrencyFromSymbol(e.target.getSymbol()), true),
       side:   e.target.getSide()
     });
