@@ -808,6 +808,7 @@
 
 /**
   * @param amount
+  * @param price
   * @param total
   * @param side
   */
@@ -827,6 +828,12 @@
           </td>
         <td>
           <span class="bitex-model">{$amount}</span>
+        </td>
+      </tr>
+      <tr>
+        <td>{msg desc="Price per bitcoin confirmation message"}Price per bitcoin{/msg}</td>
+        <td>
+          <span class="bitex-model">{$price}</span>
         </td>
       </tr>
       <tr>
