@@ -920,6 +920,9 @@ bitex.view.AccountOverview.prototype.onUpdateSelectedCustomer_ = function(e) {
     goog.dom.appendChild(new_data_parent_el, new_data_el);
   }
 
+  if (previous_data['Email'] !== new_data['Email']) {
+    goog.dom.getElement('account-overview-email').innerHTML = new_data['Email'];
+  }
 
   if (previous_data['NeedWithdrawEmail']  !== new_data['NeedWithdrawEmail']) {
 
@@ -966,7 +969,10 @@ bitex.view.AccountOverview.prototype.onAccountOverviewHeaderClick_ = function(e)
         this.update_profile_data_ = { 'EmailTwoFactorEnabled': false };
         this.dispatchEvent(bitex.view.View.EventType.UPDATE_PROFILE);
         break;
-
+      case 'CHANGE_EMAIL':
+        this.client_id_ = goog.string.toNumber(selectedCustomer['ID']);
+        this.dispatchEvent(bitex.view.View.EventType.CHANGE_EMAIL);
+        break;
       case 'SET_WITHDRAW_EMAIL':
         this.client_id_ =  selectedCustomer['ID'];
         this.client_id_ =  goog.string.toNumber(selectedCustomer['ID']);
