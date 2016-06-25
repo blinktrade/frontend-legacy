@@ -2,7 +2,7 @@
 url: "https://testnet.blinktrade.com"
 author: "BlinkTrade"
 baseurl: ""
-deploy_version: "71ccb26"
+deploy_version: "f1f5cba"
 
 exchange: "demo"
 exchange_logo: "demo"
