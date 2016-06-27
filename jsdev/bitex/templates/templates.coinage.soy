@@ -398,7 +398,7 @@
                 <tr>
                   <td>{$crypto_currencies['CurrencyDescription']}</td>
                   <td>{$wallets['type'] }</td>
-                  <td>
+                  <td class="broker-wallet">
                   {if $crypto_currencies['CurrencyCode'] == 'BTC' }
                     {switch $wallets['address'][0]}
                       {case 'm','n','2','9','c'}
@@ -890,6 +890,23 @@
         </td>
       </tr>
     </table>
+  </div>
+{/template}
+
+/**
+ * @param email
+ */
+{template .ConfirmEmailSignupContentDialog}
+  <div class="row-fluid">
+    <div class="control-group">
+      <label for="email_confirm_field">{$email}</label>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="email_confirm_field">{msg desc="Confirm Email"}Email: {/msg}</label>
+      <div class="controls">
+        <input type="text" id="id_email_confirm_field" class="form-control" />
+      </div>
+    </div>
   </div>
 {/template}
 

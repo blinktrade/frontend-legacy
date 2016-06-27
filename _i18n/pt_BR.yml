@@ -62,17 +62,21 @@ views:
     about:
       learn: Mais
       phrase1:
-        title: Proin quis egestas eros
-        description: Nunc non est ut neque lobortis mattis. Donec ultricies tortor at mi lobortis cursus. Vestibulum felis tellus, ultrices nec odio vitae, facilisis gravida sapien. Etiam efficitur quam at nunc consequat, sed ullamcorper ante convallis. Etiam ultrices, eros a egestas faucibus, nisi lectus ultrices arcu, eu viverra risus justo a est. Fusce laoreet sapien non mattis auctor. Proin odio felis, convallis eu velit quis, condimentum lobortis nibh.
+        title: Fácil e Rapido
+        icon: ico-tradewithus
+        description: Simplicidade é alma do negócio. Trabalhamos duro para que você possa comprar e vender de forma simples, permitindo até mesmo que usuários novos consigam operar com robôs usando <a href="https://github.com/blinktrade/algorithm-trading" target="_BLANK">algoritimos de trading open source</a>. Todos os depósitos e retiradas são instantâneas, permitindo que você consiga obter seu primeiro bitcoin em menos de 1 minuto.
       phrase2:
-        title: Pellentesque vestibulum lectus
-        description: Integer placerat urna lectus, in luctus odio vehicula vel. Praesent eu sagittis massa. Vivamus ut urna interdum, porttitor ex sed, congue risus. Vestibulum sit amet mattis leo. Curabitur tempor convallis ornare. In dignissim est at pellentesque consequat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In a dui quis metus eleifend maximus.
+        title: 100% Transparente
+        icon: ico-secure
+        description: Nossa transparência vai desde o nosso código fonte, que é <a href="https://github.com/blinktrade" target="_BLANK">100% open source</a>, e disponível para que todos possam analisar e procurar por pontos que reforçem a segurança de toda a exchange. Além disso, nossas carteiras, quente e fria são públicas e disponíveis para que você possa verificar a solvência da exchange diretamente no blockchain
       phrase3:
         title: Maecenas vel magna
+        icon: ico-liquidity
         description: Donec ac tincidunt enim, quis porttitor massa. Sed vulputate ex at quam venenatis, non facilisis justo vestibulum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi diam nisl, congue vehicula maximus eget, tempor nec ipsum. Vestibulum feugiat consequat lacus et congue. Phasellus eu felis vel dui cursus pharetra quis non lectus. Curabitur porta ultrices magna sit amet ultrices. Nam cursus lorem mollis arcu dignissim congue. Praesent vitae venenatis lorem, sit amet efficitur ipsum.
       phrase4:
-        title: Sed vulputate ex at quam venenatis
-        description: Sed tincidunt libero id ex fermentum, quis interdum dolor sollicitudin. Nunc sit amet tempor nisi. Sed ac justo libero. Sed rhoncus leo in massa tincidunt aliquam. Curabitur eu iaculis purus. Nam eu dui tempor, faucibus dolor et, sodales nisi. Mauris scelerisque velit et magna imperdiet ultrices. Mauris ut libero bibendum, volutpat nulla ac, congue eros. Duis rhoncus facilisis lacinia
+        title: Membro BLINKTRADE
+        icon: ico-decentralized
+        description: Somos membros da rede global da <a href="https://blinktrade.com" target="_BLANK">BLINKTRADE</a>, rede que integra <a href="https://foxbit.com.br" target="_BLANK">FOXBIT</a> no Brasil, <a href="https://surbitcoin.com/themes/coinage/" target="_BLANK">SurBitcoin</a> na Venezuela, <a href="https://chilebit.net/" target="_BLANK">ChileBit.NET</a> no Chile, <a href="https://urdubit.com/" target="_BLANK">UrduBit</a> no Paquistão e <a href="https://vbtc.vn/" target="_BLANK">VBTC</a> no Vietnam junto com outras empresas, market makers, empresas de remessa de valores, processadoras de pagamento. Operando conosco, você terá acesso a toda rede mundial de exchanges com suporte em seu idioma.
     orderbook:
       title: Livro de ofertas 
     signup:
@@ -100,7 +104,7 @@ views:
     volume: VOLUME
 
   start:
-    username: "Nome de usuário:"
+    username: "Login:"
     password: "Senha:"
     login: Entrar
     signup: Registrar
