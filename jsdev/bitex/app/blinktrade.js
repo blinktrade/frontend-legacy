@@ -1541,7 +1541,8 @@ bitex.app.BlinkTrade.prototype.onBitexOrderListResponse_ = function(e) {
   }, this);
 
   if (msg['OrdListGrp'].length == msg['PageSize'] ) {
-    this.conn_.requestOrderList(this.open_orders_request_id_ , msg['Page'] + 1, msg['PageSize'], ['0', '1'] );
+
+    this.conn_.requestOrderList(this.open_orders_request_id_, msg['Page'] + 1, msg['PageSize'], [ "has_leaves_qty eq 1" ] );
   } else {
     this.getModel().set('FinishedInitialOpenOrdersRequest',  true);
   }
@@ -4114,7 +4115,7 @@ bitex.app.BlinkTrade.prototype.onUserLoginOk_ = function(e) {
 
   // Request Open Orders
   this.getModel().set('FinishedInitialOpenOrdersRequest',  false);
-  this.conn_.requestOrderList(this.open_orders_request_id_ , 0, 100, [ "has_leaves_qty eq 1" ] );
+  this.conn_.requestOrderList(this.open_orders_request_id_ , 0, 20, [ "has_leaves_qty eq 1" ] );
 };
 
 /**
