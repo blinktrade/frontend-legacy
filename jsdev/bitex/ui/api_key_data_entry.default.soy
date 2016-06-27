@@ -109,7 +109,7 @@
             </tr>
 
             <tr>
-              <td colspan="2" class="no-selection">
+              <td class="no-selection">
                 <label class="checkbox">
                   <input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="F">{msg desc="Cancel orders permission label on API Key data entry"}Cancel Orders{/msg}</input>
                 </label>
@@ -117,10 +117,54 @@
             </tr>
 
             <tr>
+              <td colspan="2"><h4>{msg desc="Notifications on the API Key Data Entry form permissions section"}Notifications{/msg}</h4></td>
+            </tr>
+            <tr>
+              <td  class="no-selection">
+                <label class="checkbox">
+                  <input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="U23">{msg desc="Receive Deposit refresh notificaiton api permission label on API Key data entry"}Deposits updates{/msg}</input>
+                </label>
+              </td>
+              <td  class="no-selection">
+                <label class="checkbox">
+                  <input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="U9">{msg desc="Receive Witdrawal refresh notificaiton api permission label on API Key data entry"}Withdrawals updates{/msg}</input>
+                </label>
+              </td>
+            </tr>
+            <tr>
+              <td class="no-selection">
+                <label class="checkbox">
+                  <input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="U3">{msg desc="Receive Balance notificaiton api permission label on API Key data entry"}Balance updates{/msg}</input>
+                </label>
+              </td>
+              <td class="no-selection">
+                <label class="checkbox">
+                  <input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="U40">{msg desc="Receive Profile update refresh notificaiton api permission label on API Key data entry"}Profile updates{/msg}</input>
+                </label>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="no-selection">
+                <label class="checkbox">
+                  <input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="8">{msg desc="Receive execution reports api permission label on API Key data entry"}Order updates / Execution reports{/msg}</input>
+                </label>
+              </td>
+            {if $isBroker}
+              <td class="no-selection">
+                <label class="checkbox">
+                  <input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="B11">{msg desc="Receive verify customer update refresh notificaiton api permission label on API Key data entry"}Customer verification updates{/msg}</input>
+                </label>
+              </td>
+            {/if}
+            </tr>
+
+            {if not $isBroker}
+            <tr>
               <td colspan="2"><h4>{msg desc="Deposit methods on the API Key Data Entry form permissions section"}Deposit{/msg}</h4></td>
             </tr>
             <tr>
-              <td colspan="2" class="no-selection">
+              <td class="no-selection">
                 <label class="checkbox">
                   <input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="U18" data-permission-filters='[ ["Currency","eq", "BTC"]]'>Bitcoin</input>
                 </label>
@@ -129,7 +173,7 @@
 
             {foreach $m in $depositMethods}
               <tr>
-                <td colspan="2" class="no-selection">
+                <td  class="no-selection">
                   <label class="checkbox">
                     <input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="U18" data-permission-filters='[ ["DepositMethodID","eq", "{$m['id']}"]]' >{$m['currency']} - {$m['description']}</input>
                   </label>
@@ -143,7 +187,7 @@
             </tr>
             {foreach $m in $withdrawalMethods}
               <tr>
-                <td colspan="2" class="no-selection">
+                <td  class="no-selection">
                   <label class="checkbox">
                     <input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="U6" data-permission-filters='[ ["Method", "eq", "{$m['id']}" ] ]' >{$m['currency']} - {$m['description']}</input>
                   </label>
@@ -151,48 +195,49 @@
               </tr>
             {/foreach}
               <tr>
-                <td colspan="2" class="no-selection">
+                <td  class="no-selection">
                   <label class="checkbox">
                     <input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="U24">{msg desc="Confirm Withdraw on the API Key Data Entry form permissions section"}Confirm Withdrawal{/msg}</input>
                   </label>
                 </td>
               </tr>
+            {/if}
 
             {if $isBroker}
             <tr>
               <td colspan="2"><h4>{msg desc="Deposit withdrawals management on the API Key Data Entry form permissions section"}Deposit / Withdrawals management{/msg}</h4></td>
             </tr>
             <tr>
-              <td colspan="2" class="no-selection">
+              <td  class="no-selection">
                 <label class="checkbox">
                   <input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="U18" data-permission-filters='[ ["Action","eq", "CANCEL"] ]'>{msg desc="Cancel deposit request api permission label on API Key data entry"}Cancel deposit request{/msg}</input>
                 </label>
               </td>
-              <td colspan="2" class="no-selection">
+              <td  class="no-selection">
                 <label class="checkbox">
                   <input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="B6" data-permission-filters='[ ["Action","eq", "CANCEL"] ]'>{msg desc="Cancel withdrawal request api permission label on API Key data entry"}Cancel withdrawal request{/msg}</input>
                 </label>
               </td>
             </tr>
             <tr>
-              <td colspan="2" class="no-selection">
+              <td  class="no-selection">
                 <label class="checkbox">
                   <input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="U18" data-permission-filters='[ ["Action","eq", "PROGRESS"] ]'>{msg desc="Set in progress deposit request api permission label on API Key data entry"}Set deposit in progress{/msg}</input>
                 </label>
               </td>
-              <td colspan="2" class="no-selection">
+              <td  class="no-selection">
                 <label class="checkbox">
                   <input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="B6" data-permission-filters='[ ["Action","eq", "PROGRESS"] ]'>{msg desc="Set in progress withdrawal request api permission label on API Key data entry"}Set withdrawal in progress{/msg}</input>
                 </label>
               </td>
             </tr>
             <tr>
-              <td colspan="2" class="no-selection">
+              <td  class="no-selection">
                 <label class="checkbox">
                   <input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="U18" data-permission-filters='[ ["Action","eq", "COMPLETE"] ]'>{msg desc="Set deposit as complete request api permission label on API Key data entry"}Set deposit as complete{/msg}</input>
                 </label>
               </td>
-              <td colspan="2" class="no-selection">
+              <td  class="no-selection">
                 <label class="checkbox">
                   <input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="B6" data-permission-filters='[ ["Action","eq", "COMPLETE"] ]'>{msg desc="Set withdrawal as complete request api permission label on API Key data entry"}Set withdrawal as complete{/msg}</input>
                 </label>
@@ -204,96 +249,96 @@
               <td colspan="2"><h4>{msg desc="User verification the API Key Data Entry form permissions section"}User verification{/msg}</h4></td>
             </tr>
             <tr>
-              <td colspan="2" class="no-selection">
+              <td  class="no-selection">
                 <label class="checkbox">
                   <input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="B2" data-permission-filters='[ ["Status","eq", "0"] ]'>{msg desc="List users level 0 api permission label on API Key data entry"}List unverified users{/msg}</input>
                 </label>
               </td>
-              <td colspan="2" class="no-selection">
+              <td  class="no-selection">
                 <label class="checkbox">
                   <input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="B2" data-permission-filters='[ ["Status","eq", "1"] ]'>{msg desc="List users level 1 api permission label on API Key data entry"}List users with pending verification{/msg}</input>
                 </label>
               </td>
             </tr>
             <tr>
-              <td colspan="2" class="no-selection">
+              <td  class="no-selection">
                 <label class="checkbox">
                   <input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="B2" data-permission-filters='[ ["Status","eq", "2"] ]'>{msg desc="List users level 2 api permission label on API Key data entry"}List users with in progress verification{/msg}</input>
                 </label>
               </td>
-              <td colspan="2" class="no-selection">
+              <td  class="no-selection">
                 <label class="checkbox">
                   <input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="B2" data-permission-filters='[ ["Status","eq", "3"] ]'>{msg desc="List users level 3 api permission label on API Key data entry"}List users with level 1 verification{/msg}</input>
                 </label>
               </td>
             </tr>
             <tr>
-              <td colspan="2" class="no-selection">
+              <td  class="no-selection">
                 <label class="checkbox">
                   <input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="B2" data-permission-filters='[ ["Status","eq", "4"] ]'>{msg desc="List users level 4 api permission label on API Key data entry"}List users with level II verification{/msg}</input>
                 </label>
               </td>
-              <td colspan="2" class="no-selection">
+              <td  class="no-selection">
                 <label class="checkbox">
                   <input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="B2" data-permission-filters='[ ["Status","eq", "5"] ]'>{msg desc="List users level 5 api permission label on API Key data entry"}List users with level III verification{/msg}</input>
                 </label>
               </td>
             </tr>
             <tr>
-              <td colspan="2" class="no-selection">
+              <td  class="no-selection">
                 <label class="checkbox">
                   <input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="B2" data-permission-filters='[ ["Status","eq", "6"] ]'>{msg desc="List users level 6 api permission label on API Key data entry"}List users with level IV verification{/msg}</input>
                 </label>
               </td>
-              <td colspan="2" class="no-selection">
+              <td  class="no-selection">
                 <label class="checkbox">
                   <input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="B2" data-permission-filters='[ ["Status","eq", "7"] ]'>{msg desc="List users level 7 api permission label on API Key data entry"}List users with level V verification{/msg}</input>
                 </label>
               </td>
             </tr>
             <tr>
-              <td colspan="2" class="no-selection">
+              <td  class="no-selection">
                 <label class="checkbox">
                   <input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="B8" data-permission-filters='[ ["Verify","eq", "0"] ]'>{msg desc="Set Verification as level 0 api permission label on API Key data entry"}Set as not verified{/msg}</input>
                 </label>
               </td>
-              <td colspan="2" class="no-selection">
+              <td  class="no-selection">
                 <label class="checkbox">
                   <input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="B8" data-permission-filters='[ ["Verify","eq", "1"] ]'>{msg desc="Set Verification as level 1 api permission label on API Key data entry"}Set as pending verification{/msg}</input>
                 </label>
               </td>
             </tr>
             <tr>
-              <td colspan="2" class="no-selection">
+              <td  class="no-selection">
                 <label class="checkbox">
                   <input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="B8" data-permission-filters='[ ["Verify","eq", "2"] ]'>{msg desc="Set Verification as level 2 api permission label on API Key data entry"}Set as in progress verification{/msg}</input>
                 </label>
               </td>
-              <td colspan="2" class="no-selection">
+              <td  class="no-selection">
                 <label class="checkbox">
                   <input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="B8" data-permission-filters='[ ["Verify","eq", "3"] ]'>{msg desc="Set Verification as level 3 api permission label on API Key data entry"}Set verification level I{/msg}</input>
                 </label>
               </td>
             </tr>
             <tr>
-              <td colspan="2" class="no-selection">
+              <td  class="no-selection">
                 <label class="checkbox">
                   <input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="B8" data-permission-filters='[ ["Verify","eq", "2"] ]'>{msg desc="Set Verification as level 4 api permission label on API Key data entry"}Set verification level II{/msg}</input>
                 </label>
               </td>
-              <td colspan="2" class="no-selection">
+              <td  class="no-selection">
                 <label class="checkbox">
                   <input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="B8" data-permission-filters='[ ["Verify","eq", "3"] ]'>{msg desc="Set Verification as level 5 api permission label on API Key data entry"}Set verification level III{/msg}</input>
                 </label>
               </td>
             </tr>
             <tr>
-              <td colspan="2" class="no-selection">
+              <td  class="no-selection">
                 <label class="checkbox">
                   <input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="B8" data-permission-filters='[ ["Verify","eq", "2"] ]'>{msg desc="Set Verification as level 6 api permission label on API Key data entry"}Set verification level IV{/msg}</input>
                 </label>
               </td>
-              <td colspan="2" class="no-selection">
+              <td  class="no-selection">
                 <label class="checkbox">
                   <input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="B8" data-permission-filters='[ ["Verify","eq", "3"] ]'>{msg desc="Set Verification as level 7 api permission label on API Key data entry"}Set verification level V{/msg}</input>
                 </label>
@@ -306,12 +351,12 @@
             </tr>
 
             <tr>
-              <td colspan="2" class="no-selection">
+              <td  class="no-selection">
                 <label class="checkbox">
                   <input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="B4">{msg desc="Request customer details api permission label on API Key data entry"}Get customer details{/msg}</input>
                 </label>
               </td>
-              <td colspan="2" class="no-selection">
+              <td  class="no-selection">
                 <label class="checkbox">
                   <input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="U38" data-permission-filters='[ ["Fields","has", "Email"] ]'>{msg desc="Update user email api permission label on API Key data entry"}Update user email{/msg}</input>
                 </label>
@@ -319,12 +364,12 @@
             </tr>
 
             <tr>
-              <td colspan="2" class="no-selection">
+              <td  class="no-selection">
                 <label class="checkbox">
                   <input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="U38" data-permission-filters='[ ["Fields","has", ["TakerTransactionFeeBuy", "TakerTransactionFeeSell", "TransactionFeeBuy", "TransactionFeeSell" ] ] ]'>{msg desc="Update user trading fees api permission label on API Key data entry"}Update user fees{/msg}</input>
                 </label>
               </td>
-              <td colspan="2" class="no-selection">
+              <td  class="no-selection">
                 <label class="checkbox">
                   <input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="U38" data-permission-filters='[ ["Fields","has", "TwoFactorEnabled", "Fields.TwoFactorEnabled", "eq", false] ]'>{msg desc="Disable 2FA api permission label on API Key data entry"}Disable Google Authenticator/Authy{/msg}</input>
                 </label>
@@ -333,12 +378,12 @@
 
 
             <tr>
-              <td colspan="2" class="no-selection">
+              <td  class="no-selection">
                 <label class="checkbox">
                   <input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="U38" data-permission-filters='[ ["Fields","has", "EmailTwoFactorEnabled", "Fields.EmailTwoFactorEnabled", "eq", true] ]'>{msg desc="Enable Email login confirmation api permission label on API Key data entry"}Enable user email login confirmation{/msg}</input>
                 </label>
               </td>
-              <td colspan="2" class="no-selection">
+              <td  class="no-selection">
                 <label class="checkbox">
                   <input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="U38" data-permission-filters='[ ["Fields","has", "EmailTwoFactorEnabled", "Fields.EmailTwoFactorEnabled", "eq", false] ]'>{msg desc="Disable Email login confirmation permission label on API Key data entry"}Disable user email login confirmation{/msg}</input>
                 </label>
@@ -347,12 +392,12 @@
 
 
             <tr>
-              <td colspan="2" class="no-selection">
+              <td  class="no-selection">
                 <label class="checkbox">
                   <input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="U38" data-permission-filters='[ ["Fields","has", "WithdrawEmailValidation" , "Fields.WithdrawEmailValidation", "eq", true] ]'>{msg desc="Enable  Withdrawal confirmation api permission label on API Key data entry"}Enable user  withdrawal confirmation{/msg}</input>
                 </label>
               </td>
-              <td colspan="2" class="no-selection">
+              <td  class="no-selection">
                 <label class="checkbox">
                   <input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="U38" data-permission-filters='[ ["Fields","has", "WithdrawEmailValidation" , "Fields.WithdrawEmailValidation", "eq", false] ]'>{msg desc="Disable  Withdrawal confirmation permission label on API Key data entry"}Disable user  withdrawal confirmation{/msg}</input>
                 </label>
@@ -360,48 +405,6 @@
             </tr>
             {/if}
 
-            <tr>
-              <td colspan="2"><h4>{msg desc="User administration the API Key Data Entry form permissions section"}Notifications{/msg}</h4></td>
-            </tr>
-            <tr>
-              <td colspan="2" class="no-selection">
-                <label class="checkbox">
-                  <input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="U23">{msg desc="Receive Deposit refresh notificaiton api permission label on API Key data entry"}Deposits updates{/msg}</input>
-                </label>
-              </td>
-              <td colspan="2" class="no-selection">
-                <label class="checkbox">
-                  <input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="U9">{msg desc="Receive Witdrawal refresh notificaiton api permission label on API Key data entry"}Withdrawals updates{/msg}</input>
-                </label>
-              </td>
-            </tr>
-            <tr>
-              <td colspan="2" class="no-selection">
-                <label class="checkbox">
-                  <input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="U3">{msg desc="Receive Balance notificaiton api permission label on API Key data entry"}Balance updates{/msg}</input>
-                </label>
-              </td>
-              <td colspan="2" class="no-selection">
-                <label class="checkbox">
-                  <input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="U40">{msg desc="Receive Profile update refresh notificaiton api permission label on API Key data entry"}Profile updates{/msg}</input>
-                </label>
-              </td>
-            </tr>
-
-            <tr>
-              <td colspan="2" class="no-selection">
-                <label class="checkbox">
-                  <input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="8">{msg desc="Receive execution reports api permission label on API Key data entry"}Order updates / Execution reports{/msg}</input>
-                </label>
-              </td>
-            {if $isBroker}
-              <td colspan="2" class="no-selection">
-                <label class="checkbox">
-                  <input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="B11">{msg desc="Receive verify customer update refresh notificaiton api permission label on API Key data entry"}Customer verification updates{/msg}</input>
-                </label>
-              </td>
-            {/if}
-            </tr>
 
           </tbody>
         </table>

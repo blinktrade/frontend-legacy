@@ -156,6 +156,79 @@
                 </tbody>
               </table>
 
+
+              <h4>{msg desc="Notifications on the API Key Data Entry form permissions section"}Notifications{/msg}</h4>
+              <table class="table api-key-data-entry-form-permissions-table">
+                <tbody>
+                  <tr>
+                    <td class="no-selection">
+                      <!-- .checkbox -->
+                      <div class="checkbox">
+                          <label>
+                            <input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="U23">{msg desc="Receive Deposit refresh notificaiton api permission label on API Key data entry"}Deposits updates{/msg}</input>
+                          </label>
+                      </div>
+                      <!-- /.checkbox -->
+                    </td>
+                    <td  class="no-selection">
+                      <!-- .checkbox -->
+                      <div class="checkbox">
+                          <label>
+                            <input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="U9">{msg desc="Receive Witdrawal refresh notificaiton api permission label on API Key data entry"}Withdrawals updates{/msg}</input>
+                          </label>
+                      </div>
+                      <!-- /.checkbox -->
+                    </td>
+                  </tr>
+
+
+                  <tr>
+                    <td class="no-selection">
+                      <!-- .checkbox -->
+                      <div class="checkbox">
+                          <label>
+                            <input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="U3">{msg desc="Receive Balance notificaiton api permission label on API Key data entry"}Balance updates{/msg}</input>
+                          </label>
+                      </div>
+                      <!-- /.checkbox -->
+                    </td>
+                    <td class="no-selection">
+                      <!-- .checkbox -->
+                      <div class="checkbox">
+                          <label>
+                            <input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="U40">{msg desc="Receive Profile update refresh notificaiton api permission label on API Key data entry"}Profile updates{/msg}</input>
+                          </label>
+                      </div>
+                      <!-- /.checkbox -->
+                    </td>
+                  </tr>
+
+
+                  <tr>
+                    <td class="no-selection">
+                      <!-- .checkbox -->
+                      <div class="checkbox">
+                          <label>
+                            <input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="8">{msg desc="Receive execution reports api permission label on API Key data entry"}Order updates / Execution reports{/msg}</input>
+                          </label>
+                      </div>
+                      <!-- /.checkbox -->
+                    </td>
+                    {if $isBroker}
+                    <td class="no-selection">
+                      <!-- .checkbox -->
+                      <div class="checkbox">
+                          <label>
+                            <input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="B11">{msg desc="Receive verify customer update refresh notificaiton api permission label on API Key data entry"}Customer verification updates{/msg}</input>
+                          </label>
+                      </div>
+                      <!-- /.checkbox -->
+                    </td>
+                    {/if}
+                  </tr>
+                </tbody>
+              </table>
+
               <h4>{msg desc="Deposit methods on the API Key Data Entry form permissions section"}Deposit{/msg}</h4>
 
               <table class="table api-key-data-entry-form-permissions-table">
