@@ -2,7 +2,7 @@
 url: "https://foxbit.exchange"
 author: "BlinkTrade"
 baseurl: ""
-deploy_version: "0d87cc7"
+deploy_version: "55c6a87"
 
 exchange: "foxbit"
 exchange_logo: "foxbit"
