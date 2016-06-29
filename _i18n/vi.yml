@@ -62,21 +62,21 @@ views:
     about:
       learn: Learn More
       phrase1:
-        title: Easy and Fast
+        title: Đơn Giản và Hiệu Quả
         icon: ico-tradewithus
-        description: We strive for simplicity. We work hard to make it easy for you to buy and sell and use advanced features like <a href="https://github.com/blinktrade/algorithm-trading" target="_BLANK">open source trading algorithms</a>, even if you are completely new to trading. All of our deposits and withdrawals are processed instantly so that you can get your bitcoins in less than 1 minute.
+        description: Phương châm của chúng tôi là sự đơn giản. Chúng tôi làm việc hết mình để đem lại trải nghiệm sử dụng đơn giản nhất, kể cả với những tính năng phức tạp như <a href="https://github.com/blinktrade/algorithm-trading" target="_BLANK">thuật toán giao dịch</a>. Việc rút và nhận tiền được tự động hóa để bạn có thể mua được Bitcoin trong vòng dưới 1 phút.
       phrase2:
-        title: 100% Transparency
+        title: 100% Minh Bạch
         icon: ico-secure
-        description: Our dedication to transparency includes our source code which is <a href="https://github.com/blinktrade/frontend/" target="_BLANK">100% open source</a> so that everyone can analyze it and help us look for weaknesses in our security. Our hot and cold wallets are also public so you can do your own solvency check of our exchanges any time directly on the blockchain.
+        description: Chúng tôi luôn hướng tới việc minh bạch hoàn toàn hệ thống. Mã nguồn của sàn là <a href="https://github.com/blinktrade/frontend/" target="_BLANK">100% mã nguồn mở</a> để mọi người đều có thể phân tích và tìm ra những điểm yếu trong bảo mật. Ví nóng và ví lạnh của chúng tôi hoàn toàn được công khai, do đó bạn có thể kiểm tra tính thanh khoản của sàn trực tiếp trên Blockchain bất kỳ lúc nào.
       phrase3:
         title: Maecenas vel magna
         icon: ico-liquidity
         description: Donec ac tincidunt enim, quis porttitor massa. Sed vulputate ex at quam venenatis, non facilisis justo vestibulum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi diam nisl, congue vehicula maximus eget, tempor nec ipsum. Vestibulum feugiat consequat lacus et congue. Phasellus eu felis vel dui cursus pharetra quis non lectus. Curabitur porta ultrices magna sit amet ultrices. Nam cursus lorem mollis arcu dignissim congue. Praesent vitae venenatis lorem, sit amet efficitur ipsum.
       phrase4:
-        title: Member of BLINKTRADE
+        title: Thành viên của BLINKTRADE
         icon: ico-decentralized
-        description: We are a member of the global <a href="https://blinktrade.com" target="_BLANK">BlinkTrade network</a>, that includes <a href="https://foxbit.com.br" target="_BLANK">FoxBit</a> in Brazil, <a href="https://surbitcoin.com/themes/coinage/" target="_BLANK">SurBitcoin</a> in Venezuela, <a href="https://chilebit.net/" target="_BLANK">ChileBit.NET</a> in Chile, <a href="https://urdubit.com/" target="_BLANK">UrduBit</a> in Pakistan and <a href="https://vbtc.vn/" target="_BLANK">VBTC</a> in Vietnam among other companies, market makers, remittance agencies and payment processors. Through our platform you will have access to this global network of exchanges and will be able to navigate all of them in the language of your choice
+        description: Chúng tôi là một thành viên của [mạng BlinkTrade] toàn cầu, bao gồm <a href="https://foxbit.com.br" target="_BLANK">FoxBit</a> tại Brazil, <a href="https://surbitcoin.com" target="_BLANK">SurBitcoin</a> tại Venezuela, <a href="https://chilebit.net/" target="_BLANK">ChileBit.NET</a> tại Chile, <a href="https://urdubit.com/" target="_BLANK">UrduBit</a> tại Pakistan và <a href="https://vbtc.vn/" target="_BLANK">VBTC</a> tại Việt Nam, cùng các công ty, nhà tạo lập thị trường và hệ thống xử lý thanh toán khác. Thông qua nền tảng của chúng tôi, bạn sẽ có thể truy cập vào mạng lưới sàn giao dịch toàn cầu này bằng bất kỳ ngôn ngữ nào bạn sử dụng.
     orderbook:
       title: Live Order Book
     signup:
