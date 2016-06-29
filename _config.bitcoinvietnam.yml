@@ -2,7 +2,7 @@
 url: "https://vbtc.exchange"
 author: "BlinkTrade"
 baseurl: ""
-deploy_version: "7b1ebac"
+deploy_version: "9b0a50a"
 
 exchange: "bitcoinvietnam"
 exchange_logo: "bitcoinvietnam"
