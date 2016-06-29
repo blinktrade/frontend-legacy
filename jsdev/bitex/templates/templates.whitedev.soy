@@ -371,7 +371,7 @@
                   <tr>
                     <td>{$crypto_currencies['CurrencyDescription']}</td>
                     <td>{$wallets['type'] }</td>
-                    <td>
+                    <td class="broker-wallet">
                     {if $crypto_currencies['CurrencyCode'] == 'BTC' }
                       {switch $wallets['address'][0]}
                         {case 'm','n','2','9','c'}
@@ -497,6 +497,48 @@
     </fieldset>
   </form>
 {/template}
+
+/**
+  * @param id
+  */
+{template .BrokerChangeEmailDialogContent}
+  <form class="form-horizontal" data-deposit-status="prepare" data-uniform-control-holder-class="control-group">
+    <fieldset>
+      <div class="alert alert-warning">
+        <strong>{msg desc="Warning label on the Broker change email dialog content"}Warning{/msg}</strong>{sp}-{sp}
+        {msg desc="Change email warning message on the broker change email dialog content"}
+            Authorizing the change of a user's email address is always dangerous.
+            Hackers will try to social engineer you into changing a user's email address to one they have control over.
+            Additionally a bad intentioned user can pretend to be the victim of a hacker and claim that he did not
+            request the change in order to ask for reimbursement.
+        {/msg}
+      </div>
+      <div class="control-group">
+        <label>{msg desc="change email label"}New Email{/msg}</label>
+        <input
+          id="{$id}_new_email"
+          type="text"
+          data-uniform-validators="validateEmail;required"
+          size="10">
+      </div>
+      <div class="control-group">
+        <label class="checkbox"  for="{$id}_check_warning_1">
+          <input type="checkbox" id="{$id}_check_warning_1">{msg desc="First label warning on broker change email"}
+          I verified the identity of the user who requested the change with a video conference.{/msg}
+        </label>
+        <label class="checkbox"  for="{$id}_check_warning_2">
+          <input type="checkbox" id="{$id}_check_warning_2">{msg desc="Second label warning on broker change email"}
+            I am certain that the user is not able to receive the emails sent by our service.{/msg}
+        </label>
+        <label class="checkbox"  for="{$id}_check_warning_3">
+          <input type="checkbox" id="{$id}_check_warning_3">{msg desc="Third label warning on broker change email"}
+            I take 100% responsibility of possible losses should this user turn out to be an impostor.{/msg}
+        </label>
+      </div>
+    </fieldset>
+  </form>
+{/template}
+
 
 
 /**
@@ -771,6 +813,7 @@
 
 /**
   * @param amount
+  * @param price
   * @param total
   * @param side
   */
@@ -790,6 +833,12 @@
           </td>
         <td>
           <span class="bitex-model">{$amount}</span>
+        </td>
+      </tr>
+      <tr>
+        <td>{msg desc="Price per bitcoin confirmation message"}Price per bitcoin{/msg}</td>
+        <td>
+          <span class="bitex-model">{$price}</span>
         </td>
       </tr>
       <tr>
@@ -819,6 +868,23 @@
     </h3>
     <br/>
     <br/>
+  </div>
+{/template}
+
+/**
+ * @param email
+ */
+{template .ConfirmEmailSignupContentDialog}
+  <div class="row-fluid">
+    <div class="control-group">
+      <label for="email_confirm_field">{$email}</label>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="email_confirm_field">{msg desc="Confirm Email"}Email: {/msg}</label>
+      <div class="controls">
+        <input type="text" id="id_email_confirm_field" class="form-control" />
+      </div>
+    </div>
   </div>
 {/template}
 
@@ -1369,7 +1435,10 @@
         </tr>
         <tr>
             <td><strong>{msg desc="label on  overview header"}Email{/msg}</strong></td>
-            <td>{$msg_customer_detail['Email']}</td>
+            <td>
+              <span id="account-overview-email">{$msg_customer_detail['Email']}</span>
+              &nbsp;<button data-action="CHANGE_EMAIL" class="ls-btn btn-mini">Change</button>
+            </td>
         </tr>
         <tr>
             <td><strong>{msg desc="label on  overview header"}State{/msg}</strong></td>

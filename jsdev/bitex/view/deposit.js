@@ -370,6 +370,7 @@ bitex.view.DepositView.prototype.onDepositListTableRequestData_ = function(e) {
     clientID = model.get('UserID');
   }
 
+
   var status = ['0', '1', '2', '4', '8'];
   if (goog.isDefAndNotNull(filter)) {
     goog.array.forEach(filter, function(f, idx_filter){
@@ -381,6 +382,15 @@ bitex.view.DepositView.prototype.onDepositListTableRequestData_ = function(e) {
       }
     }, this);
   }
+
+  // TEMPORARY: Disable the full search until we implement a full text search
+  if (model.get('IsBroker') &&  this.is_requests_from_customers_ && goog.isDefAndNotNull(filter) && status.length > 1) {
+    return false;
+  }
+  if (model.get('IsBroker') &&  this.is_requests_from_customers_ && goog.isDefAndNotNull(filter) && status[0] == '4') {
+    return false;
+  }
+
 
   conn.requestDepositList(this.request_id_,              // opt_requestId
                           page,                          // opt_page
