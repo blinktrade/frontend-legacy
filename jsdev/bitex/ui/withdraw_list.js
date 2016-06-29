@@ -722,6 +722,23 @@ bitex.ui.WithdrawList = function( methodDescriptionObj, opt_broker_mode,  opt_sh
    */
   var MSG_WITHDRAW_LIST_BUTTON_FILTER_ALL = goog.getMsg('All');
 
+  var buttonFilters = [
+      { 'label': MSG_WITHDRAW_LIST_BUTTON_FILTER_ALL,          'value': 'all'},
+      { 'label': MSG_WITHDRAW_TABLE_COLUMN_STATUS_PENDING,     'value': '1' },
+      { 'label': MSG_WITHDRAW_TABLE_COLUMN_STATUS_PROGRESS,    'value': '2' },
+      { 'label': MSG_WITHDRAW_TABLE_COLUMN_STATUS_COMPLETED,   'value': '4' },
+      { 'label': MSG_WITHDRAW_TABLE_COLUMN_STATUS_CANCELLED,   'value': '8' }
+  ];
+
+  if (broker_mode && show_customers){
+    buttonFilters = [
+      { 'label': MSG_WITHDRAW_TABLE_COLUMN_STATUS_PENDING,     'value': '1' },
+      { 'label': MSG_WITHDRAW_TABLE_COLUMN_STATUS_PROGRESS,    'value': '2' },
+      { 'label': MSG_WITHDRAW_TABLE_COLUMN_STATUS_COMPLETED,   'value': '4' },
+      { 'label': MSG_WITHDRAW_TABLE_COLUMN_STATUS_CANCELLED,   'value': '8' }
+    ];
+  }
+
   var options = {
     'rowIDFn':this.getRowId,
     'rowClassFn':this.getRowClass,
@@ -730,13 +747,7 @@ bitex.ui.WithdrawList = function( methodDescriptionObj, opt_broker_mode,  opt_sh
     'showSearch': true,
     'searchPlaceholder':  MSG_WITHDRAW_LIST_SEARCH_PLACEHOLDER,
     'wrapperHeight': 600,
-    'buttonFilters': [
-      { 'label': MSG_WITHDRAW_LIST_BUTTON_FILTER_ALL,          'value': 'all'},
-      { 'label': MSG_WITHDRAW_TABLE_COLUMN_STATUS_PENDING,     'value': '1' },
-      { 'label': MSG_WITHDRAW_TABLE_COLUMN_STATUS_PROGRESS,    'value': '2' },
-      { 'label': MSG_WITHDRAW_TABLE_COLUMN_STATUS_COMPLETED,   'value': '4' },
-      { 'label': MSG_WITHDRAW_TABLE_COLUMN_STATUS_CANCELLED,   'value': '8' }
-    ]
+    'buttonFilters': buttonFilters
   };
   bitex.ui.DataGrid.call(this,  options , opt_domHelper);
 };
