@@ -686,3 +686,10 @@ label.control-label.withdraw-method-label {
     right: 10px;
     left: initial!important;
 }
+
+.broker-wallet {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}

@@ -643,7 +643,7 @@
 	<translation id="7619387045529344097" key="MSG_HVE6CEO79EVF" source="bitex/templates/templates.soy.js" desc="Buy fee">Taker Sell fee</translation>
 	<translation id="6460200421528784062" key="MSG_1XNKETUFNFDAQ" source="bitex/templates/templates.soy.js" desc="Buy fee">Maker Sell fee</translation>
 	<translation id="4303464165741998219" key="MSG_1AH13ZSSEV68D" source="bitex/templates/templates.soy.js" desc="Warning message when the user has unconfirmed deposits.">Não se pode solicitar saques enquanto tiver depósitos pendentes ainda não confirmados.</translation>
-	<translation id="8774415182082825766" key="MSG_RUQOJ34NMJ22" source="bitex/templates/templates.soy.js" desc="amount help block"> Máximo: <ph name="xxx" /></translation>
+	<translation id="8774415182082825766" key="MSG_RUQOJ34NMJ22" source="bitex/templates/templates.soy.js" desc="amount help block"> Max Disponível: <ph name="xxx" /></translation>
 	<translation id="3861815940477749873" key="MSG_TANOQ05DP37" source="bitex/templates/templates.soy.js" desc="label for user buy fee">Taxa do taker (compra) </translation>
 	<translation id="2801674324506835393" key="MSG_BYU7ZF0YXRKZ" source="bitex/templates/templates.soy.js" desc="label for user buy fee">Taxa do maker (compra)</translation>
 	<translation id="3419989546519926321" key="MSG_EH5JLBSI4U1O" source="bitex/templates/templates.soy.js" desc="label for user sell fee">Taxa do taker (venda)</translation>

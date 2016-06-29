@@ -56,6 +56,24 @@ load_application:       True
         </div>
         <!-- /.home-banner -->
 
+        {% assign about  = "views.landing.about" %}
+        {% assign book   = "views.landing.orderbook" %}
+        {% assign signup = "views.landing.signup" %}
+
+        {% assign title1 = about | append: "." | append: site.phrases[0] | append: ".title" %}
+        {% assign icon1  = about | append: "." | append: site.phrases[0] | append: ".icon" %}
+        {% assign desc1  = about | append: "." | append: site.phrases[0] | append: ".description" %}
+
+        {% assign title2 = about | append: "." | append: site.phrases[1] | append: ".title" %}
+        {% assign icon2  = about | append: "." | append: site.phrases[1] | append: ".icon" %}
+        {% assign desc2  = about | append: "." | append: site.phrases[1] | append: ".description" %}
+
+        {% assign title3 = about | append: "." | append: site.phrases[2] | append: ".title" %}
+        {% assign icon3  = about | append: "." | append: site.phrases[2] | append: ".icon" %}
+        {% assign desc3  = about | append: "." | append: site.phrases[2] | append: ".description" %}
+
+        {% assign learn  = about | append: ".learn" %}
+
         <!-- .home-news -->
         <div id="about" class="home-news">
             <!-- .container -->
@@ -67,31 +85,13 @@ load_application:       True
                         <!-- .home-news-item -->
                         <div class="home-news-item">
                             <div class="home-news-item__icon">
-                                <img class="home-img" src="{{ site.url }}{{ site.baseurl }}/assets/themes/coinage/img/ico-tradewithus.png" alt="" />
+                                <img class="home-img" src="{{ site.url }}{{ site.baseurl }}/assets/themes/coinage/img/{% t icon1 %}.png" alt="" />
                             </div>
 
-                            {% assign about  = "views.landing.about" %}
-                            {% assign book   = "views.landing.orderbook" %}
-                            {% assign signup = "views.landing.signup" %}
-
-                            {% assign title1 = about | append: "." | append: site.phrases[0] | append: ".title" %}
-                            {% assign desc1  = about | append: "." | append: site.phrases[0] | append: ".description" %}
-
-                            {% assign title2 = about | append: "." | append: site.phrases[1] | append: ".title" %}
-                            {% assign desc2  = about | append: "." | append: site.phrases[1] | append: ".description" %}
-
-                            {% assign title3 = about | append: "." | append: site.phrases[2] | append: ".title" %}
-                            {% assign desc3  = about | append: "." | append: site.phrases[2] | append: ".description" %}
-
-                            {% assign learn  = about | append: ".learn" %}
 
                             <h2 class="home-news-item__title h3">{% t title1 %}</h2>
 
                             <p>{% t desc1 %}</p>
-
-                            <div class="home-news-item__btn">
-                                <a href="" class="btn btn-default">{% t learn %}</a>
-                            </div>
                         </div>
                         <!-- /.home-news-item -->
                     </div>
@@ -102,16 +102,12 @@ load_application:       True
                         <!-- .home-news-item -->
                         <div class="home-news-item">
                             <div class="home-news-item__icon">
-                                <img class="home-img" src="{{ site.url }}{{ site.baseurl }}/assets/themes/coinage/img/ico-secure.png" alt="" />
+                                <img class="home-img" src="{{ site.url }}{{ site.baseurl }}/assets/themes/coinage/img/{% t icon2 %}.png" alt="" />
                             </div>
 
                             <h2 class="home-news-item__title h3">{% t title2 %}</h2>
 
                             <p>{% t desc2 %}</p>
-
-                            <div class="home-news-item__btn">
-                                <a href="" class="btn btn-default">{% t learn %}</a>
-                            </div>
                         </div>
                         <!-- /.home-news-item -->
                     </div>
@@ -122,16 +118,12 @@ load_application:       True
                         <!-- .home-news-item -->
                         <div class="home-news-item">
                             <div class="home-news-item__icon">
-                                <img class="home-img" src="{{ site.url }}{{ site.baseurl }}/assets/themes/coinage/img/ico-liquidity.png" alt="" />
+                                <img class="home-img" src="{{ site.url }}{{ site.baseurl }}/assets/themes/coinage/img/{% t icon3 %}.png" alt="" />
                             </div>
 
                             <h2 class="home-news-item__title h3">{% t title3 %}</h2>
 
                             <p>{% t desc3 %}</p>
-
-                            <div class="home-news-item__btn">
-                                <a href="" class="btn btn-default">{% t learn %}</a>
-                            </div>
                         </div>
                         <!-- /.home-news-item -->
                     </div>

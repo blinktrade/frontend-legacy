@@ -4,6 +4,8 @@
 - [jekyll](http://jekyllrb.com/), a static generator in Ruby, to create the static html pages
 - [google closure library](https://developers.google.com/closure/library/) for the javascript application 
 - [google closure templates](https://developers.google.com/closure/templates/) for some of the javascript ui views
+- [nodejs](https://nodejs.org), for deployment 
+- [npm](https://www.npmjs.com/), for deployment
 
 ## Install the pre-requesites 
 1 - Install [Git](http://git-scm.com/downloads), [Ruby](https://www.ruby-lang.org/pt/downloads/) anda [Java](https://java.com/download/index.jsp), in case you don't have them yet.
