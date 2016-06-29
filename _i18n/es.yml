@@ -12,17 +12,17 @@ exchanges:
     keywords: bitcoin, exchange de bitcoins, mercado de bitcoins, bolsa de bitcoins, open source
     lead: Véase nuestra exchange open source en acción
   chilebit:
-    title: ChileBit.net - El primer mercado de Bitcoins de Chile
+    title: ChileBit.net - El primer mercado de Bitcoins en Chile
     description: Compre y venda bitcoins de manera segura a través de ChileBit.NET. Con ChileBit.NET puedes comenzar a comprar y vender bitcoins hoy mismo. El proceso de registro tarda menos de un minuto.
     keywords: Compra y venta de bitcoins en Chile, mercado de bitcoins en Chile, venta de bitcoins en Chile, comprar bitcoins en Chile
     lead: El primer mercado de Bitcoins de Chile
   surbitcoin:
-    title: Surbitcoin - El primer mercado de Bitcoin de Venezuela
+    title: Surbitcoin - El primer mercado de Bitcoin en Venezuela
     description: Compre y venda bitcoins de manera segura a través de SurBitcoin. Con SurBitcoin puede empezar a comprar y vender bitcoins desde hoy mismo. El proceso de registro tarda menos de un minuto.
     keywords: Compra y venta de bitcoins en Venezuela, mercado de bitcoins en Venezuela, venta de bitcoins en Venezuela, comprar bitcoins en Venezuela
     lead: El primer Mercado de Bitcoin de Venezuela
   urdubit:
-    title: UrduBit - El primer mercado de Bitcoin de Pakistán
+    title: UrduBit - El primer mercado de Bitcoin en Pakistán
     description: Compre y venda bitcoins de manera segura a través de UrduBit. Con UrduBit puede empezar a comprar y vender bitcoins desde hoy mismo. El proceso de registro tarda menos de un minuto.
     keywords: Compra y venta de bitcoins en Pakistán, mercado de bitcoins en Pakistán, venta de bitcoins en Pakistán, comprar bitcoins en Pakistán
     lead: El primer Mercado de Bitcoin de Pakistán
@@ -59,32 +59,36 @@ exchanges:
 views:
   landing:
     about:
-      learn: Learn More
+      learn: Saber más
       phrase1:
-        title: Proin quis egestas eros
-        description: Nunc non est ut neque lobortis mattis. Donec ultricies tortor at mi lobortis cursus. Vestibulum felis tellus, ultrices nec odio vitae, facilisis gravida sapien. Etiam efficitur quam at nunc consequat, sed ullamcorper ante convallis. Etiam ultrices, eros a egestas faucibus, nisi lectus ultrices arcu, eu viverra risus justo a est. Fusce laoreet sapien non mattis auctor. Proin odio felis, convallis eu velit quis, condimentum lobortis nibh.
+        title: Fácil y Rápido
+        icon: ico-tradewithus
+        description: Nos centramos en la simplicidad. Trabajamos duro para que sea fácil comprar y vender bitcoins, traendo avanzados recusos tales como <a href="https://github.com/blinktrade/algorithm-trading" target="_BLANK">algoritmos de negociación de código abierto</a>  para todos.
       phrase2:
-        title: Pellentesque vestibulum lectus
-        description: Integer placerat urna lectus, in luctus odio vehicula vel. Praesent eu sagittis massa. Vivamus ut urna interdum, porttitor ex sed, congue risus. Vestibulum sit amet mattis leo. Curabitur tempor convallis ornare. In dignissim est at pellentesque consequat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In a dui quis metus eleifend maximus.
+        title: 100% Transparente
+        icon: ico-secure
+        description: Nuestra transparencia empieza en nuestro código fuente que es <a href="https://github.com/blinktrade/frontend/" target="_BLANK">100% de código abierto</a>, está disponible a todos para que puedan examinar y buscar los puntos debiles y así reforzar la seguridad de toda la plataforma. Nuestras carteras, Cold y Hot son públicas y están disponibles para que todos puedan comprobar nuestra solvencia directo en la blockchain.
       phrase3:
         title: Maecenas vel magna
+        icon: ico-liquidity
         description: Donec ac tincidunt enim, quis porttitor massa. Sed vulputate ex at quam venenatis, non facilisis justo vestibulum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi diam nisl, congue vehicula maximus eget, tempor nec ipsum. Vestibulum feugiat consequat lacus et congue. Phasellus eu felis vel dui cursus pharetra quis non lectus. Curabitur porta ultrices magna sit amet ultrices. Nam cursus lorem mollis arcu dignissim congue. Praesent vitae venenatis lorem, sit amet efficitur ipsum.
       phrase4:
-        title: Sed vulputate ex at quam venenatis
-        description: Sed tincidunt libero id ex fermentum, quis interdum dolor sollicitudin. Nunc sit amet tempor nisi. Sed ac justo libero. Sed rhoncus leo in massa tincidunt aliquam. Curabitur eu iaculis purus. Nam eu dui tempor, faucibus dolor et, sodales nisi. Mauris scelerisque velit et magna imperdiet ultrices. Mauris ut libero bibendum, volutpat nulla ac, congue eros. Duis rhoncus facilisis lacinia
+        title: Miembro de BLINKTRADE
+        icon: ico-decentralized
+        description: Somos miembros de la red global BLINKTRADE. Red que incluye: <a href="https://foxbit.com.br" target="_BLANK">FOXBIT</a> en Brasil, <a href="https://surbitcoin.com" target="_BLANK">SurBitcoin</a> en Venezuela, <a href="https://chilebit.net/" target="_BLANK">ChileBit.NET</a> en Chile, <a href="https://urdubit.com/" target="_BLANK">UrduBit</a> en Pakistán y <a href="https://vbtc.vn/" target="_BLANK">VBTC</a> en Vietnam junto con otras empresas, los creadores de mercado, las empresas de remesas de valores y  procesamiento de pagos. Operando con nosotros, usted tendrá acceso a toda la red mundial de exchanges con un apoyo local.
     orderbook:
-      title: Live Order Book
+      title: Libro de órdenes
     signup:
-      title: CREATE YOUR ACCOUNT NOW
-      description: Sign up and discover how easy it is to trade with us.
+      title: CREA TU CUENTA AHORA
+      description: Regístrate y descubre cómo es fácil comprar y vender con nosotros.
   footer:
-    about: About
-    company: Company
-    platform: Platform
+    about: Sobre
+    company: Compañía
+    platform: Plataforma
     blog: Blog
-    chart: Chart
-    latency: Latency
-    version: Version
+    chart: Gráfico
+    latency: Latencia
+    version: Versión
 
   toolbar:
     faq: Preguntas frecuentes

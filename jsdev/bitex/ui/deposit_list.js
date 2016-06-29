@@ -573,6 +573,26 @@ bitex.ui.DepositList = function( crypto_currencies_def, opt_broker_mode, opt_sho
    */
   var MSG_DEPOSIT_LIST_BUTTON_FILTER_ALL = goog.getMsg('All');
 
+  var buttonFilters = [
+      { 'label': MSG_DEPOSIT_LIST_BUTTON_FILTER_ALL,          'value': 'all'},
+      { 'label': MSG_DEPOSIT_TABLE_COLUMN_STATUS_UNCONFIRMED, 'value': '0' },
+      { 'label': MSG_DEPOSIT_TABLE_COLUMN_STATUS_PENDING,     'value': '1' },
+      { 'label': MSG_DEPOSIT_TABLE_COLUMN_STATUS_PROGRESS,    'value': '2' },
+      { 'label': MSG_DEPOSIT_TABLE_COLUMN_STATUS_COMPLETED,   'value': '4' },
+      { 'label': MSG_DEPOSIT_TABLE_COLUMN_STATUS_CANCELLED,   'value': '8' }
+  ];
+
+  if (broker_mode && show_customers){
+    buttonFilters = [
+      { 'label': MSG_DEPOSIT_TABLE_COLUMN_STATUS_PENDING,     'value': '1' },
+      { 'label': MSG_DEPOSIT_TABLE_COLUMN_STATUS_PROGRESS,    'value': '2' },
+      { 'label': MSG_DEPOSIT_TABLE_COLUMN_STATUS_COMPLETED,   'value': '4' },
+      { 'label': MSG_DEPOSIT_TABLE_COLUMN_STATUS_CANCELLED,   'value': '8' },
+      { 'label': MSG_DEPOSIT_TABLE_COLUMN_STATUS_UNCONFIRMED, 'value': '0' }
+    ];
+  }
+
+
   var options = {
     'rowIDFn':this.getRowId,
     'rowClassFn':this.getRowClass,
@@ -581,14 +601,7 @@ bitex.ui.DepositList = function( crypto_currencies_def, opt_broker_mode, opt_sho
     'showSearch': true,
     'searchPlaceholder':  MSG_DEPOSIT_LIST_SEARCH_PLACEHOLDER,
     'wrapperHeight': 600,
-    'buttonFilters': [
-      { 'label': MSG_DEPOSIT_LIST_BUTTON_FILTER_ALL,          'value': 'all'},
-      { 'label': MSG_DEPOSIT_TABLE_COLUMN_STATUS_UNCONFIRMED, 'value': '0' },
-      { 'label': MSG_DEPOSIT_TABLE_COLUMN_STATUS_PENDING,     'value': '1' },
-      { 'label': MSG_DEPOSIT_TABLE_COLUMN_STATUS_PROGRESS,    'value': '2' },
-      { 'label': MSG_DEPOSIT_TABLE_COLUMN_STATUS_COMPLETED,   'value': '4' },
-      { 'label': MSG_DEPOSIT_TABLE_COLUMN_STATUS_CANCELLED,   'value': '8' }
-    ]
+    'buttonFilters': buttonFilters
   };
 
   bitex.ui.DataGrid.call(this, options, opt_domHelper);
