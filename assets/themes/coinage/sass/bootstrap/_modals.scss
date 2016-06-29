@@ -97,6 +97,8 @@
 .modal-body {
   position: relative;
   padding: $modal-inner-padding;
+  max-height: 75vh;
+  overflow-y: auto;
 
   @media (max-width: $screen-sm-max) {
       height: 60%;

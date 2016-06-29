@@ -82,7 +82,8 @@ bitex.ui.APIKeyDataEntry.prototype.createDom = function() {
   var el = goog.soy.renderAsElement(bitex.ui.APIKeyDataEntry.templates.APIKeyDataEntry, {
     id                : this.makeId( 'api_key' ),
     depositMethods    : this.getModel()['deposit_methods'],
-    withdrawalMethods : this.getModel()['withdrawal_methods']
+    withdrawalMethods : this.getModel()['withdrawal_methods'],
+    isBroker          : this.getModel()['is_broker']
   });
   this.setElementInternal(el);
 };

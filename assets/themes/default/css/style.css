@@ -575,6 +575,13 @@ keyframes notification {
   background-color: gainsboro;
 }
 
+.broker-wallet {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
 .market-view-table-selected {
   background-color: burlywood;
 }

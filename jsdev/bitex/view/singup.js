@@ -9,6 +9,7 @@ goog.require('goog.style');
 goog.require('goog.Uri.QueryData');
 goog.require('bitex.model.Model');
 goog.require('bitex.templates');
+goog.require('uniform.Uniform');
 
 /**
  * @param {*} app
@@ -169,10 +170,47 @@ bitex.view.SignupView.prototype.onSignupButtonClick_ =  function(e){
     var MSG_PASSWORDS_DOES_NOT_MATCH = goog.getMsg('Passwords does not match');
 
     this.getApplication().showDialog(MSG_PASSWORDS_DOES_NOT_MATCH );
-    return;
   }
 
-  this.dispatchEvent( bitex.view.SignupView.EventType.SIGNUP );
+  var dlg_content = bitex.templates.ConfirmEmailSignupContentDialog({
+    email: email
+  });
+
+  var handler = this.getHandler();
+
+  /**
+   * @desc Signup email confirmation alert title
+   */
+  var MSG_CONFIRM_EMAIL_TITLE_DIALOG = goog.getMsg('Confirm Your Email');
+  var dlg_ = this.getApplication().showDialog(dlg_content, MSG_CONFIRM_EMAIL_TITLE_DIALOG, bitex.ui.Dialog.ButtonSet.createOkCancel());
+
+  var email_confirmed = goog.dom.getElement('id_email_confirm_field');
+
+  if (goog.isDefAndNotNull(email_confirmed)) {
+    email_confirmed.focus();
+  }
+
+  email_confirmed.onpaste = function(e) {
+    e.preventDefault();
+  };
+
+  handler.listen(dlg_, goog.ui.Dialog.EventType.SELECT, function(e) {
+    if (e.key == 'ok') {
+      var email_confirmed_value = goog.dom.forms.getValue(email_confirmed);
+      if (email_confirmed_value != email) {
+        /**
+         * @desc Alert error on email confirmation signup
+         */
+        var MSG_EMAIL_ERROR_MACHT = goog.getMsg("Emails doesn't match");
+        this.getApplication().showNotification('error', MSG_EMAIL_ERROR_MACHT);
+
+        e.stopPropagation();
+        e.preventDefault();
+      } else {
+        this.dispatchEvent(bitex.view.SignupView.EventType.SIGNUP);
+      }
+    }
+  }, this);
 };
 
 
