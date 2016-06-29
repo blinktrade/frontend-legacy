@@ -423,6 +423,15 @@ bitex.view.WithdrawView.prototype.onWithdrawListTableRequestData_ = function(e) 
     }, this);
   }
 
+  // TEMPORARY: Disable the full search until we implement a full text search
+  if (model.get('IsBroker') &&  this.is_requests_from_customers_ && goog.isDefAndNotNull(filter) && status.length > 1) {
+    return false;
+  }
+  if (model.get('IsBroker') &&  this.is_requests_from_customers_ && goog.isDefAndNotNull(filter) && status[0] == '4') {
+    return false;
+  }
+
+  
   conn.requestWithdrawList(this.request_id_,
                            page,
                            limit,
