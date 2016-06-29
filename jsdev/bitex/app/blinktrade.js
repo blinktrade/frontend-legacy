@@ -654,6 +654,7 @@ bitex.app.BlinkTrade.prototype.run = function(host_api) {
 
   handler.listen(this.views_, bitex.view.View.EventType.SET_VERIFIED, this.onBrokerSetUserAsVerified_);
   handler.listen(this.views_, bitex.view.View.EventType.UPDATE_PROFILE, this.onUpdateProfile_ );
+  handler.listen(this.views_, bitex.view.View.EventType.CHANGE_EMAIL, this.onBrokerChangeEmail_);
 
   handler.listen(this.views_, bitex.view.View.EventType.FILE_VIEW, this.onUserFileView_);
 
@@ -1540,7 +1541,8 @@ bitex.app.BlinkTrade.prototype.onBitexOrderListResponse_ = function(e) {
   }, this);
 
   if (msg['OrdListGrp'].length == msg['PageSize'] ) {
-    this.conn_.requestOrderList(this.open_orders_request_id_ , msg['Page'] + 1, msg['PageSize'], ['0', '1'] );
+
+    this.conn_.requestOrderList(this.open_orders_request_id_, msg['Page'] + 1, msg['PageSize'], [ "has_leaves_qty eq 1" ] );
   } else {
     this.getModel().set('FinishedInitialOpenOrdersRequest',  true);
   }
@@ -2276,6 +2278,69 @@ bitex.app.BlinkTrade.prototype.onUpdateProfile_ = function(e){
   this.conn_.updateUserProfile( new_values , client_id);
 };
 
+/**
+ * @param {goog.events.Event} e
+ * @private
+ */
+bitex.app.BlinkTrade.prototype.onBrokerChangeEmail_ = function(e){
+  var client_id = e.target.getClientID();
+  var dialog_id = goog.string.getRandomString()
+  var handler = this.getHandler();
+
+  /**
+   * @desc Change Email Dialog Title
+   */
+  var MSG_CHANGE_EMAIL_DIALOG_TITLE = goog.getMsg('Change Email');
+
+  /**
+   * @desc Change Email assign terms
+   */
+  var MSG_CHANGE_EMAIL_TERMS_ERROR = goog.getMsg('You must assign the terms');
+
+
+  var dlg_content = bitex.templates.BrokerChangeEmailDialogContent({
+    id: dialog_id
+  });
+
+  var change_email_dialog = this.showDialog(dlg_content,
+                    MSG_CHANGE_EMAIL_DIALOG_TITLE,
+                    bitex.ui.Dialog.ButtonSet.createOkCancel());
+
+  var email_el  = goog.dom.getElement(dialog_id + '_new_email');
+  var warning_1 = goog.dom.getElement(dialog_id + '_check_warning_1');
+  var warning_2 = goog.dom.getElement(dialog_id + '_check_warning_2');
+  var warning_3 = goog.dom.getElement(dialog_id + '_check_warning_3');
+
+
+  var email_uniform = new uniform.Uniform();
+  email_uniform.decorate(goog.dom.getFirstElementChild(change_email_dialog.getContentElement()));
+
+  handler.listen(change_email_dialog, goog.ui.Dialog.EventType.SELECT, function(e) {
+    if (e.key == 'ok') {
+      error_list = email_uniform.validate();
+      if(error_list.length > 0) {
+        goog.array.forEach(error_list, function(error_msg) {
+          this.showNotification('error', error_msg);
+        }, this);
+        e.stopPropagation();
+        e.preventDefault();
+        return;
+      }
+
+      if(!warning_1.checked || !warning_2.checked || !warning_3.checked) {
+        this.showNotification('error', MSG_CHANGE_EMAIL_TERMS_ERROR);
+        e.stopPropagation();
+        e.preventDefault();
+        return;
+      }
+
+      var update_profile_data_ = {};
+      update_profile_data_['Email'] = email_el.value
+      this.conn_.updateUserProfile(update_profile_data_, client_id);
+    }
+  });
+};
+
 
 /**
  * @param {goog.events.Event} e
@@ -2782,6 +2847,7 @@ bitex.app.BlinkTrade.prototype.onUserOrderEntry_ = function(e){
 
     var confirmOrderDialogContent = bitex.templates.ConfirmOrderContentDialog({
       amount: this.formatCurrency(e.target.getAmount() / 1e8, this.getQtyCurrencyFromSymbol(e.target.getSymbol()),   true),
+      price:  this.formatCurrency(e.target.getPrice() / 1e8,  this.getPriceCurrencyFromSymbol(e.target.getSymbol()), true),
       total:  this.formatCurrency(e.target.getTotal() / 1e8,  this.getPriceCurrencyFromSymbol(e.target.getSymbol()), true),
       side:   e.target.getSide()
     });
@@ -4049,7 +4115,7 @@ bitex.app.BlinkTrade.prototype.onUserLoginOk_ = function(e) {
 
   // Request Open Orders
   this.getModel().set('FinishedInitialOpenOrdersRequest',  false);
-  this.conn_.requestOrderList(this.open_orders_request_id_ , 0, 100, [ "has_leaves_qty eq 1" ] );
+  this.conn_.requestOrderList(this.open_orders_request_id_ , 0, 20, [ "has_leaves_qty eq 1" ] );
 };
 
 /**

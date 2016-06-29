@@ -62,17 +62,21 @@ views:
     about:
       learn: Learn More
       phrase1:
-        title: Proin quis egestas eros
-        description: Nunc non est ut neque lobortis mattis. Donec ultricies tortor at mi lobortis cursus. Vestibulum felis tellus, ultrices nec odio vitae, facilisis gravida sapien. Etiam efficitur quam at nunc consequat, sed ullamcorper ante convallis. Etiam ultrices, eros a egestas faucibus, nisi lectus ultrices arcu, eu viverra risus justo a est. Fusce laoreet sapien non mattis auctor. Proin odio felis, convallis eu velit quis, condimentum lobortis nibh.
+        title: Đơn Giản và Hiệu Quả
+        icon: ico-tradewithus
+        description: Phương châm của chúng tôi là sự đơn giản. Chúng tôi làm việc hết mình để đem lại trải nghiệm sử dụng đơn giản nhất, kể cả với những tính năng phức tạp như <a href="https://github.com/blinktrade/algorithm-trading" target="_BLANK">thuật toán giao dịch</a>. Việc rút và nhận tiền được tự động hóa để bạn có thể mua được Bitcoin trong vòng dưới 1 phút.
       phrase2:
-        title: Pellentesque vestibulum lectus
-        description: Integer placerat urna lectus, in luctus odio vehicula vel. Praesent eu sagittis massa. Vivamus ut urna interdum, porttitor ex sed, congue risus. Vestibulum sit amet mattis leo. Curabitur tempor convallis ornare. In dignissim est at pellentesque consequat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In a dui quis metus eleifend maximus.
+        title: 100% Minh Bạch
+        icon: ico-secure
+        description: Chúng tôi luôn hướng tới việc minh bạch hoàn toàn hệ thống. Mã nguồn của sàn là <a href="https://github.com/blinktrade/frontend/" target="_BLANK">100% mã nguồn mở</a> để mọi người đều có thể phân tích và tìm ra những điểm yếu trong bảo mật. Ví nóng và ví lạnh của chúng tôi hoàn toàn được công khai, do đó bạn có thể kiểm tra tính thanh khoản của sàn trực tiếp trên Blockchain bất kỳ lúc nào.
       phrase3:
         title: Maecenas vel magna
+        icon: ico-liquidity
         description: Donec ac tincidunt enim, quis porttitor massa. Sed vulputate ex at quam venenatis, non facilisis justo vestibulum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi diam nisl, congue vehicula maximus eget, tempor nec ipsum. Vestibulum feugiat consequat lacus et congue. Phasellus eu felis vel dui cursus pharetra quis non lectus. Curabitur porta ultrices magna sit amet ultrices. Nam cursus lorem mollis arcu dignissim congue. Praesent vitae venenatis lorem, sit amet efficitur ipsum.
       phrase4:
-        title: Sed vulputate ex at quam venenatis
-        description: Sed tincidunt libero id ex fermentum, quis interdum dolor sollicitudin. Nunc sit amet tempor nisi. Sed ac justo libero. Sed rhoncus leo in massa tincidunt aliquam. Curabitur eu iaculis purus. Nam eu dui tempor, faucibus dolor et, sodales nisi. Mauris scelerisque velit et magna imperdiet ultrices. Mauris ut libero bibendum, volutpat nulla ac, congue eros. Duis rhoncus facilisis lacinia
+        title: Thành viên của BLINKTRADE
+        icon: ico-decentralized
+        description: Chúng tôi là một thành viên của [mạng BlinkTrade] toàn cầu, bao gồm <a href="https://foxbit.com.br" target="_BLANK">FoxBit</a> tại Brazil, <a href="https://surbitcoin.com" target="_BLANK">SurBitcoin</a> tại Venezuela, <a href="https://chilebit.net/" target="_BLANK">ChileBit.NET</a> tại Chile, <a href="https://urdubit.com/" target="_BLANK">UrduBit</a> tại Pakistan và <a href="https://vbtc.vn/" target="_BLANK">VBTC</a> tại Việt Nam, cùng các công ty, nhà tạo lập thị trường và hệ thống xử lý thanh toán khác. Thông qua nền tảng của chúng tôi, bạn sẽ có thể truy cập vào mạng lưới sàn giao dịch toàn cầu này bằng bất kỳ ngôn ngữ nào bạn sử dụng.
     orderbook:
       title: Live Order Book
     signup:
