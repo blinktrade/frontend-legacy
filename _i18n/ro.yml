@@ -103,6 +103,8 @@ views:
     volume: VOLUM
 
   start:
+    bid: Cumpăra
+    ask: Vinde
     username: "Nume utilizator:"
     password: "Parola:"
     login: Autentificare

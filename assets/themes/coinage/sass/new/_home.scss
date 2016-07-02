@@ -87,6 +87,42 @@
     }
 }
 
+.home-banner__ticker {
+  width: 100%;
+  @media (min-width: $screen-sm) {
+    height: 130px;
+  }
+  .row {
+    div {
+      padding-top: 10px;
+      height: 100px;
+      &:first-child {
+        border-right: 1px solid rgba(255,255,255,.3);
+        text-align: right;
+      }
+      &:last-child {
+        text-align: left;
+      }
+      @media (max-width: $screen-sm) {
+        text-align: center!important;
+      }
+    }
+  }
+}
+
+.home-banner__ticker_value {
+  color: #f5fafd;
+  font-size: 4em;
+  margin-top: 4px;
+  margin-bottom: 32px;
+  background: none!important;
+}
+
+.home-banner__ticker_label {
+  margin: 0px;
+  color: #f5fafd;
+}
+
 .home-banner__list {
     list-style: none;
     margin: 0;

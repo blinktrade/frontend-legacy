@@ -105,6 +105,8 @@ views:
     volume: 交易量
 
   start:
+    bid: 购买
+    ask: 卖出
     username: 用户名
     password: 密码
     login: 登陆
