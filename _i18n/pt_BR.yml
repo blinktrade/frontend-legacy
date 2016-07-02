@@ -104,6 +104,8 @@ views:
     volume: VOLUME
 
   start:
+    bid: Compra
+    ask: Venda
     username: "Login:"
     password: "Senha:"
     login: Entrar

@@ -103,6 +103,8 @@ views:
     volume: VOLUME
 
   start:
+    bid: Buy
+    ask: Sell
     username: "Username:"
     password: "Password:"
     login: Login

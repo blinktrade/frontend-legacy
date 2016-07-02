@@ -27,7 +27,30 @@ load_application:       True
                 <!-- .home-banner__cell -->
                 <div class="home-banner__cell">
                     {% assign lead = "exchanges." | append: site.exchange | append: ".lead" %}
-                    <h1 class="home-banner__title">{% t lead %}</h1>
+                    <h2 class="home-banner__title">{% t lead %}</h2>
+
+                   <div class="home-banner__ticker">
+                      <div class="row bitex-display-if-ws-connected">
+                          <div class="col-sm-6">
+                              <h3 class="home-banner__ticker_label">
+                                  {% t views.start.bid %}
+                              </h3>
+                              <h1 class="bitex-model home-banner__ticker_value"
+                                data-model-key-list="formatted_BLINK_{{site.symbol}}_BEST_BID"
+                                data-model-formula="formatted_BLINK_{{site.symbol}}_BEST_BID"
+                                data-blink-class="balance-info-blink"></h1>
+                          </div>
+                          <div class="col-sm-6">
+                              <h3 class="home-banner__ticker_label">
+                                  {% t views.start.ask %}
+                              </h3>
+                              <h1 class="bitex-model home-banner__ticker_value"
+                                data-model-key-list="formatted_BLINK_{{site.symbol}}_BEST_ASK"
+                                data-model-formula="formatted_BLINK_{{site.symbol}}_BEST_ASK"
+                                data-blink-class="balance-info-blink"></h1>
+                          </div>
+                      </div>
+                   </div>
 
                     <!-- .home-->
                     <div class="col-xs-12 col-sm-8 col-md-6 col-md-offset-3 col-sm-offset-2">

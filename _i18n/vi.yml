@@ -104,6 +104,8 @@ views:
     volume: Khối lượng
 
   start:
+    bid: Mua
+    ask: Bán
     username: "Tên đăng nhập:"
     password: "Mật khẩu:"
     login: Đăng nhập
