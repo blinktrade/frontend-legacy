@@ -231,6 +231,7 @@ views:
   sidebar:
     admin: Admin
     market: "Moneda de schimb :"
+    navigation: Navigare
     menu: Meniu
     my_profile: Profilul meu
     my_broker: Despre exchange

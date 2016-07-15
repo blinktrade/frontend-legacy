@@ -232,6 +232,7 @@ views:
   sidebar:
     admin: Admin
     market: "Thị trường:"
+    navigation: Sự đi biển
     menu: Menu
     my_profile: Hồ sơ
     my_broker: Về sàn giao dịch

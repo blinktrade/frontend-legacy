@@ -232,6 +232,7 @@ views:
   sidebar:
     admin: Admin
     market: "Mercado:"
+    navigation: Navegação
     menu: Menu
     my_profile: Meu perfil
     my_broker: Sobre a exchange

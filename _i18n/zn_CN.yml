@@ -233,6 +233,7 @@ views:
   sidebar:
     admin: Admin
     market: "市场:"
+    navigation: 航海
     menu: 菜单
     my_profile: 我的个人资料
     my_broker: 关于交易所
