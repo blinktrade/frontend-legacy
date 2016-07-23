@@ -1,7 +1,7 @@
 # Site settings
 url: "https://chilebit.net"
 author: "BlinkTrade"
-baseurl: "/exchange"
+baseurl: ""
 deploy_version: "7525d95"
 
 exchange: "chilebit"
