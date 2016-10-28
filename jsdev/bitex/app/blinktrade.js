@@ -2233,7 +2233,7 @@ bitex.app.BlinkTrade.prototype.showWithdrawalDialog = function(currency, opt_pre
             e.preventDefault();
             return;
           }
-          amount = new bitex.primitives.Price(amount * 1e8,
+          amount = new bitex.primitives.Price((amount * 1e8).toFixed(0),
                                               this.getCurrencyPip(withdraw_data['Currency'])).floor();
 
           var pos = [0];

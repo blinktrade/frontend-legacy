@@ -585,9 +585,9 @@ bitex.ui.SimpleOrderEntry.prototype.getAmount = function(){
       return 0;
     }
 
-    return parseInt(value * this.factor_amount_, 10);
+    return parseInt((value * this.factor_amount_).toFixed(0), 10);
   } else {
-    return this.getModel().amount;
+    return parseInt(this.getModel().amount.toFixed(0));
   }
 };
 
