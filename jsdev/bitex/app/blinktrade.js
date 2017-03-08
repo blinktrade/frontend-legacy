@@ -462,6 +462,8 @@ bitex.app.BlinkTrade.prototype.run = function(host_api) {
   var twoFactorView       = new bitex.view.TwoFactor(this);
   var faqView             = new bitex.view.NullView(this);
   var themesView          = new bitex.view.NullView(this);
+  var partnersView        = new bitex.view.NullView(this);
+  var purseioView         = new bitex.view.NullView(this);
   var setNewPasswordView  = new bitex.view.SetNewPasswordView(this);
   var loginView           = new bitex.view.LoginView(this);
   var signUpView          = new bitex.view.SignupView(this);
@@ -496,6 +498,8 @@ bitex.app.BlinkTrade.prototype.run = function(host_api) {
   this.views_.addChild( twoFactorView       );
   this.views_.addChild( faqView             );
   this.views_.addChild( themesView          );
+  this.views_.addChild( partnersView        );
+  this.views_.addChild( purseioView         );
   this.views_.addChild( setNewPasswordView  );
   this.views_.addChild( loginView           );
   this.views_.addChild( signUpView          );
@@ -537,6 +541,8 @@ bitex.app.BlinkTrade.prototype.run = function(host_api) {
   this.router_.addView( '(twofactor)'                   , twoFactorView       );
   this.router_.addView( '(faq)'                         , faqView             );
   this.router_.addView( '(themes)'                      , themesView          );
+  this.router_.addView( '(partners)'                    , partnersView        );
+  this.router_.addView( '(purseio)'                     , purseioView         );
   this.router_.addView( '(admin)'                       , startView           );
   this.router_.addView( '(set_new_password)'            , setNewPasswordView  );
   this.router_.addView( '(signin)'                      , loginView           );
@@ -1645,7 +1651,7 @@ bitex.app.BlinkTrade.prototype.onBitexExecutionReport_ = function(e) {
   }
 
   if (should_beep) {
-    bitex.util.playSound('/assets/res/beep.wav'); 
+    bitex.util.playSound('/assets/res/beep.wav');
   }
 };
 
@@ -2913,12 +2919,12 @@ bitex.app.BlinkTrade.prototype.onShowReceipt_ = function(e){
       depositDetailTemplateData.push ( { "key": k, "value": data  }  );
     }
   }, this);
- 
+
   var depositReceiptTemplateData = [];
   goog.array.forEach(e.target.getReceiptData()['DepositReceipt'], function(url) {
     var is_pdf = goog.string.caseInsensitiveEndsWith(url, 'pdf');
     var is_txt = goog.string.caseInsensitiveEndsWith(url, 'txt');
- 
+
     var data = {
       'url': url,
       'type': 'image'
@@ -2927,9 +2933,9 @@ bitex.app.BlinkTrade.prototype.onShowReceipt_ = function(e){
       data['type'] = 'pdf';
     } else if (is_txt) {
       data['type'] = 'txt';
-    } 
+    }
     depositReceiptTemplateData.push(data);
-  }, this); 
+  }, this);
 
   /**
    * @desc Crypto Currency Withdraw deposit title
@@ -3879,7 +3885,7 @@ bitex.app.BlinkTrade.prototype.onBodyClick_ =function(e){
     if (goog.isFunction(node.getAttribute) && goog.isDefAndNotNull(node.getAttribute('data-action'))) {
       return true;
     }
-  }, true ); 
+  }, true );
   if (goog.isDefAndNotNull(action_element)) {
     var action = action_element.getAttribute('data-action');
     var param1;
@@ -5057,12 +5063,12 @@ bitex.app.BlinkTrade.prototype.registerAlgorithmInstance = function(algo_instanc
   var locked_balance_broker = this.getModel().get('LockedBalance')[this.getModel().get('SelectedBrokerID')][this.getModel().get('UserID')];
 
   var balance_broker = {};
-  goog.object.forEach(deposited_balance_broker, function( balance, currency ) { 
+  goog.object.forEach(deposited_balance_broker, function( balance, currency ) {
     balance_broker[currency] = balance;
-  }, this); 
-  goog.object.forEach(locked_balance_broker, function( balance, currency ) { 
+  }, this);
+  goog.object.forEach(locked_balance_broker, function( balance, currency ) {
     balance_broker[currency + '_locked' ] = balance;
-  }, this); 
+  }, this);
 
   /**
    * @desc dialog shown to the user requesting his permissions to run the selected algorithm trading
@@ -5291,7 +5297,7 @@ bitex.app.BlinkTrade.prototype.onAlgoParams_ = function(e){
 
 
 /**
- * @param {Object} token 
+ * @param {Object} token
  */
 bitex.app.BlinkTrade.prototype.sendAccessToken = function(token) {
   console.log(token);
@@ -5322,4 +5328,3 @@ goog.exportProperty(BlinkTradeApp.prototype, 'getQtyCurrencyFromSymbol', bitex.a
 goog.exportProperty(BlinkTradeApp.prototype, 'getPriceCurrencyFromSymbol', bitex.app.BlinkTrade.prototype.getPriceCurrencyFromSymbol);
 goog.exportProperty(BlinkTradeApp.prototype, 'setView', bitex.app.BlinkTrade.prototype.setView);
 goog.exportProperty(BlinkTradeApp.prototype, 'run', bitex.app.BlinkTrade.prototype.run);
-

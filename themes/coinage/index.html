@@ -492,6 +492,8 @@ load_application:       True
                                         bitex-view-settings
                                         bitex-view-algotrading
                                         bitex-view-api
+                                        bitex-view-partners
+                                        bitex-view-purseio
                                         bitex-view-my_broker
                                         bitex-view-verification">
 
@@ -529,6 +531,11 @@ load_application:       True
                           <li role="presentation" id="menu-offerbook">
                               <a href="#" data-switch-view="offerbook">
                                   <i class="glyphicon glyphicon-book"></i> {% t views.sidebar.offerbook %}
+                              </a>
+                          </li>
+                          <li role="presentation" id="menu-partners">
+                              <a href="#" data-switch-view="partners">
+                                  <i class="glyphicon glyphicon-shopping-cart"></i> {% t views.sidebar.partners %}
                               </a>
                           </li>
                           <li role="presentation" id="menu-history">
@@ -946,6 +953,40 @@ load_application:       True
                 </div>
                 <!-- /#account_overview -->
 
+                <!-- view partners -->
+                <div id="partners" class="bitex-view">
+                  <header class="page__head section-title">
+                    <h1 class="page__title h2 bitex-view-title">{% t views.partners.title %}</h1>
+                  </header>
+                  <div class="page__body bitex-view-content">
+                    <div class="row">
+                      <div class="col-sm-6 col-md-4">
+                        <div class="thumbnail">
+                          <img src="{{ site.url}}{{ site.baseurl }}/assets/exchange_logos/partners/purseio.png" alt="Purse.io">
+                          <div class="caption">
+                            <h3>{% t views.partners.purseio.title %}</h3>
+                            <p>{% t views.partners.purseio.description %}</p>
+                            <p>
+                              <a href="https://purse.io/" target="_blank" class="btn btn-primary" role="button">
+                                More
+                              </a>
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- /view partners -->
+
+                <div id="purseio" class="bitex-view">
+                  <header class="page__head section-title">
+                    <h1 class="page__title h2 bitex-view-title">{% t views.partners.purseio.title %}</h1>
+                  </header>
+                  <div class="page__body bitex-view-content">
+                  </div>
+                </div>
+
 
                 <!-- #settings -->
                 <div id="settings" class="bitex-view">
@@ -1030,6 +1071,8 @@ load_application:       True
                               bitex-view-settings
                               bitex-view-algotrading
                               bitex-view-api
+                              bitex-view-partners
+                              bitex-view-purseio
                               bitex-view-my_broker
                               bitex-view-verification">
               <!-- .sidebar-box -->

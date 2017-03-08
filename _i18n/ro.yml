@@ -228,6 +228,12 @@ views:
   history:
     title: Orders history
 
+  partners:
+    title: Partners
+    purseio:
+      title: Purse.io
+      description: Save 15% Off Amazon with Bitcoin
+
   sidebar:
     admin: Admin
     market: "Moneda de schimb :"
@@ -238,6 +244,7 @@ views:
     trading: Cumpără sau Vinde
     offerbook: Registrul de comenzi
     ledger: Registru
+    partners: Partners
     customers: Clienți mei
     deposit_requests: Cerere de depunere
     withdraw_requests: Cerere de retragere
