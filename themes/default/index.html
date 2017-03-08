@@ -733,7 +733,27 @@ load_application:       True
       </div>
     </div>
     {% if site.trading_view %}
-      <div id="market_trading_view" data-symbol="{{site.trading_view}}"></div>
+      <div id="market_trading_view" style="height: 600px;">
+        <script type="text/javascript" src="https://s3.amazonaws.com/tradingview/tv.js"></script>
+        <script type="text/javascript">
+          new TradingView.widget({
+            "autosize": true,
+            "symbol": "{{site.trading_view}}",
+            "interval": "240",
+            "timezone": "exchange",
+            "theme": "White",
+            "toolbar_bg": "#f4f7f9",
+            "hide_side_toolbar": false,
+            "watchlist": [
+              "BITFINEX:BTCUSD",
+              "OKCOIN:BTCCNY"
+            ],
+            "details": true,
+            "locale": "{{site.lang | remove: '_BR'}}",
+            "hideideas": true
+          });
+        </script>
+      </div>
     {% endif %}
     <div class="bitex-view-content">
     </div>
