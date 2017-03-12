@@ -476,7 +476,7 @@ bitex.view.OfferBookView.prototype.onOBNewOrder_ = function(e){
   if (goog.isDefAndNotNull(msg['Username'])) {
     username = msg['Username'];
   } else {
-    username  = bitex.util.getPseudoName(msg['UserID']);
+    username  = bitex.util.getPseudoName(msg['UserID'], msg['Broker']);
   }
 
   if (msg['UserID'] === model.get('UserID') ) {
