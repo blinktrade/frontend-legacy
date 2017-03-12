@@ -230,6 +230,7 @@ views:
 
   partners:
     title: Use your bitcoins
+    more: More
     purseio:
       title: Purse.io
       description: Save 15% Off Amazon with Bitcoin

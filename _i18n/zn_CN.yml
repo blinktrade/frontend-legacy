@@ -232,6 +232,7 @@ views:
 
   partners:
     title: Partners
+    more: 更多
     purseio:
       title: Purse.io
       description: Save 15% Off Amazon with Bitcoin
