@@ -229,6 +229,12 @@ views:
   history:
     title: Lịch sử giao dịch
 
+  partners:
+    title: Partners
+    purseio:
+      title: Purse.io
+      description: Save 15% Off Amazon with Bitcoin
+
   sidebar:
     admin: Admin
     market: "Thị trường:"
@@ -238,6 +244,7 @@ views:
     my_broker: Về sàn giao dịch
     trading: Mua và Bán
     offerbook: Sổ lệnh
+    partners: Partners
     ledger: Sổ kế toán
     customers: Khách hàng
     deposit_requests: Lệnh gửi tiền của khách

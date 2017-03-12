@@ -228,6 +228,12 @@ views:
   history:
     title: Historial de órdenes
 
+  partners:
+    title: Partners
+    purseio:
+      title: Purse.io
+      description: Save 15% Off Amazon with Bitcoin
+
   sidebar:
     admin: Admin
     market: "Mercado:"
@@ -237,6 +243,7 @@ views:
     my_broker: Sobre el exchange
     trading: Comprar o Vender
     offerbook: Libro de órdenes
+    partners: Partners
     ledger: Libro de cuentas
     customers: Mis clientes
     deposit_requests: Depósitos ( clientes )
