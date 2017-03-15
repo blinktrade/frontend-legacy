@@ -13,7 +13,7 @@ exchange_toolbar_logo: "surbitcoin_inverse"
 custom_css: "lightred"
 
 default_country_code: "VE"
-blinktrade_broker_id: 4 # 9 is the id for the demo backend. Don't change that if you don't understand what you doing.
+blinktrade_broker_id: 1 # 9 is the id for the demo backend. Don't change that if you don't understand what you doing.
 
 # blinktrade_backend_api: "api.blinktrade.com"
 blinktrade_backend_api: "api.testnet.blinktrade.com"
