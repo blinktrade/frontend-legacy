@@ -81,6 +81,50 @@ var MSG_WITHDRAW_TABLE_COLUMN_DETAIL = goog.getMsg('Details');
 var MSG_WITHDRAW_TABLE_COLUMN_USERNAME = goog.getMsg('Username');
 
 
+/** 
+ * @desc reason for cancelling withdraw 
+ */
+var MSG_WITHDRAW_REASON_INSUFFICIENT_FUNDS = goog.getMsg('Insufficient funds');
+
+/** 
+ * @desc reason for cancelling withdraw 
+ */
+  var MSG_WITHDRAW_REASON_ACCOUNT_NOT_VERIFIED = goog.getMsg('Account not verified');
+
+/** 
+ * @desc reason for cancelling withdraw 
+ */
+var MSG_WITHDRAW_REASON_SUSPICION_OF_FRAUD = goog.getMsg('Suspicion of fraud');
+
+/** 
+ * @desc reason for cancelling withdraw 
+ */
+var MSG_WITHDRAW_REASON_DIFFERENT_ACCOUNT = goog.getMsg('Withdrawing to a different account than yours');
+
+/** 
+ * @desc reason for cancelling withdraw 
+ */
+var MSG_WITHDRAW_REASON_INVALID_WALLET = goog.getMsg('Invalid wallet');
+
+/** 
+ * @desc reason for cancelling withdraw 
+ */
+var MSG_WITHDRAW_REASON_INVALID_BANK_ACCOUNT = goog.getMsg('Invalid bank account');
+
+/** 
+ * @desc reason for cancelling withdraw 
+ */
+var MSG_WITHDRAW_REASON_OVER_LIMIT = goog.getMsg('Amount exceeded your daily withdraw limit');
+
+/** 
+ * @desc reason for cancelling withdraw 
+ */
+var MSG_WITHDRAW_REASON_UNCONFIRMED_DEPOSITS = goog.getMsg('User has deposits that are not yet confirmed');
+
+/** 
+ * @desc reason for cancelling withdraw 
+ */
+var MSG_WITHDRAW_REASON_ACCOUNT_HAS_WITHDRAWAL_BLOCK = goog.getMsg('The withdraw function is temporarily blocked for your account');
 
 /**
  * @param {Object} methodDescriptionObj
@@ -147,24 +191,6 @@ bitex.ui.WithdrawList = function( methodDescriptionObj, opt_broker_mode,  opt_sh
         var reason    = rowSet['Reason'];
 
         if (goog.isDefAndNotNull(reason_id)) {
-          /** @desc reason for cancelling withdraw */
-          var MSG_WITHDRAW_REASON_INSUFFICIENT_FUNDS = goog.getMsg('Insufficient funds');
-          /** @desc reason for cancelling withdraw */
-            var MSG_WITHDRAW_REASON_ACCOUNT_NOT_VERIFIED = goog.getMsg('Account not verified');
-          /** @desc reason for cancelling withdraw */
-          var MSG_WITHDRAW_REASON_SUSPICION_OF_FRAUD = goog.getMsg('Suspicion of fraud');
-          /** @desc reason for cancelling withdraw */
-          var MSG_WITHDRAW_REASON_DIFFERENT_ACCOUNT = goog.getMsg('Withdrawing to a different account than yours');
-          /** @desc reason for cancelling withdraw */
-          var MSG_WITHDRAW_REASON_INVALID_WALLET = goog.getMsg('Invalid wallet');
-          /** @desc reason for cancelling withdraw */
-          var MSG_WITHDRAW_REASON_INVALID_BANK_ACCOUNT = goog.getMsg('Invalid bank account');
-          /** @desc reason for cancelling withdraw */
-          var MSG_WITHDRAW_REASON_OVER_LIMIT = goog.getMsg('Amount exceeded your daily withdraw limit');
-          /** @desc reason for cancelling withdraw */
-          var MSG_WITHDRAW_REASON_UNCONFIRMED_DEPOSITS = goog.getMsg('User has deposits that are not yet confirmed');
-          /** @desc reason for cancelling withdraw */
-          var MSG_WITHDRAW_REASON_ACCOUNT_HAS_WITHDRAWAL_BLOCK = goog.getMsg('The withdraw function is temporarily blocked for your account');
 
 
           // var status_el = goog.dom.createDom('span', ['label', 'label-' + label_class_text[0] ] );
@@ -463,7 +489,7 @@ bitex.ui.WithdrawList = function( methodDescriptionObj, opt_broker_mode,  opt_sh
                     goog.dom.appendChild(element,
                        goog.dom.createDom('tr', goog.getCssName(bitex.ui.WithdrawList.CSS_CLASS, 'details-tr'),
                          goog.dom.createDom('td', goog.getCssName(bitex.ui.WithdrawList.CSS_CLASS, 'details-td-key'), key_description ),
-                         goog.dom.createDom('td', goog.getCssName(bitex.ui.WithdrawList.CSS_CLASS, 'details-td-value'), value ))
+                         goog.dom.createDom('td', goog.getCssName(bitex.ui.WithdrawList.CSS_CLASS, 'details-td-value'), '' + value ))
                     );
                   }
                 }
@@ -501,7 +527,7 @@ bitex.ui.WithdrawList = function( methodDescriptionObj, opt_broker_mode,  opt_sh
               */
              var MSG_WITHDRAW_TABLE_DETAILS_COLUMN_BTN_BLOCKCHAIN  = goog.getMsg('blockchain');
 
-             var block_explorer = 'https://blockchain.info';
+             var block_explorer = 'https://live.blockcypher.com/btc';
              switch (rowSet['Data']['Wallet'][0]) {
                case 'm':
                case 'n':
@@ -543,6 +569,7 @@ bitex.ui.WithdrawList = function( methodDescriptionObj, opt_broker_mode,  opt_sh
                                                           goog.dom.createDom('td', goog.getCssName(bitex.ui.WithdrawList.CSS_CLASS, 'details-td-key'), MSG_WITHDRAW_TABLE_DETAILS_COLUMN_COMMENTS),
                                                           goog.dom.createDom('td', goog.getCssName(bitex.ui.WithdrawList.CSS_CLASS, 'details-td-value'), comments)));
         }
+
 
         if (!broker_mode) {
           data_row = goog.json.serialize(rowSet);
@@ -593,6 +620,53 @@ bitex.ui.WithdrawList = function( methodDescriptionObj, opt_broker_mode,  opt_sh
                         goog.dom.createDom('td', goog.getCssName(bitex.ui.WithdrawList.CSS_CLASS, 'details-td-value'),btn_user_redo )));
               break;
           }
+        }
+
+        var reason_id = rowSet['ReasonID'];
+        var reason    = rowSet['Reason'];
+        var has_reason = false;
+        if (goog.isDefAndNotNull(reason)) {
+          has_reason = true;
+        } else if (goog.isDefAndNotNull(reason_id)) {
+          has_reason = true;
+          switch (reason_id) {
+            case 0:
+              reason = MSG_WITHDRAW_REASON_INSUFFICIENT_FUNDS
+              break;
+            case -1:
+              reason = MSG_WITHDRAW_REASON_ACCOUNT_NOT_VERIFIED
+              break;
+            case -2:
+              reason = MSG_WITHDRAW_REASON_ACCOUNT_NOT_VERIFIED
+              break;
+            case -3:
+              reason = MSG_WITHDRAW_REASON_SUSPICION_OF_FRAUD
+              break;
+            case -4:
+              reason = MSG_WITHDRAW_REASON_DIFFERENT_ACCOUNT
+              break;
+            case -5:
+              reason = MSG_WITHDRAW_REASON_INVALID_WALLET
+              break;
+            case -6:
+              reason = MSG_WITHDRAW_REASON_INVALID_BANK_ACCOUNT
+              break;
+            case -7:
+              reason = MSG_WITHDRAW_REASON_OVER_LIMIT
+              break;
+            case -8:
+              reason = MSG_WITHDRAW_REASON_UNCONFIRMED_DEPOSITS
+              break;
+            case -9:
+              reason = MSG_WITHDRAW_REASON_ACCOUNT_HAS_WITHDRAWAL_BLOCK
+              break;
+          }
+        }
+        if (has_reason) {
+          goog.dom.appendChild(element,
+            goog.dom.createDom('tr', goog.getCssName(bitex.ui.WithdrawList.CSS_CLASS, 'details-tr'),
+               goog.dom.createDom('td', goog.getCssName(bitex.ui.WithdrawList.CSS_CLASS, 'details-td-key'), MSG_WITHDRAW_TABLE_COLUMN_STATUS),
+               goog.dom.createDom('td', goog.getCssName(bitex.ui.WithdrawList.CSS_CLASS, 'details-td-value'), '' + reason)));
         }
 
         return element;
