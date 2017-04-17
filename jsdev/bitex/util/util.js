@@ -305,23 +305,28 @@ bitex.util.getFormAsJSON = function(element){
 
 /**
  * @param {number} user_id
+ * @param {string=} opt_broker_name
  * @returns {string}
  */
-bitex.util.getPseudoName = function(user_id) {
+bitex.util.getPseudoName = function(user_id, opt_broker_name) {
   var list_of_101_animal_names = [
     'Os',    'Oso',    'Cow',    'Gnu',    'Ema',    'Cat',    'Rat',    'Fox',    'Ram',    'Bat',
     'Owl',   'Oca',    'Ruc',    'Pop',    'Gos',    'Oie',    'Pie',    'Coq',    'Pic',    'Kuh',
-    'Wal',   'Hai',    'Pfau',   'Toro',   'Hund',   'Paon',   'Gall',   'Lula',   'Loro',   'Drac',
+    'Wal',   'Hai',    'Pfau',   'Toro',   'Hund',   'Paon',   'Gall',   'Pato',   'Loro',   'Drac',
     'Gato',  'Rata',   'Llop',   'Vaca',   'Rato',   'Sapo',   'Lobo',   'Urso',   'Puma',   'Orca',
     'Peru',  'Rato',   'Galo',   'Lynx',   'Hawk',   'Pony',   'Frog',   'Wolf',   'Goat',   'Lion',
     'Seal',  'Bear',   'Bull',   'Deer',   'Puma',   'Orca',   'Pavo',   'Swan',   'Cerf',   'Gallo',
-    'Pulpo', 'Ostra',  'Pombo',  'Touro',  'Veado',  'Cabra',  'Poney',  'Foca',   'Ganso',  'Corvo',
+    'Pulpo', 'Ostra',  'Pombo',  'Gaiota', 'Coelho', 'Cabra',  'Poney',  'Foca',   'Ganso',  'Corvo',
     'Hiena', 'Bison',  'Cobra',  'Tigre',  'Polvo',  'Zebra',  'Goose',  'Raven',  'Sloth',  'Viper',
     'Whale', 'Lemur',  'Mouse',  'Skunk',  'Hyena',  'Bison',  'Camel',  'Crock',  'Eagle',  'Snake',
     'Otter', 'Tiger',  'Zebra',  'Horse',  'Rhino',  'Hippo',  'Shark',  'Koala',  'Huhn',   'Katze',
     'Ziege'];
 
-  return list_of_101_animal_names[user_id % 101 ] + '_' + parseInt(user_id/101,10)
+  if (goog.isDefAndNotNull(opt_broker_name)) {
+    return list_of_101_animal_names[user_id % 101 ] + '_' + parseInt(user_id/101,10);
+  } else {
+    return list_of_101_animal_names[user_id % 101 ] + '_' + parseInt(user_id/101,10);
+  }
 };
 
 bitex.util.getCountries = function() {

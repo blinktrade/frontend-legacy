@@ -26,7 +26,30 @@ load_application:       True
                 <!-- .home-banner__cell -->
                 <div class="home-banner__cell">
                     {% assign lead = "exchanges." | append: site.exchange | append: ".lead" %}
-                    <h1 class="home-banner__title">{% t lead %}</h1>
+                    <h2 class="home-banner__title">{% t lead %}</h2>
+
+                   <div class="home-banner__ticker">
+                      <div class="row bitex-display-if-ws-connected">
+                          <div class="col-sm-6">
+                              <h3 class="home-banner__ticker_label">
+                                  {% t views.start.bid %}
+                              </h3>
+                              <h1 class="bitex-model home-banner__ticker_value"
+                                data-model-key-list="formatted_BLINK_{{site.symbol}}_BEST_BID"
+                                data-model-formula="formatted_BLINK_{{site.symbol}}_BEST_BID"
+                                data-blink-class="balance-info-blink"></h1>
+                          </div>
+                          <div class="col-sm-6">
+                              <h3 class="home-banner__ticker_label">
+                                  {% t views.start.ask %}
+                              </h3>
+                              <h1 class="bitex-model home-banner__ticker_value"
+                                data-model-key-list="formatted_BLINK_{{site.symbol}}_BEST_ASK"
+                                data-model-formula="formatted_BLINK_{{site.symbol}}_BEST_ASK"
+                                data-blink-class="balance-info-blink"></h1>
+                          </div>
+                      </div>
+                   </div>
 
                     <!-- .home-->
                     <div class="col-xs-12 col-sm-8 col-md-6 col-md-offset-3 col-sm-offset-2">
@@ -468,6 +491,8 @@ load_application:       True
                                         bitex-view-settings
                                         bitex-view-algotrading
                                         bitex-view-api
+                                        bitex-view-partners
+                                        bitex-view-purseio
                                         bitex-view-my_broker
                                         bitex-view-verification">
 
@@ -483,7 +508,7 @@ load_application:       True
 
               <!-- .sidebar-box -->
               <div class="sidebar-box">
-                  <h5 class="sidebar-box__title">NAVEGATION</h5>
+                  <h5 class="sidebar-box__title">{% t views.sidebar.navigation %}</h5>
 
                   <div class="sidebar-box__body">
                       <ul class="sidebar-box-nav nav">
@@ -505,6 +530,11 @@ load_application:       True
                           <li role="presentation" id="menu-offerbook">
                               <a href="#" data-switch-view="offerbook">
                                   <i class="glyphicon glyphicon-book"></i> {% t views.sidebar.offerbook %}
+                              </a>
+                          </li>
+                          <li role="presentation" id="menu-partners">
+                              <a href="#" data-switch-view="partners">
+                                  <i class="glyphicon glyphicon-shopping-cart"></i> {% t views.sidebar.partners %}
                               </a>
                           </li>
                           <li role="presentation" id="menu-history">
@@ -922,6 +952,40 @@ load_application:       True
                 </div>
                 <!-- /#account_overview -->
 
+                <!-- view partners -->
+                <div id="partners" class="bitex-view">
+                  <header class="page__head section-title">
+                    <h1 class="page__title h2 bitex-view-title">{% t views.partners.title %}</h1>
+                  </header>
+                  <div class="page__body bitex-view-content">
+                    <div class="row">
+                      <div class="col-sm-6 col-md-4">
+                        <div class="thumbnail">
+                          <img src="{{ site.url}}{{ site.baseurl }}/assets/exchange_logos/partners/purseio.png" alt="Purse.io">
+                          <div class="caption">
+                            <h3>{% t views.partners.purseio.title %}</h3>
+                            <p>{% t views.partners.purseio.description %}</p>
+                            <p>
+                              <a href="https://purse.io/?_a=BLINKTRADE" target="_blank" class="btn btn-primary" role="button">
+                                {% t views.partners.more %}
+                              </a>
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- /view partners -->
+
+                <div id="purseio" class="bitex-view">
+                  <header class="page__head section-title">
+                    <h1 class="page__title h2 bitex-view-title">{% t views.partners.purseio.title %}</h1>
+                  </header>
+                  <div class="page__body bitex-view-content">
+                  </div>
+                </div>
+
 
                 <!-- #settings -->
                 <div id="settings" class="bitex-view">
@@ -1006,6 +1070,8 @@ load_application:       True
                               bitex-view-settings
                               bitex-view-algotrading
                               bitex-view-api
+                              bitex-view-partners
+                              bitex-view-purseio
                               bitex-view-my_broker
                               bitex-view-verification">
               <!-- .sidebar-box -->
@@ -1040,7 +1106,27 @@ load_application:       True
       <!-- /.page__head -->
 
       {% if site.trading_view %}
-        <div id="market_trading_view" data-symbol="{{site.trading_view}}"></div>
+        <div id="market_trading_view" style="height: 600px;">
+          <script type="text/javascript" src="https://s3.amazonaws.com/tradingview/tv.js"></script>
+          <script type="text/javascript">
+            new TradingView.widget({
+              "autosize": true,
+              "symbol": "{{site.trading_view}}",
+              "interval": "240",
+              "timezone": "exchange",
+              "theme": "White",
+              "toolbar_bg": "#f4f7f9",
+              "hide_side_toolbar": false,
+              "watchlist": [
+                "BITFINEX:BTCUSD",
+                "OKCOIN:BTCCNY"
+              ],
+              "details": true,
+              "locale": "{{site.lang | remove: '_BR'}}",
+              "hideideas": true
+            });
+          </script>
+        </div>
       {% endif %}
       <!-- .page__body -->
       <div class="page__body bitex-view-content">
