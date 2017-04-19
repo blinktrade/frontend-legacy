@@ -104,6 +104,8 @@ views:
     volume: Khối lượng
 
   start:
+    bid: Mua
+    ask: Bán
     username: "Tên đăng nhập:"
     password: "Mật khẩu:"
     login: Đăng nhập
@@ -227,14 +229,23 @@ views:
   history:
     title: Lịch sử giao dịch
 
+  partners:
+    title: Sử dụng Bitcoin của bạn
+    more: Hơn
+    purseio:
+      title: Purse.io
+      description: Tiết kiệm 15% trên Amazon với Bitcoin
+
   sidebar:
     admin: Admin
     market: "Thị trường:"
+    navigation: Sự đi biển
     menu: Menu
     my_profile: Hồ sơ
     my_broker: Về sàn giao dịch
     trading: Mua và Bán
     offerbook: Sổ lệnh
+    partners: Sử dụng Bitcoin của bạn
     ledger: Sổ kế toán
     customers: Khách hàng
     deposit_requests: Lệnh gửi tiền của khách

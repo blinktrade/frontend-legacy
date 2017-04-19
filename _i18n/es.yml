@@ -103,6 +103,8 @@ views:
     volume: VOLUMEN
 
   start:
+    bid: Compra
+    ask: Venta
     username: "Nombre de usuario:"
     password: "Contraseña"
     login: Ingresar
@@ -226,14 +228,23 @@ views:
   history:
     title: Historial de órdenes
 
+  partners:
+    title: Usa tus bitcoins
+    more: Más
+    purseio:
+      title: Purse.io
+      description: Ahorra 15% en Amazon pagando con bitcoin
+
   sidebar:
     admin: Admin
     market: "Mercado:"
+    navigation: Navegación
     menu: Menu
     my_profile: Mi perfil
     my_broker: Sobre el exchange
     trading: Comprar o Vender
     offerbook: Libro de órdenes
+    partners: Usa tus bitcoins
     ledger: Libro de cuentas
     customers: Mis clientes
     deposit_requests: Depósitos ( clientes )
