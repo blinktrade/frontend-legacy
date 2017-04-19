@@ -103,6 +103,8 @@ views:
     volume: VOLUME
 
   start:
+    bid: Buy
+    ask: Sell
     username: "Username:"
     password: "Password:"
     login: Login
@@ -226,14 +228,23 @@ views:
   history:
     title: Orders history
 
+  partners:
+    title: Use your bitcoins
+    more: More
+    purseio:
+      title: Purse.io
+      description: Save 15% Off Amazon with Bitcoin
+
   sidebar:
     admin: Admin
     market: "Market:"
+    navigation: Navigation
     menu: Menu
     my_profile: My Profile
     my_broker: About the exchange
     trading: Buy or Sell
     offerbook: Order book
+    partners: Use your bitcoins
     ledger: Ledger
     customers: My customers
     deposit_requests: Deposit requests

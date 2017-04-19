@@ -488,7 +488,7 @@ bitex.ui.AdvancedOrderEntry.prototype.getAmount = function(){
   if (pos[0] != inputValue.length || isNaN(value) || value <= 0 ) {
     return 0;
   }
-  return parseInt(value * this.factor_amount_, 10);
+  return parseInt((value * this.factor_amount_).toFixed(0), 10);
 };
 
 /**

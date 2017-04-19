@@ -103,6 +103,8 @@ views:
     volume: VOLUM
 
   start:
+    bid: Cumpăra
+    ask: Vinde
     username: "Nume utilizator:"
     password: "Parola:"
     login: Autentificare
@@ -226,15 +228,24 @@ views:
   history:
     title: Orders history
 
+  partners:
+    title: Utilizați Bitcoins dvs.
+    more: Mai
+    purseio:
+      title: Purse.io
+      description: Salvați 15% Off Amazon cu Bitcoin
+
   sidebar:
     admin: Admin
     market: "Moneda de schimb :"
+    navigation: Navigare
     menu: Meniu
     my_profile: Profilul meu
     my_broker: Despre exchange
     trading: Cumpără sau Vinde
     offerbook: Registrul de comenzi
     ledger: Registru
+    partners: Utilizați Bitcoins dvs.
     customers: Clienți mei
     deposit_requests: Cerere de depunere
     withdraw_requests: Cerere de retragere
