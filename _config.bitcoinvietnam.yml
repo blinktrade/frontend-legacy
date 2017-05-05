@@ -2,7 +2,7 @@
 url: "https://vbtc.exchange"
 author: "BlinkTrade"
 baseurl: ""
-deploy_version: "HEAD"
+deploy_version: "9b0a50a"
 
 exchange: "bitcoinvietnam"
 exchange_logo: "bitcoinvietnam"
@@ -47,11 +47,13 @@ remittance_box: "{
     }"
 
 
+symbol: "BTCVND"
+
 languages: ["vi", "en_US", "es", "pt_BR", "ro", "zn_CN"]
 
 video : 'true'
 navbar: 'navbar-inverse'
-phrases: [phrase1, phrase2, phrase3]
+phrases: [phrase1, phrase2, phrase4]
 
 exclude:     [ "jsdev", "LICENSE", "README.md", "config.rb", "deploy.sh", "build_javascript.sh", "node_modules", "gulpfile.js", "themes/ander" ]
 source:      .
