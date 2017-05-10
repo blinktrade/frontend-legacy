@@ -8,7 +8,7 @@ exchange: "surbitcoin"
 exchange_logo: "surbitcoin"
 exchange_toolbar_logo: "surbitcoin_inverse"
 
-custom_css: "lightred"
+custom_css: "darkblue"
 
 default_country_code: "VE"
 blinktrade_broker_id: 1

@@ -11,7 +11,8 @@
         color: #607381;
         font-size: 15px;
         font-weight: 600;
-        padding: 12px 18px;
+        padding: 12px 16px;
+        white-space: nowrap;
 
         i {
           margin-right: 10px
@@ -35,7 +36,6 @@
 
             &:hover {
                 background: #f2f7fa;
-                padding-left: 22px!important;
             }
 
             &:focus {
@@ -49,7 +49,6 @@
       > a {
         background: $component-active-bg;
         color: #fff!important;
-        padding-left: 22px!important;
         &:hover {
             background: $component-active-bg;
         }
