@@ -25,6 +25,8 @@
 
         var remittance_box = {{ site.remittance_box  }};
 
+        alert('We are under maintenance until Sunday 1am.');
+
         _app = new BlinkTradeApp(broker_id, remittance_box,  country_code, symbol);
         _app.run(blinktrade_api);
       })();
