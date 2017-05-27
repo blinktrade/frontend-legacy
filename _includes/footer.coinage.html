@@ -128,6 +128,8 @@
 
       var remittance_box = {{ site.remittance_box  }};
 
+      alert("ESTAMOS EN MANTENCIÓN PROGRAMADA HASTA LAS 00:00 DE DOMINGO");
+
       _app = new BlinkTradeApp(broker_id, remittance_box, country_code, symbol);
       _app.run(blinktrade_api);
     })();
