@@ -507,7 +507,7 @@
   <translation id="1814724116698926674" key="MSG_IEXXY1PQWR66" source="bitex/ui/locked_balance_display.whitedev.soy.js" desc="Shown above the order book bids">Você está comprando um total de </translation>
   <translation id="2009521355879650921" key="MSG_E220FG7VIOQT" source="bitex/ui/locked_balance_display.whitedev.soy.js" desc="Shown above the order book asks">Você está vendendo um total de </translation>
   <translation id="7218151867789789318" key="MSG_6AG0B90II0OT" source="bitex/ui/advanced_order_entry.default.soy.js" desc="Available label inside the advanced order entry">Disponível: </translation>
-  <translation id="8313612406650159075" key="MSG_1BLVJ36UNO6JM" source="bitex/ui/remittance_box.ander.soy.js" desc="Remittance box title">Cotações para remessas via BTC</translation>
+  <translation id="8313612406650159075" key="MSG_1BLVJ36UNO6JM" source="bitex/ui/remittance_box.ander.soy.js" desc="Remittance box title">Cotações de referência</translation>
   <translation id="4533562336782718491" key="MSG_ORDER_MANAGER_STATUS_REJECTED" source="bitex/ui/order_manager.js" desc="Order Manager Status description">Rejeitado</translation>
   <translation id="2895444975656495031" key="MSG_4MGN8UC3K8LO" source="bitex/ui/deposit_withdraw_button_group.default.soy.js" desc="Button caption label on deposit button in the deposit view">Depositar <ph name="xxx" /></translation>
   <translation id="2588823457200182588" key="MSG_1SCTJOGOHM5T7" source="bitex/ui/deposit_withdraw_button_group.default.soy.js" desc="Button caption label on withdraw button in the withdraw view">Sacar <ph name="xxx" /></translation>

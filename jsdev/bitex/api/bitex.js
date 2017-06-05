@@ -137,6 +137,7 @@ bitex.api.BitEx.EventType = {
   PROFILE_REFRESH: 'profile_refresh',
 
   /* Deposits */
+  DEPOSIT_METHOD_DETAIL_RESPONSE: 'deposit_method_detail_response',
   DEPOSIT_METHODS_RESPONSE:'deposit_methods_response',
   DEPOSIT_RESPONSE : 'deposit_response',
   DEPOSIT_REFRESH: 'deposit_refresh',
@@ -577,6 +578,14 @@ bitex.api.BitEx.prototype.onMessage_ = function(e) {
       this.dispatchEvent( new bitex.api.BitExEvent( bitex.api.BitEx.EventType.POSITION_RESPONSE, msg ) );
       break;
 
+    case 'U49':
+      this.dispatchEvent( new bitex.api.BitExEvent( bitex.api.BitEx.EventType.DEPOSIT_METHOD_DETAIL_RESPONSE + '.' + msg['DepositMethodReqID'], msg) );
+      this.dispatchEvent( new bitex.api.BitExEvent( bitex.api.BitEx.EventType.DEPOSIT_METHOD_DETAIL_RESPONSE , msg ) );
+      break;
+
+
+
+
     case 'U51': // APIKeyList Response
       this.dispatchEvent( new bitex.api.BitExEvent( bitex.api.BitEx.EventType.API_KEY_LIST_RESPONSE + '.' + msg['APIKeyListReqID'], msg) );
       this.dispatchEvent( new bitex.api.BitExEvent( bitex.api.BitEx.EventType.API_KEY_LIST_RESPONSE, msg ) );
@@ -899,6 +908,23 @@ bitex.api.BitEx.prototype.requestPositions = function(opt_clientID, opt_request_
   return reqId;
 };
 
+
+/**
+ * @param {number} deposit_method_id
+ * @param {number=} opt_request_id
+ */
+bitex.api.BitEx.prototype.requestDepositMethodDetail = function(deposit_method_id, opt_request_id) {
+  var reqId = opt_request_id || parseInt(Math.random() * 1000000, 10);
+  var msg = {
+    'MsgType': 'U48',
+    'DepositMethodReqID': reqId,
+    'DepositMethodID': deposit_method_id
+  };
+
+  this.sendMessage(msg);
+
+  return reqId;
+};
 
 /**
  * @param {number} opt_request_id
