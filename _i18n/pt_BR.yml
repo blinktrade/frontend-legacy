@@ -229,6 +229,13 @@ views:
   history:
     title: Histórico de ordens
 
+  partners:
+    title: Use os seus Bitcoins
+    more: Mais
+    purseio:
+      title: Purse.io
+      description: Economize 15% no Amazon.com pagando com Bitcoin
+
   sidebar:
     admin: Admin
     market: "Mercado:"
@@ -238,6 +245,7 @@ views:
     my_broker: Sobre a exchange
     trading: Comprar ou Vender
     offerbook: Livro de ofertas
+    partners: Use os seus Bitcoins
     ledger: Livro contábil
     customers: Meus clientes
     deposit_requests: Depósitos ( clientes )

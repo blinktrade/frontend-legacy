@@ -230,6 +230,13 @@ views:
   history:
     title: 订单历史
 
+  partners:
+    title: Partners
+    more: 更多
+    purseio:
+      title: Purse.io
+      description: Save 15% Off Amazon with Bitcoin
+
   sidebar:
     admin: Admin
     market: "市场:"
@@ -240,6 +247,7 @@ views:
     trading: 买进和卖出
     offerbook: 我的订单
     ledger: 我的总账
+    partners: Partners
     customers: 我的客户
     deposit_requests: 充值申请
     withdraw_requests: 提现申请
