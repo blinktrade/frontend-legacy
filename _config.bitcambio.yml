@@ -2,7 +2,7 @@
 url: "https://bitcambio.blinktrade.com"
 author: "BlinkTrade"
 baseurl: "/"
-deploy_version: "3cf8f6d"
+deploy_version: "318c702"
 
 exchange: "bitcambio"
 exchange_logo: "bitcambio"
