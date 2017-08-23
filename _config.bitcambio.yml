@@ -1,8 +1,8 @@
 # Site settings
 url: "https://bitcambio.blinktrade.com"
 author: "BlinkTrade"
-baseurl: ""
-deploy_version: "10a82b0"
+baseurl: "/"
+deploy_version: "8cac94c"
 
 exchange: "bitcambio"
 exchange_logo: "bitcambio"
@@ -18,7 +18,7 @@ twitter_widget_link_color: "#E8683E"
 default_country_code: "BR"
 blinktrade_broker_id: 11
 
-blinktrade_backend_api: "api.bitcambio.blinktrade.com"
+blinktrade_backend_api: "bitcambio_api.blinktrade.com"
 google_analytics_id: "UA-57478613-1"
 zendesk_host: "bitcambiohelp.zendesk.com"
 custom_faq: "https://bitcambiohelp.zendesk.com/hc/pt-br"
@@ -65,9 +65,9 @@ plugins:     ./_plugins
 paginate:    5
 paginate_path: "post/page:num"
 permalink:     /post/:title/
-blog: http://bitcoin.bitcambio.com.br/
+blog: http://bitcoin.bitcambio.com.br/blog/
 facebook: https://www.facebook.com/bitcambio
-twitter: https://twitter.com/bitcambio
+twitter: https://twitter.com/bitcambiobr
 gplus: https://plus.google.com/+Bitcambio/posts
 youtube: https://www.youtube.com/playlist?list=PL6c8tfdY-CX_VTwU1B9XbzWtIQjY__vrW
 
