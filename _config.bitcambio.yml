@@ -1,12 +1,12 @@
 # Site settings
-url: "https://foxbit.exchange"
+url: "https://bitcambio.blinktrade.com"
 author: "BlinkTrade"
-baseurl: ""
-deploy_version: "10a82b0"
+baseurl: "/"
+deploy_version: "3cf8f6d"
 
-exchange: "foxbit"
-exchange_logo: "foxbit"
-exchange_toolbar_logo: "foxbit_inverse"
+exchange: "bitcambio"
+exchange_logo: "bitcambio"
+exchange_toolbar_logo: "bitcambio_inverse"
 
 custom_css: "foxbit"
 
@@ -16,12 +16,12 @@ twitter_widget_theme: "light"
 twitter_widget_link_color: "#E8683E"
 
 default_country_code: "BR"
-blinktrade_broker_id: 4  # 4 is the id for the demo backend. Don't change that if you don't understand what you doing.
+blinktrade_broker_id: 11
 
-blinktrade_backend_api: "api.blinktrade.com"
+blinktrade_backend_api: "bitcambio_api.blinktrade.com"
 google_analytics_id: "UA-57478613-1"
-zendesk_host: "foxbit.zendesk.com"
-custom_faq: "https://foxbit.zendesk.com/hc/pt-br"
+zendesk_host: "bitcambiohelp.zendesk.com"
+custom_faq: "https://bitcambiohelp.zendesk.com/hc/pt-br"
 
 trading_view: 'FOXBIT:BTCBRL'
 
@@ -65,10 +65,10 @@ plugins:     ./_plugins
 paginate:    5
 paginate_path: "post/page:num"
 permalink:     /post/:title/
-blog: http://www.foxbit.com.br/blog/
-facebook: https://www.facebook.com/foxbitcoin
-twitter: https://twitter.com/foxbitcoin
-gplus: https://plus.google.com/+FoxbitBrasil/posts
+blog: http://bitcoin.bitcambio.com.br/blog/
+facebook: https://www.facebook.com/bitcambio
+twitter: https://twitter.com/bitcambiobr
+gplus: https://plus.google.com/+Bitcambio/posts
 youtube: https://www.youtube.com/playlist?list=PL6c8tfdY-CX_VTwU1B9XbzWtIQjY__vrW
 
 sass:
