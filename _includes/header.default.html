@@ -55,8 +55,8 @@
         <div class="container">
 
           {% if page.load_application %}
-          <a href="#" class="brand" data-switch-view="offerbook">
-            <img data-switch-view="offerbook" src="{{ site.url }}{{ site.baseurl }}/assets/exchange_logos/{{ site.exchange_logo }}_toolbar_logo.png" style="
+          <a href="#" class="brand" data-switch-view="trading">
+            <img data-switch-view="trading" src="{{ site.url }}{{ site.baseurl }}/assets/exchange_logos/{{ site.exchange_logo }}_toolbar_logo.png" style="
                 height: 30px;
                 margin-top: -10px;
                 margin-bottom: -10px;
@@ -81,7 +81,7 @@
                 <a href="" data-switch-view="faq">{% t views.toolbar.faq %}</a>
               {% endif %}
             </li>
-            <li class="bitex-display-if-logged"><a href="" data-switch-view="offerbook">{% t views.toolbar.trading %}</a></li>
+            <li class="bitex-display-if-logged"><a href="" data-switch-view="trading">{% t views.toolbar.trading %}</a></li>
             <li><a href="" data-switch-view="market">{% t views.toolbar.market %}</a></li>
             <li class="bitex-hide-if-logged"><a href="" data-switch-view="signin">{% t views.toolbar.signin %}</a></li>
             <li class="bitex-hide-if-logged"><a href="" data-switch-view="signup">{% t views.toolbar.signup %}</a></li>
