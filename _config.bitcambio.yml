@@ -1,8 +1,8 @@
 # Site settings
 url: "https://bitcambio.blinktrade.com"
 author: "BlinkTrade"
-baseurl: "/"
-deploy_version: "318c702"
+baseurl: ""
+deploy_version: "0a13a73"
 
 exchange: "bitcambio"
 exchange_logo: "bitcambio"
