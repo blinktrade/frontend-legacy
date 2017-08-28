@@ -1517,7 +1517,6 @@ bitex.app.BlinkTrade.prototype.onBitexVerifyCustomerUpdate_ = function(e) {
 
   if (old_verified == 0 && profile['Verified'] == 1  ) {
     if (!this.getModel().get('IsBroker')){
-      //this.router_.setView('offerbook');
       this.router_.setView('trading');
       this.showNotification('success', MSG_NOTIFICATION_VERIFY_TITLE, MSG_PENDING_VERIFICATION_CONTENT);
     }
@@ -4007,6 +4006,8 @@ bitex.app.BlinkTrade.prototype.onUserLoginOk_ = function(e) {
   this.getModel().set('EmailLang',        msg['EmailLang']);
 
 
+  
+
   var broker_currencies = new goog.structs.Set();
   var allowed_markets = {};
   var user_brokers = {};
@@ -4115,6 +4116,11 @@ bitex.app.BlinkTrade.prototype.onUserLoginOk_ = function(e) {
     $zopim.livechat.addTags(tags);
   }
 
+  var is_pro_trader = false;
+  if (msg['IsMSB'] || profile['IsMarketMaker'] || profile['Verified'] >=5 ){
+    is_pro_trader = true;
+  }
+  this.getModel().set('IsProTrader', is_pro_trader );
 
   this.conn_.requestBalances();
   this.conn_.requestPositions();
@@ -4148,8 +4154,12 @@ bitex.app.BlinkTrade.prototype.onUserLoginOk_ = function(e) {
   // Request Deposit Options
   this.conn_.requestDepositMethods( this.getModel().get('BrokerID') );
 
-  //this.router_.setView('offerbook');
-  this.router_.setView('trading');
+
+  if (msg['IsBroker'] ) {
+    this.router_.setView('offerbook');
+  } else {
+    this.router_.setView('trading');
+  }
 
   // Request Open Orders
   this.getModel().set('FinishedInitialOpenOrdersRequest',  false);
