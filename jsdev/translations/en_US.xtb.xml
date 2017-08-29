@@ -745,4 +745,8 @@
 	<translation id="4782414494775229112" key="MSG_WITHDRAW_TABLE_DETAILS_COLUMN_INTENDED_PURPOSE" source="bitex/ui/withdraw_list.js" desc="Withdraw column label in the  broker's withdraw list detail table">Purpose</translation>
 	<translation id="5533635418939780421" key="MSG_WITHDRAW_FIELD_INTENDED_PURPOSE" source="bitex/app/blinktrade.js" desc="Withdraw field on the withdrawal dialog">Purpose</translation>
 	<translation id="1730055005975793342" key="MSG_13OQ7TH6HKJ76" source="bitex/templates/templates.soy.js" desc="Label on the two factor authenticatior">Trust this device for 30 days</translation>
+	<translation id="141203007356381969" key="MSG_16C1GNUL3XUWN" source="bitex/ui/simple_order_entry.soy.js" desc="Advanced Buy Description">Buy when the price goes down</translation>
+	<translation id="7832445884866530890" key="MSG_EGLBXHXODR5K" source="bitex/ui/simple_order_entry.soy.js" desc="Advanced Sell Description">Sell when the price goes up</translation>
+	<translation id="2542731222618433033" key="MSG_1T9PKTS2SPCB2" source="bitex/ui/simple_order_entry.soy.js" desc="Simple Buy Order Description">Buy now at the current price</translation>
+	<translation id="92892691158633472" key="MSG_1RSBV89678OAD" source="bitex/ui/simple_order_entry.soy.js" desc="Simple Sell Order Description">Sell now at the current price</translation>
 </translationbundle>
