@@ -3980,6 +3980,11 @@ bitex.app.BlinkTrade.prototype.onUserLoginButtonClick_ = function(e){
                                              this.getModel().get('SelectedBrokerID'),
                                              username,
                                              password ];
+
+  // Disable login buttons
+  goog.array.forEach(goog.dom.getElementsByClass('btn-login'), function(button) {
+    button.disabled = true;
+  });
 };
 
 
@@ -4164,6 +4169,11 @@ bitex.app.BlinkTrade.prototype.onUserLoginOk_ = function(e) {
   // Request Open Orders
   this.getModel().set('FinishedInitialOpenOrdersRequest',  false);
   this.conn_.requestOrderList(this.open_orders_request_id_ , 0, 20, [ "has_leaves_qty eq 1" ] );
+
+  // Enable login buttons
+  goog.array.forEach(goog.dom.getElementsByClass('btn-login'), function(button) {
+    button.disabled = false;
+  });
 };
 
 /**
