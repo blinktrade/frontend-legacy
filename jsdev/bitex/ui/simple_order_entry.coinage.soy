@@ -25,7 +25,11 @@
                 {msg desc="Sell button in Order Entry"}Sell{/msg}
               {/if} BTC
               <small>
-                <a id="{$id}_open_action_advanced" style="cursor:pointer;margin-left:10px">{msg desc="Advanced"}Advanced{/msg}</a>
+                {if $side == 1}
+                  <a id="{$id}_open_action_advanced" style="cursor:pointer;"> {msg desc="Advanced Buy Description"}Buy when the price goes down{/msg}</a>
+                {else}
+                  <a id="{$id}_open_action_advanced" style="cursor:pointer;"> {msg desc="Advanced Sell Description"}Sell when the price goes up{/msg}</a>
+                {/if}
               </small>
             </h4>
         </header>
@@ -121,7 +125,11 @@
             {msg desc="Sell button in Order Entry"}Sell{/msg}
           {/if} BTC
           <small>
-            <a id="{$id}_cancel_action_advanced" style="cursor:pointer;margin-left:10px">{msg desc="Simple Order"}Simple Order{/msg}</a>
+            {if $side == 1}
+              <a id="{$id}_cancel_action_advanced" style="cursor:pointer;margin-left:10px">{msg desc="Simple Buy Order Description"}Buy now at the current price{/msg}</a>
+            {else}
+              <a id="{$id}_cancel_action_advanced" style="cursor:pointer;margin-left:10px">{msg desc="Simple Sell Order Description"}Sell now at the current price{/msg}</a>
+            {/if}
           </small>
         </h4>
       </header>

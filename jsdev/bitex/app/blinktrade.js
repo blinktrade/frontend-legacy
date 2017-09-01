@@ -3980,6 +3980,11 @@ bitex.app.BlinkTrade.prototype.onUserLoginButtonClick_ = function(e){
                                              this.getModel().get('SelectedBrokerID'),
                                              username,
                                              password ];
+
+  // Disable login buttons
+  goog.array.forEach(goog.dom.getElementsByClass('btn-login'), function(button) {
+    button.disabled = true;
+  });
 };
 
 
@@ -4005,8 +4010,10 @@ bitex.app.BlinkTrade.prototype.onUserLoginOk_ = function(e) {
   this.getModel().set('HasLineOfCredit',  msg['HasLineOfCredit']);
   this.getModel().set('EmailLang',        msg['EmailLang']);
 
-
-  
+  // Enable login buttons
+  goog.array.forEach(goog.dom.getElementsByClass('btn-login'), function(button) {
+    button.disabled = false;
+  });
 
   var broker_currencies = new goog.structs.Set();
   var allowed_markets = {};
@@ -4164,6 +4171,7 @@ bitex.app.BlinkTrade.prototype.onUserLoginOk_ = function(e) {
   // Request Open Orders
   this.getModel().set('FinishedInitialOpenOrdersRequest',  false);
   this.conn_.requestOrderList(this.open_orders_request_id_ , 0, 20, [ "has_leaves_qty eq 1" ] );
+
 };
 
 /**
@@ -4180,6 +4188,10 @@ bitex.app.BlinkTrade.prototype.onUserLoginError_ = function(e) {
   this.model_.set('UserID', '');
   this.model_.set('Username', '');
 
+  // Enable login buttons
+  goog.array.forEach(goog.dom.getElementsByClass('btn-login'), function(button) {
+    button.disabled = false;
+  });
 
   /**
    * @desc google authentication dialog title
@@ -4208,8 +4220,10 @@ bitex.app.BlinkTrade.prototype.onUserLoginError_ = function(e) {
    */
   var MSG_EMAIL_TWO_STEPS_AUTHENTICATION_DIALOG_TITLE = goog.getMsg('Second factor of authentication');
 
-
-
+  // Enable login buttons
+  goog.array.forEach(goog.dom.getElementsByClass('btn-login'), function(button) {
+    button.disabled = false;
+  });
 
   if (msg['NeedSecondFactor']) {
     var dlg_second_factor_id = goog.string.getRandomString();

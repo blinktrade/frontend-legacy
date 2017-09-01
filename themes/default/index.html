@@ -25,7 +25,7 @@ load_application:       True
             <input class="focus" id="id_landing_username" placeholder="" size="30" type="text" autofocus>
             <label for="id_landing_password">{% t views.start.password %}</label>
             <input id="id_landing_password" placeholder="" size="30"  type="password">
-            <button id="id_landing_signin" class="btn btn-primary">{% t views.start.login %}</button>
+            <button id="id_landing_signin" class="btn btn-primary btn-login">{% t views.start.login %}</button>
           </div>
           <div class="clearfix" style="height: 20px"></div>
           <p>
@@ -181,7 +181,7 @@ load_application:       True
         <p><a href="#" data-switch-view="forgot_password">{% t views.signin.forgot_your_password %}</a></p>
 
         <div class="actions">
-          <input id="id_btn_login" class="btn btn-primary" name="commit" type="submit" value="{% t views.signin.login_button_label %}">
+          <input id="id_btn_login" class="btn btn-primary btn-login" name="commit" type="submit" value="{% t views.signin.login_button_label %}">
         </div>
       </form>
     </div>
