@@ -3971,11 +3971,14 @@ bitex.app.BlinkTrade.prototype.onBodyChange_ =function(e){
 bitex.app.BlinkTrade.prototype.onUserLoginButtonClick_ = function(e){
   var username = e.target.getUsername();
   var password = e.target.getPassword();
-  this.model_.set('Password',         e.target.getPassword() );
+  var second_factor = e.target.getSecondFactor() || undefined;
+
+  this.model_.set('Password', e.target.getPassword());
 
   var requestId = this.conn_.login(this.getModel().get('SelectedBrokerID'),
                                    username,
-                                   password);
+                                   password,
+                                   second_factor);
 
   this.current_login_request_[requestId] = [ 'login',
                                              this.getModel().get('SelectedBrokerID'),
@@ -4198,8 +4201,15 @@ bitex.app.BlinkTrade.prototype.onUserLoginError_ = function(e) {
    */
   var MSG_EMAIL_TWO_STEPS_AUTHENTICATION_DIALOG_TITLE = goog.getMsg('Second factor of authentication');
 
+  /**
+   * @desc The Server is busy right now, try again later
+   */
+  var MSG_LOGIN_BUSY = goog.getMsg('The Server is busy right now, try again later');
 
-
+  // Enable login buttons
+  goog.array.forEach(goog.dom.getElementsByClass('btn-login'), function(button) {
+    button.disabled = false;
+  });
 
   if (msg['NeedSecondFactor']) {
     var dlg_second_factor_id = goog.string.getRandomString();
@@ -4331,6 +4341,8 @@ bitex.app.BlinkTrade.prototype.onUserLoginError_ = function(e) {
         break;
       case 'MSG_LOGIN_ERROR_USERNAME_ALREADY_TAKEN':
         user_status_text = MSG_LOGIN_ERROR_USERNAME_ALREADY_TAKEN;
+      case 'MSG_BUSY_REJECTION':
+        user_status_text = MSG_LOGIN_BUSY;
         break;
     }
 

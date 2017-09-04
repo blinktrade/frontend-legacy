@@ -139,6 +139,8 @@ views:
     signup: 注册
     username: 用户名
     password: 密码
+    second_factor: Two factor authentication
+    has_second_factor: Has two factor authentication?
     forgot_your_password: 忘记了密码？
     login_button_label: 登陆
 
