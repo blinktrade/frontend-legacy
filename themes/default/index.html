@@ -641,7 +641,7 @@ load_application:       True
               <i data-switch-view="trading" class="icon-random"></i> {% t views.sidebar.trading %}</a>
           </li>
 
-          <li id="menu-offerbook" style="display: none">
+          <li id="menu-offerbook" class="bitex-model"  style="display: none" data-model-key="IsProTrader" data-model-action="show_element">
             <a href="" data-switch-view="offerbook">
               <i data-switch-view="offerbook" class="icon-book"></i> {% t views.sidebar.offerbook %}</a>
           </li>
@@ -657,12 +657,12 @@ load_application:       True
               <i data-switch-view="history" class="icon-list-alt"></i> {% t views.sidebar.history %}</a>
           </li>
 
-          <li id="menu-algotrading" style="display: none">
+          <li id="menu-algotrading" class="bitex-model" style="display: none" data-model-key="IsProTrader" data-model-action="show_element">
             <a href="" data-switch-view="algotrading">
               <i data-switch-view="algotrading" class="icon-cog"></i> {% t views.sidebar.algotrading %}</a>
           </li>
 
-          <li id="menu-ledger" style="display: none">
+          <li id="menu-ledger" class="bitex-model"  style="display: none" data-model-key="IsProTrader" data-model-action="show_element">
             <a href="" data-switch-view="ledger">
               <i data-switch-view="ledger" class="icon-list"></i> {% t views.sidebar.ledger %}</a>
           </li>
@@ -708,12 +708,7 @@ load_application:       True
               <i data-switch-view="line_of_credit" class="icon-retweet"></i> {% t views.sidebar.line_of_credit %}</a>
           </li>
 
-          <li style="" style="display: none">
-            <a href="" data-switch-view="faq">
-              <i data-switch-view="faq" class="icon-question"></i> {% t views.sidebar.support %}</a>
-          </li>
-
-          <li style="" id="menu-api" style="display: none">
+          <li style="" id="menu-api" class="bitex-model"  style="display: none" data-model-key="IsProTrader" data-model-action="show_element">
             <a href="" data-switch-view="api">
               <i data-switch-view="api" class="icon-globe"></i> {% t views.sidebar.api %}</a>
           </li>
