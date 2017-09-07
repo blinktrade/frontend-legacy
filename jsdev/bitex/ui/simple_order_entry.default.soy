@@ -12,6 +12,7 @@
  * @param formatted_fee
  */
 {template .SimpleOrderEntry}
+    <!-- {$formatted_fee} -->
 <form id="{$id}" class="simple-order-entry well" >
   <div class="row-fluid">
     <div class="span10">
@@ -159,7 +160,7 @@
         <br/>
         <small>
           <center>
-            <span id="{$id}_fee_label" style=""> {msg desc="Fee label on simple order entry"}Fee{/msg}: </span><span id="{$id}_fee" style=""></span>{sp}
+            <span id="{$id}_fee_label" style=""> {msg desc="Fee label on simple order entry"}Fee{/msg}: </span><span id="{$id}_fee_advanced" style=""></span>{sp}
           </center>
         </small>
       </div>
