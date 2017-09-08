@@ -462,7 +462,11 @@ load_application:       True
         <div class="alert alert-danger | bitex-model" style="display: none" data-model-key="IsAccountBlocked" data-model-action="show_element">
             <div class="container">
                 <button type="button" class="close pull-right" data-dismiss="alert">&times;</button>
-                <a href="" class="alert-link" data-switch-view="faq"> {% t views.alerts.frozen_account %} </a>
+                {% if site.custom_faq %}
+                  <a href="{{ site.custom_faq }}" class="alert-link" target="_blank" rel="noopener noreferrer"> {% t views.alerts.frozen_account %} </a>
+                {% else %}
+                  <a href="" class="alert-link" data-switch-view="faq"> {% t views.alerts.frozen_account %} </a>
+                {% endif %}
             </div>
         </div>
     </div>
@@ -1139,42 +1143,44 @@ load_application:       True
   <!-- /#market -->
   <!-- #faq -->
   <div id="faq" class="container bitex-view" style="padding-bottom:42px;display:none">
-      <!-- .page__head -->
-      <header class="page__head">
-          <h1 class="page__title h2 bitex-view-title">
-              <i class="glyphicon glyphicon-question-sign"></i> {% t views.faq.title %}
-          </h1>
-      </header>
-      <!-- /.page__head -->
+      {% if site.custom_faq == null %}
+        <!-- .page__head -->
+        <header class="page__head">
+            <h1 class="page__title h2 bitex-view-title">
+                <i class="glyphicon glyphicon-question-sign"></i> {% t views.faq.title %}
+            </h1>
+        </header>
+        <!-- /.page__head -->
 
-      <!-- .page__body -->
-      <div class="page__body bitex-view-content">
-          <!-- .panel-group -->
-          <div class="panel-group accordion" id="accordion">
-              {% for post in site.categories['faq'] reversed %}
-              <div class="panel panel-default accordion-group">
-                <div class="panel-heading accordion-heading">
-                <h4 class="panel-title">
-                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#{{ post.title }} ">
-                        {{post.title}}
-                    </a>
-                  </h4>
-                </div>
-                <div id="{{ post.title }}" class="panel-collapse accordion-body collapse">
-                  <div class="panel-body">
-                       {{post.content}}
+        <!-- .page__body -->
+        <div class="page__body bitex-view-content">
+            <!-- .panel-group -->
+            <div class="panel-group accordion" id="accordion">
+                {% for post in site.categories['faq'] reversed %}
+                <div class="panel panel-default accordion-group">
+                  <div class="panel-heading accordion-heading">
+                  <h4 class="panel-title">
+                      <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#{{ post.title }} ">
+                          {{post.title}}
+                      </a>
+                    </h4>
+                  </div>
+                  <div id="{{ post.title }}" class="panel-collapse accordion-body collapse">
+                    <div class="panel-body">
+                        {{post.content}}
+                    </div>
                   </div>
                 </div>
-              </div>
-              {% endfor %}
-          </div>
-          <!-- /.panel-group -->
+                {% endfor %}
+            </div>
+            <!-- /.panel-group -->
 
-          <a href="" class="bitex-support-link" target="_blank">
-              <i class="glyphicon glyphicon-envelope"></i> {% t views.faq.get_in_touch %}.
-          </a>
-      </div>
-      <!-- /.page__body -->
+            <a href="" class="bitex-support-link" target="_blank">
+                <i class="glyphicon glyphicon-envelope"></i> {% t views.faq.get_in_touch %}.
+            </a>
+        </div>
+        <!-- /.page__body -->
+      {% endif %}
   </div>
   <!-- /#faq -->
 
