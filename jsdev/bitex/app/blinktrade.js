@@ -4010,8 +4010,10 @@ bitex.app.BlinkTrade.prototype.onUserLoginOk_ = function(e) {
   this.getModel().set('HasLineOfCredit',  msg['HasLineOfCredit']);
   this.getModel().set('EmailLang',        msg['EmailLang']);
 
-
-  
+  // Enable login buttons
+  goog.array.forEach(goog.dom.getElementsByClass('btn-login'), function(button) {
+    button.disabled = false;
+  });
 
   var broker_currencies = new goog.structs.Set();
   var allowed_markets = {};
@@ -4170,10 +4172,6 @@ bitex.app.BlinkTrade.prototype.onUserLoginOk_ = function(e) {
   this.getModel().set('FinishedInitialOpenOrdersRequest',  false);
   this.conn_.requestOrderList(this.open_orders_request_id_ , 0, 20, [ "has_leaves_qty eq 1" ] );
 
-  // Enable login buttons
-  goog.array.forEach(goog.dom.getElementsByClass('btn-login'), function(button) {
-    button.disabled = false;
-  });
 };
 
 /**
@@ -4190,6 +4188,10 @@ bitex.app.BlinkTrade.prototype.onUserLoginError_ = function(e) {
   this.model_.set('UserID', '');
   this.model_.set('Username', '');
 
+  // Enable login buttons
+  goog.array.forEach(goog.dom.getElementsByClass('btn-login'), function(button) {
+    button.disabled = false;
+  });
 
   /**
    * @desc google authentication dialog title
