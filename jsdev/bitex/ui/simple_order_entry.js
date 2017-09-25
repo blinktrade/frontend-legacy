@@ -295,6 +295,30 @@ bitex.ui.SimpleOrderEntry.prototype.onChangeAmountAdvanced_ = function(e) {
   this.last_changed_field_ = "amount";
 
   this.disableActionsAdvanced_(this.getTotal()<=0);
+
+  var total_fee_paid = bitex.util.calculateTotalFee(this.getAmount(),
+                                                    this.getPrice(),
+                                                    this.order_depth_,
+                                                    this.getModel().username,
+                                                    this.getModel().taker_fee,
+                                                    this.getModel().maker_fee,
+                                                    this.getModel().side);
+  var formmatter;
+  if (this.getModel().side == bitex.ui.SimpleOrderEntry.Side.BUY) {
+    formatter = new goog.i18n.NumberFormat( this.getModel().crypto_currency_format,
+                                            this.getModel().crypto_currency_code );
+    formatter.setMaximumFractionDigits(8);
+    formatter.setMinimumFractionDigits(2);
+  } else {
+    formatter = new goog.i18n.NumberFormat( this.getModel().currency_format,
+                                            this.getModel().currency_code );
+    formatter.setMaximumFractionDigits(2);
+    formatter.setMinimumFractionDigits(2);
+  }
+
+  var formatted_fee = formatter.format(total_fee_paid/1e8);
+  goog.dom.setTextContent( goog.dom.getElement( this.makeId('order_entry_fee_advanced') ), formatted_fee );
+
 };
 
 /**
@@ -313,6 +337,31 @@ bitex.ui.SimpleOrderEntry.prototype.onChangePriceAdvanced_ = function(e) {
   }
 
   this.disableActionsAdvanced_(this.getTotal()<=0);
+
+  var total_fee_paid = bitex.util.calculateTotalFee(this.getAmount(),
+                                                    this.getPrice(),
+                                                    this.order_depth_,
+                                                    this.getModel().username,
+                                                    this.getModel().taker_fee,
+                                                    this.getModel().maker_fee,
+                                                    this.getModel().side);
+  var formmatter;
+  if (this.getModel().side == bitex.ui.SimpleOrderEntry.Side.BUY) {
+    formatter = new goog.i18n.NumberFormat( this.getModel().crypto_currency_format,
+                                            this.getModel().crypto_currency_code );
+    formatter.setMaximumFractionDigits(8);
+    formatter.setMinimumFractionDigits(2);
+  } else {
+    formatter = new goog.i18n.NumberFormat( this.getModel().currency_format,
+                                            this.getModel().currency_code );
+    formatter.setMaximumFractionDigits(2);
+    formatter.setMinimumFractionDigits(2);
+  }
+
+  var formatted_fee = formatter.format(total_fee_paid/1e8);
+  goog.dom.setTextContent( goog.dom.getElement( this.makeId('order_entry_fee_advanced') ), formatted_fee );
+
+
 };
 
 /**
@@ -353,7 +402,7 @@ bitex.ui.SimpleOrderEntry.prototype.onChangeQty_ = function(e) {
                                                             bitex.util.PriceAmountCalculatorVerb.GET,
                                                             this.order_depth_,
                                                             this.getModel().username,
-                                                            this.getModel().fee,
+                                                            this.getModel().taker_fee,
                                                             this.getModel().side);
 
 
@@ -427,7 +476,7 @@ bitex.ui.SimpleOrderEntry.prototype.onChangeTotal_ = function(e) {
                                                            bitex.util.PriceAmountCalculatorVerb.SPEND,
                                                            this.order_depth_ ,
                                                            this.getModel().username,
-                                                           this.getModel().fee,
+                                                           this.getModel().taker_fee,
                                                            this.getModel().side);
 
   if (!goog.isDefAndNotNull(price_amount_fee)) {
@@ -485,6 +534,29 @@ bitex.ui.SimpleOrderEntry.prototype.onChangeTotalAdvanced_ = function(e) {
   var amount = this.getTotal() / this.getPrice() * 1e8;
   this.setAmount(amount);
   this.last_changed_field_ = "total";
+
+  var total_fee_paid = bitex.util.calculateTotalFee(this.getAmount(),
+                                                    this.getPrice(),
+                                                    this.order_depth_,
+                                                    this.getModel().username,
+                                                    this.getModel().taker_fee,
+                                                    this.getModel().maker_fee,
+                                                    this.getModel().side);
+  var formmatter;
+  if (this.getModel().side == bitex.ui.SimpleOrderEntry.Side.BUY) {
+    formatter = new goog.i18n.NumberFormat( this.getModel().crypto_currency_format,
+                                            this.getModel().crypto_currency_code );
+    formatter.setMaximumFractionDigits(8);
+    formatter.setMinimumFractionDigits(2);
+  } else {
+    formatter = new goog.i18n.NumberFormat( this.getModel().currency_format,
+                                            this.getModel().currency_code );
+    formatter.setMaximumFractionDigits(2);
+    formatter.setMinimumFractionDigits(2);
+  }
+
+  var formatted_fee = formatter.format(total_fee_paid/1e8);
+  goog.dom.setTextContent( goog.dom.getElement( this.makeId('order_entry_fee_advanced') ), formatted_fee );
 
   this.disableActionsAdvanced_(this.getTotal() <= 0);
 }
