@@ -532,7 +532,7 @@ load_application:       True
                                   <i class="glyphicon glyphicon-random"></i> {% t views.sidebar.trading %}
                               </a>
                           </li>
-                          <li role="presentation" id="menu-offerbook" style="display: none">
+                          <li role="presentation" class="bitex-model" id="menu-offerbook" style="display: none" data-model-key="IsProTrader" data-model-action="show_element">
                               <a href="#" data-switch-view="offerbook">
                                   <i class="glyphicon glyphicon-book"></i> {% t views.sidebar.offerbook %}
                               </a>
@@ -557,12 +557,12 @@ load_application:       True
                                   <i class="fa fa-upload"></i> {% t views.sidebar.withdraw %}
                               </a>
                           </li>
-                          <li role="presentation" id="menu-algotrading" style="display: none">
+                          <li role="presentation" class="bitex-model" id="menu-algotrading" style="display: none" data-model-key="IsProTrader" data-model-action="show_element">
                               <a href="#" data-switch-view="algotrading">
                                   <i class="glyphicon glyphicon-cog"></i> {% t views.sidebar.algotrading %}
                               </a>
                           </li>
-                          <li role="presentation" id="menu-ledger" style="display: none">
+                          <li role="presentation" class="bitex-model" id="menu-ledger" style="display: none" data-model-key="IsProTrader" data-model-action="show_element">
                               <a href="#" data-switch-view="ledger">
                                   <i class="glyphicon glyphicon-th-list"></i> {% t views.sidebar.ledger %}
                               </a>
