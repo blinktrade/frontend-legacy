@@ -42,33 +42,34 @@ load_application:       True
   </div>
 
   <div id="faq" class="page row-fluid bitex-view" style="display: none">
-    <div class="page-header">
-      <h1 class="bitex-view-title">{% t views.faq.title %}</h1>
-    </div>
-
-    <div class="bitex-view-content">
-      <div class="accordion">
-        {% for post in site.categories['faq'] reversed %}
-        <div class="accordion-group">
-          <div class="accordion-heading">
-            <a class="accordion-toggle collapsed">
-              {{post.title}}
-            </a>
-          </div>
-          <div class="accordion-body collapse ">
-            <div class="accordion-inner">
-              {{post.content}}
-            </div>
-          </div>
-        </div>
-        {% endfor %}
+    {% if site.custom_faq == null %}
+      <div class="page-header">
       </div>
 
-      <h3>
-      <a href="" class="bitex-support-link" target="_blank">
-        <i class="icon-envelope"></i> {% t views.faq.get_in_touch %}</a>
-      </h3>
-    </div>
+      <div class="bitex-view-content">
+        <div class="accordion">
+          {% for post in site.categories['faq'] reversed %}
+          <div class="accordion-group">
+            <div class="accordion-heading">
+              <a class="accordion-toggle collapsed">
+                {{post.title}}
+              </a>
+            </div>
+            <div class="accordion-body collapse ">
+              <div class="accordion-inner">
+                {{post.content}}
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+
+        <h3>
+        <a href="" class="bitex-support-link" target="_blank">
+          <i class="icon-envelope"></i> {% t views.faq.get_in_touch %}</a>
+        </h3>
+      </div>
+    {% endif %}
   </div>
 
   <!-- signup page-->
@@ -92,7 +93,7 @@ load_application:       True
           <label class="control-label">{% t views.signup.email %}</label>
 
           <div class="controls">
-            <input id="id_signup_email" name="Email" size="30" type="text" placeholder="{% t views.signup.email_placeholder %}">
+            <input id="id_signup_email" name="Email" size="30" type="email" placeholder="{% t views.signup.email_placeholder %}">
           </div>
         </div>
 
@@ -197,7 +198,7 @@ load_application:       True
           <label for="id_forgot_password_email">{% t views.forgot_password.email %}</label>
 
           <div class="input">
-            <input autocapitalize="off" autocorrect="off" id="id_forgot_password_email" name="email" type="text" placeholder="">
+            <input autocapitalize="off" autocorrect="off" id="id_forgot_password_email" name="email" type="email" placeholder="">
           </div>
         </div>
         <div class="actions">
@@ -257,7 +258,11 @@ load_application:       True
 
     <div class="alert alert-error | bitex-model" style="display: none" data-model-key="IsAccountBlocked" data-model-action="show_element">
       <button type="button" class="close" data-dismiss="alert">&times;</button>
-      <a href="" data-switch-view="faq"> {% t views.alerts.frozen_account %} </a>
+      {% if site.custom_faq %}
+        <a href="{{ site.custom_faq }}" target="_blank" rel="noopener noreferrer"> {% t views.alerts.frozen_account %} </a>
+      {% else %}
+        <a href="" data-switch-view="faq"> {% t views.alerts.frozen_account %} </a>
+      {% endif %}
     </div>
   </div>
 
@@ -706,6 +711,16 @@ load_application:       True
           <li style="" class="bitex-display-if-non-broker bitex-model" style="display: none"  id="line_of_credit_menu_id" data-model-key="HasLineOfCredit" data-model-action="show_element" id="menu-line_of_credit">
             <a href="" data-switch-view="line_of_credit">
               <i data-switch-view="line_of_credit" class="icon-retweet"></i> {% t views.sidebar.line_of_credit %}</a>
+          </li>
+
+          <li style="" style="display: none">
+            {% if site.custom_faq %}
+              <a href="{{ site.custom_faq }}" target="_blank" rel="noopener noreferrer">
+                <i class="icon-question"></i> {% t views.sidebar.support %}</a>
+            {% else %}
+              <a href="" data-switch-view="faq">
+                <i data-switch-view="faq" class="icon-question"></i> {% t views.sidebar.support %}</a>
+            {% endif %}
           </li>
 
           <li style="" id="menu-api" class="bitex-model"  style="display: none" data-model-key="IsProTrader" data-model-action="show_element">

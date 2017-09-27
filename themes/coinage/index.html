@@ -320,7 +320,7 @@ load_application:       True
 
                         <div class="form-group">
                           <label for="id_signup_email">{% t views.signup.email %}:</label>
-                          <input id="id_signup_email" class="form-control" name="Email" size="30" type="text" placeholder="{% t views.signup.email_placeholder %}">
+                          <input id="id_signup_email" class="form-control" name="Email" size="30" type="email" placeholder="{% t views.signup.email_placeholder %}">
                         </div>
 
                         <div class="form-group">
@@ -388,7 +388,7 @@ load_application:       True
                   <form accept-charset="UTF-8" action="" method="post">
                       <div class="form-group">
                         <label for="id_forgot_password_email">{% t views.forgot_password.email %}:</label>
-                        <input autocapitalize="off" autocorrect="off" id="id_forgot_password_email" class="form-control" name="email" type="text" placeholder="">
+                        <input autocapitalize="off" autocorrect="off" id="id_forgot_password_email" class="form-control" name="email" type="email" placeholder="">
                       </div>
 
                       <input id="id_btn_forgot_password" class="btn btn-primary btn-block" name="commit" type="submit" value="{% t views.forgot_password.recover_password_button_label %}">
@@ -462,7 +462,11 @@ load_application:       True
         <div class="alert alert-danger | bitex-model" style="display: none" data-model-key="IsAccountBlocked" data-model-action="show_element">
             <div class="container">
                 <button type="button" class="close pull-right" data-dismiss="alert">&times;</button>
-                <a href="" class="alert-link" data-switch-view="faq"> {% t views.alerts.frozen_account %} </a>
+                {% if site.custom_faq %}
+                  <a href="{{ site.custom_faq }}" class="alert-link" target="_blank" rel="noopener noreferrer"> {% t views.alerts.frozen_account %} </a>
+                {% else %}
+                  <a href="" class="alert-link" data-switch-view="faq"> {% t views.alerts.frozen_account %} </a>
+                {% endif %}
             </div>
         </div>
     </div>
@@ -1081,9 +1085,8 @@ load_application:       True
 
                   <div class="sidebar-box__body">
                       <div id="id_remittance_box"></div>
-                      {% if site.twitter_widget_id %}
-                      <a class="twitter-timeline" href="https://twitter.com/{{ site.twitter_widget_name }}" data-theme="{{ site.twitter_widget_theme }}" data-link-color="{{ site.twitter_widget_link_color }}" data-widget-id="{{ site.twitter_widget_id }}">Tweets by @{{ site.twitter_widget_name }}</a>
-                      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                      {% if site.twitter_widget_name %}
+                        <a class="twitter-timeline" data-height="600" data-theme="{{ site.twitter_widget_theme }}" data-link-color="{{ site.twitter_widget_link_color }}" href="https://twitter.com/{{ site.twitter_widget_name }}">Tweets by BitcambioBR</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
                       {% endif %}
                   </div>
               </div>
@@ -1139,42 +1142,44 @@ load_application:       True
   <!-- /#market -->
   <!-- #faq -->
   <div id="faq" class="container bitex-view" style="padding-bottom:42px;display:none">
-      <!-- .page__head -->
-      <header class="page__head">
-          <h1 class="page__title h2 bitex-view-title">
-              <i class="glyphicon glyphicon-question-sign"></i> {% t views.faq.title %}
-          </h1>
-      </header>
-      <!-- /.page__head -->
+      {% if site.custom_faq == null %}
+        <!-- .page__head -->
+        <header class="page__head">
+            <h1 class="page__title h2 bitex-view-title">
+                <i class="glyphicon glyphicon-question-sign"></i> {% t views.faq.title %}
+            </h1>
+        </header>
+        <!-- /.page__head -->
 
-      <!-- .page__body -->
-      <div class="page__body bitex-view-content">
-          <!-- .panel-group -->
-          <div class="panel-group accordion" id="accordion">
-              {% for post in site.categories['faq'] reversed %}
-              <div class="panel panel-default accordion-group">
-                <div class="panel-heading accordion-heading">
-                <h4 class="panel-title">
-                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#{{ post.title }} ">
-                        {{post.title}}
-                    </a>
-                  </h4>
-                </div>
-                <div id="{{ post.title }}" class="panel-collapse accordion-body collapse">
-                  <div class="panel-body">
-                       {{post.content}}
+        <!-- .page__body -->
+        <div class="page__body bitex-view-content">
+            <!-- .panel-group -->
+            <div class="panel-group accordion" id="accordion">
+                {% for post in site.categories['faq'] reversed %}
+                <div class="panel panel-default accordion-group">
+                  <div class="panel-heading accordion-heading">
+                  <h4 class="panel-title">
+                      <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#{{ post.title }} ">
+                          {{post.title}}
+                      </a>
+                    </h4>
+                  </div>
+                  <div id="{{ post.title }}" class="panel-collapse accordion-body collapse">
+                    <div class="panel-body">
+                        {{post.content}}
+                    </div>
                   </div>
                 </div>
-              </div>
-              {% endfor %}
-          </div>
-          <!-- /.panel-group -->
+                {% endfor %}
+            </div>
+            <!-- /.panel-group -->
 
-          <a href="" class="bitex-support-link" target="_blank">
-              <i class="glyphicon glyphicon-envelope"></i> {% t views.faq.get_in_touch %}.
-          </a>
-      </div>
-      <!-- /.page__body -->
+            <a href="" class="bitex-support-link" target="_blank">
+                <i class="glyphicon glyphicon-envelope"></i> {% t views.faq.get_in_touch %}.
+            </a>
+        </div>
+        <!-- /.page__body -->
+      {% endif %}
   </div>
   <!-- /#faq -->
 
