@@ -136,6 +136,13 @@
       </header>
       <div class="order-form__mid row row">
           <div class="col-sm-4 col-xs-12">
+            <label>
+              {if $side == 1}
+              {msg desc="I want to buy"}I want to buy{/msg}
+              {else}
+              {msg desc="I want to sell"}I want to sell{/msg}
+              {/if}
+            </label>
               <div class="form-group uniform-control-holder">
                   <label class="order-form__label">{msg desc="Amount"}Amount{/msg}: </label>
                   <div class="input-group">
@@ -154,6 +161,7 @@
               </div>
           </div>
           <div class="col-sm-4 col-xs-12">
+              <label>{msg desc="Price per"}when the price reaches{/msg} </label>
               <div class="form-group uniform-control-holder">
                   <label class="order-form__label">{msg desc="Price per"}Price per{/msg} {$crypto_currency_symbol}: </label>
                   <div class="input-group">
@@ -171,7 +179,7 @@
                   </div>
               </div>
           </div>
-          <div class="col-sm-4 col-xs-12">
+          <div class="col-sm-4 col-xs-12" style="padding-top: 23px">
               <div class="form-group uniform-control-holder">
                   <label class="order-form__label">{msg desc="Total"}Total{/msg}</label>
                   <div class="input-group">
