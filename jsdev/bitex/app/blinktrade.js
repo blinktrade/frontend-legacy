@@ -242,7 +242,7 @@ bitex.app.BlinkTrade = function(broker_id,
   this.open_orders_request_id_ = parseInt( 1e7 * Math.random() , 10 );
 
   this.maximum_allowed_delay_in_ms_ = opt_maximum_allowed_delay_in_ms || 15000;
-  this.test_request_delay_          = opt_test_request_timer_in_ms || 40000;
+  this.test_request_delay_          = opt_test_request_timer_in_ms || 20000;
   this.currency_info_               = {};
   this.all_markets_                 = {};
   this.current_login_request_       = {};
