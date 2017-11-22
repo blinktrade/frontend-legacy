@@ -461,7 +461,7 @@ bitex.app.BlinkTrade.prototype.run = function(host_api) {
 
 
   // Populate all the views
-  var startView           = new bitex.view.StartView(this);
+  var startView           = new bitex.view.NullView(this);
   var adminView           = new bitex.view.AdminView(this);
   var twoFactorView       = new bitex.view.TwoFactor(this);
   var faqView             = new bitex.view.NullView(this);
