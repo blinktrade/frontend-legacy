@@ -404,7 +404,7 @@
                       {case 'm','n','2','9','c'}
                         <a href="https://live.blockcypher.com/btc-testnet/address/{$wallets['address']}/" target="_blank">{$wallets['address'] }</a>
                       {default}
-                        <a href="https://blockchain.info/address/{$wallets['address']}/" target="_blank">{$wallets['address'] }</a>
+                        <a href="https://blockchain.info/address/{$wallets['address']}" target="_blank">{$wallets['address'] }</a>
                     {/switch}
                   {else}
                     {$wallets['address'] }
@@ -922,6 +922,17 @@
       style="width: 500px; height: 500px; border: none;" scrolling="yes"></iframe>
   </div>
 {/template}
+
+/**
+  */
+{template .BlankDepositSlipContentDialog}
+  <div class="row-fluid" data-deposit-status="done">
+    <iframe allowtransparency="true"  src="about:blank" frameborder="0"
+    style="width: 500px; height: 500px; border: none;" scrolling="yes">
+    </iframe>
+  </div>
+{/template}
+
 
 /**
   * @param currencySign
