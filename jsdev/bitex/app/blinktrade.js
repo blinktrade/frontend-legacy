@@ -246,7 +246,7 @@ bitex.app.BlinkTrade = function(broker_id,
   this.open_orders_request_id_ = parseInt( 1e7 * Math.random() , 10 );
 
   this.maximum_allowed_delay_in_ms_ = opt_maximum_allowed_delay_in_ms || 15000;
-  this.test_request_delay_          = opt_test_request_timer_in_ms || 40000;
+  this.test_request_delay_          = opt_test_request_timer_in_ms || 20000;
   this.currency_info_               = {};
   this.all_markets_                 = {};
   this.current_login_request_       = {};
@@ -461,7 +461,7 @@ bitex.app.BlinkTrade.prototype.run = function(host_api) {
 
 
   // Populate all the views
-  var startView           = new bitex.view.StartView(this);
+  var startView           = new bitex.view.NullView(this);
   var adminView           = new bitex.view.AdminView(this);
   var twoFactorView       = new bitex.view.TwoFactor(this);
   var faqView             = new bitex.view.NullView(this);
