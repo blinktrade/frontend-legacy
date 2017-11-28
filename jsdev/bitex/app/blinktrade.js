@@ -4049,39 +4049,40 @@ bitex.app.BlinkTrade.prototype.onUserLoginOk_ = function(e) {
     this.getModel().set('DisplayName', verification_name['first'] + ' ' + verification_name['last']);
   }
 
+  try {
+    if (goog.isDefAndNotNull($zopim) && goog.isDefAndNotNull($zopim.livechat)) {
+      var tags = 'VerificationLevel:';
+      switch(profile['Verified']) {
+        case 0:
+          tags += 'no';
+          break;
+        case 1:
+          tags += 'pending';
+          break;
+        case 2:
+          tags += 'processing';
+          break;
+        default:
+          tags += profile['Verified'] - 2;
+          break;
+      }
+      tags += ', TwoFactorEnabled:' + profile['TwoFactorEnabled'];
+      tags += ', UserID:' + profile['ID'];
+      tags += ', NeedWithdrawEmail:' + profile['NeedWithdrawEmail'];
+      tags += ', TransactionFeeBuy:' + profile['TransactionFeeBuy'];
+      tags += ', TransactionFeeSell:' + profile['TransactionFeeSell'];
+      tags += ', TakerTransactionFeeBuy:' + profile['TakerTransactionFeeBuy'];
+      tags += ', TakerTransactionFeeSell:' + profile['TakerTransactionFeeSell'];
 
-  if (goog.isDefAndNotNull($zopim) && goog.isDefAndNotNull($zopim.livechat)) {
-    var tags = 'VerificationLevel:';
-    switch(profile['Verified']) {
-      case 0:
-        tags += 'no';
-        break;
-      case 1:
-        tags += 'pending';
-        break;
-      case 2:
-        tags += 'processing';
-        break;
-      default:
-        tags += profile['Verified'] - 2;
-        break;
+      if (  this.getModel().get('DisplayName') != this.getModel().get('Username') )  {
+        tags += ', Username:' + this.getModel().get('Username');
+      }
+
+      $zopim.livechat.setName( this.getModel().get('DisplayName') );
+      $zopim.livechat.setEmail(profile['Email']);
+      $zopim.livechat.addTags(tags);
     }
-    tags += ', TwoFactorEnabled:' + profile['TwoFactorEnabled'];
-    tags += ', UserID:' + profile['ID'];
-    tags += ', NeedWithdrawEmail:' + profile['NeedWithdrawEmail'];
-    tags += ', TransactionFeeBuy:' + profile['TransactionFeeBuy'];
-    tags += ', TransactionFeeSell:' + profile['TransactionFeeSell'];
-    tags += ', TakerTransactionFeeBuy:' + profile['TakerTransactionFeeBuy'];
-    tags += ', TakerTransactionFeeSell:' + profile['TakerTransactionFeeSell'];
-
-    if (  this.getModel().get('DisplayName') != this.getModel().get('Username') )  {
-      tags += ', Username:' + this.getModel().get('Username');
-    }
-
-    $zopim.livechat.setName( this.getModel().get('DisplayName') );
-    $zopim.livechat.setEmail(profile['Email']);
-    $zopim.livechat.addTags(tags);
-  }
+  } catch (e) {}
 
 
   this.conn_.requestBalances();
