@@ -98,6 +98,10 @@ goog.require('uniform.Uniform');
 goog.require('uniform.Meta');               // Switch according to the test($MODULE_NAME$)
 goog.require('uniform.Validators');         // Switch according to the test($MODULE_NAME$)
 
+goog.require('goog.dom.iframe');
+goog.require('goog.html.SafeHtml');
+
+
 /**
  * @desc Password changed message
  */
@@ -242,7 +246,7 @@ bitex.app.BlinkTrade = function(broker_id,
   this.open_orders_request_id_ = parseInt( 1e7 * Math.random() , 10 );
 
   this.maximum_allowed_delay_in_ms_ = opt_maximum_allowed_delay_in_ms || 15000;
-  this.test_request_delay_          = opt_test_request_timer_in_ms || 40000;
+  this.test_request_delay_          = opt_test_request_timer_in_ms || 20000;
   this.currency_info_               = {};
   this.all_markets_                 = {};
   this.current_login_request_       = {};
@@ -457,7 +461,7 @@ bitex.app.BlinkTrade.prototype.run = function(host_api) {
 
 
   // Populate all the views
-  var startView           = new bitex.view.StartView(this);
+  var startView           = new bitex.view.NullView(this);
   var adminView           = new bitex.view.AdminView(this);
   var twoFactorView       = new bitex.view.TwoFactor(this);
   var faqView             = new bitex.view.NullView(this);
@@ -3768,16 +3772,44 @@ bitex.app.BlinkTrade.prototype.showDepositDialog = function(currency,
 
         handler.listenOnce( this.conn_ , bitex.api.BitEx.EventType.DEPOSIT_RESPONSE + '.' + request_id, function(e){
           var msg = e.data;
-          goog.soy.renderElement(dlg.getContentElement(),
-                                 bitex.templates.DepositSlipContentDialog,
-                                 {deposit_id:msg['DepositID'], rest_url:this.rest_url_  });
 
-          dlg.setButtonSet(bitex.ui.Dialog.ButtonSet.createPrintOk() );
+          // Request deposit method details
+          var deposit_method_detail_req_id = this.conn_.requestDepositMethodDetail(msg['DepositMethodID']);
+          handler.listenOnce(this.conn_, bitex.api.BitEx.EventType.DEPOSIT_METHOD_DETAIL_RESPONSE + '.' + deposit_method_detail_req_id, function(e){
+              var deposit_method_resp_msg = e.data;
+              if (deposit_method_resp_msg["Type"] == 'DTP') {
+                  var html_template = deposit_method_resp_msg["HtmlTemplate"];
+                  html_template = goog.string.replaceAll(html_template, '*|control_number|*', '' + msg['ControlNumber']);
+                  html_template = goog.string.replaceAll(html_template, '*|account_id|*', '' + msg['AccountID']);
+                  html_template = goog.string.replaceAll(html_template, '*|broker_id|*', '' + msg['BrokerID']);
+                  html_template = goog.string.replaceAll(html_template, '*|cl_ord_id|*', '' + msg['ClOrdID']);
+                  html_template = goog.string.replaceAll(html_template, '*|created|*', '' + msg['Created']);
+                  html_template = goog.string.replaceAll(html_template, '*|currency|*', '' + msg['Currency']);
+                  html_template = goog.string.replaceAll(html_template, '*|deposit_id|*', '' + msg['DepositID']);
+                  html_template = goog.string.replaceAll(html_template, '*|deposit_method_id|*', '' + msg['DepositMethodID']);
+                  html_template = goog.string.replaceAll(html_template, '*|deposit_method_name|*', '' + msg['DepositMethodName']);
+                  html_template = goog.string.replaceAll(html_template, '*|fixed_fee|*', '' + msg['FixedFee']);
+                  html_template = goog.string.replaceAll(html_template, '*|user_id|*', '' + msg['UserID']);
+                  html_template = goog.string.replaceAll(html_template, '*|username|*', '' + msg['Username']);
+                  html_template = goog.string.replaceAll(html_template, '*|value|*', this.formatCurrency(msg['Value'] / 1e8 ,msg['Currency']));
 
-          handler.listen(dlg, goog.ui.Dialog.EventType.SELECT, function(e) {
-            if (e.key == 'print') {
-              window.open( this.rest_url_ + '/get_deposit?deposit_id=' +  msg['DepositID'] );
-            }
+                  goog.soy.renderElement(dlg.getContentElement(),bitex.templates.BlankDepositSlipContentDialog);
+                  goog.dom.iframe.writeContent(
+                      goog.dom.getFirstElementChild(goog.dom.getFirstElementChild(dlg.getContentElement())),
+                      html_template);
+
+              } else {
+                  goog.soy.renderElement(dlg.getContentElement(),
+                                         bitex.templates.DepositSlipContentDialog,
+                                         {deposit_id:msg['DepositID'], rest_url:this.rest_url_  });
+              }
+              dlg.setButtonSet(bitex.ui.Dialog.ButtonSet.createPrintOk() );
+
+              handler.listen(dlg, goog.ui.Dialog.EventType.SELECT, function(e) {
+                if (e.key == 'print') {
+                  window.open( this.rest_url_ + '/get_deposit?deposit_id=' +  msg['DepositID'] );
+                }
+              });
           });
         });
       }
@@ -3939,11 +3971,14 @@ bitex.app.BlinkTrade.prototype.onBodyChange_ =function(e){
 bitex.app.BlinkTrade.prototype.onUserLoginButtonClick_ = function(e){
   var username = e.target.getUsername();
   var password = e.target.getPassword();
-  this.model_.set('Password',         e.target.getPassword() );
+  var second_factor = e.target.getSecondFactor() || undefined;
+
+  this.model_.set('Password', e.target.getPassword());
 
   var requestId = this.conn_.login(this.getModel().get('SelectedBrokerID'),
                                    username,
-                                   password);
+                                   password,
+                                   second_factor);
 
   this.current_login_request_[requestId] = [ 'login',
                                              this.getModel().get('SelectedBrokerID'),
@@ -4167,8 +4202,15 @@ bitex.app.BlinkTrade.prototype.onUserLoginError_ = function(e) {
    */
   var MSG_EMAIL_TWO_STEPS_AUTHENTICATION_DIALOG_TITLE = goog.getMsg('Second factor of authentication');
 
+  /**
+   * @desc The Server is busy right now, try again later
+   */
+  var MSG_LOGIN_BUSY = goog.getMsg('The Server is busy right now, try again later');
 
-
+  // Enable login buttons
+  goog.array.forEach(goog.dom.getElementsByClass('btn-login'), function(button) {
+    button.disabled = false;
+  });
 
   if (msg['NeedSecondFactor']) {
     var dlg_second_factor_id = goog.string.getRandomString();
@@ -4300,6 +4342,8 @@ bitex.app.BlinkTrade.prototype.onUserLoginError_ = function(e) {
         break;
       case 'MSG_LOGIN_ERROR_USERNAME_ALREADY_TAKEN':
         user_status_text = MSG_LOGIN_ERROR_USERNAME_ALREADY_TAKEN;
+      case 'MSG_BUSY_REJECTION':
+        user_status_text = MSG_LOGIN_BUSY;
         break;
     }
 

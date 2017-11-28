@@ -137,6 +137,8 @@ views:
     signup: Sign up
     username: Username
     password: Password
+    second_factor: Two factor authentication
+    has_second_factor: Has two factor authentication?
     forgot_your_password: Forgot your password?
     login_button_label: Sign in
 

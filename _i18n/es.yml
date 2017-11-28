@@ -137,6 +137,8 @@ views:
     signup: Regístrate ahora
     username: Nombre de usuario
     password: Contraseña
+    second_factor: Código Verificación de dos pasos
+    has_second_factor: Tiene Verificación de dos pasos?
     forgot_your_password: Olvidaste tu contraseña?
     login_button_label: Ingresar
 

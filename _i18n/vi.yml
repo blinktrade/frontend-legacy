@@ -138,6 +138,8 @@ views:
     signup: Đăng ký
     username: Tên đăng nhập
     password: Mật khẩu
+    second_factor: Two factor authentication
+    has_second_factor: Has two factor authentication?
     forgot_your_password: Bạn đã quên mật khẩu?
     login_button_label: Đăng nhập
 

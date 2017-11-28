@@ -138,6 +138,8 @@ views:
     signup: Registre-se
     username: Nickname
     password: Senha
+    second_factor: Segundo passo de autenticação
+    has_second_factor: Possui segundo passo de autenticação?
     forgot_your_password: Esqueceu a sua senha?
     login_button_label: Entrar
 

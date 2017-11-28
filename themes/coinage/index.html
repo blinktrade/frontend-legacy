@@ -159,7 +159,7 @@ load_application:       True
         <!-- /.home-news -->
 
         <!-- .home-orders -->
-        <div class="home-orders">
+        <div class="home-orders" style="display:none">
             <!-- .container -->
             <div class="container">
                 <!-- .home-orders__head -->
@@ -282,6 +282,14 @@ load_application:       True
                       <p class="help-block">
                         <a class="login__remember" href="forgot_password" data-switch-view="forgot_password">{% t views.signin.forgot_your_password %}</a>
                       </p>
+                      <p class="help-block">
+                        <a class="login__remember" href="" id="id_open_second_factor">{% t views.signin.has_second_factor %}</a>
+                      </p>
+                    </div>
+
+                    <div class="form-group" id="id_second_factor_group" style="display: none">
+                      <label for="id_password">{% t views.signin.second_factor %}:</label>
+                      <input class="form-control" id="id_second_factor"  placeholder="" name="secondfactor" type="text">
                     </div>
 
                     <input id="id_btn_login"  class="btn btn-primary btn-block" name="commit" type="submit" value="{% t views.signin.login_button_label %}">
