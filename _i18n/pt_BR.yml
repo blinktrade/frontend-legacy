@@ -185,10 +185,10 @@ views:
     set_user_fees_button_label: Definir taxas personalizadas
 
   withdraw:
-    title: Saques
+    title: Retiradas 
 
   withdraw_requests:
-    title: Pedidos de saques
+    title: Pedidos de retiradas 
 
   withdraw_methods:
     title: Withdraw methods
@@ -249,9 +249,9 @@ views:
     ledger: Livro contábil
     customers: Meus clientes
     deposit_requests: Depósitos ( clientes )
-    withdraw_requests: Saques ( clientes )
+    withdraw_requests: Retiradas ( clientes )
     deposit: Depósitos
-    withdraw: Saques
+    withdraw: Retiradas
     verification: Verificar a sua conta
     line_of_credit: Linha de crédito
     support: Suporte e Sugestões
