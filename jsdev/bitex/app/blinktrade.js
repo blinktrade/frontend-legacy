@@ -450,12 +450,15 @@ bitex.app.BlinkTrade.validateBitcoinAddress_ = function(el, condition, minLength
 
 /**
  * @param {string} host_api
+ * @param {number} opt_required_level_to_be_a_pro_trader
  */
-bitex.app.BlinkTrade.prototype.run = function(host_api) {
+bitex.app.BlinkTrade.prototype.run = function(host_api, opt_required_level_to_be_a_pro_trader) {
   this.instance_ = this;
 
   this.rest_url_ = 'https://' + host_api;
   this.wss_url_ = 'wss://' + host_api + '/trade/';
+
+  this.getModel().set('RequiredLevelProTrader', opt_required_level_to_be_a_pro_trader || 3);
 
   uniform.Validators.getInstance().registerValidatorFn('validateAddress',  bitex.app.BlinkTrade.validateBitcoinAddress_);
 
@@ -1517,7 +1520,6 @@ bitex.app.BlinkTrade.prototype.onBitexVerifyCustomerUpdate_ = function(e) {
 
   if (old_verified == 0 && profile['Verified'] == 1  ) {
     if (!this.getModel().get('IsBroker')){
-      //this.router_.setView('offerbook');
       this.router_.setView('trading');
       this.showNotification('success', MSG_NOTIFICATION_VERIFY_TITLE, MSG_PENDING_VERIFICATION_CONTENT);
     }
@@ -3984,6 +3986,12 @@ bitex.app.BlinkTrade.prototype.onUserLoginButtonClick_ = function(e){
                                              this.getModel().get('SelectedBrokerID'),
                                              username,
                                              password ];
+
+  // Disable login buttons
+  goog.array.forEach(goog.dom.getElementsByClass('btn-login'), function(button) {
+    button.disabled = true;
+  });
+
 };
 
 
@@ -4009,6 +4017,10 @@ bitex.app.BlinkTrade.prototype.onUserLoginOk_ = function(e) {
   this.getModel().set('HasLineOfCredit',  msg['HasLineOfCredit']);
   this.getModel().set('EmailLang',        msg['EmailLang']);
 
+  // Enable login buttons
+  goog.array.forEach(goog.dom.getElementsByClass('btn-login'), function(button) {
+    button.disabled = false;
+  });
 
   var broker_currencies = new goog.structs.Set();
   var allowed_markets = {};
@@ -4119,6 +4131,12 @@ bitex.app.BlinkTrade.prototype.onUserLoginOk_ = function(e) {
     }
   } catch (e) {}
 
+  var is_pro_trader = false;
+  var required_level_to_be_a_pro_trader = this.getModel().get('RequiredLevelProTrader') || 5;
+  if (msg['IsMSB'] || profile['IsMarketMaker'] || profile['Verified'] >= required_level_to_be_a_pro_trader  ){
+    is_pro_trader = true;
+  }
+  this.getModel().set('IsProTrader', is_pro_trader );
 
   this.conn_.requestBalances();
   this.conn_.requestPositions();
@@ -4152,12 +4170,16 @@ bitex.app.BlinkTrade.prototype.onUserLoginOk_ = function(e) {
   // Request Deposit Options
   this.conn_.requestDepositMethods( this.getModel().get('BrokerID') );
 
-  //this.router_.setView('offerbook');
-  this.router_.setView('trading');
+  if (msg['IsBroker'] ) {
+    this.router_.setView('offerbook');
+  } else {
+    this.router_.setView('trading');
+  }
 
   // Request Open Orders
   this.getModel().set('FinishedInitialOpenOrdersRequest',  false);
   this.conn_.requestOrderList(this.open_orders_request_id_ , 0, 20, [ "has_leaves_qty eq 1" ] );
+
 };
 
 /**
@@ -4174,6 +4196,10 @@ bitex.app.BlinkTrade.prototype.onUserLoginError_ = function(e) {
   this.model_.set('UserID', '');
   this.model_.set('Username', '');
 
+  // Enable login buttons
+  goog.array.forEach(goog.dom.getElementsByClass('btn-login'), function(button) {
+    button.disabled = false;
+  });
 
   /**
    * @desc google authentication dialog title
