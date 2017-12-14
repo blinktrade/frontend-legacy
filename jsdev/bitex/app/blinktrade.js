@@ -79,6 +79,8 @@ goog.require('bitex.view.OfferBookView');
 goog.require('bitex.view.HistoryView');
 goog.require('bitex.view.SideBarView');
 goog.require('bitex.view.WithdrawView');
+goog.require('bitex.view.ServicesView');
+
 goog.require('bitex.view.CardView');
 goog.require('bitex.view.CustomersView');
 goog.require('bitex.view.AccountOverview');
@@ -3930,6 +3932,7 @@ bitex.app.BlinkTrade.prototype.onBodyClick_ =function(e){
         this.showDepositDialog(param1);
         break;
       case 'withdraw':
+      case 'service':
         param1 = action_element.getAttribute('data-currency');
         param2 = action_element.getAttribute('data-pre-filled-data');
         if (goog.isDefAndNotNull(param2)) {
