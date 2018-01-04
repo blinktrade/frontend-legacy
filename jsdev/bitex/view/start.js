@@ -194,7 +194,7 @@ bitex.view.StartView.prototype.getMDInstruments = function(){
  * @return {number}
  */
 bitex.view.StartView.prototype.getMDMarketDepth = function(){
-  return 1000;
+  return 10;
 };
 
 /**
