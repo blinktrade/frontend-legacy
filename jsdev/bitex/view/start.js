@@ -154,7 +154,6 @@ bitex.view.StartView.prototype.onOBNewOrder_ = function(e){
   var price = msg['MDEntryPx'];
   var qty   = msg['MDEntrySize'];
 
-
   var username;
   if (goog.isDefAndNotNull(msg['Username'])) {
     username = msg['Username'];
@@ -195,7 +194,7 @@ bitex.view.StartView.prototype.getMDInstruments = function(){
  * @return {number}
  */
 bitex.view.StartView.prototype.getMDMarketDepth = function(){
-  return 0;
+  return 1000;
 };
 
 /**
