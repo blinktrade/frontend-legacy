@@ -9,7 +9,7 @@ exchange_logo: "romaniabex"
 
 default_country_code: "RO"
 blinktrade_broker_id: 10
-required_level_to_be_a_pro_trader = 0
+required_level_to_be_a_pro_trader: 0
 
 blinktrade_backend_api: "api.blinktrade.com"
 google_analytics_id: "UA-58112377-1"
