@@ -18,6 +18,7 @@ twitter_widget_link_color: "#E8683E"
 
 default_country_code: "BR"
 blinktrade_broker_id: 4
+required_level_to_be_a_pro_trader = 5
 
 blinktrade_backend_api: "api_testnet.blinktrade.com"
 google_analytics_id: "UA-57478613-1"

@@ -461,7 +461,7 @@ bitex.app.BlinkTrade.prototype.run = function(host_api, opt_required_level_to_be
   this.rest_url_ = 'https://' + this.host_api_;
   this.wss_url_ = 'wss://' + this.host_api_ + '/trade/';
 
-  this.getModel().set('RequiredLevelProTrader', opt_required_level_to_be_a_pro_trader || 3);
+  this.getModel().set('RequiredLevelProTrader', opt_required_level_to_be_a_pro_trader || 0);
 
   uniform.Validators.getInstance().registerValidatorFn('validateAddress',  bitex.app.BlinkTrade.validateBitcoinAddress_);
 
@@ -4143,7 +4143,7 @@ bitex.app.BlinkTrade.prototype.onUserLoginOk_ = function(e) {
   } catch (e) {}
 
   var is_pro_trader = false;
-  var required_level_to_be_a_pro_trader = this.getModel().get('RequiredLevelProTrader') || 5;
+  var required_level_to_be_a_pro_trader = this.getModel().get('RequiredLevelProTrader') || 0;
   if (msg['IsMSB'] || profile['IsMarketMaker'] || profile['Verified'] >= required_level_to_be_a_pro_trader  ){
     is_pro_trader = true;
   }

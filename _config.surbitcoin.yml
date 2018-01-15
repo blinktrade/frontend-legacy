@@ -14,6 +14,7 @@ custom_css: "darkblue"
 
 default_country_code: "VE"
 blinktrade_broker_id: 1 # 9 is the id for the demo backend. Don't change that if you don't understand what you doing.
+required_level_to_be_a_pro_trader = 0
 
 # blinktrade_backend_api: "api.blinktrade.com"
 blinktrade_backend_api: "api.testnet.blinktrade.com"

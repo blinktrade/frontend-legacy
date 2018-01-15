@@ -17,6 +17,7 @@ twitter_widget_link_color: "#88DA65"
 
 default_country_code: "VN"
 blinktrade_broker_id: 3
+required_level_to_be_a_pro_trader = 0
 
 #blinktrade_backend_api: "api.blinktrade.com"
 blinktrade_backend_api: "api_testnet.blinktrade.com"
