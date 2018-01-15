@@ -585,6 +585,42 @@
   </form>
 {/template}
 
+/**
+  */
+{template .EmailGoogleAuthenticationCodeDialogContent}
+  <form class="form-horizontal" data-deposit-status="prepare" data-uniform-control-holder-class="control-group">
+    <fieldset>
+      <p>
+        {msg desc="Withdraw confirmation dialog message"}We just sent a confirmation code to your email.{/msg}
+      </p>
+
+      <div class="control-group">
+        <label>Confirmation Code</label>
+        <input name="confirmation_code" type="text" data-uniform-validators="required" label="{msg desc="Confirmation code placeholder on withdraw confirmation dialog"}Confirmation code{/msg}" class="input-block-level">
+      </div>
+
+      <div class="control-group">
+        <label>
+              {msg desc="Google Authenticator code dialog label"}Google Authenticator code:{/msg}
+        </label>
+        <input name="token"
+               id="id_input_google_authenticator"
+               data-uniform-validators="required"
+               data-uniform-label="{msg desc="Limit table field header"}Google authenticator code{/msg}"
+               label="{msg desc="Google Authenticator code placeholder"}eg. 555555{/msg}"
+               class="input-large"
+               type="text"
+               size="10">
+      </div>
+
+      <p>
+        <i>{msg desc="Withdraw confirmation dialog security disclaimer"}This is security measure to improve your account security{/msg}</i>
+      </p>
+    </fieldset>
+  </form>
+{/template}
+
+
 
 /**
   * @param id

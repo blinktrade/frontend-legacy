@@ -1029,10 +1029,12 @@ bitex.app.BlinkTrade.prototype.onBitexWithdrawResponse_ = function(e) {
       dlg_content = bitex.templates.WithdrawConfirmationDialogContent();
     } else if (second_factor_type == 'OTP') {
       dlg_content = bitex.templates.GoogleAuthenticationCodeDialogContent();
+    } else if (second_factor_type == 'OTP+EMAIL') {
+      dlg_content = bitex.templates.EmailGoogleAuthenticationCodeDialogContent();
     } else if (this.getModel().get('Profile')['NeedWithdrawEmail']) {
       if (this.getModel().get('TwoFactorEnabled')) {
-        dlg_content = bitex.templates.GoogleAuthenticationCodeDialogContent();
-        second_factor_type = 'OTP';
+        dlg_content = bitex.templates.EmailGoogleAuthenticationCodeDialogContent();
+        second_factor_type = 'OTP+EMAIL';
       } else {
         dlg_content = bitex.templates.WithdrawConfirmationDialogContent();
         second_factor_type = 'EMAIL';
@@ -1073,7 +1075,12 @@ bitex.app.BlinkTrade.prototype.onBitexWithdrawResponse_ = function(e) {
             if (second_factor_type == "OTP") {
               var token = withdraw_confirmation_data['token'];
               var withdraw_id = msg['WithdrawID'];
-              this.conn_.confirmWithdraw( undefined, withdraw_id, token);
+              this.conn_.confirmWithdraw(undefined, withdraw_id, token);
+            } else if (second_factor_type == 'OTP+EMAIL') {
+              var token = withdraw_confirmation_data['token'];
+              var withdraw_id = msg['WithdrawID'];
+              var confirmation_code = withdraw_confirmation_data['confirmation_code'];
+              this.conn_.confirmWithdraw( confirmation_code, withdraw_id, token );
             } else if (second_factor_type == "EMAIL") {
               var confirmation_code = withdraw_confirmation_data['confirmation_code'];
               this.conn_.confirmWithdraw( confirmation_code );
