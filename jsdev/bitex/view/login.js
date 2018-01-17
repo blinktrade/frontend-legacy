@@ -59,7 +59,11 @@ bitex.view.LoginView.prototype.enterDocument = function(){
   handler.listen( goog.dom.getElement('id_landing_signin'), 'click', function(e){
     e.stopPropagation();
     e.preventDefault();
-    this.onLoginClick_( goog.dom.getElement("id_landing_username"),goog.dom.getElement("id_landing_password") );
+    this.onLoginClick_(
+        goog.dom.getElement("id_landing_username"),
+        goog.dom.getElement("id_landing_password"),
+        goog.dom.getElement("id_landing_second_factor")
+    );
   });
 
   handler.listen(goog.dom.getElement('id_open_second_factor'), 'click', goog.bind(this.openSecondFactor));
@@ -93,9 +97,12 @@ bitex.view.LoginView.prototype.getPassword = function() {
  * @return {string}
  */
 bitex.view.LoginView.prototype.getSecondFactor = function() {
-  return goog.dom.forms.getValue(this.second_factor_el);
+  if (goog.isDefAndNotNull(this.second_factor_el)){
+    return goog.dom.forms.getValue(this.second_factor_el);
+  } else {
+    return "";
+  }
 };
-
 
 /**
  *
