@@ -179,6 +179,18 @@ load_application:       True
             <input id="id_password" placeholder="" name="password" type="password">
           </div>
         </div>
+
+        <div class="clearfix" id="id_second_factor_group" style="display: none">
+          <label for="id_password">{% t views.signin.second_factor %}:</label>
+          <div class="input">
+            <input id="id_second_factor"  placeholder="" name="secondfactor" type="text" autocomplete="off">
+          </div>
+        </div>
+
+        <p>
+          <a href="#" id="id_open_second_factor">{% t views.signin.has_second_factor %}</a>
+        </p>
+        
         <p><a href="#" data-switch-view="forgot_password">{% t views.signin.forgot_your_password %}</a></p>
 
         <div class="actions">
