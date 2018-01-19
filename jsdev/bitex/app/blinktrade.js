@@ -1071,19 +1071,16 @@ bitex.app.BlinkTrade.prototype.onBitexWithdrawResponse_ = function(e) {
             e.preventDefault();
           } else {
             var withdraw_confirmation_data = withdraw_confirmation_uniform.getAsJSON();
+            var withdraw_id = msg['WithdrawID'];
+            var token = withdraw_confirmation_data['token'];
+            var confirmation_code = withdraw_confirmation_data['confirmation_code'];
 
             if (second_factor_type == "OTP") {
-              var token = withdraw_confirmation_data['token'];
-              var withdraw_id = msg['WithdrawID'];
               this.conn_.confirmWithdraw(undefined, withdraw_id, token);
             } else if (second_factor_type == 'OTP+EMAIL') {
-              var token = withdraw_confirmation_data['token'];
-              var withdraw_id = msg['WithdrawID'];
-              var confirmation_code = withdraw_confirmation_data['confirmation_code'];
               this.conn_.confirmWithdraw( confirmation_code, withdraw_id, token );
             } else if (second_factor_type == "EMAIL") {
-              var confirmation_code = withdraw_confirmation_data['confirmation_code'];
-              this.conn_.confirmWithdraw( confirmation_code );
+              this.conn_.confirmWithdraw( confirmation_code, withdraw_id );
             }
           }
         }
