@@ -70,8 +70,8 @@
 	<translation id="3961425673023411564" key="MSG_6GJKW0ETNXWY" source="bitex/templates/templates.default.soy.js" desc="reason for cancelling withdraw">Invalid bank account</translation>
 	<translation id="8213044356837963510" key="MSG_6JE4R9Y781NK" source="bitex/templates/templates.default.soy.js" desc="reason for cancelling withdraw">Amount exceeded your daily withdraw limit</translation>
 	<translation id="3536993658239660954" key="MSG_SDGA57B1Y9B0" source="bitex/templates/templates.default.soy.js" desc="reason for cancelling withdraw">User has deposits that are not yet confirmed</translation>
-	<translation id="6376327837383665334" key="MSG_1BKBPN7XRIM9W" source="bitex/templates/templates.default.soy.js" desc="Google Authenticator code dialog label">2 Factor Authenticator code:</translation>
-	<translation id="4021569976401467131" key="MSG_Q6RJ4FMS79HH" source="bitex/templates/templates.default.soy.js" desc="Limit table field header">2 Factor Authenticator code</translation>
+	<translation id="6376327837383665334" key="MSG_1BKBPN7XRIM9W" source="bitex/templates/templates.default.soy.js" desc="Google Authenticator code dialog label">Google Authenticator code:</translation>
+	<translation id="4021569976401467131" key="MSG_Q6RJ4FMS79HH" source="bitex/templates/templates.default.soy.js" desc="Limit table field header">Google Authenticator code</translation>
 	<translation id="3847549940711760229" key="MSG_155HTFF2STTN5" source="bitex/templates/templates.default.soy.js" desc="Google Authenticator code placeholder">eg. 555555</translation>
 	<translation id="7893066449411497446" key="MSG_YNP9NN2M0VCH" source="bitex/templates/templates.default.soy.js" desc="Withdraw confirmation dialog message">We just sent a confirmation code to your email.</translation>
 	<translation id="1812638279514663541" key="MSG_10XCH9IJOMPHM" source="bitex/templates/templates.default.soy.js" desc="Confirmation code placeholder on withdraw confirmation dialog">Confirmation code</translation>
@@ -466,7 +466,7 @@
 	<translation id="3830167277314814271" key="MSG_DEPOSIT_CANCEL_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="Cancel Deposit dialog title">Cancel deposit</translation>
 	<translation id="7496906925365343434" key="MSG_DLG_TITLE_GET_DEPOSIT_PAID_VALUE" source="bitex/app/blinktrade.js" desc="Dialog title to get deposit paid value">Confirm deposit</translation>
 	<translation id="5545270625797886732" key="MSG_CURRENCY_DEPOSIT_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="Crypto Currency Withdraw accordion title"><ph name="currency" /> deposit</translation>
-	<translation id="2835185174766852870" key="MSG_ERROR_SETTING_TWO_FACTOR" source="bitex/app/blinktrade.js" desc="Error message when user missed the google authentication code">Wrong authentication code. Please, make sure that you are using Google Authenticator or Authy and your cellphone time is exact synched with google servers.</translation>
+	<translation id="2835185174766852870" key="MSG_ERROR_SETTING_TWO_FACTOR" source="bitex/app/blinktrade.js" desc="Error message when user missed the google authentication code">Wrong authentication code. Please, make sure that you are using Google Authenticator and your cellphone time is exact synched with google servers.</translation>
 	<translation id="519289737641591893" key="MSG_TWO_STEPS_AUTHENTICATION_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="google authentication dialog title">2 steps authentication</translation>
 	<translation id="4916739059107319469" key="MSG_LOGIN_ERROR_INVALID_PASSWORD" source="bitex/app/blinktrade.js" desc="Invalid Password error">Invalid password</translation>
 	<translation id="2129910954277323031" key="MSG_LOGIN_ERROR_INVALID_USERNAME_OR_PASSWORD" source="bitex/app/blinktrade.js" desc="Invalid Password error">Invalid username or password</translation>
@@ -705,9 +705,9 @@
 	<translation id="7713353218164778620" key="MSG_8SI2JVBG55QE" source="bitex/ui/two_factor.soy.js" desc="two factor line 1">We have made your system more secure. By protecting your login details with an extra layer of security. How?</translation>
 	<translation id="7720388949015284796" key="MSG_BUQLO6USY2A" source="bitex/ui/two_factor.soy.js" desc="two factor line 2">Your phone or tablet becomes your key to access your account, with the easy-to-use app.</translation>
 	<translation id="5923919257210990797" key="MSG_1GOVBYS9FIL5B" source="bitex/ui/two_factor.soy.js" desc="two factor line 3">You will only be asked for additional authentication when our system detects a higher risk.</translation>
-	<translation id="7145249941653083861" key="MSG_JAXH4XUW7WV8" source="bitex/ui/two_factor.soy.js" desc="two factor line 4">If you do not have Google Authenticator or Authy installed and configured yet, follow these easy steps outlined below</translation>
-	<translation id="9090558310961070927" key="MSG_16ULKTM62PVNQ" source="bitex/ui/two_factor.soy.js" desc="two factor step 1">Download and install the Authy on your mobile device.</translation>
-	<translation id="4502902583576602361" key="MSG_AZ99DWNWKUFR" source="bitex/ui/two_factor.soy.js" desc="two factor step 2">Go to your app store and search for Authy or Google Authenticator</translation>
+	<translation id="7145249941653083861" key="MSG_JAXH4XUW7WV8" source="bitex/ui/two_factor.soy.js" desc="two factor line 4">If you do not have Google Authenticator installed and configured yet, follow these easy steps outlined below</translation>
+	<translation id="9090558310961070927" key="MSG_16ULKTM62PVNQ" source="bitex/ui/two_factor.soy.js" desc="two factor step 1">Download and install the Google Authenticator on your mobile device.</translation>
+	<translation id="4502902583576602361" key="MSG_AZ99DWNWKUFR" source="bitex/ui/two_factor.soy.js" desc="two factor step 2">Go to your app store and search for Google Authenticator</translation>
 	<translation id="1978475762364747659" key="MSG_1GTFF32HSHA0Y" source="bitex/ui/two_factor.soy.js" desc="two factor step 3">On your mobile device, Tap 'Begin setup', then 'Scan a barcode'.</translation>
 	<translation id="7238091213801644502" key="MSG_HBRRGCDSH11Z" source="bitex/ui/two_factor.soy.js" desc="two factor step 4">After finishing setup, link your device to your account by following the instructions in the yellow frame.</translation>
 	<translation id="5628381285821291099" key="MSG_1VIQLAPMXBM18" source="bitex/ui/two_factor.soy.js" desc="Key:">Key: </translation>
@@ -734,7 +734,7 @@
 	<translation id="9190605290244645507" key="MSG_1KTYC6SODXRNM" source="bitex/ui/withdraw_request_data_entry.soy.js" desc="WebCam"> WebCam</translation>
 	<translation id="6118679938563206468" key="MSG_WITHDRAW_COMMENT_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="Comment Withdraw dialog title">Comments withdraw</translation>
 	<translation id="7830854557363540006" key="MSG_CONFIRMATION_ORDER" source="bitex/app/blinktrade.js" desc="dialog shown when user send an order">Confirm Your Order</translation>
-	<translation id="7411267063362268106" key="MSG_OTP_TWO_STEPS_AUTHENTICATION_DIALOG_CONTENT" source="bitex/app/blinktrade.js" desc="google authentication dialog title">Enter the Google Authenticator/Authy code</translation>
+	<translation id="7411267063362268106" key="MSG_OTP_TWO_STEPS_AUTHENTICATION_DIALOG_CONTENT" source="bitex/app/blinktrade.js" desc="google authentication dialog title">Enter the Google Authenticator code</translation>
 	<translation id="1935581699451050943" key="MSG_SIGNUP_CONFIRM_EMAIL_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="Email confirmation dialog title when user is sigining up.">Confirm email</translation>
 	<translation id="7073868655624239047" key="MSG_EMAIL_TWO_STEPS_AUTHENTICATION_DIALOG_CONTENT" source="bitex/app/blinktrade.js" desc="Label requesting user to enter the token sent to their email during login or signup">Enter the confirmation code that we sent you in an email.</translation>
 	<translation id="7046888733179350567" key="MSG_EMAIL_TWO_STEPS_AUTHENTICATION_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="Dialog title of the email second step authenticaiton.">Second factor of authentication</translation>
@@ -800,7 +800,7 @@
 	<translation id="7621861221301563128" key="MSG_11NFKIJC2KXCF" source="bitex/ui/api_key_data_entry.soy.js" desc="Request customer details api permission label on API Key data entry">Get customer details</translation>
 	<translation id="8239090398263011922" key="MSG_1KRYUX9HJVC80" source="bitex/ui/api_key_data_entry.soy.js" desc="Update user email api permission label on API Key data entry">Update user email</translation>
 	<translation id="6361861080211975486" key="MSG_1BQ5NGLK5VHJE" source="bitex/ui/api_key_data_entry.soy.js" desc="Update user trading fees api permission label on API Key data entry">Update user fees</translation>
-	<translation id="6731825148676796831" key="MSG_19NUUEW32ENBK" source="bitex/ui/api_key_data_entry.soy.js" desc="Disable 2FA api permission label on API Key data entry">Disable Google Authenticator/Authy</translation>
+	<translation id="6731825148676796831" key="MSG_19NUUEW32ENBK" source="bitex/ui/api_key_data_entry.soy.js" desc="Disable 2FA api permission label on API Key data entry">Disable Google Authenticator</translation>
 	<translation id="3111376395783527561" key="MSG_J6U4SLDPHSRN" source="bitex/ui/api_key_data_entry.soy.js" desc="Enable Email login confirmation api permission label on API Key data entry">Enable user email login confirmation</translation>
 	<translation id="5431935966419735156" key="MSG_1BI8KP298RK6X" source="bitex/ui/api_key_data_entry.soy.js" desc="Disable Email login confirmation permission label on API Key data entry">Disable user email login confirmation</translation>
 	<translation id="4769978475270390050" key="MSG_397586Z50QQ4" source="bitex/ui/api_key_data_entry.soy.js" desc="Enable  Withdrawal confirmation api permission label on API Key data entry">Enable user  withdrawal confirmation</translation>
