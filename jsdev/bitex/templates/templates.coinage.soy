@@ -479,6 +479,10 @@
           {msg desc="Google Authenticator code dialog label"}Google Authenticator code:{/msg}
         </label>
         <input name="token"
+               autocapitalize="off" 
+               autocorrect="off" 
+               autocomplete="off"
+               autofocus
                id="id_input_google_authenticator"
                data-uniform-validators="required"
                data-uniform-label="{msg desc="Limit table field header"}Google authenticator code{/msg}"
@@ -504,6 +508,10 @@
           {$description}
         </label>
         <input name="token"
+               autocapitalize="off" 
+               autocorrect="off" 
+               autocomplete="off"
+               autofocus
                id="{$id}_token"
                data-uniform-validators="required"
                label="{msg desc="Placeholder for the code field on the second factor token dialog"}eg. 5555555{/msg}"
@@ -576,7 +584,7 @@
 
       <div class="control-group">
         <label>Confirmation Code</label>
-        <input name="confirmation_code" type="text" data-uniform-validators="required" label="{msg desc="Confirmation code placeholder on withdraw confirmation dialog"}Confirmation code{/msg}" class="input-block-level form-control">
+        <input name="confirmation_code" type="text" data-uniform-validators="required" autofocus autocapitalize="off" autocorrect="off" autocomplete="off" label="{msg desc="Confirmation code placeholder on withdraw confirmation dialog"}Confirmation code{/msg}" class="input-block-level form-control">
       </div>
       <p>
         <i>{msg desc="Withdraw confirmation dialog security disclaimer"}This is security measure to improve your account security{/msg}</i>
@@ -596,7 +604,7 @@
 
       <div class="control-group">
         <label>Confirmation Code</label>
-        <input name="confirmation_code" type="text" data-uniform-validators="required" label="{msg desc="Confirmation code placeholder on withdraw confirmation dialog"}Confirmation code{/msg}" class="input-block-level">
+        <input name="confirmation_code" type="text" data-uniform-validators="required" autofocus autocapitalize="off" autocorrect="off" autocomplete="off" label="{msg desc="Confirmation code placeholder on withdraw confirmation dialog"}Confirmation code{/msg}" class="input-block-level">
       </div>
 
       <div class="control-group">
@@ -604,6 +612,9 @@
               {msg desc="Google Authenticator code dialog label"}Google Authenticator code:{/msg}
         </label>
         <input name="token"
+               autocapitalize="off" 
+               autocorrect="off" 
+               autocomplete="off"
                id="id_input_google_authenticator"
                data-uniform-validators="required"
                data-uniform-label="{msg desc="Limit table field header"}Google authenticator code{/msg}"
