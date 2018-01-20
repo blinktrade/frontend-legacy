@@ -1953,7 +1953,7 @@ bitex.app.BlinkTrade.prototype.showWithdrawalDialog = function(currency, opt_pre
       withdrawal_method['fixed_fee'] = user_withdrawal_fixed_fee;
     }
 
-    if (this.getModel().get('IsMSB')) {
+    if (this.getModel().get('IsMSB') && currency !== 'BTC') {
       if (!goog.array.contains(withdrawal_method['fields'], "SenderName" )) {
         withdrawal_method['fields'].push({"side":"client",
                                            "name": "SenderName",
