@@ -805,4 +805,6 @@
 	<translation id="5431935966419735156" key="MSG_1BI8KP298RK6X" source="bitex/ui/api_key_data_entry.soy.js" desc="Disable Email login confirmation permission label on API Key data entry">Disable user email login confirmation</translation>
 	<translation id="4769978475270390050" key="MSG_397586Z50QQ4" source="bitex/ui/api_key_data_entry.soy.js" desc="Enable  Withdrawal confirmation api permission label on API Key data entry">Enable user  withdrawal confirmation</translation>
 	<translation id="5495920769256892700" key="MSG_D7CBJTCOFE90" source="bitex/ui/api_key_data_entry.soy.js" desc="Disable  Withdrawal confirmation permission label on API Key data entry">Disable user  withdrawal confirmation</translation>
+	<translation id="6769086602060751025" key="MSG_LOGIN_BUSY" source="bitex/app/blinktrade.js" desc="The Server is busy right now, try again later">The Server is busy right now, try again later</translation>
+	<translation id="8513557970267239220" key="MSG_1TDX474Z0C41H" source="bitex/templates/templates.soy.js" desc="Confirmation code placeholder on withdraw confirmation dialog">eg. 4a72c1c1c05541bba3324847454d8165</translation>
 </translationbundle>
