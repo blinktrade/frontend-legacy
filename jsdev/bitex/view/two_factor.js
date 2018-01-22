@@ -37,7 +37,7 @@ bitex.view.TwoFactor.prototype.recreateComponents_ = function() {
   var enabled = this.getApplication().getModel().get('TwoFactorEnabled');
 
   if (enabled) {
-    this.getApplication().router_.setView('offerbook');
+    this.getApplication().router_.setView('trading');
   } else {
 
     handler.listen(model, bitex.model.Model.EventType.SET + 'TwoFactorSecret', this.onModelSetTwoFactorSecret_);
@@ -101,7 +101,7 @@ bitex.view.TwoFactor.prototype.onModelSetTwoFactorEnabled_ = function(e) {
 
   goog.style.showElement(btnEnableEl, !enabled);
   goog.style.showElement(btnDisableEl, enabled);
-  this.getApplication().router_.setView('offerbook');
+  this.getApplication().router_.setView('trading');
 };
 
 /**
