@@ -2,7 +2,7 @@
 url: "https://chilebit.net"
 author: "BlinkTrade"
 baseurl: ""
-deploy_version: "HEAD"
+deploy_version: "7525d95"
 
 exchange: "chilebit"
 exchange_logo: "chilebit"
@@ -19,7 +19,7 @@ default_country_code: "CL"
 blinktrade_broker_id: 9 # 9 is the id for the demo backend. Don't change that if you don't understand what you doing.
 required_level_to_be_a_pro_trader: 0
 
-blinktrade_backend_api: "api.testnet.blinktrade.com"
+blinktrade_backend_api: "api.blinktrade.com"
 google_analytics_id: "UA-56565606-1"
 zopim_key: "2aIJdGCoaI6qy2YO4oK2zPAM8h1NoILb"
 
@@ -48,10 +48,10 @@ remittance_box: "{
 
 symbol: "BTCCLP"
 
-languages: ["en_US"]
+languages: ["es", "pt_BR", "en_US", "ro", "zn_CN", "vi"]
 
 navbar: 'navbar-default'
-phrases: [phrase1, phrase2, phrase3]
+phrases: [phrase1, phrase2, phrase4]
 
 exclude:     [ "jsdev", "LICENSE", "README.md", "config.rb", "deploy.sh", "build_javascript.sh", "node_modules", "gulpfile.js", "themes/ander" ]
 source:      .
