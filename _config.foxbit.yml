@@ -2,7 +2,7 @@
 url: "https://foxbit.exchange"
 author: "BlinkTrade"
 baseurl: ""
-deploy_version: "09f8011"
+deploy_version: "c8c544f"
 
 exchange: "foxbit"
 exchange_logo: "foxbit"
@@ -20,7 +20,7 @@ blinktrade_broker_id: 4  # 4 is the id for the demo backend. Don't change that i
 required_level_to_be_a_pro_trader: 0
 
 
-blinktrade_backend_api: "api.blinktrade.com"
+blinktrade_backend_api: "ws.blinktrade.com"
 google_analytics_id: "UA-57478613-1"
 zendesk_host: "foxbit.zendesk.com"
 custom_faq: "https://foxbit.zendesk.com/hc/pt-br"
