@@ -179,9 +179,11 @@
 }
 
 .home-contact {
+    position: relative;
     border-top: 1px solid #eee;
     margin: 0 -12px;
     padding: 60px 12px;
+    z-index: 10;
 
     > p {
         margin-bottom: 25px;
