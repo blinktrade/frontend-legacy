@@ -12,6 +12,7 @@
  * @param formatted_fee
  */
 {template .SimpleOrderEntry}
+    <!-- {$formatted_fee} -->
 <form id="{$id}" class="simple-order-entry well" >
   <div class="row-fluid">
     <div class="span10">
@@ -49,18 +50,21 @@
                    data-uniform-filters="positive_number"
                    type="text" required/>
           </div>
-        </div>
-      </div>
+        </div> <!-- pull-left -->
+      </div> <!-- row-fluid -->
       <div class="row-fluid">
         <small>
-          {msg desc="Fee label on simple order entry"}Fee{/msg} ( {$formatted_fee} ) : <span id="{$id}_fee"></span>,{sp}
           {msg desc="Price per crypto currency label on simple order entry"}Price per {$cryptocurrencydescription} :{/msg}{sp}
                     <strong><span id="{$id}_avg_price"></span></strong>
-          </strong>
-          <a id="{$id}_open_action_advanced" style="cursor:pointer; display:none"> {msg desc="Too expensive"}Too expensive{/msg}</a>
+          <span>{msg desc="Or verb after price per bitcoin in the simple order entry"} or {/msg}</span>
+          {if $side == 1}
+            <a id="{$id}_open_action_advanced" style="cursor:pointer;"> {msg desc="Advanced Buy Description"}Buy when the price goes down{/msg}</a>
+          {else}
+            <a id="{$id}_open_action_advanced" style="cursor:pointer;"> {msg desc="Advanced Sell Description"}Sell when the price goes up{/msg}</a>
+          {/if}
         </small>
-      </div>
-    </div>
+      </div> <!-- row-fluid -->
+    </div> <!-- span10 -->
     <div class="span2">
       <div class="row-fluid">
         {if $side == 1}
@@ -68,6 +72,12 @@
         {else}
           <button id="{$id}_action_simple" class="btn btn-large btn-danger order-entry-action span12">{msg desc="Buy button in Order Entry"}SELL{/msg}</button>
         {/if}
+        <br/>
+        <small>
+          <center>
+            <span id="{$id}_fee_label" style=""> {msg desc="Fee label on simple order entry"}Fee{/msg}: </span><span id="{$id}_fee" style=""></span>{sp}
+          </center>
+        </small>
       </div>
     </div>
   </div>
@@ -77,75 +87,85 @@
   <input id="{$id}_broker_id" type="hidden" name="broker_id" value="{$broker_id}">
   <input id="{$id}_is_broker" type="hidden" value="{$is_broker}">
   <div class="row-fluid">
-      <h4>Advanced Order</h4>
+    <div class="span10">
       <div class="row-fluid">
-        <div class="span10">
-            <div class="pull-left">
-                <div class="row-fluid">
-                    <span class="simple-order-entry-text">Amount: </span>
-                    <div class="input-prepend uniform-control-holder">
-                        <span class="add-on simple-order-entry-price-sign">{$crypto_currency_symbol}</span>
-                        <input id="{$id}_amount"
-                            name="amount"
-                            type="text"
-                            class="input-small input-block-level"
-                            data-uniform-label="{msg desc="Advanced Order Entry Label"}Amount{/msg}"
-                            data-uniform-validators="validateNumber; required"
-                            data-uniform-type="number"
-                            data-uniform-filters="positive_number"
-                            value=""
-                            required/>
-                    </div>
-                </div>
-            </div>
-            <div class="pull-left">
-                <div class="row-fluid">
-                    <span class="simple-order-entry-text">Price per {$crypto_currency_symbol}: </span>
-                    <div class="input-prepend uniform-control-holder">
-                        <span class="add-on simple-order-entry-price-sign">{$currency_symbol}</span>
-                        <input id="{$id}_price"
-                            name="price"
-                            type="text"
-                            class="input-small input-block-level"
-                            data-uniform-label="{msg desc="Advanced Order Entry Label"}Price{/msg}"
-                            data-uniform-validators="validateNumber; required"
-                            data-uniform-type="number"
-                            data-uniform-filters="positive_number"
-                            value=""
-                            required/>
-                    </div>
-                </div>
-            </div>
-            <div class="pull-left">
-                <div class="row-fluid">
-                    <span class="simple-order-entry-text">Total: </span>
-                    <div class="input-prepend uniform-control-holder">
-                        <span class="add-on simple-order-entry-price-sign">{$currency_symbol}</span>
-                        <input id="{$id}_total_advanced"
-                            name="total"
-                            type="text"
-                            class="input-small input-block-level"
-                            data-uniform-label="{msg desc="Advanced Order Entry Label"}Total{/msg}"
-                            data-uniform-validators="validateNumber; required"
-                            data-uniform-type="number"
-                            data-uniform-filters="positive_number"
-                            required/>
-                    </div>
-                </div>
-                <a id="{$id}_cancel_action_advanced" style="cursor:pointer">{msg desc="Simple Order"}Simple Order{/msg}</a>
-            </div>
-        </div>
-      </div>
-      <div class="span2">
-        <div class="row-fluid">
+        <div class="pull-left">
+          <span class="simple-order-entry-text" >
             {if $side == 1}
-            <button id="{$id}_action_advanced" class="btn btn-large btn-success order-entry-action span12">{msg desc="Buy button in Order Entry"}BUY{/msg}</button>
+              {msg desc="I want to buy"}I want to buy{/msg}
             {else}
-            <button id="{$id}_action_advanced" class="btn btn-large btn-danger order-entry-action span12">{msg desc="Buy button in Order Entry"}SELL{/msg}</button>
+              {msg desc="I want to sell"}I want to sell{/msg}
             {/if}
-        </div>
+          </span>
+          <div class="input-prepend uniform-control-holder">
+            <span class="add-on simple-order-entry-price-sign">{$crypto_currency_symbol}</span>
+            <input id="{$id}_amount"
+                  name="amount"
+                  type="text"
+                  class="input-small input-block-level"
+                  data-uniform-label="{msg desc="Advanced Order Entry Label"}Amount{/msg}"
+                  data-uniform-validators="validateNumber; required"
+                  data-uniform-type="number"
+                  data-uniform-filters="positive_number"
+                  value=""
+                  required/>
+          </div>
+        </div> <!-- pull-left -->
+        <div class="pull-left">
+          <span class="simple-order-entry-text">{msg desc="Price per"}when the price reaches{/msg} </span>
+          <div class="input-prepend uniform-control-holder">
+              <span class="add-on simple-order-entry-price-sign">{$currency_symbol}</span>
+              <input id="{$id}_price"
+                  name="price"
+                  type="text"
+                  class="input-small input-block-level"
+                  data-uniform-label="{msg desc="Advanced Order Entry Label"}Price{/msg}"
+                  data-uniform-validators="validateNumber; required"
+                  data-uniform-type="number"
+                  data-uniform-filters="positive_number"
+                  value=""
+                  required/>
+          </div>
+        </div> <!-- pull-left -->
+      </div> <!-- row-fluid -->
+      <div class="row-fluid">
+          <span class="simple-order-entry-text">{msg desc="Total"}Total{/msg}: </span>
+          <div class="input-prepend uniform-control-holder">
+              <span class="add-on simple-order-entry-price-sign">{$currency_symbol}</span>
+              <input id="{$id}_total_advanced"
+                  name="total"
+                  type="text"
+                  class="input-small input-block-level"
+                  data-uniform-label="{msg desc="Advanced Order Entry Label"}Total{/msg}"
+                  data-uniform-validators="validateNumber; required"
+                  data-uniform-type="number"
+                  data-uniform-filters="positive_number"
+                  required/>
+          </div>
+          <span>{msg desc="Or verb after price per bitcoin in the simple order entry"} or {/msg}</span>
+          {if $side == 1}
+            <a id="{$id}_cancel_action_advanced" style="cursor:pointer;margin-left:10px">{msg desc="Simple Buy Order Description"}Buy now at the current price{/msg}</a>
+          {else}
+            <a id="{$id}_cancel_action_advanced" style="cursor:pointer;margin-left:10px">{msg desc="Simple Sell Order Description"}Sell now at the current price{/msg}</a>
+          {/if}
+      </div> <!-- row-fluid -->
+    </div> <!-- span10 -->
+    <div class="span2">
+      <div class="row-fluid">
+        {if $side == 1}
+          <button id="{$id}_action_advanced" class="btn btn-large btn-success order-entry-action span12">{msg desc="Buy button in Order Entry"}BUY{/msg}</button>
+        {else}
+          <button id="{$id}_action_advanced" class="btn btn-large btn-danger order-entry-action span12">{msg desc="Buy button in Order Entry"}SELL{/msg}</button>
+        {/if}
+        <br/>
+        <small>
+          <center>
+            <span id="{$id}_fee_label" style=""> {msg desc="Fee label on simple order entry"}Fee{/msg}: </span><span id="{$id}_fee_advanced" style=""></span>{sp}
+          </center>
+        </small>
       </div>
-  </div>
+    </div> <!-- span2 -->
+  </div> <!-- row-fluid -->
 </form>
 
 {/template}
