@@ -4360,6 +4360,11 @@ bitex.app.BlinkTrade.prototype.onUserLoginError_ = function(e) {
      */
     var MSG_LOGIN_ERROR_USERNAME_ALREADY_TAKEN = goog.getMsg('Username or email already taken');
 
+    /**
+     * @desc OTP code already used error 
+     */ 
+    var MSG_LOGIN_ERROR_ALREADY_USED_SECOND_STEP = goog.getMsg('Authentication code already used.');
+
     var user_status_text = msg['UserStatusText'];
     switch(msg['UserStatusText']) {
       case 'MSG_LOGIN_ERROR_INVALID_PASSWORD':
@@ -4378,6 +4383,8 @@ bitex.app.BlinkTrade.prototype.onUserLoginError_ = function(e) {
         user_status_text = MSG_LOGIN_ERROR_USERNAME_ALREADY_TAKEN;
       case 'MSG_BUSY_REJECTION':
         user_status_text = MSG_LOGIN_BUSY;
+      case 'MSG_LOGIN_ERROR_ALREADY_USED_SECOND_STEP':
+        user_status_text = MSG_LOGIN_ERROR_ALREADY_USED_SECOND_STEP;
         break;
     }
 
