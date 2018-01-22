@@ -1793,7 +1793,7 @@ bitex.api.BitEx.prototype.cancelOrder = function( opt_clientOrderId, opt_OrderId
   };
 
   if (opt_OrderId) {
-    msg['OrderID'] = opt_OrderId;
+    msg['OrderID'] = parseInt(opt_OrderId,10);
   } else if (opt_clientOrderId) {
     msg['OrigClOrdID'] = opt_clientOrderId;
   }

@@ -479,6 +479,10 @@
           {msg desc="Google Authenticator code dialog label"}Google Authenticator code:{/msg}
         </label>
         <input name="token"
+               autocapitalize="off" 
+               autocorrect="off" 
+               autocomplete="off"
+               autofocus
                id="id_input_google_authenticator"
                data-uniform-validators="required"
                data-uniform-label="{msg desc="Limit table field header"}Google authenticator code{/msg}"
@@ -504,6 +508,10 @@
           {$description}
         </label>
         <input name="token"
+               autocapitalize="off" 
+               autocorrect="off" 
+               autocomplete="off"
+               autofocus
                id="{$id}_token"
                data-uniform-validators="required"
                label="{msg desc="Placeholder for the code field on the second factor token dialog"}eg. 5555555{/msg}"
@@ -575,8 +583,8 @@
       </p>
 
       <div class="control-group">
-        <label>Confirmation Code</label>
-        <input name="confirmation_code" type="text" data-uniform-validators="required" label="{msg desc="Confirmation code placeholder on withdraw confirmation dialog"}Confirmation code{/msg}" class="input-block-level form-control">
+        <label>{msg desc="Confirmation code on withdraw confirmation dialog"}Confirmation code{/msg}</label>
+        <input name="confirmation_code" type="text" data-uniform-validators="required" autofocus autocapitalize="off" autocorrect="off" autocomplete="off" label="{msg desc="Confirmation code placeholder on withdraw confirmation dialog"}eg. 4a72c1c1c05541bba3324847454d8165{/msg}" class="input-block-level form-control">
       </div>
       <p>
         <i>{msg desc="Withdraw confirmation dialog security disclaimer"}This is security measure to improve your account security{/msg}</i>
@@ -584,6 +592,45 @@
     </fieldset>
   </form>
 {/template}
+
+/**
+  */
+{template .EmailGoogleAuthenticationCodeDialogContent}
+  <form class="form-horizontal" data-deposit-status="prepare" data-uniform-control-holder-class="control-group">
+    <fieldset>
+      <p>
+        {msg desc="Withdraw confirmation dialog message"}We just sent a confirmation code to your email.{/msg}
+      </p>
+
+      <div class="control-group">
+        <label>{msg desc="Confirmation code on withdraw confirmation dialog"}Confirmation code{/msg}</label>
+        <input name="confirmation_code" type="text" data-uniform-validators="required" autofocus autocapitalize="off" autocorrect="off" autocomplete="off" label="{msg desc="Confirmation code placeholder on withdraw confirmation dialog"}eg. 4a72c1c1c05541bba3324847454d8165{/msg}" class="input-block-level">
+      </div>
+
+      <div class="control-group">
+        <label>
+              {msg desc="Google Authenticator code dialog label"}Google Authenticator code:{/msg}
+        </label>
+        <input name="token"
+               autocapitalize="off" 
+               autocorrect="off" 
+               autocomplete="off"
+               id="id_input_google_authenticator"
+               data-uniform-validators="required"
+               data-uniform-label="{msg desc="Limit table field header"}Google authenticator code{/msg}"
+               label="{msg desc="Google Authenticator code placeholder"}eg. 555555{/msg}"
+               class="input-large"
+               type="text"
+               size="10">
+      </div>
+
+      <p>
+        <i>{msg desc="Withdraw confirmation dialog security disclaimer"}This is security measure to improve your account security{/msg}</i>
+      </p>
+    </fieldset>
+  </form>
+{/template}
+
 
 
 /**
@@ -904,7 +951,7 @@
     <div class="control-group">
       <label class="control-label" for="email_confirm_field">{msg desc="Confirm Email"}Email: {/msg}</label>
       <div class="controls">
-        <input type="text" id="id_email_confirm_field" class="form-control" />
+        <input type="email" id="id_email_confirm_field" class="form-control" />
       </div>
     </div>
   </div>
