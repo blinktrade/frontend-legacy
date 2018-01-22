@@ -743,4 +743,5 @@
 	<translation id="1730055005975793342" key="MSG_13OQ7TH6HKJ76" source="bitex/templates/templates.soy.js" desc="Label on the two factor authenticatior">信任这台设备30天</translation>
 	<translation id="6769086602060751025" key="MSG_LOGIN_BUSY" source="bitex/app/blinktrade.js" desc="The Server is busy right now, try again later">The Server is busy right now, try again later</translation>
 	<translation id="8513557970267239220" key="MSG_1TDX474Z0C41H" source="bitex/templates/templates.soy.js" desc="Confirmation code placeholder on withdraw confirmation dialog">eg. 4a72c1c1c05541bba3324847454d8165</translation>
+	<translation id="1258019074704592474" key="MSG_LOGIN_ERROR_ALREADY_USED_SECOND_STEP" source="bitex/app/blinktrade.js" desc="OTP code already used error">Authentication code already used.</translation>
 </translationbundle>

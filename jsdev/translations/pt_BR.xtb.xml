@@ -767,4 +767,5 @@
 	<translation id="4436525954447567804" key="MSG_CHANGE_EMAIL_TERMS_ERROR" source="bitex/app/blinktrade.js" desc="Change Email assign terms">Você necessita aceitar os termos</translation>
 	<translation id="6769086602060751025" key="MSG_LOGIN_BUSY" source="bitex/app/blinktrade.js" desc="The Server is busy right now, try again later">O servidor está sobrecarregado neste momento, favor tentar novamente em alguns instantes.</translation>
 	<translation id="8513557970267239220" key="MSG_1TDX474Z0C41H" source="bitex/templates/templates.soy.js" desc="Confirmation code placeholder on withdraw confirmation dialog">ex. 4a72c1c1c05541bba3324847454d8165</translation>
+	<translation id="1258019074704592474" key="MSG_LOGIN_ERROR_ALREADY_USED_SECOND_STEP" source="bitex/app/blinktrade.js" desc="OTP code already used error">O código do Google Authenticator já foi utilizado.</translation>
 </translationbundle>
