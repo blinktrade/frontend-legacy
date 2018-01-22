@@ -184,8 +184,10 @@ bitex.view.TradingView.prototype.recreateComponents_ = function( selected_symbol
     currency_format:this.getApplication().getCurrencyHumanFormat(selected_symbol.symbol.substr(3)),
     crypto_currency_code: selected_symbol.symbol.substr(0,3),
     crypto_currency_format:this.getApplication().getCurrencyHumanFormat(selected_symbol.symbol.substr(0,3)),
-    fee: model.get('Broker')['TakerTransactionFeeBuy'],
-    formatted_fee: model.get('Broker')['FormattedTakerTransactionFeeBuy']
+    maker_fee: model.get('Broker')['TransactionFeeBuy'],
+    taker_fee: model.get('Broker')['TakerTransactionFeeBuy'],
+    formatted_maker_fee: model.get('Broker')['FormattedTransactionFeeBuy'],
+    formatted_taker_fee: model.get('Broker')['FormattedTakerTransactionFeeBuy']
   });
   this.addChild(this.bid_order_entry_, true);
 
@@ -206,8 +208,10 @@ bitex.view.TradingView.prototype.recreateComponents_ = function( selected_symbol
     currency_format:this.getApplication().getCurrencyHumanFormat(selected_symbol.symbol.substr(3)),
     crypto_currency_code: selected_symbol.symbol.substr(3,3),
     crypto_currency_format:this.getApplication().getCurrencyHumanFormat(selected_symbol.symbol.substr(3,3)),
-    fee: model.get('Broker')['TakerTransactionFeeBuy'],
-    formatted_fee: model.get('Broker')['FormattedTakerTransactionFeeSell']
+    maker_fee: model.get('Broker')['TransactionFeeSell'],
+    taker_fee: model.get('Broker')['TakerTransactionFeeSell'],
+    formatted_maker_fee: model.get('Broker')['FormattedTransactionFeeSell'],
+    formatted_taker_fee: model.get('Broker')['FormattedTakerTransactionFeeSell']
   });
   this.addChild(this.ask_order_entry_, true);
 
@@ -333,7 +337,7 @@ bitex.view.TradingView.prototype.getMDInstruments = function(){
  * @return {number}
  */
 bitex.view.TradingView.prototype.getMDMarketDepth = function(){
-  return 0;
+  return 1000;
 };
 
 /**

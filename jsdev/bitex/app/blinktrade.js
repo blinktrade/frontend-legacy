@@ -79,6 +79,8 @@ goog.require('bitex.view.OfferBookView');
 goog.require('bitex.view.HistoryView');
 goog.require('bitex.view.SideBarView');
 goog.require('bitex.view.WithdrawView');
+goog.require('bitex.view.ServicesView');
+
 goog.require('bitex.view.CardView');
 goog.require('bitex.view.CustomersView');
 goog.require('bitex.view.AccountOverview');
@@ -246,7 +248,7 @@ bitex.app.BlinkTrade = function(broker_id,
   this.open_orders_request_id_ = parseInt( 1e7 * Math.random() , 10 );
 
   this.maximum_allowed_delay_in_ms_ = opt_maximum_allowed_delay_in_ms || 15000;
-  this.test_request_delay_          = opt_test_request_timer_in_ms || 40000;
+  this.test_request_delay_          = opt_test_request_timer_in_ms || 20000;
   this.currency_info_               = {};
   this.all_markets_                 = {};
   this.current_login_request_       = {};
@@ -450,18 +452,22 @@ bitex.app.BlinkTrade.validateBitcoinAddress_ = function(el, condition, minLength
 
 /**
  * @param {string} host_api
+ * @param {number} opt_required_level_to_be_a_pro_trader
  */
-bitex.app.BlinkTrade.prototype.run = function(host_api) {
+bitex.app.BlinkTrade.prototype.run = function(host_api, opt_required_level_to_be_a_pro_trader) {
   this.instance_ = this;
+  this.host_api_ = host_api;
 
-  this.rest_url_ = 'https://' + host_api;
-  this.wss_url_ = 'wss://' + host_api + '/trade/';
+  this.rest_url_ = 'https://' + this.host_api_;
+  this.wss_url_ = 'wss://' + this.host_api_ + '/trade/';
+
+  this.getModel().set('RequiredLevelProTrader', opt_required_level_to_be_a_pro_trader || 0);
 
   uniform.Validators.getInstance().registerValidatorFn('validateAddress',  bitex.app.BlinkTrade.validateBitcoinAddress_);
 
 
   // Populate all the views
-  var startView           = new bitex.view.StartView(this);
+  var startView           = new bitex.view.NullView(this);
   var adminView           = new bitex.view.AdminView(this);
   var twoFactorView       = new bitex.view.TwoFactor(this);
   var faqView             = new bitex.view.NullView(this);
@@ -1023,10 +1029,12 @@ bitex.app.BlinkTrade.prototype.onBitexWithdrawResponse_ = function(e) {
       dlg_content = bitex.templates.WithdrawConfirmationDialogContent();
     } else if (second_factor_type == 'OTP') {
       dlg_content = bitex.templates.GoogleAuthenticationCodeDialogContent();
+    } else if (second_factor_type == 'OTP+EMAIL') {
+      dlg_content = bitex.templates.EmailGoogleAuthenticationCodeDialogContent();
     } else if (this.getModel().get('Profile')['NeedWithdrawEmail']) {
       if (this.getModel().get('TwoFactorEnabled')) {
-        dlg_content = bitex.templates.GoogleAuthenticationCodeDialogContent();
-        second_factor_type = 'OTP';
+        dlg_content = bitex.templates.EmailGoogleAuthenticationCodeDialogContent();
+        second_factor_type = 'OTP+EMAIL';
       } else {
         dlg_content = bitex.templates.WithdrawConfirmationDialogContent();
         second_factor_type = 'EMAIL';
@@ -1063,14 +1071,16 @@ bitex.app.BlinkTrade.prototype.onBitexWithdrawResponse_ = function(e) {
             e.preventDefault();
           } else {
             var withdraw_confirmation_data = withdraw_confirmation_uniform.getAsJSON();
+            var withdraw_id = msg['WithdrawID'];
+            var token = withdraw_confirmation_data['token'];
+            var confirmation_code = withdraw_confirmation_data['confirmation_code'];
 
             if (second_factor_type == "OTP") {
-              var token = withdraw_confirmation_data['token'];
-              var withdraw_id = msg['WithdrawID'];
-              this.conn_.confirmWithdraw( undefined, withdraw_id, token);
+              this.conn_.confirmWithdraw(undefined, withdraw_id, token);
+            } else if (second_factor_type == 'OTP+EMAIL') {
+              this.conn_.confirmWithdraw( confirmation_code, withdraw_id, token );
             } else if (second_factor_type == "EMAIL") {
-              var confirmation_code = withdraw_confirmation_data['confirmation_code'];
-              this.conn_.confirmWithdraw( confirmation_code );
+              this.conn_.confirmWithdraw( confirmation_code, withdraw_id );
             }
           }
         }
@@ -1517,7 +1527,6 @@ bitex.app.BlinkTrade.prototype.onBitexVerifyCustomerUpdate_ = function(e) {
 
   if (old_verified == 0 && profile['Verified'] == 1  ) {
     if (!this.getModel().get('IsBroker')){
-      //this.router_.setView('offerbook');
       this.router_.setView('trading');
       this.showNotification('success', MSG_NOTIFICATION_VERIFY_TITLE, MSG_PENDING_VERIFICATION_CONTENT);
     }
@@ -1944,7 +1953,7 @@ bitex.app.BlinkTrade.prototype.showWithdrawalDialog = function(currency, opt_pre
       withdrawal_method['fixed_fee'] = user_withdrawal_fixed_fee;
     }
 
-    if (this.getModel().get('IsMSB')) {
+    if (this.getModel().get('IsMSB') && currency !== 'BTC') {
       if (!goog.array.contains(withdrawal_method['fields'], "SenderName" )) {
         withdrawal_method['fields'].push({"side":"client",
                                            "name": "SenderName",
@@ -3928,6 +3937,7 @@ bitex.app.BlinkTrade.prototype.onBodyClick_ =function(e){
         this.showDepositDialog(param1);
         break;
       case 'withdraw':
+      case 'service':
         param1 = action_element.getAttribute('data-currency');
         param2 = action_element.getAttribute('data-pre-filled-data');
         if (goog.isDefAndNotNull(param2)) {
@@ -3971,16 +3981,25 @@ bitex.app.BlinkTrade.prototype.onBodyChange_ =function(e){
 bitex.app.BlinkTrade.prototype.onUserLoginButtonClick_ = function(e){
   var username = e.target.getUsername();
   var password = e.target.getPassword();
-  this.model_.set('Password',         e.target.getPassword() );
+  var second_factor = e.target.getSecondFactor() || undefined;
+
+  this.model_.set('Password', e.target.getPassword());
 
   var requestId = this.conn_.login(this.getModel().get('SelectedBrokerID'),
                                    username,
-                                   password);
+                                   password,
+                                   second_factor);
 
   this.current_login_request_[requestId] = [ 'login',
                                              this.getModel().get('SelectedBrokerID'),
                                              username,
                                              password ];
+
+  // Disable login buttons
+  goog.array.forEach(goog.dom.getElementsByClass('btn-login'), function(button) {
+    button.disabled = true;
+  });
+
 };
 
 
@@ -4006,6 +4025,10 @@ bitex.app.BlinkTrade.prototype.onUserLoginOk_ = function(e) {
   this.getModel().set('HasLineOfCredit',  msg['HasLineOfCredit']);
   this.getModel().set('EmailLang',        msg['EmailLang']);
 
+  // Enable login buttons
+  goog.array.forEach(goog.dom.getElementsByClass('btn-login'), function(button) {
+    button.disabled = false;
+  });
 
   var broker_currencies = new goog.structs.Set();
   var allowed_markets = {};
@@ -4081,40 +4104,47 @@ bitex.app.BlinkTrade.prototype.onUserLoginOk_ = function(e) {
     this.getModel().set('DisplayName', verification_name['first'] + ' ' + verification_name['last']);
   }
 
+  try {
+    if (goog.isDefAndNotNull($zopim) && goog.isDefAndNotNull($zopim.livechat)) {
+      var tags = 'VerificationLevel:';
+      switch(profile['Verified']) {
+        case 0:
+          tags += 'no';
+          break;
+        case 1:
+          tags += 'pending';
+          break;
+        case 2:
+          tags += 'processing';
+          break;
+        default:
+          tags += profile['Verified'] - 2;
+          break;
+      }
+      tags += ', TwoFactorEnabled:' + profile['TwoFactorEnabled'];
+      tags += ', UserID:' + profile['ID'];
+      tags += ', NeedWithdrawEmail:' + profile['NeedWithdrawEmail'];
+      tags += ', TransactionFeeBuy:' + profile['TransactionFeeBuy'];
+      tags += ', TransactionFeeSell:' + profile['TransactionFeeSell'];
+      tags += ', TakerTransactionFeeBuy:' + profile['TakerTransactionFeeBuy'];
+      tags += ', TakerTransactionFeeSell:' + profile['TakerTransactionFeeSell'];
 
-  if (goog.isDefAndNotNull($zopim) && goog.isDefAndNotNull($zopim.livechat)) {
-    var tags = 'VerificationLevel:';
-    switch(profile['Verified']) {
-      case 0:
-        tags += 'no';
-        break;
-      case 1:
-        tags += 'pending';
-        break;
-      case 2:
-        tags += 'processing';
-        break;
-      default:
-        tags += profile['Verified'] - 2;
-        break;
+      if (  this.getModel().get('DisplayName') != this.getModel().get('Username') )  {
+        tags += ', Username:' + this.getModel().get('Username');
+      }
+
+      $zopim.livechat.setName( this.getModel().get('DisplayName') );
+      $zopim.livechat.setEmail(profile['Email']);
+      $zopim.livechat.addTags(tags);
     }
-    tags += ', TwoFactorEnabled:' + profile['TwoFactorEnabled'];
-    tags += ', UserID:' + profile['ID'];
-    tags += ', NeedWithdrawEmail:' + profile['NeedWithdrawEmail'];
-    tags += ', TransactionFeeBuy:' + profile['TransactionFeeBuy'];
-    tags += ', TransactionFeeSell:' + profile['TransactionFeeSell'];
-    tags += ', TakerTransactionFeeBuy:' + profile['TakerTransactionFeeBuy'];
-    tags += ', TakerTransactionFeeSell:' + profile['TakerTransactionFeeSell'];
+  } catch (e) {}
 
-    if (  this.getModel().get('DisplayName') != this.getModel().get('Username') )  {
-      tags += ', Username:' + this.getModel().get('Username');
-    }
-
-    $zopim.livechat.setName( this.getModel().get('DisplayName') );
-    $zopim.livechat.setEmail(profile['Email']);
-    $zopim.livechat.addTags(tags);
+  var is_pro_trader = false;
+  var required_level_to_be_a_pro_trader = this.getModel().get('RequiredLevelProTrader') || 0;
+  if (msg['IsMSB'] || profile['IsMarketMaker'] || profile['Verified'] >= required_level_to_be_a_pro_trader  ){
+    is_pro_trader = true;
   }
-
+  this.getModel().set('IsProTrader', is_pro_trader );
 
   this.conn_.requestBalances();
   this.conn_.requestPositions();
@@ -4148,12 +4178,16 @@ bitex.app.BlinkTrade.prototype.onUserLoginOk_ = function(e) {
   // Request Deposit Options
   this.conn_.requestDepositMethods( this.getModel().get('BrokerID') );
 
-  //this.router_.setView('offerbook');
-  this.router_.setView('trading');
+  if (msg['IsBroker'] ) {
+    this.router_.setView('offerbook');
+  } else {
+    this.router_.setView('trading');
+  }
 
   // Request Open Orders
   this.getModel().set('FinishedInitialOpenOrdersRequest',  false);
   this.conn_.requestOrderList(this.open_orders_request_id_ , 0, 20, [ "has_leaves_qty eq 1" ] );
+
 };
 
 /**
@@ -4170,6 +4204,10 @@ bitex.app.BlinkTrade.prototype.onUserLoginError_ = function(e) {
   this.model_.set('UserID', '');
   this.model_.set('Username', '');
 
+  // Enable login buttons
+  goog.array.forEach(goog.dom.getElementsByClass('btn-login'), function(button) {
+    button.disabled = false;
+  });
 
   /**
    * @desc google authentication dialog title
@@ -4198,8 +4236,15 @@ bitex.app.BlinkTrade.prototype.onUserLoginError_ = function(e) {
    */
   var MSG_EMAIL_TWO_STEPS_AUTHENTICATION_DIALOG_TITLE = goog.getMsg('Second factor of authentication');
 
+  /**
+   * @desc The Server is busy right now, try again later
+   */
+  var MSG_LOGIN_BUSY = goog.getMsg('The Server is busy right now, try again later');
 
-
+  // Enable login buttons
+  goog.array.forEach(goog.dom.getElementsByClass('btn-login'), function(button) {
+    button.disabled = false;
+  });
 
   if (msg['NeedSecondFactor']) {
     var dlg_second_factor_id = goog.string.getRandomString();
@@ -4315,6 +4360,11 @@ bitex.app.BlinkTrade.prototype.onUserLoginError_ = function(e) {
      */
     var MSG_LOGIN_ERROR_USERNAME_ALREADY_TAKEN = goog.getMsg('Username or email already taken');
 
+    /**
+     * @desc OTP code already used error 
+     */ 
+    var MSG_LOGIN_ERROR_ALREADY_USED_SECOND_STEP = goog.getMsg('Authentication code already used.');
+
     var user_status_text = msg['UserStatusText'];
     switch(msg['UserStatusText']) {
       case 'MSG_LOGIN_ERROR_INVALID_PASSWORD':
@@ -4331,6 +4381,10 @@ bitex.app.BlinkTrade.prototype.onUserLoginError_ = function(e) {
         break;
       case 'MSG_LOGIN_ERROR_USERNAME_ALREADY_TAKEN':
         user_status_text = MSG_LOGIN_ERROR_USERNAME_ALREADY_TAKEN;
+      case 'MSG_BUSY_REJECTION':
+        user_status_text = MSG_LOGIN_BUSY;
+      case 'MSG_LOGIN_ERROR_ALREADY_USED_SECOND_STEP':
+        user_status_text = MSG_LOGIN_ERROR_ALREADY_USED_SECOND_STEP;
         break;
     }
 

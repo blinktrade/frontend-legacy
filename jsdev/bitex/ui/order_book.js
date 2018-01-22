@@ -498,7 +498,9 @@ bitex.ui.OrderBook.prototype.deleteOrderThru = function( index) {
   var child;
   while ((child = this.bodyEl_.firstChild) && index>0 ) {
     this.bodyEl_.removeChild(child);
-    this.drag_drop_group_.removeItem(child);
+    if (goog.isDefAndNotNull(this.drag_drop_group_)) {
+      this.drag_drop_group_.removeItem(child);
+    }
     index--;
   }
 
@@ -545,7 +547,9 @@ bitex.ui.OrderBook.prototype.deleteOrder = function( index) {
 
   dom.removeNode(trEl);
 
-  this.drag_drop_group_.removeItem(trEl);
+  if (goog.isDefAndNotNull(this.drag_drop_group_)) {
+    this.drag_drop_group_.removeItem(trEl);
+  }
 };
 
 /**
