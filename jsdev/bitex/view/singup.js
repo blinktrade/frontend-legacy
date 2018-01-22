@@ -90,7 +90,7 @@ bitex.view.SignupView.prototype.setUsername = function(value) {
 }
 
 bitex.view.SignupView.prototype.getEmail = function() {
-  return goog.dom.forms.getValue( goog.dom.getElement("id_signup_email") );
+  return goog.dom.forms.getValue(goog.dom.getElement("id_signup_email")).toLowerCase();
 };
 bitex.view.SignupView.prototype.setEmail = function(value) {
   goog.dom.forms.setValue(goog.dom.getElement("id_signup_email"), value);
@@ -98,6 +98,10 @@ bitex.view.SignupView.prototype.setEmail = function(value) {
 
 bitex.view.SignupView.prototype.getPassword = function() {
   return goog.dom.forms.getValue( goog.dom.getElement("id_signup_password") );
+};
+
+bitex.view.SignupView.prototype.getPassword2 = function() {
+  return goog.dom.forms.getValue(goog.dom.getElement("id_signup_password2"));
 };
 
 bitex.view.SignupView.prototype.getState = function() {
@@ -124,14 +128,13 @@ bitex.view.SignupView.prototype.onSignupButtonClick_ =  function(e){
   e.preventDefault();
 
   // Perform client validation
-  var username = goog.dom.forms.getValue( goog.dom.getElement("id_signup_username") );
-  var email = goog.dom.forms.getValue( goog.dom.getElement("id_signup_email") );
-  var password = goog.dom.forms.getValue( goog.dom.getElement("id_signup_password") );
-  var password2 = goog.dom.forms.getValue( goog.dom.getElement("id_signup_password2") );
-  var state = goog.dom.forms.getValue( goog.dom.getElement("id_signup_state") );
-  var country_code = goog.dom.forms.getValue( goog.dom.getElement("id_signup_country") );
-  var broker = goog.string.toNumber(goog.dom.forms.getValue( goog.dom.getElement("id_signup_broker")));
-
+  var username = this.getUsername();
+  var email = this.getEmail();
+  var password = this.getPassword();
+  var password2 = this.getPassword2();
+  var state = this.getState();
+  var country_code = this.getCountry();
+  var broker = this.getBroker();
 
   if (goog.string.isEmpty(username) || !goog.string.isAlphaNumeric(username) ) {
     /**
@@ -163,13 +166,14 @@ bitex.view.SignupView.prototype.onSignupButtonClick_ =  function(e){
     return;
   }
 
-  if ( password !== password2 ) {
+  if (password !== password2) {
     /**
      * @desc Validation error on SignUp view
      */
     var MSG_PASSWORDS_DOES_NOT_MATCH = goog.getMsg('Passwords does not match');
 
-    this.getApplication().showDialog(MSG_PASSWORDS_DOES_NOT_MATCH );
+    this.getApplication().showDialog(MSG_PASSWORDS_DOES_NOT_MATCH);
+    return;
   }
 
   var dlg_content = bitex.templates.ConfirmEmailSignupContentDialog({

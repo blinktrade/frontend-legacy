@@ -1,0 +1,533 @@
+goog.provide('bitex.view.ServicesView');
+
+goog.require('bitex.view.View');
+
+goog.require('bitex.view.WithdrawView.templates');
+
+goog.require('bitex.ui.DepositWithdrawButtonGroup');
+goog.require('bitex.ui.WithdrawList');
+goog.require('bitex.util');
+goog.require('goog.soy');
+goog.require('goog.string');
+
+/**
+ * @param {*} app
+ * @param {boolean=} opt_requests_from_customers
+ * @param {goog.dom.DomHelper=} opt_domHelper
+ * @constructor
+ * @extends {bitex.view.View}
+ */
+bitex.view.ServicesView = function(app, opt_requests_from_customers, opt_domHelper) {
+  bitex.view.View.call(this, app, opt_domHelper);
+
+  this.is_requests_from_customers_ = false;
+  if (opt_requests_from_customers === true) {
+    this.is_requests_from_customers_ = opt_requests_from_customers;
+  }
+
+  this.request_id_ = null;
+  this.confirmation_token_ = null;
+  this.withdraw_action_ = null;
+  this.qr_data_ = null;
+  this.qr_data_verb_ = null;
+};
+goog.inherits(bitex.view.ServicesView, bitex.view.View);
+
+/**
+ * @type {bitex.ui.WithdrawList}
+ */
+bitex.view.ServicesView.prototype.withdraw_list_table_;
+
+bitex.view.ServicesView.prototype.enterView = function() {
+  goog.base(this, 'enterView');
+  this.recreateComponents_();
+};
+
+bitex.view.ServicesView.prototype.exitView = function() {
+  goog.base(this, 'exitView');
+  this.destroyComponents_();
+};
+
+/**
+ * @override
+ */
+bitex.view.ServicesView.prototype.decorateInternal = function(element) {
+  this.setElementInternal(element);
+};
+
+/**
+ * @type {boolean}
+ */
+bitex.view.DepositView.prototype.is_requests_from_customers_;
+
+/**
+ * @type {number}
+ */
+bitex.view.ServicesView.prototype.request_id_;
+
+/**
+ * @type {string}
+ */
+bitex.view.AccountOverview.prototype.withdraw_action_;
+
+/**
+ * @type {string}
+ */
+bitex.view.ServicesView.prototype.confirmation_token_;
+
+/**
+ * @type {number}
+ */
+bitex.view.ServicesView.prototype.amount_;
+
+/**
+ * @type {string}
+ */
+bitex.view.ServicesView.prototype.currency_;
+
+/**
+ * @type {string}
+ */
+bitex.view.ServicesView.prototype.method_;
+
+/**
+ * @type {Object}
+ */
+bitex.view.ServicesView.prototype.data_;
+
+/**
+ * @type {Object}
+ */
+bitex.view.ServicesView.prototype.qr_data_;
+
+/**
+ * @type {string}
+ */
+bitex.view.ServicesView.prototype.qr_data_verb_;
+
+/**
+ * @override
+ */
+bitex.view.ServicesView.prototype.enterDocument = function() {
+  goog.base(this, 'enterDocument');
+};
+
+
+/**
+ * @return {number}
+ */
+bitex.view.ServicesView.prototype.getRequestId = function() {
+  return this.request_id_;
+};
+
+/**
+ * @return {number}
+ */
+bitex.view.ServicesView.prototype.getAmount = function() {
+  return this.amount_;
+};
+
+/**
+ * @return {string}
+ */
+bitex.view.ServicesView.prototype.getCurrency = function() {
+  return this.currency_;
+};
+
+/**
+ * @return {string}
+ */
+bitex.view.ServicesView.prototype.getMethod = function() {
+  return this.method_;
+};
+
+/**
+ * @return {string}
+ */
+bitex.view.ServicesView.prototype.getWithdrawAction = function() {
+  return this.withdraw_action_;
+};
+
+
+/**
+ * @return {Object}
+ */
+bitex.view.ServicesView.prototype.getWithdrawData = function() {
+  return this.data_;
+};
+
+/**
+ * @return {Object}
+ */
+bitex.view.ServicesView.prototype.getData = function() {
+  return this.data_;
+};
+
+
+/**
+ * @param {goog.events.Event} e
+ */
+bitex.view.ServicesView.prototype.onWithdrawListTableClick_ = function(e) {
+  var element = e.target;
+  if (element.tagName  === goog.dom.TagName.I ) {
+    element = goog.dom.getParentElement(element);
+  }
+
+  var data_action = element.getAttribute('data-action');
+  if (goog.isDefAndNotNull(data_action)) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    var data = goog.json.parse(element.getAttribute('data-row'));
+
+    switch( data_action ) {
+      case 'SHOW_QR':
+        this.qr_data_ = {
+          'Wallet': data['Data']['Wallet'],
+          'Currency': data['Currency']
+        };
+        this.qr_data_verb_ = 'WITHDRAW';
+        this.dispatchEvent(bitex.view.View.EventType.SHOW_QR);
+        break;
+    }
+  }
+};
+
+
+
+
+
+bitex.view.ServicesView.prototype.getConfirmationToken = function() {
+  return this.confirmation_token_;
+};
+
+/**
+ * @private
+ */
+bitex.view.ServicesView.prototype.destroyComponents_ = function( ) {
+  var handler = this.getHandler();
+  var model = this.getApplication().getModel();
+
+  if (goog.isDefAndNotNull(this.withdraw_list_table_)) {
+
+    handler.unlisten(this.withdraw_list_table_,
+                     bitex.ui.DataGrid.EventType.REQUEST_DATA,
+                     this.onWithdrawListTableRequestData_);
+
+    handler.unlisten(this.getApplication().getBitexConnection(),
+                     bitex.api.BitEx.EventType.WITHDRAW_LIST_RESPONSE,
+                     this.onWithdrawListReponse_);
+
+
+    handler.unlisten(this.getApplication().getBitexConnection(),
+                     bitex.api.BitEx.EventType.WITHDRAW_REFRESH + '.' + model.get('UserID'),
+                     this.onWithdrawRefresh_);
+
+    handler.unlisten(this.withdraw_list_table_.getElement(),
+                     goog.events.EventType.CLICK,
+                     this.onWithdrawListTableClick_);
+
+    handler.unlisten(this.withdraw_list_table_,
+                     bitex.ui.WithdrawList.EventType.KYC,
+                     this.onUserKYC_ );
+
+    handler.unlisten(this.withdraw_list_table_,
+                     bitex.ui.WithdrawList.EventType.CANCEL,
+                     this.BrokerCancelWithdraw_ );
+
+    handler.unlisten(this.withdraw_list_table_,
+                     bitex.ui.WithdrawList.EventType.USER_CANCEL,
+                     this.onUserCancelWithdraw_ );
+
+    handler.unlisten(this.withdraw_list_table_,
+                     bitex.ui.WithdrawList.EventType.REDO,
+                     this.onUserRedoWithdraw_ );
+
+    handler.unlisten(this.withdraw_list_table_,
+                     bitex.ui.WithdrawList.EventType.PROGRESS,
+                     this.onUserSetWithdrawInProgress_ );
+
+    handler.unlisten(this.withdraw_list_table_,
+                     bitex.ui.WithdrawList.EventType.COMPLETE,
+                     this.onUserSetWithdrawComplete_ );
+
+
+    this.removeChildren(true);
+    //this.withdraw_list_table_.dispose();
+  }
+
+  this.withdraw_list_table_ = null;
+  this.request_id_ = null;
+};
+
+
+
+/**
+ * @private
+ */
+bitex.view.ServicesView.prototype.recreateComponents_ = function() {
+  var handler = this.getHandler();
+  var model = this.getApplication().getModel();
+  var app = this.getApplication();
+
+  this.destroyComponents_();
+
+  this.request_id_ = parseInt( 1e7 * Math.random() , 10 );
+
+  var el;
+  if (this.is_requests_from_customers_) {
+    el = goog.dom.getElement('id_withdraw_request_list_table');
+  } else {
+    el = goog.dom.getElement('id_withdraw_list_table');
+  }
+
+  var currency_method_description_obj = {};
+  var broker = model.get('Broker');
+  if (model.get('IsBroker') && (this.is_requests_from_customers_ ) ) {
+    broker = model.get('Profile');
+    broker =  goog.array.find( model.get('BrokerList'), function(broker_obj) {
+      if (broker_obj['BrokerID'] ==  model.get('UserID')) {
+        return true;
+      }
+    });
+  }
+
+  goog.object.forEach( broker['WithdrawStructure'], function(method_list, currency){
+    currency_method_description_obj[ currency ] = {};
+    goog.array.forEach(method_list, function(method) {
+      if (method['is_service'] === true) {
+        currency_method_description_obj[ currency ][method['method'] ] = method['description'];
+      }
+    } );
+  });
+
+  if (model.get('IsBroker') && (this.is_requests_from_customers_ ) ) {
+    this.withdraw_list_table_ =  new bitex.ui.WithdrawList(currency_method_description_obj,true, true);
+  } else {
+    this.withdraw_list_table_ =  new bitex.ui.WithdrawList(currency_method_description_obj,false, false);
+  }
+
+  handler.listen(this.withdraw_list_table_,
+                 bitex.ui.DataGrid.EventType.REQUEST_DATA,
+                 this.onWithdrawListTableRequestData_);
+
+  handler.listen(this.getApplication().getBitexConnection(),
+                 bitex.api.BitEx.EventType.WITHDRAW_LIST_RESPONSE + '.' + this.request_id_,
+                 this.onWithdrawListReponse_);
+
+  handler.listen(this.getApplication().getBitexConnection(),
+                 bitex.api.BitEx.EventType.WITHDRAW_REFRESH + '.' + model.get('UserID'),
+                 this.onWithdrawRefresh_);
+
+
+  handler.listen(this.withdraw_list_table_,
+                 bitex.ui.WithdrawList.EventType.KYC,
+                 this.onUserKYC_ );
+
+  handler.listen(this.withdraw_list_table_,
+                 bitex.ui.WithdrawList.EventType.CANCEL,
+                 this.onBrokerCancelWithdraw_ );
+
+  handler.listen(this.withdraw_list_table_,
+                 bitex.ui.WithdrawList.EventType.USER_CANCEL,
+                 this.onUserCancelWithdraw_ );
+
+  handler.listen(this.withdraw_list_table_,
+                 bitex.ui.WithdrawList.EventType.REDO,
+                 this.onUserRedoWithdraw_ );
+
+  handler.listen(this.withdraw_list_table_,
+                 bitex.ui.WithdrawList.EventType.PROGRESS,
+                 this.onUserSetWithdrawInProgress_ );
+
+  handler.listen(this.withdraw_list_table_,
+                 bitex.ui.WithdrawList.EventType.COMPLETE,
+                 this.onUserSetWithdrawComplete_ );
+
+  handler.listen(this.withdraw_list_table_,
+                 bitex.ui.WithdrawList.EventType.COMMENT,
+                 this.onUserComment_);
+
+  this.addChild(this.withdraw_list_table_, true);
+
+  this.withdraw_list_table_.setColumnFormatter('Amount', this.priceFormatter_, this);
+
+  handler.listen(this.withdraw_list_table_.getElement(),
+                 goog.events.EventType.CLICK,
+                 this.onWithdrawListTableClick_);
+
+};
+
+
+/**
+ * @param {*} value
+ * @param {Object} rowSet
+ */
+bitex.view.ServicesView.prototype.priceFormatter_ = function(value, rowSet) {
+  var priceCurrency = rowSet['Currency'];
+  var currency_description = this.getApplication().getCurrencyDescription(priceCurrency );
+
+  if (value === 0 ) {
+    return '-'
+  }
+  return goog.dom.createDom('abbr',
+                            {'title': currency_description },
+                            this.getApplication().formatCurrency(value/1e8, priceCurrency) );
+};
+
+/**
+ * @param {goog.events.Event} e
+ */
+bitex.view.ServicesView.prototype.onWithdrawListTableRequestData_ = function(e) {
+  var page = e.options['Page'];
+  var limit = e.options['Limit'];
+  var filter = e.options['Filter'];
+
+  var conn = this.getApplication().getBitexConnection();
+
+  var model = this.getApplication().getModel();
+  var clientID = undefined;
+  if (model.get('IsBroker') && (!this.is_requests_from_customers_ ) ) {
+    clientID = model.get('UserID');
+  }
+
+  var status = ['1', '2', '4', '8'];
+  if (goog.isDefAndNotNull(filter)) {
+    goog.array.forEach(filter, function(f, idx_filter){
+      var idx_status = goog.array.indexOf(status, f ) ;
+      if (idx_status >= 0) {
+        status = [ f ] ;
+        goog.array.removeAt(filter, idx_filter);
+        return true;
+      }
+    }, this);
+  }
+
+  // TEMPORARY: Disable the full search until we implement a full text search
+  if (model.get('IsBroker') &&  this.is_requests_from_customers_ && goog.isDefAndNotNull(filter) && status.length > 1) {
+    return false;
+  }
+  if (model.get('IsBroker') &&  this.is_requests_from_customers_ && goog.isDefAndNotNull(filter) && status[0] == '4') {
+    return false;
+  }
+
+  
+  conn.requestWithdrawList(this.request_id_,
+                           page,
+                           limit,
+                           status,
+                           clientID,
+                           filter  );
+};
+
+/**
+ * @param {goog.events.Event} e
+ * @private
+ */
+bitex.view.ServicesView.prototype.onBrokerCancelWithdraw_ = function(e) {
+  this.withdraw_action_ = 'CANCEL';
+  this.data_ = this.withdraw_list_table_.getWithdrawData();
+  this.dispatchEvent(bitex.view.View.EventType.PROCESS_WITHDRAW);
+};
+
+/**
+ * @param {goog.events.Event} e
+ * @private
+ */
+bitex.view.ServicesView.prototype.onUserCancelWithdraw_ = function(e) {
+  this.withdraw_action_ = 'USER_CANCEL';
+  this.data_ = this.withdraw_list_table_.getWithdrawData();
+  this.dispatchEvent(bitex.view.View.EventType.USER_CANCEL_WITHDRAW);
+};
+
+/**
+ * @return {string}
+ */
+bitex.view.ServicesView.prototype.getWithdrawSelectedCurrency = function() {
+  return this.data_['Currency'];
+};
+
+/**
+ *
+ * @returns {Object}
+ */
+bitex.view.ServicesView.prototype.getWithdrawUserData = function() {
+  return this.data_;
+};
+
+/**
+ * @param {goog.events.Event} e
+ * @private
+ */
+bitex.view.ServicesView.prototype.onUserRedoWithdraw_ = function(e) {
+  this.data_ = this.withdraw_list_table_.getWithdrawData();
+  this.dispatchEvent(bitex.view.View.EventType.REQUEST_WITHDRAW);
+};
+
+
+/**
+ * @param {goog.events.Event} e
+ * @private
+ */
+bitex.view.ServicesView.prototype.onUserKYC_ = function(e) {
+  this.data_ = this.withdraw_list_table_.getWithdrawData();
+  this.dispatchEvent(bitex.view.View.EventType.SHOW_KYC);
+};
+
+
+/**
+ * @param {goog.events.Event} e
+ * @private
+ */
+bitex.view.ServicesView.prototype.onUserSetWithdrawInProgress_ = function(e) {
+  this.withdraw_action_ = 'PROGRESS';
+  this.data_ = this.withdraw_list_table_.getWithdrawData();
+  this.dispatchEvent(bitex.view.View.EventType.PROCESS_WITHDRAW);
+
+};
+
+/**
+ * @param {goog.events.Event} e
+ * @private
+ */
+bitex.view.ServicesView.prototype.onUserSetWithdrawComplete_ = function(e) {
+  this.withdraw_action_ = 'COMPLETE';
+  this.data_ = this.withdraw_list_table_.getWithdrawData();
+  this.dispatchEvent(bitex.view.View.EventType.PROCESS_WITHDRAW);
+};
+
+/**
+ * @param {goog.events.Event} e
+ * @private
+ */
+bitex.view.ServicesView.prototype.onUserComment_ = function(e) {
+  this.withdraw_action_ = 'COMMENT';
+  this.data_ = this.withdraw_list_table_.getWithdrawData();
+  this.dispatchEvent(bitex.view.View.EventType.USER_COMMENT);
+};
+
+
+/**
+ * @param {goog.events.Event} e
+ */
+bitex.view.ServicesView.prototype.onWithdrawRefresh_ = function(e) {
+  var msg = e.data;
+
+  if (!goog.isDefAndNotNull(this.withdraw_list_table_) ) {
+    return;
+  }
+  this.withdraw_list_table_.insertOrUpdateRecord(msg, 0);
+};
+
+/**
+ * @param {goog.events.Event} e
+ */
+bitex.view.ServicesView.prototype.onWithdrawListReponse_ = function(e) {
+  if (!goog.isDefAndNotNull(this.withdraw_list_table_) ) {
+    return
+  }
+
+  var msg = e.data;
+
+  this.withdraw_list_table_.setResultSet( msg['WithdrawListGrp'], msg['Columns'] );
+};

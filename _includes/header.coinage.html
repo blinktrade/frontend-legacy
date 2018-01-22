@@ -59,7 +59,7 @@
 <!-- .head -->
 <header class="head">
     <!-- .head-top -->
-    <div class="head-top">
+    <div class="head-top bitex-model" data-model-key="IsProTrader" style="display: none" data-model-action="show_element">
         <!-- .container-fluid -->
         <div class="container">
             <!-- .head-ticker -->
@@ -167,8 +167,8 @@
           </button>
 
           {% if page.load_application %}
-          <a class="navbar-brand" href="#" data-switch-view="offerbook">
-              <img data-switch-view="offerbook" class="logo__img" 
+          <a class="navbar-brand" href="#" data-switch-view="trading">
+              <img data-switch-view="trading" class="logo__img" 
               src="{{ site.url }}{{ site.baseurl }}/assets/exchange_logos/{% if site.exchange_toolbar_logo %}{{ site.exchange_toolbar_logo }}{% else %}{{ site.exchange_logo }}{% endif %}_toolbar_logo.png"
               style=" height: 30px; margin-top: -5px; ">
           </a>

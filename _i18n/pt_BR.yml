@@ -56,7 +56,11 @@ exchanges:
     description: Unocoin is India's most popular bitcoin wallet. We make it super easy to securely buy, use and accept bitcoin, following KYC-AML guidelines.
     keywords: bitcoin, buy bitcoin, sell bitcoin, buy bitcoin india, sell bitcoin india, bitcoin india, bitcoin inr, btc inr, bitcoin wallet india, store bitcoin india, buy bitcoin inr, sell bitcoin inr, send bitcoin, send bitcoin india, receive bitcoin, receive bitcoin india, bitcoin price, btc to inr, btc price in inr, bitcoin exchange
     lead: Unocoin is india's most popular bitcoin wallet
-
+  bitcambio:
+    title: Casa de Câmbio de Bitcoin
+    description: A Bitcambio oferece a facilidade de comprar e vender a moeda virtual bitcoin de forma direta e segura no Brasil
+    keywords: bitcoin, comprar bitcoin, btc,bitcambio,cambio,vender bitcoin, bitcoin brasil
+    lead: Compra e Venda de Bitcoins Direta! 
 views:
   landing:
     about:
@@ -106,7 +110,7 @@ views:
   start:
     bid: Compra
     ask: Venda
-    username: "Login:"
+    username: "Email:"
     password: "Senha:"
     login: Entrar
     signup: Registrar
@@ -136,8 +140,10 @@ views:
     title: Login
     dont_have_an_account: Não possui uma conta?
     signup: Registre-se
-    username: Nickname
+    username: Email
     password: Senha
+    second_factor: Segundo passo de autenticação
+    has_second_factor: Possui segundo passo de autenticação?
     forgot_your_password: Esqueceu a sua senha?
     login_button_label: Entrar
 
@@ -185,10 +191,13 @@ views:
     set_user_fees_button_label: Definir taxas personalizadas
 
   withdraw:
-    title: Saques
+    title: Retiradas 
+
+  services:
+    title: Serviços
 
   withdraw_requests:
-    title: Pedidos de saques
+    title: Pedidos de retiradas 
 
   withdraw_methods:
     title: Withdraw methods
@@ -249,9 +258,9 @@ views:
     ledger: Livro contábil
     customers: Meus clientes
     deposit_requests: Depósitos ( clientes )
-    withdraw_requests: Saques ( clientes )
+    withdraw_requests: Retiradas ( clientes )
     deposit: Depósitos
-    withdraw: Saques
+    withdraw: Retiradas
     verification: Verificar a sua conta
     line_of_credit: Linha de crédito
     support: Suporte e Sugestões
@@ -260,6 +269,7 @@ views:
     algotrading: Algo Trading
     history: Histórico de ordens
     card:  Blink Card
+    services: Serviços
   themes:
     title: Temas
     choose: Escolha um tema
