@@ -780,9 +780,10 @@ bitex.api.BitEx.prototype.close = function(){
  * @param {string} password
  * @param {string=} opt_second_factor
  * @param {boolean=} opt_trust_device
+ * @param {string=} opt_referrer
  * @param {number=} opt_request_id
  */
-bitex.api.BitEx.prototype.login = function(brokerID, username, password, opt_second_factor, opt_trust_device, opt_request_id ){
+bitex.api.BitEx.prototype.login = function(brokerID, username, password, opt_second_factor, opt_trust_device, opt_referrer, opt_request_id ){
   var reqId = opt_request_id || parseInt(Math.random() * 1000000, 10);
 
   var userAgent = goog.userAgent.getUserAgentString();
@@ -806,6 +807,9 @@ bitex.api.BitEx.prototype.login = function(brokerID, username, password, opt_sec
   }
   if (goog.isDefAndNotNull(opt_trust_device)){
     msg['TrustedDevice'] = opt_trust_device;
+  }
+  if (goog.isDefAndNotNull(opt_referrer)){
+    msg['Referrer'] = opt_referrer;
   }
 
   this.sendMessage(msg);
@@ -1602,9 +1606,10 @@ bitex.api.BitEx.prototype.requestSecurityList = function(opt_market, opt_request
  * @param {string} country_code
  * @param {number} broker
  * @param {string=} opt_token.
+ * @param {string=} opt_referrer
  * @param {number=} opt_requestId. Defaults to random generated number
  */
-bitex.api.BitEx.prototype.signUp = function(username, password, email, state, country_code, broker, opt_token, opt_requestId) {
+bitex.api.BitEx.prototype.signUp = function(username, password, email, state, country_code, broker, opt_token, opt_referrer, opt_requestId) {
   var requestId = opt_requestId || parseInt( 1e7 * Math.random() , 10 );
 
   var userAgent = goog.userAgent.getUserAgentString();
@@ -1614,9 +1619,9 @@ bitex.api.BitEx.prototype.signUp = function(username, password, email, state, co
   var msg = {
     'MsgType': 'U0',
     'UserReqID': requestId,
-    'Username': username,
+    'Username': username.toLowerCase(),
     'Password': password,
-    'Email': email,
+    'Email': email.toLowerCase(),
     'State': state,
     'CountryCode': country_code,
     'BrokerID': broker,
@@ -1627,6 +1632,9 @@ bitex.api.BitEx.prototype.signUp = function(username, password, email, state, co
   };
   if (goog.isDefAndNotNull(opt_token)) {
     msg['Token'] = opt_token;
+  }
+  if (goog.isDefAndNotNull(opt_referrer)) {
+    msg['Referrer'] = opt_referrer;
   }
 
   this.sendMessage(msg);
