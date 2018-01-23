@@ -213,7 +213,7 @@ bitex.app.BlinkTrade = function(broker_id,
 
   this.uri_ = new goog.Uri(window.location.href, true);
   var uri_broker_id = this.uri_.getParameterValue('bid');
-  if (goog.isDefAndNotNull(uri_broker_id) &&  goog.isNumber(uri_broker_id)){
+  if (goog.isDefAndNotNull(uri_broker_id)){
     broker_id = parseInt(uri_broker_id, 10);
   }
 
@@ -470,8 +470,6 @@ bitex.app.BlinkTrade.prototype.run = function(host_api, opt_required_level_to_be
   this.rest_url_ = 'https://' + this.host_api_;
   this.wss_url_ = 'wss://' + this.host_api_ + '/trade/';
 
-  this.getModel().set('RequiredLevelProTrader', opt_required_level_to_be_a_pro_trader || 0);
-
   uniform.Validators.getInstance().registerValidatorFn('validateAddress',  bitex.app.BlinkTrade.validateBitcoinAddress_);
 
 
@@ -690,9 +688,6 @@ bitex.app.BlinkTrade.prototype.run = function(host_api, opt_required_level_to_be
   handler.listen(this.getModel(),
                   bitex.model.Model.EventType.SET + "AvailableBalance", this.onUpdateAvailableBalance_ );
 
-  var referrer = this.uri_.getParameterValue('ref');
-  this.getModel().set('Referrer',referrer);
-  
 
   var initial_view = 'start';
   if (!goog.string.isEmpty(location.hash)){
@@ -706,13 +701,17 @@ bitex.app.BlinkTrade.prototype.run = function(host_api, opt_required_level_to_be
   this.profileView_ = profileView;
 
 
+  // don't forget to set those variables during the connectionOpen because the
+  // model is clear during the connection open.
+  this.getModel().set('RequiredLevelProTrader', opt_required_level_to_be_a_pro_trader || 0);
+  var referrer = this.uri_.getParameterValue('ref');
+  this.getModel().set('Referrer',referrer);
   this.getModel().set('JSVersion', '0.3' );
   this.getModel().set('UserLogged',false);
 
   this.connectBitEx();
 
   this.preventReload();
-
 
   if ("Notification" in window ) {
     if (Notification.permission !== "granted" && Notification.permission !== 'denied') {
@@ -4936,18 +4935,25 @@ bitex.app.BlinkTrade.prototype.onConnectionOpen_ = function(e){
   var password = this.getModel().get('Password');
   var broker_id = this.getModel().get('SelectedBrokerID');
 
+
+  var required_level_pro_trader = this.getModel().get('RequiredLevelProTrader');
+  var referrer = this.getModel().get('Referrer');
+  var js_version = this.getModel().get('JSVersion');
+
   var default_country = this.model_.get('DefaultCountry');
   var default_state = this.model_.get('DefaultState');
   var default_symbol = this.getModel().get('DefaultSymbol');
 
   this.getModel().clear();
 
-  this.model_.set('DefaultCountry', default_country);
-  this.model_.set('DefaultBrokerID', broker_id);
-  this.model_.set('SelectedBrokerID', broker_id);
-  this.model_.set('DefaultState', default_state);
-  this.model_.set('DefaultSymbol', default_symbol);
-
+  this.getModel().set('DefaultCountry', default_country);
+  this.getModel().set('DefaultBrokerID', broker_id);
+  this.getModel().set('SelectedBrokerID', broker_id);
+  this.getModel().set('DefaultState', default_state);
+  this.getModel().set('RequiredLevelProTrader', required_level_pro_trader);
+  this.getModel().set('Referrer', referrer);
+  this.getModel().set('JSVersion', js_version);
+  this.getModel().set('UserLogged',false);
 
   if (goog.isDefAndNotNull(username) && goog.isDefAndNotNull(password)) {
     if (!goog.string.isEmpty(username) && !goog.string.isEmpty(password) ) {
