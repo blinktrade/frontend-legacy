@@ -211,6 +211,12 @@ bitex.app.BlinkTrade = function(broker_id,
   bootstrap.Accordion.install();
   bootstrap.Alert.install();
 
+  this.uri_ = new goog.Uri(window.location.href, true);
+  var uri_broker_id = this.uri_.getParameterValue('bid');
+  if (goog.isDefAndNotNull(uri_broker_id) &&  goog.isNumber(uri_broker_id)){
+    broker_id = parseInt(uri_broker_id, 10);
+  }
+
   this.dialog_ = null;
   this.error_message_alert_timeout_ = 5000;
 
@@ -385,7 +391,10 @@ bitex.app.BlinkTrade.prototype.ip_addresses_;
  */
 bitex.app.BlinkTrade.prototype.current_login_request_;
 
-
+/**
+ * @type {goog.Uri}
+ */
+bitex.app.BlinkTrade.prototype.uri_;
 
 /**
  * @return {goog.events.EventHandler}
@@ -681,7 +690,9 @@ bitex.app.BlinkTrade.prototype.run = function(host_api, opt_required_level_to_be
   handler.listen(this.getModel(),
                   bitex.model.Model.EventType.SET + "AvailableBalance", this.onUpdateAvailableBalance_ );
 
-
+  var referrer = this.uri_.getParameterValue('ref');
+  this.getModel().set('Referrer',referrer);
+  
 
   var initial_view = 'start';
   if (!goog.string.isEmpty(location.hash)){
@@ -3988,7 +3999,9 @@ bitex.app.BlinkTrade.prototype.onUserLoginButtonClick_ = function(e){
   var requestId = this.conn_.login(this.getModel().get('SelectedBrokerID'),
                                    username,
                                    password,
-                                   second_factor);
+                                   second_factor,
+                                   undefined,
+                                   this.getModel().get('Referrer'));
 
   this.current_login_request_[requestId] = [ 'login',
                                              this.getModel().get('SelectedBrokerID'),
@@ -4326,7 +4339,12 @@ bitex.app.BlinkTrade.prototype.onUserLoginError_ = function(e) {
             username = this.loginView_.getUsername();
             password = this.loginView_.getPassword();
           };
-          var requestId = this.conn_.login( broker_id, username, password, second_factor, trust_device );
+          var requestId = this.conn_.login( broker_id, 
+                                            username, 
+                                            password, 
+                                            second_factor, 
+                                            trust_device, 
+                                            this.getModel().get('Referrer') );
           this.current_login_request_[requestId] = [ 'login', broker_id, username, password ]
           dlg_.dispose();
         }
@@ -4381,8 +4399,10 @@ bitex.app.BlinkTrade.prototype.onUserLoginError_ = function(e) {
         break;
       case 'MSG_LOGIN_ERROR_USERNAME_ALREADY_TAKEN':
         user_status_text = MSG_LOGIN_ERROR_USERNAME_ALREADY_TAKEN;
+        break;
       case 'MSG_BUSY_REJECTION':
         user_status_text = MSG_LOGIN_BUSY;
+        break;
       case 'MSG_LOGIN_ERROR_ALREADY_USED_SECOND_STEP':
         user_status_text = MSG_LOGIN_ERROR_ALREADY_USED_SECOND_STEP;
         break;
@@ -4405,7 +4425,9 @@ bitex.app.BlinkTrade.prototype.onUserSignupButton_ = function(e) {
                                      e.target.getEmail(),
                                      e.target.getState(),
                                      e.target.getCountry(),
-                                     e.target.getBroker());
+                                     e.target.getBroker(),
+                                     undefined, // token
+                                     this.getModel().get('Referrer') );
 
 
   this.current_login_request_[requestId] = [ 'signUp',
@@ -4930,7 +4952,12 @@ bitex.app.BlinkTrade.prototype.onConnectionOpen_ = function(e){
   if (goog.isDefAndNotNull(username) && goog.isDefAndNotNull(password)) {
     if (!goog.string.isEmpty(username) && !goog.string.isEmpty(password) ) {
       if (password.length >= 8 ) {
-        var requestId = this.conn_.login(broker_id,username, password);
+        var requestId = this.conn_.login(broker_id,
+                                         username, 
+                                         password, 
+                                         undefined, 
+                                         undefined, 
+                                         this.getModel().get('Referrer'));
         this.current_login_request_[requestId] = [ 'login',
                                                    broker_id,
                                                    username,
