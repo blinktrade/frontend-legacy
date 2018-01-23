@@ -1619,9 +1619,9 @@ bitex.api.BitEx.prototype.signUp = function(username, password, email, state, co
   var msg = {
     'MsgType': 'U0',
     'UserReqID': requestId,
-    'Username': username,
+    'Username': username.toLowerCase(),
     'Password': password,
-    'Email': email,
+    'Email': email.toLowerCase(),
     'State': state,
     'CountryCode': country_code,
     'BrokerID': broker,
