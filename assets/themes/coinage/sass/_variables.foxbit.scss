@@ -882,20 +882,13 @@ $hr-border:                   $gray-lighter !default;
 
 
 //Custom Classes Override
-.home-img{
-      -webkit-filter: hue-rotate(220deg)contrast(95%);
+.home-img {
+  -webkit-filter: hue-rotate(220deg)contrast(95%);
+  user-select: none;
 }
-.head-top{
-    // background: $gray-lighter !important;
-}
-.head-ticker{
-    // color: $btn-default-color !important;
-}
-.balance-currency__amount{
-    // color: $btn-default-color !important;
-}
-.head-top-button{
-    // background: $navbar-default-toggle-hover-bg !important;
+.head-ticker {
+  color: #fff;
+  font-weight: 300;
 }
 
 .page__content{

@@ -50,7 +50,7 @@ remittance_box: "{
 
 symbol: "BTCUSD"
 
-phrases: [phrase1, phrase2, phrase3]
+phrases: [phrase1, phrase2, phrase4]
 languages: ["en_US", "pt_BR"]
 
 exclude:     [ "jsdev", "LICENSE", "README.md", "config.rb", "deploy.sh", "build_javascript.sh", "node_modules", "gulpfile.js", "themes/ander" ]
