@@ -158,6 +158,7 @@ bitex.api.BitEx.EventType = {
   /* Trading */
   ORDER_LIST_RESPONSE: 'order_list_response',
   HEARTBEAT: 'heartbeat',
+  TEST_REQUEST: 'test_request',
   EXECUTION_REPORT: 'execution_report',
 
   /* Securities */
@@ -438,6 +439,10 @@ bitex.api.BitEx.prototype.onMessage_ = function(e) {
 
     case '0':  //Heartbeat
       this.dispatchEvent( new bitex.api.BitExEvent( bitex.api.BitEx.EventType.HEARTBEAT, msg ) );
+      break;
+
+    case '1':  //TestRequest
+      this.dispatchEvent( new bitex.api.BitExEvent( bitex.api.BitEx.EventType.TEST_REQUEST, msg ) );
       break;
 
     case 'B':  //News
@@ -779,11 +784,13 @@ bitex.api.BitEx.prototype.close = function(){
  * @param {string} username
  * @param {string} password
  * @param {string=} opt_second_factor
+ * @param {string=} opt_token
  * @param {boolean=} opt_trust_device
  * @param {string=} opt_referrer
+ * @param {string=} opt_path
  * @param {number=} opt_request_id
  */
-bitex.api.BitEx.prototype.login = function(brokerID, username, password, opt_second_factor, opt_trust_device, opt_referrer, opt_request_id ){
+bitex.api.BitEx.prototype.login = function(brokerID, username, password, opt_second_factor, opt_token, opt_trust_device, opt_referrer, opt_path, opt_request_id ){
   var reqId = opt_request_id || parseInt(Math.random() * 1000000, 10);
 
   var userAgent = goog.userAgent.getUserAgentString();
@@ -805,8 +812,14 @@ bitex.api.BitEx.prototype.login = function(brokerID, username, password, opt_sec
   if (goog.isDefAndNotNull(opt_second_factor)) {
     msg['SecondFactor'] = opt_second_factor;
   }
+  if (goog.isDefAndNotNull(opt_token)){
+    msg['Token'] = opt_token;
+  }
   if (goog.isDefAndNotNull(opt_trust_device)){
     msg['TrustedDevice'] = opt_trust_device;
+  }
+  if (goog.isDefAndNotNull(opt_path)){
+    msg['UriPath'] = opt_path;
   }
   if (goog.isDefAndNotNull(opt_referrer)){
     msg['Referrer'] = opt_referrer;
@@ -1482,12 +1495,12 @@ bitex.api.BitEx.prototype.resetPassword = function(token, new_password, opt_requ
 
 /**
  * @param {number} brokerID
- * @param {string} username
  * @param {string} password
  * @param {string} new_password
+ * @param {string} opt_second_factor
  * @param {number=} opt_requestId. Defaults to random generated number
  */
-bitex.api.BitEx.prototype.changePassword = function(brokerID, username, password, new_password, opt_second_factor, opt_requestId ){
+bitex.api.BitEx.prototype.changePassword = function(brokerID, password, new_password, opt_second_factor, opt_requestId ){
   var requestId = opt_requestId || parseInt( 1e7 * Math.random() , 10 );
 
   var msg = {
@@ -1495,7 +1508,6 @@ bitex.api.BitEx.prototype.changePassword = function(brokerID, username, password
     'UserReqID': requestId,
     'UserReqTyp': '3',
     'BrokerID': brokerID,
-    'Username': username,
     'Password': password,
     'NewPassword': new_password
   };
@@ -1607,9 +1619,10 @@ bitex.api.BitEx.prototype.requestSecurityList = function(opt_market, opt_request
  * @param {number} broker
  * @param {string=} opt_token.
  * @param {string=} opt_referrer
+ * @paran {string=} opt_path
  * @param {number=} opt_requestId. Defaults to random generated number
  */
-bitex.api.BitEx.prototype.signUp = function(username, password, email, state, country_code, broker, opt_token, opt_referrer, opt_requestId) {
+bitex.api.BitEx.prototype.signUp = function(username, password, email, state, country_code, broker, opt_token, opt_referrer, opt_path, opt_requestId) {
   var requestId = opt_requestId || parseInt( 1e7 * Math.random() , 10 );
 
   var userAgent = goog.userAgent.getUserAgentString();
@@ -1632,6 +1645,9 @@ bitex.api.BitEx.prototype.signUp = function(username, password, email, state, co
   };
   if (goog.isDefAndNotNull(opt_token)) {
     msg['Token'] = opt_token;
+  }
+  if (goog.isDefAndNotNull(opt_path)){
+    msg['UriPath'] = opt_path;
   }
   if (goog.isDefAndNotNull(opt_referrer)) {
     msg['Referrer'] = opt_referrer;
@@ -1934,6 +1950,22 @@ bitex.api.BitEx.prototype.testRequest = function(opt_requestId){
     'MsgType': '1',
     'TestReqID': requestId,
     'SendTime': d.getTime()
+  };
+  this.sendMessage( msg );
+};
+
+/**
+ * Send a heart beat message in a response of TestRequest
+ * @param {number|string=} opt_requestId
+ */
+bitex.api.BitEx.prototype.sendHeartBeat = function(opt_requestId){
+  var d = new Date();
+  var requestId = opt_requestId || d.getTime();
+
+  var msg = {
+    'MsgType': '0',
+    'TestReqID': requestId,
+    'ClientTimestamp': d.getTime()
   };
   this.sendMessage( msg );
 };
