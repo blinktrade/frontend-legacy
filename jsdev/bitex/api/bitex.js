@@ -1641,7 +1641,8 @@ bitex.api.BitEx.prototype.signUp = function(username, password, email, state, co
     'UserAgent': userAgent,
     'UserAgentLanguage': userAgentLanguage,
     'UserAgentTimezoneOffset': userAgentTimezoneOffset,
-    'UserAgentPlatform': goog.global.navigator.platform
+    'UserAgentPlatform': goog.global.navigator.platform,
+    'TrustedDevice': true
   };
   if (goog.isDefAndNotNull(opt_token)) {
     msg['Token'] = opt_token;
