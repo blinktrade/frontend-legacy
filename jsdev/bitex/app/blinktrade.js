@@ -189,6 +189,17 @@ var MSG_WITHDRAW_FIELD_ACCT_HOLDER_ID_PHONE_NUMBER = goog.getMsg('Account holder
 /**  @desc Withdraw field on the withdrawal dialog */
 var MSG_WITHDRAW_FIELD_INTENDED_PURPOSE = goog.getMsg('Purpose');
 
+/**  @desc Withdraw field on the withdrawal dialog */
+var MSG_WITHDRAW_FIELD_BILL_NUMBER = goog.getMsg('Bill number');
+
+/**  @desc Withdraw field on the withdrawal dialog */
+var MSG_WITHDRAW_FIELD_BILL_TYPE = goog.getMsg('Bill type');
+
+/**  @desc Withdraw field on the withdrawal dialog */
+var MSG_WITHDRAW_FIELD_DUE_DATE = goog.getMsg('Due date');
+
+/** @desc Withdraw field Memo on the withdrawal dialog */
+var MSG_WITHDRAW_FIELD_MEMO = goog.getMsg('Memo');
 
 /**
  * @param {number=} broker_id
@@ -781,7 +792,10 @@ bitex.app.BlinkTrade.prototype.onBitexSecurityStatus_ = function(e) {
  */
 bitex.app.BlinkTrade.prototype.changeTitleTicker_  = function() {
   var currentTitle = document.title.replace(new RegExp(/^.*?-/), "");
-  document.title = this.getModel().get('formatted_BLINK_' + this.getModel().get('DefaultSymbol') + '_LAST_PX') + ' - ' + currentTitle;
+  if (goog.isDefAndNotNull(this.getModel().get('DefaultSymbol'))) {
+    document.title = this.getModel().get(
+      'formatted_BLINK_' + this.getModel().get('DefaultSymbol') + '_LAST_PX') + ' - ' + currentTitle;
+  }
 };
 
 /**
@@ -2035,11 +2049,18 @@ bitex.app.BlinkTrade.prototype.showWithdrawalDialog = function(currency, opt_pre
                                            "label": MSG_WITHDRAW_FIELD_INTENDED_PURPOSE,
                                            "placeholder":""});
       }
-
-
-
     }
 
+    if (!goog.array.contains(withdrawal_method['fields'], "Memo" )) {
+      withdrawal_method['fields'].push({"side":"client",
+                                         "name": "Memo",
+                                         "validator":"",
+                                         "type":"text",
+                                         "value":"",
+                                         "label": MSG_WITHDRAW_FIELD_MEMO,
+                                         "placeholder":""});
+    }
+  
     goog.array.forEach(withdrawal_method['fields'], function(field) {
       if (goog.object.containsKey(preData_data, field["name"])) {
         field["value"] = preData_data[field["name"]];
@@ -2093,6 +2114,19 @@ bitex.app.BlinkTrade.prototype.showWithdrawalDialog = function(currency, opt_pre
         case 'IntendedPurpose':
           field["label"] = MSG_WITHDRAW_FIELD_INTENDED_PURPOSE;
           break;
+        case 'BillNumber':
+          field["label"] = MSG_WITHDRAW_FIELD_BILL_NUMBER;
+          break;
+        case 'DueDate':
+          field["label"] = MSG_WITHDRAW_FIELD_DUE_DATE;
+          break;
+        case 'BillType':
+          field["label"] = MSG_WITHDRAW_FIELD_BILL_TYPE;
+          break;
+        case 'Memo':
+          field["label"] = MSG_WITHDRAW_FIELD_MEMO;
+          break;
+          
       }
     }, this);
 
@@ -5011,7 +5045,6 @@ bitex.app.BlinkTrade.prototype.onConnectionOpen_ = function(e){
 
   var required_level_pro_trader = this.getModel().get('RequiredLevelProTrader');
   var referrer = this.getModel().get('Referrer');
-  var user_token = this.getModel().get('Token');
   var js_version = this.getModel().get('JSVersion');
   var uri_path = this.getModel().get('UriPath');
   var trust_device = this.getModel().get('TrustDevice');
@@ -5028,7 +5061,6 @@ bitex.app.BlinkTrade.prototype.onConnectionOpen_ = function(e){
   this.getModel().set('DefaultState', default_state);
   this.getModel().set('DefaultSymbol', default_symbol);
   this.getModel().set('RequiredLevelProTrader', required_level_pro_trader);
-  this.getModel().set('Token', user_token);
   this.getModel().set('Referrer', referrer);
   this.getModel().set('JSVersion', js_version);
   this.getModel().set('UserLogged',false);
