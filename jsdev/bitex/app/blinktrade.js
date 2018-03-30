@@ -4377,7 +4377,6 @@ bitex.app.BlinkTrade.prototype.onUserLoginError_ = function(e) {
     if (is_asking_to_confirm_email_after_signup ) {
       dlg_second_factor_title = MSG_SIGNUP_CONFIRM_EMAIL_DIALOG_TITLE;
       dlg_second_factor_description = MSG_EMAIL_TWO_STEPS_AUTHENTICATION_DIALOG_CONTENT;
-      this.getModel().set('TrustDevice', '1');
     }
 
     var dlg_content = bitex.templates.SecondFactorTokenDialogContent({
@@ -4410,7 +4409,13 @@ bitex.app.BlinkTrade.prototype.onUserLoginError_ = function(e) {
           e.preventDefault();
         } else {
           var json_form_data = gauth_uniform.getAsJSON();
-          var second_factor = json_form_data['token'];
+          var second_factor;
+          if (is_asking_to_confirm_email_after_signup ) {
+            this.getModel().set('Token', json_form_data['token']);
+            this.getModel().set('TrustDevice', true);
+          } else {
+            second_factor = json_form_data['token'];
+          }
           var trust_device = json_form_data['TrustedDevice'];
 
           if (trust_device == 'checked' || trust_device == 'on') {
