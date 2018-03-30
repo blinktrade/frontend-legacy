@@ -760,6 +760,7 @@
 	<translation id="8522630753608175575" key="MSG_ACP4WGD330D4" source="bitex/templates/templates.soy.js" desc="Second label warning on broker change email">Eu estou certo que o usuário não é capaz de receber os email enviados pela plataforma.</translation>
 	<translation id="663109918726286537" key="MSG_O9F1SI2QEOSN" source="bitex/templates/templates.soy.js" desc="Third label warning on broker change email">Eu assumo 100% da responsabilidade pelas perdas caso a pessoa que está solicitando a troca seja uma impostora.</translation>
 	<translation id="7288603532716544264" key="MSG_1335DEKX0ELF9" source="bitex/templates/templates.soy.js" desc="Price per bitcoin confirmation message">Preço por bitcoin</translation>
+	<translation id="5018970992131069770" key="MSG_1OX1Z2T1K5DJA" source="bitex/templates/templates.soy.js" desc="Confirm Email">Email:</translation>
 	<translation id="2099077651079628685" key="MSG_CONFIRM_EMAIL_TITLE_DIALOG" source="bitex/view/singup.js" desc="Signup email confirmation alert title">Digite o seu email novamente.</translation>
 	<translation id="8839495979972429871" key="MSG_EMAIL_ERROR_MACHT" source="bitex/view/singup.js" desc="Alert error on email confirmation signup">Email não confere</translation>
 	<translation id="1450417705843573620" key="MSG_IAFRJS5I7P2J" source="bitex/ui/api_key_data_entry.soy.js" desc="Notifications on the API Key Data Entry form permissions section">Notificações</translation>
@@ -777,7 +778,6 @@
 	<translation id="5941127397095984118" key="MSG_ANTI_PHISHING_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="Anti phishing dialog title">Navegador não autorizado para acessar sua conta.</translation>
 	<translation id="5987303866991781919" key="MSG_ACCOUNT_BLOCKED_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="account blocked dialog title">A sua conta foi bloqueada.</translation>
 	<translation id="6643408728243417618" key="MSG_INVALID_EXPIRED_AUTHORIZATION_LINK_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="expired or invalid authorization dialog title">Link de autorização inválido.</translation>
-
 	<translation id="4676148494307932090" key="MSG_WITHDRAW_FIELD_BILL_NUMBER" source="bitex/app/blinktrade.js" desc="Withdraw field on the withdrawal dialog">Número da conta</translation>
 	<translation id="6003146052699857435" key="MSG_WITHDRAW_FIELD_BILL_TYPE" source="bitex/app/blinktrade.js" desc="Withdraw field on the withdrawal dialog">Tipo de conta</translation>
 	<translation id="8097033270306845722" key="MSG_WITHDRAW_FIELD_DUE_DATE" source="bitex/app/blinktrade.js" desc="Withdraw field on the withdrawal dialog">Vencimento</translation>
