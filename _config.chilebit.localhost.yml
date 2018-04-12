@@ -11,7 +11,7 @@ exchange_toolbar_logo: "chilebit_inverse"
 custom_css: "chilebit"
 
 twitter_widget_id: "717632421223657472"
-twitter_widget_name: "chilebitnet"
+twitter_widget_name: "chilebitnetstatus"
 twitter_widget_theme: "light"
 twitter_widget_link_color: "#538FE7"
 
@@ -20,9 +20,10 @@ blinktrade_broker_id: 9 # 9 is the id for the demo backend. Don't change that if
 required_level_to_be_a_pro_trader: 0
 
 blinktrade_backend_api: "localhost"
-google_analytics_id: "UA-56565606-1"
-zopim_key: "2aIJdGCoaI6qy2YO4oK2zPAM8h1NoILb"
+google_analytics_id: "UA-110980796-1"
+tawk_key: "5a2fce3a5d3202175d9b7c40"
 
+custom_faq: "https://chilebit.trakdesk.com"
 
 # Build settings
 markdown: kramdown
