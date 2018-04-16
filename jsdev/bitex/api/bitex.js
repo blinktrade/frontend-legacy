@@ -31,7 +31,7 @@ bitex.api.BitEx = function( opt_browser_finger_print  ){
   this.browser_finger_print_  = opt_browser_finger_print;
   this.stunt_ip_info_         = {'local':undefined, 'public':[]};
   this.tracking_code_         = new goog.Uri(window.location.href).getParameterValue('tc');
-
+  this.referrer_              = new goog.Uri(window.location.href).getParameterValue('ref');
 
   this.ws_ = new goog.net.WebSocket(true);
 };
@@ -55,6 +55,12 @@ bitex.api.BitEx.prototype.stunt_ip_info_;
  * @private
  */
 bitex.api.BitEx.prototype.tracking_code_;
+
+/**
+ * @type {string}
+ * @private
+ */
+bitex.api.BitEx.prototype.referrer_;
 
 /**
  * @type {Object}
@@ -786,7 +792,7 @@ bitex.api.BitEx.prototype.close = function(){
  * @param {string=} opt_second_factor
  * @param {string=} opt_token
  * @param {boolean=} opt_trust_device
- * @param {string=} opt_referrer
+ * @param {number=} opt_referrer
  * @param {string=} opt_path
  * @param {number=} opt_request_id
  */
@@ -1889,7 +1895,9 @@ bitex.api.BitEx.prototype.sendMessage  = function(msg) {
   if (goog.isDefAndNotNull(this.tracking_code_)) {
     msg['TrackingCode'] = this.tracking_code_;
   }
-
+  if (goog.isDefAndNotNull(this.referrer_)) {
+    msg['Referrer'] = this.referrer_;
+  }
   this.sendRawMessage(JSON.stringify(msg));
 };
 
