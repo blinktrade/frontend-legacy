@@ -727,8 +727,17 @@ bitex.app.BlinkTrade.prototype.run = function(host_api, opt_required_level_to_be
   // model is clear during the connection open.
   this.getModel().set('RequiredLevelProTrader', opt_required_level_to_be_a_pro_trader || 0);
   var referrer = this.uri_.getParameterValue('ref');
+  if (goog.isDefAndNotNull(referrer) && goog.string.isNumeric( referrer )){
+    referrer = parseInt(referrer, 10);
+  }
+
   var user_token = this.uri_.getParameterValue('token');
   var trust_device = this.uri_.getParameterValue('trust');
+  if (goog.isDefAndNotNull(trust_device) && trust_device == '1' ){
+    trust_device = true;
+  } else {
+    trust_device = false;
+  }
   this.getModel().set('Token',user_token);
   this.getModel().set('Referrer',referrer);
   this.getModel().set('TrustDevice',trust_device);
@@ -4086,6 +4095,7 @@ bitex.app.BlinkTrade.prototype.onUserLoginOk_ = function(e) {
   this.getModel().set('IsMSB',            msg['IsMSB']);
   this.getModel().set('HasLineOfCredit',  msg['HasLineOfCredit']);
   this.getModel().set('EmailLang',        msg['EmailLang']);
+  this.getModel().remove('Token');
 
   // Enable login buttons
   goog.array.forEach(goog.dom.getElementsByClass('btn-login'), function(button) {
@@ -4328,6 +4338,7 @@ bitex.app.BlinkTrade.prototype.onUserLoginError_ = function(e) {
 
   var is_account_blocked = (msg['UserStatusText'] === 'MSG_LOGIN_ACCOUNT_BLOCKED');
   if (is_account_blocked) {
+      this.getModel().remove('Token');
       this.showDialog(bitex.templates.AccountBlockedDialogContent(),
                       MSG_ACCOUNT_BLOCKED_DIALOG_TITLE,
                       bitex.ui.Dialog.ButtonSet.createOk());
@@ -4356,6 +4367,7 @@ bitex.app.BlinkTrade.prototype.onUserLoginError_ = function(e) {
         && (msg['SecondFactorType'] === 'EMAIL' || msg['SecondFactorType'] === 'OTP+EMAIL' ) );
 
     if (is_authorization_link_expired_or_invalid) {
+      this.getModel().remove('Token');
       this.showDialog(bitex.templates.InvalidOrExpiredAuthorizationLinkDialogContent(),
                       MSG_INVALID_EXPIRED_AUTHORIZATION_LINK_DIALOG_TITLE,
                       bitex.ui.Dialog.ButtonSet.createOk() );
@@ -4363,6 +4375,7 @@ bitex.app.BlinkTrade.prototype.onUserLoginError_ = function(e) {
     }
 
     if (is_requesting_the_user_to_click_on_the_authorization_link) {
+      this.getModel().remove('Token');
       this.showDialog(bitex.templates.AntiPhishingDialogContent(),
                       MSG_ANTI_PHISHING_DIALOG_TITLE,
                       bitex.ui.Dialog.ButtonSet.createOk() );
@@ -4372,11 +4385,19 @@ bitex.app.BlinkTrade.prototype.onUserLoginError_ = function(e) {
     var dlg_second_factor_id = goog.string.getRandomString();
     var dlg_second_factor_title = MSG_TWO_STEPS_AUTHENTICATION_DIALOG_TITLE;
     var dlg_second_factor_description = MSG_OTP_TWO_STEPS_AUTHENTICATION_DIALOG_CONTENT;
-    var dlg_ask_for_trust_device = false;
+    var dlg_ask_for_trust_device = true;
+    if (this.getModel().get('TrustDevice') == true) {
+      dlg_ask_for_trust_device = false;
+    } else {
+      this.getModel().set('TrustDevice', false);
+    }
+
 
     if (is_asking_to_confirm_email_after_signup ) {
       dlg_second_factor_title = MSG_SIGNUP_CONFIRM_EMAIL_DIALOG_TITLE;
       dlg_second_factor_description = MSG_EMAIL_TWO_STEPS_AUTHENTICATION_DIALOG_CONTENT;
+      dlg_ask_for_trust_device = false;
+      this.getModel().set('TrustDevice', true);
     }
 
     var dlg_content = bitex.templates.SecondFactorTokenDialogContent({
@@ -4416,12 +4437,13 @@ bitex.app.BlinkTrade.prototype.onUserLoginError_ = function(e) {
           } else {
             second_factor = json_form_data['token'];
           }
-          var trust_device = json_form_data['TrustedDevice'];
-
-          if (trust_device == 'checked' || trust_device == 'on') {
-            trust_device = true;
-          } else {
-            trust_device = false;
+          var trust_device = this.getModel().get('TrustDevice');
+          if (dlg_ask_for_trust_device) {
+            if (json_form_data['TrustedDevice'] == 'checked' || json_form_data['TrustedDevice'] == 'on') {
+              trust_device = true;
+            } else {
+              trust_device = false;
+            }
           }
 
           var current_request =  this.current_login_request_[msg['UserReqID']];
@@ -4453,9 +4475,9 @@ bitex.app.BlinkTrade.prototype.onUserLoginError_ = function(e) {
                                             password, 
                                             second_factor, 
                                             this.getModel().get('Token'),
-                                            this.getModel().get('TrustDevice'),
+                                            trust_device,
                                             this.getModel().get('Referrer'),
-                                            this.getModel().get('UriPath') );
+                                            this.getModel().get('UriPath'));
           this.current_login_request_[requestId] = [ 'login', broker_id, username, password ]
           dlg_.dispose();
         }
@@ -5049,6 +5071,7 @@ bitex.app.BlinkTrade.prototype.onConnectionOpen_ = function(e){
 
 
   var required_level_pro_trader = this.getModel().get('RequiredLevelProTrader');
+  var token = this.getModel().get('Token');
   var referrer = this.getModel().get('Referrer');
   var js_version = this.getModel().get('JSVersion');
   var uri_path = this.getModel().get('UriPath');
@@ -5067,6 +5090,7 @@ bitex.app.BlinkTrade.prototype.onConnectionOpen_ = function(e){
   this.getModel().set('DefaultSymbol', default_symbol);
   this.getModel().set('RequiredLevelProTrader', required_level_pro_trader);
   this.getModel().set('Referrer', referrer);
+  this.getModel().set('Token', token);
   this.getModel().set('JSVersion', js_version);
   this.getModel().set('UserLogged',false);
   this.getModel().set('TrustDevice',trust_device);
