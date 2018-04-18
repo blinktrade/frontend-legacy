@@ -34,7 +34,7 @@ bitex.api.BitEx = function( opt_browser_finger_print  ){
   this.browser_finger_print_  = opt_browser_finger_print;
   this.stunt_ip_info_         = {'local':undefined, 'public':[]};
   this.tracking_code_         = new goog.Uri(window.location.href).getParameterValue('tc');
-  this.referrer_              = new goog.Uri(window.location.href).getParameterValue('ref');
+  this.referrer_              = new goog.Uri(window.location.href).getParameterValue('r');
 
   if (goog.isDefAndNotNull(this.referrer_) && goog.string.isNumeric( this.referrer_ )){
     this.referrer_  = parseInt(this.referrer_, 10);

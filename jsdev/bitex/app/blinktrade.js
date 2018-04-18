@@ -726,7 +726,7 @@ bitex.app.BlinkTrade.prototype.run = function(host_api, opt_required_level_to_be
   // don't forget to set those variables during the connectionOpen because the
   // model is clear during the connection open.
   this.getModel().set('RequiredLevelProTrader', opt_required_level_to_be_a_pro_trader || 0);
-  var referrer = this.uri_.getParameterValue('ref');
+  var referrer = this.uri_.getParameterValue('r');
   if (goog.isDefAndNotNull(referrer) && goog.string.isNumeric( referrer )){
     referrer = parseInt(referrer, 10);
   }
