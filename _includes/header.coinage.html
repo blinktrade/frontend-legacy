@@ -63,7 +63,7 @@
         <!-- .container-fluid -->
         <div class="container">
             <!-- .head-ticker -->
-            <ul class="head-ticker">
+            <ul class="head-ticker bitex-model" data-model-key="IsProTrader" style="display: none" data-model-action="show_element">
                 <li>
                     <span class="head-ticker__title">
                         <i class="glyphicon glyphicon-triangle-right"></i> {% t views.toolbar.last %}&nbsp;
@@ -117,12 +117,25 @@
 
             <ul class="head-top-nav navbar-right pull-right">
               <!-- .head-market -->
+              <li>
+                {% if site.custom_faq %}
+                  <a href="{{ site.custom_faq }}" target="_blank" rel="noopener noreferrer" class="head-top-button">
+                    <i class="glyphicon glyphicon-question-sign"></i>
+                    {% t views.toolbar.faq %}
+                  </a>
+                {% else %}
+                <a data-switch-view="faq" href="#" class="head-top-button">
+                  <i class="glyphicon"></i>
+                  {% t views.toolbar.faq %}
+                </a>
+                {% endif %}
+              </li>
               <li class="bitex-display-if-logged">
                 <a data-switch-view="trading" href="#" class="head-top-button">
                   <i class="glyphicon glyphicon-random"></i> {% t views.toolbar.trading %}
                 </a>
               </li>
-              <li>
+              <li class="bitex-model" style="display: none" data-model-key="IsProTrader" data-model-action="show_element">
                 <a data-switch-view="market" href="#" class="head-top-button">
                     <i class="glyphicon glyphicon-stats"></i> {% t views.toolbar.market %}
                 </a>
