@@ -85,7 +85,7 @@ load_application:       True
           <label class="control-label">{% t views.signup.username %}</label>
 
           <div class="controls">
-            <input id="id_signup_username" name="Username" size="30" type="text" placeholder="">
+            <input autocapitalize="off" autocorrect="off" id="id_signup_username" name="Username" size="30" type="text" placeholder="">
           </div>
         </div>
 
@@ -93,7 +93,7 @@ load_application:       True
           <label class="control-label">{% t views.signup.email %}</label>
 
           <div class="controls">
-            <input id="id_signup_email" name="Email" size="30" type="email" placeholder="{% t views.signup.email_placeholder %}">
+            <input autocapitalize="off" autocorrect="off" id="id_signup_email" name="Email" size="30" type="email" placeholder="{% t views.signup.email_placeholder %}">
           </div>
         </div>
 
@@ -179,6 +179,18 @@ load_application:       True
             <input id="id_password" placeholder="" name="password" type="password">
           </div>
         </div>
+
+        <div class="clearfix" id="id_second_factor_group" style="display: none">
+          <label for="id_password">{% t views.signin.second_factor %}:</label>
+          <div class="input">
+            <input id="id_second_factor"  placeholder="" name="secondfactor" type="text" autocomplete="off">
+          </div>
+        </div>
+
+        <p>
+          <a href="#" id="id_open_second_factor">{% t views.signin.has_second_factor %}</a>
+        </p>
+        
         <p><a href="#" data-switch-view="forgot_password">{% t views.signin.forgot_your_password %}</a></p>
 
         <div class="actions">
@@ -697,6 +709,11 @@ load_application:       True
               <i data-switch-view="withdraw" class="icon-minus"></i> {% t views.sidebar.withdraw %}</a>
           </li>
 
+          <li id="menu-services" class="bitex-model bitex-display-if-non-broker"  style="display: none" data-model-key="HasServices" data-model-action="show_element">
+            <a href="" data-switch-view="services">
+              <i data-switch-view="services" class="icon-minus"></i> {% t views.sidebar.services %}</a>
+          </li>
+
           <li class="bitex-display-if-non-broker bitex-model" style="display: none" id="card_menu_id"  data-model-key="HasCardFeature" data-model-action="show_element" id="menu-card">
               <a href="" data-switch-view="card">
                   <i data-switch-view="card" class="icon-tag"></i> {% t views.sidebar.card %}</a>
@@ -789,12 +806,6 @@ load_application:       True
                 <a href="{{ site.url}}{{ site.baseurl}}/themes/default/">
                     <img src="{{ site.url}}{{ site.baseurl }}/assets/exchange_logos/thumb-themes/{{ site.exchange }}-default-thumb.jpg" alt="Default Theme">
                     <h3>Simple Theme</h3>
-                </a>
-            </div>
-            <div class="span4">
-                <a href="{{ site.url}}{{ site.baseurl}}/themes/whitedev/">
-                    <img src="{{ site.url}}{{ site.baseurl }}/assets/exchange_logos/thumb-themes/{{ site.exchange }}-whitedev-thumb.jpg" alt="Whitedev Theme">
-                    <h3>Whitedev</h3>
                 </a>
             </div>
         </div>

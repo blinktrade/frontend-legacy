@@ -12,11 +12,12 @@
         var country_code = "{% if page.default_country_code %}{{ page.default_country_code}}{% else %}{{ site.default_country_code}}{% endif %}";
         var blinktrade_api = "{% if page.blinktrade_backend_api %}{{ page.blinktrade_backend_api}}{% else %}{{ site.blinktrade_backend_api}}{% endif %}";
         var symbol = "{{ site.symbol }}";
+        var required_level_to_be_a_pro_trader = {{ site.required_level_to_be_a_pro_trader }};
 
         var remittance_box = {{ site.remittance_box  }};
 
         _app = new BlinkTradeApp(broker_id, remittance_box,  country_code, symbol);
-        _app.run(blinktrade_api);
+        _app.run(blinktrade_api, required_level_to_be_a_pro_trader);
       })();
     </script>
     {% endif %}

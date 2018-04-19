@@ -57,10 +57,10 @@ exchanges:
     keywords: bitcoin, buy bitcoin, sell bitcoin, buy bitcoin india, sell bitcoin india, bitcoin india, bitcoin inr, btc inr, bitcoin wallet india, store bitcoin india, buy bitcoin inr, sell bitcoin inr, send bitcoin, send bitcoin india, receive bitcoin, receive bitcoin india, bitcoin price, btc to inr, btc price in inr, bitcoin exchange
     lead: Unocoin is india's most popular bitcoin wallet
   bitcambio:
-    title: Bitcambio - Casa de Câmbio de Bitcoins
-    description: Casa de Câmbio de Bitcoin
+    title: Bitcambio - Compra y venta de bitcoins en Brasil
+    description: Compre y venda bitcoins de manera segura a través de Bitcambio
     keywords: bitcoin, comprar bitcoin, btc,bitcambio,cambio,vender bitcoin, bitcoin brasil
-    lead: Compra e Venda de Bitcoins Direta
+    lead: Compra y venta de bitcoins en Brasil
 views:
   landing:
     about:
@@ -142,6 +142,8 @@ views:
     signup: Regístrate ahora
     username: Nombre de usuario
     password: Contraseña
+    second_factor: Código Verificación de dos pasos
+    has_second_factor: Tiene Verificación de dos pasos?
     forgot_your_password: Olvidaste tu contraseña?
     login_button_label: Ingresar
 
@@ -190,6 +192,9 @@ views:
 
   withdraw:
     title: Retiros
+
+  services:
+    title: Services
 
   withdraw_requests:
     title: Solicitudes de retiros
@@ -264,6 +269,7 @@ views:
     algotrading: Algo Trading
     history: Historial de órdenes
     card:  Blink Card
+    services: Services
   themes:
     title: Temas
     choose: Elegir un tema

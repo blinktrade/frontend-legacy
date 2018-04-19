@@ -59,7 +59,7 @@
 <!-- .head -->
 <header class="head">
     <!-- .head-top -->
-    <div class="head-top">
+    <div class="head-top bitex-model" data-model-key="IsProTrader" style="display: none" data-model-action="show_element">
         <!-- .container-fluid -->
         <div class="container">
             <!-- .head-ticker -->
@@ -241,6 +241,28 @@
                 </li>
               </ul>
             </li>
+
+            <!-- .head-language -->
+            <li class="dropdown bitex-model" data-model-key="IsProTrader" data-model-action="hide_element" style="display: none; padding:0; margin-top: -4px;">
+              <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" style="padding:13.5px">
+                  <span class="flag-icon flag-icon-{{ site.lang}}"></span> <b class="caret"></b></a>
+              </a>
+              <ul class="dropdown-menu" role="menu" aria-labelledby="drop1" style="min-width:60px;max-width:61px">
+              {% for lang in site.languages %}
+                {% if  lang != site.lang  %}
+                  {% if forloop.first %}
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ site.url }}{{ site.baseurl_root }}/">
+                      <span class="flag-icon flag-icon-{{lang}}"></span></a></li>
+                  {% else %}
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ site.url }}{{ site.baseurl_root }}/{{lang}}">
+                      <span class="flag-icon flag-icon-{{lang}}"></span></a></li>
+                  {% endif %}
+                {% endif %}
+              {% endfor %}
+              </ul>
+            </li>
+            <!-- /.head-language -->
+
             <li class="bitex-hide-if-logged">
               <button class="btn btn-outline btn-signup col-xs-12" style="float:none" href="#" data-switch-view="signup">
                   {% t views.toolbar.signup %}

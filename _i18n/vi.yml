@@ -143,6 +143,8 @@ views:
     signup: Đăng ký
     username: Tên đăng nhập
     password: Mật khẩu
+    second_factor: Two factor authentication
+    has_second_factor: Has two factor authentication?
     forgot_your_password: Bạn đã quên mật khẩu?
     login_button_label: Đăng nhập
 
@@ -191,6 +193,9 @@ views:
 
   withdraw:
     title: Các lệnh rút tiền
+
+  services:
+    title: Services
 
   withdraw_requests:
     title: Lệnh rút tiền của khách
@@ -265,6 +270,7 @@ views:
     algotrading: Thuật toán cho giao dịch
     history: Lịch sử giao dịch
     card:  Blink Card
+    services: Services
   themes:
     title: Themes
     choose: Choose a Theme

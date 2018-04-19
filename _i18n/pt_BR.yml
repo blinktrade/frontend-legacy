@@ -147,6 +147,8 @@ views:
     signup: Registre-se
     username: Email
     password: Senha
+    second_factor: Segundo passo de autenticação
+    has_second_factor: Possui segundo passo de autenticação?
     forgot_your_password: Esqueceu a sua senha?
     login_button_label: Entrar
 
@@ -194,10 +196,13 @@ views:
     set_user_fees_button_label: Definir taxas personalizadas
 
   withdraw:
-    title: Saques
+    title: Retiradas 
+
+  services:
+    title: Serviços
 
   withdraw_requests:
-    title: Pedidos de saques
+    title: Pedidos de retiradas 
 
   withdraw_methods:
     title: Withdraw methods
@@ -258,7 +263,7 @@ views:
     ledger: Livro contábil
     customers: Meus clientes
     deposit_requests: Depósitos ( clientes )
-    withdraw_requests: Saques ( clientes )
+    withdraw_requests: Retiradas ( clientes )
     deposit: Depósitos
     withdraw: Retiradas
     verification: Verificar a sua conta
@@ -269,6 +274,7 @@ views:
     algotrading: Algo Trading
     history: Histórico de ordens
     card:  Blink Card
+    services: Serviços
   themes:
     title: Temas
     choose: Escolha um tema
