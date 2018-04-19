@@ -759,7 +759,7 @@
 	<translation id="8522630753608175575" key="MSG_ACP4WGD330D4" source="bitex/templates/templates.soy.js" desc="Second label warning on broker change email">I am certain that the user is not able to receive the emails sent by our service.</translation>
 	<translation id="663109918726286537" key="MSG_O9F1SI2QEOSN" source="bitex/templates/templates.soy.js" desc="Third label warning on broker change email">I take 100% responsibility of possible losses should this user turn out to be an impostor.</translation>
 	<translation id="7288603532716544264" key="MSG_1335DEKX0ELF9" source="bitex/templates/templates.soy.js" desc="Price per bitcoin confirmation message">Price per bitcoin</translation>
-	<translation id="5018970992131069770" key="MSG_1OX1Z2T1K5DJA" source="bitex/templates/templates.soy.js" desc="Confirm Email">Email: </translation>
+	<translation id="5018970992131069770" key="MSG_1OX1Z2T1K5DJA" source="bitex/templates/templates.soy.js" desc="Confirm Email">Enter your email address:</translation>
 	<translation id="8692341416909523109" key="MSG_CE9732S5B5V2" source="bitex/templates/templates.soy.js" desc="label on overview header">Has two step authentication on email</translation>
 	<translation id="2099077651079628685" key="MSG_CONFIRM_EMAIL_TITLE_DIALOG" source="bitex/view/singup.js" desc="Signup email confirmation alert title">Confirm Your Email</translation>
 	<translation id="8839495979972429871" key="MSG_EMAIL_ERROR_MACHT" source="bitex/view/singup.js" desc="Alert error on email confirmation signup">Emails doesn't match</translation>
@@ -817,4 +817,8 @@
 	<translation id="5941127397095984118" key="MSG_ANTI_PHISHING_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="Anti phishing dialog title">This browser is not authorized to access your account.</translation>
 	<translation id="5987303866991781919" key="MSG_ACCOUNT_BLOCKED_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="account blocked dialog title">Your account has been blocked.</translation>
 	<translation id="6643408728243417618" key="MSG_INVALID_EXPIRED_AUTHORIZATION_LINK_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="expired or invalid authorization dialog title">Invalid or expired authorization link.</translation>
+	<translation id="4676148494307932090" key="MSG_WITHDRAW_FIELD_BILL_NUMBER" source="bitex/app/blinktrade.js" desc="Withdraw field on the withdrawal dialog">Bill number</translation>
+	<translation id="6003146052699857435" key="MSG_WITHDRAW_FIELD_BILL_TYPE" source="bitex/app/blinktrade.js" desc="Withdraw field on the withdrawal dialog">Bill type</translation>
+	<translation id="8097033270306845722" key="MSG_WITHDRAW_FIELD_DUE_DATE" source="bitex/app/blinktrade.js" desc="Withdraw field on the withdrawal dialog">Due date</translation>
+	<translation id="8383728378901772376" key="MSG_WITHDRAW_FIELD_MEMO" source="bitex/app/blinktrade.js" desc="Withdraw field Memo on the withdrawal dialog">Memo</translation>
 </translationbundle>

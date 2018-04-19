@@ -757,4 +757,8 @@
 	<translation id="5941127397095984118" key="MSG_ANTI_PHISHING_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="Anti phishing dialog title">This browser is not authorized to access your account.</translation>
 	<translation id="5987303866991781919" key="MSG_ACCOUNT_BLOCKED_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="account blocked dialog title">Your account has been blocked.</translation>
 	<translation id="6643408728243417618" key="MSG_INVALID_EXPIRED_AUTHORIZATION_LINK_DIALOG_TITLE" source="bitex/app/blinktrade.js" desc="expired or invalid authorization dialog title">Invalid or expired authorization link.</translation>
+	<translation id="4676148494307932090" key="MSG_WITHDRAW_FIELD_BILL_NUMBER" source="bitex/app/blinktrade.js" desc="Withdraw field on the withdrawal dialog">Bill number</translation>
+	<translation id="6003146052699857435" key="MSG_WITHDRAW_FIELD_BILL_TYPE" source="bitex/app/blinktrade.js" desc="Withdraw field on the withdrawal dialog">Bill type</translation>
+	<translation id="8097033270306845722" key="MSG_WITHDRAW_FIELD_DUE_DATE" source="bitex/app/blinktrade.js" desc="Withdraw field on the withdrawal dialog">Due date</translation>
+	<translation id="8383728378901772376" key="MSG_WITHDRAW_FIELD_MEMO" source="bitex/app/blinktrade.js" desc="Withdraw field Memo on the withdrawal dialog">Memo</translation>
 </translationbundle>
