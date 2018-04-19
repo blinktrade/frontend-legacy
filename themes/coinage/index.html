@@ -282,6 +282,14 @@ load_application:       True
                       <p class="help-block">
                         <a class="login__remember" href="forgot_password" data-switch-view="forgot_password">{% t views.signin.forgot_your_password %}</a>
                       </p>
+                      <p class="help-block">
+                        <a class="login__remember" href="" id="id_open_second_factor">{% t views.signin.has_second_factor %}</a>
+                      </p>
+                    </div>
+
+                    <div class="form-group" id="id_second_factor_group" style="display: none">
+                      <label for="id_password">{% t views.signin.second_factor %}:</label>
+                      <input class="form-control" id="id_second_factor"  placeholder="" name="secondfactor" type="text">
                     </div>
 
                     <input id="id_btn_login"  class="btn btn-primary btn-block btn-login" name="commit" type="submit" value="{% t views.signin.login_button_label %}">
@@ -315,12 +323,12 @@ load_application:       True
                     <form action="" accept-charset="UTF-8" id="new_user" method="post">
                         <div class="form-group">
                           <label for="id_signup_username">{% t views.signup.username %}:</label>
-                          <input id="id_signup_username" class="form-control" name="Username" size="30" type="text" placeholder="">
+                          <input autocapitalize="off" autocorrect="off" id="id_signup_username" class="form-control" name="Username" size="30" type="text" placeholder="">
                         </div>
 
                         <div class="form-group">
                           <label for="id_signup_email">{% t views.signup.email %}:</label>
-                          <input id="id_signup_email" class="form-control" name="Email" size="30" type="email" placeholder="{% t views.signup.email_placeholder %}">
+                          <input autocapitalize="off" autocorrect="off" id="id_signup_email" class="form-control" name="Email" size="30" type="email" placeholder="{% t views.signup.email_placeholder %}">
                         </div>
 
                         <div class="form-group">
@@ -532,7 +540,7 @@ load_application:       True
                                   <i class="glyphicon glyphicon-random"></i> {% t views.sidebar.trading %}
                               </a>
                           </li>
-                          <li role="presentation" class="bitex-model" id="menu-offerbook" style="display: none" data-model-key="IsProTrader" data-model-action="show_element">
+                          <li role="presentation" id="menu-offerbook" class="bitex-model"  style="display: none" data-model-key="IsProTrader" data-model-action="show_element">
                               <a href="#" data-switch-view="offerbook">
                                   <i class="glyphicon glyphicon-book"></i> {% t views.sidebar.offerbook %}
                               </a>
@@ -557,12 +565,19 @@ load_application:       True
                                   <i class="fa fa-upload"></i> {% t views.sidebar.withdraw %}
                               </a>
                           </li>
-                          <li role="presentation" class="bitex-model" id="menu-algotrading" style="display: none" data-model-key="IsProTrader" data-model-action="show_element">
+
+                          <li role="presentation" id="menu-services" class="bitex-model bitex-display-if-non-broker"  style="display: none" data-model-key="HasServices" data-model-action="show_element">
+                              <a href="#" data-switch-view="services">
+                                  <i class="fa fa-upload"></i> {% t views.sidebar.services %}
+                              </a>
+                          </li>
+
+                          <li role="presentation" id="menu-algotrading" class="bitex-model"  style="display: none" data-model-key="IsProTrader" data-model-action="show_element">
                               <a href="#" data-switch-view="algotrading">
                                   <i class="glyphicon glyphicon-cog"></i> {% t views.sidebar.algotrading %}
                               </a>
                           </li>
-                          <li role="presentation" class="bitex-model" id="menu-ledger" style="display: none" data-model-key="IsProTrader" data-model-action="show_element">
+                          <li role="presentation" id="menu-ledger" class="bitex-model"  style="display: none" data-model-key="IsProTrader" data-model-action="show_element">
                               <a href="#" data-switch-view="ledger">
                                   <i class="glyphicon glyphicon-th-list"></i> {% t views.sidebar.ledger %}
                               </a>
@@ -1209,14 +1224,6 @@ load_application:       True
                             <div class="thumb-theme">
                                 <img src="{{ site.url}}{{ site.baseurl }}/assets/exchange_logos/thumb-themes/{{ site.exchange }}-default-thumb.jpg" alt="Default Theme">
                                 <h3 class="ls-title-4">Simple Theme</h3>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-xs-4">
-                        <a href="{{ site.url}}{{ site.baseurl}}/themes/whitedev/">
-                            <div class="thumb-theme">
-                                <img src="{{ site.url}}{{ site.baseurl }}/assets/exchange_logos/thumb-themes/{{ site.exchange }}-whitedev-thumb.jpg" alt="Whitedev Theme">
-                                <h3 class="ls-title-4">Whitedev</h3>
                             </div>
                         </a>
                     </div>

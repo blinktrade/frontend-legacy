@@ -675,9 +675,9 @@ bitex.util.calculateTotalFee = function( qty, price, order_depth, username, take
   var total_buy_maker_fee = qty * maker_fee / 10000;
   var total_buy_taker_fee = qty * taker_fee / 10000;
 
-  // TODO: This is a simplification, because the order 
-  //  might be partially executed, which means that part 
-  //  of the order will pay the taker fee and other part 
+  // TODO: This is a simplification, because the order
+  //  might be partially executed, which means that part
+  //  of the order will pay the taker fee and other part
   //  the maker fee. For now, we will just return this simplified version.
 
   if (side == 1 && price < order_depth[0][OrderDepthIndex.PRICE]) {
@@ -687,7 +687,7 @@ bitex.util.calculateTotalFee = function( qty, price, order_depth, username, take
   } else if (side == 1) {
     return total_buy_taker_fee;
   } else {
-    return total_sell_taker_fee; 
+    return total_sell_taker_fee;
   }
 };
 

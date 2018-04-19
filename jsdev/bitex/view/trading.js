@@ -337,7 +337,7 @@ bitex.view.TradingView.prototype.getMDInstruments = function(){
  * @return {number}
  */
 bitex.view.TradingView.prototype.getMDMarketDepth = function(){
-  return 0;
+  return 1000;
 };
 
 /**

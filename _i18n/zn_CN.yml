@@ -62,7 +62,6 @@ exchanges:
     description: Casa de Câmbio de Bitcoin
     keywords: bitcoin, comprar bitcoin, btc,bitcambio,cambio,vender bitcoin, bitcoin brasil
     lead: Compra e Venda de Bitcoins Direta
-
 views:
   landing:
     about:
@@ -144,6 +143,8 @@ views:
     signup: 注册
     username: 用户名
     password: 密码
+    second_factor: Two factor authentication
+    has_second_factor: Has two factor authentication?
     forgot_your_password: 忘记了密码？
     login_button_label: 登陆
 
@@ -192,6 +193,9 @@ views:
 
   withdraw:
     title: 我的提现
+
+  services:
+    title: Services
 
   withdraw_requests:
     title: 提现申请
@@ -266,6 +270,7 @@ views:
     algotrading: 程序自动交易
     history: 订单历史
     card:  Blink Card
+    services: Services
   themes:
     title: Themes
     choose: Choose a Theme

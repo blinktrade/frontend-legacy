@@ -514,7 +514,7 @@ bitex.view.OfferBookView.prototype.getMDInstruments = function(){
  * @return {number}
  */
 bitex.view.OfferBookView.prototype.getMDMarketDepth = function(){
-  return 0;
+  return 1000;
 };
 
 /**

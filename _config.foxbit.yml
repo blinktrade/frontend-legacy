@@ -6,7 +6,7 @@ deploy_version: "10a82b0"
 
 exchange: "foxbit"
 exchange_logo: "foxbit"
-exchange_toolbar_logo: "foxbit_inverse"
+exchange_toolbar_logo: "foxbit"
 
 custom_css: "foxbit"
 
@@ -17,8 +17,10 @@ twitter_widget_link_color: "#E8683E"
 
 default_country_code: "BR"
 blinktrade_broker_id: 4  # 4 is the id for the demo backend. Don't change that if you don't understand what you doing.
+required_level_to_be_a_pro_trader: 0
 
-blinktrade_backend_api: "api.blinktrade.com"
+
+blinktrade_backend_api: "ws.blinktrade.com"
 google_analytics_id: "UA-57478613-1"
 zendesk_host: "foxbit.zendesk.com"
 custom_faq: "https://foxbit.zendesk.com/hc/pt-br"
@@ -29,11 +31,11 @@ trading_view: 'FOXBIT:BTCBRL'
 markdown: kramdown
 
 remittance_box: "{
-    'BRL':[ ['BitStampUSD',        'USD', 'BITSTAMP_BTCUSD_BEST_BID / 100000000', 'BITSTAMP_BTCUSD_BEST_ASK / 100000000'  ],
-            ['Dólar Bitcoin',      'BRL', 'BLINK_BTCBRL_BEST_BID /  BITSTAMP_BTCUSD_BEST_ASK', 'BLINK_BTCBRL_BEST_ASK /  BITSTAMP_BTCUSD_BEST_BID'  ],
+    'BRL':[ ['BitFinexUSD',        'USD', 'BITFINEX_BTCUSD_BEST_BID / 100000000', 'BITFINEX_BTCUSD_BEST_ASK / 100000000'  ],
+            ['Dólar Bitcoin',      'BRL', 'BLINK_BTCBRL_BEST_BID /  BITFINEX_BTCUSD_BEST_ASK', 'BLINK_BTCBRL_BEST_ASK /  BITFINEX_BTCUSD_BEST_BID'  ],
             ['Dólar Turismo',      'BRL', 'UOL_USDBRT_BEST_BID / 100000000', 'UOL_USDBRT_BEST_ASK / 100000000' ],
             ['Dólar Comercial',    'BRL', 'UOL_USDBRL_BEST_BID / 100000000', 'UOL_USDBRL_BEST_ASK / 100000000' ] ],
-    'USD':[ ['BitStampUSD',        'USD', 'BITSTAMP_BTCUSD_BEST_BID / 100000000', 'BITSTAMP_BTCUSD_BEST_ASK / 100000000'  ],
+    'USD':[ ['BitFinexUSD',        'USD', 'BITFINEX_BTCUSD_BEST_BID / 100000000', 'BITFINEX_BTCUSD_BEST_ASK / 100000000'  ],
             ['KrakenUSD',          'USD', 'KRAKEN_BTCUSD_BEST_BID / 100000000', 'KRAKEN_BTCUSD_BEST_ASK / 100000000'  ],
             ['itBitUSD',           'USD', 'ITBIT_BTCUSD_BEST_BID / 100000000', 'ITBIT_BTCUSD_BEST_ASK / 100000000'  ] ],
     'VEF':[ ['BitStampUSD',        'USD', 'BITSTAMP_BTCUSD_BEST_BID / 100000000', 'BITSTAMP_BTCUSD_BEST_ASK / 100000000'  ],
@@ -54,8 +56,7 @@ symbol: "BTCBRL"
 
 languages: ["pt_BR", "en_US", "es", "ro", "zn_CN", "vi"]
 
-video : 'true'
-navbar: 'navbar-default'
+navbar: 'navbar-inverse'
 phrases: [phrase1, phrase2, phrase4]
 
 exclude:     [ "jsdev", "LICENSE", "README.md", "config.rb", "deploy.sh", "build_javascript.sh", "node_modules", "gulpfile.js", "themes/ander" ]
