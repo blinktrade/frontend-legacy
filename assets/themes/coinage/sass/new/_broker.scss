@@ -10,3 +10,11 @@
     -ms-user-select: none;
     user-select: none;
 }
+
+.broker-wallet__table {
+  table-layout: fixed;
+
+  td.broker-wallet {
+    word-wrap: break-word;
+  }
+}

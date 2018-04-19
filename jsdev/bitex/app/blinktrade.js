@@ -4070,7 +4070,6 @@ bitex.app.BlinkTrade.prototype.onUserLoginButtonClick_ = function(e){
   goog.array.forEach(goog.dom.getElementsByClass('btn-login'), function(button) {
     button.disabled = true;
   });
-
 };
 
 
