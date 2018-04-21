@@ -187,6 +187,11 @@ load_application:       True
           </div>
         </div>
 
+        <p class="bitex-model" style="display: none" data-model-key="HasToken" data-model-action="show_element">
+          <input type="checkbox" id="id_trusted_device" />
+          <label for="id_trusted_device" style="display: inline-block">{% t views.signin.trust_this_device %}</label>
+        </p>
+
         <p>
           <a href="#" id="id_open_second_factor">{% t views.signin.has_second_factor %}</a>
         </p>

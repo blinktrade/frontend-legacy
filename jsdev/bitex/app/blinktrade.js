@@ -732,6 +732,8 @@ bitex.app.BlinkTrade.prototype.run = function(host_api, opt_required_level_to_be
   }
 
   var user_token = this.uri_.getParameterValue('token');
+  this.getModel().set('HasToken', goog.isDefAndNotNull(user_token) );
+
   var trust_device = this.uri_.getParameterValue('trust');
   if (goog.isDefAndNotNull(trust_device) && trust_device == '1' ){
     trust_device = true;
@@ -4050,6 +4052,8 @@ bitex.app.BlinkTrade.prototype.onUserLoginButtonClick_ = function(e){
   var password = e.target.getPassword();
   var second_factor = e.target.getSecondFactor() || undefined;
 
+  var trusted_device = e.target.getTrustedDevice() || false;
+
   this.model_.set('Password', e.target.getPassword());
 
   var requestId = this.conn_.login(this.getModel().get('SelectedBrokerID'),
@@ -4057,7 +4061,7 @@ bitex.app.BlinkTrade.prototype.onUserLoginButtonClick_ = function(e){
                                    password,
                                    second_factor,
                                    this.getModel().get('Token'),
-                                   this.getModel().get('TrustDevice'),
+                                   trusted_device,//this.getModel().get('TrustDevice'),
                                    this.getModel().get('Referrer'),
                                    this.getModel().get('UriPath'));
 
@@ -5075,6 +5079,7 @@ bitex.app.BlinkTrade.prototype.onConnectionOpen_ = function(e){
   var js_version = this.getModel().get('JSVersion');
   var uri_path = this.getModel().get('UriPath');
   var trust_device = this.getModel().get('TrustDevice');
+  var has_token = this.getModel().get('HasToken');
 
   var default_country = this.model_.get('DefaultCountry');
   var default_state = this.model_.get('DefaultState');
@@ -5094,6 +5099,8 @@ bitex.app.BlinkTrade.prototype.onConnectionOpen_ = function(e){
   this.getModel().set('UserLogged',false);
   this.getModel().set('TrustDevice',trust_device);
   this.getModel().set('UriPath', uri_path);
+  this.getModel().set('HasToken', has_token);
+
 
   if (goog.isDefAndNotNull(username) && goog.isDefAndNotNull(password)) {
     if (!goog.string.isEmpty(username) && !goog.string.isEmpty(password) ) {
