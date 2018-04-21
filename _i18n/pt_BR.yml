@@ -145,7 +145,7 @@ views:
     second_factor: Segundo passo de autenticação
     has_second_factor: Possui segundo passo de autenticação?
     forgot_your_password: Esqueceu a sua senha?
-    trust_this_device: Confiar em esse dispositivo por 30 dias
+    trust_this_device: Confiar neste dispositivo por 30 dias
     login_button_label: Entrar
 
   forgot_password:
