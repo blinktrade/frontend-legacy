@@ -5079,6 +5079,7 @@ bitex.app.BlinkTrade.prototype.onConnectionOpen_ = function(e){
   var js_version = this.getModel().get('JSVersion');
   var uri_path = this.getModel().get('UriPath');
   var trust_device = this.getModel().get('TrustDevice');
+  var has_token = this.getModel().get('HasToken');
 
   var default_country = this.model_.get('DefaultCountry');
   var default_state = this.model_.get('DefaultState');
@@ -5098,6 +5099,8 @@ bitex.app.BlinkTrade.prototype.onConnectionOpen_ = function(e){
   this.getModel().set('UserLogged',false);
   this.getModel().set('TrustDevice',trust_device);
   this.getModel().set('UriPath', uri_path);
+  this.getModel().set('HasToken', has_token);
+
 
   if (goog.isDefAndNotNull(username) && goog.isDefAndNotNull(password)) {
     if (!goog.string.isEmpty(username) && !goog.string.isEmpty(password) ) {
