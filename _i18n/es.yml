@@ -145,6 +145,7 @@ views:
     second_factor: Código Verificación de dos pasos
     has_second_factor: Tiene Verificación de dos pasos?
     forgot_your_password: Olvidaste tu contraseña?
+    trust_this_device: Confía en este dispositivo por 30 días
     login_button_label: Ingresar
 
   forgot_password:
