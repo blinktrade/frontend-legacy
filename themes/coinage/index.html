@@ -279,6 +279,11 @@ load_application:       True
                     <div class="form-group">
                       <label for="id_password">{% t views.signin.password %}:</label>
                       <input class="form-control" id="id_password"  placeholder="" name="password" type="password">
+                      <p class="bitex-model" style="display: none" data-model-key="HasToken">
+                        <br />
+                        <input type="checkbox" id="id_trusted_device" />
+                        <label for="id_trusted_device">{% t views.signin.trust_this_device %}</label>
+                      </p>
                       <p class="help-block">
                         <a class="login__remember" href="forgot_password" data-switch-view="forgot_password">{% t views.signin.forgot_your_password %}</a>
                       </p>

@@ -146,6 +146,7 @@ views:
     second_factor: Two factor authentication
     has_second_factor: Has two factor authentication?
     forgot_your_password: Bạn đã quên mật khẩu?
+    trust_this_device: Tin tưởng thiết bị này trong 30 ngày
     login_button_label: Đăng nhập
 
   forgot_password:
