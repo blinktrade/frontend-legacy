@@ -145,6 +145,7 @@ views:
     password: 密码
     second_factor: Two factor authentication
     has_second_factor: Has two factor authentication?
+    trust_this_device: Trust this device for 30 days
     forgot_your_password: 忘记了密码？
     login_button_label: 登陆
 

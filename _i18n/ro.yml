@@ -145,6 +145,7 @@ views:
     second_factor: Two factor authentication
     has_second_factor: Has two factor authentication?
     forgot_your_password: Ați uitat parola?
+    trust_this_device: Încredereți acest dispozitiv timp de 30 de zile
     login_button_label: Autentificare
 
   forgot_password:
