@@ -18,6 +18,7 @@ bitex.view.LoginView = function(app, opt_domHelper) {
   bitex.view.View.call(this, app, opt_domHelper);
   this.username_el_ = null;
   this.password_el_ = null;
+  this.trusted_device_el_ = null;
 };
 goog.inherits(bitex.view.LoginView, bitex.view.View);
 
@@ -38,6 +39,11 @@ bitex.view.LoginView.prototype.username_el_;
  * @type {Element}
  */
 bitex.view.LoginView.prototype.password_el_;
+
+/**
+ * @type {Element}
+ */
+bitex.view.LoginView.prototype.trusted_device_el_;
 
 /**
  * @type {Element}
@@ -74,7 +80,8 @@ bitex.view.LoginView.prototype.enterDocument = function(){
     this.onLoginClick_(
       goog.dom.getElement("id_username"),
       goog.dom.getElement("id_password"),
-      goog.dom.getElement("id_second_factor")
+      goog.dom.getElement("id_second_factor"),
+      goog.dom.getElement("id_trusted_device")
     );
   });
 };
@@ -105,15 +112,29 @@ bitex.view.LoginView.prototype.getSecondFactor = function() {
 };
 
 /**
+ * @return {boolean}
+ */
+bitex.view.LoginView.prototype.getTrustedDevice = function() {
+  if (goog.isDefAndNotNull(this.trusted_device_el_)){
+    return (goog.dom.forms.getValue(this.trusted_device_el_)  == 'checked'
+            || goog.dom.forms.getValue(this.trusted_device_el_)  == 'on');
+  } else {
+    return false;
+  }
+};
+
+
+/**
  *
  * @param {Element} username_el
  * @param {Element} password_el
  * @private
  */
-bitex.view.LoginView.prototype.onLoginClick_ = function(username_el, password_el, second_factor_el) {
+bitex.view.LoginView.prototype.onLoginClick_ = function(username_el, password_el, second_factor_el, trusted_device_el) {
   this.username_el_ = username_el;
   this.password_el_ = password_el;
   this.second_factor_el = second_factor_el;
+  this.trusted_device_el_ = trusted_device_el;
 
   var username = this.getUsername();
   var password = this.getPassword();
@@ -151,6 +172,9 @@ bitex.view.LoginView.prototype.clear = function(){
   }
   if (goog.isDefAndNotNull(this.second_factor_el)) {
     goog.dom.forms.setValue(this.second_factor_el, "");
+  }
+  if (goog.isDefAndNotNull(this.trusted_device_el_)) {
+    goog.dom.forms.setValue(this.trusted_device_el_, "");
   }
 };
 

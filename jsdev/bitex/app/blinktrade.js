@@ -732,6 +732,8 @@ bitex.app.BlinkTrade.prototype.run = function(host_api, opt_required_level_to_be
   }
 
   var user_token = this.uri_.getParameterValue('token');
+  this.getModel().set('HasToken', goog.isDefAndNotNull(user_token) );
+
   var trust_device = this.uri_.getParameterValue('trust');
   if (goog.isDefAndNotNull(trust_device) && trust_device == '1' ){
     trust_device = true;
@@ -4050,6 +4052,8 @@ bitex.app.BlinkTrade.prototype.onUserLoginButtonClick_ = function(e){
   var password = e.target.getPassword();
   var second_factor = e.target.getSecondFactor() || undefined;
 
+  var trusted_device = e.target.getTrustedDevice() || false;
+
   this.model_.set('Password', e.target.getPassword());
 
   var requestId = this.conn_.login(this.getModel().get('SelectedBrokerID'),
@@ -4057,7 +4061,7 @@ bitex.app.BlinkTrade.prototype.onUserLoginButtonClick_ = function(e){
                                    password,
                                    second_factor,
                                    this.getModel().get('Token'),
-                                   this.getModel().get('TrustDevice'),
+                                   trusted_device,//this.getModel().get('TrustDevice'),
                                    this.getModel().get('Referrer'),
                                    this.getModel().get('UriPath'));
 
