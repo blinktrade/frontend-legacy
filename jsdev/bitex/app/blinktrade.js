@@ -745,7 +745,7 @@ bitex.app.BlinkTrade.prototype.run = function(host_api, opt_required_level_to_be
   this.getModel().set('TrustDevice',trust_device);
   this.getModel().set('JSVersion', '0.3' );
   this.getModel().set('UserLogged',false);
-  this.getModel().set('UriPath', this.uri_.toString());
+  this.getModel().set('UriPath', this.uri_.removeParameter("token").toString());
 
   this.connectBitEx();
 
@@ -4053,6 +4053,7 @@ bitex.app.BlinkTrade.prototype.onUserLoginButtonClick_ = function(e){
   var second_factor = e.target.getSecondFactor() || undefined;
 
   var trusted_device = e.target.getTrustedDevice() || false;
+  this.getModel().set('TrustDevice', trusted_device);
 
   this.model_.set('Password', e.target.getPassword());
 
@@ -4061,7 +4062,7 @@ bitex.app.BlinkTrade.prototype.onUserLoginButtonClick_ = function(e){
                                    password,
                                    second_factor,
                                    this.getModel().get('Token'),
-                                   trusted_device,//this.getModel().get('TrustDevice'),
+                                   trusted_device,
                                    this.getModel().get('Referrer'),
                                    this.getModel().get('UriPath'));
 
