@@ -745,6 +745,8 @@ bitex.app.BlinkTrade.prototype.run = function(host_api, opt_required_level_to_be
   this.getModel().set('TrustDevice',trust_device);
   this.getModel().set('JSVersion', '0.3' );
   this.getModel().set('UserLogged',false);
+
+  this.uri_.removeParameter("token");
   this.getModel().set('UriPath', this.uri_.toString());
 
   this.connectBitEx();
