@@ -17,6 +17,8 @@ goog.require('goog.events.EventTarget');
 
 goog.require('goog.userAgent');
 goog.require('goog.Uri.QueryData');
+goog.require('goog.string');
+goog.require('goog.net.cookies');
 
 /**
  * @constructor
@@ -28,9 +30,24 @@ bitex.api.BitEx = function( opt_browser_finger_print  ){
 
   this.currency_info_         = null;
   this.all_markets_           = null;
+  this.broker_id_             = null;
   this.browser_finger_print_  = opt_browser_finger_print;
   this.stunt_ip_info_         = {'local':undefined, 'public':[]};
   this.tracking_code_         = new goog.Uri(window.location.href).getParameterValue('tc');
+  this.referrer_              = new goog.Uri(window.location.href).getParameterValue('r');
+
+  if (goog.isDefAndNotNull(this.referrer_) && goog.string.isNumeric( this.referrer_ )){
+    this.referrer_  = parseInt(this.referrer_, 10);
+  }
+
+  try {
+    if (goog.isDefAndNotNull(this.tracking_code_)  && (goog.net.cookies.isEnabled())) {
+      goog.net.cookies.set('tc', this.tracking_code_, -1, '/');
+    }
+    if (goog.net.cookies.isEnabled() && goog.net.cookies.containsKey('tc')) {
+      this.tracking_code_ = goog.net.cookies.get('tc');
+    }
+  } catch (e) {}
 
 
   this.ws_ = new goog.net.WebSocket(true);
@@ -55,6 +72,12 @@ bitex.api.BitEx.prototype.stunt_ip_info_;
  * @private
  */
 bitex.api.BitEx.prototype.tracking_code_;
+
+/**
+ * @type {string}
+ * @private
+ */
+bitex.api.BitEx.prototype.referrer_;
 
 /**
  * @type {Object}
@@ -92,6 +115,12 @@ bitex.api.BitEx.prototype.connected_ = false;
  * @private
  */
 bitex.api.BitEx.prototype.logged_ = false;
+
+/**
+ * @type {number}
+ * @private
+ */
+bitex.api.BitEx.prototype.broker_id_ = null;
 
 /**
  * Event handler.
@@ -158,6 +187,7 @@ bitex.api.BitEx.EventType = {
   /* Trading */
   ORDER_LIST_RESPONSE: 'order_list_response',
   HEARTBEAT: 'heartbeat',
+  TEST_REQUEST: 'test_request',
   EXECUTION_REPORT: 'execution_report',
 
   /* Securities */
@@ -397,6 +427,7 @@ bitex.api.BitEx.prototype.onOpen_ = function() {
   this.dispatchEvent(bitex.api.BitEx.EventType.OPENED);
   this.connected_ = true;
   this.logged_ = false;
+  this.broker_id_ = null;
 };
 
 
@@ -407,6 +438,7 @@ bitex.api.BitEx.prototype.onClose_ = function(e) {
   this.dispatchEvent(bitex.api.BitEx.EventType.CLOSED);
   this.connected_ = false;
   this.logged_ = false;
+  this.broker_id_ = null;
 };
 
 /**
@@ -417,6 +449,7 @@ bitex.api.BitEx.prototype.onError_ = function(e) {
   this.dispatchEvent(bitex.api.BitEx.EventType.ERROR);
   this.connected_ = false;
   this.logged_ = false;
+  this.broker_id_ = null;
 };
 
 /**
@@ -440,6 +473,10 @@ bitex.api.BitEx.prototype.onMessage_ = function(e) {
       this.dispatchEvent( new bitex.api.BitExEvent( bitex.api.BitEx.EventType.HEARTBEAT, msg ) );
       break;
 
+    case '1':  //TestRequest
+      this.dispatchEvent( new bitex.api.BitExEvent( bitex.api.BitEx.EventType.TEST_REQUEST, msg ) );
+      break;
+
     case 'B':  //News
       this.dispatchEvent( new bitex.api.BitExEvent( bitex.api.BitEx.EventType.NEWS, msg ) );
       break;
@@ -454,11 +491,19 @@ bitex.api.BitEx.prototype.onMessage_ = function(e) {
 
       if (msg['UserStatus'] == 1 ) {
         this.logged_ = true;
+        this.broker_id_ = msg['BrokerID'];
+
+        if (!goog.isDefAndNotNull(this.referrer_)) {
+          if (goog.object.containsKey( msg, 'SignupReferrer') && goog.isDefAndNotNull(msg['SignupReferrer'])) {
+            this.referrer_ = msg['SignupReferrer'];
+          }
+        }
         this.dispatchEvent( new bitex.api.BitExEvent( bitex.api.BitEx.EventType.LOGIN_OK + '.' + msg['UserReqID'], msg) );
         this.dispatchEvent( new bitex.api.BitExEvent( bitex.api.BitEx.EventType.LOGIN_OK, msg ) );
 
       } else {
         this.logged_ = false;
+        this.broker_id_ = null;
         this.dispatchEvent( new bitex.api.BitExEvent( bitex.api.BitEx.EventType.LOGIN_ERROR + '.' + msg['UserReqID'], msg) );
         this.dispatchEvent( new bitex.api.BitExEvent( bitex.api.BitEx.EventType.LOGIN_ERROR, msg ) );
       }
@@ -768,6 +813,7 @@ bitex.api.BitEx.prototype.onMessage_ = function(e) {
 bitex.api.BitEx.prototype.close = function(){
   this.connected_ = false;
   this.logged_ = false;
+  this.broker_id_ = null;
 
   this.ws_.close();
   this.ws_.dispose();
@@ -779,11 +825,13 @@ bitex.api.BitEx.prototype.close = function(){
  * @param {string} username
  * @param {string} password
  * @param {string=} opt_second_factor
+ * @param {string=} opt_token
  * @param {boolean=} opt_trust_device
- * @param {string=} opt_referrer
+ * @param {string|number=} opt_referrer
+ * @param {string=} opt_path
  * @param {number=} opt_request_id
  */
-bitex.api.BitEx.prototype.login = function(brokerID, username, password, opt_second_factor, opt_trust_device, opt_referrer, opt_request_id ){
+bitex.api.BitEx.prototype.login = function(brokerID, username, password, opt_second_factor, opt_token, opt_trust_device, opt_referrer, opt_path, opt_request_id ){
   var reqId = opt_request_id || parseInt(Math.random() * 1000000, 10);
 
   var userAgent = goog.userAgent.getUserAgentString();
@@ -805,8 +853,14 @@ bitex.api.BitEx.prototype.login = function(brokerID, username, password, opt_sec
   if (goog.isDefAndNotNull(opt_second_factor)) {
     msg['SecondFactor'] = opt_second_factor;
   }
+  if (goog.isDefAndNotNull(opt_token)){
+    msg['Token'] = opt_token;
+  }
   if (goog.isDefAndNotNull(opt_trust_device)){
     msg['TrustedDevice'] = opt_trust_device;
+  }
+  if (goog.isDefAndNotNull(opt_path)){
+    msg['UriPath'] = opt_path;
   }
   if (goog.isDefAndNotNull(opt_referrer)){
     msg['Referrer'] = opt_referrer;
@@ -1482,12 +1536,12 @@ bitex.api.BitEx.prototype.resetPassword = function(token, new_password, opt_requ
 
 /**
  * @param {number} brokerID
- * @param {string} username
  * @param {string} password
  * @param {string} new_password
+ * @param {string} opt_second_factor
  * @param {number=} opt_requestId. Defaults to random generated number
  */
-bitex.api.BitEx.prototype.changePassword = function(brokerID, username, password, new_password, opt_second_factor, opt_requestId ){
+bitex.api.BitEx.prototype.changePassword = function(brokerID, password, new_password, opt_second_factor, opt_requestId ){
   var requestId = opt_requestId || parseInt( 1e7 * Math.random() , 10 );
 
   var msg = {
@@ -1495,7 +1549,6 @@ bitex.api.BitEx.prototype.changePassword = function(brokerID, username, password
     'UserReqID': requestId,
     'UserReqTyp': '3',
     'BrokerID': brokerID,
-    'Username': username,
     'Password': password,
     'NewPassword': new_password
   };
@@ -1607,9 +1660,10 @@ bitex.api.BitEx.prototype.requestSecurityList = function(opt_market, opt_request
  * @param {number} broker
  * @param {string=} opt_token.
  * @param {string=} opt_referrer
+ * @paran {string=} opt_path
  * @param {number=} opt_requestId. Defaults to random generated number
  */
-bitex.api.BitEx.prototype.signUp = function(username, password, email, state, country_code, broker, opt_token, opt_referrer, opt_requestId) {
+bitex.api.BitEx.prototype.signUp = function(username, password, email, state, country_code, broker, opt_token, opt_referrer, opt_path, opt_requestId) {
   var requestId = opt_requestId || parseInt( 1e7 * Math.random() , 10 );
 
   var userAgent = goog.userAgent.getUserAgentString();
@@ -1632,6 +1686,9 @@ bitex.api.BitEx.prototype.signUp = function(username, password, email, state, co
   };
   if (goog.isDefAndNotNull(opt_token)) {
     msg['Token'] = opt_token;
+  }
+  if (goog.isDefAndNotNull(opt_path)){
+    msg['UriPath'] = opt_path;
   }
   if (goog.isDefAndNotNull(opt_referrer)) {
     msg['Referrer'] = opt_referrer;
@@ -1873,7 +1930,12 @@ bitex.api.BitEx.prototype.sendMessage  = function(msg) {
   if (goog.isDefAndNotNull(this.tracking_code_)) {
     msg['TrackingCode'] = this.tracking_code_;
   }
-
+  if (goog.isDefAndNotNull(this.referrer_)) {
+    msg['Referrer'] = this.referrer_;
+  }
+  if ((!goog.object.containsKey(msg, 'BrokerID')) && (goog.isDefAndNotNull(this.broker_id_))) {
+    msg['BrokerID'] = this.broker_id_;
+  }
   this.sendRawMessage(JSON.stringify(msg));
 };
 
@@ -1934,6 +1996,22 @@ bitex.api.BitEx.prototype.testRequest = function(opt_requestId){
     'MsgType': '1',
     'TestReqID': requestId,
     'SendTime': d.getTime()
+  };
+  this.sendMessage( msg );
+};
+
+/**
+ * Send a heart beat message in a response of TestRequest
+ * @param {number|string=} opt_requestId
+ */
+bitex.api.BitEx.prototype.sendHeartBeat = function(opt_requestId){
+  var d = new Date();
+  var requestId = opt_requestId || d.getTime();
+
+  var msg = {
+    'MsgType': '0',
+    'TestReqID': requestId,
+    'ClientTimestamp': d.getTime()
   };
   this.sendMessage( msg );
 };

@@ -9,17 +9,18 @@ exchange: "bitcambio"
 exchange_logo: "bitcambio"
 exchange_toolbar_logo: "bitcambio_inverse"
 
-custom_css: "gold"
+custom_css: "foxbit"
 
-twitter_widget_name: "bitcambiobr"
+twitter_widget_id: "717629137503043584"
+twitter_widget_name: "foxbitstatus"
 twitter_widget_theme: "light"
-twitter_widget_link_color: "#d49037"
+twitter_widget_link_color: "#E8683E"
 
 default_country_code: "BR"
-blinktrade_broker_id: 4
+blinktrade_broker_id: 11
 required_level_to_be_a_pro_trader: 5
 
-blinktrade_backend_api: "api_testnet.blinktrade.com"
+blinktrade_backend_api: "localhost"
 google_analytics_id: "UA-57478613-1"
 zendesk_host: "bitcambiohelp.zendesk.com"
 custom_faq: "https://bitcambiohelp.zendesk.com/hc/pt-br"

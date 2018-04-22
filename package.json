@@ -28,5 +28,8 @@
     "gulp-replace-task": "^0.11.0",
     "js-yaml": "^3.4.5",
     "run-sequence": "^1.1.5"
+  },
+  "dependencies": {
+    "npm": "^5.8.0"
   }
 }

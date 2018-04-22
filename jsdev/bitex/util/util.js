@@ -657,7 +657,7 @@ bitex.util.PriceAmountCalculatorVerb = {
  * @param {number} taker_fee
  * @param {number} maker_fee
  * @param {number} side
- */
+ */ 
 bitex.util.calculateTotalFee = function( qty, price, order_depth, username, taker_fee, maker_fee, side) {
   /**
    * @enum {number}

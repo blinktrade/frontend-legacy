@@ -4,7 +4,6 @@ title:                  Blinktrade demo exchange
 body_classes:           ws-not-connected bitex-not-logged active-view-start
 load_application:       True
 ---
-
 <!-- .container-fluid -->
 <div class="background">
   <!-- #start -->
@@ -279,6 +278,11 @@ load_application:       True
                     <div class="form-group">
                       <label for="id_password">{% t views.signin.password %}:</label>
                       <input class="form-control" id="id_password"  placeholder="" name="password" type="password">
+                      <p class="bitex-model" style="display: none" data-model-key="HasToken" data-model-action="show_element">
+                        <br />
+                        <input type="checkbox" id="id_trusted_device" />
+                        <label for="id_trusted_device">{% t views.signin.trust_this_device %}</label>
+                      </p>
                       <p class="help-block">
                         <a class="login__remember" href="forgot_password" data-switch-view="forgot_password">{% t views.signin.forgot_your_password %}</a>
                       </p>
@@ -1101,8 +1105,12 @@ load_application:       True
                   <div class="sidebar-box__body">
                       <div id="id_remittance_box"></div>
                       {% if site.twitter_widget_id %}
-                      <a class="twitter-timeline" href="https://twitter.com/{{ site.twitter_widget_name }}" data-theme="{{ site.twitter_widget_theme }}" data-link-color="{{ site.twitter_widget_link_color }}" data-widget-id="{{ site.twitter_widget_id }}">Tweets by @{{ site.twitter_widget_name }}</a>
-                      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                        <a class="twitter-timeline" href="https://twitter.com/{{ site.twitter_widget_name }}" data-theme="{{ site.twitter_widget_theme }}" data-link-color="{{ site.twitter_widget_link_color }}" data-widget-id="{{ site.twitter_widget_id }}">Tweets by @{{ site.twitter_widget_name }}</a>
+                        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                      {% else %}
+                        {% if site.twitter_widget_name %}
+                          <a class="twitter-timeline" data-height="600" data-theme="{{ site.twitter_widget_theme }}" data-link-color="{{ site.twitter_widget_link_color }}" href="https://twitter.com/{{ site.twitter_widget_name }}">Tweets by @{{ site.twitter_widget_name }}</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+                        {% endif %}
                       {% endif %}
                   </div>
               </div>
