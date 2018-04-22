@@ -58,7 +58,7 @@ exchanges:
     lead: Unocoin is india's most popular bitcoin wallet
   bitcambio:
     title: Bitcambio - Bitcoin exchange house
-    description: Bitcambio allows you to securily buy and selll Bitcoins in Brazil. 
+    description: Bitcambio allows you to securily buy and sell Bitcoins in Brazil. 
     keywords: bitcoin, comprar bitcoin, btc,bitcambio,cambio,vender bitcoin, bitcoin brasil
     lead: Buy and sell bitcoin in Brazil
 views:
@@ -145,6 +145,7 @@ views:
     second_factor: Two factor authentication
     has_second_factor: Has two factor authentication?
     forgot_your_password: Forgot your password?
+    trust_this_device: Trust this device for 30 days
     login_button_label: Sign in
 
   forgot_password:
