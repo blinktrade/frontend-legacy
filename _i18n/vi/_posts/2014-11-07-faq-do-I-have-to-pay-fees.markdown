@@ -5,4 +5,4 @@ date:   2014-11-07 00:15:00
 categories: vi faq
 ---
 
-Có, lệ phí áp dụng đối với việc rút và gửi tiền VNĐ và giao dịch. Phí để gửi và rút BTC là 0,0001 BTC. Bạn không phải trả tiền cho sàn giao dịch để nạp BTC.
+Bạn sẽ mất một chút phí để gửi và rút tiền. Phí này được cập nhật tại Điều khoản sử dụng của trang web, tùy theo tình trạng xử lý của mạng lưới Bitcoin.
