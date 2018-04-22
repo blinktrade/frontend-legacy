@@ -470,6 +470,63 @@
   </form>
 {/template}
 
+/**
+ */
+{template .AccountBlockedDialogContent}
+  <div class="row-fluid">
+    <p class="text-justify">
+      <strong>
+        {msg desc="Account blocked dialog message during login"}
+          Your account was blocked because the authorization link was generated in another computer than this.
+        {/msg}
+      </strong><br/>
+      <br/>
+       {msg desc="Account blocked dialog block warning during login"}
+         We believe you have been a victim of a phishing attack. In order to unblock
+         you have to contact the support.
+       {/msg}
+    </p>
+  </div>
+{/template}
+
+/**
+ */
+{template .AntiPhishingDialogContent}
+  <div class="row-fluid">
+    <p class="text-justify">
+      <strong>
+        {msg desc="Authorization link dialog message during login"}
+          For your safety, we just sent you an authorization LINK to your email.
+        {/msg}
+      </strong><br/>
+      <br/>
+       {msg desc="Authorization link dialog block warning during login"}
+         IMPORTANT: The authorization link we sent to your email is only and
+only valid if accessed from this computer. Your account will be automatically 
+blocked if you try to access the authorization link from another computer.
+       {/msg}
+    </p>
+  </div>
+{/template}
+
+/**
+ */
+{template .InvalidOrExpiredAuthorizationLinkDialogContent}
+  <div class="row-fluid">
+    <p class="text-justify">
+      <strong>
+        {msg desc="Wrong authorization link dialog message during login"}
+          The link you clicked in either expired or invalid.
+        {/msg}
+      </strong><br/>
+      <br/>
+       {msg desc="Wrong authorization link dialog block warning during login"}
+         IMPORTANT: The authorization link is valid for 10 minutes and it is only valid
+         if accessed from the same computer and browser that generated the authorization link.
+       {/msg}
+    </p>
+  </div>
+{/template}
 
 /**
   * @param id
@@ -926,7 +983,7 @@
 {template .ConfirmEmailSignupContentDialog}
   <div class="row-fluid">
     <div class="control-group">
-      <label for="email_confirm_field">{$email}</label>
+      <label for="email_confirm_field" style="display: none;">{$email}</label>
     </div>
     <div class="control-group">
       <label class="control-label" for="email_confirm_field">{msg desc="Confirm Email"}Email: {/msg}</label>
