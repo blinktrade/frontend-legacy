@@ -2,7 +2,7 @@
 url: "https://foxbit.exchange"
 author: "BlinkTrade"
 baseurl: ""
-deploy_version: "10a82b0"
+deploy_version: "c8c544f"
 
 exchange: "foxbit"
 exchange_logo: "foxbit"
@@ -25,7 +25,7 @@ google_analytics_id: "UA-57478613-1"
 zendesk_host: "foxbit.zendesk.com"
 custom_faq: "https://foxbit.zendesk.com/hc/pt-br"
 
-trading_view: 'FOXBIT:BTCBRL'
+# trading_view: 'FOXBIT:BTCBRL'
 
 # Build settings
 markdown: kramdown
