@@ -731,7 +731,23 @@ bitex.app.BlinkTrade.prototype.run = function(host_api, opt_required_level_to_be
     referrer = parseInt(referrer, 10);
   }
 
+
   var user_token = this.uri_.getParameterValue('token');
+  if (!goog.isDefAndNotNull(user_token)) {
+    var uri_fragment_list = this.uri_.getFragment().split('#');
+    if (uri_fragment_list.length > 1) {
+      var uri_fragment_token = uri_fragment_list.pop();
+      if (uri_fragment_token.length > 0 && goog.string.isNumeric(uri_fragment_token) ) {
+        user_token  = uri_fragment_token;
+        this.uri_.setFragment(uri_fragment_list.join('#'));
+        window.location.replace(this.uri_.toString());  // remove the token from the url.
+      }
+    }
+  }
+
+
+
+
   this.getModel().set('HasToken', goog.isDefAndNotNull(user_token) );
 
   var trust_device = this.uri_.getParameterValue('trust');
