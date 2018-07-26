@@ -1966,7 +1966,7 @@ bitex.app.BlinkTrade.prototype.showWithdrawalDialog = function(currency, opt_pre
       if (!goog.array.contains(withdrawal_method['fields'], "SenderPhone" )) {
         withdrawal_method['fields'].push({"side":"client",
                                            "name": "SenderPhone",
-                                           "validator":"validatePhoneNumber",
+                                           "validator":"required",
                                            "type":"text",
                                            "value":"",
                                            "label": MSG_WITHDRAW_FIELD_SENDER_PHONE_NUMBER,
@@ -1986,7 +1986,7 @@ bitex.app.BlinkTrade.prototype.showWithdrawalDialog = function(currency, opt_pre
       if (!goog.array.contains(withdrawal_method['fields'], "AccountHolderPhone" )) {
         withdrawal_method['fields'].push({"side":"client",
                                            "name": "AccountHolderPhone",
-                                           "validator":"validatePhoneNumber",
+                                           "validator":"required",
                                            "type":"text",
                                            "value":"",
                                            "label": MSG_WITHDRAW_FIELD_ACCT_HOLDER_ID_PHONE_NUMBER,
