@@ -80,6 +80,7 @@ bitex.view.APIView.prototype.onNewApiKeyButtonClick_ = function(){
   var model = this.getApplication().getModel();
   var api_model = {};
   api_model['is_broker'] = model.get('IsBroker');
+  api_model['is_msb'] = model.get('IsMSB');
   api_model['deposit_methods'] = [];
   api_model['withdrawal_methods'] = [];
   goog.array.forEach(model.get('DepositMethods'), function(deposit_method) {
