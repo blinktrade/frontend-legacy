@@ -1,0 +1,77 @@
+# Site settings
+url: "https://bitcambio.blinktrade.com"
+url: "//localhost"   # activate this to test on your localhost
+author: "BlinkTrade"
+baseurl: ""
+deploy_version: "ea7a412"
+
+exchange: "bitcambio"
+exchange_logo: "bitcambio"
+exchange_toolbar_logo: "bitcambio_inverse"
+
+custom_css: "gold"
+
+twitter_widget_name: "bitcambiobr"
+twitter_widget_theme: "light"
+twitter_widget_link_color: "#d49037"
+
+default_country_code: "BR"
+blinktrade_broker_id: 4
+required_level_to_be_a_pro_trader: 5
+
+blinktrade_backend_api: "api_testnet.blinktrade.com"
+google_analytics_id: "UA-57478613-1"
+zendesk_host: "bitcambiohelp.zendesk.com"
+custom_faq: "https://bitcambiohelp.zendesk.com/hc/pt-br"
+
+trading_view: 'FOXBIT:BTCBRL'
+
+# Build settings
+markdown: kramdown
+
+remittance_box: "{
+    'BRL':[ ['Bitcambio',          'BRL', 'BLINK_BTCBRL_BEST_BID / 100000000', 'BLINK_BTCBRL_BEST_ASK / 100000000'  ],
+            ['MercadoBTC',         'BRL', '(MBT_BTCBRL_BEST_BID * 0.9731 / 100000000) - 2.9', '(MBT_BTCBRL_BEST_ASK * 1.0269 / 100000000) + 2.9'  ],
+            ['Dólar Bitcoin',      'BRL', 'BLINK_BTCBRL_BEST_BID /  BITSTAMP_BTCUSD_BEST_ASK', 'BLINK_BTCBRL_BEST_ASK /  BITSTAMP_BTCUSD_BEST_BID'  ],
+            ],
+    'USD':[ ['BitStampUSD',        'USD', 'BITSTAMP_BTCUSD_BEST_BID / 100000000', 'BITSTAMP_BTCUSD_BEST_ASK / 100000000'  ],
+            ['KrakenUSD',          'USD', 'KRAKEN_BTCUSD_BEST_BID / 100000000', 'KRAKEN_BTCUSD_BEST_ASK / 100000000'  ],
+            ['itBitUSD',           'USD', 'ITBIT_BTCUSD_BEST_BID / 100000000', 'ITBIT_BTCUSD_BEST_ASK / 100000000'  ] ],
+    'VEF':[ ['BitStampUSD',        'USD', 'BITSTAMP_BTCUSD_BEST_BID / 100000000', 'BITSTAMP_BTCUSD_BEST_ASK / 100000000'  ],
+            ['USD -> BTC -> VEF',  'VEF', 'BLINK_BTCVEF_BEST_BID /  BITSTAMP_BTCUSD_BEST_ASK', 'BLINK_BTCVEF_BEST_ASK /  BITSTAMP_BTCUSD_BEST_BID' ] ,
+            ['BRL -> BTC -> VEF',  'VEF', 'BLINK_BTCVEF_BEST_BID /  BLINK_BTCBRL_BEST_ASK',    'BLINK_BTCVEF_BEST_ASK /  BLINK_BTCBRL_BEST_BID' ],
+            ['VEF -> BTC -> CLP',  'CLP', 'BLINK_BTCCLP_BEST_BID /  BLINK_BTCVEF_BEST_ASK',    'BLINK_BTCCLP_BEST_ASK /  BLINK_BTCVEF_BEST_BID' ] ],
+    'CLP':[ ['BitStampUSD',        'USD', 'BITSTAMP_BTCUSD_BEST_BID / 100000000', 'BITSTAMP_BTCUSD_BEST_ASK / 100000000'  ],
+            ['USD -> BTC -> CLP',  'CLP', 'BLINK_BTCCLP_BEST_BID /  BITSTAMP_BTCUSD_BEST_ASK', 'BLINK_BTCCLP_BEST_ASK /  BITSTAMP_BTCUSD_BEST_BID' ] ,
+            ['BRL -> BTC -> CLP',  'CLP', 'BLINK_BTCCLP_BEST_BID /  BLINK_BTCBRL_BEST_ASK',    'BLINK_BTCCLP_BEST_ASK /  BLINK_BTCBRL_BEST_BID' ] ,
+            ['VEF -> BTC -> CLP',  'CLP', 'BLINK_BTCCLP_BEST_BID /  BLINK_BTCVEF_BEST_ASK',    'BLINK_BTCCLP_BEST_ASK /  BLINK_BTCVEF_BEST_BID' ] ],
+    'VND':[ ['BitStampUSD',        'USD', 'BITSTAMP_BTCUSD_BEST_BID / 100000000', 'BITSTAMP_BTCUSD_BEST_ASK / 100000000'  ],
+            ['USD -> BTC -> VND',  'VND', 'BLINK_BTCVND_BEST_BID /  BITSTAMP_BTCUSD_BEST_ASK', 'BLINK_BTCPKR_BEST_ASK /  BITFINEX_BTCVND_BEST_BID' ] ],
+    'PKR':[ ['BitStampUSD',        'USD', 'BITSTAMP_BTCUSD_BEST_BID / 100000000', 'BITSTAMP_BTCUSD_BEST_ASK / 100000000'  ],
+            ['USD -> BTC -> PKR',  'PKR', 'BLINK_BTCPKR_BEST_BID /  BITSTAMP_BTCUSD_BEST_ASK', 'BLINK_BTCPKR_BEST_ASK /  BITSTAMP_BTCUSD_BEST_BID' ] ]
+    }"
+
+symbol: "BTCBRL"
+
+languages: ["pt_BR"]
+
+video : 'true'
+navbar: 'navbar-default'
+phrases: [phrase1, phrase2, phrase4]
+
+exclude:     [ "jsdev", "LICENSE", "README.md", "config.rb", "deploy.sh", "build_javascript.sh", "node_modules", "gulpfile.js", "themes/ander" ]
+source:      .
+destination: ./_site
+plugins:     ./_plugins
+paginate:    5
+paginate_path: "post/page:num"
+permalink:     /post/:title/
+blog: http://bitcoin.bitcambio.com.br/blog/
+facebook: https://www.facebook.com/bitcambio
+twitter: https://twitter.com/bitcambiobr
+gplus: https://plus.google.com/+Bitcambio/posts
+youtube: https://www.youtube.com/playlist?list=PL6c8tfdY-CX_VTwU1B9XbzWtIQjY__vrW
+
+sass:
+  sass_dir: assets/themes/coinage/sass
+  style: :compressed

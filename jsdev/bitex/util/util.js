@@ -650,6 +650,48 @@ bitex.util.PriceAmountCalculatorVerb = {
 };
 
 /**
+ * @param {number} qty
+ * @param {number} price
+ * @param {.Array<.Array<Object>>} order_depth
+ * @param {string} username
+ * @param {number} taker_fee
+ * @param {number} maker_fee
+ * @param {number} side
+ */ 
+bitex.util.calculateTotalFee = function( qty, price, order_depth, username, taker_fee, maker_fee, side) {
+  /**
+   * @enum {number}
+   */
+  var OrderDepthIndex = {
+    PRICE: 0,
+    SIZE: 1,
+    USERNAME: 2
+  };
+
+  var total = parseInt(qty * price / 1e8, 10);
+  var work_total = total;
+  var total_sell_maker_fee = total * maker_fee / 10000;
+  var total_sell_taker_fee = total * taker_fee / 10000;
+  var total_buy_maker_fee = qty * maker_fee / 10000;
+  var total_buy_taker_fee = qty * taker_fee / 10000;
+
+  // TODO: This is a simplification, because the order
+  //  might be partially executed, which means that part
+  //  of the order will pay the taker fee and other part
+  //  the maker fee. For now, we will just return this simplified version.
+
+  if (side == 1 && price < order_depth[0][OrderDepthIndex.PRICE]) {
+    return total_buy_maker_fee;
+  } else if (side == 2 && price > order_depth[0][OrderDepthIndex.PRICE]) {
+    return total_sell_maker_fee;
+  } else if (side == 1) {
+    return total_buy_taker_fee;
+  } else {
+    return total_sell_taker_fee;
+  }
+};
+
+/**
  * @param {number} user_input
  * @param {bitex.util.PriceAmountCalculatorVerb} verb
  * @param {.Array<.Array<Object>>} order_depth

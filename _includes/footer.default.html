@@ -2,14 +2,12 @@
       <div class="container">
         <p>
           {% if page.load_application %}
-          <a href="" data-switch-view="admin">admin</a> |
           {% t views.footer.latency %}: <span class="bitex-model" data-model-key="latency">0</span> ms |
           {% t views.footer.version %}: {{ site.deploy_version }} |
           {% endif %}
 		      <a href="http://blinktrade.com/" target="_blank">© 2014 BlinkTrade Inc</a>
           | <a href="#themes">Themes</a>
-          | <a href="https://github.com/blinktrade/" target="_blank">Proudly 100% open source <span class="bitex-model" data-model-key="JSVersion"></span></a>
-          | <a href="http://nytm.org/made-in-nyc/" target="_blank">Made with <span style="color: #d11f0d;font-size: 19px;">♥</span> in NYC</a> 
+          | <a href="https://github.com/blinktrade/" target="_blank">Follow us on GitHub<span class="bitex-model" data-model-key="JSVersion"></span></a>
         </p>
       </div>
     </footer>
@@ -22,11 +20,12 @@
         var country_code = "{% if page.default_country_code %}{{ page.default_country_code}}{% else %}{{ site.default_country_code}}{% endif %}";
         var blinktrade_api = "{% if page.blinktrade_backend_api %}{{ page.blinktrade_backend_api}}{% else %}{{ site.blinktrade_backend_api}}{% endif %}";
         var symbol = "{{ site.symbol }}";
+        var required_level_to_be_a_pro_trader = {{ site.required_level_to_be_a_pro_trader }};
 
         var remittance_box = {{ site.remittance_box  }};
 
         _app = new BlinkTradeApp(broker_id, remittance_box,  country_code, symbol);
-        _app.run(blinktrade_api);
+        _app.run(blinktrade_api, required_level_to_be_a_pro_trader);
       })();
     </script>
     {% endif %}
@@ -65,6 +64,20 @@
 
     {% if site.zendesk_host %}
       <script>/*<![CDATA[*/window.zEmbed||function(e,t){var n,o,d,i,s,a=[],r=document.createElement("iframe");window.zEmbed=function(){a.push(arguments)},window.zE=window.zE||window.zEmbed,r.src="javascript:false",r.title="",r.role="presentation",(r.frameElement||r).style.cssText="display: none",d=document.getElementsByTagName("script"),d=d[d.length-1],d.parentNode.insertBefore(r,d),i=r.contentWindow,s=i.document;try{o=s}catch(e){n=document.domain,r.src='javascript:var d=document.open();d.domain="'+n+'";void(0);',o=s}o.open()._l=function(){var e=this.createElement("script");n&&(this.domain=n),e.id="js-iframe-async",e.src="https://assets.zendesk.com/embeddable_framework/main.js",this.t=+new Date,this.zendeskHost="{{ site.zendesk_host }}",this.zEQueue=a,this.body.appendChild(e)},o.write('<body onload="document._l();">'),o.close()}();/*]]>*/</script>
+    {% endif %}
+
+    {% if site.tawk_key %}
+    <script type="text/javascript">
+      var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+      (function(){
+        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+        s1.async=true;
+        s1.src='https://embed.tawk.to/{{ site.tawk_key }}/default';
+        s1.charset='UTF-8';
+        s1.setAttribute('crossorigin','*');
+        s0.parentNode.insertBefore(s1,s0);
+      })();
+    </script>
     {% endif %}
 
   </body>

@@ -1,8 +1,8 @@
 # Site settings
 url: "https://testnet.blinktrade.com"
 author: "BlinkTrade"
-baseurl: "/"
-deploy_version: "cef70be"
+baseurl: ""
+deploy_version: "ea45ade"
 
 exchange: "demo"
 exchange_logo: "demo"
@@ -16,6 +16,7 @@ twitter_widget_link_color: "#E8683E"
 
 default_country_code: "US"
 blinktrade_broker_id: 5  # 5 is the id for the demo backend. Don't change that if you don't understand what you doing.
+required_level_to_be_a_pro_trader: 0
 
 blinktrade_backend_api: "api_testnet.blinktrade.com"
 google_analytics_id: "UA-53856711-1"
@@ -54,7 +55,7 @@ symbol: "BTCUSD"
 languages: ["en_US", "es", "pt_BR", "ro", "zn_CN", "vi"]
 
 navbar: 'navbar-inverse'
-phrases: [phrase1, phrase2, phrase3]
+phrases: [phrase1, phrase2, phrase4]
 
 exclude:     [ "jsdev", "LICENSE", "README.md", "config.rb", "deploy.sh", "build_javascript.sh", "node_modules", "gulpfile.js", "themes/ander" ]
 source:      .
