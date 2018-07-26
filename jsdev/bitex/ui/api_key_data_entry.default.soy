@@ -5,9 +5,14 @@
  * @param depositMethods
  * @param withdrawalMethods
  * @param isBroker
+ * @param isMSB
  */
 {template .APIKeyDataEntry}
   <form  id="{$id}_form" class="api-key-data-entry-form">
+    {if $isMSB}
+    <!-- MSB -->
+    {/if}
+
     <fieldset>
       <h2>{msg desc="API Key Data Entry form legend"}Create API Key{/msg}</h2>
 
@@ -167,6 +172,22 @@
               <td class="no-selection">
                 <label class="checkbox">
                   <input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="U18" data-permission-filters='[ ["Currency","eq", "BTC"]]'>Bitcoin</input>
+                </label>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="no-selection">
+                <label class="checkbox">
+                  <input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="U18" data-permission-filters='[ ["Action","eq", "CREDIT"]]'>Pre-Approve</input>
+                </label>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="no-selection">
+                <label class="checkbox">
+                  <input type="checkbox" class="api-key-data-entry-form-permissions-check" data-permission-msg="U18" data-permission-filters='[ ["Action","eq", "CANCEL"]]'>Cancel</input>
                 </label>
               </td>
             </tr>

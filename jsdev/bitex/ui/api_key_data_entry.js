@@ -83,7 +83,8 @@ bitex.ui.APIKeyDataEntry.prototype.createDom = function() {
     id                : this.makeId( 'api_key' ),
     depositMethods    : this.getModel()['deposit_methods'],
     withdrawalMethods : this.getModel()['withdrawal_methods'],
-    isBroker          : this.getModel()['is_broker']
+    isBroker          : this.getModel()['is_broker'],
+    isMSB             : this.getModel()['is_msb']
   });
   this.setElementInternal(el);
 };
