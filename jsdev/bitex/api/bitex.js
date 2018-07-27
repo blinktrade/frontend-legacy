@@ -1861,6 +1861,7 @@ bitex.api.BitEx.prototype.cancelOrder = function( opt_clientOrderId, opt_OrderId
     msg['OrderID'] = parseInt(opt_OrderId,10);
   } else if (opt_clientOrderId) {
     msg['OrigClOrdID'] = opt_clientOrderId;
+    msg['ClOrdID'] = opt_clientOrderId;
   }
 
   this.sendMessage( msg );
