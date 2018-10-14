@@ -1,6 +1,6 @@
 # Site settings
-url: "https://bitcambio.blinktrade.com"
-url: "//localhost"   # activate this to test on your localhost
+url: "//localhost:4000"
+# url: "//localhost"   # activate this to test on your localhost
 author: "BlinkTrade"
 baseurl: ""
 deploy_version: "ea7a412"
@@ -9,7 +9,7 @@ exchange: "bitcambio"
 exchange_logo: "bitcambio"
 exchange_toolbar_logo: "bitcambio_inverse"
 
-custom_css: "foxbit"
+custom_css: "gold"
 
 twitter_widget_id: "717629137503043584"
 twitter_widget_name: "foxbitstatus"
@@ -57,7 +57,7 @@ symbol: "BTCBRL"
 languages: ["pt_BR"]
 
 video : 'true'
-navbar: 'navbar-default'
+navbar: 'navbar-inverse'
 phrases: [phrase1, phrase2, phrase4]
 
 exclude:     [ "jsdev", "LICENSE", "README.md", "config.rb", "deploy.sh", "build_javascript.sh", "node_modules", "gulpfile.js", "themes/ander" ]
@@ -67,6 +67,7 @@ plugins:     ./_plugins
 paginate:    5
 paginate_path: "post/page:num"
 permalink:     /post/:title/
+new_platform: https://bitcambio.com.br
 blog: http://bitcoin.bitcambio.com.br/blog/
 facebook: https://www.facebook.com/bitcambio
 twitter: https://twitter.com/bitcambiobr

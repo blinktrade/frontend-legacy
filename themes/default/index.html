@@ -7,6 +7,12 @@ load_application:       True
 
 <!-- div.container -->
 <div class="container">
+  {% if site.new_platform %}
+    <div class="alert | bitex-model">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <a target="_blank" href='{{ site.new_platform }}'>Conheça a nova BitCambio</a>
+    </div>
+  {% endif %}
   <!-- landing page-->
   <div id="start" class="page  row-fluid bitex-view bitex-view-admin">
     <header class="jumbotron">
